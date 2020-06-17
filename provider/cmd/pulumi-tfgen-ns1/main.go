@@ -17,11 +17,11 @@ package main
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfgen"
 
-	xyz "github.com/pulumi/pulumi-xyz/provider"
-	"github.com/pulumi/pulumi-xyz/provider/pkg/version"
+	ns1 "github.com/pulumi/pulumi-ns1/provider"
+	"github.com/pulumi/pulumi-ns1/provider/pkg/version"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfgen.Main("xyz", version.Version, xyz.Provider())
+	tfgen.Main("ns1", version.Version, ns1.Provider())
 }
