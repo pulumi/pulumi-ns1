@@ -15,6 +15,7 @@
 package ns1
 
 import (
+	"github.com/terraform-providers/terraform-provider-ns1/ns1"
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
@@ -22,7 +23,6 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-ns1/ns1"
 )
 
 // all of the token components used below.
@@ -101,35 +101,35 @@ func Provider() tfbridge.ProviderInfo {
 		Config:      map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
+			"apikey": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NS1_APIKEY"},
+				},
+			},
+			"endpoint": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NS1_ENDPOINT"},
+				},
+			},
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
+		Resources: map[string]*tfbridge.ResourceInfo{
+
+			"ns1_zone":          {Tok: makeResource(mainMod, "NS1Zone")},
+			"ns1_record":        {Tok: makeResource(mainMod, "NS1Record")},
+			"ns1_monitoringjob": {Tok: makeResource(mainMod, "NS1MonitoringJob")},
+			"ns1_notifylist":    {Tok: makeResource(mainMod, "NS1NotifyList")},
+			"ns1_datasource":    {Tok: makeResource(mainMod, "NS1DataSource")},
+			"ns1_datafeed":      {Tok: makeResource(mainMod, "NS1DataFeed")},
+			"ns1_apikey":        {Tok: makeResource(mainMod, "NS1APIKey")},
+			"ns1_team":          {Tok: makeResource(mainMod, "NS1Team")},
+			"ns1_user":          {Tok: makeResource(mainMod, "NS1User")},
 		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
-		},
+			DataSources: map[string]*tfbridge.DataSourceInfo{
+				"ns1_zone":   {Tok: makeDataSource(mainMod, "NS1Zone")},
+				"ns1_dnssec": {Tok: makeDataSource(mainMod, "NS1DNSSec")},
+			},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",
