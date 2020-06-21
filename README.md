@@ -1,52 +1,8 @@
-# Terraform Bridge Provider Boilerplate
+# NS1 Resource Provider
 
-This repository contains boilerplate code for building a new Pulumi provider which wraps an existing
-Terraform provider, if the existing provider uses _Go Modules_.
-
-Modify this README to describe:
-
-- The type of resources the provider manages
-- Add a build status image from Travis at the top of the README
-- Update package names in the information below
-- Add any important documentation of concepts (e.g. the "serverless" components in the AWS provider).
-
-## Creating a Pulumi Terraform Bridge Provider
-
-First, clone this repo with the name of the desired provider in place of `ns1`:
-
-```
-git clone https://github.com/pulumi/pulumi-tf-provider-boilerplate pulumi-ns1
-```
-
-Second, replace references to `ns1` with the name of your provider:
-
-```
-make prepare NAME=foo REPOSITORY=github.com/pulumi/pulumi-foo
-```
-
-Next, list the configuration points for the provider in the area of the README.
-
-
-> Note: If the name of the desired Pulumi provider differs from the name of the Terraform provider, you will need to carefully distinguish between the references - see https://github.com/pulumi/pulumi-azure for an example.
-
-### Add dependencies
-
-In order to properly build the sdks, the following tools are expected:
-- tf2pulumi (See the project's README for installation instructions: https://github.com/pulumi/tf2pulumi)
-- pandoc (`brew install pandoc`)
-
-In the root of the repository, run:
-
-- `GO111MODULE=on go get github.com/pulumi/pulumi-terraform@master`
-- `(cd provider && go get github.com/terraform-providers/terraform-provider-foo)`  (where `foo` is the name of the provider - note the parenthesis to run this in a subshell)
-- `(cd provider && go mod vendor)`
-- `make ensure`
-
-### Build the provider:
-
-- Edit `provider/resources.go` to map each resource, and specify provider information
-- Enumerate any examples in `examples/examples_test.go`
-- `make`
+The NS1 resource provider for Pulumi lets you manage NS1
+resources in your cloud programs. To use this package, please [install the
+Pulumi CLI first](https://pulumi.io/).
 
 ## Installing
 
@@ -56,17 +12,17 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/xyx
+    $ npm install @pulumi/ns1
 
 or `yarn`:
 
-    $ yarn add @pulumi/xyx
+    $ yarn add @pulumi/ns1
 
 ### Python
 
 To use from Python, install using `pip`:
 
-    $ pip install pulumi_xyx
+    $ pip install pulumi_ns1
 
 ### Go
 
@@ -74,16 +30,27 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-ns1/sdk/go/...
 
+### .NET
+
+To use from .NET, install using `dotnet add package`:
+
+    $ dotnet add package Pulumi.Ns1
+
 ## Configuration
 
-The following configuration points are available for the `ns1` provider:
+The following configuration points are available:
 
-- `ns1:apiKey` (environment: `XYZ_API_KEY`) - the API key for `ns1`
-- `ns1:region` (environment: `XYZ_REGION`) - the region in which to deploy resources
+* ns1:apiKey - (Required) NS1 API token. It must be provided, but it can also be sourced from the `NS1_APIKEY` 
+  environment variable.
+* ns1:endpoint - (Optional) NS1 API endpoint. For managed clients, this normally should not be set. Can also be sources
+  via the `NS1_ENDPOINT` environment variable.
+* ns1:enableDdi - (Optional) This sets the permission schema to a DDI-compatible schema. Users of the managed SaaS 
+  product should not need to set this. Users of DDI should set this to true if managing teams, users, or API 
+  keys through this provider.
+* ns1:rateLimitParallelism - (Optional) Integer for parallelism amount (default is `10`). NS1 uses a token-based method
+  for rate limiting API requests.
 
 ## Reference
 
-For detailed reference documentation, please visit [the API docs][1].
-
-
-[1]: https://www.pulumi.com/docs/reference/pkg/x/
+For further information, please visit [the NS1 provider docs](https://www.pulumi.com/docs/intro/cloud-providers/ns1) 
+or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/ns1).
