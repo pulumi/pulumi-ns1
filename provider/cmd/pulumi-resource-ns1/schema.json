@@ -1,0 +1,2841 @@
+{
+    "name": "ns1",
+    "description": "A Pulumi package for creating and managing ns1 cloud resources.",
+    "keywords": [
+        "pulumi",
+        "ns1"
+    ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`ns1` Terraform Provider](https://github.com/terraform-providers/terraform-provider-ns1).",
+    "repository": "https://github.com/pulumi/pulumi-ns1",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "apikey": {
+                "type": "string",
+                "description": "The ns1 API key, this is required\n",
+                "defaultInfo": {
+                    "environment": [
+                        "NS1_APIKEY"
+                    ]
+                }
+            },
+            "enableDdi": {
+                "type": "boolean"
+            },
+            "endpoint": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NS1_ENDPOINT"
+                    ]
+                }
+            },
+            "ignoreSsl": {
+                "type": "boolean"
+            },
+            "rateLimitParallelism": {
+                "type": "integer"
+            }
+        }
+    },
+    "types": {
+        "ns1:/MonitoringJobRule:MonitoringJobRule": {
+            "properties": {
+                "comparison": {
+                    "type": "string",
+                    "description": "The comparison to perform on the the output.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The output key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value to compare to.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comparison",
+                "key",
+                "value"
+            ]
+        },
+        "ns1:/NotifyListNotification:NotifyListNotification": {
+            "properties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Configuration details for the given notifier type.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of notifier. Available notifiers are indicated in /notifytypes endpoint. \n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "config",
+                "type"
+            ]
+        },
+        "ns1:/RecordAnswer:RecordAnswer": {
+            "properties": {
+                "answer": {
+                    "type": "string",
+                    "description": "Space delimited string of RDATA fields dependent on the record type.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The region (Answer Group really) that this answer\nbelongs to. This should be one of the names specified in `regions`. Only a\nsingle `region` per answer is currently supported. If you want an answer in\nmultiple regions, duplicating the answer (including metadata) is the correct\napproach.\n* ` meta` - (Optional) meta is supported at the `answer` level. Meta\nis documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "ns1:/RecordFilter:RecordFilter": {
+            "properties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "The filters' configuration. Simple key/value pairs\ndetermined by the filter type.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Determines whether the filter is applied in the\nfilter chain.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "description": "The type of filter.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "filter"
+            ]
+        },
+        "ns1:/RecordRegion:RecordRegion": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the region (or Answer Group).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "ns1:/TeamIpWhitelist:TeamIpWhitelist": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the team.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "values"
+            ]
+        },
+        "ns1:/ZoneSecondary:ZoneSecondary": {
+            "properties": {
+                "ip": {
+                    "type": "string",
+                    "description": "IPv4 address of the secondary server.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "- List of network IDs (`int`) for which the zone\nshould be made available. Default is network 0, the primary NSONE Global\nNetwork. Normally, you should not have to worry about this.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notify": {
+                    "type": "boolean",
+                    "description": "Whether we send `NOTIFY` messages to the secondary host\nwhen the zone changes. Default `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port of the the secondary server. Default `53`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "ip"
+            ]
+        },
+        "ns1:/getDNSSecDelegation:getDNSSecDelegation": {
+            "properties": {
+                "dnskeys": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/getDNSSecDelegationDnskey:getDNSSecDelegationDnskey"
+                    },
+                    "description": "(Computed) List of Keys. Key is documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/getDNSSecDelegationD:getDNSSecDelegationD"
+                    },
+                    "description": "(Computed) List of Keys. Key is documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "(Computed) TTL for the Keys (int).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dnskeys",
+                "ds",
+                "ttl"
+            ]
+        },
+        "ns1:/getDNSSecDelegationD:getDNSSecDelegationD": {
+            "properties": {
+                "algorithm": {
+                    "type": "string",
+                    "description": "(Computed) Algorithm of the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "flags": {
+                    "type": "string",
+                    "description": "(Computed) Flags for the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "(Computed) Protocol of the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "(Computed) Public key for the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "algorithm",
+                "flags",
+                "protocol",
+                "publicKey"
+            ]
+        },
+        "ns1:/getDNSSecDelegationDnskey:getDNSSecDelegationDnskey": {
+            "properties": {
+                "algorithm": {
+                    "type": "string",
+                    "description": "(Computed) Algorithm of the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "flags": {
+                    "type": "string",
+                    "description": "(Computed) Flags for the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "(Computed) Protocol of the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "(Computed) Public key for the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "algorithm",
+                "flags",
+                "protocol",
+                "publicKey"
+            ]
+        },
+        "ns1:/getDNSSecKeys:getDNSSecKeys": {
+            "properties": {
+                "dnskeys": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/getDNSSecKeysDnskey:getDNSSecKeysDnskey"
+                    },
+                    "description": "(Computed) List of Keys. Key is documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "(Computed) TTL for the Keys (int).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dnskeys",
+                "ttl"
+            ]
+        },
+        "ns1:/getDNSSecKeysDnskey:getDNSSecKeysDnskey": {
+            "properties": {
+                "algorithm": {
+                    "type": "string",
+                    "description": "(Computed) Algorithm of the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "flags": {
+                    "type": "string",
+                    "description": "(Computed) Flags for the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "(Computed) Protocol of the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "publicKey": {
+                    "type": "string",
+                    "description": "(Computed) Public key for the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "algorithm",
+                "flags",
+                "protocol",
+                "publicKey"
+            ]
+        },
+        "ns1:/getZoneSecondary:getZoneSecondary": {
+            "properties": {
+                "ip": {
+                    "type": "string",
+                    "description": "IPv4 address of the secondary server.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "List of network IDs (`int`) for which the zone should be made\navailable. Default is network 0, the primary NSONE Global Network.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notify": {
+                    "type": "boolean",
+                    "description": "Whether we send `NOTIFY` messages to the secondary host\nwhen the zone changes. Default `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port of the the secondary server. Default `53`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "ip",
+                "networks",
+                "notify",
+                "port"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the ns1 package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "inputProperties": {
+            "apikey": {
+                "type": "string",
+                "description": "The ns1 API key, this is required\n",
+                "defaultInfo": {
+                    "environment": [
+                        "NS1_APIKEY"
+                    ]
+                }
+            },
+            "enableDdi": {
+                "type": "boolean"
+            },
+            "endpoint": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NS1_ENDPOINT"
+                    ]
+                }
+            },
+            "ignoreSsl": {
+                "type": "boolean"
+            },
+            "rateLimitParallelism": {
+                "type": "integer"
+            }
+        }
+    },
+    "resources": {
+        "ns1:index/aPIKey:APIKey": {
+            "properties": {
+                "accountManageAccountSettings": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account settings.\n"
+                },
+                "accountManageApikeys": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account apikeys.\n"
+                },
+                "accountManagePaymentMethods": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account payment methods.\n"
+                },
+                "accountManagePlan": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify the account plan.\n"
+                },
+                "accountManageTeams": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify other teams in the account.\n"
+                },
+                "accountManageUsers": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account users.\n"
+                },
+                "accountViewActivityLog": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view activity logs.\n"
+                },
+                "accountViewInvoices": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view invoices.\n"
+                },
+                "dataManageDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify data feeds.\n"
+                },
+                "dataManageDatasources": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify data sources.\n"
+                },
+                "dataPushToDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can publish to data feeds.\n"
+                },
+                "dhcpManageDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dhcpViewDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dnsManageZones": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify the accounts zones.\n"
+                },
+                "dnsViewZones": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view the accounts zones.\n"
+                },
+                "dnsZonesAllowByDefault": {
+                    "type": "boolean",
+                    "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                },
+                "dnsZonesAllows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the apikey may access.\n"
+                },
+                "dnsZonesDenies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the apikey may not access.\n"
+                },
+                "ipWhitelistStrict": {
+                    "type": "boolean",
+                    "description": "Sets exclusivity on this IP whitelist.\n"
+                },
+                "ipWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IP addresses to whitelist for this key.\n"
+                },
+                "ipamManageIpam": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "ipamViewIpam": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The apikeys authentication token.\n"
+                },
+                "monitoringManageJobs": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify monitoring jobs.\n"
+                },
+                "monitoringManageLists": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify notification lists.\n"
+                },
+                "monitoringViewJobs": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view monitoring jobs.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the apikey.\n"
+                },
+                "securityManageActiveDirectory": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage global active directory.\nOnly relevant for the DDI product.\n"
+                },
+                "securityManageGlobal2fa": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage global two factor authentication.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The teams that the apikey belongs to.\n"
+                }
+            },
+            "required": [
+                "key",
+                "name"
+            ],
+            "inputProperties": {
+                "accountManageAccountSettings": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account settings.\n"
+                },
+                "accountManageApikeys": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account apikeys.\n"
+                },
+                "accountManagePaymentMethods": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account payment methods.\n"
+                },
+                "accountManagePlan": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify the account plan.\n"
+                },
+                "accountManageTeams": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify other teams in the account.\n"
+                },
+                "accountManageUsers": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify account users.\n"
+                },
+                "accountViewActivityLog": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view activity logs.\n"
+                },
+                "accountViewInvoices": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view invoices.\n"
+                },
+                "dataManageDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify data feeds.\n"
+                },
+                "dataManageDatasources": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify data sources.\n"
+                },
+                "dataPushToDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can publish to data feeds.\n"
+                },
+                "dhcpManageDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dhcpViewDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dnsManageZones": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify the accounts zones.\n"
+                },
+                "dnsViewZones": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view the accounts zones.\n"
+                },
+                "dnsZonesAllowByDefault": {
+                    "type": "boolean",
+                    "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                },
+                "dnsZonesAllows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the apikey may access.\n"
+                },
+                "dnsZonesDenies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the apikey may not access.\n"
+                },
+                "ipWhitelistStrict": {
+                    "type": "boolean",
+                    "description": "Sets exclusivity on this IP whitelist.\n"
+                },
+                "ipWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IP addresses to whitelist for this key.\n"
+                },
+                "ipamManageIpam": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "ipamViewIpam": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "monitoringManageJobs": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify monitoring jobs.\n"
+                },
+                "monitoringManageLists": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can modify notification lists.\n"
+                },
+                "monitoringViewJobs": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view monitoring jobs.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the apikey.\n"
+                },
+                "securityManageActiveDirectory": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage global active directory.\nOnly relevant for the DDI product.\n"
+                },
+                "securityManageGlobal2fa": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage global two factor authentication.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The teams that the apikey belongs to.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering APIKey resources.\n",
+                "properties": {
+                    "accountManageAccountSettings": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify account settings.\n"
+                    },
+                    "accountManageApikeys": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify account apikeys.\n"
+                    },
+                    "accountManagePaymentMethods": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify account payment methods.\n"
+                    },
+                    "accountManagePlan": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify the account plan.\n"
+                    },
+                    "accountManageTeams": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify other teams in the account.\n"
+                    },
+                    "accountManageUsers": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify account users.\n"
+                    },
+                    "accountViewActivityLog": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can view activity logs.\n"
+                    },
+                    "accountViewInvoices": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can view invoices.\n"
+                    },
+                    "dataManageDatafeeds": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify data feeds.\n"
+                    },
+                    "dataManageDatasources": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify data sources.\n"
+                    },
+                    "dataPushToDatafeeds": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can publish to data feeds.\n"
+                    },
+                    "dhcpManageDhcp": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can manage DHCP.\nOnly relevant for the DDI product.\n"
+                    },
+                    "dhcpViewDhcp": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can view DHCP.\nOnly relevant for the DDI product.\n"
+                    },
+                    "dnsManageZones": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify the accounts zones.\n"
+                    },
+                    "dnsViewZones": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can view the accounts zones.\n"
+                    },
+                    "dnsZonesAllowByDefault": {
+                        "type": "boolean",
+                        "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                    },
+                    "dnsZonesAllows": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of zones that the apikey may access.\n"
+                    },
+                    "dnsZonesDenies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of zones that the apikey may not access.\n"
+                    },
+                    "ipWhitelistStrict": {
+                        "type": "boolean",
+                        "description": "Sets exclusivity on this IP whitelist.\n"
+                    },
+                    "ipWhitelists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The IP addresses to whitelist for this key.\n"
+                    },
+                    "ipamManageIpam": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    },
+                    "ipamViewIpam": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can view IPAM.\nOnly relevant for the DDI product.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The apikeys authentication token.\n"
+                    },
+                    "monitoringManageJobs": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify monitoring jobs.\n"
+                    },
+                    "monitoringManageLists": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can modify notification lists.\n"
+                    },
+                    "monitoringViewJobs": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can view monitoring jobs.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free form name of the apikey.\n"
+                    },
+                    "securityManageActiveDirectory": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    },
+                    "securityManageGlobal2fa": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can manage global two factor authentication.\n"
+                    },
+                    "teams": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The teams that the apikey belongs to.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/dataFeed:DataFeed": {
+            "description": "Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.\n\n{{% examples %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Datafeed Api Doc](https://ns1.com/api#data-feeds)\n",
+            "properties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "The feeds configuration matching the specification in\n`feed_config` from /data/sourcetypes.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the data feed.\n"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "description": "The data source id that this feed is connected to.\n"
+                }
+            },
+            "required": [
+                "name",
+                "sourceId"
+            ],
+            "inputProperties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "The feeds configuration matching the specification in\n`feed_config` from /data/sourcetypes.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the data feed.\n"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "description": "The data source id that this feed is connected to.\n"
+                }
+            },
+            "requiredInputs": [
+                "sourceId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DataFeed resources.\n",
+                "properties": {
+                    "config": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "The feeds configuration matching the specification in\n`feed_config` from /data/sourcetypes.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free form name of the data feed.\n"
+                    },
+                    "sourceId": {
+                        "type": "string",
+                        "description": "The data source id that this feed is connected to.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/dataSource:DataSource": {
+            "description": "Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.\n\n{{% examples %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Datasource Api Doc](https://ns1.com/api#data-sources)\n",
+            "properties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "The data source configuration, determined by its type,\nmatching the specification in `config` from /data/sourcetypes.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the data source.\n"
+                },
+                "sourcetype": {
+                    "type": "string",
+                    "description": "The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.\n"
+                }
+            },
+            "required": [
+                "name",
+                "sourcetype"
+            ],
+            "inputProperties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "The data source configuration, determined by its type,\nmatching the specification in `config` from /data/sourcetypes.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the data source.\n"
+                },
+                "sourcetype": {
+                    "type": "string",
+                    "description": "The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.\n"
+                }
+            },
+            "requiredInputs": [
+                "sourcetype"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DataSource resources.\n",
+                "properties": {
+                    "config": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "The data source configuration, determined by its type,\nmatching the specification in `config` from /data/sourcetypes.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free form name of the data source.\n"
+                    },
+                    "sourcetype": {
+                        "type": "string",
+                        "description": "The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/monitoringJob:MonitoringJob": {
+            "description": "Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.\n\n{{% examples %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)\n",
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicates if the job is active or temporarily disabled.\n"
+                },
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A configuration dictionary with keys and values depending on the jobs' type.\n"
+                },
+                "frequency": {
+                    "type": "integer",
+                    "description": "The frequency, in seconds, at which to run the monitoring job in each region.\n"
+                },
+                "jobType": {
+                    "type": "string",
+                    "description": "The type of monitoring job to be run. See NS1 API\ndocs for supported values.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free-form display name for the monitoring job.\n"
+                },
+                "notes": {
+                    "type": "string",
+                    "description": "Freeform notes to be included in any notifications about this job.\n"
+                },
+                "notifyDelay": {
+                    "type": "integer",
+                    "description": "The time in seconds after a failure to wait before sending a notification.\n"
+                },
+                "notifyFailback": {
+                    "type": "boolean",
+                    "description": "If true, a notification is sent when a job returns to an \"up\" state.\n"
+                },
+                "notifyList": {
+                    "type": "string",
+                    "description": "The id of the notification list to send notifications to.\n"
+                },
+                "notifyRegional": {
+                    "type": "boolean",
+                    "description": "If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.\n"
+                },
+                "notifyRepeat": {
+                    "type": "integer",
+                    "description": "The time in seconds between repeat notifications of a failed job.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. See NS1 API docs for supported values.\n"
+                },
+                "rapidRecheck": {
+                    "type": "boolean",
+                    "description": "If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.\n"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of region codes in which to run the monitoring\njob. See NS1 API docs for supported values.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/MonitoringJobRule:MonitoringJobRule"
+                    },
+                    "description": "A list of rules for determining failure conditions. Job Rules are documented below.\n"
+                }
+            },
+            "required": [
+                "config",
+                "frequency",
+                "jobType",
+                "name",
+                "regions"
+            ],
+            "inputProperties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicates if the job is active or temporarily disabled.\n"
+                },
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "A configuration dictionary with keys and values depending on the jobs' type.\n"
+                },
+                "frequency": {
+                    "type": "integer",
+                    "description": "The frequency, in seconds, at which to run the monitoring job in each region.\n"
+                },
+                "jobType": {
+                    "type": "string",
+                    "description": "The type of monitoring job to be run. See NS1 API\ndocs for supported values.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free-form display name for the monitoring job.\n"
+                },
+                "notes": {
+                    "type": "string",
+                    "description": "Freeform notes to be included in any notifications about this job.\n"
+                },
+                "notifyDelay": {
+                    "type": "integer",
+                    "description": "The time in seconds after a failure to wait before sending a notification.\n"
+                },
+                "notifyFailback": {
+                    "type": "boolean",
+                    "description": "If true, a notification is sent when a job returns to an \"up\" state.\n"
+                },
+                "notifyList": {
+                    "type": "string",
+                    "description": "The id of the notification list to send notifications to.\n"
+                },
+                "notifyRegional": {
+                    "type": "boolean",
+                    "description": "If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.\n"
+                },
+                "notifyRepeat": {
+                    "type": "integer",
+                    "description": "The time in seconds between repeat notifications of a failed job.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. See NS1 API docs for supported values.\n"
+                },
+                "rapidRecheck": {
+                    "type": "boolean",
+                    "description": "If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.\n"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of region codes in which to run the monitoring\njob. See NS1 API docs for supported values.\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/MonitoringJobRule:MonitoringJobRule"
+                    },
+                    "description": "A list of rules for determining failure conditions. Job Rules are documented below.\n"
+                }
+            },
+            "requiredInputs": [
+                "config",
+                "frequency",
+                "jobType",
+                "regions"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MonitoringJob resources.\n",
+                "properties": {
+                    "active": {
+                        "type": "boolean",
+                        "description": "Indicates if the job is active or temporarily disabled.\n"
+                    },
+                    "config": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "A configuration dictionary with keys and values depending on the jobs' type.\n"
+                    },
+                    "frequency": {
+                        "type": "integer",
+                        "description": "The frequency, in seconds, at which to run the monitoring job in each region.\n"
+                    },
+                    "jobType": {
+                        "type": "string",
+                        "description": "The type of monitoring job to be run. See NS1 API\ndocs for supported values.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free-form display name for the monitoring job.\n"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "Freeform notes to be included in any notifications about this job.\n"
+                    },
+                    "notifyDelay": {
+                        "type": "integer",
+                        "description": "The time in seconds after a failure to wait before sending a notification.\n"
+                    },
+                    "notifyFailback": {
+                        "type": "boolean",
+                        "description": "If true, a notification is sent when a job returns to an \"up\" state.\n"
+                    },
+                    "notifyList": {
+                        "type": "string",
+                        "description": "The id of the notification list to send notifications to.\n"
+                    },
+                    "notifyRegional": {
+                        "type": "boolean",
+                        "description": "If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.\n"
+                    },
+                    "notifyRepeat": {
+                        "type": "integer",
+                        "description": "The time in seconds between repeat notifications of a failed job.\n"
+                    },
+                    "policy": {
+                        "type": "string",
+                        "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. See NS1 API docs for supported values.\n"
+                    },
+                    "rapidRecheck": {
+                        "type": "boolean",
+                        "description": "If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.\n"
+                    },
+                    "regions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of region codes in which to run the monitoring\njob. See NS1 API docs for supported values.\n"
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/MonitoringJobRule:MonitoringJobRule"
+                        },
+                        "description": "A list of rules for determining failure conditions. Job Rules are documented below.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/notifyList:NotifyList": {
+            "description": "Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.\n\n{{% examples %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[NotifyList Api Doc](https://ns1.com/api#notification-lists)\n",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The free-form display name for the notify list.\n"
+                },
+                "notifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/NotifyListNotification:NotifyListNotification"
+                    },
+                    "description": "A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The free-form display name for the notify list.\n"
+                },
+                "notifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/NotifyListNotification:NotifyListNotification"
+                    },
+                    "description": "A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotifyList resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The free-form display name for the notify list.\n"
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/NotifyListNotification:NotifyListNotification"
+                        },
+                        "description": "A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/record:Record": {
+            "description": "Provides a NS1 Record resource. This can be used to create, modify, and delete records.\n\n{{% examples %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Record Api Doc](https://ns1.com/api#records)\n",
+            "properties": {
+                "answers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/RecordAnswer:RecordAnswer"
+                    },
+                    "description": "One or more NS1 answers for the records' specified type.\nAnswers are documented below.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The records' domain. Cannot have leading or trailing\ndots - see the example above and `FQDN formatting` below.\n"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/RecordFilter:RecordFilter"
+                    },
+                    "description": "One or more NS1 filters for the record(order matters).\nFilters are documented below.\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The target record to link to. This means this record is a\n'linked' record, and it inherits all properties from its target.\n"
+                },
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/RecordRegion:RecordRegion"
+                    },
+                    "description": "One or more \"regions\" for the record. These are really\njust groupings based on metadata, and are called \"Answer Groups\" in the NS1 UI,\nbut remain `regions` here for legacy reasons. Regions are\ndocumented below. Please note the ordering requirement!\n"
+                },
+                "shortAnswers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "deprecationMessage": "short_answers will be deprecated in a future release.\nIt is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:\n  dynamic \"answers\" {\n    for_each = [\"4.4.4.4\", \"5.5.5.5\"]\n    content {\n      answer  = answers.value\n    }\n  }"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "The records' time to live.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The records' RR type.\n"
+                },
+                "useClientSubnet": {
+                    "type": "boolean",
+                    "description": "Whether to use EDNS client subnet data when\navailable(in filter chain).\n* ` meta` - (Optional) meta is supported at the `record` level. Meta\nis documented below.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The zone the record belongs to. Cannot have leading or\ntrailing dots (\".\") - see the example above and `FQDN formatting` below.\n"
+                }
+            },
+            "required": [
+                "domain",
+                "ttl",
+                "type",
+                "zone"
+            ],
+            "inputProperties": {
+                "answers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/RecordAnswer:RecordAnswer"
+                    },
+                    "description": "One or more NS1 answers for the records' specified type.\nAnswers are documented below.\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The records' domain. Cannot have leading or trailing\ndots - see the example above and `FQDN formatting` below.\n"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/RecordFilter:RecordFilter"
+                    },
+                    "description": "One or more NS1 filters for the record(order matters).\nFilters are documented below.\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The target record to link to. This means this record is a\n'linked' record, and it inherits all properties from its target.\n"
+                },
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/RecordRegion:RecordRegion"
+                    },
+                    "description": "One or more \"regions\" for the record. These are really\njust groupings based on metadata, and are called \"Answer Groups\" in the NS1 UI,\nbut remain `regions` here for legacy reasons. Regions are\ndocumented below. Please note the ordering requirement!\n"
+                },
+                "shortAnswers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "deprecationMessage": "short_answers will be deprecated in a future release.\nIt is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:\n  dynamic \"answers\" {\n    for_each = [\"4.4.4.4\", \"5.5.5.5\"]\n    content {\n      answer  = answers.value\n    }\n  }"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "The records' time to live.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The records' RR type.\n"
+                },
+                "useClientSubnet": {
+                    "type": "boolean",
+                    "description": "Whether to use EDNS client subnet data when\navailable(in filter chain).\n* ` meta` - (Optional) meta is supported at the `record` level. Meta\nis documented below.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The zone the record belongs to. Cannot have leading or\ntrailing dots (\".\") - see the example above and `FQDN formatting` below.\n"
+                }
+            },
+            "requiredInputs": [
+                "domain",
+                "type",
+                "zone"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Record resources.\n",
+                "properties": {
+                    "answers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/RecordAnswer:RecordAnswer"
+                        },
+                        "description": "One or more NS1 answers for the records' specified type.\nAnswers are documented below.\n"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "The records' domain. Cannot have leading or trailing\ndots - see the example above and `FQDN formatting` below.\n"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/RecordFilter:RecordFilter"
+                        },
+                        "description": "One or more NS1 filters for the record(order matters).\nFilters are documented below.\n"
+                    },
+                    "link": {
+                        "type": "string",
+                        "description": "The target record to link to. This means this record is a\n'linked' record, and it inherits all properties from its target.\n"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "regions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/RecordRegion:RecordRegion"
+                        },
+                        "description": "One or more \"regions\" for the record. These are really\njust groupings based on metadata, and are called \"Answer Groups\" in the NS1 UI,\nbut remain `regions` here for legacy reasons. Regions are\ndocumented below. Please note the ordering requirement!\n"
+                    },
+                    "shortAnswers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "deprecationMessage": "short_answers will be deprecated in a future release.\nIt is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:\n  dynamic \"answers\" {\n    for_each = [\"4.4.4.4\", \"5.5.5.5\"]\n    content {\n      answer  = answers.value\n    }\n  }"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "The records' time to live.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The records' RR type.\n"
+                    },
+                    "useClientSubnet": {
+                        "type": "boolean",
+                        "description": "Whether to use EDNS client subnet data when\navailable(in filter chain).\n* ` meta` - (Optional) meta is supported at the `record` level. Meta\nis documented below.\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "The zone the record belongs to. Cannot have leading or\ntrailing dots (\".\") - see the example above and `FQDN formatting` below.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/team:Team": {
+            "description": "Provides a NS1 Team resource. This can be used to create, modify, and delete\nteams. The credentials used must have the `manage_teams` permission set.\n\n{{% examples %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Team Api Docs](https://ns1.com/api#team)\n",
+            "properties": {
+                "accountManageAccountSettings": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account settings.\n"
+                },
+                "accountManageApikeys": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account apikeys.\n"
+                },
+                "accountManagePaymentMethods": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account payment methods.\n"
+                },
+                "accountManagePlan": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify the account plan.\n"
+                },
+                "accountManageTeams": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify other teams in the account.\n"
+                },
+                "accountManageUsers": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account users.\n"
+                },
+                "accountViewActivityLog": {
+                    "type": "boolean",
+                    "description": "Whether the team can view activity logs.\n"
+                },
+                "accountViewInvoices": {
+                    "type": "boolean",
+                    "description": "Whether the team can view invoices.\n"
+                },
+                "dataManageDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify data feeds.\n"
+                },
+                "dataManageDatasources": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify data sources.\n"
+                },
+                "dataPushToDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the team can publish to data feeds.\n"
+                },
+                "dhcpManageDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dhcpViewDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the team can view DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dnsManageZones": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify the accounts zones.\n"
+                },
+                "dnsViewZones": {
+                    "type": "boolean",
+                    "description": "Whether the team can view the accounts zones.\n"
+                },
+                "dnsZonesAllowByDefault": {
+                    "type": "boolean",
+                    "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                },
+                "dnsZonesAllows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the team may access.\n"
+                },
+                "dnsZonesDenies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the team may not access.\n"
+                },
+                "ipWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/TeamIpWhitelist:TeamIpWhitelist"
+                    },
+                    "description": "The IP addresses to whitelist for this key.\n"
+                },
+                "ipamManageIpam": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "ipamViewIpam": {
+                    "type": "boolean",
+                    "description": "Whether the team can view IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "monitoringManageJobs": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify monitoring jobs.\n"
+                },
+                "monitoringManageLists": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify notification lists.\n"
+                },
+                "monitoringViewJobs": {
+                    "type": "boolean",
+                    "description": "Whether the team can view monitoring jobs.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the team.\n"
+                },
+                "securityManageActiveDirectory": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage global active directory.\nOnly relevant for the DDI product.\n"
+                },
+                "securityManageGlobal2fa": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage global two factor authentication.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "accountManageAccountSettings": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account settings.\n"
+                },
+                "accountManageApikeys": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account apikeys.\n"
+                },
+                "accountManagePaymentMethods": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account payment methods.\n"
+                },
+                "accountManagePlan": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify the account plan.\n"
+                },
+                "accountManageTeams": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify other teams in the account.\n"
+                },
+                "accountManageUsers": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify account users.\n"
+                },
+                "accountViewActivityLog": {
+                    "type": "boolean",
+                    "description": "Whether the team can view activity logs.\n"
+                },
+                "accountViewInvoices": {
+                    "type": "boolean",
+                    "description": "Whether the team can view invoices.\n"
+                },
+                "dataManageDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify data feeds.\n"
+                },
+                "dataManageDatasources": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify data sources.\n"
+                },
+                "dataPushToDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the team can publish to data feeds.\n"
+                },
+                "dhcpManageDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dhcpViewDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the team can view DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dnsManageZones": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify the accounts zones.\n"
+                },
+                "dnsViewZones": {
+                    "type": "boolean",
+                    "description": "Whether the team can view the accounts zones.\n"
+                },
+                "dnsZonesAllowByDefault": {
+                    "type": "boolean",
+                    "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                },
+                "dnsZonesAllows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the team may access.\n"
+                },
+                "dnsZonesDenies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the team may not access.\n"
+                },
+                "ipWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/TeamIpWhitelist:TeamIpWhitelist"
+                    },
+                    "description": "The IP addresses to whitelist for this key.\n"
+                },
+                "ipamManageIpam": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "ipamViewIpam": {
+                    "type": "boolean",
+                    "description": "Whether the team can view IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "monitoringManageJobs": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify monitoring jobs.\n"
+                },
+                "monitoringManageLists": {
+                    "type": "boolean",
+                    "description": "Whether the team can modify notification lists.\n"
+                },
+                "monitoringViewJobs": {
+                    "type": "boolean",
+                    "description": "Whether the team can view monitoring jobs.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the team.\n"
+                },
+                "securityManageActiveDirectory": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage global active directory.\nOnly relevant for the DDI product.\n"
+                },
+                "securityManageGlobal2fa": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage global two factor authentication.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Team resources.\n",
+                "properties": {
+                    "accountManageAccountSettings": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify account settings.\n"
+                    },
+                    "accountManageApikeys": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify account apikeys.\n"
+                    },
+                    "accountManagePaymentMethods": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify account payment methods.\n"
+                    },
+                    "accountManagePlan": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify the account plan.\n"
+                    },
+                    "accountManageTeams": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify other teams in the account.\n"
+                    },
+                    "accountManageUsers": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify account users.\n"
+                    },
+                    "accountViewActivityLog": {
+                        "type": "boolean",
+                        "description": "Whether the team can view activity logs.\n"
+                    },
+                    "accountViewInvoices": {
+                        "type": "boolean",
+                        "description": "Whether the team can view invoices.\n"
+                    },
+                    "dataManageDatafeeds": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify data feeds.\n"
+                    },
+                    "dataManageDatasources": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify data sources.\n"
+                    },
+                    "dataPushToDatafeeds": {
+                        "type": "boolean",
+                        "description": "Whether the team can publish to data feeds.\n"
+                    },
+                    "dhcpManageDhcp": {
+                        "type": "boolean",
+                        "description": "Whether the team can manage DHCP.\nOnly relevant for the DDI product.\n"
+                    },
+                    "dhcpViewDhcp": {
+                        "type": "boolean",
+                        "description": "Whether the team can view DHCP.\nOnly relevant for the DDI product.\n"
+                    },
+                    "dnsManageZones": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify the accounts zones.\n"
+                    },
+                    "dnsViewZones": {
+                        "type": "boolean",
+                        "description": "Whether the team can view the accounts zones.\n"
+                    },
+                    "dnsZonesAllowByDefault": {
+                        "type": "boolean",
+                        "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                    },
+                    "dnsZonesAllows": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of zones that the team may access.\n"
+                    },
+                    "dnsZonesDenies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of zones that the team may not access.\n"
+                    },
+                    "ipWhitelists": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/TeamIpWhitelist:TeamIpWhitelist"
+                        },
+                        "description": "The IP addresses to whitelist for this key.\n"
+                    },
+                    "ipamManageIpam": {
+                        "type": "boolean",
+                        "description": "Whether the team can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    },
+                    "ipamViewIpam": {
+                        "type": "boolean",
+                        "description": "Whether the team can view IPAM.\nOnly relevant for the DDI product.\n"
+                    },
+                    "monitoringManageJobs": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify monitoring jobs.\n"
+                    },
+                    "monitoringManageLists": {
+                        "type": "boolean",
+                        "description": "Whether the team can modify notification lists.\n"
+                    },
+                    "monitoringViewJobs": {
+                        "type": "boolean",
+                        "description": "Whether the team can view monitoring jobs.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free form name of the team.\n"
+                    },
+                    "securityManageActiveDirectory": {
+                        "type": "boolean",
+                        "description": "Whether the team can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    },
+                    "securityManageGlobal2fa": {
+                        "type": "boolean",
+                        "description": "Whether the team can manage global two factor authentication.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/user:User": {
+            "properties": {
+                "accountManageAccountSettings": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account settings.\n"
+                },
+                "accountManageApikeys": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account apikeys.\n"
+                },
+                "accountManagePaymentMethods": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account payment methods.\n"
+                },
+                "accountManagePlan": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify the account plan.\n"
+                },
+                "accountManageTeams": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify other teams in the account.\n"
+                },
+                "accountManageUsers": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account users.\n"
+                },
+                "accountViewActivityLog": {
+                    "type": "boolean",
+                    "description": "Whether the user can view activity logs.\n"
+                },
+                "accountViewInvoices": {
+                    "type": "boolean",
+                    "description": "Whether the user can view invoices.\n"
+                },
+                "dataManageDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify data feeds.\n"
+                },
+                "dataManageDatasources": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify data sources.\n"
+                },
+                "dataPushToDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the user can publish to data feeds.\n"
+                },
+                "dhcpManageDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dhcpViewDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the user can view DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dnsManageZones": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify the accounts zones.\n"
+                },
+                "dnsViewZones": {
+                    "type": "boolean",
+                    "description": "Whether the user can view the accounts zones.\n"
+                },
+                "dnsZonesAllowByDefault": {
+                    "type": "boolean",
+                    "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                },
+                "dnsZonesAllows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the user may access.\n"
+                },
+                "dnsZonesDenies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the user may not access.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The email address of the user.\n"
+                },
+                "ipWhitelistStrict": {
+                    "type": "boolean",
+                    "description": "Sets exclusivity on this IP whitelist.\n"
+                },
+                "ipWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IP addresses to whitelist for this key.\n"
+                },
+                "ipamManageIpam": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "ipamViewIpam": {
+                    "type": "boolean"
+                },
+                "monitoringManageJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify monitoring jobs.\n"
+                },
+                "monitoringManageLists": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify notification lists.\n"
+                },
+                "monitoringViewJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can view monitoring jobs.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the user.\n"
+                },
+                "notify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
+                },
+                "securityManageActiveDirectory": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage global active directory.\nOnly relevant for the DDI product.\n"
+                },
+                "securityManageGlobal2fa": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage global two factor authentication.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The teams that the user belongs to.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The users login name.\n"
+                }
+            },
+            "required": [
+                "email",
+                "name",
+                "username"
+            ],
+            "inputProperties": {
+                "accountManageAccountSettings": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account settings.\n"
+                },
+                "accountManageApikeys": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account apikeys.\n"
+                },
+                "accountManagePaymentMethods": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account payment methods.\n"
+                },
+                "accountManagePlan": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify the account plan.\n"
+                },
+                "accountManageTeams": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify other teams in the account.\n"
+                },
+                "accountManageUsers": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify account users.\n"
+                },
+                "accountViewActivityLog": {
+                    "type": "boolean",
+                    "description": "Whether the user can view activity logs.\n"
+                },
+                "accountViewInvoices": {
+                    "type": "boolean",
+                    "description": "Whether the user can view invoices.\n"
+                },
+                "dataManageDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify data feeds.\n"
+                },
+                "dataManageDatasources": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify data sources.\n"
+                },
+                "dataPushToDatafeeds": {
+                    "type": "boolean",
+                    "description": "Whether the user can publish to data feeds.\n"
+                },
+                "dhcpManageDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dhcpViewDhcp": {
+                    "type": "boolean",
+                    "description": "Whether the user can view DHCP.\nOnly relevant for the DDI product.\n"
+                },
+                "dnsManageZones": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify the accounts zones.\n"
+                },
+                "dnsViewZones": {
+                    "type": "boolean",
+                    "description": "Whether the user can view the accounts zones.\n"
+                },
+                "dnsZonesAllowByDefault": {
+                    "type": "boolean",
+                    "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                },
+                "dnsZonesAllows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the user may access.\n"
+                },
+                "dnsZonesDenies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of zones that the user may not access.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The email address of the user.\n"
+                },
+                "ipWhitelistStrict": {
+                    "type": "boolean",
+                    "description": "Sets exclusivity on this IP whitelist.\n"
+                },
+                "ipWhitelists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IP addresses to whitelist for this key.\n"
+                },
+                "ipamManageIpam": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage IPAM.\nOnly relevant for the DDI product.\n"
+                },
+                "ipamViewIpam": {
+                    "type": "boolean"
+                },
+                "monitoringManageJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify monitoring jobs.\n"
+                },
+                "monitoringManageLists": {
+                    "type": "boolean",
+                    "description": "Whether the user can modify notification lists.\n"
+                },
+                "monitoringViewJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can view monitoring jobs.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the user.\n"
+                },
+                "notify": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
+                },
+                "securityManageActiveDirectory": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage global active directory.\nOnly relevant for the DDI product.\n"
+                },
+                "securityManageGlobal2fa": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage global two factor authentication.\n"
+                },
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The teams that the user belongs to.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The users login name.\n"
+                }
+            },
+            "requiredInputs": [
+                "email",
+                "username"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering User resources.\n",
+                "properties": {
+                    "accountManageAccountSettings": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify account settings.\n"
+                    },
+                    "accountManageApikeys": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify account apikeys.\n"
+                    },
+                    "accountManagePaymentMethods": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify account payment methods.\n"
+                    },
+                    "accountManagePlan": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify the account plan.\n"
+                    },
+                    "accountManageTeams": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify other teams in the account.\n"
+                    },
+                    "accountManageUsers": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify account users.\n"
+                    },
+                    "accountViewActivityLog": {
+                        "type": "boolean",
+                        "description": "Whether the user can view activity logs.\n"
+                    },
+                    "accountViewInvoices": {
+                        "type": "boolean",
+                        "description": "Whether the user can view invoices.\n"
+                    },
+                    "dataManageDatafeeds": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify data feeds.\n"
+                    },
+                    "dataManageDatasources": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify data sources.\n"
+                    },
+                    "dataPushToDatafeeds": {
+                        "type": "boolean",
+                        "description": "Whether the user can publish to data feeds.\n"
+                    },
+                    "dhcpManageDhcp": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage DHCP.\nOnly relevant for the DDI product.\n"
+                    },
+                    "dhcpViewDhcp": {
+                        "type": "boolean",
+                        "description": "Whether the user can view DHCP.\nOnly relevant for the DDI product.\n"
+                    },
+                    "dnsManageZones": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify the accounts zones.\n"
+                    },
+                    "dnsViewZones": {
+                        "type": "boolean",
+                        "description": "Whether the user can view the accounts zones.\n"
+                    },
+                    "dnsZonesAllowByDefault": {
+                        "type": "boolean",
+                        "description": "If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.\n"
+                    },
+                    "dnsZonesAllows": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of zones that the user may access.\n"
+                    },
+                    "dnsZonesDenies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of zones that the user may not access.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The email address of the user.\n"
+                    },
+                    "ipWhitelistStrict": {
+                        "type": "boolean",
+                        "description": "Sets exclusivity on this IP whitelist.\n"
+                    },
+                    "ipWhitelists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The IP addresses to whitelist for this key.\n"
+                    },
+                    "ipamManageIpam": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    },
+                    "ipamViewIpam": {
+                        "type": "boolean"
+                    },
+                    "monitoringManageJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify monitoring jobs.\n"
+                    },
+                    "monitoringManageLists": {
+                        "type": "boolean",
+                        "description": "Whether the user can modify notification lists.\n"
+                    },
+                    "monitoringViewJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can view monitoring jobs.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free form name of the user.\n"
+                    },
+                    "notify": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
+                    },
+                    "securityManageActiveDirectory": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    },
+                    "securityManageGlobal2fa": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage global two factor authentication.\n"
+                    },
+                    "teams": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The teams that the user belongs to.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "The users login name.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/zone:Zone": {
+            "properties": {
+                "additionalPrimaries": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of additional IPv4 addresses for the primary\nzone. Conflicts with `secondaries`.\n"
+                },
+                "autogenerateNsRecord": {
+                    "type": "boolean"
+                },
+                "dnsServers": {
+                    "type": "string",
+                    "description": "(Computed) Authoritative Name Servers.\n"
+                },
+                "dnssec": {
+                    "type": "boolean",
+                    "description": "Whether or not DNSSEC is enabled for the zone.\nNote that DNSSEC must be enabled on the account by support for this to be set\nto `true`.\n"
+                },
+                "expiry": {
+                    "type": "integer",
+                    "description": "The SOA Expiry. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "hostmaster": {
+                    "type": "string",
+                    "description": "(Computed) The SOA Hostmaster.\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The target zone(domain name) to link to.\n"
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "- List of network IDs (`int`) for which the zone\nshould be made available. Default is network 0, the primary NSONE Global\nNetwork. Normally, you should not have to worry about this.\n"
+                },
+                "nxTtl": {
+                    "type": "integer",
+                    "description": "The SOA NX TTL. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "primary": {
+                    "type": "string",
+                    "description": "The primary zones' IPv4 address. This makes the zone a\nsecondary. Conflicts with `secondaries`.\n"
+                },
+                "refresh": {
+                    "type": "integer",
+                    "description": "The SOA Refresh. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "retry": {
+                    "type": "integer",
+                    "description": "The SOA Retry. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "secondaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/ZoneSecondary:ZoneSecondary"
+                    },
+                    "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "The SOA TTL.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The domain name of the zone.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "ZoneName"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "dnsServers",
+                "dnssec",
+                "expiry",
+                "hostmaster",
+                "networks",
+                "nxTtl",
+                "refresh",
+                "retry",
+                "ttl",
+                "zone"
+            ],
+            "inputProperties": {
+                "additionalPrimaries": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of additional IPv4 addresses for the primary\nzone. Conflicts with `secondaries`.\n"
+                },
+                "autogenerateNsRecord": {
+                    "type": "boolean"
+                },
+                "dnssec": {
+                    "type": "boolean",
+                    "description": "Whether or not DNSSEC is enabled for the zone.\nNote that DNSSEC must be enabled on the account by support for this to be set\nto `true`.\n"
+                },
+                "expiry": {
+                    "type": "integer",
+                    "description": "The SOA Expiry. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The target zone(domain name) to link to.\n"
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "- List of network IDs (`int`) for which the zone\nshould be made available. Default is network 0, the primary NSONE Global\nNetwork. Normally, you should not have to worry about this.\n"
+                },
+                "nxTtl": {
+                    "type": "integer",
+                    "description": "The SOA NX TTL. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "primary": {
+                    "type": "string",
+                    "description": "The primary zones' IPv4 address. This makes the zone a\nsecondary. Conflicts with `secondaries`.\n"
+                },
+                "refresh": {
+                    "type": "integer",
+                    "description": "The SOA Refresh. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "retry": {
+                    "type": "integer",
+                    "description": "The SOA Retry. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                },
+                "secondaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:/ZoneSecondary:ZoneSecondary"
+                    },
+                    "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "The SOA TTL.\n"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The domain name of the zone.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "ZoneName"
+                        }
+                    }
+                }
+            },
+            "requiredInputs": [
+                "zone"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Zone resources.\n",
+                "properties": {
+                    "additionalPrimaries": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of additional IPv4 addresses for the primary\nzone. Conflicts with `secondaries`.\n"
+                    },
+                    "autogenerateNsRecord": {
+                        "type": "boolean"
+                    },
+                    "dnsServers": {
+                        "type": "string",
+                        "description": "(Computed) Authoritative Name Servers.\n"
+                    },
+                    "dnssec": {
+                        "type": "boolean",
+                        "description": "Whether or not DNSSEC is enabled for the zone.\nNote that DNSSEC must be enabled on the account by support for this to be set\nto `true`.\n"
+                    },
+                    "expiry": {
+                        "type": "integer",
+                        "description": "The SOA Expiry. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                    },
+                    "hostmaster": {
+                        "type": "string",
+                        "description": "(Computed) The SOA Hostmaster.\n"
+                    },
+                    "link": {
+                        "type": "string",
+                        "description": "The target zone(domain name) to link to.\n"
+                    },
+                    "networks": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "- List of network IDs (`int`) for which the zone\nshould be made available. Default is network 0, the primary NSONE Global\nNetwork. Normally, you should not have to worry about this.\n"
+                    },
+                    "nxTtl": {
+                        "type": "integer",
+                        "description": "The SOA NX TTL. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                    },
+                    "primary": {
+                        "type": "string",
+                        "description": "The primary zones' IPv4 address. This makes the zone a\nsecondary. Conflicts with `secondaries`.\n"
+                    },
+                    "refresh": {
+                        "type": "integer",
+                        "description": "The SOA Refresh. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                    },
+                    "retry": {
+                        "type": "integer",
+                        "description": "The SOA Retry. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
+                    },
+                    "secondaries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/ZoneSecondary:ZoneSecondary"
+                        },
+                        "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "The SOA TTL.\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "The domain name of the zone.\n",
+                        "language": {
+                            "csharp": {
+                                "name": "ZoneName"
+                            }
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "ns1:index/getDNSSec:getDNSSec": {
+            "description": "Provides DNSSEC details about a NS1 Zone.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDNSSec.\n",
+                "properties": {
+                    "zone": {
+                        "type": "string",
+                        "description": "The name of the zone to get DNSSEC details for.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "zone"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDNSSec.\n",
+                "properties": {
+                    "delegation": {
+                        "$ref": "#/types/ns1:/getDNSSecDelegation:getDNSSecDelegation",
+                        "description": "(Computed) - Delegation field is documented\nbelow.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "keys": {
+                        "$ref": "#/types/ns1:/getDNSSecKeys:getDNSSecKeys",
+                        "description": "(Computed) - Keys field is documented below.\n"
+                    },
+                    "zone": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "delegation",
+                    "keys",
+                    "zone",
+                    "id"
+                ]
+            }
+        },
+        "ns1:index/getZone:getZone": {
+            "description": "Provides details about a NS1 Zone. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getZone.\n",
+                "properties": {
+                    "additionalPrimaries": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of additional IPv4 addresses for the primary\nzone.\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "The domain name of the zone.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "zone"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getZone.\n",
+                "properties": {
+                    "additionalPrimaries": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of additional IPv4 addresses for the primary\nzone.\n"
+                    },
+                    "dnsServers": {
+                        "type": "string",
+                        "description": "Authoritative Name Servers.\n"
+                    },
+                    "dnssec": {
+                        "type": "boolean",
+                        "description": "Whether or not DNSSEC is enabled for the zone.\n"
+                    },
+                    "expiry": {
+                        "type": "integer",
+                        "description": "The SOA Expiry.\n"
+                    },
+                    "hostmaster": {
+                        "type": "string",
+                        "description": "The SOA Hostmaster.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "link": {
+                        "type": "string",
+                        "description": "The linked target zone.\n"
+                    },
+                    "networks": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "List of network IDs (`int`) for which the zone should be made\navailable. Default is network 0, the primary NSONE Global Network.\n"
+                    },
+                    "nxTtl": {
+                        "type": "integer",
+                        "description": "The SOA NX TTL.\n"
+                    },
+                    "primary": {
+                        "type": "string",
+                        "description": "The primary zones' IPv4 address.\n"
+                    },
+                    "refresh": {
+                        "type": "integer",
+                        "description": "The SOA Refresh.\n"
+                    },
+                    "retry": {
+                        "type": "integer",
+                        "description": "The SOA Retry.\n"
+                    },
+                    "secondaries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/getZoneSecondary:getZoneSecondary"
+                        },
+                        "description": "List of secondary servers. Secondaries is\ndocumented below.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "The SOA TTL.\n"
+                    },
+                    "zone": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "dnsServers",
+                    "dnssec",
+                    "expiry",
+                    "hostmaster",
+                    "link",
+                    "networks",
+                    "nxTtl",
+                    "primary",
+                    "refresh",
+                    "retry",
+                    "secondaries",
+                    "ttl",
+                    "zone",
+                    "id"
+                ]
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "2.*",
+                "System.Collections.Immutable": "1.6.0"
+            }
+        },
+        "nodejs": {
+            "dependencies": {
+                "@pulumi/pulumi": "^2.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^8.0.25"
+            },
+            "packageDescription": "A Pulumi package for creating and managing ns1 cloud resources.",
+            "packageName": "",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "requires": {
+                "pulumi": "\u003e=2.0.0,\u003c3.0.0"
+            }
+        }
+    }
+}
