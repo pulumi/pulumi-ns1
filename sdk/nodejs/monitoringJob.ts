@@ -9,7 +9,38 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
  *
+ * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const uswestMonitor = new ns1.MonitoringJob("uswest_monitor", {
+ *     active: true,
+ *     config: {
+ *         host: "example-elb-uswest.aws.amazon.com",
+ *         port: 443,
+ *         send: `HEAD / HTTP/1.0
+ * 
+ * `,
+ *         ssl: 1,
+ *     },
+ *     frequency: 60,
+ *     jobType: "tcp",
+ *     policy: "quorum",
+ *     rapidRecheck: true,
+ *     regions: [
+ *         "sjc",
+ *         "sin",
+ *         "lga",
+ *     ],
+ *     rules: [{
+ *         comparison: "contains",
+ *         key: "output",
+ *         value: "200 OK",
+ *     }],
+ * });
+ * ```
  * ## NS1 Documentation
  *
  * [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -22,6 +53,7 @@ export class MonitoringJob extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MonitoringJobState, opts?: pulumi.CustomResourceOptions): MonitoringJob {
         return new MonitoringJob(name, <any>state, { ...opts, id: id });

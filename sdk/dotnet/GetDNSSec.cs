@@ -15,6 +15,32 @@ namespace Pulumi.Ns1
         /// Provides DNSSEC details about a NS1 Zone.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         // Get DNSSEC details about a NS1 Zone.
+        ///         var exampleZone = new Ns1.Zone("exampleZone", new Ns1.ZoneArgs
+        ///         {
+        ///             Dnssec = true,
+        ///             Zone = "terraform.example.io",
+        ///         });
+        ///         var exampleDNSSec = exampleZone.ZoneName.Apply(zone =&gt; Ns1.GetDNSSec.InvokeAsync(new Ns1.GetDNSSecArgs
+        ///         {
+        ///             Zone = zone,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDNSSecResult> InvokeAsync(GetDNSSecArgs args, InvokeOptions? options = null)

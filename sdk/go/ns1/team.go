@@ -12,7 +12,59 @@ import (
 // Provides a NS1 Team resource. This can be used to create, modify, and delete
 // teams. The credentials used must have the `manageTeams` permission set.
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
+// 			AccountManageUsers: pulumi.Bool(false),
+// 			DnsViewZones:       pulumi.Bool(false),
+// 			IpWhitelists: ns1.TeamIpWhitelistArray{
+// 				&ns1.TeamIpWhitelistArgs{
+// 					Name: pulumi.String("whitelist-1"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("1.1.1.1"),
+// 						pulumi.String("2.2.2.2"),
+// 					},
+// 				},
+// 				&ns1.TeamIpWhitelistArgs{
+// 					Name: pulumi.String("whitelist-2"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("3.3.3.3"),
+// 						pulumi.String("4.4.4.4"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
+// 			DataManageDatasources: pulumi.Bool(true),
+// 			DnsViewZones:          pulumi.Bool(true),
+// 			DnsZonesAllows: pulumi.StringArray{
+// 				pulumi.String("mytest.zone"),
+// 			},
+// 			DnsZonesAllowByDefault: pulumi.Bool(true),
+// 			DnsZonesDenies: pulumi.StringArray{
+// 				pulumi.String("myother.zone"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## NS1 Documentation
 //
 // [Team Api Docs](https://ns1.com/api#team)

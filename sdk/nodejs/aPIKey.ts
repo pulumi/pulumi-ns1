@@ -12,6 +12,7 @@ export class APIKey extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: APIKeyState, opts?: pulumi.CustomResourceOptions): APIKey {
         return new APIKey(name, <any>state, { ...opts, id: id });
@@ -94,25 +95,25 @@ export class APIKey extends pulumi.CustomResource {
      */
     public readonly dnsViewZones!: pulumi.Output<boolean | undefined>;
     /**
-     * List of zones that the apikey may access.
-     */
-    public readonly dnsZonesAllows!: pulumi.Output<string[] | undefined>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     public readonly dnsZonesAllowByDefault!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of zones that the apikey may access.
+     */
+    public readonly dnsZonesAllows!: pulumi.Output<string[] | undefined>;
     /**
      * List of zones that the apikey may not access.
      */
     public readonly dnsZonesDenies!: pulumi.Output<string[] | undefined>;
     /**
-     * The IP addresses to whitelist for this key.
-     */
-    public readonly ipWhitelists!: pulumi.Output<string[] | undefined>;
-    /**
      * Sets exclusivity on this IP whitelist.
      */
     public readonly ipWhitelistStrict!: pulumi.Output<boolean | undefined>;
+    /**
+     * The IP addresses to whitelist for this key.
+     */
+    public readonly ipWhitelists!: pulumi.Output<string[] | undefined>;
     /**
      * Whether the apikey can manage IPAM.
      * Only relevant for the DDI product.
@@ -184,11 +185,11 @@ export class APIKey extends pulumi.CustomResource {
             inputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
             inputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
-            inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
             inputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
+            inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
             inputs["dnsZonesDenies"] = state ? state.dnsZonesDenies : undefined;
-            inputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
             inputs["ipWhitelistStrict"] = state ? state.ipWhitelistStrict : undefined;
+            inputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
             inputs["ipamManageIpam"] = state ? state.ipamManageIpam : undefined;
             inputs["ipamViewIpam"] = state ? state.ipamViewIpam : undefined;
             inputs["key"] = state ? state.key : undefined;
@@ -216,11 +217,11 @@ export class APIKey extends pulumi.CustomResource {
             inputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
             inputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
-            inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
             inputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
+            inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
             inputs["dnsZonesDenies"] = args ? args.dnsZonesDenies : undefined;
-            inputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
             inputs["ipWhitelistStrict"] = args ? args.ipWhitelistStrict : undefined;
+            inputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
             inputs["ipamManageIpam"] = args ? args.ipamManageIpam : undefined;
             inputs["ipamViewIpam"] = args ? args.ipamViewIpam : undefined;
             inputs["monitoringManageJobs"] = args ? args.monitoringManageJobs : undefined;
@@ -310,25 +311,25 @@ export interface APIKeyState {
      */
     readonly dnsViewZones?: pulumi.Input<boolean>;
     /**
-     * List of zones that the apikey may access.
-     */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    /**
+     * List of zones that the apikey may access.
+     */
+    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the apikey may not access.
      */
     readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The IP addresses to whitelist for this key.
-     */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Sets exclusivity on this IP whitelist.
      */
     readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    /**
+     * The IP addresses to whitelist for this key.
+     */
+    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the apikey can manage IPAM.
      * Only relevant for the DDI product.
@@ -441,25 +442,25 @@ export interface APIKeyArgs {
      */
     readonly dnsViewZones?: pulumi.Input<boolean>;
     /**
-     * List of zones that the apikey may access.
-     */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    /**
+     * List of zones that the apikey may access.
+     */
+    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the apikey may not access.
      */
     readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The IP addresses to whitelist for this key.
-     */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Sets exclusivity on this IP whitelist.
      */
     readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    /**
+     * The IP addresses to whitelist for this key.
+     */
+    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the apikey can manage IPAM.
      * Only relevant for the DDI product.

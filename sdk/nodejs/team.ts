@@ -10,7 +10,44 @@ import * as utilities from "./utilities";
  * Provides a NS1 Team resource. This can be used to create, modify, and delete
  * teams. The credentials used must have the `manageTeams` permission set.
  *
+ * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Create a new NS1 Team
+ * const example = new ns1.Team("example", {
+ *     accountManageUsers: false,
+ *     // Configure permissions
+ *     dnsViewZones: false,
+ *     ipWhitelists: [
+ *         // Optional IP whitelists
+ *         {
+ *             name: "whitelist-1",
+ *             values: [
+ *                 "1.1.1.1",
+ *                 "2.2.2.2",
+ *             ],
+ *         },
+ *         {
+ *             name: "whitelist-2",
+ *             values: [
+ *                 "3.3.3.3",
+ *                 "4.4.4.4",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * // Another team
+ * const example2 = new ns1.Team("example2", {
+ *     dataManageDatasources: true,
+ *     dnsViewZones: true,
+ *     dnsZonesAllows: ["mytest.zone"],
+ *     dnsZonesAllowByDefault: true,
+ *     dnsZonesDenies: ["myother.zone"],
+ * });
+ * ```
  * ## NS1 Documentation
  *
  * [Team Api Docs](https://ns1.com/api#team)
@@ -23,6 +60,7 @@ export class Team extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TeamState, opts?: pulumi.CustomResourceOptions): Team {
         return new Team(name, <any>state, { ...opts, id: id });
@@ -105,13 +143,13 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly dnsViewZones!: pulumi.Output<boolean | undefined>;
     /**
-     * List of zones that the team may access.
-     */
-    public readonly dnsZonesAllows!: pulumi.Output<string[] | undefined>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     public readonly dnsZonesAllowByDefault!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of zones that the team may access.
+     */
+    public readonly dnsZonesAllows!: pulumi.Output<string[] | undefined>;
     /**
      * List of zones that the team may not access.
      */
@@ -183,8 +221,8 @@ export class Team extends pulumi.CustomResource {
             inputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
             inputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
-            inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
             inputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
+            inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
             inputs["dnsZonesDenies"] = state ? state.dnsZonesDenies : undefined;
             inputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
             inputs["ipamManageIpam"] = state ? state.ipamManageIpam : undefined;
@@ -212,8 +250,8 @@ export class Team extends pulumi.CustomResource {
             inputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
             inputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
-            inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
             inputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
+            inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
             inputs["dnsZonesDenies"] = args ? args.dnsZonesDenies : undefined;
             inputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
             inputs["ipamManageIpam"] = args ? args.ipamManageIpam : undefined;
@@ -303,13 +341,13 @@ export interface TeamState {
      */
     readonly dnsViewZones?: pulumi.Input<boolean>;
     /**
-     * List of zones that the team may access.
-     */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    /**
+     * List of zones that the team may access.
+     */
+    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the team may not access.
      */
@@ -422,13 +460,13 @@ export interface TeamArgs {
      */
     readonly dnsViewZones?: pulumi.Input<boolean>;
     /**
-     * List of zones that the team may access.
-     */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    /**
+     * List of zones that the team may access.
+     */
+    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the team may not access.
      */

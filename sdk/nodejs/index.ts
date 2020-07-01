@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./aPIKey";
+export * from "./apikey";
 export * from "./dataFeed";
 export * from "./dataSource";
 export * from "./getDNSSec";
@@ -16,6 +16,6 @@ export * from "./user";
 export * from "./zone";
 
 // Export sub-modules:
-import * as config from "./config/index";
-import * as types from "./types/index";
+import * as config from "./config";
+import * as types from "./types";
 export {config, types};

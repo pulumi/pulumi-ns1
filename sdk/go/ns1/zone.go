@@ -31,8 +31,8 @@ type Zone struct {
 	// The target zone(domain name) to link to.
 	Link pulumi.StringPtrOutput `pulumi:"link"`
 	// - List of network IDs (`int`) for which the zone
-	// should be made available. Default is network 0, the primary NSONE Global
-	// Network. Normally, you should not have to worry about this.
+	//   should be made available. Default is network 0, the primary NSONE Global
+	//   Network. Normally, you should not have to worry about this.
 	Networks pulumi.IntArrayOutput `pulumi:"networks"`
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
@@ -105,8 +105,8 @@ type zoneState struct {
 	// The target zone(domain name) to link to.
 	Link *string `pulumi:"link"`
 	// - List of network IDs (`int`) for which the zone
-	// should be made available. Default is network 0, the primary NSONE Global
-	// Network. Normally, you should not have to worry about this.
+	//   should be made available. Default is network 0, the primary NSONE Global
+	//   Network. Normally, you should not have to worry about this.
 	Networks []int `pulumi:"networks"`
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
@@ -149,8 +149,8 @@ type ZoneState struct {
 	// The target zone(domain name) to link to.
 	Link pulumi.StringPtrInput
 	// - List of network IDs (`int`) for which the zone
-	// should be made available. Default is network 0, the primary NSONE Global
-	// Network. Normally, you should not have to worry about this.
+	//   should be made available. Default is network 0, the primary NSONE Global
+	//   Network. Normally, you should not have to worry about this.
 	Networks pulumi.IntArrayInput
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
@@ -193,8 +193,8 @@ type zoneArgs struct {
 	// The target zone(domain name) to link to.
 	Link *string `pulumi:"link"`
 	// - List of network IDs (`int`) for which the zone
-	// should be made available. Default is network 0, the primary NSONE Global
-	// Network. Normally, you should not have to worry about this.
+	//   should be made available. Default is network 0, the primary NSONE Global
+	//   Network. Normally, you should not have to worry about this.
 	Networks []int `pulumi:"networks"`
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
@@ -234,8 +234,8 @@ type ZoneArgs struct {
 	// The target zone(domain name) to link to.
 	Link pulumi.StringPtrInput
 	// - List of network IDs (`int`) for which the zone
-	// should be made available. Default is network 0, the primary NSONE Global
-	// Network. Normally, you should not have to worry about this.
+	//   should be made available. Default is network 0, the primary NSONE Global
+	//   Network. Normally, you should not have to worry about this.
 	Networks pulumi.IntArrayInput
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).

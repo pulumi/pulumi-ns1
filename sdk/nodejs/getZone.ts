@@ -11,6 +11,17 @@ import * as utilities from "./utilities";
  * information from NS1 into your configurations. For read/write operations, you
  * should use a resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Get details about a NS1 Zone.
+ * const example = pulumi.output(ns1.getZone({
+ *     zone: "terraform.example.io",
+ * }, { async: true }));
+ * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     if (!opts) {
@@ -67,6 +78,10 @@ export interface GetZoneResult {
      */
     readonly hostmaster: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The linked target zone.
      */
     readonly link: string;
@@ -101,8 +116,4 @@ export interface GetZoneResult {
      */
     readonly ttl: number;
     readonly zone: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

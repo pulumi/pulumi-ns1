@@ -12,7 +12,46 @@ import (
 
 // Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
+// 			Sourcetype: pulumi.String("nsone_v1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ns1.NewDataFeed(ctx, "uswestFeed", &ns1.DataFeedArgs{
+// 			Config: pulumi.StringMap{
+// 				"label": pulumi.String("uswest"),
+// 			},
+// 			SourceId: example.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ns1.NewDataFeed(ctx, "useastFeed", &ns1.DataFeedArgs{
+// 			Config: pulumi.StringMap{
+// 				"label": pulumi.String("useast"),
+// 			},
+// 			SourceId: example.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## NS1 Documentation
 //
 // [Datafeed Api Doc](https://ns1.com/api#data-feeds)

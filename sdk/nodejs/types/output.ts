@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface GetDNSSecDelegation {
@@ -129,7 +130,7 @@ export interface NotifyListNotification {
      */
     config: {[key: string]: any};
     /**
-     * The type of notifier. Available notifiers are indicated in /notifytypes endpoint. 
+     * The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
      */
     type: string;
 }
