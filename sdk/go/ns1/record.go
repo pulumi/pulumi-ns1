@@ -12,7 +12,6 @@ import (
 
 // Provides a NS1 Record resource. This can be used to create, modify, and delete records.
 //
-//
 // ## NS1 Documentation
 //
 // [Record Api Doc](https://ns1.com/api#records)
@@ -36,7 +35,8 @@ type Record struct {
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
-	Regions      RecordRegionArrayOutput  `pulumi:"regions"`
+	Regions RecordRegionArrayOutput `pulumi:"regions"`
+	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayOutput `pulumi:"shortAnswers"`
 	// The records' time to live.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
@@ -44,8 +44,8 @@ type Record struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-	// is documented below.
+	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+	//   is documented below.
 	UseClientSubnet pulumi.BoolPtrOutput `pulumi:"useClientSubnet"`
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -106,16 +106,17 @@ type recordState struct {
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
-	Regions      []RecordRegion `pulumi:"regions"`
-	ShortAnswers []string       `pulumi:"shortAnswers"`
+	Regions []RecordRegion `pulumi:"regions"`
+	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+	ShortAnswers []string `pulumi:"shortAnswers"`
 	// The records' time to live.
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
 	Type *string `pulumi:"type"`
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-	// is documented below.
+	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+	//   is documented below.
 	UseClientSubnet *bool `pulumi:"useClientSubnet"`
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -140,7 +141,8 @@ type RecordState struct {
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
-	Regions      RecordRegionArrayInput
+	Regions RecordRegionArrayInput
+	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
 	// The records' time to live.
 	Ttl pulumi.IntPtrInput
@@ -148,8 +150,8 @@ type RecordState struct {
 	Type pulumi.StringPtrInput
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-	// is documented below.
+	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+	//   is documented below.
 	UseClientSubnet pulumi.BoolPtrInput
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -178,16 +180,17 @@ type recordArgs struct {
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
-	Regions      []RecordRegion `pulumi:"regions"`
-	ShortAnswers []string       `pulumi:"shortAnswers"`
+	Regions []RecordRegion `pulumi:"regions"`
+	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+	ShortAnswers []string `pulumi:"shortAnswers"`
 	// The records' time to live.
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
 	Type string `pulumi:"type"`
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-	// is documented below.
+	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+	//   is documented below.
 	UseClientSubnet *bool `pulumi:"useClientSubnet"`
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -213,7 +216,8 @@ type RecordArgs struct {
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
-	Regions      RecordRegionArrayInput
+	Regions RecordRegionArrayInput
+	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
 	// The records' time to live.
 	Ttl pulumi.IntPtrInput
@@ -221,8 +225,8 @@ type RecordArgs struct {
 	Type pulumi.StringInput
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-	// is documented below.
+	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+	//   is documented below.
 	UseClientSubnet pulumi.BoolPtrInput
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.

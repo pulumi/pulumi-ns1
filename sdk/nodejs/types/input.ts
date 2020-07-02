@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface MonitoringJobRule {
     /**
@@ -25,7 +26,7 @@ export interface NotifyListNotification {
      */
     config: pulumi.Input<{[key: string]: any}>;
     /**
-     * The type of notifier. Available notifiers are indicated in /notifytypes endpoint. 
+     * The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
      */
     type: pulumi.Input<string>;
 }

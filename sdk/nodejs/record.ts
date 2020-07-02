@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Record resource. This can be used to create, modify, and delete records.
  *
- *
  * ## NS1 Documentation
  *
  * [Record Api Doc](https://ns1.com/api#records)
@@ -22,6 +21,7 @@ export class Record extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RecordState, opts?: pulumi.CustomResourceOptions): Record {
         return new Record(name, <any>state, { ...opts, id: id });
@@ -69,6 +69,9 @@ export class Record extends pulumi.CustomResource {
      * documented below. Please note the ordering requirement!
      */
     public readonly regions!: pulumi.Output<outputs.RecordRegion[] | undefined>;
+    /**
+     * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+     */
     public readonly shortAnswers!: pulumi.Output<string[] | undefined>;
     /**
      * The records' time to live.
@@ -180,6 +183,9 @@ export interface RecordState {
      * documented below. Please note the ordering requirement!
      */
     readonly regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
+    /**
+     * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+     */
     readonly shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The records' time to live.
@@ -235,6 +241,9 @@ export interface RecordArgs {
      * documented below. Please note the ordering requirement!
      */
     readonly regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
+    /**
+     * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+     */
     readonly shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The records' time to live.

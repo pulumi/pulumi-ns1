@@ -18,7 +18,7 @@ namespace Pulumi.Ns1.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object> Config;
         /// <summary>
-        /// The type of notifier. Available notifiers are indicated in /notifytypes endpoint. 
+        /// The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
         /// </summary>
         public readonly string Type;
 

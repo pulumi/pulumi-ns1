@@ -9,6 +9,21 @@ import * as utilities from "./utilities";
 /**
  * Provides DNSSEC details about a NS1 Zone.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Get DNSSEC details about a NS1 Zone.
+ * const exampleZone = new ns1.Zone("example", {
+ *     dnssec: true,
+ *     zone: "terraform.example.io",
+ * });
+ * const exampleDNSSec = exampleZone.zone.apply(zone => ns1.getDNSSec({
+ *     zone: zone,
+ * }, { async: true }));
+ * ```
  */
 export function getDNSSec(args: GetDNSSecArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSecResult> {
     if (!opts) {
@@ -43,12 +58,12 @@ export interface GetDNSSecResult {
      */
     readonly delegation: outputs.GetDNSSecDelegation;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * (Computed) - Keys field is documented below.
      */
     readonly keys: outputs.GetDNSSecKeys;
     readonly zone: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

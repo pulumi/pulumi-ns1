@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export class User extends pulumi.CustomResource {
@@ -14,6 +12,7 @@ export class User extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserState, opts?: pulumi.CustomResourceOptions): User {
         return new User(name, <any>state, { ...opts, id: id });
@@ -96,13 +95,13 @@ export class User extends pulumi.CustomResource {
      */
     public readonly dnsViewZones!: pulumi.Output<boolean | undefined>;
     /**
-     * List of zones that the user may access.
-     */
-    public readonly dnsZonesAllows!: pulumi.Output<string[] | undefined>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     public readonly dnsZonesAllowByDefault!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of zones that the user may access.
+     */
+    public readonly dnsZonesAllows!: pulumi.Output<string[] | undefined>;
     /**
      * List of zones that the user may not access.
      */
@@ -112,13 +111,13 @@ export class User extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * The IP addresses to whitelist for this key.
-     */
-    public readonly ipWhitelists!: pulumi.Output<string[] | undefined>;
-    /**
      * Sets exclusivity on this IP whitelist.
      */
     public readonly ipWhitelistStrict!: pulumi.Output<boolean | undefined>;
+    /**
+     * The IP addresses to whitelist for this key.
+     */
+    public readonly ipWhitelists!: pulumi.Output<string[] | undefined>;
     /**
      * Whether the user can manage IPAM.
      * Only relevant for the DDI product.
@@ -190,12 +189,12 @@ export class User extends pulumi.CustomResource {
             inputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
             inputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
-            inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
             inputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
+            inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
             inputs["dnsZonesDenies"] = state ? state.dnsZonesDenies : undefined;
             inputs["email"] = state ? state.email : undefined;
-            inputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
             inputs["ipWhitelistStrict"] = state ? state.ipWhitelistStrict : undefined;
+            inputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
             inputs["ipamManageIpam"] = state ? state.ipamManageIpam : undefined;
             inputs["ipamViewIpam"] = state ? state.ipamViewIpam : undefined;
             inputs["monitoringManageJobs"] = state ? state.monitoringManageJobs : undefined;
@@ -230,12 +229,12 @@ export class User extends pulumi.CustomResource {
             inputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
             inputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
-            inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
             inputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
+            inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
             inputs["dnsZonesDenies"] = args ? args.dnsZonesDenies : undefined;
             inputs["email"] = args ? args.email : undefined;
-            inputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
             inputs["ipWhitelistStrict"] = args ? args.ipWhitelistStrict : undefined;
+            inputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
             inputs["ipamManageIpam"] = args ? args.ipamManageIpam : undefined;
             inputs["ipamViewIpam"] = args ? args.ipamViewIpam : undefined;
             inputs["monitoringManageJobs"] = args ? args.monitoringManageJobs : undefined;
@@ -326,13 +325,13 @@ export interface UserState {
      */
     readonly dnsViewZones?: pulumi.Input<boolean>;
     /**
-     * List of zones that the user may access.
-     */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    /**
+     * List of zones that the user may access.
+     */
+    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the user may not access.
      */
@@ -342,13 +341,13 @@ export interface UserState {
      */
     readonly email?: pulumi.Input<string>;
     /**
-     * The IP addresses to whitelist for this key.
-     */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Sets exclusivity on this IP whitelist.
      */
     readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    /**
+     * The IP addresses to whitelist for this key.
+     */
+    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the user can manage IPAM.
      * Only relevant for the DDI product.
@@ -461,13 +460,13 @@ export interface UserArgs {
      */
     readonly dnsViewZones?: pulumi.Input<boolean>;
     /**
-     * List of zones that the user may access.
-     */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
     readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    /**
+     * List of zones that the user may access.
+     */
+    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the user may not access.
      */
@@ -477,13 +476,13 @@ export interface UserArgs {
      */
     readonly email: pulumi.Input<string>;
     /**
-     * The IP addresses to whitelist for this key.
-     */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Sets exclusivity on this IP whitelist.
      */
     readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    /**
+     * The IP addresses to whitelist for this key.
+     */
+    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the user can manage IPAM.
      * Only relevant for the DDI product.

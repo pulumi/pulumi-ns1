@@ -25,7 +25,7 @@ namespace Pulumi.Ns1.Inputs
         }
 
         /// <summary>
-        /// The type of notifier. Available notifiers are indicated in /notifytypes endpoint. 
+        /// The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

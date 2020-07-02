@@ -12,7 +12,6 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Record resource. This can be used to create, modify, and delete records.
     /// 
-    /// 
     /// ## NS1 Documentation
     /// 
     /// [Record Api Doc](https://ns1.com/api#records)
@@ -201,14 +200,7 @@ namespace Pulumi.Ns1
 
         [Input("shortAnswers")]
         private InputList<string>? _shortAnswers;
-        [Obsolete(@"short_answers will be deprecated in a future release.
-It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""short_answers"" can be achieved with dynamic blocks:
-  dynamic ""answers"" {
-    for_each = [""4.4.4.4"", ""5.5.5.5""]
-    content {
-      answer  = answers.value
-    }
-  }")]
+        [Obsolete(@"short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block.")]
         public InputList<string> ShortAnswers
         {
             get => _shortAnswers ?? (_shortAnswers = new InputList<string>());
@@ -315,14 +307,7 @@ It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+
 
         [Input("shortAnswers")]
         private InputList<string>? _shortAnswers;
-        [Obsolete(@"short_answers will be deprecated in a future release.
-It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""short_answers"" can be achieved with dynamic blocks:
-  dynamic ""answers"" {
-    for_each = [""4.4.4.4"", ""5.5.5.5""]
-    content {
-      answer  = answers.value
-    }
-  }")]
+        [Obsolete(@"short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block.")]
         public InputList<string> ShortAnswers
         {
             get => _shortAnswers ?? (_shortAnswers = new InputList<string>());

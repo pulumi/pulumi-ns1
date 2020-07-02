@@ -13,7 +13,62 @@ namespace Pulumi.Ns1
     /// Provides a NS1 Team resource. This can be used to create, modify, and delete
     /// teams. The credentials used must have the `manage_teams` permission set.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new NS1 Team
+    ///         var example = new Ns1.Team("example", new Ns1.TeamArgs
+    ///         {
+    ///             AccountManageUsers = false,
+    ///             DnsViewZones = false,
+    ///             IpWhitelists = 
+    ///             {
+    ///                 new Ns1.Inputs.TeamIpWhitelistArgs
+    ///                 {
+    ///                     Name = "whitelist-1",
+    ///                     Values = 
+    ///                     {
+    ///                         "1.1.1.1",
+    ///                         "2.2.2.2",
+    ///                     },
+    ///                 },
+    ///                 new Ns1.Inputs.TeamIpWhitelistArgs
+    ///                 {
+    ///                     Name = "whitelist-2",
+    ///                     Values = 
+    ///                     {
+    ///                         "3.3.3.3",
+    ///                         "4.4.4.4",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         // Another team
+    ///         var example2 = new Ns1.Team("example2", new Ns1.TeamArgs
+    ///         {
+    ///             DataManageDatasources = true,
+    ///             DnsViewZones = true,
+    ///             DnsZonesAllows = 
+    ///             {
+    ///                 "mytest.zone",
+    ///             },
+    ///             DnsZonesAllowByDefault = true,
+    ///             DnsZonesDenies = 
+    ///             {
+    ///                 "myother.zone",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## NS1 Documentation
     /// 
     /// [Team Api Docs](https://ns1.com/api#team)
