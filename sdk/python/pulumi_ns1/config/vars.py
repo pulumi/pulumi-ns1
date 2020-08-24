@@ -5,19 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = [
+    'apikey',
+    'enable_ddi',
+    'endpoint',
+    'ignore_ssl',
+    'rate_limit_parallelism',
+]
 
 __config__ = pulumi.Config('ns1')
 
-apikey = __config__.get('apikey') or utilities.get_env('NS1_APIKEY')
+apikey = __config__.get('apikey') or _utilities.get_env('NS1_APIKEY')
 """
 The ns1 API key, this is required
 """
 
 enable_ddi = __config__.get('enableDdi')
 
-endpoint = __config__.get('endpoint') or utilities.get_env('NS1_ENDPOINT')
+endpoint = __config__.get('endpoint') or _utilities.get_env('NS1_ENDPOINT')
 
 ignore_ssl = __config__.get('ignoreSsl')
 

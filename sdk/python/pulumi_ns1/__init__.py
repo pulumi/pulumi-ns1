@@ -15,3 +15,10 @@ from .record import *
 from .team import *
 from .user import *
 from .zone import *
+from ._inputs import *
+from . import outputs
+
+# Make subpackages available:
+from . import (
+    config,
+)

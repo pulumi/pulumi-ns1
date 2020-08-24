@@ -5,128 +5,48 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Team']
 
 
 class Team(pulumi.CustomResource):
-    account_manage_account_settings: pulumi.Output[bool]
-    """
-    Whether the team can modify account settings.
-    """
-    account_manage_apikeys: pulumi.Output[bool]
-    """
-    Whether the team can modify account apikeys.
-    """
-    account_manage_payment_methods: pulumi.Output[bool]
-    """
-    Whether the team can modify account payment methods.
-    """
-    account_manage_plan: pulumi.Output[bool]
-    """
-    Whether the team can modify the account plan.
-    """
-    account_manage_teams: pulumi.Output[bool]
-    """
-    Whether the team can modify other teams in the account.
-    """
-    account_manage_users: pulumi.Output[bool]
-    """
-    Whether the team can modify account users.
-    """
-    account_view_activity_log: pulumi.Output[bool]
-    """
-    Whether the team can view activity logs.
-    """
-    account_view_invoices: pulumi.Output[bool]
-    """
-    Whether the team can view invoices.
-    """
-    data_manage_datafeeds: pulumi.Output[bool]
-    """
-    Whether the team can modify data feeds.
-    """
-    data_manage_datasources: pulumi.Output[bool]
-    """
-    Whether the team can modify data sources.
-    """
-    data_push_to_datafeeds: pulumi.Output[bool]
-    """
-    Whether the team can publish to data feeds.
-    """
-    dhcp_manage_dhcp: pulumi.Output[bool]
-    """
-    Whether the team can manage DHCP.
-    Only relevant for the DDI product.
-    """
-    dhcp_view_dhcp: pulumi.Output[bool]
-    """
-    Whether the team can view DHCP.
-    Only relevant for the DDI product.
-    """
-    dns_manage_zones: pulumi.Output[bool]
-    """
-    Whether the team can modify the accounts zones.
-    """
-    dns_view_zones: pulumi.Output[bool]
-    """
-    Whether the team can view the accounts zones.
-    """
-    dns_zones_allow_by_default: pulumi.Output[bool]
-    """
-    If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
-    """
-    dns_zones_allows: pulumi.Output[list]
-    """
-    List of zones that the team may access.
-    """
-    dns_zones_denies: pulumi.Output[list]
-    """
-    List of zones that the team may not access.
-    """
-    ip_whitelists: pulumi.Output[list]
-    """
-    The IP addresses to whitelist for this key.
-
-      * `name` (`str`) - The free form name of the team.
-      * `values` (`list`)
-    """
-    ipam_manage_ipam: pulumi.Output[bool]
-    """
-    Whether the team can manage IPAM.
-    Only relevant for the DDI product.
-    """
-    ipam_view_ipam: pulumi.Output[bool]
-    """
-    Whether the team can view IPAM.
-    Only relevant for the DDI product.
-    """
-    monitoring_manage_jobs: pulumi.Output[bool]
-    """
-    Whether the team can modify monitoring jobs.
-    """
-    monitoring_manage_lists: pulumi.Output[bool]
-    """
-    Whether the team can modify notification lists.
-    """
-    monitoring_view_jobs: pulumi.Output[bool]
-    """
-    Whether the team can view monitoring jobs.
-    """
-    name: pulumi.Output[str]
-    """
-    The free form name of the team.
-    """
-    security_manage_active_directory: pulumi.Output[bool]
-    """
-    Whether the team can manage global active directory.
-    Only relevant for the DDI product.
-    """
-    security_manage_global2fa: pulumi.Output[bool]
-    """
-    Whether the team can manage global two factor authentication.
-    """
-    def __init__(__self__, resource_name, opts=None, account_manage_account_settings=None, account_manage_apikeys=None, account_manage_payment_methods=None, account_manage_plan=None, account_manage_teams=None, account_manage_users=None, account_view_activity_log=None, account_view_invoices=None, data_manage_datafeeds=None, data_manage_datasources=None, data_push_to_datafeeds=None, dhcp_manage_dhcp=None, dhcp_view_dhcp=None, dns_manage_zones=None, dns_view_zones=None, dns_zones_allow_by_default=None, dns_zones_allows=None, dns_zones_denies=None, ip_whitelists=None, ipam_manage_ipam=None, ipam_view_ipam=None, monitoring_manage_jobs=None, monitoring_manage_lists=None, monitoring_view_jobs=None, name=None, security_manage_active_directory=None, security_manage_global2fa=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_manage_account_settings: Optional[pulumi.Input[bool]] = None,
+                 account_manage_apikeys: Optional[pulumi.Input[bool]] = None,
+                 account_manage_payment_methods: Optional[pulumi.Input[bool]] = None,
+                 account_manage_plan: Optional[pulumi.Input[bool]] = None,
+                 account_manage_teams: Optional[pulumi.Input[bool]] = None,
+                 account_manage_users: Optional[pulumi.Input[bool]] = None,
+                 account_view_activity_log: Optional[pulumi.Input[bool]] = None,
+                 account_view_invoices: Optional[pulumi.Input[bool]] = None,
+                 data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
+                 data_manage_datasources: Optional[pulumi.Input[bool]] = None,
+                 data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
+                 dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
+                 dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
+                 dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+                 dns_view_zones: Optional[pulumi.Input[bool]] = None,
+                 dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
+                 dns_zones_allows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dns_zones_denies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_whitelists: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
+                 ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
+                 ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+                 monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
+                 monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+                 monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
+                 security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a NS1 Team resource. This can be used to create, modify, and delete
         teams. The credentials used must have the `manage_teams` permission set.
@@ -142,20 +62,20 @@ class Team(pulumi.CustomResource):
             account_manage_users=False,
             dns_view_zones=False,
             ip_whitelists=[
-                {
-                    "name": "whitelist-1",
-                    "values": [
+                ns1.TeamIpWhitelistArgs(
+                    name="whitelist-1",
+                    values=[
                         "1.1.1.1",
                         "2.2.2.2",
                     ],
-                },
-                {
-                    "name": "whitelist-2",
-                    "values": [
+                ),
+                ns1.TeamIpWhitelistArgs(
+                    name="whitelist-2",
+                    values=[
                         "3.3.3.3",
                         "4.4.4.4",
                     ],
-                },
+                ),
             ])
         # Another team
         example2 = ns1.Team("example2",
@@ -189,9 +109,9 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_manage_zones: Whether the team can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the team can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
-        :param pulumi.Input[list] dns_zones_allows: List of zones that the team may access.
-        :param pulumi.Input[list] dns_zones_denies: List of zones that the team may not access.
-        :param pulumi.Input[list] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
+        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: The IP addresses to whitelist for this key.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the team can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] ipam_view_ipam: Whether the team can view IPAM.
@@ -203,11 +123,6 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] security_manage_active_directory: Whether the team can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
-
-        The **ip_whitelists** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The free form name of the team.
-          * `values` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -220,7 +135,7 @@ class Team(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -260,13 +175,42 @@ class Team(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_manage_account_settings=None, account_manage_apikeys=None, account_manage_payment_methods=None, account_manage_plan=None, account_manage_teams=None, account_manage_users=None, account_view_activity_log=None, account_view_invoices=None, data_manage_datafeeds=None, data_manage_datasources=None, data_push_to_datafeeds=None, dhcp_manage_dhcp=None, dhcp_view_dhcp=None, dns_manage_zones=None, dns_view_zones=None, dns_zones_allow_by_default=None, dns_zones_allows=None, dns_zones_denies=None, ip_whitelists=None, ipam_manage_ipam=None, ipam_view_ipam=None, monitoring_manage_jobs=None, monitoring_manage_lists=None, monitoring_view_jobs=None, name=None, security_manage_active_directory=None, security_manage_global2fa=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_manage_account_settings: Optional[pulumi.Input[bool]] = None,
+            account_manage_apikeys: Optional[pulumi.Input[bool]] = None,
+            account_manage_payment_methods: Optional[pulumi.Input[bool]] = None,
+            account_manage_plan: Optional[pulumi.Input[bool]] = None,
+            account_manage_teams: Optional[pulumi.Input[bool]] = None,
+            account_manage_users: Optional[pulumi.Input[bool]] = None,
+            account_view_activity_log: Optional[pulumi.Input[bool]] = None,
+            account_view_invoices: Optional[pulumi.Input[bool]] = None,
+            data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
+            data_manage_datasources: Optional[pulumi.Input[bool]] = None,
+            data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
+            dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
+            dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
+            dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+            dns_view_zones: Optional[pulumi.Input[bool]] = None,
+            dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
+            dns_zones_allows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            dns_zones_denies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            ip_whitelists: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
+            ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
+            ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+            monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
+            monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+            monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
+            security_manage_global2fa: Optional[pulumi.Input[bool]] = None) -> 'Team':
         """
         Get an existing Team resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] account_manage_account_settings: Whether the team can modify account settings.
         :param pulumi.Input[bool] account_manage_apikeys: Whether the team can modify account apikeys.
@@ -286,9 +230,9 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_manage_zones: Whether the team can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the team can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
-        :param pulumi.Input[list] dns_zones_allows: List of zones that the team may access.
-        :param pulumi.Input[list] dns_zones_denies: List of zones that the team may not access.
-        :param pulumi.Input[list] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
+        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: The IP addresses to whitelist for this key.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the team can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] ipam_view_ipam: Whether the team can view IPAM.
@@ -300,11 +244,6 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] security_manage_active_directory: Whether the team can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
-
-        The **ip_whitelists** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The free form name of the team.
-          * `values` (`pulumi.Input[list]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,8 +278,230 @@ class Team(pulumi.CustomResource):
         __props__["security_manage_global2fa"] = security_manage_global2fa
         return Team(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountManageAccountSettings")
+    def account_manage_account_settings(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify account settings.
+        """
+        return pulumi.get(self, "account_manage_account_settings")
+
+    @property
+    @pulumi.getter(name="accountManageApikeys")
+    def account_manage_apikeys(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify account apikeys.
+        """
+        return pulumi.get(self, "account_manage_apikeys")
+
+    @property
+    @pulumi.getter(name="accountManagePaymentMethods")
+    def account_manage_payment_methods(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify account payment methods.
+        """
+        return pulumi.get(self, "account_manage_payment_methods")
+
+    @property
+    @pulumi.getter(name="accountManagePlan")
+    def account_manage_plan(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify the account plan.
+        """
+        return pulumi.get(self, "account_manage_plan")
+
+    @property
+    @pulumi.getter(name="accountManageTeams")
+    def account_manage_teams(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify other teams in the account.
+        """
+        return pulumi.get(self, "account_manage_teams")
+
+    @property
+    @pulumi.getter(name="accountManageUsers")
+    def account_manage_users(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify account users.
+        """
+        return pulumi.get(self, "account_manage_users")
+
+    @property
+    @pulumi.getter(name="accountViewActivityLog")
+    def account_view_activity_log(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can view activity logs.
+        """
+        return pulumi.get(self, "account_view_activity_log")
+
+    @property
+    @pulumi.getter(name="accountViewInvoices")
+    def account_view_invoices(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can view invoices.
+        """
+        return pulumi.get(self, "account_view_invoices")
+
+    @property
+    @pulumi.getter(name="dataManageDatafeeds")
+    def data_manage_datafeeds(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify data feeds.
+        """
+        return pulumi.get(self, "data_manage_datafeeds")
+
+    @property
+    @pulumi.getter(name="dataManageDatasources")
+    def data_manage_datasources(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify data sources.
+        """
+        return pulumi.get(self, "data_manage_datasources")
+
+    @property
+    @pulumi.getter(name="dataPushToDatafeeds")
+    def data_push_to_datafeeds(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can publish to data feeds.
+        """
+        return pulumi.get(self, "data_push_to_datafeeds")
+
+    @property
+    @pulumi.getter(name="dhcpManageDhcp")
+    def dhcp_manage_dhcp(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can manage DHCP.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "dhcp_manage_dhcp")
+
+    @property
+    @pulumi.getter(name="dhcpViewDhcp")
+    def dhcp_view_dhcp(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can view DHCP.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "dhcp_view_dhcp")
+
+    @property
+    @pulumi.getter(name="dnsManageZones")
+    def dns_manage_zones(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify the accounts zones.
+        """
+        return pulumi.get(self, "dns_manage_zones")
+
+    @property
+    @pulumi.getter(name="dnsViewZones")
+    def dns_view_zones(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can view the accounts zones.
+        """
+        return pulumi.get(self, "dns_view_zones")
+
+    @property
+    @pulumi.getter(name="dnsZonesAllowByDefault")
+    def dns_zones_allow_by_default(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+        """
+        return pulumi.get(self, "dns_zones_allow_by_default")
+
+    @property
+    @pulumi.getter(name="dnsZonesAllows")
+    def dns_zones_allows(self) -> pulumi.Output[Optional[List[str]]]:
+        """
+        List of zones that the team may access.
+        """
+        return pulumi.get(self, "dns_zones_allows")
+
+    @property
+    @pulumi.getter(name="dnsZonesDenies")
+    def dns_zones_denies(self) -> pulumi.Output[Optional[List[str]]]:
+        """
+        List of zones that the team may not access.
+        """
+        return pulumi.get(self, "dns_zones_denies")
+
+    @property
+    @pulumi.getter(name="ipWhitelists")
+    def ip_whitelists(self) -> pulumi.Output[Optional[List['outputs.TeamIpWhitelist']]]:
+        """
+        The IP addresses to whitelist for this key.
+        """
+        return pulumi.get(self, "ip_whitelists")
+
+    @property
+    @pulumi.getter(name="ipamManageIpam")
+    def ipam_manage_ipam(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can manage IPAM.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "ipam_manage_ipam")
+
+    @property
+    @pulumi.getter(name="ipamViewIpam")
+    def ipam_view_ipam(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can view IPAM.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "ipam_view_ipam")
+
+    @property
+    @pulumi.getter(name="monitoringManageJobs")
+    def monitoring_manage_jobs(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify monitoring jobs.
+        """
+        return pulumi.get(self, "monitoring_manage_jobs")
+
+    @property
+    @pulumi.getter(name="monitoringManageLists")
+    def monitoring_manage_lists(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can modify notification lists.
+        """
+        return pulumi.get(self, "monitoring_manage_lists")
+
+    @property
+    @pulumi.getter(name="monitoringViewJobs")
+    def monitoring_view_jobs(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can view monitoring jobs.
+        """
+        return pulumi.get(self, "monitoring_view_jobs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The free form name of the team.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="securityManageActiveDirectory")
+    def security_manage_active_directory(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can manage global active directory.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "security_manage_active_directory")
+
+    @property
+    @pulumi.getter(name="securityManageGlobal2fa")
+    def security_manage_global2fa(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can manage global two factor authentication.
+        """
+        return pulumi.get(self, "security_manage_global2fa")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
