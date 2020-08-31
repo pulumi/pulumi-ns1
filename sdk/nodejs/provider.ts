@@ -35,11 +35,13 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        inputs["apikey"] = (args ? args.apikey : undefined) || utilities.getEnv("NS1_APIKEY");
-        inputs["enableDdi"] = pulumi.output(args ? args.enableDdi : undefined).apply(JSON.stringify);
-        inputs["endpoint"] = (args ? args.endpoint : undefined) || utilities.getEnv("NS1_ENDPOINT");
-        inputs["ignoreSsl"] = pulumi.output(args ? args.ignoreSsl : undefined).apply(JSON.stringify);
-        inputs["rateLimitParallelism"] = pulumi.output(args ? args.rateLimitParallelism : undefined).apply(JSON.stringify);
+        {
+            inputs["apikey"] = (args ? args.apikey : undefined) || utilities.getEnv("NS1_APIKEY");
+            inputs["enableDdi"] = pulumi.output(args ? args.enableDdi : undefined).apply(JSON.stringify);
+            inputs["endpoint"] = (args ? args.endpoint : undefined) || utilities.getEnv("NS1_ENDPOINT");
+            inputs["ignoreSsl"] = pulumi.output(args ? args.ignoreSsl : undefined).apply(JSON.stringify);
+            inputs["rateLimitParallelism"] = pulumi.output(args ? args.rateLimitParallelism : undefined).apply(JSON.stringify);
+        }
         if (!opts) {
             opts = {}
         }

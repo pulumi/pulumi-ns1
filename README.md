@@ -1,3 +1,11 @@
+[![Actions Status](https://github.com/pulumi/pulumi-ns1/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-ns1/actions)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fns1.svg)](https://www.npmjs.com/package/@pulumi/ns1)
+[![Python version](https://badge.fury.io/py/pulumi-ns1.svg)](https://pypi.org/project/pulumi-ns1)
+[![NuGet version](https://badge.fury.io/nu/pulumi.ns1.svg)](https://badge.fury.io/nu/pulumi.ns1)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-ns1/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-ns1/sdk/go)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-ns1/blob/master/LICENSE)
+
 # NS1 Resource Provider
 
 The NS1 resource provider for Pulumi lets you manage NS1

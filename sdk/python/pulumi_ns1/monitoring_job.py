@@ -5,79 +5,36 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MonitoringJob']
 
 
 class MonitoringJob(pulumi.CustomResource):
-    active: pulumi.Output[bool]
-    """
-    Indicates if the job is active or temporarily disabled.
-    """
-    config: pulumi.Output[dict]
-    """
-    A configuration dictionary with keys and values depending on the jobs' type.
-    """
-    frequency: pulumi.Output[float]
-    """
-    The frequency, in seconds, at which to run the monitoring job in each region.
-    """
-    job_type: pulumi.Output[str]
-    """
-    The type of monitoring job to be run. See NS1 API
-    docs for supported values.
-    """
-    name: pulumi.Output[str]
-    """
-    The free-form display name for the monitoring job.
-    """
-    notes: pulumi.Output[str]
-    """
-    Freeform notes to be included in any notifications about this job.
-    """
-    notify_delay: pulumi.Output[float]
-    """
-    The time in seconds after a failure to wait before sending a notification.
-    """
-    notify_failback: pulumi.Output[bool]
-    """
-    If true, a notification is sent when a job returns to an "up" state.
-    """
-    notify_list: pulumi.Output[str]
-    """
-    The id of the notification list to send notifications to.
-    """
-    notify_regional: pulumi.Output[bool]
-    """
-    If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
-    """
-    notify_repeat: pulumi.Output[float]
-    """
-    The time in seconds between repeat notifications of a failed job.
-    """
-    policy: pulumi.Output[str]
-    """
-    The policy for determining the monitor's global status
-    based on the status of the job in all regions. See NS1 API docs for supported values.
-    """
-    rapid_recheck: pulumi.Output[bool]
-    """
-    If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
-    """
-    regions: pulumi.Output[list]
-    """
-    The list of region codes in which to run the monitoring
-    job. See NS1 API docs for supported values.
-    """
-    rules: pulumi.Output[list]
-    """
-    A list of rules for determining failure conditions. Job Rules are documented below.
-
-      * `comparison` (`str`) - The comparison to perform on the the output.
-      * `key` (`str`) - The output key.
-      * `value` (`str`) - The value to compare to.
-    """
-    def __init__(__self__, resource_name, opts=None, active=None, config=None, frequency=None, job_type=None, name=None, notes=None, notify_delay=None, notify_failback=None, notify_list=None, notify_regional=None, notify_repeat=None, policy=None, rapid_recheck=None, regions=None, rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 frequency: Optional[pulumi.Input[float]] = None,
+                 job_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 notify_delay: Optional[pulumi.Input[float]] = None,
+                 notify_failback: Optional[pulumi.Input[bool]] = None,
+                 notify_list: Optional[pulumi.Input[str]] = None,
+                 notify_regional: Optional[pulumi.Input[bool]] = None,
+                 notify_repeat: Optional[pulumi.Input[float]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 rapid_recheck: Optional[pulumi.Input[bool]] = None,
+                 regions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MonitoringJobRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
 
@@ -107,11 +64,11 @@ class MonitoringJob(pulumi.CustomResource):
                 "sin",
                 "lga",
             ],
-            rules=[{
-                "comparison": "contains",
-                "key": "output",
-                "value": "200 OK",
-            }])
+            rules=[ns1.MonitoringJobRuleArgs(
+                comparison="contains",
+                key="output",
+                value="200 OK",
+            )])
         ```
         ## NS1 Documentation
 
@@ -120,7 +77,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicates if the job is active or temporarily disabled.
-        :param pulumi.Input[dict] config: A configuration dictionary with keys and values depending on the jobs' type.
+        :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the jobs' type.
         :param pulumi.Input[float] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. See NS1 API
                docs for supported values.
@@ -134,15 +91,9 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The policy for determining the monitor's global status
                based on the status of the job in all regions. See NS1 API docs for supported values.
         :param pulumi.Input[bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
-        :param pulumi.Input[list] regions: The list of region codes in which to run the monitoring
+        :param pulumi.Input[List[pulumi.Input[str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
-        :param pulumi.Input[list] rules: A list of rules for determining failure conditions. Job Rules are documented below.
-
-        The **rules** object supports the following:
-
-          * `comparison` (`pulumi.Input[str]`) - The comparison to perform on the the output.
-          * `key` (`pulumi.Input[str]`) - The output key.
-          * `value` (`pulumi.Input[str]`) - The value to compare to.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MonitoringJobRuleArgs']]]] rules: A list of rules for determining failure conditions. Job Rules are documented below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -155,7 +106,7 @@ class MonitoringJob(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -191,16 +142,33 @@ class MonitoringJob(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active=None, config=None, frequency=None, job_type=None, name=None, notes=None, notify_delay=None, notify_failback=None, notify_list=None, notify_regional=None, notify_repeat=None, policy=None, rapid_recheck=None, regions=None, rules=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: Optional[pulumi.Input[bool]] = None,
+            config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            frequency: Optional[pulumi.Input[float]] = None,
+            job_type: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            notes: Optional[pulumi.Input[str]] = None,
+            notify_delay: Optional[pulumi.Input[float]] = None,
+            notify_failback: Optional[pulumi.Input[bool]] = None,
+            notify_list: Optional[pulumi.Input[str]] = None,
+            notify_regional: Optional[pulumi.Input[bool]] = None,
+            notify_repeat: Optional[pulumi.Input[float]] = None,
+            policy: Optional[pulumi.Input[str]] = None,
+            rapid_recheck: Optional[pulumi.Input[bool]] = None,
+            regions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MonitoringJobRuleArgs']]]]] = None) -> 'MonitoringJob':
         """
         Get an existing MonitoringJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicates if the job is active or temporarily disabled.
-        :param pulumi.Input[dict] config: A configuration dictionary with keys and values depending on the jobs' type.
+        :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the jobs' type.
         :param pulumi.Input[float] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. See NS1 API
                docs for supported values.
@@ -214,15 +182,9 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The policy for determining the monitor's global status
                based on the status of the job in all regions. See NS1 API docs for supported values.
         :param pulumi.Input[bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
-        :param pulumi.Input[list] regions: The list of region codes in which to run the monitoring
+        :param pulumi.Input[List[pulumi.Input[str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
-        :param pulumi.Input[list] rules: A list of rules for determining failure conditions. Job Rules are documented below.
-
-        The **rules** object supports the following:
-
-          * `comparison` (`pulumi.Input[str]`) - The comparison to perform on the the output.
-          * `key` (`pulumi.Input[str]`) - The output key.
-          * `value` (`pulumi.Input[str]`) - The value to compare to.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MonitoringJobRuleArgs']]]] rules: A list of rules for determining failure conditions. Job Rules are documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,8 +207,132 @@ class MonitoringJob(pulumi.CustomResource):
         __props__["rules"] = rules
         return MonitoringJob(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def active(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates if the job is active or temporarily disabled.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def config(self) -> pulumi.Output[Mapping[str, Any]]:
+        """
+        A configuration dictionary with keys and values depending on the jobs' type.
+        """
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Output[float]:
+        """
+        The frequency, in seconds, at which to run the monitoring job in each region.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Output[str]:
+        """
+        The type of monitoring job to be run. See NS1 API
+        docs for supported values.
+        """
+        return pulumi.get(self, "job_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The free-form display name for the monitoring job.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> pulumi.Output[Optional[str]]:
+        """
+        Freeform notes to be included in any notifications about this job.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="notifyDelay")
+    def notify_delay(self) -> pulumi.Output[Optional[float]]:
+        """
+        The time in seconds after a failure to wait before sending a notification.
+        """
+        return pulumi.get(self, "notify_delay")
+
+    @property
+    @pulumi.getter(name="notifyFailback")
+    def notify_failback(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, a notification is sent when a job returns to an "up" state.
+        """
+        return pulumi.get(self, "notify_failback")
+
+    @property
+    @pulumi.getter(name="notifyList")
+    def notify_list(self) -> pulumi.Output[Optional[str]]:
+        """
+        The id of the notification list to send notifications to.
+        """
+        return pulumi.get(self, "notify_list")
+
+    @property
+    @pulumi.getter(name="notifyRegional")
+    def notify_regional(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
+        """
+        return pulumi.get(self, "notify_regional")
+
+    @property
+    @pulumi.getter(name="notifyRepeat")
+    def notify_repeat(self) -> pulumi.Output[Optional[float]]:
+        """
+        The time in seconds between repeat notifications of a failed job.
+        """
+        return pulumi.get(self, "notify_repeat")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policy for determining the monitor's global status
+        based on the status of the job in all regions. See NS1 API docs for supported values.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="rapidRecheck")
+    def rapid_recheck(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
+        """
+        return pulumi.get(self, "rapid_recheck")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> pulumi.Output[List[str]]:
+        """
+        The list of region codes in which to run the monitoring
+        job. See NS1 API docs for supported values.
+        """
+        return pulumi.get(self, "regions")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Output[Optional[List['outputs.MonitoringJobRule']]]:
+        """
+        A list of rules for determining failure conditions. Job Rules are documented below.
+        """
+        return pulumi.get(self, "rules")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
