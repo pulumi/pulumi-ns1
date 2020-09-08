@@ -6,17 +6,8 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface MonitoringJobRule {
-    /**
-     * The comparison to perform on the the output.
-     */
     comparison: pulumi.Input<string>;
-    /**
-     * The output key.
-     */
     key: pulumi.Input<string>;
-    /**
-     * The value to compare to.
-     */
     value: pulumi.Input<string>;
 }
 

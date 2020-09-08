@@ -19,7 +19,9 @@ type User struct {
 	AccountManageApikeys pulumi.BoolPtrOutput `pulumi:"accountManageApikeys"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
-	// Whether the user can modify the account plan.
+	// **Deprecated** Whether the user can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
 	// Whether the user can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrOutput `pulumi:"accountManageTeams"`
@@ -122,7 +124,9 @@ type userState struct {
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// Whether the user can modify the account plan.
+	// **Deprecated** Whether the user can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
 	// Whether the user can modify other teams in the account.
 	AccountManageTeams *bool `pulumi:"accountManageTeams"`
@@ -192,7 +196,9 @@ type UserState struct {
 	AccountManageApikeys pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// Whether the user can modify the account plan.
+	// **Deprecated** Whether the user can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
 	// Whether the user can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrInput
@@ -266,7 +272,9 @@ type userArgs struct {
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// Whether the user can modify the account plan.
+	// **Deprecated** Whether the user can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
 	// Whether the user can modify other teams in the account.
 	AccountManageTeams *bool `pulumi:"accountManageTeams"`
@@ -337,7 +345,9 @@ type UserArgs struct {
 	AccountManageApikeys pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// Whether the user can modify the account plan.
+	// **Deprecated** Whether the user can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
 	// Whether the user can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrInput

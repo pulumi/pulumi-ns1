@@ -12,21 +12,12 @@ namespace Pulumi.Ns1.Inputs
 
     public sealed class MonitoringJobRuleGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The comparison to perform on the the output.
-        /// </summary>
         [Input("comparison", required: true)]
         public Input<string> Comparison { get; set; } = null!;
 
-        /// <summary>
-        /// The output key.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The value to compare to.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

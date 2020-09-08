@@ -6,6 +6,7 @@ export * from "./apikey";
 export * from "./dataFeed";
 export * from "./dataSource";
 export * from "./getDNSSec";
+export * from "./getRecord";
 export * from "./getZone";
 export * from "./monitoringJob";
 export * from "./notifyList";

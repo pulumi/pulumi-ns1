@@ -19,10 +19,10 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/ns1-terraform/terraform-provider-ns1/ns1"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-ns1/ns1"
 )
 
 // all of the token components used below.
@@ -78,6 +78,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:    []string{"pulumi", "ns1"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
+		GitHubOrg:   "ns1-terraform",
 		Repository:  "https://github.com/pulumi/pulumi-ns1",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"apikey": {
@@ -113,6 +114,7 @@ func Provider() tfbridge.ProviderInfo {
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"ns1_zone":   {Tok: makeDataSource(mainMod, "getZone")},
 			"ns1_dnssec": {Tok: makeDataSource(mainMod, "getDNSSec")},
+			"ns1_record": {Tok: makeDataSource(mainMod, "getRecord")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

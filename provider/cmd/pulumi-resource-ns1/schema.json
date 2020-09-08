@@ -7,7 +7,7 @@
     ],
     "homepage": "https://pulumi.io",
     "license": "Apache-2.0",
-    "attribution": "This Pulumi package is based on the [`ns1` Terraform Provider](https://github.com/terraform-providers/terraform-provider-ns1).",
+    "attribution": "This Pulumi package is based on the [`ns1` Terraform Provider](https://github.com/ns1-terraform/terraform-provider-ns1).",
     "repository": "https://github.com/pulumi/pulumi-ns1",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
@@ -47,7 +47,6 @@
             "properties": {
                 "comparison": {
                     "type": "string",
-                    "description": "The comparison to perform on the the output.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -56,7 +55,6 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "The output key.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -65,7 +63,6 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The value to compare to.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -535,6 +532,125 @@
                 }
             }
         },
+        "ns1:/getRecordAnswer:getRecordAnswer": {
+            "properties": {
+                "answer": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Map of metadata\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "answer",
+                "meta",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "ns1:/getRecordFilter:getRecordFilter": {
+            "properties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "config",
+                "disabled",
+                "filter"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "ns1:/getRecordRegion:getRecordRegion": {
+            "properties": {
+                "meta": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Map of metadata\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "meta",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "ns1:/getZoneSecondary:getZoneSecondary": {
             "properties": {
                 "ip": {
@@ -639,7 +755,8 @@
                 },
                 "accountManagePlan": {
                     "type": "boolean",
-                    "description": "Whether the apikey can modify the account plan.\n"
+                    "description": "Whether the apikey can modify the account plan.\n",
+                    "deprecationMessage": "obsolete, should no longer be used"
                 },
                 "accountManageTeams": {
                     "type": "boolean",
@@ -777,7 +894,8 @@
                 },
                 "accountManagePlan": {
                     "type": "boolean",
-                    "description": "Whether the apikey can modify the account plan.\n"
+                    "description": "Whether the apikey can modify the account plan.\n",
+                    "deprecationMessage": "obsolete, should no longer be used"
                 },
                 "accountManageTeams": {
                     "type": "boolean",
@@ -909,7 +1027,8 @@
                     },
                     "accountManagePlan": {
                         "type": "boolean",
-                        "description": "Whether the apikey can modify the account plan.\n"
+                        "description": "Whether the apikey can modify the account plan.\n",
+                        "deprecationMessage": "obsolete, should no longer be used"
                     },
                     "accountManageTeams": {
                         "type": "boolean",
@@ -1173,7 +1292,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "A configuration dictionary with keys and values depending on the jobs' type.\n"
+                    "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
                 },
                 "frequency": {
                     "type": "integer",
@@ -1181,7 +1300,7 @@
                 },
                 "jobType": {
                     "type": "string",
-                    "description": "The type of monitoring job to be run. See NS1 API\ndocs for supported values.\n"
+                    "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n"
                 },
                 "name": {
                     "type": "string",
@@ -1200,8 +1319,7 @@
                     "description": "If true, a notification is sent when a job returns to an \"up\" state.\n"
                 },
                 "notifyList": {
-                    "type": "string",
-                    "description": "The id of the notification list to send notifications to.\n"
+                    "type": "string"
                 },
                 "notifyRegional": {
                     "type": "boolean",
@@ -1231,7 +1349,7 @@
                     "items": {
                         "$ref": "#/types/ns1:/MonitoringJobRule:MonitoringJobRule"
                     },
-                    "description": "A list of rules for determining failure conditions. Job Rules are documented below.\n"
+                    "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
                 }
             },
             "required": [
@@ -1251,7 +1369,7 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "A configuration dictionary with keys and values depending on the jobs' type.\n"
+                    "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
                 },
                 "frequency": {
                     "type": "integer",
@@ -1259,7 +1377,7 @@
                 },
                 "jobType": {
                     "type": "string",
-                    "description": "The type of monitoring job to be run. See NS1 API\ndocs for supported values.\n"
+                    "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n"
                 },
                 "name": {
                     "type": "string",
@@ -1278,8 +1396,7 @@
                     "description": "If true, a notification is sent when a job returns to an \"up\" state.\n"
                 },
                 "notifyList": {
-                    "type": "string",
-                    "description": "The id of the notification list to send notifications to.\n"
+                    "type": "string"
                 },
                 "notifyRegional": {
                     "type": "boolean",
@@ -1309,7 +1426,7 @@
                     "items": {
                         "$ref": "#/types/ns1:/MonitoringJobRule:MonitoringJobRule"
                     },
-                    "description": "A list of rules for determining failure conditions. Job Rules are documented below.\n"
+                    "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
                 }
             },
             "requiredInputs": [
@@ -1330,7 +1447,7 @@
                         "additionalProperties": {
                             "$ref": "pulumi.json#/Any"
                         },
-                        "description": "A configuration dictionary with keys and values depending on the jobs' type.\n"
+                        "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
                     },
                     "frequency": {
                         "type": "integer",
@@ -1338,7 +1455,7 @@
                     },
                     "jobType": {
                         "type": "string",
-                        "description": "The type of monitoring job to be run. See NS1 API\ndocs for supported values.\n"
+                        "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n"
                     },
                     "name": {
                         "type": "string",
@@ -1357,8 +1474,7 @@
                         "description": "If true, a notification is sent when a job returns to an \"up\" state.\n"
                     },
                     "notifyList": {
-                        "type": "string",
-                        "description": "The id of the notification list to send notifications to.\n"
+                        "type": "string"
                     },
                     "notifyRegional": {
                         "type": "boolean",
@@ -1388,7 +1504,7 @@
                         "items": {
                             "$ref": "#/types/ns1:/MonitoringJobRule:MonitoringJobRule"
                         },
-                        "description": "A list of rules for determining failure conditions. Job Rules are documented below.\n"
+                        "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
                     }
                 },
                 "type": "object"
@@ -1490,7 +1606,7 @@
                 },
                 "ttl": {
                     "type": "integer",
-                    "description": "The records' time to live.\n"
+                    "description": "The records' time to live (in seconds).\n"
                 },
                 "type": {
                     "type": "string",
@@ -1556,7 +1672,7 @@
                 },
                 "ttl": {
                     "type": "integer",
-                    "description": "The records' time to live.\n"
+                    "description": "The records' time to live (in seconds).\n"
                 },
                 "type": {
                     "type": "string",
@@ -1623,7 +1739,7 @@
                     },
                     "ttl": {
                         "type": "integer",
-                        "description": "The records' time to live.\n"
+                        "description": "The records' time to live (in seconds).\n"
                     },
                     "type": {
                         "type": "string",
@@ -1658,7 +1774,8 @@
                 },
                 "accountManagePlan": {
                     "type": "boolean",
-                    "description": "Whether the team can modify the account plan.\n"
+                    "description": "Whether the team can modify the account plan.\n",
+                    "deprecationMessage": "obsolete, should no longer be used"
                 },
                 "accountManageTeams": {
                     "type": "boolean",
@@ -1780,7 +1897,8 @@
                 },
                 "accountManagePlan": {
                     "type": "boolean",
-                    "description": "Whether the team can modify the account plan.\n"
+                    "description": "Whether the team can modify the account plan.\n",
+                    "deprecationMessage": "obsolete, should no longer be used"
                 },
                 "accountManageTeams": {
                     "type": "boolean",
@@ -1901,7 +2019,8 @@
                     },
                     "accountManagePlan": {
                         "type": "boolean",
-                        "description": "Whether the team can modify the account plan.\n"
+                        "description": "Whether the team can modify the account plan.\n",
+                        "deprecationMessage": "obsolete, should no longer be used"
                     },
                     "accountManageTeams": {
                         "type": "boolean",
@@ -2024,7 +2143,8 @@
                 },
                 "accountManagePlan": {
                     "type": "boolean",
-                    "description": "Whether the user can modify the account plan.\n"
+                    "description": "**Deprecated** Whether the user can modify the account plan.\n",
+                    "deprecationMessage": "obsolete, should no longer be used"
                 },
                 "accountManageTeams": {
                     "type": "boolean",
@@ -2173,7 +2293,8 @@
                 },
                 "accountManagePlan": {
                     "type": "boolean",
-                    "description": "Whether the user can modify the account plan.\n"
+                    "description": "**Deprecated** Whether the user can modify the account plan.\n",
+                    "deprecationMessage": "obsolete, should no longer be used"
                 },
                 "accountManageTeams": {
                     "type": "boolean",
@@ -2323,7 +2444,8 @@
                     },
                     "accountManagePlan": {
                         "type": "boolean",
-                        "description": "Whether the user can modify the account plan.\n"
+                        "description": "**Deprecated** Whether the user can modify the account plan.\n",
+                        "deprecationMessage": "obsolete, should no longer be used"
                     },
                     "accountManageTeams": {
                         "type": "boolean",
@@ -2738,6 +2860,111 @@
                 ]
             }
         },
+        "ns1:index/getRecord:getRecord": {
+            "description": "Provides details about a NS1 Record. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Get details about a NS1 Record.\nconst example = pulumi.output(ns1.getRecord({\n    domain: \"terraform.example.io\",\n    type: \"A\",\n    zone: \"example.io\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_record(domain=\"terraform.example.io\",\n    type=\"A\",\n    zone=\"example.io\")\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Ns1.GetRecord.InvokeAsync(new Ns1.GetRecordArgs\n        {\n            Domain = \"terraform.example.io\",\n            Type = \"A\",\n            Zone = \"example.io\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.LookupRecord(ctx, \u0026ns1.LookupRecordArgs{\n\t\t\tDomain: \"terraform.example.io\",\n\t\t\tType:   \"A\",\n\t\t\tZone:   \"example.io\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRecord.\n",
+                "properties": {
+                    "domain": {
+                        "type": "string",
+                        "description": "The records' domain.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The records' RR type.\n"
+                    },
+                    "zone": {
+                        "type": "string",
+                        "description": "The zone the record belongs to.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "domain",
+                    "type",
+                    "zone"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRecord.\n",
+                "properties": {
+                    "answers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/getRecordAnswer:getRecordAnswer"
+                        },
+                        "description": "List of NS1 answers.\n"
+                    },
+                    "domain": {
+                        "type": "string"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/getRecordFilter:getRecordFilter"
+                        },
+                        "description": "List of NS1 filters.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "link": {
+                        "type": "string",
+                        "description": "The target record this links to.\n"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "Map of metadata\n"
+                    },
+                    "regions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:/getRecordRegion:getRecordRegion"
+                        },
+                        "description": "List of regions.\n"
+                    },
+                    "shortAnswers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "The records' time to live (in seconds).\n"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "useClientSubnet": {
+                        "type": "boolean",
+                        "description": "Whether to use EDNS client subnet data when available (in filter chain).\n"
+                    },
+                    "zone": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "answers",
+                    "domain",
+                    "filters",
+                    "link",
+                    "meta",
+                    "regions",
+                    "shortAnswers",
+                    "ttl",
+                    "type",
+                    "useClientSubnet",
+                    "zone",
+                    "id"
+                ]
+            }
+        },
         "ns1:index/getZone:getZone": {
             "description": "Provides details about a NS1 Zone. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Get details about a NS1 Zone.\nconst example = pulumi.output(ns1.getZone({\n    zone: \"terraform.example.io\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_zone(zone=\"terraform.example.io\")\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Ns1.GetZone.InvokeAsync(new Ns1.GetZoneArgs\n        {\n            Zone = \"terraform.example.io\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.LookupZone(ctx, \u0026ns1.LookupZoneArgs{\n\t\t\tZone: \"terraform.example.io\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -2871,11 +3098,11 @@
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing ns1 cloud resources.",
             "packageName": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-ns1)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-ns1` repo](https://github.com/pulumi/pulumi-ns1/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-ns1` repo](https://github.com/terraform-providers/terraform-provider-ns1/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/ns1-terraform/terraform-provider-ns1)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-ns1` repo](https://github.com/pulumi/pulumi-ns1/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`ns1-terraform/terraform-provider-ns1` repo](https://github.com/ns1-terraform/terraform-provider-ns1/issues).",
             "typescriptVersion": ""
         },
         "python": {
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-ns1)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-ns1` repo](https://github.com/pulumi/pulumi-ns1/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-ns1` repo](https://github.com/terraform-providers/terraform-provider-ns1/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/ns1-terraform/terraform-provider-ns1)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-ns1` repo](https://github.com/pulumi/pulumi-ns1/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`ns1-terraform/terraform-provider-ns1` repo](https://github.com/ns1-terraform/terraform-provider-ns1/issues).",
             "requires": {
                 "pulumi": "\u003e=2.9.0,\u003c3.0.0"
             },

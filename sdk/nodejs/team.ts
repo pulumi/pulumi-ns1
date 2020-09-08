@@ -94,6 +94,8 @@ export class Team extends pulumi.CustomResource {
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the team can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     public readonly accountManagePlan!: pulumi.Output<boolean | undefined>;
     /**
@@ -292,6 +294,8 @@ export interface TeamState {
     readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * Whether the team can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     readonly accountManagePlan?: pulumi.Input<boolean>;
     /**
@@ -411,6 +415,8 @@ export interface TeamArgs {
     readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * Whether the team can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     readonly accountManagePlan?: pulumi.Input<boolean>;
     /**

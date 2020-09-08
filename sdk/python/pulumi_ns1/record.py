@@ -52,7 +52,7 @@ class Record(pulumi.CustomResource):
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
-        :param pulumi.Input[float] ttl: The records' time to live.
+        :param pulumi.Input[float] ttl: The records' time to live (in seconds).
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
@@ -138,7 +138,7 @@ class Record(pulumi.CustomResource):
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
-        :param pulumi.Input[float] ttl: The records' time to live.
+        :param pulumi.Input[float] ttl: The records' time to live (in seconds).
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
@@ -225,7 +225,7 @@ class Record(pulumi.CustomResource):
     @pulumi.getter
     def ttl(self) -> pulumi.Output[float]:
         """
-        The records' time to live.
+        The records' time to live (in seconds).
         """
         return pulumi.get(self, "ttl")
 

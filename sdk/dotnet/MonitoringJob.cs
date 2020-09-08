@@ -72,7 +72,7 @@ namespace Pulumi.Ns1
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration dictionary with keys and values depending on the jobs' type.
+        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         [Output("config")]
         public Output<ImmutableDictionary<string, object>> Config { get; private set; } = null!;
@@ -84,8 +84,7 @@ namespace Pulumi.Ns1
         public Output<int> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// The type of monitoring job to be run. See NS1 API
-        /// docs for supported values.
+        /// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         /// </summary>
         [Output("jobType")]
         public Output<string> JobType { get; private set; } = null!;
@@ -114,9 +113,6 @@ namespace Pulumi.Ns1
         [Output("notifyFailback")]
         public Output<bool?> NotifyFailback { get; private set; } = null!;
 
-        /// <summary>
-        /// The id of the notification list to send notifications to.
-        /// </summary>
         [Output("notifyList")]
         public Output<string?> NotifyList { get; private set; } = null!;
 
@@ -153,7 +149,7 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
 
         /// <summary>
-        /// A list of rules for determining failure conditions. Job Rules are documented below.
+        /// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"&lt;", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.MonitoringJobRule>> Rules { get; private set; } = null!;
@@ -214,7 +210,7 @@ namespace Pulumi.Ns1
         private InputMap<object>? _config;
 
         /// <summary>
-        /// A configuration dictionary with keys and values depending on the jobs' type.
+        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         public InputMap<object> Config
         {
@@ -229,8 +225,7 @@ namespace Pulumi.Ns1
         public Input<int> Frequency { get; set; } = null!;
 
         /// <summary>
-        /// The type of monitoring job to be run. See NS1 API
-        /// docs for supported values.
+        /// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         /// </summary>
         [Input("jobType", required: true)]
         public Input<string> JobType { get; set; } = null!;
@@ -259,9 +254,6 @@ namespace Pulumi.Ns1
         [Input("notifyFailback")]
         public Input<bool>? NotifyFailback { get; set; }
 
-        /// <summary>
-        /// The id of the notification list to send notifications to.
-        /// </summary>
         [Input("notifyList")]
         public Input<string>? NotifyList { get; set; }
 
@@ -307,7 +299,7 @@ namespace Pulumi.Ns1
         private InputList<Inputs.MonitoringJobRuleArgs>? _rules;
 
         /// <summary>
-        /// A list of rules for determining failure conditions. Job Rules are documented below.
+        /// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"&lt;", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         public InputList<Inputs.MonitoringJobRuleArgs> Rules
         {
@@ -332,7 +324,7 @@ namespace Pulumi.Ns1
         private InputMap<object>? _config;
 
         /// <summary>
-        /// A configuration dictionary with keys and values depending on the jobs' type.
+        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         public InputMap<object> Config
         {
@@ -347,8 +339,7 @@ namespace Pulumi.Ns1
         public Input<int>? Frequency { get; set; }
 
         /// <summary>
-        /// The type of monitoring job to be run. See NS1 API
-        /// docs for supported values.
+        /// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         /// </summary>
         [Input("jobType")]
         public Input<string>? JobType { get; set; }
@@ -377,9 +368,6 @@ namespace Pulumi.Ns1
         [Input("notifyFailback")]
         public Input<bool>? NotifyFailback { get; set; }
 
-        /// <summary>
-        /// The id of the notification list to send notifications to.
-        /// </summary>
         [Input("notifyList")]
         public Input<string>? NotifyList { get; set; }
 
@@ -425,7 +413,7 @@ namespace Pulumi.Ns1
         private InputList<Inputs.MonitoringJobRuleGetArgs>? _rules;
 
         /// <summary>
-        /// A list of rules for determining failure conditions. Job Rules are documented below.
+        /// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"&lt;", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         public InputList<Inputs.MonitoringJobRuleGetArgs> Rules
         {

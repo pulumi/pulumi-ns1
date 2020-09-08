@@ -46,6 +46,8 @@ export class APIKey extends pulumi.CustomResource {
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     public readonly accountManagePlan!: pulumi.Output<boolean | undefined>;
     /**
@@ -262,6 +264,8 @@ export interface APIKeyState {
     readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     readonly accountManagePlan?: pulumi.Input<boolean>;
     /**
@@ -393,6 +397,8 @@ export interface APIKeyArgs {
     readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     readonly accountManagePlan?: pulumi.Input<boolean>;
     /**

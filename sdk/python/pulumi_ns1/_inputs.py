@@ -24,11 +24,6 @@ class MonitoringJobRuleArgs:
                  comparison: pulumi.Input[str],
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] comparison: The comparison to perform on the the output.
-        :param pulumi.Input[str] key: The output key.
-        :param pulumi.Input[str] value: The value to compare to.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -36,9 +31,6 @@ class MonitoringJobRuleArgs:
     @property
     @pulumi.getter
     def comparison(self) -> pulumi.Input[str]:
-        """
-        The comparison to perform on the the output.
-        """
         return pulumi.get(self, "comparison")
 
     @comparison.setter
@@ -48,9 +40,6 @@ class MonitoringJobRuleArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The output key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -60,9 +49,6 @@ class MonitoringJobRuleArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        The value to compare to.
-        """
         return pulumi.get(self, "value")
 
     @value.setter

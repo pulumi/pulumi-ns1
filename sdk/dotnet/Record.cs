@@ -62,7 +62,7 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<string>> ShortAnswers { get; private set; } = null!;
 
         /// <summary>
-        /// The records' time to live.
+        /// The records' time to live (in seconds).
         /// </summary>
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// The records' time to live.
+        /// The records' time to live (in seconds).
         /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// The records' time to live.
+        /// The records' time to live (in seconds).
         /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }

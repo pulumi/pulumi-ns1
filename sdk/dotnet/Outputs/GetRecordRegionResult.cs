@@ -11,23 +11,22 @@ namespace Pulumi.Ns1.Outputs
 {
 
     [OutputType]
-    public sealed class MonitoringJobRule
+    public sealed class GetRecordRegionResult
     {
-        public readonly string Comparison;
-        public readonly string Key;
-        public readonly string Value;
+        /// <summary>
+        /// Map of metadata
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Meta;
+        public readonly string Name;
 
         [OutputConstructor]
-        private MonitoringJobRule(
-            string comparison,
+        private GetRecordRegionResult(
+            ImmutableDictionary<string, object> meta,
 
-            string key,
-
-            string value)
+            string name)
         {
-            Comparison = comparison;
-            Key = key;
-            Value = value;
+            Meta = meta;
+            Name = name;
         }
     }
 }

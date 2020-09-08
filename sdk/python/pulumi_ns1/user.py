@@ -57,7 +57,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] account_manage_account_settings: Whether the user can modify account settings.
         :param pulumi.Input[bool] account_manage_apikeys: Whether the user can modify account apikeys.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the user can modify account payment methods.
-        :param pulumi.Input[bool] account_manage_plan: Whether the user can modify the account plan.
+        :param pulumi.Input[bool] account_manage_plan: **Deprecated** Whether the user can modify the account plan.
         :param pulumi.Input[bool] account_manage_teams: Whether the user can modify other teams in the account.
         :param pulumi.Input[bool] account_manage_users: Whether the user can modify account users.
         :param pulumi.Input[bool] account_view_activity_log: Whether the user can view activity logs.
@@ -110,6 +110,9 @@ class User(pulumi.CustomResource):
             __props__['account_manage_account_settings'] = account_manage_account_settings
             __props__['account_manage_apikeys'] = account_manage_apikeys
             __props__['account_manage_payment_methods'] = account_manage_payment_methods
+            if account_manage_plan is not None:
+                warnings.warn("obsolete, should no longer be used", DeprecationWarning)
+                pulumi.log.warn("account_manage_plan is deprecated: obsolete, should no longer be used")
             __props__['account_manage_plan'] = account_manage_plan
             __props__['account_manage_teams'] = account_manage_teams
             __props__['account_manage_users'] = account_manage_users
@@ -195,7 +198,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] account_manage_account_settings: Whether the user can modify account settings.
         :param pulumi.Input[bool] account_manage_apikeys: Whether the user can modify account apikeys.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the user can modify account payment methods.
-        :param pulumi.Input[bool] account_manage_plan: Whether the user can modify the account plan.
+        :param pulumi.Input[bool] account_manage_plan: **Deprecated** Whether the user can modify the account plan.
         :param pulumi.Input[bool] account_manage_teams: Whether the user can modify other teams in the account.
         :param pulumi.Input[bool] account_manage_users: Whether the user can modify account users.
         :param pulumi.Input[bool] account_view_activity_log: Whether the user can view activity logs.
@@ -294,7 +297,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="accountManagePlan")
     def account_manage_plan(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the user can modify the account plan.
+        **Deprecated** Whether the user can modify the account plan.
         """
         return pulumi.get(self, "account_manage_plan")
 

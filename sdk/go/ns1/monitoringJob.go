@@ -66,12 +66,11 @@ type MonitoringJob struct {
 
 	// Indicates if the job is active or temporarily disabled.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// A configuration dictionary with keys and values depending on the jobs' type.
+	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Config pulumi.MapOutput `pulumi:"config"`
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency pulumi.IntOutput `pulumi:"frequency"`
-	// The type of monitoring job to be run. See NS1 API
-	// docs for supported values.
+	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringOutput `pulumi:"jobType"`
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -80,9 +79,8 @@ type MonitoringJob struct {
 	// The time in seconds after a failure to wait before sending a notification.
 	NotifyDelay pulumi.IntPtrOutput `pulumi:"notifyDelay"`
 	// If true, a notification is sent when a job returns to an "up" state.
-	NotifyFailback pulumi.BoolPtrOutput `pulumi:"notifyFailback"`
-	// The id of the notification list to send notifications to.
-	NotifyList pulumi.StringPtrOutput `pulumi:"notifyList"`
+	NotifyFailback pulumi.BoolPtrOutput   `pulumi:"notifyFailback"`
+	NotifyList     pulumi.StringPtrOutput `pulumi:"notifyList"`
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional pulumi.BoolPtrOutput `pulumi:"notifyRegional"`
 	// The time in seconds between repeat notifications of a failed job.
@@ -95,7 +93,7 @@ type MonitoringJob struct {
 	// The list of region codes in which to run the monitoring
 	// job. See NS1 API docs for supported values.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
-	// A list of rules for determining failure conditions. Job Rules are documented below.
+	// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Rules MonitoringJobRuleArrayOutput `pulumi:"rules"`
 }
 
@@ -141,12 +139,11 @@ func GetMonitoringJob(ctx *pulumi.Context,
 type monitoringJobState struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active *bool `pulumi:"active"`
-	// A configuration dictionary with keys and values depending on the jobs' type.
+	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Config map[string]interface{} `pulumi:"config"`
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency *int `pulumi:"frequency"`
-	// The type of monitoring job to be run. See NS1 API
-	// docs for supported values.
+	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType *string `pulumi:"jobType"`
 	// The free-form display name for the monitoring job.
 	Name *string `pulumi:"name"`
@@ -155,9 +152,8 @@ type monitoringJobState struct {
 	// The time in seconds after a failure to wait before sending a notification.
 	NotifyDelay *int `pulumi:"notifyDelay"`
 	// If true, a notification is sent when a job returns to an "up" state.
-	NotifyFailback *bool `pulumi:"notifyFailback"`
-	// The id of the notification list to send notifications to.
-	NotifyList *string `pulumi:"notifyList"`
+	NotifyFailback *bool   `pulumi:"notifyFailback"`
+	NotifyList     *string `pulumi:"notifyList"`
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional *bool `pulumi:"notifyRegional"`
 	// The time in seconds between repeat notifications of a failed job.
@@ -170,19 +166,18 @@ type monitoringJobState struct {
 	// The list of region codes in which to run the monitoring
 	// job. See NS1 API docs for supported values.
 	Regions []string `pulumi:"regions"`
-	// A list of rules for determining failure conditions. Job Rules are documented below.
+	// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Rules []MonitoringJobRule `pulumi:"rules"`
 }
 
 type MonitoringJobState struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active pulumi.BoolPtrInput
-	// A configuration dictionary with keys and values depending on the jobs' type.
+	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Config pulumi.MapInput
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency pulumi.IntPtrInput
-	// The type of monitoring job to be run. See NS1 API
-	// docs for supported values.
+	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringPtrInput
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringPtrInput
@@ -192,8 +187,7 @@ type MonitoringJobState struct {
 	NotifyDelay pulumi.IntPtrInput
 	// If true, a notification is sent when a job returns to an "up" state.
 	NotifyFailback pulumi.BoolPtrInput
-	// The id of the notification list to send notifications to.
-	NotifyList pulumi.StringPtrInput
+	NotifyList     pulumi.StringPtrInput
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional pulumi.BoolPtrInput
 	// The time in seconds between repeat notifications of a failed job.
@@ -206,7 +200,7 @@ type MonitoringJobState struct {
 	// The list of region codes in which to run the monitoring
 	// job. See NS1 API docs for supported values.
 	Regions pulumi.StringArrayInput
-	// A list of rules for determining failure conditions. Job Rules are documented below.
+	// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Rules MonitoringJobRuleArrayInput
 }
 
@@ -217,12 +211,11 @@ func (MonitoringJobState) ElementType() reflect.Type {
 type monitoringJobArgs struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active *bool `pulumi:"active"`
-	// A configuration dictionary with keys and values depending on the jobs' type.
+	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Config map[string]interface{} `pulumi:"config"`
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency int `pulumi:"frequency"`
-	// The type of monitoring job to be run. See NS1 API
-	// docs for supported values.
+	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType string `pulumi:"jobType"`
 	// The free-form display name for the monitoring job.
 	Name *string `pulumi:"name"`
@@ -231,9 +224,8 @@ type monitoringJobArgs struct {
 	// The time in seconds after a failure to wait before sending a notification.
 	NotifyDelay *int `pulumi:"notifyDelay"`
 	// If true, a notification is sent when a job returns to an "up" state.
-	NotifyFailback *bool `pulumi:"notifyFailback"`
-	// The id of the notification list to send notifications to.
-	NotifyList *string `pulumi:"notifyList"`
+	NotifyFailback *bool   `pulumi:"notifyFailback"`
+	NotifyList     *string `pulumi:"notifyList"`
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional *bool `pulumi:"notifyRegional"`
 	// The time in seconds between repeat notifications of a failed job.
@@ -246,7 +238,7 @@ type monitoringJobArgs struct {
 	// The list of region codes in which to run the monitoring
 	// job. See NS1 API docs for supported values.
 	Regions []string `pulumi:"regions"`
-	// A list of rules for determining failure conditions. Job Rules are documented below.
+	// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Rules []MonitoringJobRule `pulumi:"rules"`
 }
 
@@ -254,12 +246,11 @@ type monitoringJobArgs struct {
 type MonitoringJobArgs struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active pulumi.BoolPtrInput
-	// A configuration dictionary with keys and values depending on the jobs' type.
+	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Config pulumi.MapInput
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency pulumi.IntInput
-	// The type of monitoring job to be run. See NS1 API
-	// docs for supported values.
+	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringInput
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringPtrInput
@@ -269,8 +260,7 @@ type MonitoringJobArgs struct {
 	NotifyDelay pulumi.IntPtrInput
 	// If true, a notification is sent when a job returns to an "up" state.
 	NotifyFailback pulumi.BoolPtrInput
-	// The id of the notification list to send notifications to.
-	NotifyList pulumi.StringPtrInput
+	NotifyList     pulumi.StringPtrInput
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional pulumi.BoolPtrInput
 	// The time in seconds between repeat notifications of a failed job.
@@ -283,7 +273,7 @@ type MonitoringJobArgs struct {
 	// The list of region codes in which to run the monitoring
 	// job. See NS1 API docs for supported values.
 	Regions pulumi.StringArrayInput
-	// A list of rules for determining failure conditions. Job Rules are documented below.
+	// A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
 	Rules MonitoringJobRuleArrayInput
 }
 
