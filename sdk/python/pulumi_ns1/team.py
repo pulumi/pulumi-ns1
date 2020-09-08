@@ -144,6 +144,9 @@ class Team(pulumi.CustomResource):
             __props__['account_manage_account_settings'] = account_manage_account_settings
             __props__['account_manage_apikeys'] = account_manage_apikeys
             __props__['account_manage_payment_methods'] = account_manage_payment_methods
+            if account_manage_plan is not None:
+                warnings.warn("obsolete, should no longer be used", DeprecationWarning)
+                pulumi.log.warn("account_manage_plan is deprecated: obsolete, should no longer be used")
             __props__['account_manage_plan'] = account_manage_plan
             __props__['account_manage_teams'] = account_manage_teams
             __props__['account_manage_users'] = account_manage_users

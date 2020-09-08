@@ -19,6 +19,7 @@
         "dataFeed.ts",
         "dataSource.ts",
         "getDNSSec.ts",
+        "getRecord.ts",
         "getZone.ts",
         "index.ts",
         "monitoringJob.ts",

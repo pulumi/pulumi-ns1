@@ -45,7 +45,9 @@ export class User extends pulumi.CustomResource {
      */
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can modify the account plan.
+     * **Deprecated** Whether the user can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     public readonly accountManagePlan!: pulumi.Output<boolean | undefined>;
     /**
@@ -275,7 +277,9 @@ export interface UserState {
      */
     readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * Whether the user can modify the account plan.
+     * **Deprecated** Whether the user can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     readonly accountManagePlan?: pulumi.Input<boolean>;
     /**
@@ -410,7 +414,9 @@ export interface UserArgs {
      */
     readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * Whether the user can modify the account plan.
+     * **Deprecated** Whether the user can modify the account plan.
+     *
+     * @deprecated obsolete, should no longer be used
      */
     readonly accountManagePlan?: pulumi.Input<boolean>;
     /**

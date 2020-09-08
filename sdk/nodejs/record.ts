@@ -74,7 +74,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly shortAnswers!: pulumi.Output<string[] | undefined>;
     /**
-     * The records' time to live.
+     * The records' time to live (in seconds).
      */
     public readonly ttl!: pulumi.Output<number>;
     /**
@@ -188,7 +188,7 @@ export interface RecordState {
      */
     readonly shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The records' time to live.
+     * The records' time to live (in seconds).
      */
     readonly ttl?: pulumi.Input<number>;
     /**
@@ -246,7 +246,7 @@ export interface RecordArgs {
      */
     readonly shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The records' time to live.
+     * The records' time to live (in seconds).
      */
     readonly ttl?: pulumi.Input<number>;
     /**

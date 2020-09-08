@@ -19,6 +19,8 @@ type APIKey struct {
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
 	// Whether the apikey can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
 	// Whether the apikey can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrOutput `pulumi:"accountManageTeams"`
@@ -114,6 +116,8 @@ type apikeyState struct {
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the apikey can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
 	// Whether the apikey can modify other teams in the account.
 	AccountManageTeams *bool `pulumi:"accountManageTeams"`
@@ -182,6 +186,8 @@ type APIKeyState struct {
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the apikey can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
 	// Whether the apikey can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrInput
@@ -254,6 +260,8 @@ type apikeyArgs struct {
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the apikey can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
 	// Whether the apikey can modify other teams in the account.
 	AccountManageTeams *bool `pulumi:"accountManageTeams"`
@@ -321,6 +329,8 @@ type APIKeyArgs struct {
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the apikey can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
 	// Whether the apikey can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrInput

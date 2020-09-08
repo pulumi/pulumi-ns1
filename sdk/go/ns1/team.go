@@ -78,6 +78,8 @@ type Team struct {
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
 	// Whether the team can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
 	// Whether the team can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrOutput `pulumi:"accountManageTeams"`
@@ -167,6 +169,8 @@ type teamState struct {
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the team can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
 	// Whether the team can modify other teams in the account.
 	AccountManageTeams *bool `pulumi:"accountManageTeams"`
@@ -229,6 +233,8 @@ type TeamState struct {
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the team can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
 	// Whether the team can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrInput
@@ -295,6 +301,8 @@ type teamArgs struct {
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the team can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
 	// Whether the team can modify other teams in the account.
 	AccountManageTeams *bool `pulumi:"accountManageTeams"`
@@ -358,6 +366,8 @@ type TeamArgs struct {
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the team can modify the account plan.
+	//
+	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
 	// Whether the team can modify other teams in the account.
 	AccountManageTeams pulumi.BoolPtrInput

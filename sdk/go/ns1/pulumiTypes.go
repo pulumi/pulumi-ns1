@@ -11,12 +11,9 @@ import (
 )
 
 type MonitoringJobRule struct {
-	// The comparison to perform on the the output.
 	Comparison string `pulumi:"comparison"`
-	// The output key.
-	Key string `pulumi:"key"`
-	// The value to compare to.
-	Value string `pulumi:"value"`
+	Key        string `pulumi:"key"`
+	Value      string `pulumi:"value"`
 }
 
 // MonitoringJobRuleInput is an input type that accepts MonitoringJobRuleArgs and MonitoringJobRuleOutput values.
@@ -31,12 +28,9 @@ type MonitoringJobRuleInput interface {
 }
 
 type MonitoringJobRuleArgs struct {
-	// The comparison to perform on the the output.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// The output key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value to compare to.
-	Value pulumi.StringInput `pulumi:"value"`
+	Key        pulumi.StringInput `pulumi:"key"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (MonitoringJobRuleArgs) ElementType() reflect.Type {
@@ -90,17 +84,14 @@ func (o MonitoringJobRuleOutput) ToMonitoringJobRuleOutputWithContext(ctx contex
 	return o
 }
 
-// The comparison to perform on the the output.
 func (o MonitoringJobRuleOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringJobRule) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// The output key.
 func (o MonitoringJobRuleOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringJobRule) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value to compare to.
 func (o MonitoringJobRuleOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringJobRule) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1324,6 +1315,324 @@ func (o GetDNSSecKeysDnskeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecKeysDn
 	}).(GetDNSSecKeysDnskeyOutput)
 }
 
+type GetRecordAnswer struct {
+	Answer string `pulumi:"answer"`
+	// Map of metadata
+	Meta   map[string]interface{} `pulumi:"meta"`
+	Region string                 `pulumi:"region"`
+}
+
+// GetRecordAnswerInput is an input type that accepts GetRecordAnswerArgs and GetRecordAnswerOutput values.
+// You can construct a concrete instance of `GetRecordAnswerInput` via:
+//
+//          GetRecordAnswerArgs{...}
+type GetRecordAnswerInput interface {
+	pulumi.Input
+
+	ToGetRecordAnswerOutput() GetRecordAnswerOutput
+	ToGetRecordAnswerOutputWithContext(context.Context) GetRecordAnswerOutput
+}
+
+type GetRecordAnswerArgs struct {
+	Answer pulumi.StringInput `pulumi:"answer"`
+	// Map of metadata
+	Meta   pulumi.MapInput    `pulumi:"meta"`
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetRecordAnswerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordAnswer)(nil)).Elem()
+}
+
+func (i GetRecordAnswerArgs) ToGetRecordAnswerOutput() GetRecordAnswerOutput {
+	return i.ToGetRecordAnswerOutputWithContext(context.Background())
+}
+
+func (i GetRecordAnswerArgs) ToGetRecordAnswerOutputWithContext(ctx context.Context) GetRecordAnswerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordAnswerOutput)
+}
+
+// GetRecordAnswerArrayInput is an input type that accepts GetRecordAnswerArray and GetRecordAnswerArrayOutput values.
+// You can construct a concrete instance of `GetRecordAnswerArrayInput` via:
+//
+//          GetRecordAnswerArray{ GetRecordAnswerArgs{...} }
+type GetRecordAnswerArrayInput interface {
+	pulumi.Input
+
+	ToGetRecordAnswerArrayOutput() GetRecordAnswerArrayOutput
+	ToGetRecordAnswerArrayOutputWithContext(context.Context) GetRecordAnswerArrayOutput
+}
+
+type GetRecordAnswerArray []GetRecordAnswerInput
+
+func (GetRecordAnswerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordAnswer)(nil)).Elem()
+}
+
+func (i GetRecordAnswerArray) ToGetRecordAnswerArrayOutput() GetRecordAnswerArrayOutput {
+	return i.ToGetRecordAnswerArrayOutputWithContext(context.Background())
+}
+
+func (i GetRecordAnswerArray) ToGetRecordAnswerArrayOutputWithContext(ctx context.Context) GetRecordAnswerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordAnswerArrayOutput)
+}
+
+type GetRecordAnswerOutput struct{ *pulumi.OutputState }
+
+func (GetRecordAnswerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordAnswer)(nil)).Elem()
+}
+
+func (o GetRecordAnswerOutput) ToGetRecordAnswerOutput() GetRecordAnswerOutput {
+	return o
+}
+
+func (o GetRecordAnswerOutput) ToGetRecordAnswerOutputWithContext(ctx context.Context) GetRecordAnswerOutput {
+	return o
+}
+
+func (o GetRecordAnswerOutput) Answer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordAnswer) string { return v.Answer }).(pulumi.StringOutput)
+}
+
+// Map of metadata
+func (o GetRecordAnswerOutput) Meta() pulumi.MapOutput {
+	return o.ApplyT(func(v GetRecordAnswer) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+}
+
+func (o GetRecordAnswerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordAnswer) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetRecordAnswerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRecordAnswerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordAnswer)(nil)).Elem()
+}
+
+func (o GetRecordAnswerArrayOutput) ToGetRecordAnswerArrayOutput() GetRecordAnswerArrayOutput {
+	return o
+}
+
+func (o GetRecordAnswerArrayOutput) ToGetRecordAnswerArrayOutputWithContext(ctx context.Context) GetRecordAnswerArrayOutput {
+	return o
+}
+
+func (o GetRecordAnswerArrayOutput) Index(i pulumi.IntInput) GetRecordAnswerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRecordAnswer {
+		return vs[0].([]GetRecordAnswer)[vs[1].(int)]
+	}).(GetRecordAnswerOutput)
+}
+
+type GetRecordFilter struct {
+	Config   map[string]interface{} `pulumi:"config"`
+	Disabled bool                   `pulumi:"disabled"`
+	Filter   string                 `pulumi:"filter"`
+}
+
+// GetRecordFilterInput is an input type that accepts GetRecordFilterArgs and GetRecordFilterOutput values.
+// You can construct a concrete instance of `GetRecordFilterInput` via:
+//
+//          GetRecordFilterArgs{...}
+type GetRecordFilterInput interface {
+	pulumi.Input
+
+	ToGetRecordFilterOutput() GetRecordFilterOutput
+	ToGetRecordFilterOutputWithContext(context.Context) GetRecordFilterOutput
+}
+
+type GetRecordFilterArgs struct {
+	Config   pulumi.MapInput    `pulumi:"config"`
+	Disabled pulumi.BoolInput   `pulumi:"disabled"`
+	Filter   pulumi.StringInput `pulumi:"filter"`
+}
+
+func (GetRecordFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordFilter)(nil)).Elem()
+}
+
+func (i GetRecordFilterArgs) ToGetRecordFilterOutput() GetRecordFilterOutput {
+	return i.ToGetRecordFilterOutputWithContext(context.Background())
+}
+
+func (i GetRecordFilterArgs) ToGetRecordFilterOutputWithContext(ctx context.Context) GetRecordFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordFilterOutput)
+}
+
+// GetRecordFilterArrayInput is an input type that accepts GetRecordFilterArray and GetRecordFilterArrayOutput values.
+// You can construct a concrete instance of `GetRecordFilterArrayInput` via:
+//
+//          GetRecordFilterArray{ GetRecordFilterArgs{...} }
+type GetRecordFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetRecordFilterArrayOutput() GetRecordFilterArrayOutput
+	ToGetRecordFilterArrayOutputWithContext(context.Context) GetRecordFilterArrayOutput
+}
+
+type GetRecordFilterArray []GetRecordFilterInput
+
+func (GetRecordFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordFilter)(nil)).Elem()
+}
+
+func (i GetRecordFilterArray) ToGetRecordFilterArrayOutput() GetRecordFilterArrayOutput {
+	return i.ToGetRecordFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetRecordFilterArray) ToGetRecordFilterArrayOutputWithContext(ctx context.Context) GetRecordFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordFilterArrayOutput)
+}
+
+type GetRecordFilterOutput struct{ *pulumi.OutputState }
+
+func (GetRecordFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordFilter)(nil)).Elem()
+}
+
+func (o GetRecordFilterOutput) ToGetRecordFilterOutput() GetRecordFilterOutput {
+	return o
+}
+
+func (o GetRecordFilterOutput) ToGetRecordFilterOutputWithContext(ctx context.Context) GetRecordFilterOutput {
+	return o
+}
+
+func (o GetRecordFilterOutput) Config() pulumi.MapOutput {
+	return o.ApplyT(func(v GetRecordFilter) map[string]interface{} { return v.Config }).(pulumi.MapOutput)
+}
+
+func (o GetRecordFilterOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRecordFilter) bool { return v.Disabled }).(pulumi.BoolOutput)
+}
+
+func (o GetRecordFilterOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordFilter) string { return v.Filter }).(pulumi.StringOutput)
+}
+
+type GetRecordFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRecordFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordFilter)(nil)).Elem()
+}
+
+func (o GetRecordFilterArrayOutput) ToGetRecordFilterArrayOutput() GetRecordFilterArrayOutput {
+	return o
+}
+
+func (o GetRecordFilterArrayOutput) ToGetRecordFilterArrayOutputWithContext(ctx context.Context) GetRecordFilterArrayOutput {
+	return o
+}
+
+func (o GetRecordFilterArrayOutput) Index(i pulumi.IntInput) GetRecordFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRecordFilter {
+		return vs[0].([]GetRecordFilter)[vs[1].(int)]
+	}).(GetRecordFilterOutput)
+}
+
+type GetRecordRegion struct {
+	// Map of metadata
+	Meta map[string]interface{} `pulumi:"meta"`
+	Name string                 `pulumi:"name"`
+}
+
+// GetRecordRegionInput is an input type that accepts GetRecordRegionArgs and GetRecordRegionOutput values.
+// You can construct a concrete instance of `GetRecordRegionInput` via:
+//
+//          GetRecordRegionArgs{...}
+type GetRecordRegionInput interface {
+	pulumi.Input
+
+	ToGetRecordRegionOutput() GetRecordRegionOutput
+	ToGetRecordRegionOutputWithContext(context.Context) GetRecordRegionOutput
+}
+
+type GetRecordRegionArgs struct {
+	// Map of metadata
+	Meta pulumi.MapInput    `pulumi:"meta"`
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRecordRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordRegion)(nil)).Elem()
+}
+
+func (i GetRecordRegionArgs) ToGetRecordRegionOutput() GetRecordRegionOutput {
+	return i.ToGetRecordRegionOutputWithContext(context.Background())
+}
+
+func (i GetRecordRegionArgs) ToGetRecordRegionOutputWithContext(ctx context.Context) GetRecordRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordRegionOutput)
+}
+
+// GetRecordRegionArrayInput is an input type that accepts GetRecordRegionArray and GetRecordRegionArrayOutput values.
+// You can construct a concrete instance of `GetRecordRegionArrayInput` via:
+//
+//          GetRecordRegionArray{ GetRecordRegionArgs{...} }
+type GetRecordRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetRecordRegionArrayOutput() GetRecordRegionArrayOutput
+	ToGetRecordRegionArrayOutputWithContext(context.Context) GetRecordRegionArrayOutput
+}
+
+type GetRecordRegionArray []GetRecordRegionInput
+
+func (GetRecordRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordRegion)(nil)).Elem()
+}
+
+func (i GetRecordRegionArray) ToGetRecordRegionArrayOutput() GetRecordRegionArrayOutput {
+	return i.ToGetRecordRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetRecordRegionArray) ToGetRecordRegionArrayOutputWithContext(ctx context.Context) GetRecordRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordRegionArrayOutput)
+}
+
+type GetRecordRegionOutput struct{ *pulumi.OutputState }
+
+func (GetRecordRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordRegion)(nil)).Elem()
+}
+
+func (o GetRecordRegionOutput) ToGetRecordRegionOutput() GetRecordRegionOutput {
+	return o
+}
+
+func (o GetRecordRegionOutput) ToGetRecordRegionOutputWithContext(ctx context.Context) GetRecordRegionOutput {
+	return o
+}
+
+// Map of metadata
+func (o GetRecordRegionOutput) Meta() pulumi.MapOutput {
+	return o.ApplyT(func(v GetRecordRegion) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+}
+
+func (o GetRecordRegionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordRegion) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRecordRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRecordRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordRegion)(nil)).Elem()
+}
+
+func (o GetRecordRegionArrayOutput) ToGetRecordRegionArrayOutput() GetRecordRegionArrayOutput {
+	return o
+}
+
+func (o GetRecordRegionArrayOutput) ToGetRecordRegionArrayOutputWithContext(ctx context.Context) GetRecordRegionArrayOutput {
+	return o
+}
+
+func (o GetRecordRegionArrayOutput) Index(i pulumi.IntInput) GetRecordRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRecordRegion {
+		return vs[0].([]GetRecordRegion)[vs[1].(int)]
+	}).(GetRecordRegionOutput)
+}
+
 type GetZoneSecondary struct {
 	// IPv4 address of the secondary server.
 	Ip string `pulumi:"ip"`
@@ -1477,6 +1786,12 @@ func init() {
 	pulumi.RegisterOutputType(GetDNSSecKeysOutput{})
 	pulumi.RegisterOutputType(GetDNSSecKeysDnskeyOutput{})
 	pulumi.RegisterOutputType(GetDNSSecKeysDnskeyArrayOutput{})
+	pulumi.RegisterOutputType(GetRecordAnswerOutput{})
+	pulumi.RegisterOutputType(GetRecordAnswerArrayOutput{})
+	pulumi.RegisterOutputType(GetRecordFilterOutput{})
+	pulumi.RegisterOutputType(GetRecordFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRecordRegionOutput{})
+	pulumi.RegisterOutputType(GetRecordRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetZoneSecondaryOutput{})
 	pulumi.RegisterOutputType(GetZoneSecondaryArrayOutput{})
 }

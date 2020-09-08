@@ -38,7 +38,7 @@ type Record struct {
 	Regions RecordRegionArrayOutput `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayOutput `pulumi:"shortAnswers"`
-	// The records' time to live.
+	// The records' time to live (in seconds).
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// The records' RR type.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -109,7 +109,7 @@ type recordState struct {
 	Regions []RecordRegion `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers []string `pulumi:"shortAnswers"`
-	// The records' time to live.
+	// The records' time to live (in seconds).
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
 	Type *string `pulumi:"type"`
@@ -144,7 +144,7 @@ type RecordState struct {
 	Regions RecordRegionArrayInput
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
-	// The records' time to live.
+	// The records' time to live (in seconds).
 	Ttl pulumi.IntPtrInput
 	// The records' RR type.
 	Type pulumi.StringPtrInput
@@ -183,7 +183,7 @@ type recordArgs struct {
 	Regions []RecordRegion `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers []string `pulumi:"shortAnswers"`
-	// The records' time to live.
+	// The records' time to live (in seconds).
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
 	Type string `pulumi:"type"`
@@ -219,7 +219,7 @@ type RecordArgs struct {
 	Regions RecordRegionArrayInput
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
-	// The records' time to live.
+	// The records' time to live (in seconds).
 	Ttl pulumi.IntPtrInput
 	// The records' RR type.
 	Type pulumi.StringInput

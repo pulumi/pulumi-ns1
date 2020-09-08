@@ -22,6 +22,9 @@ __all__ = [
     'GetDNSSecDelegationDnskeyResult',
     'GetDNSSecKeysResult',
     'GetDNSSecKeysDnskeyResult',
+    'GetRecordAnswerResult',
+    'GetRecordFilterResult',
+    'GetRecordRegionResult',
     'GetZoneSecondaryResult',
 ]
 
@@ -31,11 +34,6 @@ class MonitoringJobRule(dict):
                  comparison: str,
                  key: str,
                  value: str):
-        """
-        :param str comparison: The comparison to perform on the the output.
-        :param str key: The output key.
-        :param str value: The value to compare to.
-        """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -43,25 +41,16 @@ class MonitoringJobRule(dict):
     @property
     @pulumi.getter
     def comparison(self) -> str:
-        """
-        The comparison to perform on the the output.
-        """
         return pulumi.get(self, "comparison")
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The output key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value to compare to.
-        """
         return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
@@ -543,6 +532,89 @@ class GetDNSSecKeysDnskeyResult(dict):
         (Computed) Public key for the key.
         """
         return pulumi.get(self, "public_key")
+
+
+@pulumi.output_type
+class GetRecordAnswerResult(dict):
+    def __init__(__self__, *,
+                 answer: str,
+                 meta: Mapping[str, Any],
+                 region: str):
+        """
+        :param Mapping[str, Any] meta: Map of metadata
+        """
+        pulumi.set(__self__, "answer", answer)
+        pulumi.set(__self__, "meta", meta)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def answer(self) -> str:
+        return pulumi.get(self, "answer")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> Mapping[str, Any]:
+        """
+        Map of metadata
+        """
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetRecordFilterResult(dict):
+    def __init__(__self__, *,
+                 config: Mapping[str, Any],
+                 disabled: bool,
+                 filter: str):
+        pulumi.set(__self__, "config", config)
+        pulumi.set(__self__, "disabled", disabled)
+        pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> bool:
+        return pulumi.get(self, "disabled")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> str:
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class GetRecordRegionResult(dict):
+    def __init__(__self__, *,
+                 meta: Mapping[str, Any],
+                 name: str):
+        """
+        :param Mapping[str, Any] meta: Map of metadata
+        """
+        pulumi.set(__self__, "meta", meta)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def meta(self) -> Mapping[str, Any]:
+        """
+        Map of metadata
+        """
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

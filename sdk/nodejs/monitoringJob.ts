@@ -78,7 +78,7 @@ export class MonitoringJob extends pulumi.CustomResource {
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * A configuration dictionary with keys and values depending on the jobs' type.
+     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
     public readonly config!: pulumi.Output<{[key: string]: any}>;
     /**
@@ -86,8 +86,7 @@ export class MonitoringJob extends pulumi.CustomResource {
      */
     public readonly frequency!: pulumi.Output<number>;
     /**
-     * The type of monitoring job to be run. See NS1 API
-     * docs for supported values.
+     * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
      */
     public readonly jobType!: pulumi.Output<string>;
     /**
@@ -106,9 +105,6 @@ export class MonitoringJob extends pulumi.CustomResource {
      * If true, a notification is sent when a job returns to an "up" state.
      */
     public readonly notifyFailback!: pulumi.Output<boolean | undefined>;
-    /**
-     * The id of the notification list to send notifications to.
-     */
     public readonly notifyList!: pulumi.Output<string | undefined>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
@@ -133,7 +129,7 @@ export class MonitoringJob extends pulumi.CustomResource {
      */
     public readonly regions!: pulumi.Output<string[]>;
     /**
-     * A list of rules for determining failure conditions. Job Rules are documented below.
+     * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
     public readonly rules!: pulumi.Output<outputs.MonitoringJobRule[] | undefined>;
 
@@ -214,7 +210,7 @@ export interface MonitoringJobState {
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * A configuration dictionary with keys and values depending on the jobs' type.
+     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
     readonly config?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -222,8 +218,7 @@ export interface MonitoringJobState {
      */
     readonly frequency?: pulumi.Input<number>;
     /**
-     * The type of monitoring job to be run. See NS1 API
-     * docs for supported values.
+     * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
      */
     readonly jobType?: pulumi.Input<string>;
     /**
@@ -242,9 +237,6 @@ export interface MonitoringJobState {
      * If true, a notification is sent when a job returns to an "up" state.
      */
     readonly notifyFailback?: pulumi.Input<boolean>;
-    /**
-     * The id of the notification list to send notifications to.
-     */
     readonly notifyList?: pulumi.Input<string>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
@@ -269,7 +261,7 @@ export interface MonitoringJobState {
      */
     readonly regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of rules for determining failure conditions. Job Rules are documented below.
+     * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.MonitoringJobRule>[]>;
 }
@@ -283,7 +275,7 @@ export interface MonitoringJobArgs {
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * A configuration dictionary with keys and values depending on the jobs' type.
+     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
     readonly config: pulumi.Input<{[key: string]: any}>;
     /**
@@ -291,8 +283,7 @@ export interface MonitoringJobArgs {
      */
     readonly frequency: pulumi.Input<number>;
     /**
-     * The type of monitoring job to be run. See NS1 API
-     * docs for supported values.
+     * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
      */
     readonly jobType: pulumi.Input<string>;
     /**
@@ -311,9 +302,6 @@ export interface MonitoringJobArgs {
      * If true, a notification is sent when a job returns to an "up" state.
      */
     readonly notifyFailback?: pulumi.Input<boolean>;
-    /**
-     * The id of the notification list to send notifications to.
-     */
     readonly notifyList?: pulumi.Input<string>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
@@ -338,7 +326,7 @@ export interface MonitoringJobArgs {
      */
     readonly regions: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of rules for determining failure conditions. Job Rules are documented below.
+     * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.MonitoringJobRule>[]>;
 }

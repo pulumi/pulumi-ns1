@@ -88,6 +88,29 @@ export interface GetDNSSecKeysDnskey {
     publicKey: string;
 }
 
+export interface GetRecordAnswer {
+    answer: string;
+    /**
+     * Map of metadata
+     */
+    meta: {[key: string]: any};
+    region: string;
+}
+
+export interface GetRecordFilter {
+    config: {[key: string]: any};
+    disabled: boolean;
+    filter: string;
+}
+
+export interface GetRecordRegion {
+    /**
+     * Map of metadata
+     */
+    meta: {[key: string]: any};
+    name: string;
+}
+
 export interface GetZoneSecondary {
     /**
      * IPv4 address of the secondary server.
@@ -110,17 +133,8 @@ export interface GetZoneSecondary {
 }
 
 export interface MonitoringJobRule {
-    /**
-     * The comparison to perform on the the output.
-     */
     comparison: string;
-    /**
-     * The output key.
-     */
     key: string;
-    /**
-     * The value to compare to.
-     */
     value: string;
 }
 
