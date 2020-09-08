@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.9.0 of the NS1 Terraform Provider
+_(none)_
 
 ---
+
+## 1.2.0 (2020-09-08)
+* Upgrade to v1.9.0 of the NS1 Terraform Provider
 
 ## 1.1.0 (2020-08-31)
 * Upgrade to pulumi-terraform-bridge v2.7.3
