@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class NotifyList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -53,7 +53,7 @@ class NotifyList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The free-form display name for the notify list.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,7 +85,7 @@ class NotifyList(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None) -> 'NotifyList':
+            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None) -> 'NotifyList':
         """
         Get an existing NotifyList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,7 +94,7 @@ class NotifyList(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The free-form display name for the notify list.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -114,7 +114,7 @@ class NotifyList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> pulumi.Output[Optional[List['outputs.NotifyListNotification']]]:
+    def notifications(self) -> pulumi.Output[Optional[Sequence['outputs.NotifyListNotification']]]:
         """
         A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """

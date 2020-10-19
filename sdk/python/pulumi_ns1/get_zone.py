@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetZoneResult:
         if dnssec and not isinstance(dnssec, bool):
             raise TypeError("Expected argument 'dnssec' to be a bool")
         pulumi.set(__self__, "dnssec", dnssec)
-        if expiry and not isinstance(expiry, float):
-            raise TypeError("Expected argument 'expiry' to be a float")
+        if expiry and not isinstance(expiry, int):
+            raise TypeError("Expected argument 'expiry' to be a int")
         pulumi.set(__self__, "expiry", expiry)
         if hostmaster and not isinstance(hostmaster, str):
             raise TypeError("Expected argument 'hostmaster' to be a str")
@@ -45,23 +45,23 @@ class GetZoneResult:
         if networks and not isinstance(networks, list):
             raise TypeError("Expected argument 'networks' to be a list")
         pulumi.set(__self__, "networks", networks)
-        if nx_ttl and not isinstance(nx_ttl, float):
-            raise TypeError("Expected argument 'nx_ttl' to be a float")
+        if nx_ttl and not isinstance(nx_ttl, int):
+            raise TypeError("Expected argument 'nx_ttl' to be a int")
         pulumi.set(__self__, "nx_ttl", nx_ttl)
         if primary and not isinstance(primary, str):
             raise TypeError("Expected argument 'primary' to be a str")
         pulumi.set(__self__, "primary", primary)
-        if refresh and not isinstance(refresh, float):
-            raise TypeError("Expected argument 'refresh' to be a float")
+        if refresh and not isinstance(refresh, int):
+            raise TypeError("Expected argument 'refresh' to be a int")
         pulumi.set(__self__, "refresh", refresh)
-        if retry and not isinstance(retry, float):
-            raise TypeError("Expected argument 'retry' to be a float")
+        if retry and not isinstance(retry, int):
+            raise TypeError("Expected argument 'retry' to be a int")
         pulumi.set(__self__, "retry", retry)
         if secondaries and not isinstance(secondaries, list):
             raise TypeError("Expected argument 'secondaries' to be a list")
         pulumi.set(__self__, "secondaries", secondaries)
-        if ttl and not isinstance(ttl, float):
-            raise TypeError("Expected argument 'ttl' to be a float")
+        if ttl and not isinstance(ttl, int):
+            raise TypeError("Expected argument 'ttl' to be a int")
         pulumi.set(__self__, "ttl", ttl)
         if zone and not isinstance(zone, str):
             raise TypeError("Expected argument 'zone' to be a str")
@@ -69,7 +69,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="additionalPrimaries")
-    def additional_primaries(self) -> Optional[List[str]]:
+    def additional_primaries(self) -> Optional[Sequence[str]]:
         """
         List of additional IPv4 addresses for the primary
         zone.
@@ -94,7 +94,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def expiry(self) -> float:
+    def expiry(self) -> int:
         """
         The SOA Expiry.
         """
@@ -126,7 +126,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def networks(self) -> List[float]:
+    def networks(self) -> Sequence[int]:
         """
         List of network IDs (`int`) for which the zone should be made
         available. Default is network 0, the primary NSONE Global Network.
@@ -135,7 +135,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="nxTtl")
-    def nx_ttl(self) -> float:
+    def nx_ttl(self) -> int:
         """
         The SOA NX TTL.
         """
@@ -151,7 +151,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def refresh(self) -> float:
+    def refresh(self) -> int:
         """
         The SOA Refresh.
         """
@@ -159,7 +159,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def retry(self) -> float:
+    def retry(self) -> int:
         """
         The SOA Retry.
         """
@@ -167,7 +167,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def secondaries(self) -> List['outputs.GetZoneSecondaryResult']:
+    def secondaries(self) -> Sequence['outputs.GetZoneSecondaryResult']:
         """
         List of secondary servers. Secondaries is
         documented below.
@@ -176,7 +176,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> int:
         """
         The SOA TTL.
         """
@@ -211,7 +211,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             zone=self.zone)
 
 
-def get_zone(additional_primaries: Optional[List[str]] = None,
+def get_zone(additional_primaries: Optional[Sequence[str]] = None,
              zone: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
     """
@@ -229,7 +229,7 @@ def get_zone(additional_primaries: Optional[List[str]] = None,
     ```
 
 
-    :param List[str] additional_primaries: List of additional IPv4 addresses for the primary
+    :param Sequence[str] additional_primaries: List of additional IPv4 addresses for the primary
            zone.
     :param str zone: The domain name of the zone.
     """

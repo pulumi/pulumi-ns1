@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -225,7 +225,7 @@ class RecordRegion(dict):
 class TeamIpWhitelist(dict):
     def __init__(__self__, *,
                  name: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str name: The free form name of the team.
         """
@@ -242,7 +242,7 @@ class TeamIpWhitelist(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
     def _translate_property(self, prop):
@@ -253,17 +253,17 @@ class TeamIpWhitelist(dict):
 class ZoneSecondary(dict):
     def __init__(__self__, *,
                  ip: str,
-                 networks: Optional[List[float]] = None,
+                 networks: Optional[Sequence[int]] = None,
                  notify: Optional[bool] = None,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
         :param str ip: IPv4 address of the secondary server.
-        :param List[float] networks: - List of network IDs (`int`) for which the zone
+        :param Sequence[int] networks: - List of network IDs (`int`) for which the zone
                should be made available. Default is network 0, the primary NSONE Global
                Network. Normally, you should not have to worry about this.
         :param bool notify: Whether we send `NOTIFY` messages to the secondary host
                when the zone changes. Default `false`.
-        :param float port: Port of the the secondary server. Default `53`.
+        :param int port: Port of the the secondary server. Default `53`.
         """
         pulumi.set(__self__, "ip", ip)
         if networks is not None:
@@ -283,7 +283,7 @@ class ZoneSecondary(dict):
 
     @property
     @pulumi.getter
-    def networks(self) -> Optional[List[float]]:
+    def networks(self) -> Optional[Sequence[int]]:
         """
         - List of network IDs (`int`) for which the zone
         should be made available. Default is network 0, the primary NSONE Global
@@ -302,7 +302,7 @@ class ZoneSecondary(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         Port of the the secondary server. Default `53`.
         """
@@ -315,13 +315,13 @@ class ZoneSecondary(dict):
 @pulumi.output_type
 class GetDNSSecDelegationResult(dict):
     def __init__(__self__, *,
-                 dnskeys: List['outputs.GetDNSSecDelegationDnskeyResult'],
-                 ds: List['outputs.GetDNSSecDelegationDResult'],
-                 ttl: float):
+                 dnskeys: Sequence['outputs.GetDNSSecDelegationDnskeyResult'],
+                 ds: Sequence['outputs.GetDNSSecDelegationDResult'],
+                 ttl: int):
         """
-        :param List['GetDNSSecDelegationDnskeyArgs'] dnskeys: (Computed) List of Keys. Key is documented below.
-        :param List['GetDNSSecDelegationDArgs'] ds: (Computed) List of Keys. Key is documented below.
-        :param float ttl: (Computed) TTL for the Keys (int).
+        :param Sequence['GetDNSSecDelegationDnskeyArgs'] dnskeys: (Computed) List of Keys. Key is documented below.
+        :param Sequence['GetDNSSecDelegationDArgs'] ds: (Computed) List of Keys. Key is documented below.
+        :param int ttl: (Computed) TTL for the Keys (int).
         """
         pulumi.set(__self__, "dnskeys", dnskeys)
         pulumi.set(__self__, "ds", ds)
@@ -329,7 +329,7 @@ class GetDNSSecDelegationResult(dict):
 
     @property
     @pulumi.getter
-    def dnskeys(self) -> List['outputs.GetDNSSecDelegationDnskeyResult']:
+    def dnskeys(self) -> Sequence['outputs.GetDNSSecDelegationDnskeyResult']:
         """
         (Computed) List of Keys. Key is documented below.
         """
@@ -337,7 +337,7 @@ class GetDNSSecDelegationResult(dict):
 
     @property
     @pulumi.getter
-    def ds(self) -> List['outputs.GetDNSSecDelegationDResult']:
+    def ds(self) -> Sequence['outputs.GetDNSSecDelegationDResult']:
         """
         (Computed) List of Keys. Key is documented below.
         """
@@ -345,7 +345,7 @@ class GetDNSSecDelegationResult(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> int:
         """
         (Computed) TTL for the Keys (int).
         """
@@ -457,18 +457,18 @@ class GetDNSSecDelegationDnskeyResult(dict):
 @pulumi.output_type
 class GetDNSSecKeysResult(dict):
     def __init__(__self__, *,
-                 dnskeys: List['outputs.GetDNSSecKeysDnskeyResult'],
-                 ttl: float):
+                 dnskeys: Sequence['outputs.GetDNSSecKeysDnskeyResult'],
+                 ttl: int):
         """
-        :param List['GetDNSSecKeysDnskeyArgs'] dnskeys: (Computed) List of Keys. Key is documented below.
-        :param float ttl: (Computed) TTL for the Keys (int).
+        :param Sequence['GetDNSSecKeysDnskeyArgs'] dnskeys: (Computed) List of Keys. Key is documented below.
+        :param int ttl: (Computed) TTL for the Keys (int).
         """
         pulumi.set(__self__, "dnskeys", dnskeys)
         pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter
-    def dnskeys(self) -> List['outputs.GetDNSSecKeysDnskeyResult']:
+    def dnskeys(self) -> Sequence['outputs.GetDNSSecKeysDnskeyResult']:
         """
         (Computed) List of Keys. Key is documented below.
         """
@@ -476,7 +476,7 @@ class GetDNSSecKeysResult(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> int:
         """
         (Computed) TTL for the Keys (int).
         """
@@ -621,16 +621,16 @@ class GetRecordRegionResult(dict):
 class GetZoneSecondaryResult(dict):
     def __init__(__self__, *,
                  ip: str,
-                 networks: List[float],
+                 networks: Sequence[int],
                  notify: bool,
-                 port: float):
+                 port: int):
         """
         :param str ip: IPv4 address of the secondary server.
-        :param List[float] networks: List of network IDs (`int`) for which the zone should be made
+        :param Sequence[int] networks: List of network IDs (`int`) for which the zone should be made
                available. Default is network 0, the primary NSONE Global Network.
         :param bool notify: Whether we send `NOTIFY` messages to the secondary host
                when the zone changes. Default `false`.
-        :param float port: Port of the the secondary server. Default `53`.
+        :param int port: Port of the the secondary server. Default `53`.
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "networks", networks)
@@ -647,7 +647,7 @@ class GetZoneSecondaryResult(dict):
 
     @property
     @pulumi.getter
-    def networks(self) -> List[float]:
+    def networks(self) -> Sequence[int]:
         """
         List of network IDs (`int`) for which the zone should be made
         available. Default is network 0, the primary NSONE Global Network.
@@ -665,7 +665,7 @@ class GetZoneSecondaryResult(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         Port of the the secondary server. Default `53`.
         """

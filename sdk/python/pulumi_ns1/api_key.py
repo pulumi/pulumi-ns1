@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['APIKey']
@@ -31,10 +31,10 @@ class APIKey(pulumi.CustomResource):
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
-                 dns_zones_allows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 dns_zones_denies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
-                 ip_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
                  ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
@@ -43,7 +43,7 @@ class APIKey(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
-                 teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -69,10 +69,10 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_manage_zones: Whether the apikey can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the apikey can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_allows: List of zones that the apikey may access.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the apikey may access.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the apikey may not access.
         :param pulumi.Input[bool] ip_whitelist_strict: Sets exclusivity on this IP whitelist.
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the apikey can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] ipam_view_ipam: Whether the apikey can view IPAM.
@@ -84,7 +84,7 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[bool] security_manage_active_directory: Whether the apikey can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
-        :param pulumi.Input[List[pulumi.Input[str]]] teams: The teams that the apikey belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: The teams that the apikey belongs to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -162,10 +162,10 @@ class APIKey(pulumi.CustomResource):
             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
             dns_view_zones: Optional[pulumi.Input[bool]] = None,
             dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
-            dns_zones_allows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            dns_zones_denies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
-            ip_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
             ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
             key: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class APIKey(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
             security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
-            teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'APIKey':
+            teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'APIKey':
         """
         Get an existing APIKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -201,10 +201,10 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_manage_zones: Whether the apikey can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the apikey can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_allows: List of zones that the apikey may access.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the apikey may access.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the apikey may not access.
         :param pulumi.Input[bool] ip_whitelist_strict: Sets exclusivity on this IP whitelist.
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the apikey can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] ipam_view_ipam: Whether the apikey can view IPAM.
@@ -217,7 +217,7 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[bool] security_manage_active_directory: Whether the apikey can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
-        :param pulumi.Input[List[pulumi.Input[str]]] teams: The teams that the apikey belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: The teams that the apikey belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -387,7 +387,7 @@ class APIKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsZonesAllows")
-    def dns_zones_allows(self) -> pulumi.Output[Optional[List[str]]]:
+    def dns_zones_allows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of zones that the apikey may access.
         """
@@ -395,7 +395,7 @@ class APIKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsZonesDenies")
-    def dns_zones_denies(self) -> pulumi.Output[Optional[List[str]]]:
+    def dns_zones_denies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of zones that the apikey may not access.
         """
@@ -411,7 +411,7 @@ class APIKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipWhitelists")
-    def ip_whitelists(self) -> pulumi.Output[Optional[List[str]]]:
+    def ip_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IP addresses to whitelist for this key.
         """
@@ -494,7 +494,7 @@ class APIKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def teams(self) -> pulumi.Output[Optional[List[str]]]:
+    def teams(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The teams that the apikey belongs to.
         """

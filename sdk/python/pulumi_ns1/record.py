@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,14 +17,14 @@ class Record(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 answers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]]] = None,
+                 answers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 regions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]]] = None,
-                 short_answers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]]] = None,
+                 short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_client_subnet: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -40,19 +40,19 @@ class Record(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]] answers: One or more NS1 answers for the records' specified type.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]] answers: One or more NS1 answers for the records' specified type.
                Answers are documented below.
         :param pulumi.Input[str] domain: The records' domain. Cannot have leading or trailing
                dots - see the example above and `FQDN formatting` below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]] filters: One or more NS1 filters for the record(order matters).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
         :param pulumi.Input[str] link: The target record to link to. This means this record is a
                'linked' record, and it inherits all properties from its target.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]] regions: One or more "regions" for the record. These are really
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
-        :param pulumi.Input[float] ttl: The records' time to live (in seconds).
+        :param pulumi.Input[int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
@@ -108,14 +108,14 @@ class Record(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            answers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]]] = None,
+            answers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]]] = None,
             domain: Optional[pulumi.Input[str]] = None,
-            filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]]] = None,
             link: Optional[pulumi.Input[str]] = None,
             meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-            regions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]]] = None,
-            short_answers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            ttl: Optional[pulumi.Input[float]] = None,
+            regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]]] = None,
+            short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            ttl: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[str]] = None,
             use_client_subnet: Optional[pulumi.Input[bool]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'Record':
@@ -126,19 +126,19 @@ class Record(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]] answers: One or more NS1 answers for the records' specified type.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]] answers: One or more NS1 answers for the records' specified type.
                Answers are documented below.
         :param pulumi.Input[str] domain: The records' domain. Cannot have leading or trailing
                dots - see the example above and `FQDN formatting` below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]] filters: One or more NS1 filters for the record(order matters).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
         :param pulumi.Input[str] link: The target record to link to. This means this record is a
                'linked' record, and it inherits all properties from its target.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]] regions: One or more "regions" for the record. These are really
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
-        :param pulumi.Input[float] ttl: The records' time to live (in seconds).
+        :param pulumi.Input[int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
@@ -166,7 +166,7 @@ class Record(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def answers(self) -> pulumi.Output[Optional[List['outputs.RecordAnswer']]]:
+    def answers(self) -> pulumi.Output[Optional[Sequence['outputs.RecordAnswer']]]:
         """
         One or more NS1 answers for the records' specified type.
         Answers are documented below.
@@ -184,7 +184,7 @@ class Record(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[Optional[List['outputs.RecordFilter']]]:
+    def filters(self) -> pulumi.Output[Optional[Sequence['outputs.RecordFilter']]]:
         """
         One or more NS1 filters for the record(order matters).
         Filters are documented below.
@@ -207,7 +207,7 @@ class Record(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def regions(self) -> pulumi.Output[Optional[List['outputs.RecordRegion']]]:
+    def regions(self) -> pulumi.Output[Optional[Sequence['outputs.RecordRegion']]]:
         """
         One or more "regions" for the record. These are really
         just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
@@ -218,12 +218,12 @@ class Record(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shortAnswers")
-    def short_answers(self) -> pulumi.Output[Optional[List[str]]]:
+    def short_answers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "short_answers")
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[float]:
+    def ttl(self) -> pulumi.Output[int]:
         """
         The records' time to live (in seconds).
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,18 +17,18 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_primaries: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
                  dnssec: Optional[pulumi.Input[bool]] = None,
-                 expiry: Optional[pulumi.Input[float]] = None,
+                 expiry: Optional[pulumi.Input[int]] = None,
                  link: Optional[pulumi.Input[str]] = None,
-                 networks: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 nx_ttl: Optional[pulumi.Input[float]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 nx_ttl: Optional[pulumi.Input[int]] = None,
                  primary: Optional[pulumi.Input[str]] = None,
-                 refresh: Optional[pulumi.Input[float]] = None,
-                 retry: Optional[pulumi.Input[float]] = None,
-                 secondaries: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None,
+                 refresh: Optional[pulumi.Input[int]] = None,
+                 retry: Optional[pulumi.Input[int]] = None,
+                 secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,29 +37,29 @@ class Zone(pulumi.CustomResource):
         Create a Zone resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] additional_primaries: List of additional IPv4 addresses for the primary
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_primaries: List of additional IPv4 addresses for the primary
                zone. Conflicts with `secondaries`.
         :param pulumi.Input[bool] dnssec: Whether or not DNSSEC is enabled for the zone.
                Note that DNSSEC must be enabled on the account by support for this to be set
                to `true`.
-        :param pulumi.Input[float] expiry: The SOA Expiry. Conflicts with `primary` and
+        :param pulumi.Input[int] expiry: The SOA Expiry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
         :param pulumi.Input[str] link: The target zone(domain name) to link to.
-        :param pulumi.Input[List[pulumi.Input[float]]] networks: - List of network IDs (`int`) for which the zone
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] networks: - List of network IDs (`int`) for which the zone
                should be made available. Default is network 0, the primary NSONE Global
                Network. Normally, you should not have to worry about this.
-        :param pulumi.Input[float] nx_ttl: The SOA NX TTL. Conflicts with `primary` and
+        :param pulumi.Input[int] nx_ttl: The SOA NX TTL. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
         :param pulumi.Input[str] primary: The primary zones' IPv4 address. This makes the zone a
                secondary. Conflicts with `secondaries`.
-        :param pulumi.Input[float] refresh: The SOA Refresh. Conflicts with `primary` and
+        :param pulumi.Input[int] refresh: The SOA Refresh. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
-        :param pulumi.Input[float] retry: The SOA Retry. Conflicts with `primary` and
+        :param pulumi.Input[int] retry: The SOA Retry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
-        :param pulumi.Input[float] ttl: The SOA TTL.
+        :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
         """
         if __name__ is not None:
@@ -106,20 +106,20 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_primaries: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
             dns_servers: Optional[pulumi.Input[str]] = None,
             dnssec: Optional[pulumi.Input[bool]] = None,
-            expiry: Optional[pulumi.Input[float]] = None,
+            expiry: Optional[pulumi.Input[int]] = None,
             hostmaster: Optional[pulumi.Input[str]] = None,
             link: Optional[pulumi.Input[str]] = None,
-            networks: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-            nx_ttl: Optional[pulumi.Input[float]] = None,
+            networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            nx_ttl: Optional[pulumi.Input[int]] = None,
             primary: Optional[pulumi.Input[str]] = None,
-            refresh: Optional[pulumi.Input[float]] = None,
-            retry: Optional[pulumi.Input[float]] = None,
-            secondaries: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
-            ttl: Optional[pulumi.Input[float]] = None,
+            refresh: Optional[pulumi.Input[int]] = None,
+            retry: Optional[pulumi.Input[int]] = None,
+            secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+            ttl: Optional[pulumi.Input[int]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
@@ -128,31 +128,31 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] additional_primaries: List of additional IPv4 addresses for the primary
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_primaries: List of additional IPv4 addresses for the primary
                zone. Conflicts with `secondaries`.
         :param pulumi.Input[str] dns_servers: (Computed) Authoritative Name Servers.
         :param pulumi.Input[bool] dnssec: Whether or not DNSSEC is enabled for the zone.
                Note that DNSSEC must be enabled on the account by support for this to be set
                to `true`.
-        :param pulumi.Input[float] expiry: The SOA Expiry. Conflicts with `primary` and
+        :param pulumi.Input[int] expiry: The SOA Expiry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
         :param pulumi.Input[str] hostmaster: (Computed) The SOA Hostmaster.
         :param pulumi.Input[str] link: The target zone(domain name) to link to.
-        :param pulumi.Input[List[pulumi.Input[float]]] networks: - List of network IDs (`int`) for which the zone
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] networks: - List of network IDs (`int`) for which the zone
                should be made available. Default is network 0, the primary NSONE Global
                Network. Normally, you should not have to worry about this.
-        :param pulumi.Input[float] nx_ttl: The SOA NX TTL. Conflicts with `primary` and
+        :param pulumi.Input[int] nx_ttl: The SOA NX TTL. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
         :param pulumi.Input[str] primary: The primary zones' IPv4 address. This makes the zone a
                secondary. Conflicts with `secondaries`.
-        :param pulumi.Input[float] refresh: The SOA Refresh. Conflicts with `primary` and
+        :param pulumi.Input[int] refresh: The SOA Refresh. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
-        :param pulumi.Input[float] retry: The SOA Retry. Conflicts with `primary` and
+        :param pulumi.Input[int] retry: The SOA Retry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
-        :param pulumi.Input[float] ttl: The SOA TTL.
+        :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -178,7 +178,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalPrimaries")
-    def additional_primaries(self) -> pulumi.Output[Optional[List[str]]]:
+    def additional_primaries(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of additional IPv4 addresses for the primary
         zone. Conflicts with `secondaries`.
@@ -210,7 +210,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expiry(self) -> pulumi.Output[float]:
+    def expiry(self) -> pulumi.Output[int]:
         """
         The SOA Expiry. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -235,7 +235,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def networks(self) -> pulumi.Output[List[float]]:
+    def networks(self) -> pulumi.Output[Sequence[int]]:
         """
         - List of network IDs (`int`) for which the zone
         should be made available. Default is network 0, the primary NSONE Global
@@ -245,7 +245,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nxTtl")
-    def nx_ttl(self) -> pulumi.Output[float]:
+    def nx_ttl(self) -> pulumi.Output[int]:
         """
         The SOA NX TTL. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -263,7 +263,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def refresh(self) -> pulumi.Output[float]:
+    def refresh(self) -> pulumi.Output[int]:
         """
         The SOA Refresh. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -272,7 +272,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def retry(self) -> pulumi.Output[float]:
+    def retry(self) -> pulumi.Output[int]:
         """
         The SOA Retry. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -281,7 +281,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secondaries(self) -> pulumi.Output[Optional[List['outputs.ZoneSecondary']]]:
+    def secondaries(self) -> pulumi.Output[Optional[Sequence['outputs.ZoneSecondary']]]:
         """
         List of secondary servers. This makes the zone a
         primary. Conflicts with `primary` and `additional_primaries`.
@@ -291,7 +291,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[float]:
+    def ttl(self) -> pulumi.Output[int]:
         """
         The SOA TTL.
         """
