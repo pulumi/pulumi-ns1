@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -33,9 +33,9 @@ class Team(pulumi.CustomResource):
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
-                 dns_zones_allows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 dns_zones_denies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 ip_whitelists: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
+                 dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
                  ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
                  ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
@@ -109,9 +109,9 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_manage_zones: Whether the team can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the team can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: The IP addresses to whitelist for this key.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the team can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] ipam_view_ipam: Whether the team can view IPAM.
@@ -197,9 +197,9 @@ class Team(pulumi.CustomResource):
             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
             dns_view_zones: Optional[pulumi.Input[bool]] = None,
             dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
-            dns_zones_allows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            dns_zones_denies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            ip_whitelists: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
+            dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
             ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
             ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
             monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
@@ -233,9 +233,9 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] dns_manage_zones: Whether the team can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the team can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: The IP addresses to whitelist for this key.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the team can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] ipam_view_ipam: Whether the team can view IPAM.
@@ -413,7 +413,7 @@ class Team(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsZonesAllows")
-    def dns_zones_allows(self) -> pulumi.Output[Optional[List[str]]]:
+    def dns_zones_allows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of zones that the team may access.
         """
@@ -421,7 +421,7 @@ class Team(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsZonesDenies")
-    def dns_zones_denies(self) -> pulumi.Output[Optional[List[str]]]:
+    def dns_zones_denies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of zones that the team may not access.
         """
@@ -429,7 +429,7 @@ class Team(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipWhitelists")
-    def ip_whitelists(self) -> pulumi.Output[Optional[List['outputs.TeamIpWhitelist']]]:
+    def ip_whitelists(self) -> pulumi.Output[Optional[Sequence['outputs.TeamIpWhitelist']]]:
         """
         The IP addresses to whitelist for this key.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -45,8 +45,8 @@ class GetRecordResult:
         if short_answers and not isinstance(short_answers, list):
             raise TypeError("Expected argument 'short_answers' to be a list")
         pulumi.set(__self__, "short_answers", short_answers)
-        if ttl and not isinstance(ttl, float):
-            raise TypeError("Expected argument 'ttl' to be a float")
+        if ttl and not isinstance(ttl, int):
+            raise TypeError("Expected argument 'ttl' to be a int")
         pulumi.set(__self__, "ttl", ttl)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -60,7 +60,7 @@ class GetRecordResult:
 
     @property
     @pulumi.getter
-    def answers(self) -> List['outputs.GetRecordAnswerResult']:
+    def answers(self) -> Sequence['outputs.GetRecordAnswerResult']:
         """
         List of NS1 answers.
         """
@@ -73,7 +73,7 @@ class GetRecordResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> List['outputs.GetRecordFilterResult']:
+    def filters(self) -> Sequence['outputs.GetRecordFilterResult']:
         """
         List of NS1 filters.
         """
@@ -105,7 +105,7 @@ class GetRecordResult:
 
     @property
     @pulumi.getter
-    def regions(self) -> List['outputs.GetRecordRegionResult']:
+    def regions(self) -> Sequence['outputs.GetRecordRegionResult']:
         """
         List of regions.
         """
@@ -113,12 +113,12 @@ class GetRecordResult:
 
     @property
     @pulumi.getter(name="shortAnswers")
-    def short_answers(self) -> List[str]:
+    def short_answers(self) -> Sequence[str]:
         return pulumi.get(self, "short_answers")
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> int:
         """
         The records' time to live (in seconds).
         """
