@@ -4,6 +4,7 @@
 package ns1
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -144,4 +145,43 @@ type DataFeedArgs struct {
 
 func (DataFeedArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataFeedArgs)(nil)).Elem()
+}
+
+type DataFeedInput interface {
+	pulumi.Input
+
+	ToDataFeedOutput() DataFeedOutput
+	ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput
+}
+
+func (DataFeed) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFeed)(nil)).Elem()
+}
+
+func (i DataFeed) ToDataFeedOutput() DataFeedOutput {
+	return i.ToDataFeedOutputWithContext(context.Background())
+}
+
+func (i DataFeed) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFeedOutput)
+}
+
+type DataFeedOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataFeedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFeedOutput)(nil)).Elem()
+}
+
+func (o DataFeedOutput) ToDataFeedOutput() DataFeedOutput {
+	return o
+}
+
+func (o DataFeedOutput) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataFeedOutput{})
 }

@@ -4,6 +4,7 @@
 package ns1
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -120,4 +121,43 @@ type NotifyListArgs struct {
 
 func (NotifyListArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notifyListArgs)(nil)).Elem()
+}
+
+type NotifyListInput interface {
+	pulumi.Input
+
+	ToNotifyListOutput() NotifyListOutput
+	ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput
+}
+
+func (NotifyList) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyList)(nil)).Elem()
+}
+
+func (i NotifyList) ToNotifyListOutput() NotifyListOutput {
+	return i.ToNotifyListOutputWithContext(context.Background())
+}
+
+func (i NotifyList) ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotifyListOutput)
+}
+
+type NotifyListOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotifyListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyListOutput)(nil)).Elem()
+}
+
+func (o NotifyListOutput) ToNotifyListOutput() NotifyListOutput {
+	return o
+}
+
+func (o NotifyListOutput) ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NotifyListOutput{})
 }

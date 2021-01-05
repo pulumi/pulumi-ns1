@@ -9,6 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Ns1
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/zone:Zone &lt;name&gt; &lt;zone&gt;`
+    /// ```
+    /// 
+    ///  So for the example above
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/zone:Zone example terraform.example.io`
+    /// ```
+    /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>

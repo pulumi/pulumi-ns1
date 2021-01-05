@@ -1560,7 +1560,7 @@
             }
         },
         "ns1:index/record:Record": {
-            "description": "Provides a NS1 Record resource. This can be used to create, modify, and delete records.\n\n## NS1 Documentation\n\n[Record Api Doc](https://ns1.com/api#records)\n",
+            "description": "Provides a NS1 Record resource. This can be used to create, modify, and delete records.\n\n## NS1 Documentation\n\n[Record Api Doc](https://ns1.com/api#records)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/record:Record \u003cname\u003e \u003czone\u003e/\u003cdomain\u003e/\u003ctype\u003e`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`\n```\n\n ",
             "properties": {
                 "answers": {
                     "type": "array",
@@ -2578,6 +2578,7 @@
             }
         },
         "ns1:index/zone:Zone": {
+            "description": "\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/zone:Zone \u003cname\u003e \u003czone\u003e`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/zone:Zone example terraform.example.io`\n```\n\n ",
             "properties": {
                 "additionalPrimaries": {
                     "type": "array",

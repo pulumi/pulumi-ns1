@@ -15,6 +15,18 @@ namespace Pulumi.Ns1
     /// ## NS1 Documentation
     /// 
     /// [Record Api Doc](https://ns1.com/api#records)
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/record:Record &lt;name&gt; &lt;zone&gt;/&lt;domain&gt;/&lt;type&gt;`
+    /// ```
+    /// 
+    ///  So for the example above
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+    /// ```
     /// </summary>
     public partial class Record : Pulumi.CustomResource
     {
