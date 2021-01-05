@@ -19,4 +19,8 @@ export * from "./zone";
 // Export sub-modules:
 import * as config from "./config";
 import * as types from "./types";
-export {config, types};
+
+export {
+    config,
+    types,
+};

@@ -4,6 +4,7 @@
 package ns1
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -279,4 +280,43 @@ type MonitoringJobArgs struct {
 
 func (MonitoringJobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitoringJobArgs)(nil)).Elem()
+}
+
+type MonitoringJobInput interface {
+	pulumi.Input
+
+	ToMonitoringJobOutput() MonitoringJobOutput
+	ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput
+}
+
+func (MonitoringJob) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringJob)(nil)).Elem()
+}
+
+func (i MonitoringJob) ToMonitoringJobOutput() MonitoringJobOutput {
+	return i.ToMonitoringJobOutputWithContext(context.Background())
+}
+
+func (i MonitoringJob) ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobOutput)
+}
+
+type MonitoringJobOutput struct {
+	*pulumi.OutputState
+}
+
+func (MonitoringJobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringJobOutput)(nil)).Elem()
+}
+
+func (o MonitoringJobOutput) ToMonitoringJobOutput() MonitoringJobOutput {
+	return o
+}
+
+func (o MonitoringJobOutput) ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MonitoringJobOutput{})
 }

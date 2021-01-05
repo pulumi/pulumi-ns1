@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -12,6 +11,18 @@ import * as utilities from "./utilities";
  * ## NS1 Documentation
  *
  * [Record Api Doc](https://ns1.com/api#records)
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
+ * ```
+ *
+ *  So for the example above
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+ * ```
  */
 export class Record extends pulumi.CustomResource {
     /**

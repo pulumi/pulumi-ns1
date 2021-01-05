@@ -4,6 +4,7 @@
 package ns1
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -391,4 +392,43 @@ type APIKeyArgs struct {
 
 func (APIKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apikeyArgs)(nil)).Elem()
+}
+
+type APIKeyInput interface {
+	pulumi.Input
+
+	ToAPIKeyOutput() APIKeyOutput
+	ToAPIKeyOutputWithContext(ctx context.Context) APIKeyOutput
+}
+
+func (APIKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKey)(nil)).Elem()
+}
+
+func (i APIKey) ToAPIKeyOutput() APIKeyOutput {
+	return i.ToAPIKeyOutputWithContext(context.Background())
+}
+
+func (i APIKey) ToAPIKeyOutputWithContext(ctx context.Context) APIKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIKeyOutput)
+}
+
+type APIKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (APIKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKeyOutput)(nil)).Elem()
+}
+
+func (o APIKeyOutput) ToAPIKeyOutput() APIKeyOutput {
+	return o
+}
+
+func (o APIKeyOutput) ToAPIKeyOutputWithContext(ctx context.Context) APIKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(APIKeyOutput{})
 }

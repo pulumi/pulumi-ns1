@@ -38,6 +38,18 @@ class Record(pulumi.CustomResource):
 
         [Record Api Doc](https://ns1.com/api#records)
 
+        ## Import
+
+        ```sh
+         $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
+        ```
+
+         So for the example above
+
+        ```sh
+         $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]] answers: One or more NS1 answers for the records' specified type.
@@ -87,7 +99,7 @@ class Record(pulumi.CustomResource):
             __props__['meta'] = meta
             __props__['regions'] = regions
             if short_answers is not None:
-                warnings.warn("short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.", DeprecationWarning)
+                warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
                 pulumi.log.warn("short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.")
             __props__['short_answers'] = short_answers
             __props__['ttl'] = ttl

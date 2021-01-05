@@ -34,7 +34,18 @@ class Zone(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Zone resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+         $ pulumi import ns1:index/zone:Zone <name> <zone>`
+        ```
+
+         So for the example above
+
+        ```sh
+         $ pulumi import ns1:index/zone:Zone example terraform.example.io`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_primaries: List of additional IPv4 addresses for the primary
