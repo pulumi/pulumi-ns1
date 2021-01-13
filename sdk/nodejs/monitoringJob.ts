@@ -161,16 +161,16 @@ export class MonitoringJob extends pulumi.CustomResource {
             inputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as MonitoringJobArgs | undefined;
-            if (!args || args.config === undefined) {
+            if ((!args || args.config === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'config'");
             }
-            if (!args || args.frequency === undefined) {
+            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if (!args || args.jobType === undefined) {
+            if ((!args || args.jobType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobType'");
             }
-            if (!args || args.regions === undefined) {
+            if ((!args || args.regions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'regions'");
             }
             inputs["active"] = args ? args.active : undefined;

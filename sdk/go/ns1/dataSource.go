@@ -53,11 +53,12 @@ type DataSource struct {
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
 func NewDataSource(ctx *pulumi.Context,
 	name string, args *DataSourceArgs, opts ...pulumi.ResourceOption) (*DataSource, error) {
-	if args == nil || args.Sourcetype == nil {
-		return nil, errors.New("missing required argument 'Sourcetype'")
-	}
 	if args == nil {
-		args = &DataSourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Sourcetype == nil {
+		return nil, errors.New("invalid value for required argument 'Sourcetype'")
 	}
 	var resource DataSource
 	err := ctx.RegisterResource("ns1:index/dataSource:DataSource", name, args, &resource, opts...)

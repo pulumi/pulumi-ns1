@@ -72,7 +72,7 @@ class DataFeed(pulumi.CustomResource):
 
             __props__['config'] = config
             __props__['name'] = name
-            if source_id is None:
+            if source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_id'")
             __props__['source_id'] = source_id
         super(DataFeed, __self__).__init__(

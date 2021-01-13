@@ -92,7 +92,7 @@ export class DataFeed extends pulumi.CustomResource {
             inputs["sourceId"] = state ? state.sourceId : undefined;
         } else {
             const args = argsOrState as DataFeedArgs | undefined;
-            if (!args || args.sourceId === undefined) {
+            if ((!args || args.sourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceId'");
             }
             inputs["config"] = args ? args.config : undefined;

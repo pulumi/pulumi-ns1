@@ -111,13 +111,13 @@ class MonitoringJob(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['active'] = active
-            if config is None:
+            if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__['config'] = config
-            if frequency is None:
+            if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
-            if job_type is None:
+            if job_type is None and not opts.urn:
                 raise TypeError("Missing required property 'job_type'")
             __props__['job_type'] = job_type
             __props__['name'] = name
@@ -129,7 +129,7 @@ class MonitoringJob(pulumi.CustomResource):
             __props__['notify_repeat'] = notify_repeat
             __props__['policy'] = policy
             __props__['rapid_recheck'] = rapid_recheck
-            if regions is None:
+            if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")
             __props__['regions'] = regions
             __props__['rules'] = rules

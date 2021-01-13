@@ -101,20 +101,21 @@ type MonitoringJob struct {
 // NewMonitoringJob registers a new resource with the given unique name, arguments, and options.
 func NewMonitoringJob(ctx *pulumi.Context,
 	name string, args *MonitoringJobArgs, opts ...pulumi.ResourceOption) (*MonitoringJob, error) {
-	if args == nil || args.Config == nil {
-		return nil, errors.New("missing required argument 'Config'")
-	}
-	if args == nil || args.Frequency == nil {
-		return nil, errors.New("missing required argument 'Frequency'")
-	}
-	if args == nil || args.JobType == nil {
-		return nil, errors.New("missing required argument 'JobType'")
-	}
-	if args == nil || args.Regions == nil {
-		return nil, errors.New("missing required argument 'Regions'")
-	}
 	if args == nil {
-		args = &MonitoringJobArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Config == nil {
+		return nil, errors.New("invalid value for required argument 'Config'")
+	}
+	if args.Frequency == nil {
+		return nil, errors.New("invalid value for required argument 'Frequency'")
+	}
+	if args.JobType == nil {
+		return nil, errors.New("invalid value for required argument 'JobType'")
+	}
+	if args.Regions == nil {
+		return nil, errors.New("invalid value for required argument 'Regions'")
 	}
 	var resource MonitoringJob
 	err := ctx.RegisterResource("ns1:index/monitoringJob:MonitoringJob", name, args, &resource, opts...)

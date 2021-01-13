@@ -88,6 +88,7 @@ func NewAPIKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &APIKeyArgs{}
 	}
+
 	var resource APIKey
 	err := ctx.RegisterResource("ns1:index/aPIKey:APIKey", name, args, &resource, opts...)
 	if err != nil {

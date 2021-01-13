@@ -71,11 +71,12 @@ type DataFeed struct {
 // NewDataFeed registers a new resource with the given unique name, arguments, and options.
 func NewDataFeed(ctx *pulumi.Context,
 	name string, args *DataFeedArgs, opts ...pulumi.ResourceOption) (*DataFeed, error) {
-	if args == nil || args.SourceId == nil {
-		return nil, errors.New("missing required argument 'SourceId'")
-	}
 	if args == nil {
-		args = &DataFeedArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SourceId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceId'")
 	}
 	var resource DataFeed
 	err := ctx.RegisterResource("ns1:index/dataFeed:DataFeed", name, args, &resource, opts...)
