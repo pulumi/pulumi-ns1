@@ -91,23 +91,23 @@ class Record(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['answers'] = answers
-            if domain is None:
+            if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__['domain'] = domain
             __props__['filters'] = filters
             __props__['link'] = link
             __props__['meta'] = meta
             __props__['regions'] = regions
-            if short_answers is not None:
+            if short_answers is not None and not opts.urn:
                 warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
                 pulumi.log.warn("short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.")
             __props__['short_answers'] = short_answers
             __props__['ttl'] = ttl
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['use_client_subnet'] = use_client_subnet
-            if zone is None:
+            if zone is None and not opts.urn:
                 raise TypeError("Missing required property 'zone'")
             __props__['zone'] = zone
         super(Record, __self__).__init__(

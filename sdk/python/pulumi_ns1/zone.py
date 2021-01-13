@@ -102,7 +102,7 @@ class Zone(pulumi.CustomResource):
             __props__['retry'] = retry
             __props__['secondaries'] = secondaries
             __props__['ttl'] = ttl
-            if zone is None:
+            if zone is None and not opts.urn:
                 raise TypeError("Missing required property 'zone'")
             __props__['zone'] = zone
             __props__['dns_servers'] = None

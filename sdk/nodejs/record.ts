@@ -130,13 +130,13 @@ export class Record extends pulumi.CustomResource {
             inputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as RecordArgs | undefined;
-            if (!args || args.domain === undefined) {
+            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.zone === undefined) {
+            if ((!args || args.zone === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'zone'");
             }
             inputs["answers"] = args ? args.answers : undefined;

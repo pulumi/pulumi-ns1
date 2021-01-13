@@ -65,6 +65,7 @@ func NewNotifyList(ctx *pulumi.Context,
 	if args == nil {
 		args = &NotifyListArgs{}
 	}
+
 	var resource NotifyList
 	err := ctx.RegisterResource("ns1:index/notifyList:NotifyList", name, args, &resource, opts...)
 	if err != nil {

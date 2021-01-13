@@ -80,7 +80,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["sourcetype"] = state ? state.sourcetype : undefined;
         } else {
             const args = argsOrState as DataSourceArgs | undefined;
-            if (!args || args.sourcetype === undefined) {
+            if ((!args || args.sourcetype === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourcetype'");
             }
             inputs["config"] = args ? args.config : undefined;

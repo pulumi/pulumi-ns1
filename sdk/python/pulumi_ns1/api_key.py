@@ -106,7 +106,7 @@ class APIKey(pulumi.CustomResource):
             __props__['account_manage_account_settings'] = account_manage_account_settings
             __props__['account_manage_apikeys'] = account_manage_apikeys
             __props__['account_manage_payment_methods'] = account_manage_payment_methods
-            if account_manage_plan is not None:
+            if account_manage_plan is not None and not opts.urn:
                 warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
                 pulumi.log.warn("account_manage_plan is deprecated: obsolete, should no longer be used")
             __props__['account_manage_plan'] = account_manage_plan

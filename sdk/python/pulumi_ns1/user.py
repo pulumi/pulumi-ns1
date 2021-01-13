@@ -110,7 +110,7 @@ class User(pulumi.CustomResource):
             __props__['account_manage_account_settings'] = account_manage_account_settings
             __props__['account_manage_apikeys'] = account_manage_apikeys
             __props__['account_manage_payment_methods'] = account_manage_payment_methods
-            if account_manage_plan is not None:
+            if account_manage_plan is not None and not opts.urn:
                 warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
                 pulumi.log.warn("account_manage_plan is deprecated: obsolete, should no longer be used")
             __props__['account_manage_plan'] = account_manage_plan
@@ -128,7 +128,7 @@ class User(pulumi.CustomResource):
             __props__['dns_zones_allow_by_default'] = dns_zones_allow_by_default
             __props__['dns_zones_allows'] = dns_zones_allows
             __props__['dns_zones_denies'] = dns_zones_denies
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['ip_whitelist_strict'] = ip_whitelist_strict
@@ -143,7 +143,7 @@ class User(pulumi.CustomResource):
             __props__['security_manage_active_directory'] = security_manage_active_directory
             __props__['security_manage_global2fa'] = security_manage_global2fa
             __props__['teams'] = teams
-            if username is None:
+            if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__['username'] = username
         super(User, __self__).__init__(

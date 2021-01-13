@@ -62,7 +62,7 @@ class DataSource(pulumi.CustomResource):
 
             __props__['config'] = config
             __props__['name'] = name
-            if sourcetype is None:
+            if sourcetype is None and not opts.urn:
                 raise TypeError("Missing required property 'sourcetype'")
             __props__['sourcetype'] = sourcetype
         super(DataSource, __self__).__init__(
