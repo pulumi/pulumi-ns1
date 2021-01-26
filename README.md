@@ -48,7 +48,7 @@ To use from .NET, install using `dotnet add package`:
 
 The following configuration points are available:
 
-* ns1:apiKey - (Required) NS1 API token. It must be provided, but it can also be sourced from the `NS1_APIKEY` 
+* ns1:apikey - (Required) NS1 API token. It must be provided, but it can also be sourced from the `NS1_APIKEY` 
   environment variable.
 * ns1:endpoint - (Optional) NS1 API endpoint. For managed clients, this normally should not be set. Can also be sources
   via the `NS1_ENDPOINT` environment variable.
