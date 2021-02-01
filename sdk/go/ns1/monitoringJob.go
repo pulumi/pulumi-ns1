@@ -22,6 +22,7 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
+// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -290,15 +291,15 @@ type MonitoringJobInput interface {
 	ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput
 }
 
-func (MonitoringJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringJob)(nil)).Elem()
+func (*MonitoringJob) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringJob)(nil))
 }
 
-func (i MonitoringJob) ToMonitoringJobOutput() MonitoringJobOutput {
+func (i *MonitoringJob) ToMonitoringJobOutput() MonitoringJobOutput {
 	return i.ToMonitoringJobOutputWithContext(context.Background())
 }
 
-func (i MonitoringJob) ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput {
+func (i *MonitoringJob) ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobOutput)
 }
 
@@ -307,7 +308,7 @@ type MonitoringJobOutput struct {
 }
 
 func (MonitoringJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringJobOutput)(nil)).Elem()
+	return reflect.TypeOf((*MonitoringJob)(nil))
 }
 
 func (o MonitoringJobOutput) ToMonitoringJobOutput() MonitoringJobOutput {

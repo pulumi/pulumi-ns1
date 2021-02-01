@@ -63,6 +63,7 @@ namespace Pulumi.Ns1
     /// 
     /// [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
     /// </summary>
+    [Ns1ResourceType("ns1:index/monitoringJob:MonitoringJob")]
     public partial class MonitoringJob : Pulumi.CustomResource
     {
         /// <summary>

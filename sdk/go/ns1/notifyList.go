@@ -19,6 +19,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
+// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -131,15 +132,15 @@ type NotifyListInput interface {
 	ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput
 }
 
-func (NotifyList) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotifyList)(nil)).Elem()
+func (*NotifyList) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyList)(nil))
 }
 
-func (i NotifyList) ToNotifyListOutput() NotifyListOutput {
+func (i *NotifyList) ToNotifyListOutput() NotifyListOutput {
 	return i.ToNotifyListOutputWithContext(context.Background())
 }
 
-func (i NotifyList) ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput {
+func (i *NotifyList) ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListOutput)
 }
 
@@ -148,7 +149,7 @@ type NotifyListOutput struct {
 }
 
 func (NotifyListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotifyListOutput)(nil)).Elem()
+	return reflect.TypeOf((*NotifyList)(nil))
 }
 
 func (o NotifyListOutput) ToNotifyListOutput() NotifyListOutput {

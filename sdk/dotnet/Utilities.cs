@@ -77,4 +77,11 @@ namespace Pulumi.Ns1
             }
         }
     }
+
+    internal sealed class Ns1ResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public Ns1ResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

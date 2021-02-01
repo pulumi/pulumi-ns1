@@ -73,6 +73,7 @@ namespace Pulumi.Ns1
     /// 
     /// [Team Api Docs](https://ns1.com/api#team)
     /// </summary>
+    [Ns1ResourceType("ns1:index/team:Team")]
     public partial class Team : Pulumi.CustomResource
     {
         /// <summary>

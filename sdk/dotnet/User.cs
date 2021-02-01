@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Ns1
 {
+    [Ns1ResourceType("ns1:index/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

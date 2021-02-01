@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Ns1
 {
+    [Ns1ResourceType("ns1:index/aPIKey:APIKey")]
     public partial class APIKey : Pulumi.CustomResource
     {
         /// <summary>
