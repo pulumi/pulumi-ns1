@@ -22,6 +22,7 @@ namespace Pulumi.Ns1
     ///  $ pulumi import ns1:index/zone:Zone example terraform.example.io`
     /// ```
     /// </summary>
+    [Ns1ResourceType("ns1:index/zone:Zone")]
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>

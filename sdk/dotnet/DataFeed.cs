@@ -50,6 +50,7 @@ namespace Pulumi.Ns1
     /// 
     /// [Datafeed Api Doc](https://ns1.com/api#data-feeds)
     /// </summary>
+    [Ns1ResourceType("ns1:index/dataFeed:DataFeed")]
     public partial class DataFeed : Pulumi.CustomResource
     {
         /// <summary>

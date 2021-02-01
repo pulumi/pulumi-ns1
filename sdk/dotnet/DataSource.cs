@@ -34,6 +34,7 @@ namespace Pulumi.Ns1
     /// 
     /// [Datasource Api Doc](https://ns1.com/api#data-sources)
     /// </summary>
+    [Ns1ResourceType("ns1:index/dataSource:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>

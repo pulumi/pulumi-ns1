@@ -28,6 +28,7 @@ namespace Pulumi.Ns1
     ///  $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
     /// ```
     /// </summary>
+    [Ns1ResourceType("ns1:index/record:Record")]
     public partial class Record : Pulumi.CustomResource
     {
         /// <summary>

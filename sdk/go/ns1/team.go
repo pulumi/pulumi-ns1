@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
+// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -435,15 +436,15 @@ type TeamInput interface {
 	ToTeamOutputWithContext(ctx context.Context) TeamOutput
 }
 
-func (Team) ElementType() reflect.Type {
-	return reflect.TypeOf((*Team)(nil)).Elem()
+func (*Team) ElementType() reflect.Type {
+	return reflect.TypeOf((*Team)(nil))
 }
 
-func (i Team) ToTeamOutput() TeamOutput {
+func (i *Team) ToTeamOutput() TeamOutput {
 	return i.ToTeamOutputWithContext(context.Background())
 }
 
-func (i Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
+func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamOutput)
 }
 
@@ -452,7 +453,7 @@ type TeamOutput struct {
 }
 
 func (TeamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamOutput)(nil)).Elem()
+	return reflect.TypeOf((*Team)(nil))
 }
 
 func (o TeamOutput) ToTeamOutput() TeamOutput {

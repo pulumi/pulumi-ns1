@@ -48,7 +48,7 @@ setup(name='pulumi_ns1',
       packages=find_packages(),
       package_data={
           'pulumi_ns1': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

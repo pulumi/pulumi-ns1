@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
+// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -155,15 +155,15 @@ type DataFeedInput interface {
 	ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput
 }
 
-func (DataFeed) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFeed)(nil)).Elem()
+func (*DataFeed) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFeed)(nil))
 }
 
-func (i DataFeed) ToDataFeedOutput() DataFeedOutput {
+func (i *DataFeed) ToDataFeedOutput() DataFeedOutput {
 	return i.ToDataFeedOutputWithContext(context.Background())
 }
 
-func (i DataFeed) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput {
+func (i *DataFeed) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataFeedOutput)
 }
 
@@ -172,7 +172,7 @@ type DataFeedOutput struct {
 }
 
 func (DataFeedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFeedOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataFeed)(nil))
 }
 
 func (o DataFeedOutput) ToDataFeedOutput() DataFeedOutput {

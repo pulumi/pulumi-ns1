@@ -52,6 +52,7 @@ namespace Pulumi.Ns1
     /// 
     /// [NotifyList Api Doc](https://ns1.com/api#notification-lists)
     /// </summary>
+    [Ns1ResourceType("ns1:index/notifyList:NotifyList")]
     public partial class NotifyList : Pulumi.CustomResource
     {
         /// <summary>
