@@ -19,7 +19,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
-// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -144,6 +143,85 @@ func (i *NotifyList) ToNotifyListOutputWithContext(ctx context.Context) NotifyLi
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListOutput)
 }
 
+func (i *NotifyList) ToNotifyListPtrOutput() NotifyListPtrOutput {
+	return i.ToNotifyListPtrOutputWithContext(context.Background())
+}
+
+func (i *NotifyList) ToNotifyListPtrOutputWithContext(ctx context.Context) NotifyListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotifyListPtrOutput)
+}
+
+type NotifyListPtrInput interface {
+	pulumi.Input
+
+	ToNotifyListPtrOutput() NotifyListPtrOutput
+	ToNotifyListPtrOutputWithContext(ctx context.Context) NotifyListPtrOutput
+}
+
+type notifyListPtrType NotifyListArgs
+
+func (*notifyListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotifyList)(nil))
+}
+
+func (i *notifyListPtrType) ToNotifyListPtrOutput() NotifyListPtrOutput {
+	return i.ToNotifyListPtrOutputWithContext(context.Background())
+}
+
+func (i *notifyListPtrType) ToNotifyListPtrOutputWithContext(ctx context.Context) NotifyListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotifyListPtrOutput)
+}
+
+// NotifyListArrayInput is an input type that accepts NotifyListArray and NotifyListArrayOutput values.
+// You can construct a concrete instance of `NotifyListArrayInput` via:
+//
+//          NotifyListArray{ NotifyListArgs{...} }
+type NotifyListArrayInput interface {
+	pulumi.Input
+
+	ToNotifyListArrayOutput() NotifyListArrayOutput
+	ToNotifyListArrayOutputWithContext(context.Context) NotifyListArrayOutput
+}
+
+type NotifyListArray []NotifyListInput
+
+func (NotifyListArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NotifyList)(nil))
+}
+
+func (i NotifyListArray) ToNotifyListArrayOutput() NotifyListArrayOutput {
+	return i.ToNotifyListArrayOutputWithContext(context.Background())
+}
+
+func (i NotifyListArray) ToNotifyListArrayOutputWithContext(ctx context.Context) NotifyListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotifyListArrayOutput)
+}
+
+// NotifyListMapInput is an input type that accepts NotifyListMap and NotifyListMapOutput values.
+// You can construct a concrete instance of `NotifyListMapInput` via:
+//
+//          NotifyListMap{ "key": NotifyListArgs{...} }
+type NotifyListMapInput interface {
+	pulumi.Input
+
+	ToNotifyListMapOutput() NotifyListMapOutput
+	ToNotifyListMapOutputWithContext(context.Context) NotifyListMapOutput
+}
+
+type NotifyListMap map[string]NotifyListInput
+
+func (NotifyListMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NotifyList)(nil))
+}
+
+func (i NotifyListMap) ToNotifyListMapOutput() NotifyListMapOutput {
+	return i.ToNotifyListMapOutputWithContext(context.Background())
+}
+
+func (i NotifyListMap) ToNotifyListMapOutputWithContext(ctx context.Context) NotifyListMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotifyListMapOutput)
+}
+
 type NotifyListOutput struct {
 	*pulumi.OutputState
 }
@@ -160,6 +238,75 @@ func (o NotifyListOutput) ToNotifyListOutputWithContext(ctx context.Context) Not
 	return o
 }
 
+func (o NotifyListOutput) ToNotifyListPtrOutput() NotifyListPtrOutput {
+	return o.ToNotifyListPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyListOutput) ToNotifyListPtrOutputWithContext(ctx context.Context) NotifyListPtrOutput {
+	return o.ApplyT(func(v NotifyList) *NotifyList {
+		return &v
+	}).(NotifyListPtrOutput)
+}
+
+type NotifyListPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NotifyListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotifyList)(nil))
+}
+
+func (o NotifyListPtrOutput) ToNotifyListPtrOutput() NotifyListPtrOutput {
+	return o
+}
+
+func (o NotifyListPtrOutput) ToNotifyListPtrOutputWithContext(ctx context.Context) NotifyListPtrOutput {
+	return o
+}
+
+type NotifyListArrayOutput struct{ *pulumi.OutputState }
+
+func (NotifyListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotifyList)(nil))
+}
+
+func (o NotifyListArrayOutput) ToNotifyListArrayOutput() NotifyListArrayOutput {
+	return o
+}
+
+func (o NotifyListArrayOutput) ToNotifyListArrayOutputWithContext(ctx context.Context) NotifyListArrayOutput {
+	return o
+}
+
+func (o NotifyListArrayOutput) Index(i pulumi.IntInput) NotifyListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotifyList {
+		return vs[0].([]NotifyList)[vs[1].(int)]
+	}).(NotifyListOutput)
+}
+
+type NotifyListMapOutput struct{ *pulumi.OutputState }
+
+func (NotifyListMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotifyList)(nil))
+}
+
+func (o NotifyListMapOutput) ToNotifyListMapOutput() NotifyListMapOutput {
+	return o
+}
+
+func (o NotifyListMapOutput) ToNotifyListMapOutputWithContext(ctx context.Context) NotifyListMapOutput {
+	return o
+}
+
+func (o NotifyListMapOutput) MapIndex(k pulumi.StringInput) NotifyListOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotifyList {
+		return vs[0].(map[string]NotifyList)[vs[1].(string)]
+	}).(NotifyListOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotifyListOutput{})
+	pulumi.RegisterOutputType(NotifyListPtrOutput{})
+	pulumi.RegisterOutputType(NotifyListArrayOutput{})
+	pulumi.RegisterOutputType(NotifyListMapOutput{})
 }

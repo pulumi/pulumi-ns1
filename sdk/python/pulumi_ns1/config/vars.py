@@ -18,14 +18,14 @@ __all__ = [
 
 __config__ = pulumi.Config('ns1')
 
-apikey = __config__.get('apikey') or _utilities.get_env('NS1_APIKEY')
+apikey = __config__.get('apikey')
 """
 The ns1 API key, this is required
 """
 
 enable_ddi = __config__.get('enableDdi')
 
-endpoint = __config__.get('endpoint') or _utilities.get_env('NS1_ENDPOINT')
+endpoint = __config__.get('endpoint')
 
 ignore_ssl = __config__.get('ignoreSsl')
 

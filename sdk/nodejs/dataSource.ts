@@ -73,26 +73,23 @@ export class DataSource extends pulumi.CustomResource {
     constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataSourceArgs | DataSourceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataSourceState | undefined;
             inputs["config"] = state ? state.config : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["sourcetype"] = state ? state.sourcetype : undefined;
         } else {
             const args = argsOrState as DataSourceArgs | undefined;
-            if ((!args || args.sourcetype === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourcetype === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourcetype'");
             }
             inputs["config"] = args ? args.config : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["sourcetype"] = args ? args.sourcetype : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataSource.__pulumiType, name, inputs, opts);
     }

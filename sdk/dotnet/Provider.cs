@@ -65,8 +65,6 @@ namespace Pulumi.Ns1
 
         public ProviderArgs()
         {
-            Apikey = Utilities.GetEnv("NS1_APIKEY");
-            Endpoint = Utilities.GetEnv("NS1_ENDPOINT");
         }
     }
 }

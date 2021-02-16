@@ -205,7 +205,8 @@ export class Team extends pulumi.CustomResource {
     constructor(name: string, args?: TeamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamArgs | TeamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TeamState | undefined;
             inputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
             inputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
@@ -264,12 +265,8 @@ export class Team extends pulumi.CustomResource {
             inputs["securityManageActiveDirectory"] = args ? args.securityManageActiveDirectory : undefined;
             inputs["securityManageGlobal2fa"] = args ? args.securityManageGlobal2fa : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Team.__pulumiType, name, inputs, opts);
     }

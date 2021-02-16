@@ -126,7 +126,8 @@ export class Zone extends pulumi.CustomResource {
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
             inputs["additionalPrimaries"] = state ? state.additionalPrimaries : undefined;
             inputs["autogenerateNsRecord"] = state ? state.autogenerateNsRecord : undefined;
@@ -145,7 +146,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            if ((!args || args.zone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.zone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
             inputs["additionalPrimaries"] = args ? args.additionalPrimaries : undefined;
@@ -164,12 +165,8 @@ export class Zone extends pulumi.CustomResource {
             inputs["dnsServers"] = undefined /*out*/;
             inputs["hostmaster"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Zone.__pulumiType, name, inputs, opts);
     }
