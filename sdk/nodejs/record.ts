@@ -115,7 +115,8 @@ export class Record extends pulumi.CustomResource {
     constructor(name: string, args: RecordArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RecordArgs | RecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RecordState | undefined;
             inputs["answers"] = state ? state.answers : undefined;
             inputs["domain"] = state ? state.domain : undefined;
@@ -130,13 +131,13 @@ export class Record extends pulumi.CustomResource {
             inputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as RecordArgs | undefined;
-            if ((!args || args.domain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.zone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.zone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
             inputs["answers"] = args ? args.answers : undefined;
@@ -151,12 +152,8 @@ export class Record extends pulumi.CustomResource {
             inputs["useClientSubnet"] = args ? args.useClientSubnet : undefined;
             inputs["zone"] = args ? args.zone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Record.__pulumiType, name, inputs, opts);
     }

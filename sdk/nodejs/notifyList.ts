@@ -82,7 +82,8 @@ export class NotifyList extends pulumi.CustomResource {
     constructor(name: string, args?: NotifyListArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotifyListArgs | NotifyListState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NotifyListState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notifications"] = state ? state.notifications : undefined;
@@ -91,12 +92,8 @@ export class NotifyList extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NotifyList.__pulumiType, name, inputs, opts);
     }

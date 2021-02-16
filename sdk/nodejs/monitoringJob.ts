@@ -142,7 +142,8 @@ export class MonitoringJob extends pulumi.CustomResource {
     constructor(name: string, args: MonitoringJobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitoringJobArgs | MonitoringJobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MonitoringJobState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["config"] = state ? state.config : undefined;
@@ -161,16 +162,16 @@ export class MonitoringJob extends pulumi.CustomResource {
             inputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as MonitoringJobArgs | undefined;
-            if ((!args || args.config === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'config'");
             }
-            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.jobType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jobType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobType'");
             }
-            if ((!args || args.regions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.regions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
             inputs["active"] = args ? args.active : undefined;
@@ -189,12 +190,8 @@ export class MonitoringJob extends pulumi.CustomResource {
             inputs["regions"] = args ? args.regions : undefined;
             inputs["rules"] = args ? args.rules : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MonitoringJob.__pulumiType, name, inputs, opts);
     }

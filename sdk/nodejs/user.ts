@@ -174,7 +174,8 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserState | undefined;
             inputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
             inputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
@@ -210,10 +211,10 @@ export class User extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["accountManageAccountSettings"] = args ? args.accountManageAccountSettings : undefined;
@@ -249,12 +250,8 @@ export class User extends pulumi.CustomResource {
             inputs["teams"] = args ? args.teams : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(User.__pulumiType, name, inputs, opts);
     }

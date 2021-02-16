@@ -10,21 +10,13 @@ import (
 
 // The ns1 API key, this is required
 func GetApikey(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "ns1:apikey")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "NS1_APIKEY").(string)
+	return config.Get(ctx, "ns1:apikey")
 }
 func GetEnableDdi(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "ns1:enableDdi")
 }
 func GetEndpoint(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "ns1:endpoint")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "NS1_ENDPOINT").(string)
+	return config.Get(ctx, "ns1:endpoint")
 }
 func GetIgnoreSsl(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "ns1:ignoreSsl")

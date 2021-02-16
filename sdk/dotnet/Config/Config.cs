@@ -11,11 +11,11 @@ namespace Pulumi.Ns1
         /// <summary>
         /// The ns1 API key, this is required
         /// </summary>
-        public static string? Apikey { get; set; } = __config.Get("apikey") ?? Utilities.GetEnv("NS1_APIKEY");
+        public static string? Apikey { get; set; } = __config.Get("apikey");
 
         public static bool? EnableDdi { get; set; } = __config.GetBoolean("enableDdi");
 
-        public static string? Endpoint { get; set; } = __config.Get("endpoint") ?? Utilities.GetEnv("NS1_ENDPOINT");
+        public static string? Endpoint { get; set; } = __config.Get("endpoint");
 
         public static bool? IgnoreSsl { get; set; } = __config.GetBoolean("ignoreSsl");
 

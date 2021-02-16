@@ -9,8 +9,8 @@ let __config = new pulumi.Config("ns1");
 /**
  * The ns1 API key, this is required
  */
-export let apikey: string | undefined = __config.get("apikey") || utilities.getEnv("NS1_APIKEY");
+export let apikey: string | undefined = __config.get("apikey");
 export let enableDdi: boolean | undefined = __config.getObject<boolean>("enableDdi");
-export let endpoint: string | undefined = __config.get("endpoint") || utilities.getEnv("NS1_ENDPOINT");
+export let endpoint: string | undefined = __config.get("endpoint");
 export let ignoreSsl: boolean | undefined = __config.getObject<boolean>("ignoreSsl");
 export let rateLimitParallelism: number | undefined = __config.getObject<number>("rateLimitParallelism");

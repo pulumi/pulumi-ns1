@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1/"
+// 	"github.com/pulumi/pulumi-ns1/sdk/go/ns1"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -167,6 +167,85 @@ func (i *DataFeed) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataFeedOutput)
 }
 
+func (i *DataFeed) ToDataFeedPtrOutput() DataFeedPtrOutput {
+	return i.ToDataFeedPtrOutputWithContext(context.Background())
+}
+
+func (i *DataFeed) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFeedPtrOutput)
+}
+
+type DataFeedPtrInput interface {
+	pulumi.Input
+
+	ToDataFeedPtrOutput() DataFeedPtrOutput
+	ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput
+}
+
+type dataFeedPtrType DataFeedArgs
+
+func (*dataFeedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFeed)(nil))
+}
+
+func (i *dataFeedPtrType) ToDataFeedPtrOutput() DataFeedPtrOutput {
+	return i.ToDataFeedPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFeedPtrType) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFeedPtrOutput)
+}
+
+// DataFeedArrayInput is an input type that accepts DataFeedArray and DataFeedArrayOutput values.
+// You can construct a concrete instance of `DataFeedArrayInput` via:
+//
+//          DataFeedArray{ DataFeedArgs{...} }
+type DataFeedArrayInput interface {
+	pulumi.Input
+
+	ToDataFeedArrayOutput() DataFeedArrayOutput
+	ToDataFeedArrayOutputWithContext(context.Context) DataFeedArrayOutput
+}
+
+type DataFeedArray []DataFeedInput
+
+func (DataFeedArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DataFeed)(nil))
+}
+
+func (i DataFeedArray) ToDataFeedArrayOutput() DataFeedArrayOutput {
+	return i.ToDataFeedArrayOutputWithContext(context.Background())
+}
+
+func (i DataFeedArray) ToDataFeedArrayOutputWithContext(ctx context.Context) DataFeedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFeedArrayOutput)
+}
+
+// DataFeedMapInput is an input type that accepts DataFeedMap and DataFeedMapOutput values.
+// You can construct a concrete instance of `DataFeedMapInput` via:
+//
+//          DataFeedMap{ "key": DataFeedArgs{...} }
+type DataFeedMapInput interface {
+	pulumi.Input
+
+	ToDataFeedMapOutput() DataFeedMapOutput
+	ToDataFeedMapOutputWithContext(context.Context) DataFeedMapOutput
+}
+
+type DataFeedMap map[string]DataFeedInput
+
+func (DataFeedMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DataFeed)(nil))
+}
+
+func (i DataFeedMap) ToDataFeedMapOutput() DataFeedMapOutput {
+	return i.ToDataFeedMapOutputWithContext(context.Background())
+}
+
+func (i DataFeedMap) ToDataFeedMapOutputWithContext(ctx context.Context) DataFeedMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFeedMapOutput)
+}
+
 type DataFeedOutput struct {
 	*pulumi.OutputState
 }
@@ -183,6 +262,75 @@ func (o DataFeedOutput) ToDataFeedOutputWithContext(ctx context.Context) DataFee
 	return o
 }
 
+func (o DataFeedOutput) ToDataFeedPtrOutput() DataFeedPtrOutput {
+	return o.ToDataFeedPtrOutputWithContext(context.Background())
+}
+
+func (o DataFeedOutput) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
+	return o.ApplyT(func(v DataFeed) *DataFeed {
+		return &v
+	}).(DataFeedPtrOutput)
+}
+
+type DataFeedPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataFeedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFeed)(nil))
+}
+
+func (o DataFeedPtrOutput) ToDataFeedPtrOutput() DataFeedPtrOutput {
+	return o
+}
+
+func (o DataFeedPtrOutput) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
+	return o
+}
+
+type DataFeedArrayOutput struct{ *pulumi.OutputState }
+
+func (DataFeedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataFeed)(nil))
+}
+
+func (o DataFeedArrayOutput) ToDataFeedArrayOutput() DataFeedArrayOutput {
+	return o
+}
+
+func (o DataFeedArrayOutput) ToDataFeedArrayOutputWithContext(ctx context.Context) DataFeedArrayOutput {
+	return o
+}
+
+func (o DataFeedArrayOutput) Index(i pulumi.IntInput) DataFeedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataFeed {
+		return vs[0].([]DataFeed)[vs[1].(int)]
+	}).(DataFeedOutput)
+}
+
+type DataFeedMapOutput struct{ *pulumi.OutputState }
+
+func (DataFeedMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DataFeed)(nil))
+}
+
+func (o DataFeedMapOutput) ToDataFeedMapOutput() DataFeedMapOutput {
+	return o
+}
+
+func (o DataFeedMapOutput) ToDataFeedMapOutputWithContext(ctx context.Context) DataFeedMapOutput {
+	return o
+}
+
+func (o DataFeedMapOutput) MapIndex(k pulumi.StringInput) DataFeedOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataFeed {
+		return vs[0].(map[string]DataFeed)[vs[1].(string)]
+	}).(DataFeedOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataFeedOutput{})
+	pulumi.RegisterOutputType(DataFeedPtrOutput{})
+	pulumi.RegisterOutputType(DataFeedArrayOutput{})
+	pulumi.RegisterOutputType(DataFeedMapOutput{})
 }

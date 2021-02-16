@@ -85,26 +85,23 @@ export class DataFeed extends pulumi.CustomResource {
     constructor(name: string, args: DataFeedArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataFeedArgs | DataFeedState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataFeedState | undefined;
             inputs["config"] = state ? state.config : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["sourceId"] = state ? state.sourceId : undefined;
         } else {
             const args = argsOrState as DataFeedArgs | undefined;
-            if ((!args || args.sourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceId'");
             }
             inputs["config"] = args ? args.config : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["sourceId"] = args ? args.sourceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataFeed.__pulumiType, name, inputs, opts);
     }

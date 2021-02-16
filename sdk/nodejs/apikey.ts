@@ -170,7 +170,8 @@ export class APIKey extends pulumi.CustomResource {
     constructor(name: string, args?: APIKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: APIKeyArgs | APIKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as APIKeyState | undefined;
             inputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
             inputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
@@ -235,12 +236,8 @@ export class APIKey extends pulumi.CustomResource {
             inputs["teams"] = args ? args.teams : undefined;
             inputs["key"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(APIKey.__pulumiType, name, inputs, opts);
     }

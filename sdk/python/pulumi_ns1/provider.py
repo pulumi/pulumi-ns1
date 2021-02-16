@@ -50,12 +50,8 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if apikey is None:
-                apikey = _utilities.get_env('NS1_APIKEY')
             __props__['apikey'] = apikey
             __props__['enable_ddi'] = pulumi.Output.from_input(enable_ddi).apply(pulumi.runtime.to_json) if enable_ddi is not None else None
-            if endpoint is None:
-                endpoint = _utilities.get_env('NS1_ENDPOINT')
             __props__['endpoint'] = endpoint
             __props__['ignore_ssl'] = pulumi.Output.from_input(ignore_ssl).apply(pulumi.runtime.to_json) if ignore_ssl is not None else None
             __props__['rate_limit_parallelism'] = pulumi.Output.from_input(rate_limit_parallelism).apply(pulumi.runtime.to_json) if rate_limit_parallelism is not None else None
