@@ -76,6 +76,8 @@ type Team struct {
 	AccountManageAccountSettings pulumi.BoolPtrOutput `pulumi:"accountManageAccountSettings"`
 	// Whether the team can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrOutput `pulumi:"accountManageApikeys"`
+	// Whether the team can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
 	// Whether the team can modify the account plan.
@@ -168,6 +170,8 @@ type teamState struct {
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`
 	// Whether the team can modify account apikeys.
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
+	// Whether the team can manage ip whitelist.
+	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the team can modify the account plan.
@@ -232,6 +236,8 @@ type TeamState struct {
 	AccountManageAccountSettings pulumi.BoolPtrInput
 	// Whether the team can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrInput
+	// Whether the team can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the team can modify the account plan.
@@ -300,6 +306,8 @@ type teamArgs struct {
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`
 	// Whether the team can modify account apikeys.
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
+	// Whether the team can manage ip whitelist.
+	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the team can modify the account plan.
@@ -365,6 +373,8 @@ type TeamArgs struct {
 	AccountManageAccountSettings pulumi.BoolPtrInput
 	// Whether the team can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrInput
+	// Whether the team can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the team can modify the account plan.

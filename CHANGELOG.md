@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.9.2 of the NS1 Terraform Provider
+* Upgrade to v1.9.3 of the NS1 Terraform Provider
 
 ---
 

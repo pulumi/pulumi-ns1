@@ -88,6 +88,10 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly accountManageApikeys!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether the team can manage ip whitelist.
+     */
+    public readonly accountManageIpWhitelist!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether the team can modify account payment methods.
      */
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
@@ -210,6 +214,7 @@ export class Team extends pulumi.CustomResource {
             const state = argsOrState as TeamState | undefined;
             inputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
             inputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
+            inputs["accountManageIpWhitelist"] = state ? state.accountManageIpWhitelist : undefined;
             inputs["accountManagePaymentMethods"] = state ? state.accountManagePaymentMethods : undefined;
             inputs["accountManagePlan"] = state ? state.accountManagePlan : undefined;
             inputs["accountManageTeams"] = state ? state.accountManageTeams : undefined;
@@ -239,6 +244,7 @@ export class Team extends pulumi.CustomResource {
             const args = argsOrState as TeamArgs | undefined;
             inputs["accountManageAccountSettings"] = args ? args.accountManageAccountSettings : undefined;
             inputs["accountManageApikeys"] = args ? args.accountManageApikeys : undefined;
+            inputs["accountManageIpWhitelist"] = args ? args.accountManageIpWhitelist : undefined;
             inputs["accountManagePaymentMethods"] = args ? args.accountManagePaymentMethods : undefined;
             inputs["accountManagePlan"] = args ? args.accountManagePlan : undefined;
             inputs["accountManageTeams"] = args ? args.accountManageTeams : undefined;
@@ -284,6 +290,10 @@ export interface TeamState {
      * Whether the team can modify account apikeys.
      */
     readonly accountManageApikeys?: pulumi.Input<boolean>;
+    /**
+     * Whether the team can manage ip whitelist.
+     */
+    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the team can modify account payment methods.
      */
@@ -405,6 +415,10 @@ export interface TeamArgs {
      * Whether the team can modify account apikeys.
      */
     readonly accountManageApikeys?: pulumi.Input<boolean>;
+    /**
+     * Whether the team can manage ip whitelist.
+     */
+    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the team can modify account payment methods.
      */

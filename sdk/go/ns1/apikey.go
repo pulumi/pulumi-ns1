@@ -17,6 +17,8 @@ type APIKey struct {
 	AccountManageAccountSettings pulumi.BoolPtrOutput `pulumi:"accountManageAccountSettings"`
 	// Whether the apikey can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrOutput `pulumi:"accountManageApikeys"`
+	// Whether the apikey can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
 	// Whether the apikey can modify the account plan.
@@ -115,6 +117,8 @@ type apikeyState struct {
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`
 	// Whether the apikey can modify account apikeys.
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
+	// Whether the apikey can manage ip whitelist.
+	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the apikey can modify the account plan.
@@ -185,6 +189,8 @@ type APIKeyState struct {
 	AccountManageAccountSettings pulumi.BoolPtrInput
 	// Whether the apikey can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrInput
+	// Whether the apikey can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the apikey can modify the account plan.
@@ -259,6 +265,8 @@ type apikeyArgs struct {
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`
 	// Whether the apikey can modify account apikeys.
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
+	// Whether the apikey can manage ip whitelist.
+	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// Whether the apikey can modify the account plan.
@@ -328,6 +336,8 @@ type APIKeyArgs struct {
 	AccountManageAccountSettings pulumi.BoolPtrInput
 	// Whether the apikey can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrInput
+	// Whether the apikey can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// Whether the apikey can modify the account plan.

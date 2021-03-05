@@ -25,6 +25,12 @@ namespace Pulumi.Ns1
         public Output<bool?> AccountManageApikeys { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the apikey can manage ip whitelist.
+        /// </summary>
+        [Output("accountManageIpWhitelist")]
+        public Output<bool?> AccountManageIpWhitelist { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the apikey can modify account payment methods.
         /// </summary>
         [Output("accountManagePaymentMethods")]
@@ -256,6 +262,12 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManageApikeys { get; set; }
 
         /// <summary>
+        /// Whether the apikey can manage ip whitelist.
+        /// </summary>
+        [Input("accountManageIpWhitelist")]
+        public Input<bool>? AccountManageIpWhitelist { get; set; }
+
+        /// <summary>
         /// Whether the apikey can modify account payment methods.
         /// </summary>
         [Input("accountManagePaymentMethods")]
@@ -464,6 +476,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("accountManageApikeys")]
         public Input<bool>? AccountManageApikeys { get; set; }
+
+        /// <summary>
+        /// Whether the apikey can manage ip whitelist.
+        /// </summary>
+        [Input("accountManageIpWhitelist")]
+        public Input<bool>? AccountManageIpWhitelist { get; set; }
 
         /// <summary>
         /// Whether the apikey can modify account payment methods.

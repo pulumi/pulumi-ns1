@@ -18,6 +18,8 @@ type User struct {
 	AccountManageAccountSettings pulumi.BoolPtrOutput `pulumi:"accountManageAccountSettings"`
 	// Whether the user can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrOutput `pulumi:"accountManageApikeys"`
+	// Whether the user can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
 	// **Deprecated** Whether the user can modify the account plan.
@@ -124,6 +126,8 @@ type userState struct {
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`
 	// Whether the user can modify account apikeys.
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
+	// Whether the user can manage ip whitelist.
+	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// **Deprecated** Whether the user can modify the account plan.
@@ -196,6 +200,8 @@ type UserState struct {
 	AccountManageAccountSettings pulumi.BoolPtrInput
 	// Whether the user can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrInput
+	// Whether the user can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// **Deprecated** Whether the user can modify the account plan.
@@ -272,6 +278,8 @@ type userArgs struct {
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`
 	// Whether the user can modify account apikeys.
 	AccountManageApikeys *bool `pulumi:"accountManageApikeys"`
+	// Whether the user can manage ip whitelist.
+	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
 	// **Deprecated** Whether the user can modify the account plan.
@@ -345,6 +353,8 @@ type UserArgs struct {
 	AccountManageAccountSettings pulumi.BoolPtrInput
 	// Whether the user can modify account apikeys.
 	AccountManageApikeys pulumi.BoolPtrInput
+	// Whether the user can manage ip whitelist.
+	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
 	// **Deprecated** Whether the user can modify the account plan.
