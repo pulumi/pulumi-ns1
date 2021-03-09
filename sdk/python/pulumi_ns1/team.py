@@ -19,6 +19,7 @@ class Team(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_manage_account_settings: Optional[pulumi.Input[bool]] = None,
                  account_manage_apikeys: Optional[pulumi.Input[bool]] = None,
+                 account_manage_ip_whitelist: Optional[pulumi.Input[bool]] = None,
                  account_manage_payment_methods: Optional[pulumi.Input[bool]] = None,
                  account_manage_plan: Optional[pulumi.Input[bool]] = None,
                  account_manage_teams: Optional[pulumi.Input[bool]] = None,
@@ -93,6 +94,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] account_manage_account_settings: Whether the team can modify account settings.
         :param pulumi.Input[bool] account_manage_apikeys: Whether the team can modify account apikeys.
+        :param pulumi.Input[bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the team can modify account payment methods.
         :param pulumi.Input[bool] account_manage_plan: Whether the team can modify the account plan.
         :param pulumi.Input[bool] account_manage_teams: Whether the team can modify other teams in the account.
@@ -143,6 +145,7 @@ class Team(pulumi.CustomResource):
 
             __props__['account_manage_account_settings'] = account_manage_account_settings
             __props__['account_manage_apikeys'] = account_manage_apikeys
+            __props__['account_manage_ip_whitelist'] = account_manage_ip_whitelist
             __props__['account_manage_payment_methods'] = account_manage_payment_methods
             if account_manage_plan is not None and not opts.urn:
                 warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
@@ -183,6 +186,7 @@ class Team(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_manage_account_settings: Optional[pulumi.Input[bool]] = None,
             account_manage_apikeys: Optional[pulumi.Input[bool]] = None,
+            account_manage_ip_whitelist: Optional[pulumi.Input[bool]] = None,
             account_manage_payment_methods: Optional[pulumi.Input[bool]] = None,
             account_manage_plan: Optional[pulumi.Input[bool]] = None,
             account_manage_teams: Optional[pulumi.Input[bool]] = None,
@@ -217,6 +221,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] account_manage_account_settings: Whether the team can modify account settings.
         :param pulumi.Input[bool] account_manage_apikeys: Whether the team can modify account apikeys.
+        :param pulumi.Input[bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the team can modify account payment methods.
         :param pulumi.Input[bool] account_manage_plan: Whether the team can modify the account plan.
         :param pulumi.Input[bool] account_manage_teams: Whether the team can modify other teams in the account.
@@ -254,6 +259,7 @@ class Team(pulumi.CustomResource):
 
         __props__["account_manage_account_settings"] = account_manage_account_settings
         __props__["account_manage_apikeys"] = account_manage_apikeys
+        __props__["account_manage_ip_whitelist"] = account_manage_ip_whitelist
         __props__["account_manage_payment_methods"] = account_manage_payment_methods
         __props__["account_manage_plan"] = account_manage_plan
         __props__["account_manage_teams"] = account_manage_teams
@@ -296,6 +302,14 @@ class Team(pulumi.CustomResource):
         Whether the team can modify account apikeys.
         """
         return pulumi.get(self, "account_manage_apikeys")
+
+    @property
+    @pulumi.getter(name="accountManageIpWhitelist")
+    def account_manage_ip_whitelist(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the team can manage ip whitelist.
+        """
+        return pulumi.get(self, "account_manage_ip_whitelist")
 
     @property
     @pulumi.getter(name="accountManagePaymentMethods")

@@ -5,6 +5,7 @@
 SNAKE_TO_CAMEL_CASE_TABLE = {
     "account_manage_account_settings": "accountManageAccountSettings",
     "account_manage_apikeys": "accountManageApikeys",
+    "account_manage_ip_whitelist": "accountManageIpWhitelist",
     "account_manage_payment_methods": "accountManagePaymentMethods",
     "account_manage_plan": "accountManagePlan",
     "account_manage_teams": "accountManageTeams",
@@ -52,6 +53,7 @@ SNAKE_TO_CAMEL_CASE_TABLE = {
 CAMEL_TO_SNAKE_CASE_TABLE = {
     "accountManageAccountSettings": "account_manage_account_settings",
     "accountManageApikeys": "account_manage_apikeys",
+    "accountManageIpWhitelist": "account_manage_ip_whitelist",
     "accountManagePaymentMethods": "account_manage_payment_methods",
     "accountManagePlan": "account_manage_plan",
     "accountManageTeams": "account_manage_teams",

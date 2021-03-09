@@ -41,6 +41,10 @@ export class APIKey extends pulumi.CustomResource {
      */
     public readonly accountManageApikeys!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether the apikey can manage ip whitelist.
+     */
+    public readonly accountManageIpWhitelist!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether the apikey can modify account payment methods.
      */
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
@@ -175,6 +179,7 @@ export class APIKey extends pulumi.CustomResource {
             const state = argsOrState as APIKeyState | undefined;
             inputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
             inputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
+            inputs["accountManageIpWhitelist"] = state ? state.accountManageIpWhitelist : undefined;
             inputs["accountManagePaymentMethods"] = state ? state.accountManagePaymentMethods : undefined;
             inputs["accountManagePlan"] = state ? state.accountManagePlan : undefined;
             inputs["accountManageTeams"] = state ? state.accountManageTeams : undefined;
@@ -207,6 +212,7 @@ export class APIKey extends pulumi.CustomResource {
             const args = argsOrState as APIKeyArgs | undefined;
             inputs["accountManageAccountSettings"] = args ? args.accountManageAccountSettings : undefined;
             inputs["accountManageApikeys"] = args ? args.accountManageApikeys : undefined;
+            inputs["accountManageIpWhitelist"] = args ? args.accountManageIpWhitelist : undefined;
             inputs["accountManagePaymentMethods"] = args ? args.accountManagePaymentMethods : undefined;
             inputs["accountManagePlan"] = args ? args.accountManagePlan : undefined;
             inputs["accountManageTeams"] = args ? args.accountManageTeams : undefined;
@@ -255,6 +261,10 @@ export interface APIKeyState {
      * Whether the apikey can modify account apikeys.
      */
     readonly accountManageApikeys?: pulumi.Input<boolean>;
+    /**
+     * Whether the apikey can manage ip whitelist.
+     */
+    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account payment methods.
      */
@@ -388,6 +398,10 @@ export interface APIKeyArgs {
      * Whether the apikey can modify account apikeys.
      */
     readonly accountManageApikeys?: pulumi.Input<boolean>;
+    /**
+     * Whether the apikey can manage ip whitelist.
+     */
+    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account payment methods.
      */

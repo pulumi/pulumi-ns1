@@ -729,6 +729,10 @@
                     "type": "boolean",
                     "description": "Whether the apikey can modify account apikeys.\n"
                 },
+                "accountManageIpWhitelist": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage ip whitelist.\n"
+                },
                 "accountManagePaymentMethods": {
                     "type": "boolean",
                     "description": "Whether the apikey can modify account payment methods.\n"
@@ -868,6 +872,10 @@
                     "type": "boolean",
                     "description": "Whether the apikey can modify account apikeys.\n"
                 },
+                "accountManageIpWhitelist": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage ip whitelist.\n"
+                },
                 "accountManagePaymentMethods": {
                     "type": "boolean",
                     "description": "Whether the apikey can modify account payment methods.\n"
@@ -1000,6 +1008,10 @@
                     "accountManageApikeys": {
                         "type": "boolean",
                         "description": "Whether the apikey can modify account apikeys.\n"
+                    },
+                    "accountManageIpWhitelist": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can manage ip whitelist.\n"
                     },
                     "accountManagePaymentMethods": {
                         "type": "boolean",
@@ -1748,6 +1760,10 @@
                     "type": "boolean",
                     "description": "Whether the team can modify account apikeys.\n"
                 },
+                "accountManageIpWhitelist": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage ip whitelist.\n"
+                },
                 "accountManagePaymentMethods": {
                     "type": "boolean",
                     "description": "Whether the team can modify account payment methods.\n"
@@ -1871,6 +1887,10 @@
                     "type": "boolean",
                     "description": "Whether the team can modify account apikeys.\n"
                 },
+                "accountManageIpWhitelist": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage ip whitelist.\n"
+                },
                 "accountManagePaymentMethods": {
                     "type": "boolean",
                     "description": "Whether the team can modify account payment methods.\n"
@@ -1992,6 +2012,10 @@
                     "accountManageApikeys": {
                         "type": "boolean",
                         "description": "Whether the team can modify account apikeys.\n"
+                    },
+                    "accountManageIpWhitelist": {
+                        "type": "boolean",
+                        "description": "Whether the team can manage ip whitelist.\n"
                     },
                     "accountManagePaymentMethods": {
                         "type": "boolean",
@@ -2116,6 +2140,10 @@
                 "accountManageApikeys": {
                     "type": "boolean",
                     "description": "Whether the user can modify account apikeys.\n"
+                },
+                "accountManageIpWhitelist": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage ip whitelist.\n"
                 },
                 "accountManagePaymentMethods": {
                     "type": "boolean",
@@ -2267,6 +2295,10 @@
                     "type": "boolean",
                     "description": "Whether the user can modify account apikeys.\n"
                 },
+                "accountManageIpWhitelist": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage ip whitelist.\n"
+                },
                 "accountManagePaymentMethods": {
                     "type": "boolean",
                     "description": "Whether the user can modify account payment methods.\n"
@@ -2417,6 +2449,10 @@
                     "accountManageApikeys": {
                         "type": "boolean",
                         "description": "Whether the user can modify account apikeys.\n"
+                    },
+                    "accountManageIpWhitelist": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage ip whitelist.\n"
                     },
                     "accountManagePaymentMethods": {
                         "type": "boolean",
