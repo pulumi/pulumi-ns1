@@ -100,7 +100,7 @@ class Record(pulumi.CustomResource):
             __props__['regions'] = regions
             if short_answers is not None and not opts.urn:
                 warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
-                pulumi.log.warn("short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.")
+                pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
             __props__['short_answers'] = short_answers
             __props__['ttl'] = ttl
             if type is None and not opts.urn:
