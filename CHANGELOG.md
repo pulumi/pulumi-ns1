@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.21.0
+_(none)_
 
 ---
+
+## 1.5.0 (2021-03-15)
+* Upgrade to pulumi-terraform-bridge v2.21.0
+* Release macOS arm64 binary
 
 ## 1.4.2 (2021-03-09)
 * Upgrade to v1.9.3 of the NS1 Terraform Provider
