@@ -825,7 +825,7 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "The apikeys authentication token.\n"
+                    "description": "(Computed) The apikeys authentication token.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
@@ -1105,7 +1105,7 @@
                     },
                     "key": {
                         "type": "string",
-                        "description": "The apikeys authentication token.\n"
+                        "description": "(Computed) The apikeys authentication token.\n"
                     },
                     "monitoringManageJobs": {
                         "type": "boolean",

@@ -65,7 +65,7 @@ type APIKey struct {
 	// Whether the apikey can view IPAM.
 	// Only relevant for the DDI product.
 	IpamViewIpam pulumi.BoolPtrOutput `pulumi:"ipamViewIpam"`
-	// The apikeys authentication token.
+	// (Computed) The apikeys authentication token.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Whether the apikey can modify monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrOutput `pulumi:"monitoringManageJobs"`
@@ -165,7 +165,7 @@ type apikeyState struct {
 	// Whether the apikey can view IPAM.
 	// Only relevant for the DDI product.
 	IpamViewIpam *bool `pulumi:"ipamViewIpam"`
-	// The apikeys authentication token.
+	// (Computed) The apikeys authentication token.
 	Key *string `pulumi:"key"`
 	// Whether the apikey can modify monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
@@ -237,7 +237,7 @@ type APIKeyState struct {
 	// Whether the apikey can view IPAM.
 	// Only relevant for the DDI product.
 	IpamViewIpam pulumi.BoolPtrInput
-	// The apikeys authentication token.
+	// (Computed) The apikeys authentication token.
 	Key pulumi.StringPtrInput
 	// Whether the apikey can modify monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput

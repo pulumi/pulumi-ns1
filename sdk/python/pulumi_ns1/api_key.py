@@ -214,7 +214,7 @@ class APIKey(pulumi.CustomResource):
                Only relevant for the DDI product.
         :param pulumi.Input[bool] ipam_view_ipam: Whether the apikey can view IPAM.
                Only relevant for the DDI product.
-        :param pulumi.Input[str] key: The apikeys authentication token.
+        :param pulumi.Input[str] key: (Computed) The apikeys authentication token.
         :param pulumi.Input[bool] monitoring_manage_jobs: Whether the apikey can modify monitoring jobs.
         :param pulumi.Input[bool] monitoring_manage_lists: Whether the apikey can modify notification lists.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the apikey can view monitoring jobs.
@@ -453,7 +453,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The apikeys authentication token.
+        (Computed) The apikeys authentication token.
         """
         return pulumi.get(self, "key")
 

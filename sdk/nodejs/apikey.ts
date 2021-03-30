@@ -131,7 +131,7 @@ export class APIKey extends pulumi.CustomResource {
      */
     public readonly ipamViewIpam!: pulumi.Output<boolean | undefined>;
     /**
-     * The apikeys authentication token.
+     * (Computed) The apikeys authentication token.
      */
     public /*out*/ readonly key!: pulumi.Output<string>;
     /**
@@ -352,7 +352,7 @@ export interface APIKeyState {
      */
     readonly ipamViewIpam?: pulumi.Input<boolean>;
     /**
-     * The apikeys authentication token.
+     * (Computed) The apikeys authentication token.
      */
     readonly key?: pulumi.Input<string>;
     /**
