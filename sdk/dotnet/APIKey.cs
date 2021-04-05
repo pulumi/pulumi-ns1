@@ -155,7 +155,7 @@ namespace Pulumi.Ns1
         public Output<bool?> IpamViewIpam { get; private set; } = null!;
 
         /// <summary>
-        /// The apikeys authentication token.
+        /// (Computed) The apikeys authentication token.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -626,7 +626,7 @@ namespace Pulumi.Ns1
         public Input<bool>? IpamViewIpam { get; set; }
 
         /// <summary>
-        /// The apikeys authentication token.
+        /// (Computed) The apikeys authentication token.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
