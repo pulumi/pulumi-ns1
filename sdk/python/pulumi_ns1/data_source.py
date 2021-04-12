@@ -5,13 +5,70 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['DataSource']
+__all__ = ['DataSourceArgs', 'DataSource']
+
+@pulumi.input_type
+class DataSourceArgs:
+    def __init__(__self__, *,
+                 sourcetype: pulumi.Input[str],
+                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DataSource resource.
+        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        :param pulumi.Input[Mapping[str, Any]] config: The data source configuration, determined by its type,
+               matching the specification in `config` from /data/sourcetypes.
+        :param pulumi.Input[str] name: The free form name of the data source.
+        """
+        pulumi.set(__self__, "sourcetype", sourcetype)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def sourcetype(self) -> pulumi.Input[str]:
+        """
+        The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        """
+        return pulumi.get(self, "sourcetype")
+
+    @sourcetype.setter
+    def sourcetype(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sourcetype", value)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The data source configuration, determined by its type,
+        matching the specification in `config` from /data/sourcetypes.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The free form name of the data source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class DataSource(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +100,48 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: The free form name of the data source.
         :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataSourceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.DataSource("example", sourcetype="nsone_v1")
+        ```
+        ## NS1 Documentation
+
+        [Datasource Api Doc](https://ns1.com/api#data-sources)
+
+        :param str resource_name: The name of the resource.
+        :param DataSourceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataSourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sourcetype: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

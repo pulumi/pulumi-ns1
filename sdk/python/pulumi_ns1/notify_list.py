@@ -5,15 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NotifyList']
+__all__ = ['NotifyListArgs', 'NotifyList']
+
+@pulumi.input_type
+class NotifyListArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
+        """
+        The set of arguments for constructing a NotifyList resource.
+        :param pulumi.Input[str] name: The free-form display name for the notify list.
+        :param pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The free-form display name for the notify list.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]:
+        """
+        A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]):
+        pulumi.set(self, "notifications", value)
 
 
 class NotifyList(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +95,60 @@ class NotifyList(pulumi.CustomResource):
         :param pulumi.Input[str] name: The free-form display name for the notify list.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[NotifyListArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        nl = ns1.NotifyList("nl", notifications=[
+            ns1.NotifyListNotificationArgs(
+                config={
+                    "url": "http://www.mywebhook.com",
+                },
+                type="webhook",
+            ),
+            ns1.NotifyListNotificationArgs(
+                config={
+                    "email": "test@test.com",
+                },
+                type="email",
+            ),
+        ])
+        ```
+        ## NS1 Documentation
+
+        [NotifyList Api Doc](https://ns1.com/api#notification-lists)
+
+        :param str resource_name: The name of the resource.
+        :param NotifyListArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NotifyListArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

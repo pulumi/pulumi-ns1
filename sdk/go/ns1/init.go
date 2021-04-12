@@ -21,27 +21,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "ns1:index/aPIKey:APIKey":
-		r, err = NewAPIKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &APIKey{}
 	case "ns1:index/dataFeed:DataFeed":
-		r, err = NewDataFeed(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataFeed{}
 	case "ns1:index/dataSource:DataSource":
-		r, err = NewDataSource(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataSource{}
 	case "ns1:index/monitoringJob:MonitoringJob":
-		r, err = NewMonitoringJob(ctx, name, nil, pulumi.URN_(urn))
+		r = &MonitoringJob{}
 	case "ns1:index/notifyList:NotifyList":
-		r, err = NewNotifyList(ctx, name, nil, pulumi.URN_(urn))
+		r = &NotifyList{}
 	case "ns1:index/record:Record":
-		r, err = NewRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &Record{}
 	case "ns1:index/team:Team":
-		r, err = NewTeam(ctx, name, nil, pulumi.URN_(urn))
+		r = &Team{}
 	case "ns1:index/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "ns1:index/zone:Zone":
-		r, err = NewZone(ctx, name, nil, pulumi.URN_(urn))
+		r = &Zone{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -58,7 +59,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {
