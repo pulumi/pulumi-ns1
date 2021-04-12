@@ -5,13 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Provider']
+__all__ = ['ProviderArgs', 'Provider']
+
+@pulumi.input_type
+class ProviderArgs:
+    def __init__(__self__, *,
+                 apikey: Optional[pulumi.Input[str]] = None,
+                 enable_ddi: Optional[pulumi.Input[bool]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 ignore_ssl: Optional[pulumi.Input[bool]] = None,
+                 rate_limit_parallelism: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] apikey: The ns1 API key, this is required
+        """
+        if apikey is not None:
+            pulumi.set(__self__, "apikey", apikey)
+        if enable_ddi is not None:
+            pulumi.set(__self__, "enable_ddi", enable_ddi)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if ignore_ssl is not None:
+            pulumi.set(__self__, "ignore_ssl", ignore_ssl)
+        if rate_limit_parallelism is not None:
+            pulumi.set(__self__, "rate_limit_parallelism", rate_limit_parallelism)
+
+    @property
+    @pulumi.getter
+    def apikey(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ns1 API key, this is required
+        """
+        return pulumi.get(self, "apikey")
+
+    @apikey.setter
+    def apikey(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "apikey", value)
+
+    @property
+    @pulumi.getter(name="enableDdi")
+    def enable_ddi(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_ddi")
+
+    @enable_ddi.setter
+    def enable_ddi(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ddi", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="ignoreSsl")
+    def ignore_ssl(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ignore_ssl")
+
+    @ignore_ssl.setter
+    def ignore_ssl(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_ssl", value)
+
+    @property
+    @pulumi.getter(name="rateLimitParallelism")
+    def rate_limit_parallelism(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rate_limit_parallelism")
+
+    @rate_limit_parallelism.setter
+    def rate_limit_parallelism(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rate_limit_parallelism", value)
 
 
 class Provider(pulumi.ProviderResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,6 +105,41 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] apikey: The ns1 API key, this is required
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ProviderArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The provider type for the ns1 package. By default, resources use package-wide configuration
+        settings, however an explicit `Provider` instance may be created and passed during resource
+        construction to achieve fine-grained programmatic control over provider settings. See the
+        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
+        :param str resource_name: The name of the resource.
+        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 apikey: Optional[pulumi.Input[str]] = None,
+                 enable_ddi: Optional[pulumi.Input[bool]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 ignore_ssl: Optional[pulumi.Input[bool]] = None,
+                 rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
