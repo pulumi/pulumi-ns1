@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -19,6 +19,46 @@ class NotifyListArgs:
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
         """
         The set of arguments for constructing a NotifyList resource.
+        :param pulumi.Input[str] name: The free-form display name for the notify list.
+        :param pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The free-form display name for the notify list.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]:
+        """
+        A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]):
+        pulumi.set(self, "notifications", value)
+
+
+@pulumi.input_type
+class _NotifyListState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering NotifyList resources.
         :param pulumi.Input[str] name: The free-form display name for the notify list.
         :param pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
@@ -164,10 +204,10 @@ class NotifyList(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NotifyListArgs.__new__(NotifyListArgs)
 
-            __props__['name'] = name
-            __props__['notifications'] = notifications
+            __props__.__dict__["name"] = name
+            __props__.__dict__["notifications"] = notifications
         super(NotifyList, __self__).__init__(
             'ns1:index/notifyList:NotifyList',
             resource_name,
@@ -192,10 +232,10 @@ class NotifyList(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NotifyListState.__new__(_NotifyListState)
 
-        __props__["name"] = name
-        __props__["notifications"] = notifications
+        __props__.__dict__["name"] = name
+        __props__.__dict__["notifications"] = notifications
         return NotifyList(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -213,10 +253,4 @@ class NotifyList(pulumi.CustomResource):
         A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
         return pulumi.get(self, "notifications")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

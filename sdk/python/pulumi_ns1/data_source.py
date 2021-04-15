@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['DataSourceArgs', 'DataSource']
 
@@ -65,6 +65,64 @@ class DataSourceArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _DataSourceState:
+    def __init__(__self__, *,
+                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sourcetype: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DataSource resources.
+        :param pulumi.Input[Mapping[str, Any]] config: The data source configuration, determined by its type,
+               matching the specification in `config` from /data/sourcetypes.
+        :param pulumi.Input[str] name: The free form name of the data source.
+        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        """
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sourcetype is not None:
+            pulumi.set(__self__, "sourcetype", sourcetype)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The data source configuration, determined by its type,
+        matching the specification in `config` from /data/sourcetypes.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The free form name of the data source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def sourcetype(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        """
+        return pulumi.get(self, "sourcetype")
+
+    @sourcetype.setter
+    def sourcetype(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sourcetype", value)
 
 
 class DataSource(pulumi.CustomResource):
@@ -157,13 +215,13 @@ class DataSource(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
-            __props__['config'] = config
-            __props__['name'] = name
+            __props__.__dict__["config"] = config
+            __props__.__dict__["name"] = name
             if sourcetype is None and not opts.urn:
                 raise TypeError("Missing required property 'sourcetype'")
-            __props__['sourcetype'] = sourcetype
+            __props__.__dict__["sourcetype"] = sourcetype
         super(DataSource, __self__).__init__(
             'ns1:index/dataSource:DataSource',
             resource_name,
@@ -191,11 +249,11 @@ class DataSource(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataSourceState.__new__(_DataSourceState)
 
-        __props__["config"] = config
-        __props__["name"] = name
-        __props__["sourcetype"] = sourcetype
+        __props__.__dict__["config"] = config
+        __props__.__dict__["name"] = name
+        __props__.__dict__["sourcetype"] = sourcetype
         return DataSource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -222,10 +280,4 @@ class DataSource(pulumi.CustomResource):
         The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
         """
         return pulumi.get(self, "sourcetype")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

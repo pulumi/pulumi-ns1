@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -155,22 +155,16 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__['apikey'] = apikey
-            __props__['enable_ddi'] = pulumi.Output.from_input(enable_ddi).apply(pulumi.runtime.to_json) if enable_ddi is not None else None
-            __props__['endpoint'] = endpoint
-            __props__['ignore_ssl'] = pulumi.Output.from_input(ignore_ssl).apply(pulumi.runtime.to_json) if ignore_ssl is not None else None
-            __props__['rate_limit_parallelism'] = pulumi.Output.from_input(rate_limit_parallelism).apply(pulumi.runtime.to_json) if rate_limit_parallelism is not None else None
+            __props__.__dict__["apikey"] = apikey
+            __props__.__dict__["enable_ddi"] = pulumi.Output.from_input(enable_ddi).apply(pulumi.runtime.to_json) if enable_ddi is not None else None
+            __props__.__dict__["endpoint"] = endpoint
+            __props__.__dict__["ignore_ssl"] = pulumi.Output.from_input(ignore_ssl).apply(pulumi.runtime.to_json) if ignore_ssl is not None else None
+            __props__.__dict__["rate_limit_parallelism"] = pulumi.Output.from_input(rate_limit_parallelism).apply(pulumi.runtime.to_json) if rate_limit_parallelism is not None else None
         super(Provider, __self__).__init__(
             'ns1',
             resource_name,
             __props__,
             opts)
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

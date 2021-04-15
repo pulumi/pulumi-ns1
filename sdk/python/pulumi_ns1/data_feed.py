@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['DataFeedArgs', 'DataFeed']
 
@@ -65,6 +65,64 @@ class DataFeedArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _DataFeedState:
+    def __init__(__self__, *,
+                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 source_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DataFeed resources.
+        :param pulumi.Input[Mapping[str, Any]] config: The feeds configuration matching the specification in
+               `feed_config` from /data/sourcetypes.
+        :param pulumi.Input[str] name: The free form name of the data feed.
+        :param pulumi.Input[str] source_id: The data source id that this feed is connected to.
+        """
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The feeds configuration matching the specification in
+        `feed_config` from /data/sourcetypes.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The free form name of the data feed.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data source id that this feed is connected to.
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_id", value)
 
 
 class DataFeed(pulumi.CustomResource):
@@ -177,13 +235,13 @@ class DataFeed(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataFeedArgs.__new__(DataFeedArgs)
 
-            __props__['config'] = config
-            __props__['name'] = name
+            __props__.__dict__["config"] = config
+            __props__.__dict__["name"] = name
             if source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_id'")
-            __props__['source_id'] = source_id
+            __props__.__dict__["source_id"] = source_id
         super(DataFeed, __self__).__init__(
             'ns1:index/dataFeed:DataFeed',
             resource_name,
@@ -211,11 +269,11 @@ class DataFeed(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataFeedState.__new__(_DataFeedState)
 
-        __props__["config"] = config
-        __props__["name"] = name
-        __props__["source_id"] = source_id
+        __props__.__dict__["config"] = config
+        __props__.__dict__["name"] = name
+        __props__.__dict__["source_id"] = source_id
         return DataFeed(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -242,10 +300,4 @@ class DataFeed(pulumi.CustomResource):
         The data source id that this feed is connected to.
         """
         return pulumi.get(self, "source_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
