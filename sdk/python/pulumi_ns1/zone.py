@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -247,6 +247,274 @@ class ZoneArgs:
         pulumi.set(self, "ttl", value)
 
 
+@pulumi.input_type
+class _ZoneState:
+    def __init__(__self__, *,
+                 additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
+                 dns_servers: Optional[pulumi.Input[str]] = None,
+                 dnssec: Optional[pulumi.Input[bool]] = None,
+                 expiry: Optional[pulumi.Input[int]] = None,
+                 hostmaster: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 nx_ttl: Optional[pulumi.Input[int]] = None,
+                 primary: Optional[pulumi.Input[str]] = None,
+                 refresh: Optional[pulumi.Input[int]] = None,
+                 retry: Optional[pulumi.Input[int]] = None,
+                 secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
+                 zone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Zone resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_primaries: List of additional IPv4 addresses for the primary
+               zone. Conflicts with `secondaries`.
+        :param pulumi.Input[str] dns_servers: (Computed) Authoritative Name Servers.
+        :param pulumi.Input[bool] dnssec: Whether or not DNSSEC is enabled for the zone.
+               Note that DNSSEC must be enabled on the account by support for this to be set
+               to `true`.
+        :param pulumi.Input[int] expiry: The SOA Expiry. Conflicts with `primary` and
+               `additional_primaries` (default must be accepted).
+        :param pulumi.Input[str] hostmaster: (Computed) The SOA Hostmaster.
+        :param pulumi.Input[str] link: The target zone(domain name) to link to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] networks: - List of network IDs (`int`) for which the zone
+               should be made available. Default is network 0, the primary NSONE Global
+               Network. Normally, you should not have to worry about this.
+        :param pulumi.Input[int] nx_ttl: The SOA NX TTL. Conflicts with `primary` and
+               `additional_primaries` (default must be accepted).
+        :param pulumi.Input[str] primary: The primary zones' IPv4 address. This makes the zone a
+               secondary. Conflicts with `secondaries`.
+        :param pulumi.Input[int] refresh: The SOA Refresh. Conflicts with `primary` and
+               `additional_primaries` (default must be accepted).
+        :param pulumi.Input[int] retry: The SOA Retry. Conflicts with `primary` and
+               `additional_primaries` (default must be accepted).
+        :param pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]] secondaries: List of secondary servers. This makes the zone a
+               primary. Conflicts with `primary` and `additional_primaries`.
+               Secondaries is documented below.
+        :param pulumi.Input[int] ttl: The SOA TTL.
+        :param pulumi.Input[str] zone: The domain name of the zone.
+        """
+        if additional_primaries is not None:
+            pulumi.set(__self__, "additional_primaries", additional_primaries)
+        if autogenerate_ns_record is not None:
+            pulumi.set(__self__, "autogenerate_ns_record", autogenerate_ns_record)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if dnssec is not None:
+            pulumi.set(__self__, "dnssec", dnssec)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if hostmaster is not None:
+            pulumi.set(__self__, "hostmaster", hostmaster)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if networks is not None:
+            pulumi.set(__self__, "networks", networks)
+        if nx_ttl is not None:
+            pulumi.set(__self__, "nx_ttl", nx_ttl)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if refresh is not None:
+            pulumi.set(__self__, "refresh", refresh)
+        if retry is not None:
+            pulumi.set(__self__, "retry", retry)
+        if secondaries is not None:
+            pulumi.set(__self__, "secondaries", secondaries)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="additionalPrimaries")
+    def additional_primaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of additional IPv4 addresses for the primary
+        zone. Conflicts with `secondaries`.
+        """
+        return pulumi.get(self, "additional_primaries")
+
+    @additional_primaries.setter
+    def additional_primaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_primaries", value)
+
+    @property
+    @pulumi.getter(name="autogenerateNsRecord")
+    def autogenerate_ns_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "autogenerate_ns_record")
+
+    @autogenerate_ns_record.setter
+    def autogenerate_ns_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "autogenerate_ns_record", value)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed) Authoritative Name Servers.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter
+    def dnssec(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not DNSSEC is enabled for the zone.
+        Note that DNSSEC must be enabled on the account by support for this to be set
+        to `true`.
+        """
+        return pulumi.get(self, "dnssec")
+
+    @dnssec.setter
+    def dnssec(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dnssec", value)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SOA Expiry. Conflicts with `primary` and
+        `additional_primaries` (default must be accepted).
+        """
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter
+    def hostmaster(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed) The SOA Hostmaster.
+        """
+        return pulumi.get(self, "hostmaster")
+
+    @hostmaster.setter
+    def hostmaster(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostmaster", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target zone(domain name) to link to.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter
+    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        - List of network IDs (`int`) for which the zone
+        should be made available. Default is network 0, the primary NSONE Global
+        Network. Normally, you should not have to worry about this.
+        """
+        return pulumi.get(self, "networks")
+
+    @networks.setter
+    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "networks", value)
+
+    @property
+    @pulumi.getter(name="nxTtl")
+    def nx_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SOA NX TTL. Conflicts with `primary` and
+        `additional_primaries` (default must be accepted).
+        """
+        return pulumi.get(self, "nx_ttl")
+
+    @nx_ttl.setter
+    def nx_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "nx_ttl", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary zones' IPv4 address. This makes the zone a
+        secondary. Conflicts with `secondaries`.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter
+    def refresh(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SOA Refresh. Conflicts with `primary` and
+        `additional_primaries` (default must be accepted).
+        """
+        return pulumi.get(self, "refresh")
+
+    @refresh.setter
+    def refresh(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh", value)
+
+    @property
+    @pulumi.getter
+    def retry(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SOA Retry. Conflicts with `primary` and
+        `additional_primaries` (default must be accepted).
+        """
+        return pulumi.get(self, "retry")
+
+    @retry.setter
+    def retry(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retry", value)
+
+    @property
+    @pulumi.getter
+    def secondaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]:
+        """
+        List of secondary servers. This makes the zone a
+        primary. Conflicts with `primary` and `additional_primaries`.
+        Secondaries is documented below.
+        """
+        return pulumi.get(self, "secondaries")
+
+    @secondaries.setter
+    def secondaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]):
+        pulumi.set(self, "secondaries", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SOA TTL.
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ttl", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name of the zone.
+        """
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
+
+
 class Zone(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -373,25 +641,25 @@ class Zone(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ZoneArgs.__new__(ZoneArgs)
 
-            __props__['additional_primaries'] = additional_primaries
-            __props__['autogenerate_ns_record'] = autogenerate_ns_record
-            __props__['dnssec'] = dnssec
-            __props__['expiry'] = expiry
-            __props__['link'] = link
-            __props__['networks'] = networks
-            __props__['nx_ttl'] = nx_ttl
-            __props__['primary'] = primary
-            __props__['refresh'] = refresh
-            __props__['retry'] = retry
-            __props__['secondaries'] = secondaries
-            __props__['ttl'] = ttl
+            __props__.__dict__["additional_primaries"] = additional_primaries
+            __props__.__dict__["autogenerate_ns_record"] = autogenerate_ns_record
+            __props__.__dict__["dnssec"] = dnssec
+            __props__.__dict__["expiry"] = expiry
+            __props__.__dict__["link"] = link
+            __props__.__dict__["networks"] = networks
+            __props__.__dict__["nx_ttl"] = nx_ttl
+            __props__.__dict__["primary"] = primary
+            __props__.__dict__["refresh"] = refresh
+            __props__.__dict__["retry"] = retry
+            __props__.__dict__["secondaries"] = secondaries
+            __props__.__dict__["ttl"] = ttl
             if zone is None and not opts.urn:
                 raise TypeError("Missing required property 'zone'")
-            __props__['zone'] = zone
-            __props__['dns_servers'] = None
-            __props__['hostmaster'] = None
+            __props__.__dict__["zone"] = zone
+            __props__.__dict__["dns_servers"] = None
+            __props__.__dict__["hostmaster"] = None
         super(Zone, __self__).__init__(
             'ns1:index/zone:Zone',
             resource_name,
@@ -453,23 +721,23 @@ class Zone(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ZoneState.__new__(_ZoneState)
 
-        __props__["additional_primaries"] = additional_primaries
-        __props__["autogenerate_ns_record"] = autogenerate_ns_record
-        __props__["dns_servers"] = dns_servers
-        __props__["dnssec"] = dnssec
-        __props__["expiry"] = expiry
-        __props__["hostmaster"] = hostmaster
-        __props__["link"] = link
-        __props__["networks"] = networks
-        __props__["nx_ttl"] = nx_ttl
-        __props__["primary"] = primary
-        __props__["refresh"] = refresh
-        __props__["retry"] = retry
-        __props__["secondaries"] = secondaries
-        __props__["ttl"] = ttl
-        __props__["zone"] = zone
+        __props__.__dict__["additional_primaries"] = additional_primaries
+        __props__.__dict__["autogenerate_ns_record"] = autogenerate_ns_record
+        __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["dnssec"] = dnssec
+        __props__.__dict__["expiry"] = expiry
+        __props__.__dict__["hostmaster"] = hostmaster
+        __props__.__dict__["link"] = link
+        __props__.__dict__["networks"] = networks
+        __props__.__dict__["nx_ttl"] = nx_ttl
+        __props__.__dict__["primary"] = primary
+        __props__.__dict__["refresh"] = refresh
+        __props__.__dict__["retry"] = retry
+        __props__.__dict__["secondaries"] = secondaries
+        __props__.__dict__["ttl"] = ttl
+        __props__.__dict__["zone"] = zone
         return Zone(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -600,10 +868,4 @@ class Zone(pulumi.CustomResource):
         The domain name of the zone.
         """
         return pulumi.get(self, "zone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
