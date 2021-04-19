@@ -92,9 +92,7 @@ class Provider(pulumi.ProviderResource):
                  endpoint: Optional[pulumi.Input[str]] = None,
                  ignore_ssl: Optional[pulumi.Input[bool]] = None,
                  rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The provider type for the ns1 package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -137,15 +135,7 @@ class Provider(pulumi.ProviderResource):
                  endpoint: Optional[pulumi.Input[str]] = None,
                  ignore_ssl: Optional[pulumi.Input[bool]] = None,
                  rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

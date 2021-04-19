@@ -983,9 +983,7 @@ class Team(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a NS1 Team resource. This can be used to create, modify, and delete
         teams. The credentials used must have the `manage_teams` permission set.
@@ -1155,15 +1153,7 @@ class Team(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
