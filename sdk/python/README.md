@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fns1.svg)](https://www.npmjs.com/package/@pulumi/ns1)
 [![Python version](https://badge.fury.io/py/pulumi-ns1.svg)](https://pypi.org/project/pulumi-ns1)
 [![NuGet version](https://badge.fury.io/nu/pulumi.ns1.svg)](https://badge.fury.io/nu/pulumi.ns1)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-ns1/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-ns1/sdk/go)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-ns1/sdk/v2/go)](https://pkg.go.dev/github.com/pulumi/pulumi-ns1/sdk/v2/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-ns1/blob/master/LICENSE)
 
 # NS1 Resource Provider
@@ -36,7 +36,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-ns1/sdk/go/...
+    $ go get github.com/pulumi/pulumi-ns1/sdk/v2/go/...
 
 ### .NET
 
