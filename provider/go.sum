@@ -713,6 +713,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-provider-ns1 v1.8.5-0.20210330152659-729f7130349e h1:Ajv3PZJBCsAa4+R26jG3b8b9x+GWzYBcZ2nvF2XZYYY=
 github.com/pulumi/terraform-provider-ns1 v1.8.5-0.20210330152659-729f7130349e/go.mod h1:owtNHdW8vx8mjJEgUSzMTmuFJ2cQ/HkQfvcomfUYh40=
+github.com/pulumi/terraform-provider-ns1 v1.8.5-0.20210427100550-e5427b100fa6 h1:8XfRPTIVCRT1wM/Zv35ShUOJtap7Ydsw6mahfYCbLq0=
+github.com/pulumi/terraform-provider-ns1 v1.8.5-0.20210427100550-e5427b100fa6/go.mod h1:HkqBriy+tbHd619aux2f2t5LQRyeNAjWAKwiMAjGoRU=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=
@@ -1219,6 +1221,8 @@ gopkg.in/fsnotify.v1 v1.4.7 h1:xOHLXZwVvI9hhs+cLKq5+I5onOuwQLhQwiu63xxlHs4=
 gopkg.in/fsnotify.v1 v1.4.7/go.mod h1:Tz8NjZHkW78fSQdbUxIjBTcgA1z1m8ZHf0WmKUhAMys=
 gopkg.in/ns1/ns1-go.v2 v2.4.4 h1:xV/rJE2m8p3IncnwMEFrv36K4NDnRXu4CoIkgq+AZek=
 gopkg.in/ns1/ns1-go.v2 v2.4.4/go.mod h1:GMnKY+ZuoJ+lVLL+78uSTjwTz2jMazq6AfGKQOYhsPk=
+gopkg.in/ns1/ns1-go.v2 v2.5.0 h1:NWrRU45I5UD1sR5Xy8o1u3ugpjXCWr5EaL1eGVTukx4=
+gopkg.in/ns1/ns1-go.v2 v2.5.0/go.mod h1:GMnKY+ZuoJ+lVLL+78uSTjwTz2jMazq6AfGKQOYhsPk=
 gopkg.in/resty.v1 v1.12.0 h1:CuXP0Pjfw9rOuY6EP+UvtNvt5DSqHpIxILZKT/quCZI=
 gopkg.in/resty.v1 v1.12.0/go.mod h1:mDo4pnntr5jdWRML875a/NmxYqAlA73dVijT2AXvQQo=
 gopkg.in/square/go-jose.v2 v2.3.1/go.mod h1:M9dMgbHiYLoDGQrXy7OpJDJWiKiU//h+vD76mk0e1AI=
