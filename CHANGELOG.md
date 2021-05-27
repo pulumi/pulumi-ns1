@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.10.2 of the NS1 Terraform Provider
+_(none)_
 
 ---
+
+## 2.0.2 (2021-05-27)
+* Upgrade to v1.10.2 of the NS1 Terraform Provider
 
 ## 2.0.1 (2021-04-30)
 * Upgrade to v1.10.1 of the NS1 Terraform Provider
