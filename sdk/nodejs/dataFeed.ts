@@ -16,6 +16,9 @@ import * as utilities from "./utilities";
  * const example = new ns1.DataSource("example", {
  *     sourcetype: "nsone_v1",
  * });
+ * const exampleMonitoring = new ns1.DataSource("example_monitoring", {
+ *     sourcetype: "nsone_monitoring",
+ * });
  * const uswestFeed = new ns1.DataFeed("uswest_feed", {
  *     config: {
  *         label: "uswest",
@@ -27,6 +30,12 @@ import * as utilities from "./utilities";
  *         label: "useast",
  *     },
  *     sourceId: example.id,
+ * });
+ * const useastMonitorFeed = new ns1.DataFeed("useast_monitor_feed", {
+ *     config: {
+ *         jobid: ns1_monitoringjob_example_job.id,
+ *     },
+ *     sourceId: exampleMonitoring.id,
  * });
  * ```
  * ## NS1 Documentation
@@ -63,7 +72,7 @@ export class DataFeed extends pulumi.CustomResource {
 
     /**
      * The feeds configuration matching the specification in
-     * `feedConfig` from /data/sourcetypes.
+     * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
     public readonly config!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -113,7 +122,7 @@ export class DataFeed extends pulumi.CustomResource {
 export interface DataFeedState {
     /**
      * The feeds configuration matching the specification in
-     * `feedConfig` from /data/sourcetypes.
+     * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
     readonly config?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -132,7 +141,7 @@ export interface DataFeedState {
 export interface DataFeedArgs {
     /**
      * The feeds configuration matching the specification in
-     * `feedConfig` from /data/sourcetypes.
+     * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
     readonly config?: pulumi.Input<{[key: string]: any}>;
     /**
