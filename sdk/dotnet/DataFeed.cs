@@ -26,6 +26,10 @@ namespace Pulumi.Ns1
     ///         {
     ///             Sourcetype = "nsone_v1",
     ///         });
+    ///         var exampleMonitoring = new Ns1.DataSource("exampleMonitoring", new Ns1.DataSourceArgs
+    ///         {
+    ///             Sourcetype = "nsone_monitoring",
+    ///         });
     ///         var uswestFeed = new Ns1.DataFeed("uswestFeed", new Ns1.DataFeedArgs
     ///         {
     ///             Config = 
@@ -42,6 +46,14 @@ namespace Pulumi.Ns1
     ///             },
     ///             SourceId = example.Id,
     ///         });
+    ///         var useastMonitorFeed = new Ns1.DataFeed("useastMonitorFeed", new Ns1.DataFeedArgs
+    ///         {
+    ///             Config = 
+    ///             {
+    ///                 { "jobid", ns1_monitoringjob.Example_job.Id },
+    ///             },
+    ///             SourceId = exampleMonitoring.Id,
+    ///         });
     ///     }
     /// 
     /// }
@@ -55,7 +67,7 @@ namespace Pulumi.Ns1
     {
         /// <summary>
         /// The feeds configuration matching the specification in
-        /// `feed_config` from /data/sourcetypes.
+        /// `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         /// </summary>
         [Output("config")]
         public Output<ImmutableDictionary<string, object>?> Config { get; private set; } = null!;
@@ -123,7 +135,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The feeds configuration matching the specification in
-        /// `feed_config` from /data/sourcetypes.
+        /// `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         /// </summary>
         public InputMap<object> Config
         {
@@ -155,7 +167,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The feeds configuration matching the specification in
-        /// `feed_config` from /data/sourcetypes.
+        /// `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         /// </summary>
         public InputMap<object> Config
         {
