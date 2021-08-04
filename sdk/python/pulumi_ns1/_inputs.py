@@ -9,14 +9,118 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'APIKeyDnsRecordsAllowArgs',
+    'APIKeyDnsRecordsDenyArgs',
     'MonitoringJobRuleArgs',
     'NotifyListNotificationArgs',
     'RecordAnswerArgs',
     'RecordFilterArgs',
     'RecordRegionArgs',
+    'TeamDnsRecordsAllowArgs',
+    'TeamDnsRecordsDenyArgs',
     'TeamIpWhitelistArgs',
+    'UserDnsRecordsAllowArgs',
+    'UserDnsRecordsDenyArgs',
     'ZoneSecondaryArgs',
 ]
+
+@pulumi.input_type
+class APIKeyDnsRecordsAllowArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 include_subdomains: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 zone: pulumi.Input[str]):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "zone", value)
+
+
+@pulumi.input_type
+class APIKeyDnsRecordsDenyArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 include_subdomains: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 zone: pulumi.Input[str]):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "zone", value)
+
 
 @pulumi.input_type
 class MonitoringJobRuleArgs:
@@ -249,6 +353,104 @@ class RecordRegionArgs:
 
 
 @pulumi.input_type
+class TeamDnsRecordsAllowArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 include_subdomains: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 zone: pulumi.Input[str]):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "zone", value)
+
+
+@pulumi.input_type
+class TeamDnsRecordsDenyArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 include_subdomains: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 zone: pulumi.Input[str]):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "zone", value)
+
+
+@pulumi.input_type
 class TeamIpWhitelistArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -279,6 +481,104 @@ class TeamIpWhitelistArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class UserDnsRecordsAllowArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 include_subdomains: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 zone: pulumi.Input[str]):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "zone", value)
+
+
+@pulumi.input_type
+class UserDnsRecordsDenyArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[str],
+                 include_subdomains: pulumi.Input[bool],
+                 type: pulumi.Input[str],
+                 zone: pulumi.Input[str]):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type

@@ -20,6 +20,7 @@ class MonitoringJobArgs:
                  job_type: pulumi.Input[str],
                  regions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  active: Optional[pulumi.Input[bool]] = None,
+                 mute: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  notify_delay: Optional[pulumi.Input[int]] = None,
@@ -38,6 +39,7 @@ class MonitoringJobArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
         :param pulumi.Input[bool] active: Indicates if the job is active or temporarily disabled.
+        :param pulumi.Input[bool] mute: turn off the notifications for the monitoring job.
         :param pulumi.Input[str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -55,6 +57,8 @@ class MonitoringJobArgs:
         pulumi.set(__self__, "regions", regions)
         if active is not None:
             pulumi.set(__self__, "active", active)
+        if mute is not None:
+            pulumi.set(__self__, "mute", mute)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notes is not None:
@@ -136,6 +140,18 @@ class MonitoringJobArgs:
     @active.setter
     def active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def mute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        turn off the notifications for the monitoring job.
+        """
+        return pulumi.get(self, "mute")
+
+    @mute.setter
+    def mute(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mute", value)
 
     @property
     @pulumi.getter
@@ -263,6 +279,7 @@ class _MonitoringJobState:
                  config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
+                 mute: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  notify_delay: Optional[pulumi.Input[int]] = None,
@@ -280,6 +297,7 @@ class _MonitoringJobState:
         :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
+        :param pulumi.Input[bool] mute: turn off the notifications for the monitoring job.
         :param pulumi.Input[str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -301,6 +319,8 @@ class _MonitoringJobState:
             pulumi.set(__self__, "frequency", frequency)
         if job_type is not None:
             pulumi.set(__self__, "job_type", job_type)
+        if mute is not None:
+            pulumi.set(__self__, "mute", mute)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notes is not None:
@@ -371,6 +391,18 @@ class _MonitoringJobState:
     @job_type.setter
     def job_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter
+    def mute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        turn off the notifications for the monitoring job.
+        """
+        return pulumi.get(self, "mute")
+
+    @mute.setter
+    def mute(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mute", value)
 
     @property
     @pulumi.getter
@@ -513,6 +545,7 @@ class MonitoringJob(pulumi.CustomResource):
                  config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
+                 mute: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  notify_delay: Optional[pulumi.Input[int]] = None,
@@ -547,6 +580,7 @@ class MonitoringJob(pulumi.CustomResource):
             },
             frequency=60,
             job_type="tcp",
+            mute=True,
             policy="quorum",
             rapid_recheck=True,
             regions=[
@@ -570,6 +604,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
+        :param pulumi.Input[bool] mute: turn off the notifications for the monitoring job.
         :param pulumi.Input[str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -611,6 +646,7 @@ class MonitoringJob(pulumi.CustomResource):
             },
             frequency=60,
             job_type="tcp",
+            mute=True,
             policy="quorum",
             rapid_recheck=True,
             regions=[
@@ -647,6 +683,7 @@ class MonitoringJob(pulumi.CustomResource):
                  config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
+                 mute: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  notify_delay: Optional[pulumi.Input[int]] = None,
@@ -680,6 +717,7 @@ class MonitoringJob(pulumi.CustomResource):
             if job_type is None and not opts.urn:
                 raise TypeError("Missing required property 'job_type'")
             __props__.__dict__["job_type"] = job_type
+            __props__.__dict__["mute"] = mute
             __props__.__dict__["name"] = name
             __props__.__dict__["notes"] = notes
             __props__.__dict__["notify_delay"] = notify_delay
@@ -707,6 +745,7 @@ class MonitoringJob(pulumi.CustomResource):
             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             frequency: Optional[pulumi.Input[int]] = None,
             job_type: Optional[pulumi.Input[str]] = None,
+            mute: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             notify_delay: Optional[pulumi.Input[int]] = None,
@@ -729,6 +768,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
+        :param pulumi.Input[bool] mute: turn off the notifications for the monitoring job.
         :param pulumi.Input[str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -750,6 +790,7 @@ class MonitoringJob(pulumi.CustomResource):
         __props__.__dict__["config"] = config
         __props__.__dict__["frequency"] = frequency
         __props__.__dict__["job_type"] = job_type
+        __props__.__dict__["mute"] = mute
         __props__.__dict__["name"] = name
         __props__.__dict__["notes"] = notes
         __props__.__dict__["notify_delay"] = notify_delay
@@ -794,6 +835,14 @@ class MonitoringJob(pulumi.CustomResource):
         The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         """
         return pulumi.get(self, "job_type")
+
+    @property
+    @pulumi.getter
+    def mute(self) -> pulumi.Output[Optional[bool]]:
+        """
+        turn off the notifications for the monitoring job.
+        """
+        return pulumi.get(self, "mute")
 
     @property
     @pulumi.getter

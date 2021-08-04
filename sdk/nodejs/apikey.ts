@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export class APIKey extends pulumi.CustomResource {
@@ -96,6 +97,8 @@ export class APIKey extends pulumi.CustomResource {
      * Whether the apikey can modify the accounts zones.
      */
     public readonly dnsManageZones!: pulumi.Output<boolean | undefined>;
+    public readonly dnsRecordsAllows!: pulumi.Output<outputs.APIKeyDnsRecordsAllow[] | undefined>;
+    public readonly dnsRecordsDenies!: pulumi.Output<outputs.APIKeyDnsRecordsDeny[] | undefined>;
     /**
      * Whether the apikey can view the accounts zones.
      */
@@ -192,6 +195,8 @@ export class APIKey extends pulumi.CustomResource {
             inputs["dhcpManageDhcp"] = state ? state.dhcpManageDhcp : undefined;
             inputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
+            inputs["dnsRecordsAllows"] = state ? state.dnsRecordsAllows : undefined;
+            inputs["dnsRecordsDenies"] = state ? state.dnsRecordsDenies : undefined;
             inputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
             inputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
             inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
@@ -225,6 +230,8 @@ export class APIKey extends pulumi.CustomResource {
             inputs["dhcpManageDhcp"] = args ? args.dhcpManageDhcp : undefined;
             inputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
+            inputs["dnsRecordsAllows"] = args ? args.dnsRecordsAllows : undefined;
+            inputs["dnsRecordsDenies"] = args ? args.dnsRecordsDenies : undefined;
             inputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
             inputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
             inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
@@ -317,6 +324,8 @@ export interface APIKeyState {
      * Whether the apikey can modify the accounts zones.
      */
     readonly dnsManageZones?: pulumi.Input<boolean>;
+    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
     /**
      * Whether the apikey can view the accounts zones.
      */
@@ -454,6 +463,8 @@ export interface APIKeyArgs {
      * Whether the apikey can modify the accounts zones.
      */
     readonly dnsManageZones?: pulumi.Input<boolean>;
+    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
     /**
      * Whether the apikey can view the accounts zones.
      */

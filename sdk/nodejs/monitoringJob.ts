@@ -26,6 +26,7 @@ import * as utilities from "./utilities";
  *     },
  *     frequency: 60,
  *     jobType: "tcp",
+ *     mute: true,
  *     policy: "quorum",
  *     rapidRecheck: true,
  *     regions: [
@@ -89,6 +90,10 @@ export class MonitoringJob extends pulumi.CustomResource {
      */
     public readonly jobType!: pulumi.Output<string>;
     /**
+     * turn off the notifications for the monitoring job.
+     */
+    public readonly mute!: pulumi.Output<boolean | undefined>;
+    /**
      * The free-form display name for the monitoring job.
      */
     public readonly name!: pulumi.Output<string>;
@@ -149,6 +154,7 @@ export class MonitoringJob extends pulumi.CustomResource {
             inputs["config"] = state ? state.config : undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["jobType"] = state ? state.jobType : undefined;
+            inputs["mute"] = state ? state.mute : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notes"] = state ? state.notes : undefined;
             inputs["notifyDelay"] = state ? state.notifyDelay : undefined;
@@ -178,6 +184,7 @@ export class MonitoringJob extends pulumi.CustomResource {
             inputs["config"] = args ? args.config : undefined;
             inputs["frequency"] = args ? args.frequency : undefined;
             inputs["jobType"] = args ? args.jobType : undefined;
+            inputs["mute"] = args ? args.mute : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["notifyDelay"] = args ? args.notifyDelay : undefined;
@@ -217,6 +224,10 @@ export interface MonitoringJobState {
      * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
      */
     readonly jobType?: pulumi.Input<string>;
+    /**
+     * turn off the notifications for the monitoring job.
+     */
+    readonly mute?: pulumi.Input<boolean>;
     /**
      * The free-form display name for the monitoring job.
      */
@@ -282,6 +293,10 @@ export interface MonitoringJobArgs {
      * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
      */
     readonly jobType: pulumi.Input<string>;
+    /**
+     * turn off the notifications for the monitoring job.
+     */
+    readonly mute?: pulumi.Input<boolean>;
     /**
      * The free-form display name for the monitoring job.
      */

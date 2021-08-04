@@ -54,6 +54,16 @@ namespace Pulumi.Ns1
     ///         var example2 = new Ns1.Team("example2", new Ns1.TeamArgs
     ///         {
     ///             DataManageDatasources = true,
+    ///             DnsRecordsAllows = 
+    ///             {
+    ///                 new Ns1.Inputs.TeamDnsRecordsAllowArgs
+    ///                 {
+    ///                     Domain = "terraform.example.io",
+    ///                     IncludeSubdomains = false,
+    ///                     Type = "A",
+    ///                     Zone = "example.io",
+    ///                 },
+    ///             },
     ///             DnsViewZones = true,
     ///             DnsZonesAllows = 
     ///             {
@@ -167,6 +177,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Output("dnsManageZones")]
         public Output<bool?> DnsManageZones { get; private set; } = null!;
+
+        [Output("dnsRecordsAllows")]
+        public Output<ImmutableArray<Outputs.TeamDnsRecordsAllow>> DnsRecordsAllows { get; private set; } = null!;
+
+        [Output("dnsRecordsDenies")]
+        public Output<ImmutableArray<Outputs.TeamDnsRecordsDeny>> DnsRecordsDenies { get; private set; } = null!;
 
         /// <summary>
         /// Whether the team can view the accounts zones.
@@ -387,6 +403,22 @@ namespace Pulumi.Ns1
         [Input("dnsManageZones")]
         public Input<bool>? DnsManageZones { get; set; }
 
+        [Input("dnsRecordsAllows")]
+        private InputList<Inputs.TeamDnsRecordsAllowArgs>? _dnsRecordsAllows;
+        public InputList<Inputs.TeamDnsRecordsAllowArgs> DnsRecordsAllows
+        {
+            get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.TeamDnsRecordsAllowArgs>());
+            set => _dnsRecordsAllows = value;
+        }
+
+        [Input("dnsRecordsDenies")]
+        private InputList<Inputs.TeamDnsRecordsDenyArgs>? _dnsRecordsDenies;
+        public InputList<Inputs.TeamDnsRecordsDenyArgs> DnsRecordsDenies
+        {
+            get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.TeamDnsRecordsDenyArgs>());
+            set => _dnsRecordsDenies = value;
+        }
+
         /// <summary>
         /// Whether the team can view the accounts zones.
         /// </summary>
@@ -584,6 +616,22 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("dnsManageZones")]
         public Input<bool>? DnsManageZones { get; set; }
+
+        [Input("dnsRecordsAllows")]
+        private InputList<Inputs.TeamDnsRecordsAllowGetArgs>? _dnsRecordsAllows;
+        public InputList<Inputs.TeamDnsRecordsAllowGetArgs> DnsRecordsAllows
+        {
+            get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.TeamDnsRecordsAllowGetArgs>());
+            set => _dnsRecordsAllows = value;
+        }
+
+        [Input("dnsRecordsDenies")]
+        private InputList<Inputs.TeamDnsRecordsDenyGetArgs>? _dnsRecordsDenies;
+        public InputList<Inputs.TeamDnsRecordsDenyGetArgs> DnsRecordsDenies
+        {
+            get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.TeamDnsRecordsDenyGetArgs>());
+            set => _dnsRecordsDenies = value;
+        }
 
         /// <summary>
         /// Whether the team can view the accounts zones.

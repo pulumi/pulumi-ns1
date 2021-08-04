@@ -37,6 +37,7 @@ namespace Pulumi.Ns1
     ///             },
     ///             Frequency = 60,
     ///             JobType = "tcp",
+    ///             Mute = true,
     ///             Policy = "quorum",
     ///             RapidRecheck = true,
     ///             Regions = 
@@ -89,6 +90,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Output("jobType")]
         public Output<string> JobType { get; private set; } = null!;
+
+        /// <summary>
+        /// turn off the notifications for the monitoring job.
+        /// </summary>
+        [Output("mute")]
+        public Output<bool?> Mute { get; private set; } = null!;
 
         /// <summary>
         /// The free-form display name for the monitoring job.
@@ -232,6 +239,12 @@ namespace Pulumi.Ns1
         public Input<string> JobType { get; set; } = null!;
 
         /// <summary>
+        /// turn off the notifications for the monitoring job.
+        /// </summary>
+        [Input("mute")]
+        public Input<bool>? Mute { get; set; }
+
+        /// <summary>
         /// The free-form display name for the monitoring job.
         /// </summary>
         [Input("name")]
@@ -344,6 +357,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("jobType")]
         public Input<string>? JobType { get; set; }
+
+        /// <summary>
+        /// turn off the notifications for the monitoring job.
+        /// </summary>
+        [Input("mute")]
+        public Input<bool>? Mute { get; set; }
 
         /// <summary>
         /// The free-form display name for the monitoring job.

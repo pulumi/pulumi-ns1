@@ -10,6 +10,230 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type APIKeyDnsRecordsAllow struct {
+	Domain            string `pulumi:"domain"`
+	IncludeSubdomains bool   `pulumi:"includeSubdomains"`
+	Type              string `pulumi:"type"`
+	Zone              string `pulumi:"zone"`
+}
+
+// APIKeyDnsRecordsAllowInput is an input type that accepts APIKeyDnsRecordsAllowArgs and APIKeyDnsRecordsAllowOutput values.
+// You can construct a concrete instance of `APIKeyDnsRecordsAllowInput` via:
+//
+//          APIKeyDnsRecordsAllowArgs{...}
+type APIKeyDnsRecordsAllowInput interface {
+	pulumi.Input
+
+	ToAPIKeyDnsRecordsAllowOutput() APIKeyDnsRecordsAllowOutput
+	ToAPIKeyDnsRecordsAllowOutputWithContext(context.Context) APIKeyDnsRecordsAllowOutput
+}
+
+type APIKeyDnsRecordsAllowArgs struct {
+	Domain            pulumi.StringInput `pulumi:"domain"`
+	IncludeSubdomains pulumi.BoolInput   `pulumi:"includeSubdomains"`
+	Type              pulumi.StringInput `pulumi:"type"`
+	Zone              pulumi.StringInput `pulumi:"zone"`
+}
+
+func (APIKeyDnsRecordsAllowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKeyDnsRecordsAllow)(nil)).Elem()
+}
+
+func (i APIKeyDnsRecordsAllowArgs) ToAPIKeyDnsRecordsAllowOutput() APIKeyDnsRecordsAllowOutput {
+	return i.ToAPIKeyDnsRecordsAllowOutputWithContext(context.Background())
+}
+
+func (i APIKeyDnsRecordsAllowArgs) ToAPIKeyDnsRecordsAllowOutputWithContext(ctx context.Context) APIKeyDnsRecordsAllowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsAllowOutput)
+}
+
+// APIKeyDnsRecordsAllowArrayInput is an input type that accepts APIKeyDnsRecordsAllowArray and APIKeyDnsRecordsAllowArrayOutput values.
+// You can construct a concrete instance of `APIKeyDnsRecordsAllowArrayInput` via:
+//
+//          APIKeyDnsRecordsAllowArray{ APIKeyDnsRecordsAllowArgs{...} }
+type APIKeyDnsRecordsAllowArrayInput interface {
+	pulumi.Input
+
+	ToAPIKeyDnsRecordsAllowArrayOutput() APIKeyDnsRecordsAllowArrayOutput
+	ToAPIKeyDnsRecordsAllowArrayOutputWithContext(context.Context) APIKeyDnsRecordsAllowArrayOutput
+}
+
+type APIKeyDnsRecordsAllowArray []APIKeyDnsRecordsAllowInput
+
+func (APIKeyDnsRecordsAllowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]APIKeyDnsRecordsAllow)(nil)).Elem()
+}
+
+func (i APIKeyDnsRecordsAllowArray) ToAPIKeyDnsRecordsAllowArrayOutput() APIKeyDnsRecordsAllowArrayOutput {
+	return i.ToAPIKeyDnsRecordsAllowArrayOutputWithContext(context.Background())
+}
+
+func (i APIKeyDnsRecordsAllowArray) ToAPIKeyDnsRecordsAllowArrayOutputWithContext(ctx context.Context) APIKeyDnsRecordsAllowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsAllowArrayOutput)
+}
+
+type APIKeyDnsRecordsAllowOutput struct{ *pulumi.OutputState }
+
+func (APIKeyDnsRecordsAllowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKeyDnsRecordsAllow)(nil)).Elem()
+}
+
+func (o APIKeyDnsRecordsAllowOutput) ToAPIKeyDnsRecordsAllowOutput() APIKeyDnsRecordsAllowOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsAllowOutput) ToAPIKeyDnsRecordsAllowOutputWithContext(ctx context.Context) APIKeyDnsRecordsAllowOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsAllowOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsAllow) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o APIKeyDnsRecordsAllowOutput) IncludeSubdomains() pulumi.BoolOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsAllow) bool { return v.IncludeSubdomains }).(pulumi.BoolOutput)
+}
+
+func (o APIKeyDnsRecordsAllowOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsAllow) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o APIKeyDnsRecordsAllowOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsAllow) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type APIKeyDnsRecordsAllowArrayOutput struct{ *pulumi.OutputState }
+
+func (APIKeyDnsRecordsAllowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]APIKeyDnsRecordsAllow)(nil)).Elem()
+}
+
+func (o APIKeyDnsRecordsAllowArrayOutput) ToAPIKeyDnsRecordsAllowArrayOutput() APIKeyDnsRecordsAllowArrayOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsAllowArrayOutput) ToAPIKeyDnsRecordsAllowArrayOutputWithContext(ctx context.Context) APIKeyDnsRecordsAllowArrayOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsAllowArrayOutput) Index(i pulumi.IntInput) APIKeyDnsRecordsAllowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) APIKeyDnsRecordsAllow {
+		return vs[0].([]APIKeyDnsRecordsAllow)[vs[1].(int)]
+	}).(APIKeyDnsRecordsAllowOutput)
+}
+
+type APIKeyDnsRecordsDeny struct {
+	Domain            string `pulumi:"domain"`
+	IncludeSubdomains bool   `pulumi:"includeSubdomains"`
+	Type              string `pulumi:"type"`
+	Zone              string `pulumi:"zone"`
+}
+
+// APIKeyDnsRecordsDenyInput is an input type that accepts APIKeyDnsRecordsDenyArgs and APIKeyDnsRecordsDenyOutput values.
+// You can construct a concrete instance of `APIKeyDnsRecordsDenyInput` via:
+//
+//          APIKeyDnsRecordsDenyArgs{...}
+type APIKeyDnsRecordsDenyInput interface {
+	pulumi.Input
+
+	ToAPIKeyDnsRecordsDenyOutput() APIKeyDnsRecordsDenyOutput
+	ToAPIKeyDnsRecordsDenyOutputWithContext(context.Context) APIKeyDnsRecordsDenyOutput
+}
+
+type APIKeyDnsRecordsDenyArgs struct {
+	Domain            pulumi.StringInput `pulumi:"domain"`
+	IncludeSubdomains pulumi.BoolInput   `pulumi:"includeSubdomains"`
+	Type              pulumi.StringInput `pulumi:"type"`
+	Zone              pulumi.StringInput `pulumi:"zone"`
+}
+
+func (APIKeyDnsRecordsDenyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKeyDnsRecordsDeny)(nil)).Elem()
+}
+
+func (i APIKeyDnsRecordsDenyArgs) ToAPIKeyDnsRecordsDenyOutput() APIKeyDnsRecordsDenyOutput {
+	return i.ToAPIKeyDnsRecordsDenyOutputWithContext(context.Background())
+}
+
+func (i APIKeyDnsRecordsDenyArgs) ToAPIKeyDnsRecordsDenyOutputWithContext(ctx context.Context) APIKeyDnsRecordsDenyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsDenyOutput)
+}
+
+// APIKeyDnsRecordsDenyArrayInput is an input type that accepts APIKeyDnsRecordsDenyArray and APIKeyDnsRecordsDenyArrayOutput values.
+// You can construct a concrete instance of `APIKeyDnsRecordsDenyArrayInput` via:
+//
+//          APIKeyDnsRecordsDenyArray{ APIKeyDnsRecordsDenyArgs{...} }
+type APIKeyDnsRecordsDenyArrayInput interface {
+	pulumi.Input
+
+	ToAPIKeyDnsRecordsDenyArrayOutput() APIKeyDnsRecordsDenyArrayOutput
+	ToAPIKeyDnsRecordsDenyArrayOutputWithContext(context.Context) APIKeyDnsRecordsDenyArrayOutput
+}
+
+type APIKeyDnsRecordsDenyArray []APIKeyDnsRecordsDenyInput
+
+func (APIKeyDnsRecordsDenyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]APIKeyDnsRecordsDeny)(nil)).Elem()
+}
+
+func (i APIKeyDnsRecordsDenyArray) ToAPIKeyDnsRecordsDenyArrayOutput() APIKeyDnsRecordsDenyArrayOutput {
+	return i.ToAPIKeyDnsRecordsDenyArrayOutputWithContext(context.Background())
+}
+
+func (i APIKeyDnsRecordsDenyArray) ToAPIKeyDnsRecordsDenyArrayOutputWithContext(ctx context.Context) APIKeyDnsRecordsDenyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsDenyArrayOutput)
+}
+
+type APIKeyDnsRecordsDenyOutput struct{ *pulumi.OutputState }
+
+func (APIKeyDnsRecordsDenyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKeyDnsRecordsDeny)(nil)).Elem()
+}
+
+func (o APIKeyDnsRecordsDenyOutput) ToAPIKeyDnsRecordsDenyOutput() APIKeyDnsRecordsDenyOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsDenyOutput) ToAPIKeyDnsRecordsDenyOutputWithContext(ctx context.Context) APIKeyDnsRecordsDenyOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsDenyOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsDeny) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o APIKeyDnsRecordsDenyOutput) IncludeSubdomains() pulumi.BoolOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsDeny) bool { return v.IncludeSubdomains }).(pulumi.BoolOutput)
+}
+
+func (o APIKeyDnsRecordsDenyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsDeny) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o APIKeyDnsRecordsDenyOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v APIKeyDnsRecordsDeny) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type APIKeyDnsRecordsDenyArrayOutput struct{ *pulumi.OutputState }
+
+func (APIKeyDnsRecordsDenyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]APIKeyDnsRecordsDeny)(nil)).Elem()
+}
+
+func (o APIKeyDnsRecordsDenyArrayOutput) ToAPIKeyDnsRecordsDenyArrayOutput() APIKeyDnsRecordsDenyArrayOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsDenyArrayOutput) ToAPIKeyDnsRecordsDenyArrayOutputWithContext(ctx context.Context) APIKeyDnsRecordsDenyArrayOutput {
+	return o
+}
+
+func (o APIKeyDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) APIKeyDnsRecordsDenyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) APIKeyDnsRecordsDeny {
+		return vs[0].([]APIKeyDnsRecordsDeny)[vs[1].(int)]
+	}).(APIKeyDnsRecordsDenyOutput)
+}
+
 type MonitoringJobRule struct {
 	Comparison string `pulumi:"comparison"`
 	Key        string `pulumi:"key"`
@@ -576,6 +800,230 @@ func (o RecordRegionArrayOutput) Index(i pulumi.IntInput) RecordRegionOutput {
 	}).(RecordRegionOutput)
 }
 
+type TeamDnsRecordsAllow struct {
+	Domain            string `pulumi:"domain"`
+	IncludeSubdomains bool   `pulumi:"includeSubdomains"`
+	Type              string `pulumi:"type"`
+	Zone              string `pulumi:"zone"`
+}
+
+// TeamDnsRecordsAllowInput is an input type that accepts TeamDnsRecordsAllowArgs and TeamDnsRecordsAllowOutput values.
+// You can construct a concrete instance of `TeamDnsRecordsAllowInput` via:
+//
+//          TeamDnsRecordsAllowArgs{...}
+type TeamDnsRecordsAllowInput interface {
+	pulumi.Input
+
+	ToTeamDnsRecordsAllowOutput() TeamDnsRecordsAllowOutput
+	ToTeamDnsRecordsAllowOutputWithContext(context.Context) TeamDnsRecordsAllowOutput
+}
+
+type TeamDnsRecordsAllowArgs struct {
+	Domain            pulumi.StringInput `pulumi:"domain"`
+	IncludeSubdomains pulumi.BoolInput   `pulumi:"includeSubdomains"`
+	Type              pulumi.StringInput `pulumi:"type"`
+	Zone              pulumi.StringInput `pulumi:"zone"`
+}
+
+func (TeamDnsRecordsAllowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamDnsRecordsAllow)(nil)).Elem()
+}
+
+func (i TeamDnsRecordsAllowArgs) ToTeamDnsRecordsAllowOutput() TeamDnsRecordsAllowOutput {
+	return i.ToTeamDnsRecordsAllowOutputWithContext(context.Background())
+}
+
+func (i TeamDnsRecordsAllowArgs) ToTeamDnsRecordsAllowOutputWithContext(ctx context.Context) TeamDnsRecordsAllowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsAllowOutput)
+}
+
+// TeamDnsRecordsAllowArrayInput is an input type that accepts TeamDnsRecordsAllowArray and TeamDnsRecordsAllowArrayOutput values.
+// You can construct a concrete instance of `TeamDnsRecordsAllowArrayInput` via:
+//
+//          TeamDnsRecordsAllowArray{ TeamDnsRecordsAllowArgs{...} }
+type TeamDnsRecordsAllowArrayInput interface {
+	pulumi.Input
+
+	ToTeamDnsRecordsAllowArrayOutput() TeamDnsRecordsAllowArrayOutput
+	ToTeamDnsRecordsAllowArrayOutputWithContext(context.Context) TeamDnsRecordsAllowArrayOutput
+}
+
+type TeamDnsRecordsAllowArray []TeamDnsRecordsAllowInput
+
+func (TeamDnsRecordsAllowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamDnsRecordsAllow)(nil)).Elem()
+}
+
+func (i TeamDnsRecordsAllowArray) ToTeamDnsRecordsAllowArrayOutput() TeamDnsRecordsAllowArrayOutput {
+	return i.ToTeamDnsRecordsAllowArrayOutputWithContext(context.Background())
+}
+
+func (i TeamDnsRecordsAllowArray) ToTeamDnsRecordsAllowArrayOutputWithContext(ctx context.Context) TeamDnsRecordsAllowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsAllowArrayOutput)
+}
+
+type TeamDnsRecordsAllowOutput struct{ *pulumi.OutputState }
+
+func (TeamDnsRecordsAllowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamDnsRecordsAllow)(nil)).Elem()
+}
+
+func (o TeamDnsRecordsAllowOutput) ToTeamDnsRecordsAllowOutput() TeamDnsRecordsAllowOutput {
+	return o
+}
+
+func (o TeamDnsRecordsAllowOutput) ToTeamDnsRecordsAllowOutputWithContext(ctx context.Context) TeamDnsRecordsAllowOutput {
+	return o
+}
+
+func (o TeamDnsRecordsAllowOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamDnsRecordsAllow) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o TeamDnsRecordsAllowOutput) IncludeSubdomains() pulumi.BoolOutput {
+	return o.ApplyT(func(v TeamDnsRecordsAllow) bool { return v.IncludeSubdomains }).(pulumi.BoolOutput)
+}
+
+func (o TeamDnsRecordsAllowOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamDnsRecordsAllow) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o TeamDnsRecordsAllowOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamDnsRecordsAllow) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type TeamDnsRecordsAllowArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamDnsRecordsAllowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamDnsRecordsAllow)(nil)).Elem()
+}
+
+func (o TeamDnsRecordsAllowArrayOutput) ToTeamDnsRecordsAllowArrayOutput() TeamDnsRecordsAllowArrayOutput {
+	return o
+}
+
+func (o TeamDnsRecordsAllowArrayOutput) ToTeamDnsRecordsAllowArrayOutputWithContext(ctx context.Context) TeamDnsRecordsAllowArrayOutput {
+	return o
+}
+
+func (o TeamDnsRecordsAllowArrayOutput) Index(i pulumi.IntInput) TeamDnsRecordsAllowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamDnsRecordsAllow {
+		return vs[0].([]TeamDnsRecordsAllow)[vs[1].(int)]
+	}).(TeamDnsRecordsAllowOutput)
+}
+
+type TeamDnsRecordsDeny struct {
+	Domain            string `pulumi:"domain"`
+	IncludeSubdomains bool   `pulumi:"includeSubdomains"`
+	Type              string `pulumi:"type"`
+	Zone              string `pulumi:"zone"`
+}
+
+// TeamDnsRecordsDenyInput is an input type that accepts TeamDnsRecordsDenyArgs and TeamDnsRecordsDenyOutput values.
+// You can construct a concrete instance of `TeamDnsRecordsDenyInput` via:
+//
+//          TeamDnsRecordsDenyArgs{...}
+type TeamDnsRecordsDenyInput interface {
+	pulumi.Input
+
+	ToTeamDnsRecordsDenyOutput() TeamDnsRecordsDenyOutput
+	ToTeamDnsRecordsDenyOutputWithContext(context.Context) TeamDnsRecordsDenyOutput
+}
+
+type TeamDnsRecordsDenyArgs struct {
+	Domain            pulumi.StringInput `pulumi:"domain"`
+	IncludeSubdomains pulumi.BoolInput   `pulumi:"includeSubdomains"`
+	Type              pulumi.StringInput `pulumi:"type"`
+	Zone              pulumi.StringInput `pulumi:"zone"`
+}
+
+func (TeamDnsRecordsDenyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamDnsRecordsDeny)(nil)).Elem()
+}
+
+func (i TeamDnsRecordsDenyArgs) ToTeamDnsRecordsDenyOutput() TeamDnsRecordsDenyOutput {
+	return i.ToTeamDnsRecordsDenyOutputWithContext(context.Background())
+}
+
+func (i TeamDnsRecordsDenyArgs) ToTeamDnsRecordsDenyOutputWithContext(ctx context.Context) TeamDnsRecordsDenyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsDenyOutput)
+}
+
+// TeamDnsRecordsDenyArrayInput is an input type that accepts TeamDnsRecordsDenyArray and TeamDnsRecordsDenyArrayOutput values.
+// You can construct a concrete instance of `TeamDnsRecordsDenyArrayInput` via:
+//
+//          TeamDnsRecordsDenyArray{ TeamDnsRecordsDenyArgs{...} }
+type TeamDnsRecordsDenyArrayInput interface {
+	pulumi.Input
+
+	ToTeamDnsRecordsDenyArrayOutput() TeamDnsRecordsDenyArrayOutput
+	ToTeamDnsRecordsDenyArrayOutputWithContext(context.Context) TeamDnsRecordsDenyArrayOutput
+}
+
+type TeamDnsRecordsDenyArray []TeamDnsRecordsDenyInput
+
+func (TeamDnsRecordsDenyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamDnsRecordsDeny)(nil)).Elem()
+}
+
+func (i TeamDnsRecordsDenyArray) ToTeamDnsRecordsDenyArrayOutput() TeamDnsRecordsDenyArrayOutput {
+	return i.ToTeamDnsRecordsDenyArrayOutputWithContext(context.Background())
+}
+
+func (i TeamDnsRecordsDenyArray) ToTeamDnsRecordsDenyArrayOutputWithContext(ctx context.Context) TeamDnsRecordsDenyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsDenyArrayOutput)
+}
+
+type TeamDnsRecordsDenyOutput struct{ *pulumi.OutputState }
+
+func (TeamDnsRecordsDenyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamDnsRecordsDeny)(nil)).Elem()
+}
+
+func (o TeamDnsRecordsDenyOutput) ToTeamDnsRecordsDenyOutput() TeamDnsRecordsDenyOutput {
+	return o
+}
+
+func (o TeamDnsRecordsDenyOutput) ToTeamDnsRecordsDenyOutputWithContext(ctx context.Context) TeamDnsRecordsDenyOutput {
+	return o
+}
+
+func (o TeamDnsRecordsDenyOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamDnsRecordsDeny) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o TeamDnsRecordsDenyOutput) IncludeSubdomains() pulumi.BoolOutput {
+	return o.ApplyT(func(v TeamDnsRecordsDeny) bool { return v.IncludeSubdomains }).(pulumi.BoolOutput)
+}
+
+func (o TeamDnsRecordsDenyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamDnsRecordsDeny) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o TeamDnsRecordsDenyOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamDnsRecordsDeny) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type TeamDnsRecordsDenyArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamDnsRecordsDenyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamDnsRecordsDeny)(nil)).Elem()
+}
+
+func (o TeamDnsRecordsDenyArrayOutput) ToTeamDnsRecordsDenyArrayOutput() TeamDnsRecordsDenyArrayOutput {
+	return o
+}
+
+func (o TeamDnsRecordsDenyArrayOutput) ToTeamDnsRecordsDenyArrayOutputWithContext(ctx context.Context) TeamDnsRecordsDenyArrayOutput {
+	return o
+}
+
+func (o TeamDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) TeamDnsRecordsDenyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamDnsRecordsDeny {
+		return vs[0].([]TeamDnsRecordsDeny)[vs[1].(int)]
+	}).(TeamDnsRecordsDenyOutput)
+}
+
 type TeamIpWhitelist struct {
 	// The free form name of the team.
 	Name   string   `pulumi:"name"`
@@ -677,6 +1125,230 @@ func (o TeamIpWhitelistArrayOutput) Index(i pulumi.IntInput) TeamIpWhitelistOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamIpWhitelist {
 		return vs[0].([]TeamIpWhitelist)[vs[1].(int)]
 	}).(TeamIpWhitelistOutput)
+}
+
+type UserDnsRecordsAllow struct {
+	Domain            string `pulumi:"domain"`
+	IncludeSubdomains bool   `pulumi:"includeSubdomains"`
+	Type              string `pulumi:"type"`
+	Zone              string `pulumi:"zone"`
+}
+
+// UserDnsRecordsAllowInput is an input type that accepts UserDnsRecordsAllowArgs and UserDnsRecordsAllowOutput values.
+// You can construct a concrete instance of `UserDnsRecordsAllowInput` via:
+//
+//          UserDnsRecordsAllowArgs{...}
+type UserDnsRecordsAllowInput interface {
+	pulumi.Input
+
+	ToUserDnsRecordsAllowOutput() UserDnsRecordsAllowOutput
+	ToUserDnsRecordsAllowOutputWithContext(context.Context) UserDnsRecordsAllowOutput
+}
+
+type UserDnsRecordsAllowArgs struct {
+	Domain            pulumi.StringInput `pulumi:"domain"`
+	IncludeSubdomains pulumi.BoolInput   `pulumi:"includeSubdomains"`
+	Type              pulumi.StringInput `pulumi:"type"`
+	Zone              pulumi.StringInput `pulumi:"zone"`
+}
+
+func (UserDnsRecordsAllowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDnsRecordsAllow)(nil)).Elem()
+}
+
+func (i UserDnsRecordsAllowArgs) ToUserDnsRecordsAllowOutput() UserDnsRecordsAllowOutput {
+	return i.ToUserDnsRecordsAllowOutputWithContext(context.Background())
+}
+
+func (i UserDnsRecordsAllowArgs) ToUserDnsRecordsAllowOutputWithContext(ctx context.Context) UserDnsRecordsAllowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsAllowOutput)
+}
+
+// UserDnsRecordsAllowArrayInput is an input type that accepts UserDnsRecordsAllowArray and UserDnsRecordsAllowArrayOutput values.
+// You can construct a concrete instance of `UserDnsRecordsAllowArrayInput` via:
+//
+//          UserDnsRecordsAllowArray{ UserDnsRecordsAllowArgs{...} }
+type UserDnsRecordsAllowArrayInput interface {
+	pulumi.Input
+
+	ToUserDnsRecordsAllowArrayOutput() UserDnsRecordsAllowArrayOutput
+	ToUserDnsRecordsAllowArrayOutputWithContext(context.Context) UserDnsRecordsAllowArrayOutput
+}
+
+type UserDnsRecordsAllowArray []UserDnsRecordsAllowInput
+
+func (UserDnsRecordsAllowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDnsRecordsAllow)(nil)).Elem()
+}
+
+func (i UserDnsRecordsAllowArray) ToUserDnsRecordsAllowArrayOutput() UserDnsRecordsAllowArrayOutput {
+	return i.ToUserDnsRecordsAllowArrayOutputWithContext(context.Background())
+}
+
+func (i UserDnsRecordsAllowArray) ToUserDnsRecordsAllowArrayOutputWithContext(ctx context.Context) UserDnsRecordsAllowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsAllowArrayOutput)
+}
+
+type UserDnsRecordsAllowOutput struct{ *pulumi.OutputState }
+
+func (UserDnsRecordsAllowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDnsRecordsAllow)(nil)).Elem()
+}
+
+func (o UserDnsRecordsAllowOutput) ToUserDnsRecordsAllowOutput() UserDnsRecordsAllowOutput {
+	return o
+}
+
+func (o UserDnsRecordsAllowOutput) ToUserDnsRecordsAllowOutputWithContext(ctx context.Context) UserDnsRecordsAllowOutput {
+	return o
+}
+
+func (o UserDnsRecordsAllowOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDnsRecordsAllow) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o UserDnsRecordsAllowOutput) IncludeSubdomains() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserDnsRecordsAllow) bool { return v.IncludeSubdomains }).(pulumi.BoolOutput)
+}
+
+func (o UserDnsRecordsAllowOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDnsRecordsAllow) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o UserDnsRecordsAllowOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDnsRecordsAllow) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type UserDnsRecordsAllowArrayOutput struct{ *pulumi.OutputState }
+
+func (UserDnsRecordsAllowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDnsRecordsAllow)(nil)).Elem()
+}
+
+func (o UserDnsRecordsAllowArrayOutput) ToUserDnsRecordsAllowArrayOutput() UserDnsRecordsAllowArrayOutput {
+	return o
+}
+
+func (o UserDnsRecordsAllowArrayOutput) ToUserDnsRecordsAllowArrayOutputWithContext(ctx context.Context) UserDnsRecordsAllowArrayOutput {
+	return o
+}
+
+func (o UserDnsRecordsAllowArrayOutput) Index(i pulumi.IntInput) UserDnsRecordsAllowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserDnsRecordsAllow {
+		return vs[0].([]UserDnsRecordsAllow)[vs[1].(int)]
+	}).(UserDnsRecordsAllowOutput)
+}
+
+type UserDnsRecordsDeny struct {
+	Domain            string `pulumi:"domain"`
+	IncludeSubdomains bool   `pulumi:"includeSubdomains"`
+	Type              string `pulumi:"type"`
+	Zone              string `pulumi:"zone"`
+}
+
+// UserDnsRecordsDenyInput is an input type that accepts UserDnsRecordsDenyArgs and UserDnsRecordsDenyOutput values.
+// You can construct a concrete instance of `UserDnsRecordsDenyInput` via:
+//
+//          UserDnsRecordsDenyArgs{...}
+type UserDnsRecordsDenyInput interface {
+	pulumi.Input
+
+	ToUserDnsRecordsDenyOutput() UserDnsRecordsDenyOutput
+	ToUserDnsRecordsDenyOutputWithContext(context.Context) UserDnsRecordsDenyOutput
+}
+
+type UserDnsRecordsDenyArgs struct {
+	Domain            pulumi.StringInput `pulumi:"domain"`
+	IncludeSubdomains pulumi.BoolInput   `pulumi:"includeSubdomains"`
+	Type              pulumi.StringInput `pulumi:"type"`
+	Zone              pulumi.StringInput `pulumi:"zone"`
+}
+
+func (UserDnsRecordsDenyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDnsRecordsDeny)(nil)).Elem()
+}
+
+func (i UserDnsRecordsDenyArgs) ToUserDnsRecordsDenyOutput() UserDnsRecordsDenyOutput {
+	return i.ToUserDnsRecordsDenyOutputWithContext(context.Background())
+}
+
+func (i UserDnsRecordsDenyArgs) ToUserDnsRecordsDenyOutputWithContext(ctx context.Context) UserDnsRecordsDenyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsDenyOutput)
+}
+
+// UserDnsRecordsDenyArrayInput is an input type that accepts UserDnsRecordsDenyArray and UserDnsRecordsDenyArrayOutput values.
+// You can construct a concrete instance of `UserDnsRecordsDenyArrayInput` via:
+//
+//          UserDnsRecordsDenyArray{ UserDnsRecordsDenyArgs{...} }
+type UserDnsRecordsDenyArrayInput interface {
+	pulumi.Input
+
+	ToUserDnsRecordsDenyArrayOutput() UserDnsRecordsDenyArrayOutput
+	ToUserDnsRecordsDenyArrayOutputWithContext(context.Context) UserDnsRecordsDenyArrayOutput
+}
+
+type UserDnsRecordsDenyArray []UserDnsRecordsDenyInput
+
+func (UserDnsRecordsDenyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDnsRecordsDeny)(nil)).Elem()
+}
+
+func (i UserDnsRecordsDenyArray) ToUserDnsRecordsDenyArrayOutput() UserDnsRecordsDenyArrayOutput {
+	return i.ToUserDnsRecordsDenyArrayOutputWithContext(context.Background())
+}
+
+func (i UserDnsRecordsDenyArray) ToUserDnsRecordsDenyArrayOutputWithContext(ctx context.Context) UserDnsRecordsDenyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsDenyArrayOutput)
+}
+
+type UserDnsRecordsDenyOutput struct{ *pulumi.OutputState }
+
+func (UserDnsRecordsDenyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDnsRecordsDeny)(nil)).Elem()
+}
+
+func (o UserDnsRecordsDenyOutput) ToUserDnsRecordsDenyOutput() UserDnsRecordsDenyOutput {
+	return o
+}
+
+func (o UserDnsRecordsDenyOutput) ToUserDnsRecordsDenyOutputWithContext(ctx context.Context) UserDnsRecordsDenyOutput {
+	return o
+}
+
+func (o UserDnsRecordsDenyOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDnsRecordsDeny) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o UserDnsRecordsDenyOutput) IncludeSubdomains() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserDnsRecordsDeny) bool { return v.IncludeSubdomains }).(pulumi.BoolOutput)
+}
+
+func (o UserDnsRecordsDenyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDnsRecordsDeny) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o UserDnsRecordsDenyOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDnsRecordsDeny) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type UserDnsRecordsDenyArrayOutput struct{ *pulumi.OutputState }
+
+func (UserDnsRecordsDenyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDnsRecordsDeny)(nil)).Elem()
+}
+
+func (o UserDnsRecordsDenyArrayOutput) ToUserDnsRecordsDenyArrayOutput() UserDnsRecordsDenyArrayOutput {
+	return o
+}
+
+func (o UserDnsRecordsDenyArrayOutput) ToUserDnsRecordsDenyArrayOutputWithContext(ctx context.Context) UserDnsRecordsDenyArrayOutput {
+	return o
+}
+
+func (o UserDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) UserDnsRecordsDenyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserDnsRecordsDeny {
+		return vs[0].([]UserDnsRecordsDeny)[vs[1].(int)]
+	}).(UserDnsRecordsDenyOutput)
 }
 
 type ZoneSecondary struct {
@@ -1764,6 +2436,10 @@ func (o GetZoneSecondaryArrayOutput) Index(i pulumi.IntInput) GetZoneSecondaryOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(APIKeyDnsRecordsAllowOutput{})
+	pulumi.RegisterOutputType(APIKeyDnsRecordsAllowArrayOutput{})
+	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyOutput{})
+	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringJobRuleOutput{})
 	pulumi.RegisterOutputType(MonitoringJobRuleArrayOutput{})
 	pulumi.RegisterOutputType(NotifyListNotificationOutput{})
@@ -1774,8 +2450,16 @@ func init() {
 	pulumi.RegisterOutputType(RecordFilterArrayOutput{})
 	pulumi.RegisterOutputType(RecordRegionOutput{})
 	pulumi.RegisterOutputType(RecordRegionArrayOutput{})
+	pulumi.RegisterOutputType(TeamDnsRecordsAllowOutput{})
+	pulumi.RegisterOutputType(TeamDnsRecordsAllowArrayOutput{})
+	pulumi.RegisterOutputType(TeamDnsRecordsDenyOutput{})
+	pulumi.RegisterOutputType(TeamDnsRecordsDenyArrayOutput{})
 	pulumi.RegisterOutputType(TeamIpWhitelistOutput{})
 	pulumi.RegisterOutputType(TeamIpWhitelistArrayOutput{})
+	pulumi.RegisterOutputType(UserDnsRecordsAllowOutput{})
+	pulumi.RegisterOutputType(UserDnsRecordsAllowArrayOutput{})
+	pulumi.RegisterOutputType(UserDnsRecordsDenyOutput{})
+	pulumi.RegisterOutputType(UserDnsRecordsDenyArrayOutput{})
 	pulumi.RegisterOutputType(ZoneSecondaryOutput{})
 	pulumi.RegisterOutputType(ZoneSecondaryArrayOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationOutput{})

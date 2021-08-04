@@ -30,6 +30,8 @@ class TeamArgs:
                  dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
                  dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsAllowArgs']]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsDenyArgs']]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -112,6 +114,10 @@ class TeamArgs:
             pulumi.set(__self__, "dhcp_view_dhcp", dhcp_view_dhcp)
         if dns_manage_zones is not None:
             pulumi.set(__self__, "dns_manage_zones", dns_manage_zones)
+        if dns_records_allows is not None:
+            pulumi.set(__self__, "dns_records_allows", dns_records_allows)
+        if dns_records_denies is not None:
+            pulumi.set(__self__, "dns_records_denies", dns_records_denies)
         if dns_view_zones is not None:
             pulumi.set(__self__, "dns_view_zones", dns_view_zones)
         if dns_zones_allow_by_default is not None:
@@ -320,6 +326,24 @@ class TeamArgs:
     @dns_manage_zones.setter
     def dns_manage_zones(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "dns_manage_zones", value)
+
+    @property
+    @pulumi.getter(name="dnsRecordsAllows")
+    def dns_records_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsAllowArgs']]]]:
+        return pulumi.get(self, "dns_records_allows")
+
+    @dns_records_allows.setter
+    def dns_records_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsAllowArgs']]]]):
+        pulumi.set(self, "dns_records_allows", value)
+
+    @property
+    @pulumi.getter(name="dnsRecordsDenies")
+    def dns_records_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsDenyArgs']]]]:
+        return pulumi.get(self, "dns_records_denies")
+
+    @dns_records_denies.setter
+    def dns_records_denies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsDenyArgs']]]]):
+        pulumi.set(self, "dns_records_denies", value)
 
     @property
     @pulumi.getter(name="dnsViewZones")
@@ -499,6 +523,8 @@ class _TeamState:
                  dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
                  dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsAllowArgs']]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsDenyArgs']]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -581,6 +607,10 @@ class _TeamState:
             pulumi.set(__self__, "dhcp_view_dhcp", dhcp_view_dhcp)
         if dns_manage_zones is not None:
             pulumi.set(__self__, "dns_manage_zones", dns_manage_zones)
+        if dns_records_allows is not None:
+            pulumi.set(__self__, "dns_records_allows", dns_records_allows)
+        if dns_records_denies is not None:
+            pulumi.set(__self__, "dns_records_denies", dns_records_denies)
         if dns_view_zones is not None:
             pulumi.set(__self__, "dns_view_zones", dns_view_zones)
         if dns_zones_allow_by_default is not None:
@@ -789,6 +819,24 @@ class _TeamState:
     @dns_manage_zones.setter
     def dns_manage_zones(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "dns_manage_zones", value)
+
+    @property
+    @pulumi.getter(name="dnsRecordsAllows")
+    def dns_records_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsAllowArgs']]]]:
+        return pulumi.get(self, "dns_records_allows")
+
+    @dns_records_allows.setter
+    def dns_records_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsAllowArgs']]]]):
+        pulumi.set(self, "dns_records_allows", value)
+
+    @property
+    @pulumi.getter(name="dnsRecordsDenies")
+    def dns_records_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsDenyArgs']]]]:
+        return pulumi.get(self, "dns_records_denies")
+
+    @dns_records_denies.setter
+    def dns_records_denies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TeamDnsRecordsDenyArgs']]]]):
+        pulumi.set(self, "dns_records_denies", value)
 
     @property
     @pulumi.getter(name="dnsViewZones")
@@ -970,6 +1018,8 @@ class Team(pulumi.CustomResource):
                  dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
                  dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1017,6 +1067,12 @@ class Team(pulumi.CustomResource):
         # Another team
         example2 = ns1.Team("example2",
             data_manage_datasources=True,
+            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
+                domain="terraform.example.io",
+                include_subdomains=False,
+                type="A",
+                zone="example.io",
+            )],
             dns_view_zones=True,
             dns_zones_allows=["mytest.zone"],
             dns_zones_allow_by_default=True,
@@ -1101,6 +1157,12 @@ class Team(pulumi.CustomResource):
         # Another team
         example2 = ns1.Team("example2",
             data_manage_datasources=True,
+            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
+                domain="terraform.example.io",
+                include_subdomains=False,
+                type="A",
+                zone="example.io",
+            )],
             dns_view_zones=True,
             dns_zones_allows=["mytest.zone"],
             dns_zones_allow_by_default=True,
@@ -1140,6 +1202,8 @@ class Team(pulumi.CustomResource):
                  dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
                  dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1183,6 +1247,8 @@ class Team(pulumi.CustomResource):
             __props__.__dict__["dhcp_manage_dhcp"] = dhcp_manage_dhcp
             __props__.__dict__["dhcp_view_dhcp"] = dhcp_view_dhcp
             __props__.__dict__["dns_manage_zones"] = dns_manage_zones
+            __props__.__dict__["dns_records_allows"] = dns_records_allows
+            __props__.__dict__["dns_records_denies"] = dns_records_denies
             __props__.__dict__["dns_view_zones"] = dns_view_zones
             __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
             __props__.__dict__["dns_zones_allows"] = dns_zones_allows
@@ -1221,6 +1287,8 @@ class Team(pulumi.CustomResource):
             dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
             dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+            dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]]] = None,
+            dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]]] = None,
             dns_view_zones: Optional[pulumi.Input[bool]] = None,
             dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1294,6 +1362,8 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["dhcp_manage_dhcp"] = dhcp_manage_dhcp
         __props__.__dict__["dhcp_view_dhcp"] = dhcp_view_dhcp
         __props__.__dict__["dns_manage_zones"] = dns_manage_zones
+        __props__.__dict__["dns_records_allows"] = dns_records_allows
+        __props__.__dict__["dns_records_denies"] = dns_records_denies
         __props__.__dict__["dns_view_zones"] = dns_view_zones
         __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
         __props__.__dict__["dns_zones_allows"] = dns_zones_allows
@@ -1430,6 +1500,16 @@ class Team(pulumi.CustomResource):
         Whether the team can modify the accounts zones.
         """
         return pulumi.get(self, "dns_manage_zones")
+
+    @property
+    @pulumi.getter(name="dnsRecordsAllows")
+    def dns_records_allows(self) -> pulumi.Output[Optional[Sequence['outputs.TeamDnsRecordsAllow']]]:
+        return pulumi.get(self, "dns_records_allows")
+
+    @property
+    @pulumi.getter(name="dnsRecordsDenies")
+    def dns_records_denies(self) -> pulumi.Output[Optional[Sequence['outputs.TeamDnsRecordsDeny']]]:
+        return pulumi.get(self, "dns_records_denies")
 
     @property
     @pulumi.getter(name="dnsViewZones")

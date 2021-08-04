@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface APIKeyDnsRecordsAllow {
+    domain: pulumi.Input<string>;
+    includeSubdomains: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
+}
+
+export interface APIKeyDnsRecordsDeny {
+    domain: pulumi.Input<string>;
+    includeSubdomains: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
+}
+
 export interface MonitoringJobRule {
     comparison: pulumi.Input<string>;
     key: pulumi.Input<string>;
@@ -64,12 +78,40 @@ export interface RecordRegion {
     name: pulumi.Input<string>;
 }
 
+export interface TeamDnsRecordsAllow {
+    domain: pulumi.Input<string>;
+    includeSubdomains: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
+}
+
+export interface TeamDnsRecordsDeny {
+    domain: pulumi.Input<string>;
+    includeSubdomains: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
+}
+
 export interface TeamIpWhitelist {
     /**
      * The free form name of the team.
      */
     name: pulumi.Input<string>;
     values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface UserDnsRecordsAllow {
+    domain: pulumi.Input<string>;
+    includeSubdomains: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
+}
+
+export interface UserDnsRecordsDeny {
+    domain: pulumi.Input<string>;
+    includeSubdomains: pulumi.Input<boolean>;
+    type: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
 }
 
 export interface ZoneSecondary {

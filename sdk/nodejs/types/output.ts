@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface APIKeyDnsRecordsAllow {
+    domain: string;
+    includeSubdomains: boolean;
+    type: string;
+    zone: string;
+}
+
+export interface APIKeyDnsRecordsDeny {
+    domain: string;
+    includeSubdomains: boolean;
+    type: string;
+    zone: string;
+}
+
 export interface GetDNSSecDelegation {
     /**
      * (Computed) List of Keys. Key is documented below.
@@ -171,7 +185,7 @@ export interface RecordFilter {
      * The filters' configuration. Simple key/value pairs
      * determined by the filter type.
      */
-    config?: {[key: string]: any};
+    config: {[key: string]: any};
     /**
      * Determines whether the filter is applied in the
      * filter chain.
@@ -191,12 +205,40 @@ export interface RecordRegion {
     name: string;
 }
 
+export interface TeamDnsRecordsAllow {
+    domain: string;
+    includeSubdomains: boolean;
+    type: string;
+    zone: string;
+}
+
+export interface TeamDnsRecordsDeny {
+    domain: string;
+    includeSubdomains: boolean;
+    type: string;
+    zone: string;
+}
+
 export interface TeamIpWhitelist {
     /**
      * The free form name of the team.
      */
     name: string;
     values: string[];
+}
+
+export interface UserDnsRecordsAllow {
+    domain: string;
+    includeSubdomains: boolean;
+    type: string;
+    zone: string;
+}
+
+export interface UserDnsRecordsDeny {
+    domain: string;
+    includeSubdomains: boolean;
+    type: string;
+    zone: string;
 }
 
 export interface ZoneSecondary {

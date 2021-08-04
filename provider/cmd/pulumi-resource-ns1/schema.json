@@ -33,6 +33,92 @@
         }
     },
     "types": {
+        "ns1:index/APIKeyDnsRecordsAllow:APIKeyDnsRecordsAllow": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeSubdomains": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "includeSubdomains",
+                "type",
+                "zone"
+            ]
+        },
+        "ns1:index/APIKeyDnsRecordsDeny:APIKeyDnsRecordsDeny": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeSubdomains": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "includeSubdomains",
+                "type",
+                "zone"
+            ]
+        },
         "ns1:index/MonitoringJobRule:MonitoringJobRule": {
             "properties": {
                 "comparison": {
@@ -167,7 +253,15 @@
             "type": "object",
             "required": [
                 "filter"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "config",
+                        "filter"
+                    ]
+                }
+            }
         },
         "ns1:index/RecordRegion:RecordRegion": {
             "properties": {
@@ -197,6 +291,92 @@
                 "name"
             ]
         },
+        "ns1:index/TeamDnsRecordsAllow:TeamDnsRecordsAllow": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeSubdomains": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "includeSubdomains",
+                "type",
+                "zone"
+            ]
+        },
+        "ns1:index/TeamDnsRecordsDeny:TeamDnsRecordsDeny": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeSubdomains": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "includeSubdomains",
+                "type",
+                "zone"
+            ]
+        },
         "ns1:index/TeamIpWhitelist:TeamIpWhitelist": {
             "properties": {
                 "name": {
@@ -224,6 +404,92 @@
             "required": [
                 "name",
                 "values"
+            ]
+        },
+        "ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeSubdomains": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "includeSubdomains",
+                "type",
+                "zone"
+            ]
+        },
+        "ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeSubdomains": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "includeSubdomains",
+                "type",
+                "zone"
             ]
         },
         "ns1:index/ZoneSecondary:ZoneSecondary": {
@@ -782,6 +1048,18 @@
                     "type": "boolean",
                     "description": "Whether the apikey can modify the accounts zones.\n"
                 },
+                "dnsRecordsAllows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/APIKeyDnsRecordsAllow:APIKeyDnsRecordsAllow"
+                    }
+                },
+                "dnsRecordsDenies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/APIKeyDnsRecordsDeny:APIKeyDnsRecordsDeny"
+                    }
+                },
                 "dnsViewZones": {
                     "type": "boolean",
                     "description": "Whether the apikey can view the accounts zones.\n"
@@ -925,6 +1203,18 @@
                     "type": "boolean",
                     "description": "Whether the apikey can modify the accounts zones.\n"
                 },
+                "dnsRecordsAllows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/APIKeyDnsRecordsAllow:APIKeyDnsRecordsAllow"
+                    }
+                },
+                "dnsRecordsDenies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/APIKeyDnsRecordsDeny:APIKeyDnsRecordsDeny"
+                    }
+                },
                 "dnsViewZones": {
                     "type": "boolean",
                     "description": "Whether the apikey can view the accounts zones.\n"
@@ -1061,6 +1351,18 @@
                     "dnsManageZones": {
                         "type": "boolean",
                         "description": "Whether the apikey can modify the accounts zones.\n"
+                    },
+                    "dnsRecordsAllows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/APIKeyDnsRecordsAllow:APIKeyDnsRecordsAllow"
+                        }
+                    },
+                    "dnsRecordsDenies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/APIKeyDnsRecordsDeny:APIKeyDnsRecordsDeny"
+                        }
                     },
                     "dnsViewZones": {
                         "type": "boolean",
@@ -1273,7 +1575,7 @@
             }
         },
         "ns1:index/monitoringJob:MonitoringJob": {
-            "description": "Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst uswestMonitor = new ns1.MonitoringJob(\"uswest_monitor\", {\n    active: true,\n    config: {\n        host: \"example-elb-uswest.aws.amazon.com\",\n        port: 443,\n        send: `HEAD / HTTP/1.0\r\n\r\n`,\n        ssl: 1,\n    },\n    frequency: 60,\n    jobType: \"tcp\",\n    policy: \"quorum\",\n    rapidRecheck: true,\n    regions: [\n        \"sjc\",\n        \"sin\",\n        \"lga\",\n    ],\n    rules: [{\n        comparison: \"contains\",\n        key: \"output\",\n        value: \"200 OK\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nuswest_monitor = ns1.MonitoringJob(\"uswestMonitor\",\n    active=True,\n    config={\n        \"host\": \"example-elb-uswest.aws.amazon.com\",\n        \"port\": 443,\n        \"send\": \"\"\"HEAD / HTTP/1.0\r\n\r\n\n\"\"\",\n        \"ssl\": 1,\n    },\n    frequency=60,\n    job_type=\"tcp\",\n    policy=\"quorum\",\n    rapid_recheck=True,\n    regions=[\n        \"sjc\",\n        \"sin\",\n        \"lga\",\n    ],\n    rules=[ns1.MonitoringJobRuleArgs(\n        comparison=\"contains\",\n        key=\"output\",\n        value=\"200 OK\",\n    )])\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var uswestMonitor = new Ns1.MonitoringJob(\"uswestMonitor\", new Ns1.MonitoringJobArgs\n        {\n            Active = true,\n            Config = \n            {\n                { \"host\", \"example-elb-uswest.aws.amazon.com\" },\n                { \"port\", 443 },\n                { \"send\", @\"HEAD / HTTP/1.0\r\n\r\n\n\" },\n                { \"ssl\", 1 },\n            },\n            Frequency = 60,\n            JobType = \"tcp\",\n            Policy = \"quorum\",\n            RapidRecheck = true,\n            Regions = \n            {\n                \"sjc\",\n                \"sin\",\n                \"lga\",\n            },\n            Rules = \n            {\n                new Ns1.Inputs.MonitoringJobRuleArgs\n                {\n                    Comparison = \"contains\",\n                    Key = \"output\",\n                    Value = \"200 OK\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewMonitoringJob(ctx, \"uswestMonitor\", \u0026ns1.MonitoringJobArgs{\n\t\t\tActive: pulumi.Bool(true),\n\t\t\tConfig: pulumi.Map{\n\t\t\t\t\"host\": pulumi.String(\"example-elb-uswest.aws.amazon.com\"),\n\t\t\t\t\"port\": pulumi.Float64(443),\n\t\t\t\t\"send\": pulumi.String(fmt.Sprintf(\"%v%v%v\", \"HEAD / HTTP/1.0\r\\n\", \"\r\\n\", \"\\n\")),\n\t\t\t\t\"ssl\": pulumi.Float64(1),\n\t\t\t},\n\t\t\tFrequency:    pulumi.Int(60),\n\t\t\tJobType:      pulumi.String(\"tcp\"),\n\t\t\tPolicy:       pulumi.String(\"quorum\"),\n\t\t\tRapidRecheck: pulumi.Bool(true),\n\t\t\tRegions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sjc\"),\n\t\t\t\tpulumi.String(\"sin\"),\n\t\t\t\tpulumi.String(\"lga\"),\n\t\t\t},\n\t\t\tRules: ns1.MonitoringJobRuleArray{\n\t\t\t\t\u0026ns1.MonitoringJobRuleArgs{\n\t\t\t\t\tComparison: pulumi.String(\"contains\"),\n\t\t\t\t\tKey:        pulumi.String(\"output\"),\n\t\t\t\t\tValue:      pulumi.String(\"200 OK\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)\n",
+            "description": "Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst uswestMonitor = new ns1.MonitoringJob(\"uswest_monitor\", {\n    active: true,\n    config: {\n        host: \"example-elb-uswest.aws.amazon.com\",\n        port: 443,\n        send: `HEAD / HTTP/1.0\r\n\r\n`,\n        ssl: 1,\n    },\n    frequency: 60,\n    jobType: \"tcp\",\n    mute: true,\n    policy: \"quorum\",\n    rapidRecheck: true,\n    regions: [\n        \"sjc\",\n        \"sin\",\n        \"lga\",\n    ],\n    rules: [{\n        comparison: \"contains\",\n        key: \"output\",\n        value: \"200 OK\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nuswest_monitor = ns1.MonitoringJob(\"uswestMonitor\",\n    active=True,\n    config={\n        \"host\": \"example-elb-uswest.aws.amazon.com\",\n        \"port\": 443,\n        \"send\": \"\"\"HEAD / HTTP/1.0\r\n\r\n\n\"\"\",\n        \"ssl\": 1,\n    },\n    frequency=60,\n    job_type=\"tcp\",\n    mute=True,\n    policy=\"quorum\",\n    rapid_recheck=True,\n    regions=[\n        \"sjc\",\n        \"sin\",\n        \"lga\",\n    ],\n    rules=[ns1.MonitoringJobRuleArgs(\n        comparison=\"contains\",\n        key=\"output\",\n        value=\"200 OK\",\n    )])\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var uswestMonitor = new Ns1.MonitoringJob(\"uswestMonitor\", new Ns1.MonitoringJobArgs\n        {\n            Active = true,\n            Config = \n            {\n                { \"host\", \"example-elb-uswest.aws.amazon.com\" },\n                { \"port\", 443 },\n                { \"send\", @\"HEAD / HTTP/1.0\r\n\r\n\n\" },\n                { \"ssl\", 1 },\n            },\n            Frequency = 60,\n            JobType = \"tcp\",\n            Mute = true,\n            Policy = \"quorum\",\n            RapidRecheck = true,\n            Regions = \n            {\n                \"sjc\",\n                \"sin\",\n                \"lga\",\n            },\n            Rules = \n            {\n                new Ns1.Inputs.MonitoringJobRuleArgs\n                {\n                    Comparison = \"contains\",\n                    Key = \"output\",\n                    Value = \"200 OK\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewMonitoringJob(ctx, \"uswestMonitor\", \u0026ns1.MonitoringJobArgs{\n\t\t\tActive: pulumi.Bool(true),\n\t\t\tConfig: pulumi.Map{\n\t\t\t\t\"host\": pulumi.String(\"example-elb-uswest.aws.amazon.com\"),\n\t\t\t\t\"port\": pulumi.Float64(443),\n\t\t\t\t\"send\": pulumi.String(fmt.Sprintf(\"%v%v%v\", \"HEAD / HTTP/1.0\r\\n\", \"\r\\n\", \"\\n\")),\n\t\t\t\t\"ssl\": pulumi.Float64(1),\n\t\t\t},\n\t\t\tFrequency:    pulumi.Int(60),\n\t\t\tJobType:      pulumi.String(\"tcp\"),\n\t\t\tMute:         pulumi.Bool(true),\n\t\t\tPolicy:       pulumi.String(\"quorum\"),\n\t\t\tRapidRecheck: pulumi.Bool(true),\n\t\t\tRegions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sjc\"),\n\t\t\t\tpulumi.String(\"sin\"),\n\t\t\t\tpulumi.String(\"lga\"),\n\t\t\t},\n\t\t\tRules: ns1.MonitoringJobRuleArray{\n\t\t\t\t\u0026ns1.MonitoringJobRuleArgs{\n\t\t\t\t\tComparison: pulumi.String(\"contains\"),\n\t\t\t\t\tKey:        pulumi.String(\"output\"),\n\t\t\t\t\tValue:      pulumi.String(\"200 OK\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)\n",
             "properties": {
                 "active": {
                     "type": "boolean",
@@ -1293,6 +1595,10 @@
                 "jobType": {
                     "type": "string",
                     "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n"
+                },
+                "mute": {
+                    "type": "boolean",
+                    "description": "turn off the notifications for the monitoring job.\n"
                 },
                 "name": {
                     "type": "string",
@@ -1371,6 +1677,10 @@
                     "type": "string",
                     "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n"
                 },
+                "mute": {
+                    "type": "boolean",
+                    "description": "turn off the notifications for the monitoring job.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The free-form display name for the monitoring job.\n"
@@ -1448,6 +1758,10 @@
                     "jobType": {
                         "type": "string",
                         "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n"
+                    },
+                    "mute": {
+                        "type": "boolean",
+                        "description": "turn off the notifications for the monitoring job.\n"
                     },
                     "name": {
                         "type": "string",
@@ -1750,7 +2064,7 @@
             }
         },
         "ns1:index/team:Team": {
-            "description": "Provides a NS1 Team resource. This can be used to create, modify, and delete\nteams. The credentials used must have the `manage_teams` permission set.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new NS1 Team\nconst example = new ns1.Team(\"example\", {\n    accountManageUsers: false,\n    // Configure permissions\n    dnsViewZones: false,\n    ipWhitelists: [\n        // Optional IP whitelists\n        {\n            name: \"whitelist-1\",\n            values: [\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        },\n        {\n            name: \"whitelist-2\",\n            values: [\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        },\n    ],\n});\n// Another team\nconst example2 = new ns1.Team(\"example2\", {\n    dataManageDatasources: true,\n    dnsViewZones: true,\n    dnsZonesAllows: [\"mytest.zone\"],\n    dnsZonesAllowByDefault: true,\n    dnsZonesDenies: [\"myother.zone\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new NS1 Team\nexample = ns1.Team(\"example\",\n    account_manage_users=False,\n    dns_view_zones=False,\n    ip_whitelists=[\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-1\",\n            values=[\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        ),\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-2\",\n            values=[\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        ),\n    ])\n# Another team\nexample2 = ns1.Team(\"example2\",\n    data_manage_datasources=True,\n    dns_view_zones=True,\n    dns_zones_allows=[\"mytest.zone\"],\n    dns_zones_allow_by_default=True,\n    dns_zones_denies=[\"myother.zone\"])\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new NS1 Team\n        var example = new Ns1.Team(\"example\", new Ns1.TeamArgs\n        {\n            AccountManageUsers = false,\n            DnsViewZones = false,\n            IpWhitelists = \n            {\n                new Ns1.Inputs.TeamIpWhitelistArgs\n                {\n                    Name = \"whitelist-1\",\n                    Values = \n                    {\n                        \"1.1.1.1\",\n                        \"2.2.2.2\",\n                    },\n                },\n                new Ns1.Inputs.TeamIpWhitelistArgs\n                {\n                    Name = \"whitelist-2\",\n                    Values = \n                    {\n                        \"3.3.3.3\",\n                        \"4.4.4.4\",\n                    },\n                },\n            },\n        });\n        // Another team\n        var example2 = new Ns1.Team(\"example2\", new Ns1.TeamArgs\n        {\n            DataManageDatasources = true,\n            DnsViewZones = true,\n            DnsZonesAllows = \n            {\n                \"mytest.zone\",\n            },\n            DnsZonesAllowByDefault = true,\n            DnsZonesDenies = \n            {\n                \"myother.zone\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTeam(ctx, \"example\", \u0026ns1.TeamArgs{\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tIpWhitelists: ns1.TeamIpWhitelistArray{\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-1\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-2\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"3.3.3.3\"),\n\t\t\t\t\t\tpulumi.String(\"4.4.4.4\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewTeam(ctx, \"example2\", \u0026ns1.TeamArgs{\n\t\t\tDataManageDatasources: pulumi.Bool(true),\n\t\t\tDnsViewZones:          pulumi.Bool(true),\n\t\t\tDnsZonesAllows: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"mytest.zone\"),\n\t\t\t},\n\t\t\tDnsZonesAllowByDefault: pulumi.Bool(true),\n\t\t\tDnsZonesDenies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"myother.zone\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Team Api Docs](https://ns1.com/api#team)\n",
+            "description": "Provides a NS1 Team resource. This can be used to create, modify, and delete\nteams. The credentials used must have the `manage_teams` permission set.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new NS1 Team\nconst example = new ns1.Team(\"example\", {\n    accountManageUsers: false,\n    // Configure permissions\n    dnsViewZones: false,\n    ipWhitelists: [\n        // Optional IP whitelists\n        {\n            name: \"whitelist-1\",\n            values: [\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        },\n        {\n            name: \"whitelist-2\",\n            values: [\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        },\n    ],\n});\n// Another team\nconst example2 = new ns1.Team(\"example2\", {\n    dataManageDatasources: true,\n    dnsRecordsAllows: [{\n        domain: \"terraform.example.io\",\n        includeSubdomains: false,\n        type: \"A\",\n        zone: \"example.io\",\n    }],\n    dnsViewZones: true,\n    dnsZonesAllows: [\"mytest.zone\"],\n    dnsZonesAllowByDefault: true,\n    dnsZonesDenies: [\"myother.zone\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new NS1 Team\nexample = ns1.Team(\"example\",\n    account_manage_users=False,\n    dns_view_zones=False,\n    ip_whitelists=[\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-1\",\n            values=[\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        ),\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-2\",\n            values=[\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        ),\n    ])\n# Another team\nexample2 = ns1.Team(\"example2\",\n    data_manage_datasources=True,\n    dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(\n        domain=\"terraform.example.io\",\n        include_subdomains=False,\n        type=\"A\",\n        zone=\"example.io\",\n    )],\n    dns_view_zones=True,\n    dns_zones_allows=[\"mytest.zone\"],\n    dns_zones_allow_by_default=True,\n    dns_zones_denies=[\"myother.zone\"])\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new NS1 Team\n        var example = new Ns1.Team(\"example\", new Ns1.TeamArgs\n        {\n            AccountManageUsers = false,\n            DnsViewZones = false,\n            IpWhitelists = \n            {\n                new Ns1.Inputs.TeamIpWhitelistArgs\n                {\n                    Name = \"whitelist-1\",\n                    Values = \n                    {\n                        \"1.1.1.1\",\n                        \"2.2.2.2\",\n                    },\n                },\n                new Ns1.Inputs.TeamIpWhitelistArgs\n                {\n                    Name = \"whitelist-2\",\n                    Values = \n                    {\n                        \"3.3.3.3\",\n                        \"4.4.4.4\",\n                    },\n                },\n            },\n        });\n        // Another team\n        var example2 = new Ns1.Team(\"example2\", new Ns1.TeamArgs\n        {\n            DataManageDatasources = true,\n            DnsRecordsAllows = \n            {\n                new Ns1.Inputs.TeamDnsRecordsAllowArgs\n                {\n                    Domain = \"terraform.example.io\",\n                    IncludeSubdomains = false,\n                    Type = \"A\",\n                    Zone = \"example.io\",\n                },\n            },\n            DnsViewZones = true,\n            DnsZonesAllows = \n            {\n                \"mytest.zone\",\n            },\n            DnsZonesAllowByDefault = true,\n            DnsZonesDenies = \n            {\n                \"myother.zone\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTeam(ctx, \"example\", \u0026ns1.TeamArgs{\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tIpWhitelists: ns1.TeamIpWhitelistArray{\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-1\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-2\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"3.3.3.3\"),\n\t\t\t\t\t\tpulumi.String(\"4.4.4.4\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewTeam(ctx, \"example2\", \u0026ns1.TeamArgs{\n\t\t\tDataManageDatasources: pulumi.Bool(true),\n\t\t\tDnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{\n\t\t\t\t\u0026ns1.TeamDnsRecordsAllowArgs{\n\t\t\t\t\tDomain:            pulumi.String(\"terraform.example.io\"),\n\t\t\t\t\tIncludeSubdomains: pulumi.Bool(false),\n\t\t\t\t\tType:              pulumi.String(\"A\"),\n\t\t\t\t\tZone:              pulumi.String(\"example.io\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDnsViewZones: pulumi.Bool(true),\n\t\t\tDnsZonesAllows: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"mytest.zone\"),\n\t\t\t},\n\t\t\tDnsZonesAllowByDefault: pulumi.Bool(true),\n\t\t\tDnsZonesDenies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"myother.zone\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Team Api Docs](https://ns1.com/api#team)\n",
             "properties": {
                 "accountManageAccountSettings": {
                     "type": "boolean",
@@ -1812,6 +2126,18 @@
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the team can modify the accounts zones.\n"
+                },
+                "dnsRecordsAllows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/TeamDnsRecordsAllow:TeamDnsRecordsAllow"
+                    }
+                },
+                "dnsRecordsDenies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/TeamDnsRecordsDeny:TeamDnsRecordsDeny"
+                    }
                 },
                 "dnsViewZones": {
                     "type": "boolean",
@@ -1940,6 +2266,18 @@
                     "type": "boolean",
                     "description": "Whether the team can modify the accounts zones.\n"
                 },
+                "dnsRecordsAllows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/TeamDnsRecordsAllow:TeamDnsRecordsAllow"
+                    }
+                },
+                "dnsRecordsDenies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/TeamDnsRecordsDeny:TeamDnsRecordsDeny"
+                    }
+                },
                 "dnsViewZones": {
                     "type": "boolean",
                     "description": "Whether the team can view the accounts zones.\n"
@@ -2065,6 +2403,18 @@
                     "dnsManageZones": {
                         "type": "boolean",
                         "description": "Whether the team can modify the accounts zones.\n"
+                    },
+                    "dnsRecordsAllows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/TeamDnsRecordsAllow:TeamDnsRecordsAllow"
+                        }
+                    },
+                    "dnsRecordsDenies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/TeamDnsRecordsDeny:TeamDnsRecordsDeny"
+                        }
                     },
                     "dnsViewZones": {
                         "type": "boolean",
@@ -2193,6 +2543,18 @@
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the user can modify the accounts zones.\n"
+                },
+                "dnsRecordsAllows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow"
+                    }
+                },
+                "dnsRecordsDenies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny"
+                    }
                 },
                 "dnsViewZones": {
                     "type": "boolean",
@@ -2348,6 +2710,18 @@
                     "type": "boolean",
                     "description": "Whether the user can modify the accounts zones.\n"
                 },
+                "dnsRecordsAllows": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow"
+                    }
+                },
+                "dnsRecordsDenies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny"
+                    }
+                },
                 "dnsViewZones": {
                     "type": "boolean",
                     "description": "Whether the user can view the accounts zones.\n"
@@ -2502,6 +2876,18 @@
                     "dnsManageZones": {
                         "type": "boolean",
                         "description": "Whether the user can modify the accounts zones.\n"
+                    },
+                    "dnsRecordsAllows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow"
+                        }
+                    },
+                    "dnsRecordsDenies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny"
+                        }
                     },
                     "dnsViewZones": {
                         "type": "boolean",

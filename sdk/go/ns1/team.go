@@ -50,7 +50,15 @@ import (
 // 		}
 // 		_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
 // 			DataManageDatasources: pulumi.Bool(true),
-// 			DnsViewZones:          pulumi.Bool(true),
+// 			DnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{
+// 				&ns1.TeamDnsRecordsAllowArgs{
+// 					Domain:            pulumi.String("terraform.example.io"),
+// 					IncludeSubdomains: pulumi.Bool(false),
+// 					Type:              pulumi.String("A"),
+// 					Zone:              pulumi.String("example.io"),
+// 				},
+// 			},
+// 			DnsViewZones: pulumi.Bool(true),
 // 			DnsZonesAllows: pulumi.StringArray{
 // 				pulumi.String("mytest.zone"),
 // 			},
@@ -105,7 +113,9 @@ type Team struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrOutput `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrOutput `pulumi:"dnsManageZones"`
+	DnsManageZones   pulumi.BoolPtrOutput           `pulumi:"dnsManageZones"`
+	DnsRecordsAllows TeamDnsRecordsAllowArrayOutput `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies TeamDnsRecordsDenyArrayOutput  `pulumi:"dnsRecordsDenies"`
 	// Whether the team can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrOutput `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -199,7 +209,9 @@ type teamState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
-	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsRecordsAllows []TeamDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies []TeamDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
 	// Whether the team can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -265,7 +277,9 @@ type TeamState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the team can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrInput
+	DnsManageZones   pulumi.BoolPtrInput
+	DnsRecordsAllows TeamDnsRecordsAllowArrayInput
+	DnsRecordsDenies TeamDnsRecordsDenyArrayInput
 	// Whether the team can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -335,7 +349,9 @@ type teamArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
-	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsRecordsAllows []TeamDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies []TeamDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
 	// Whether the team can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -402,7 +418,9 @@ type TeamArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the team can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrInput
+	DnsManageZones   pulumi.BoolPtrInput
+	DnsRecordsAllows TeamDnsRecordsAllowArrayInput
+	DnsRecordsDenies TeamDnsRecordsDenyArrayInput
 	// Whether the team can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
