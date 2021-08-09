@@ -46,7 +46,9 @@ type APIKey struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrOutput `pulumi:"dhcpViewDhcp"`
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrOutput `pulumi:"dnsManageZones"`
+	DnsManageZones   pulumi.BoolPtrOutput             `pulumi:"dnsManageZones"`
+	DnsRecordsAllows APIKeyDnsRecordsAllowArrayOutput `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies APIKeyDnsRecordsDenyArrayOutput  `pulumi:"dnsRecordsDenies"`
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrOutput `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -146,7 +148,9 @@ type apikeyState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	DnsManageZones   *bool                   `pulumi:"dnsManageZones"`
+	DnsRecordsAllows []APIKeyDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies []APIKeyDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -218,7 +222,9 @@ type APIKeyState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrInput
+	DnsManageZones   pulumi.BoolPtrInput
+	DnsRecordsAllows APIKeyDnsRecordsAllowArrayInput
+	DnsRecordsDenies APIKeyDnsRecordsDenyArrayInput
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -294,7 +300,9 @@ type apikeyArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	DnsManageZones   *bool                   `pulumi:"dnsManageZones"`
+	DnsRecordsAllows []APIKeyDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies []APIKeyDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -365,7 +373,9 @@ type APIKeyArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrInput
+	DnsManageZones   pulumi.BoolPtrInput
+	DnsRecordsAllows APIKeyDnsRecordsAllowArrayInput
+	DnsRecordsDenies APIKeyDnsRecordsDenyArrayInput
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.

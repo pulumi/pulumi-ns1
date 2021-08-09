@@ -41,6 +41,12 @@ import * as utilities from "./utilities";
  * // Another team
  * const example2 = new ns1.Team("example2", {
  *     dataManageDatasources: true,
+ *     dnsRecordsAllows: [{
+ *         domain: "terraform.example.io",
+ *         includeSubdomains: false,
+ *         type: "A",
+ *         zone: "example.io",
+ *     }],
  *     dnsViewZones: true,
  *     dnsZonesAllows: ["mytest.zone"],
  *     dnsZonesAllowByDefault: true,
@@ -143,6 +149,8 @@ export class Team extends pulumi.CustomResource {
      * Whether the team can modify the accounts zones.
      */
     public readonly dnsManageZones!: pulumi.Output<boolean | undefined>;
+    public readonly dnsRecordsAllows!: pulumi.Output<outputs.TeamDnsRecordsAllow[] | undefined>;
+    public readonly dnsRecordsDenies!: pulumi.Output<outputs.TeamDnsRecordsDeny[] | undefined>;
     /**
      * Whether the team can view the accounts zones.
      */
@@ -227,6 +235,8 @@ export class Team extends pulumi.CustomResource {
             inputs["dhcpManageDhcp"] = state ? state.dhcpManageDhcp : undefined;
             inputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
+            inputs["dnsRecordsAllows"] = state ? state.dnsRecordsAllows : undefined;
+            inputs["dnsRecordsDenies"] = state ? state.dnsRecordsDenies : undefined;
             inputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
             inputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
             inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
@@ -257,6 +267,8 @@ export class Team extends pulumi.CustomResource {
             inputs["dhcpManageDhcp"] = args ? args.dhcpManageDhcp : undefined;
             inputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
             inputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
+            inputs["dnsRecordsAllows"] = args ? args.dnsRecordsAllows : undefined;
+            inputs["dnsRecordsDenies"] = args ? args.dnsRecordsDenies : undefined;
             inputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
             inputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
             inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
@@ -346,6 +358,8 @@ export interface TeamState {
      * Whether the team can modify the accounts zones.
      */
     readonly dnsManageZones?: pulumi.Input<boolean>;
+    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsAllow>[]>;
+    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsDeny>[]>;
     /**
      * Whether the team can view the accounts zones.
      */
@@ -471,6 +485,8 @@ export interface TeamArgs {
      * Whether the team can modify the accounts zones.
      */
     readonly dnsManageZones?: pulumi.Input<boolean>;
+    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsAllow>[]>;
+    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsDeny>[]>;
     /**
      * Whether the team can view the accounts zones.
      */

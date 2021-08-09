@@ -10,12 +10,18 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'APIKeyDnsRecordsAllow',
+    'APIKeyDnsRecordsDeny',
     'MonitoringJobRule',
     'NotifyListNotification',
     'RecordAnswer',
     'RecordFilter',
     'RecordRegion',
+    'TeamDnsRecordsAllow',
+    'TeamDnsRecordsDeny',
     'TeamIpWhitelist',
+    'UserDnsRecordsAllow',
+    'UserDnsRecordsDeny',
     'ZoneSecondary',
     'GetDNSSecDelegationResult',
     'GetDNSSecDelegationDResult',
@@ -27,6 +33,106 @@ __all__ = [
     'GetRecordRegionResult',
     'GetZoneSecondaryResult',
 ]
+
+@pulumi.output_type
+class APIKeyDnsRecordsAllow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeSubdomains":
+            suggest = "include_subdomains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in APIKeyDnsRecordsAllow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        APIKeyDnsRecordsAllow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        APIKeyDnsRecordsAllow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: str,
+                 include_subdomains: bool,
+                 type: str,
+                 zone: str):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> bool:
+        return pulumi.get(self, "include_subdomains")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class APIKeyDnsRecordsDeny(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeSubdomains":
+            suggest = "include_subdomains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in APIKeyDnsRecordsDeny. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        APIKeyDnsRecordsDeny.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        APIKeyDnsRecordsDeny.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: str,
+                 include_subdomains: bool,
+                 type: str,
+                 zone: str):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> bool:
+        return pulumi.get(self, "include_subdomains")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
+
 
 @pulumi.output_type
 class MonitoringJobRule(dict):
@@ -207,6 +313,106 @@ class RecordRegion(dict):
 
 
 @pulumi.output_type
+class TeamDnsRecordsAllow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeSubdomains":
+            suggest = "include_subdomains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamDnsRecordsAllow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamDnsRecordsAllow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamDnsRecordsAllow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: str,
+                 include_subdomains: bool,
+                 type: str,
+                 zone: str):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> bool:
+        return pulumi.get(self, "include_subdomains")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class TeamDnsRecordsDeny(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeSubdomains":
+            suggest = "include_subdomains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamDnsRecordsDeny. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamDnsRecordsDeny.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamDnsRecordsDeny.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: str,
+                 include_subdomains: bool,
+                 type: str,
+                 zone: str):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> bool:
+        return pulumi.get(self, "include_subdomains")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
 class TeamIpWhitelist(dict):
     def __init__(__self__, *,
                  name: str,
@@ -229,6 +435,106 @@ class TeamIpWhitelist(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class UserDnsRecordsAllow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeSubdomains":
+            suggest = "include_subdomains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserDnsRecordsAllow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserDnsRecordsAllow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserDnsRecordsAllow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: str,
+                 include_subdomains: bool,
+                 type: str,
+                 zone: str):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> bool:
+        return pulumi.get(self, "include_subdomains")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class UserDnsRecordsDeny(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeSubdomains":
+            suggest = "include_subdomains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserDnsRecordsDeny. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserDnsRecordsDeny.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserDnsRecordsDeny.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: str,
+                 include_subdomains: bool,
+                 type: str,
+                 zone: str):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "include_subdomains", include_subdomains)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> bool:
+        return pulumi.get(self, "include_subdomains")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
 
 
 @pulumi.output_type

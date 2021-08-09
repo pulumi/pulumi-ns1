@@ -37,6 +37,7 @@ import (
 // 			},
 // 			Frequency:    pulumi.Int(60),
 // 			JobType:      pulumi.String("tcp"),
+// 			Mute:         pulumi.Bool(true),
 // 			Policy:       pulumi.String("quorum"),
 // 			RapidRecheck: pulumi.Bool(true),
 // 			Regions: pulumi.StringArray{
@@ -73,6 +74,8 @@ type MonitoringJob struct {
 	Frequency pulumi.IntOutput `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringOutput `pulumi:"jobType"`
+	// turn off the notifications for the monitoring job.
+	Mute pulumi.BoolPtrOutput `pulumi:"mute"`
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Freeform notes to be included in any notifications about this job.
@@ -147,6 +150,8 @@ type monitoringJobState struct {
 	Frequency *int `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType *string `pulumi:"jobType"`
+	// turn off the notifications for the monitoring job.
+	Mute *bool `pulumi:"mute"`
 	// The free-form display name for the monitoring job.
 	Name *string `pulumi:"name"`
 	// Freeform notes to be included in any notifications about this job.
@@ -181,6 +186,8 @@ type MonitoringJobState struct {
 	Frequency pulumi.IntPtrInput
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringPtrInput
+	// turn off the notifications for the monitoring job.
+	Mute pulumi.BoolPtrInput
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringPtrInput
 	// Freeform notes to be included in any notifications about this job.
@@ -219,6 +226,8 @@ type monitoringJobArgs struct {
 	Frequency int `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType string `pulumi:"jobType"`
+	// turn off the notifications for the monitoring job.
+	Mute *bool `pulumi:"mute"`
 	// The free-form display name for the monitoring job.
 	Name *string `pulumi:"name"`
 	// Freeform notes to be included in any notifications about this job.
@@ -254,6 +263,8 @@ type MonitoringJobArgs struct {
 	Frequency pulumi.IntInput
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringInput
+	// turn off the notifications for the monitoring job.
+	Mute pulumi.BoolPtrInput
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringPtrInput
 	// Freeform notes to be included in any notifications about this job.

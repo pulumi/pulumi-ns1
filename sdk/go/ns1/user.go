@@ -47,7 +47,9 @@ type User struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrOutput `pulumi:"dhcpViewDhcp"`
 	// Whether the user can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrOutput `pulumi:"dnsManageZones"`
+	DnsManageZones   pulumi.BoolPtrOutput           `pulumi:"dnsManageZones"`
+	DnsRecordsAllows UserDnsRecordsAllowArrayOutput `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies UserDnsRecordsDenyArrayOutput  `pulumi:"dnsRecordsDenies"`
 	// Whether the user can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrOutput `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -155,7 +157,9 @@ type userState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the user can modify the accounts zones.
-	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsRecordsAllows []UserDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies []UserDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
 	// Whether the user can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -229,7 +233,9 @@ type UserState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the user can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrInput
+	DnsManageZones   pulumi.BoolPtrInput
+	DnsRecordsAllows UserDnsRecordsAllowArrayInput
+	DnsRecordsDenies UserDnsRecordsDenyArrayInput
 	// Whether the user can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -307,7 +313,9 @@ type userArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the user can modify the accounts zones.
-	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsRecordsAllows []UserDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
+	DnsRecordsDenies []UserDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
 	// Whether the user can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -382,7 +390,9 @@ type UserArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the user can modify the accounts zones.
-	DnsManageZones pulumi.BoolPtrInput
+	DnsManageZones   pulumi.BoolPtrInput
+	DnsRecordsAllows UserDnsRecordsAllowArrayInput
+	DnsRecordsDenies UserDnsRecordsDenyArrayInput
 	// Whether the user can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.

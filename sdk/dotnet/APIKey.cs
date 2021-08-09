@@ -104,6 +104,12 @@ namespace Pulumi.Ns1
         [Output("dnsManageZones")]
         public Output<bool?> DnsManageZones { get; private set; } = null!;
 
+        [Output("dnsRecordsAllows")]
+        public Output<ImmutableArray<Outputs.APIKeyDnsRecordsAllow>> DnsRecordsAllows { get; private set; } = null!;
+
+        [Output("dnsRecordsDenies")]
+        public Output<ImmutableArray<Outputs.APIKeyDnsRecordsDeny>> DnsRecordsDenies { get; private set; } = null!;
+
         /// <summary>
         /// Whether the apikey can view the accounts zones.
         /// </summary>
@@ -341,6 +347,22 @@ namespace Pulumi.Ns1
         [Input("dnsManageZones")]
         public Input<bool>? DnsManageZones { get; set; }
 
+        [Input("dnsRecordsAllows")]
+        private InputList<Inputs.APIKeyDnsRecordsAllowArgs>? _dnsRecordsAllows;
+        public InputList<Inputs.APIKeyDnsRecordsAllowArgs> DnsRecordsAllows
+        {
+            get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.APIKeyDnsRecordsAllowArgs>());
+            set => _dnsRecordsAllows = value;
+        }
+
+        [Input("dnsRecordsDenies")]
+        private InputList<Inputs.APIKeyDnsRecordsDenyArgs>? _dnsRecordsDenies;
+        public InputList<Inputs.APIKeyDnsRecordsDenyArgs> DnsRecordsDenies
+        {
+            get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.APIKeyDnsRecordsDenyArgs>());
+            set => _dnsRecordsDenies = value;
+        }
+
         /// <summary>
         /// Whether the apikey can view the accounts zones.
         /// </summary>
@@ -556,6 +578,22 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("dnsManageZones")]
         public Input<bool>? DnsManageZones { get; set; }
+
+        [Input("dnsRecordsAllows")]
+        private InputList<Inputs.APIKeyDnsRecordsAllowGetArgs>? _dnsRecordsAllows;
+        public InputList<Inputs.APIKeyDnsRecordsAllowGetArgs> DnsRecordsAllows
+        {
+            get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.APIKeyDnsRecordsAllowGetArgs>());
+            set => _dnsRecordsAllows = value;
+        }
+
+        [Input("dnsRecordsDenies")]
+        private InputList<Inputs.APIKeyDnsRecordsDenyGetArgs>? _dnsRecordsDenies;
+        public InputList<Inputs.APIKeyDnsRecordsDenyGetArgs> DnsRecordsDenies
+        {
+            get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.APIKeyDnsRecordsDenyGetArgs>());
+            set => _dnsRecordsDenies = value;
+        }
 
         /// <summary>
         /// Whether the apikey can view the accounts zones.

@@ -104,6 +104,12 @@ namespace Pulumi.Ns1
         [Output("dnsManageZones")]
         public Output<bool?> DnsManageZones { get; private set; } = null!;
 
+        [Output("dnsRecordsAllows")]
+        public Output<ImmutableArray<Outputs.UserDnsRecordsAllow>> DnsRecordsAllows { get; private set; } = null!;
+
+        [Output("dnsRecordsDenies")]
+        public Output<ImmutableArray<Outputs.UserDnsRecordsDeny>> DnsRecordsDenies { get; private set; } = null!;
+
         /// <summary>
         /// Whether the user can view the accounts zones.
         /// </summary>
@@ -349,6 +355,22 @@ namespace Pulumi.Ns1
         [Input("dnsManageZones")]
         public Input<bool>? DnsManageZones { get; set; }
 
+        [Input("dnsRecordsAllows")]
+        private InputList<Inputs.UserDnsRecordsAllowArgs>? _dnsRecordsAllows;
+        public InputList<Inputs.UserDnsRecordsAllowArgs> DnsRecordsAllows
+        {
+            get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.UserDnsRecordsAllowArgs>());
+            set => _dnsRecordsAllows = value;
+        }
+
+        [Input("dnsRecordsDenies")]
+        private InputList<Inputs.UserDnsRecordsDenyArgs>? _dnsRecordsDenies;
+        public InputList<Inputs.UserDnsRecordsDenyArgs> DnsRecordsDenies
+        {
+            get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.UserDnsRecordsDenyArgs>());
+            set => _dnsRecordsDenies = value;
+        }
+
         /// <summary>
         /// Whether the user can view the accounts zones.
         /// </summary>
@@ -584,6 +606,22 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("dnsManageZones")]
         public Input<bool>? DnsManageZones { get; set; }
+
+        [Input("dnsRecordsAllows")]
+        private InputList<Inputs.UserDnsRecordsAllowGetArgs>? _dnsRecordsAllows;
+        public InputList<Inputs.UserDnsRecordsAllowGetArgs> DnsRecordsAllows
+        {
+            get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.UserDnsRecordsAllowGetArgs>());
+            set => _dnsRecordsAllows = value;
+        }
+
+        [Input("dnsRecordsDenies")]
+        private InputList<Inputs.UserDnsRecordsDenyGetArgs>? _dnsRecordsDenies;
+        public InputList<Inputs.UserDnsRecordsDenyGetArgs> DnsRecordsDenies
+        {
+            get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.UserDnsRecordsDenyGetArgs>());
+            set => _dnsRecordsDenies = value;
+        }
 
         /// <summary>
         /// Whether the user can view the accounts zones.
