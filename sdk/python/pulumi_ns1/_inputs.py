@@ -11,8 +11,12 @@ from . import _utilities
 __all__ = [
     'APIKeyDnsRecordsAllowArgs',
     'APIKeyDnsRecordsDenyArgs',
+    'ApplicationDefaultConfigArgs',
     'MonitoringJobRuleArgs',
     'NotifyListNotificationArgs',
+    'PulsarJobBlendMetricWeightsArgs',
+    'PulsarJobConfigArgs',
+    'PulsarJobWeightArgs',
     'RecordAnswerArgs',
     'RecordFilterArgs',
     'RecordRegionArgs',
@@ -123,6 +127,110 @@ class APIKeyDnsRecordsDenyArgs:
 
 
 @pulumi.input_type
+class ApplicationDefaultConfigArgs:
+    def __init__(__self__, *,
+                 http: pulumi.Input[bool],
+                 https: Optional[pulumi.Input[bool]] = None,
+                 job_timeout_millis: Optional[pulumi.Input[int]] = None,
+                 request_timeout_millis: Optional[pulumi.Input[int]] = None,
+                 static_values: Optional[pulumi.Input[bool]] = None,
+                 use_xhr: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] http: Indicates whether or not to use HTTP in measurements.
+        :param pulumi.Input[bool] https: Indicates whether or not to use HTTPS in measurements.
+        :param pulumi.Input[int] job_timeout_millis: - Maximum timeout per job
+               0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+        :param pulumi.Input[int] request_timeout_millis: Maximum timeout per request.
+        :param pulumi.Input[bool] static_values: - Indicates whether or not to skip aggregation for this job's measurements
+        :param pulumi.Input[bool] use_xhr: - Whether to use XMLHttpRequest (XHR) when taking measurements.
+        """
+        pulumi.set(__self__, "http", http)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
+        if job_timeout_millis is not None:
+            pulumi.set(__self__, "job_timeout_millis", job_timeout_millis)
+        if request_timeout_millis is not None:
+            pulumi.set(__self__, "request_timeout_millis", request_timeout_millis)
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+        if use_xhr is not None:
+            pulumi.set(__self__, "use_xhr", use_xhr)
+
+    @property
+    @pulumi.getter
+    def http(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether or not to use HTTP in measurements.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether or not to use HTTPS in measurements.
+        """
+        return pulumi.get(self, "https")
+
+    @https.setter
+    def https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "https", value)
+
+    @property
+    @pulumi.getter(name="jobTimeoutMillis")
+    def job_timeout_millis(self) -> Optional[pulumi.Input[int]]:
+        """
+        - Maximum timeout per job
+        0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+        """
+        return pulumi.get(self, "job_timeout_millis")
+
+    @job_timeout_millis.setter
+    def job_timeout_millis(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "job_timeout_millis", value)
+
+    @property
+    @pulumi.getter(name="requestTimeoutMillis")
+    def request_timeout_millis(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum timeout per request.
+        """
+        return pulumi.get(self, "request_timeout_millis")
+
+    @request_timeout_millis.setter
+    def request_timeout_millis(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "request_timeout_millis", value)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[pulumi.Input[bool]]:
+        """
+        - Indicates whether or not to skip aggregation for this job's measurements
+        """
+        return pulumi.get(self, "static_values")
+
+    @static_values.setter
+    def static_values(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "static_values", value)
+
+    @property
+    @pulumi.getter(name="useXhr")
+    def use_xhr(self) -> Optional[pulumi.Input[bool]]:
+        """
+        - Whether to use XMLHttpRequest (XHR) when taking measurements.
+        """
+        return pulumi.get(self, "use_xhr")
+
+    @use_xhr.setter
+    def use_xhr(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_xhr", value)
+
+
+@pulumi.input_type
 class MonitoringJobRuleArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[str],
@@ -195,6 +303,173 @@ class NotifyListNotificationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class PulsarJobBlendMetricWeightsArgs:
+    def __init__(__self__, *,
+                 timestamp: pulumi.Input[int]):
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "timestamp")
+
+    @timestamp.setter
+    def timestamp(self, value: pulumi.Input[int]):
+        pulumi.set(self, "timestamp", value)
+
+
+@pulumi.input_type
+class PulsarJobConfigArgs:
+    def __init__(__self__, *,
+                 host: Optional[pulumi.Input[str]] = None,
+                 http: Optional[pulumi.Input[bool]] = None,
+                 https: Optional[pulumi.Input[bool]] = None,
+                 job_timeout_millis: Optional[pulumi.Input[int]] = None,
+                 request_timeout_millis: Optional[pulumi.Input[int]] = None,
+                 static_values: Optional[pulumi.Input[bool]] = None,
+                 url_path: Optional[pulumi.Input[str]] = None,
+                 use_xhr: Optional[pulumi.Input[bool]] = None):
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
+        if job_timeout_millis is not None:
+            pulumi.set(__self__, "job_timeout_millis", job_timeout_millis)
+        if request_timeout_millis is not None:
+            pulumi.set(__self__, "request_timeout_millis", request_timeout_millis)
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+        if url_path is not None:
+            pulumi.set(__self__, "url_path", url_path)
+        if use_xhr is not None:
+            pulumi.set(__self__, "use_xhr", use_xhr)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def https(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "https")
+
+    @https.setter
+    def https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "https", value)
+
+    @property
+    @pulumi.getter(name="jobTimeoutMillis")
+    def job_timeout_millis(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "job_timeout_millis")
+
+    @job_timeout_millis.setter
+    def job_timeout_millis(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "job_timeout_millis", value)
+
+    @property
+    @pulumi.getter(name="requestTimeoutMillis")
+    def request_timeout_millis(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "request_timeout_millis")
+
+    @request_timeout_millis.setter
+    def request_timeout_millis(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "request_timeout_millis", value)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "static_values")
+
+    @static_values.setter
+    def static_values(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "static_values", value)
+
+    @property
+    @pulumi.getter(name="urlPath")
+    def url_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url_path")
+
+    @url_path.setter
+    def url_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url_path", value)
+
+    @property
+    @pulumi.getter(name="useXhr")
+    def use_xhr(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_xhr")
+
+    @use_xhr.setter
+    def use_xhr(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_xhr", value)
+
+
+@pulumi.input_type
+class PulsarJobWeightArgs:
+    def __init__(__self__, *,
+                 default_value: pulumi.Input[float],
+                 name: pulumi.Input[str],
+                 weight: pulumi.Input[int],
+                 maximize: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+        if maximize is not None:
+            pulumi.set(__self__, "maximize", maximize)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[int]):
+        pulumi.set(self, "weight", value)
+
+    @property
+    @pulumi.getter
+    def maximize(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "maximize")
+
+    @maximize.setter
+    def maximize(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "maximize", value)
 
 
 @pulumi.input_type

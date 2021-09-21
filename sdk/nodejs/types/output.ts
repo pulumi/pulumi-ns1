@@ -18,6 +18,34 @@ export interface APIKeyDnsRecordsDeny {
     zone: string;
 }
 
+export interface ApplicationDefaultConfig {
+    /**
+     * Indicates whether or not to use HTTP in measurements.
+     */
+    http: boolean;
+    /**
+     * Indicates whether or not to use HTTPS in measurements.
+     */
+    https?: boolean;
+    /**
+     * - Maximum timeout per job
+     * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+     */
+    jobTimeoutMillis?: number;
+    /**
+     * Maximum timeout per request.
+     */
+    requestTimeoutMillis?: number;
+    /**
+     * - Indicates whether or not to skip aggregation for this job's measurements
+     */
+    staticValues?: boolean;
+    /**
+     * - Whether to use XMLHttpRequest (XHR) when taking measurements.
+     */
+    useXhr?: boolean;
+}
+
 export interface GetDNSSecDelegation {
     /**
      * (Computed) List of Keys. Key is documented below.
@@ -160,6 +188,28 @@ export interface NotifyListNotification {
      * The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
      */
     type: string;
+}
+
+export interface PulsarJobBlendMetricWeights {
+    timestamp: number;
+}
+
+export interface PulsarJobConfig {
+    host?: string;
+    http?: boolean;
+    https?: boolean;
+    jobTimeoutMillis?: number;
+    requestTimeoutMillis?: number;
+    staticValues?: boolean;
+    urlPath?: string;
+    useXhr?: boolean;
+}
+
+export interface PulsarJobWeight {
+    defaultValue: number;
+    maximize?: boolean;
+    name: string;
+    weight: number;
 }
 
 export interface RecordAnswer {

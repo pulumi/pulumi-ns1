@@ -12,8 +12,12 @@ from . import outputs
 __all__ = [
     'APIKeyDnsRecordsAllow',
     'APIKeyDnsRecordsDeny',
+    'ApplicationDefaultConfig',
     'MonitoringJobRule',
     'NotifyListNotification',
+    'PulsarJobBlendMetricWeights',
+    'PulsarJobConfig',
+    'PulsarJobWeight',
     'RecordAnswer',
     'RecordFilter',
     'RecordRegion',
@@ -135,6 +139,109 @@ class APIKeyDnsRecordsDeny(dict):
 
 
 @pulumi.output_type
+class ApplicationDefaultConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobTimeoutMillis":
+            suggest = "job_timeout_millis"
+        elif key == "requestTimeoutMillis":
+            suggest = "request_timeout_millis"
+        elif key == "staticValues":
+            suggest = "static_values"
+        elif key == "useXhr":
+            suggest = "use_xhr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationDefaultConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationDefaultConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationDefaultConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http: bool,
+                 https: Optional[bool] = None,
+                 job_timeout_millis: Optional[int] = None,
+                 request_timeout_millis: Optional[int] = None,
+                 static_values: Optional[bool] = None,
+                 use_xhr: Optional[bool] = None):
+        """
+        :param bool http: Indicates whether or not to use HTTP in measurements.
+        :param bool https: Indicates whether or not to use HTTPS in measurements.
+        :param int job_timeout_millis: - Maximum timeout per job
+               0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+        :param int request_timeout_millis: Maximum timeout per request.
+        :param bool static_values: - Indicates whether or not to skip aggregation for this job's measurements
+        :param bool use_xhr: - Whether to use XMLHttpRequest (XHR) when taking measurements.
+        """
+        pulumi.set(__self__, "http", http)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
+        if job_timeout_millis is not None:
+            pulumi.set(__self__, "job_timeout_millis", job_timeout_millis)
+        if request_timeout_millis is not None:
+            pulumi.set(__self__, "request_timeout_millis", request_timeout_millis)
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+        if use_xhr is not None:
+            pulumi.set(__self__, "use_xhr", use_xhr)
+
+    @property
+    @pulumi.getter
+    def http(self) -> bool:
+        """
+        Indicates whether or not to use HTTP in measurements.
+        """
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def https(self) -> Optional[bool]:
+        """
+        Indicates whether or not to use HTTPS in measurements.
+        """
+        return pulumi.get(self, "https")
+
+    @property
+    @pulumi.getter(name="jobTimeoutMillis")
+    def job_timeout_millis(self) -> Optional[int]:
+        """
+        - Maximum timeout per job
+        0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+        """
+        return pulumi.get(self, "job_timeout_millis")
+
+    @property
+    @pulumi.getter(name="requestTimeoutMillis")
+    def request_timeout_millis(self) -> Optional[int]:
+        """
+        Maximum timeout per request.
+        """
+        return pulumi.get(self, "request_timeout_millis")
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[bool]:
+        """
+        - Indicates whether or not to skip aggregation for this job's measurements
+        """
+        return pulumi.get(self, "static_values")
+
+    @property
+    @pulumi.getter(name="useXhr")
+    def use_xhr(self) -> Optional[bool]:
+        """
+        - Whether to use XMLHttpRequest (XHR) when taking measurements.
+        """
+        return pulumi.get(self, "use_xhr")
+
+
+@pulumi.output_type
 class MonitoringJobRule(dict):
     def __init__(__self__, *,
                  comparison: str,
@@ -187,6 +294,163 @@ class NotifyListNotification(dict):
         The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PulsarJobBlendMetricWeights(dict):
+    def __init__(__self__, *,
+                 timestamp: int):
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> int:
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class PulsarJobConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobTimeoutMillis":
+            suggest = "job_timeout_millis"
+        elif key == "requestTimeoutMillis":
+            suggest = "request_timeout_millis"
+        elif key == "staticValues":
+            suggest = "static_values"
+        elif key == "urlPath":
+            suggest = "url_path"
+        elif key == "useXhr":
+            suggest = "use_xhr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PulsarJobConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PulsarJobConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PulsarJobConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host: Optional[str] = None,
+                 http: Optional[bool] = None,
+                 https: Optional[bool] = None,
+                 job_timeout_millis: Optional[int] = None,
+                 request_timeout_millis: Optional[int] = None,
+                 static_values: Optional[bool] = None,
+                 url_path: Optional[str] = None,
+                 use_xhr: Optional[bool] = None):
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if https is not None:
+            pulumi.set(__self__, "https", https)
+        if job_timeout_millis is not None:
+            pulumi.set(__self__, "job_timeout_millis", job_timeout_millis)
+        if request_timeout_millis is not None:
+            pulumi.set(__self__, "request_timeout_millis", request_timeout_millis)
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
+        if url_path is not None:
+            pulumi.set(__self__, "url_path", url_path)
+        if use_xhr is not None:
+            pulumi.set(__self__, "use_xhr", use_xhr)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[bool]:
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def https(self) -> Optional[bool]:
+        return pulumi.get(self, "https")
+
+    @property
+    @pulumi.getter(name="jobTimeoutMillis")
+    def job_timeout_millis(self) -> Optional[int]:
+        return pulumi.get(self, "job_timeout_millis")
+
+    @property
+    @pulumi.getter(name="requestTimeoutMillis")
+    def request_timeout_millis(self) -> Optional[int]:
+        return pulumi.get(self, "request_timeout_millis")
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[bool]:
+        return pulumi.get(self, "static_values")
+
+    @property
+    @pulumi.getter(name="urlPath")
+    def url_path(self) -> Optional[str]:
+        return pulumi.get(self, "url_path")
+
+    @property
+    @pulumi.getter(name="useXhr")
+    def use_xhr(self) -> Optional[bool]:
+        return pulumi.get(self, "use_xhr")
+
+
+@pulumi.output_type
+class PulsarJobWeight(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PulsarJobWeight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PulsarJobWeight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PulsarJobWeight.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value: float,
+                 name: str,
+                 weight: int,
+                 maximize: Optional[bool] = None):
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+        if maximize is not None:
+            pulumi.set(__self__, "maximize", maximize)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> float:
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter
+    def maximize(self) -> Optional[bool]:
+        return pulumi.get(self, "maximize")
 
 
 @pulumi.output_type

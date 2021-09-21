@@ -18,6 +18,34 @@ export interface APIKeyDnsRecordsDeny {
     zone: pulumi.Input<string>;
 }
 
+export interface ApplicationDefaultConfig {
+    /**
+     * Indicates whether or not to use HTTP in measurements.
+     */
+    http: pulumi.Input<boolean>;
+    /**
+     * Indicates whether or not to use HTTPS in measurements.
+     */
+    https?: pulumi.Input<boolean>;
+    /**
+     * - Maximum timeout per job
+     * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+     */
+    jobTimeoutMillis?: pulumi.Input<number>;
+    /**
+     * Maximum timeout per request.
+     */
+    requestTimeoutMillis?: pulumi.Input<number>;
+    /**
+     * - Indicates whether or not to skip aggregation for this job's measurements
+     */
+    staticValues?: pulumi.Input<boolean>;
+    /**
+     * - Whether to use XMLHttpRequest (XHR) when taking measurements.
+     */
+    useXhr?: pulumi.Input<boolean>;
+}
+
 export interface MonitoringJobRule {
     comparison: pulumi.Input<string>;
     key: pulumi.Input<string>;
@@ -33,6 +61,28 @@ export interface NotifyListNotification {
      * The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
      */
     type: pulumi.Input<string>;
+}
+
+export interface PulsarJobBlendMetricWeights {
+    timestamp: pulumi.Input<number>;
+}
+
+export interface PulsarJobConfig {
+    host?: pulumi.Input<string>;
+    http?: pulumi.Input<boolean>;
+    https?: pulumi.Input<boolean>;
+    jobTimeoutMillis?: pulumi.Input<number>;
+    requestTimeoutMillis?: pulumi.Input<number>;
+    staticValues?: pulumi.Input<boolean>;
+    urlPath?: pulumi.Input<string>;
+    useXhr?: pulumi.Input<boolean>;
+}
+
+export interface PulsarJobWeight {
+    defaultValue: pulumi.Input<number>;
+    maximize?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    weight: pulumi.Input<number>;
 }
 
 export interface RecordAnswer {

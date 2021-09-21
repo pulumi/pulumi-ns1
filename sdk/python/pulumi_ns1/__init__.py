@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .api_key import *
+from .application import *
 from .data_feed import *
 from .data_source import *
 from .get_dns_sec import *
@@ -12,6 +13,7 @@ from .get_zone import *
 from .monitoring_job import *
 from .notify_list import *
 from .provider import *
+from .pulsar_job import *
 from .record import *
 from .team import *
 from .user import *
@@ -38,6 +40,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "ns1:index/aPIKey:APIKey":
                 return APIKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "ns1:index/application:Application":
+                return Application(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "ns1:index/dataFeed:DataFeed":
                 return DataFeed(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "ns1:index/dataSource:DataSource":
@@ -46,6 +50,8 @@ def _register_module():
                 return MonitoringJob(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "ns1:index/notifyList:NotifyList":
                 return NotifyList(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "ns1:index/pulsarJob:PulsarJob":
+                return PulsarJob(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "ns1:index/record:Record":
                 return Record(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "ns1:index/team:Team":
@@ -60,10 +66,12 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("ns1", "index/aPIKey", _module_instance)
+    pulumi.runtime.register_resource_module("ns1", "index/application", _module_instance)
     pulumi.runtime.register_resource_module("ns1", "index/dataFeed", _module_instance)
     pulumi.runtime.register_resource_module("ns1", "index/dataSource", _module_instance)
     pulumi.runtime.register_resource_module("ns1", "index/monitoringJob", _module_instance)
     pulumi.runtime.register_resource_module("ns1", "index/notifyList", _module_instance)
+    pulumi.runtime.register_resource_module("ns1", "index/pulsarJob", _module_instance)
     pulumi.runtime.register_resource_module("ns1", "index/record", _module_instance)
     pulumi.runtime.register_resource_module("ns1", "index/team", _module_instance)
     pulumi.runtime.register_resource_module("ns1", "index/user", _module_instance)

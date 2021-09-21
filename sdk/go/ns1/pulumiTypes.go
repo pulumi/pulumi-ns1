@@ -234,6 +234,236 @@ func (o APIKeyDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) APIKeyDnsRecor
 	}).(APIKeyDnsRecordsDenyOutput)
 }
 
+type ApplicationDefaultConfig struct {
+	// Indicates whether or not to use HTTP in measurements.
+	Http bool `pulumi:"http"`
+	// Indicates whether or not to use HTTPS in measurements.
+	Https *bool `pulumi:"https"`
+	// - Maximum timeout per job
+	//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+	JobTimeoutMillis *int `pulumi:"jobTimeoutMillis"`
+	// Maximum timeout per request.
+	RequestTimeoutMillis *int `pulumi:"requestTimeoutMillis"`
+	// - Indicates whether or not to skip aggregation for this job's measurements
+	StaticValues *bool `pulumi:"staticValues"`
+	// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+	UseXhr *bool `pulumi:"useXhr"`
+}
+
+// ApplicationDefaultConfigInput is an input type that accepts ApplicationDefaultConfigArgs and ApplicationDefaultConfigOutput values.
+// You can construct a concrete instance of `ApplicationDefaultConfigInput` via:
+//
+//          ApplicationDefaultConfigArgs{...}
+type ApplicationDefaultConfigInput interface {
+	pulumi.Input
+
+	ToApplicationDefaultConfigOutput() ApplicationDefaultConfigOutput
+	ToApplicationDefaultConfigOutputWithContext(context.Context) ApplicationDefaultConfigOutput
+}
+
+type ApplicationDefaultConfigArgs struct {
+	// Indicates whether or not to use HTTP in measurements.
+	Http pulumi.BoolInput `pulumi:"http"`
+	// Indicates whether or not to use HTTPS in measurements.
+	Https pulumi.BoolPtrInput `pulumi:"https"`
+	// - Maximum timeout per job
+	//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+	JobTimeoutMillis pulumi.IntPtrInput `pulumi:"jobTimeoutMillis"`
+	// Maximum timeout per request.
+	RequestTimeoutMillis pulumi.IntPtrInput `pulumi:"requestTimeoutMillis"`
+	// - Indicates whether or not to skip aggregation for this job's measurements
+	StaticValues pulumi.BoolPtrInput `pulumi:"staticValues"`
+	// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+	UseXhr pulumi.BoolPtrInput `pulumi:"useXhr"`
+}
+
+func (ApplicationDefaultConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefaultConfig)(nil)).Elem()
+}
+
+func (i ApplicationDefaultConfigArgs) ToApplicationDefaultConfigOutput() ApplicationDefaultConfigOutput {
+	return i.ToApplicationDefaultConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefaultConfigArgs) ToApplicationDefaultConfigOutputWithContext(ctx context.Context) ApplicationDefaultConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefaultConfigOutput)
+}
+
+func (i ApplicationDefaultConfigArgs) ToApplicationDefaultConfigPtrOutput() ApplicationDefaultConfigPtrOutput {
+	return i.ToApplicationDefaultConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefaultConfigArgs) ToApplicationDefaultConfigPtrOutputWithContext(ctx context.Context) ApplicationDefaultConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefaultConfigOutput).ToApplicationDefaultConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationDefaultConfigPtrInput is an input type that accepts ApplicationDefaultConfigArgs, ApplicationDefaultConfigPtr and ApplicationDefaultConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationDefaultConfigPtrInput` via:
+//
+//          ApplicationDefaultConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationDefaultConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationDefaultConfigPtrOutput() ApplicationDefaultConfigPtrOutput
+	ToApplicationDefaultConfigPtrOutputWithContext(context.Context) ApplicationDefaultConfigPtrOutput
+}
+
+type applicationDefaultConfigPtrType ApplicationDefaultConfigArgs
+
+func ApplicationDefaultConfigPtr(v *ApplicationDefaultConfigArgs) ApplicationDefaultConfigPtrInput {
+	return (*applicationDefaultConfigPtrType)(v)
+}
+
+func (*applicationDefaultConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationDefaultConfig)(nil)).Elem()
+}
+
+func (i *applicationDefaultConfigPtrType) ToApplicationDefaultConfigPtrOutput() ApplicationDefaultConfigPtrOutput {
+	return i.ToApplicationDefaultConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationDefaultConfigPtrType) ToApplicationDefaultConfigPtrOutputWithContext(ctx context.Context) ApplicationDefaultConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefaultConfigPtrOutput)
+}
+
+type ApplicationDefaultConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefaultConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefaultConfig)(nil)).Elem()
+}
+
+func (o ApplicationDefaultConfigOutput) ToApplicationDefaultConfigOutput() ApplicationDefaultConfigOutput {
+	return o
+}
+
+func (o ApplicationDefaultConfigOutput) ToApplicationDefaultConfigOutputWithContext(ctx context.Context) ApplicationDefaultConfigOutput {
+	return o
+}
+
+func (o ApplicationDefaultConfigOutput) ToApplicationDefaultConfigPtrOutput() ApplicationDefaultConfigPtrOutput {
+	return o.ToApplicationDefaultConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationDefaultConfigOutput) ToApplicationDefaultConfigPtrOutputWithContext(ctx context.Context) ApplicationDefaultConfigPtrOutput {
+	return o.ApplyT(func(v ApplicationDefaultConfig) *ApplicationDefaultConfig {
+		return &v
+	}).(ApplicationDefaultConfigPtrOutput)
+}
+
+// Indicates whether or not to use HTTP in measurements.
+func (o ApplicationDefaultConfigOutput) Http() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationDefaultConfig) bool { return v.Http }).(pulumi.BoolOutput)
+}
+
+// Indicates whether or not to use HTTPS in measurements.
+func (o ApplicationDefaultConfigOutput) Https() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationDefaultConfig) *bool { return v.Https }).(pulumi.BoolPtrOutput)
+}
+
+// - Maximum timeout per job
+//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+func (o ApplicationDefaultConfigOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationDefaultConfig) *int { return v.JobTimeoutMillis }).(pulumi.IntPtrOutput)
+}
+
+// Maximum timeout per request.
+func (o ApplicationDefaultConfigOutput) RequestTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationDefaultConfig) *int { return v.RequestTimeoutMillis }).(pulumi.IntPtrOutput)
+}
+
+// - Indicates whether or not to skip aggregation for this job's measurements
+func (o ApplicationDefaultConfigOutput) StaticValues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationDefaultConfig) *bool { return v.StaticValues }).(pulumi.BoolPtrOutput)
+}
+
+// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+func (o ApplicationDefaultConfigOutput) UseXhr() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationDefaultConfig) *bool { return v.UseXhr }).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationDefaultConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefaultConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationDefaultConfig)(nil)).Elem()
+}
+
+func (o ApplicationDefaultConfigPtrOutput) ToApplicationDefaultConfigPtrOutput() ApplicationDefaultConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationDefaultConfigPtrOutput) ToApplicationDefaultConfigPtrOutputWithContext(ctx context.Context) ApplicationDefaultConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationDefaultConfigPtrOutput) Elem() ApplicationDefaultConfigOutput {
+	return o.ApplyT(func(v *ApplicationDefaultConfig) ApplicationDefaultConfig { return *v }).(ApplicationDefaultConfigOutput)
+}
+
+// Indicates whether or not to use HTTP in measurements.
+func (o ApplicationDefaultConfigPtrOutput) Http() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefaultConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Http
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether or not to use HTTPS in measurements.
+func (o ApplicationDefaultConfigPtrOutput) Https() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefaultConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Https
+	}).(pulumi.BoolPtrOutput)
+}
+
+// - Maximum timeout per job
+//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+func (o ApplicationDefaultConfigPtrOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefaultConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.JobTimeoutMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum timeout per request.
+func (o ApplicationDefaultConfigPtrOutput) RequestTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefaultConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequestTimeoutMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// - Indicates whether or not to skip aggregation for this job's measurements
+func (o ApplicationDefaultConfigPtrOutput) StaticValues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefaultConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StaticValues
+	}).(pulumi.BoolPtrOutput)
+}
+
+// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+func (o ApplicationDefaultConfigPtrOutput) UseXhr() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefaultConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseXhr
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MonitoringJobRule struct {
 	Comparison string `pulumi:"comparison"`
 	Key        string `pulumi:"key"`
@@ -444,6 +674,475 @@ func (o NotifyListNotificationArrayOutput) Index(i pulumi.IntInput) NotifyListNo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotifyListNotification {
 		return vs[0].([]NotifyListNotification)[vs[1].(int)]
 	}).(NotifyListNotificationOutput)
+}
+
+type PulsarJobBlendMetricWeights struct {
+	Timestamp int `pulumi:"timestamp"`
+}
+
+// PulsarJobBlendMetricWeightsInput is an input type that accepts PulsarJobBlendMetricWeightsArgs and PulsarJobBlendMetricWeightsOutput values.
+// You can construct a concrete instance of `PulsarJobBlendMetricWeightsInput` via:
+//
+//          PulsarJobBlendMetricWeightsArgs{...}
+type PulsarJobBlendMetricWeightsInput interface {
+	pulumi.Input
+
+	ToPulsarJobBlendMetricWeightsOutput() PulsarJobBlendMetricWeightsOutput
+	ToPulsarJobBlendMetricWeightsOutputWithContext(context.Context) PulsarJobBlendMetricWeightsOutput
+}
+
+type PulsarJobBlendMetricWeightsArgs struct {
+	Timestamp pulumi.IntInput `pulumi:"timestamp"`
+}
+
+func (PulsarJobBlendMetricWeightsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PulsarJobBlendMetricWeights)(nil)).Elem()
+}
+
+func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsOutput() PulsarJobBlendMetricWeightsOutput {
+	return i.ToPulsarJobBlendMetricWeightsOutputWithContext(context.Background())
+}
+
+func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobBlendMetricWeightsOutput)
+}
+
+func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsPtrOutput() PulsarJobBlendMetricWeightsPtrOutput {
+	return i.ToPulsarJobBlendMetricWeightsPtrOutputWithContext(context.Background())
+}
+
+func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobBlendMetricWeightsOutput).ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx)
+}
+
+// PulsarJobBlendMetricWeightsPtrInput is an input type that accepts PulsarJobBlendMetricWeightsArgs, PulsarJobBlendMetricWeightsPtr and PulsarJobBlendMetricWeightsPtrOutput values.
+// You can construct a concrete instance of `PulsarJobBlendMetricWeightsPtrInput` via:
+//
+//          PulsarJobBlendMetricWeightsArgs{...}
+//
+//  or:
+//
+//          nil
+type PulsarJobBlendMetricWeightsPtrInput interface {
+	pulumi.Input
+
+	ToPulsarJobBlendMetricWeightsPtrOutput() PulsarJobBlendMetricWeightsPtrOutput
+	ToPulsarJobBlendMetricWeightsPtrOutputWithContext(context.Context) PulsarJobBlendMetricWeightsPtrOutput
+}
+
+type pulsarJobBlendMetricWeightsPtrType PulsarJobBlendMetricWeightsArgs
+
+func PulsarJobBlendMetricWeightsPtr(v *PulsarJobBlendMetricWeightsArgs) PulsarJobBlendMetricWeightsPtrInput {
+	return (*pulsarJobBlendMetricWeightsPtrType)(v)
+}
+
+func (*pulsarJobBlendMetricWeightsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PulsarJobBlendMetricWeights)(nil)).Elem()
+}
+
+func (i *pulsarJobBlendMetricWeightsPtrType) ToPulsarJobBlendMetricWeightsPtrOutput() PulsarJobBlendMetricWeightsPtrOutput {
+	return i.ToPulsarJobBlendMetricWeightsPtrOutputWithContext(context.Background())
+}
+
+func (i *pulsarJobBlendMetricWeightsPtrType) ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobBlendMetricWeightsPtrOutput)
+}
+
+type PulsarJobBlendMetricWeightsOutput struct{ *pulumi.OutputState }
+
+func (PulsarJobBlendMetricWeightsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PulsarJobBlendMetricWeights)(nil)).Elem()
+}
+
+func (o PulsarJobBlendMetricWeightsOutput) ToPulsarJobBlendMetricWeightsOutput() PulsarJobBlendMetricWeightsOutput {
+	return o
+}
+
+func (o PulsarJobBlendMetricWeightsOutput) ToPulsarJobBlendMetricWeightsOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsOutput {
+	return o
+}
+
+func (o PulsarJobBlendMetricWeightsOutput) ToPulsarJobBlendMetricWeightsPtrOutput() PulsarJobBlendMetricWeightsPtrOutput {
+	return o.ToPulsarJobBlendMetricWeightsPtrOutputWithContext(context.Background())
+}
+
+func (o PulsarJobBlendMetricWeightsOutput) ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsPtrOutput {
+	return o.ApplyT(func(v PulsarJobBlendMetricWeights) *PulsarJobBlendMetricWeights {
+		return &v
+	}).(PulsarJobBlendMetricWeightsPtrOutput)
+}
+func (o PulsarJobBlendMetricWeightsOutput) Timestamp() pulumi.IntOutput {
+	return o.ApplyT(func(v PulsarJobBlendMetricWeights) int { return v.Timestamp }).(pulumi.IntOutput)
+}
+
+type PulsarJobBlendMetricWeightsPtrOutput struct{ *pulumi.OutputState }
+
+func (PulsarJobBlendMetricWeightsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PulsarJobBlendMetricWeights)(nil)).Elem()
+}
+
+func (o PulsarJobBlendMetricWeightsPtrOutput) ToPulsarJobBlendMetricWeightsPtrOutput() PulsarJobBlendMetricWeightsPtrOutput {
+	return o
+}
+
+func (o PulsarJobBlendMetricWeightsPtrOutput) ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsPtrOutput {
+	return o
+}
+
+func (o PulsarJobBlendMetricWeightsPtrOutput) Elem() PulsarJobBlendMetricWeightsOutput {
+	return o.ApplyT(func(v *PulsarJobBlendMetricWeights) PulsarJobBlendMetricWeights { return *v }).(PulsarJobBlendMetricWeightsOutput)
+}
+
+func (o PulsarJobBlendMetricWeightsPtrOutput) Timestamp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PulsarJobBlendMetricWeights) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Timestamp
+	}).(pulumi.IntPtrOutput)
+}
+
+type PulsarJobConfig struct {
+	Host                 *string `pulumi:"host"`
+	Http                 *bool   `pulumi:"http"`
+	Https                *bool   `pulumi:"https"`
+	JobTimeoutMillis     *int    `pulumi:"jobTimeoutMillis"`
+	RequestTimeoutMillis *int    `pulumi:"requestTimeoutMillis"`
+	StaticValues         *bool   `pulumi:"staticValues"`
+	UrlPath              *string `pulumi:"urlPath"`
+	UseXhr               *bool   `pulumi:"useXhr"`
+}
+
+// PulsarJobConfigInput is an input type that accepts PulsarJobConfigArgs and PulsarJobConfigOutput values.
+// You can construct a concrete instance of `PulsarJobConfigInput` via:
+//
+//          PulsarJobConfigArgs{...}
+type PulsarJobConfigInput interface {
+	pulumi.Input
+
+	ToPulsarJobConfigOutput() PulsarJobConfigOutput
+	ToPulsarJobConfigOutputWithContext(context.Context) PulsarJobConfigOutput
+}
+
+type PulsarJobConfigArgs struct {
+	Host                 pulumi.StringPtrInput `pulumi:"host"`
+	Http                 pulumi.BoolPtrInput   `pulumi:"http"`
+	Https                pulumi.BoolPtrInput   `pulumi:"https"`
+	JobTimeoutMillis     pulumi.IntPtrInput    `pulumi:"jobTimeoutMillis"`
+	RequestTimeoutMillis pulumi.IntPtrInput    `pulumi:"requestTimeoutMillis"`
+	StaticValues         pulumi.BoolPtrInput   `pulumi:"staticValues"`
+	UrlPath              pulumi.StringPtrInput `pulumi:"urlPath"`
+	UseXhr               pulumi.BoolPtrInput   `pulumi:"useXhr"`
+}
+
+func (PulsarJobConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PulsarJobConfig)(nil)).Elem()
+}
+
+func (i PulsarJobConfigArgs) ToPulsarJobConfigOutput() PulsarJobConfigOutput {
+	return i.ToPulsarJobConfigOutputWithContext(context.Background())
+}
+
+func (i PulsarJobConfigArgs) ToPulsarJobConfigOutputWithContext(ctx context.Context) PulsarJobConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobConfigOutput)
+}
+
+func (i PulsarJobConfigArgs) ToPulsarJobConfigPtrOutput() PulsarJobConfigPtrOutput {
+	return i.ToPulsarJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PulsarJobConfigArgs) ToPulsarJobConfigPtrOutputWithContext(ctx context.Context) PulsarJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobConfigOutput).ToPulsarJobConfigPtrOutputWithContext(ctx)
+}
+
+// PulsarJobConfigPtrInput is an input type that accepts PulsarJobConfigArgs, PulsarJobConfigPtr and PulsarJobConfigPtrOutput values.
+// You can construct a concrete instance of `PulsarJobConfigPtrInput` via:
+//
+//          PulsarJobConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type PulsarJobConfigPtrInput interface {
+	pulumi.Input
+
+	ToPulsarJobConfigPtrOutput() PulsarJobConfigPtrOutput
+	ToPulsarJobConfigPtrOutputWithContext(context.Context) PulsarJobConfigPtrOutput
+}
+
+type pulsarJobConfigPtrType PulsarJobConfigArgs
+
+func PulsarJobConfigPtr(v *PulsarJobConfigArgs) PulsarJobConfigPtrInput {
+	return (*pulsarJobConfigPtrType)(v)
+}
+
+func (*pulsarJobConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PulsarJobConfig)(nil)).Elem()
+}
+
+func (i *pulsarJobConfigPtrType) ToPulsarJobConfigPtrOutput() PulsarJobConfigPtrOutput {
+	return i.ToPulsarJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *pulsarJobConfigPtrType) ToPulsarJobConfigPtrOutputWithContext(ctx context.Context) PulsarJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobConfigPtrOutput)
+}
+
+type PulsarJobConfigOutput struct{ *pulumi.OutputState }
+
+func (PulsarJobConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PulsarJobConfig)(nil)).Elem()
+}
+
+func (o PulsarJobConfigOutput) ToPulsarJobConfigOutput() PulsarJobConfigOutput {
+	return o
+}
+
+func (o PulsarJobConfigOutput) ToPulsarJobConfigOutputWithContext(ctx context.Context) PulsarJobConfigOutput {
+	return o
+}
+
+func (o PulsarJobConfigOutput) ToPulsarJobConfigPtrOutput() PulsarJobConfigPtrOutput {
+	return o.ToPulsarJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PulsarJobConfigOutput) ToPulsarJobConfigPtrOutputWithContext(ctx context.Context) PulsarJobConfigPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *PulsarJobConfig {
+		return &v
+	}).(PulsarJobConfigPtrOutput)
+}
+func (o PulsarJobConfigOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) Http() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *bool { return v.Http }).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) Https() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *bool { return v.Https }).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *int { return v.JobTimeoutMillis }).(pulumi.IntPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) RequestTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *int { return v.RequestTimeoutMillis }).(pulumi.IntPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) StaticValues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *bool { return v.StaticValues }).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) UrlPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *string { return v.UrlPath }).(pulumi.StringPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) UseXhr() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PulsarJobConfig) *bool { return v.UseXhr }).(pulumi.BoolPtrOutput)
+}
+
+type PulsarJobConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PulsarJobConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PulsarJobConfig)(nil)).Elem()
+}
+
+func (o PulsarJobConfigPtrOutput) ToPulsarJobConfigPtrOutput() PulsarJobConfigPtrOutput {
+	return o
+}
+
+func (o PulsarJobConfigPtrOutput) ToPulsarJobConfigPtrOutputWithContext(ctx context.Context) PulsarJobConfigPtrOutput {
+	return o
+}
+
+func (o PulsarJobConfigPtrOutput) Elem() PulsarJobConfigOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) PulsarJobConfig { return *v }).(PulsarJobConfigOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) Http() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) Https() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Https
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.JobTimeoutMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) RequestTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequestTimeoutMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) StaticValues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StaticValues
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) UrlPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UrlPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PulsarJobConfigPtrOutput) UseXhr() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PulsarJobConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseXhr
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PulsarJobWeight struct {
+	DefaultValue float64 `pulumi:"defaultValue"`
+	Maximize     *bool   `pulumi:"maximize"`
+	Name         string  `pulumi:"name"`
+	Weight       int     `pulumi:"weight"`
+}
+
+// PulsarJobWeightInput is an input type that accepts PulsarJobWeightArgs and PulsarJobWeightOutput values.
+// You can construct a concrete instance of `PulsarJobWeightInput` via:
+//
+//          PulsarJobWeightArgs{...}
+type PulsarJobWeightInput interface {
+	pulumi.Input
+
+	ToPulsarJobWeightOutput() PulsarJobWeightOutput
+	ToPulsarJobWeightOutputWithContext(context.Context) PulsarJobWeightOutput
+}
+
+type PulsarJobWeightArgs struct {
+	DefaultValue pulumi.Float64Input `pulumi:"defaultValue"`
+	Maximize     pulumi.BoolPtrInput `pulumi:"maximize"`
+	Name         pulumi.StringInput  `pulumi:"name"`
+	Weight       pulumi.IntInput     `pulumi:"weight"`
+}
+
+func (PulsarJobWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PulsarJobWeight)(nil)).Elem()
+}
+
+func (i PulsarJobWeightArgs) ToPulsarJobWeightOutput() PulsarJobWeightOutput {
+	return i.ToPulsarJobWeightOutputWithContext(context.Background())
+}
+
+func (i PulsarJobWeightArgs) ToPulsarJobWeightOutputWithContext(ctx context.Context) PulsarJobWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobWeightOutput)
+}
+
+// PulsarJobWeightArrayInput is an input type that accepts PulsarJobWeightArray and PulsarJobWeightArrayOutput values.
+// You can construct a concrete instance of `PulsarJobWeightArrayInput` via:
+//
+//          PulsarJobWeightArray{ PulsarJobWeightArgs{...} }
+type PulsarJobWeightArrayInput interface {
+	pulumi.Input
+
+	ToPulsarJobWeightArrayOutput() PulsarJobWeightArrayOutput
+	ToPulsarJobWeightArrayOutputWithContext(context.Context) PulsarJobWeightArrayOutput
+}
+
+type PulsarJobWeightArray []PulsarJobWeightInput
+
+func (PulsarJobWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PulsarJobWeight)(nil)).Elem()
+}
+
+func (i PulsarJobWeightArray) ToPulsarJobWeightArrayOutput() PulsarJobWeightArrayOutput {
+	return i.ToPulsarJobWeightArrayOutputWithContext(context.Background())
+}
+
+func (i PulsarJobWeightArray) ToPulsarJobWeightArrayOutputWithContext(ctx context.Context) PulsarJobWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobWeightArrayOutput)
+}
+
+type PulsarJobWeightOutput struct{ *pulumi.OutputState }
+
+func (PulsarJobWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PulsarJobWeight)(nil)).Elem()
+}
+
+func (o PulsarJobWeightOutput) ToPulsarJobWeightOutput() PulsarJobWeightOutput {
+	return o
+}
+
+func (o PulsarJobWeightOutput) ToPulsarJobWeightOutputWithContext(ctx context.Context) PulsarJobWeightOutput {
+	return o
+}
+
+func (o PulsarJobWeightOutput) DefaultValue() pulumi.Float64Output {
+	return o.ApplyT(func(v PulsarJobWeight) float64 { return v.DefaultValue }).(pulumi.Float64Output)
+}
+
+func (o PulsarJobWeightOutput) Maximize() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PulsarJobWeight) *bool { return v.Maximize }).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobWeightOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PulsarJobWeight) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PulsarJobWeightOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v PulsarJobWeight) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type PulsarJobWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (PulsarJobWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PulsarJobWeight)(nil)).Elem()
+}
+
+func (o PulsarJobWeightArrayOutput) ToPulsarJobWeightArrayOutput() PulsarJobWeightArrayOutput {
+	return o
+}
+
+func (o PulsarJobWeightArrayOutput) ToPulsarJobWeightArrayOutputWithContext(ctx context.Context) PulsarJobWeightArrayOutput {
+	return o
+}
+
+func (o PulsarJobWeightArrayOutput) Index(i pulumi.IntInput) PulsarJobWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PulsarJobWeight {
+		return vs[0].([]PulsarJobWeight)[vs[1].(int)]
+	}).(PulsarJobWeightOutput)
 }
 
 type RecordAnswer struct {
@@ -2440,10 +3139,18 @@ func init() {
 	pulumi.RegisterOutputType(APIKeyDnsRecordsAllowArrayOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationDefaultConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationDefaultConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringJobRuleOutput{})
 	pulumi.RegisterOutputType(MonitoringJobRuleArrayOutput{})
 	pulumi.RegisterOutputType(NotifyListNotificationOutput{})
 	pulumi.RegisterOutputType(NotifyListNotificationArrayOutput{})
+	pulumi.RegisterOutputType(PulsarJobBlendMetricWeightsOutput{})
+	pulumi.RegisterOutputType(PulsarJobBlendMetricWeightsPtrOutput{})
+	pulumi.RegisterOutputType(PulsarJobConfigOutput{})
+	pulumi.RegisterOutputType(PulsarJobConfigPtrOutput{})
+	pulumi.RegisterOutputType(PulsarJobWeightOutput{})
+	pulumi.RegisterOutputType(PulsarJobWeightArrayOutput{})
 	pulumi.RegisterOutputType(RecordAnswerOutput{})
 	pulumi.RegisterOutputType(RecordAnswerArrayOutput{})
 	pulumi.RegisterOutputType(RecordFilterOutput{})
