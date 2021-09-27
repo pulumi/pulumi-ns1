@@ -6,6 +6,7 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./apikey";
+export * from "./application";
 export * from "./dataFeed";
 export * from "./dataSource";
 export * from "./getDNSSec";
@@ -14,6 +15,7 @@ export * from "./getZone";
 export * from "./monitoringJob";
 export * from "./notifyList";
 export * from "./provider";
+export * from "./pulsarJob";
 export * from "./record";
 export * from "./team";
 export * from "./user";
@@ -30,10 +32,12 @@ export {
 
 // Import resources to register:
 import { APIKey } from "./apikey";
+import { Application } from "./application";
 import { DataFeed } from "./dataFeed";
 import { DataSource } from "./dataSource";
 import { MonitoringJob } from "./monitoringJob";
 import { NotifyList } from "./notifyList";
+import { PulsarJob } from "./pulsarJob";
 import { Record } from "./record";
 import { Team } from "./team";
 import { User } from "./user";
@@ -45,6 +49,8 @@ const _module = {
         switch (type) {
             case "ns1:index/aPIKey:APIKey":
                 return new APIKey(name, <any>undefined, { urn })
+            case "ns1:index/application:Application":
+                return new Application(name, <any>undefined, { urn })
             case "ns1:index/dataFeed:DataFeed":
                 return new DataFeed(name, <any>undefined, { urn })
             case "ns1:index/dataSource:DataSource":
@@ -53,6 +59,8 @@ const _module = {
                 return new MonitoringJob(name, <any>undefined, { urn })
             case "ns1:index/notifyList:NotifyList":
                 return new NotifyList(name, <any>undefined, { urn })
+            case "ns1:index/pulsarJob:PulsarJob":
+                return new PulsarJob(name, <any>undefined, { urn })
             case "ns1:index/record:Record":
                 return new Record(name, <any>undefined, { urn })
             case "ns1:index/team:Team":
@@ -67,10 +75,12 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("ns1", "index/aPIKey", _module)
+pulumi.runtime.registerResourceModule("ns1", "index/application", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataFeed", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataSource", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/monitoringJob", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/notifyList", _module)
+pulumi.runtime.registerResourceModule("ns1", "index/pulsarJob", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/record", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/team", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/user", _module)

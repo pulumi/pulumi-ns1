@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "ns1:index/aPIKey:APIKey":
 		r = &APIKey{}
+	case "ns1:index/application:Application":
+		r = &Application{}
 	case "ns1:index/dataFeed:DataFeed":
 		r = &DataFeed{}
 	case "ns1:index/dataSource:DataSource":
@@ -30,6 +32,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MonitoringJob{}
 	case "ns1:index/notifyList:NotifyList":
 		r = &NotifyList{}
+	case "ns1:index/pulsarJob:PulsarJob":
+		r = &PulsarJob{}
 	case "ns1:index/record:Record":
 		r = &Record{}
 	case "ns1:index/team:Team":
@@ -76,6 +80,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"ns1",
+		"index/application",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
 		"index/dataFeed",
 		&module{version},
 	)
@@ -92,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"ns1",
 		"index/notifyList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
+		"index/pulsarJob",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

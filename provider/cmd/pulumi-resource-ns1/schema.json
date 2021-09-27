@@ -119,6 +119,38 @@
                 "zone"
             ]
         },
+        "ns1:index/ApplicationDefaultConfig:ApplicationDefaultConfig": {
+            "properties": {
+                "http": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not to use HTTP in measurements.\n"
+                },
+                "https": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not to use HTTPS in measurements.\n"
+                },
+                "jobTimeoutMillis": {
+                    "type": "integer",
+                    "description": "- Maximum timeout per job\n0, the primary NSONE Global Network. Normally, you should not have to worry about this.\n"
+                },
+                "requestTimeoutMillis": {
+                    "type": "integer",
+                    "description": "Maximum timeout per request.\n"
+                },
+                "staticValues": {
+                    "type": "boolean",
+                    "description": "- Indicates whether or not to skip aggregation for this job's measurements\n"
+                },
+                "useXhr": {
+                    "type": "boolean",
+                    "description": "- Whether to use XMLHttpRequest (XHR) when taking measurements.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "http"
+            ]
+        },
         "ns1:index/MonitoringJobRule:MonitoringJobRule": {
             "properties": {
                 "comparison": {
@@ -181,6 +213,88 @@
             "required": [
                 "config",
                 "type"
+            ]
+        },
+        "ns1:index/PulsarJobBlendMetricWeights:PulsarJobBlendMetricWeights": {
+            "properties": {
+                "timestamp": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "timestamp"
+            ]
+        },
+        "ns1:index/PulsarJobConfig:PulsarJobConfig": {
+            "properties": {
+                "host": {
+                    "type": "string"
+                },
+                "http": {
+                    "type": "boolean"
+                },
+                "https": {
+                    "type": "boolean"
+                },
+                "jobTimeoutMillis": {
+                    "type": "integer"
+                },
+                "requestTimeoutMillis": {
+                    "type": "integer"
+                },
+                "staticValues": {
+                    "type": "boolean"
+                },
+                "urlPath": {
+                    "type": "string"
+                },
+                "useXhr": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ns1:index/PulsarJobWeight:PulsarJobWeight": {
+            "properties": {
+                "defaultValue": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maximize": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "weight": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "defaultValue",
+                "name",
+                "weight"
             ]
         },
         "ns1:index/RecordAnswer:RecordAnswer": {
@@ -1444,6 +1558,82 @@
                 "type": "object"
             }
         },
+        "ns1:index/application:Application": {
+            "description": "Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new pulsar application with default config\nconst ns1App = new ns1.Application(\"ns1_app\", {\n    defaultConfig: {\n        http: true,\n        https: false,\n        job_timeout_millis: 100,\n        request_timeout_millis: 100,\n        static_values: true,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new pulsar application with default config\nns1_app = ns1.Application(\"ns1App\", default_config=ns1.ApplicationDefaultConfigArgs(\n    http=True,\n    https=False,\n    job_timeout_millis=100,\n    request_timeout_millis=100,\n    static_values=True,\n))\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new pulsar application with default config\n        var ns1App = new Ns1.Application(\"ns1App\", new Ns1.ApplicationArgs\n        {\n            DefaultConfig = new Ns1.Inputs.ApplicationDefaultConfigArgs\n            {\n                Http = true,\n                Https = false,\n                Job_timeout_millis = 100,\n                Request_timeout_millis = 100,\n                Static_values = true,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewApplication(ctx, \"ns1App\", \u0026ns1.ApplicationArgs{\n\t\t\tDefaultConfig: \u0026ns1.ApplicationDefaultConfigArgs{\n\t\t\t\tHttp:                   pulumi.Bool(true),\n\t\t\t\tHttps:                  pulumi.Bool(false),\n\t\t\t\tJob_timeout_millis:     pulumi.Float64(100),\n\t\t\t\tRequest_timeout_millis: pulumi.Float64(100),\n\t\t\t\tStatic_values:          pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/application:Application `ns1_application`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/application:Application example terraform.example.io`\n```\n\n ",
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not this application is currently active and usable for traffic\nsteering.\n"
+                },
+                "browserWaitMillis": {
+                    "type": "integer",
+                    "description": "The amount of time (in milliseconds) the browser should wait before running\nmeasurements.\n"
+                },
+                "defaultConfig": {
+                    "$ref": "#/types/ns1:index/ApplicationDefaultConfig:ApplicationDefaultConfig",
+                    "description": "-(Optional) Default job configuration. If a field is present here and not on a specific job\nassociated with this application, the default value specified here is used..\n"
+                },
+                "jobsPerTransaction": {
+                    "type": "integer",
+                    "description": "-(Optional) Number of jobs to measure per user impression.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Descriptive name for this Pulsar app.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicates whether or not this application is currently active and usable for traffic\nsteering.\n"
+                },
+                "browserWaitMillis": {
+                    "type": "integer",
+                    "description": "The amount of time (in milliseconds) the browser should wait before running\nmeasurements.\n"
+                },
+                "defaultConfig": {
+                    "$ref": "#/types/ns1:index/ApplicationDefaultConfig:ApplicationDefaultConfig",
+                    "description": "-(Optional) Default job configuration. If a field is present here and not on a specific job\nassociated with this application, the default value specified here is used..\n"
+                },
+                "jobsPerTransaction": {
+                    "type": "integer",
+                    "description": "-(Optional) Number of jobs to measure per user impression.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Descriptive name for this Pulsar app.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Application resources.\n",
+                "properties": {
+                    "active": {
+                        "type": "boolean",
+                        "description": "Indicates whether or not this application is currently active and usable for traffic\nsteering.\n"
+                    },
+                    "browserWaitMillis": {
+                        "type": "integer",
+                        "description": "The amount of time (in milliseconds) the browser should wait before running\nmeasurements.\n"
+                    },
+                    "defaultConfig": {
+                        "$ref": "#/types/ns1:index/ApplicationDefaultConfig:ApplicationDefaultConfig",
+                        "description": "-(Optional) Default job configuration. If a field is present here and not on a specific job\nassociated with this application, the default value specified here is used..\n"
+                    },
+                    "jobsPerTransaction": {
+                        "type": "integer",
+                        "description": "-(Optional) Number of jobs to measure per user impression.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Descriptive name for this Pulsar app.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "ns1:index/dataFeed:DataFeed": {
             "description": "Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.DataSource(\"example\", {\n    sourcetype: \"nsone_v1\",\n});\nconst exampleMonitoring = new ns1.DataSource(\"example_monitoring\", {\n    sourcetype: \"nsone_monitoring\",\n});\nconst uswestFeed = new ns1.DataFeed(\"uswest_feed\", {\n    config: {\n        label: \"uswest\",\n    },\n    sourceId: example.id,\n});\nconst useastFeed = new ns1.DataFeed(\"useast_feed\", {\n    config: {\n        label: \"useast\",\n    },\n    sourceId: example.id,\n});\nconst useastMonitorFeed = new ns1.DataFeed(\"useast_monitor_feed\", {\n    config: {\n        jobid: ns1_monitoringjob_example_job.id,\n    },\n    sourceId: exampleMonitoring.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.DataSource(\"example\", sourcetype=\"nsone_v1\")\nexample_monitoring = ns1.DataSource(\"exampleMonitoring\", sourcetype=\"nsone_monitoring\")\nuswest_feed = ns1.DataFeed(\"uswestFeed\",\n    config={\n        \"label\": \"uswest\",\n    },\n    source_id=example.id)\nuseast_feed = ns1.DataFeed(\"useastFeed\",\n    config={\n        \"label\": \"useast\",\n    },\n    source_id=example.id)\nuseast_monitor_feed = ns1.DataFeed(\"useastMonitorFeed\",\n    config={\n        \"jobid\": ns1_monitoringjob[\"example_job\"][\"id\"],\n    },\n    source_id=example_monitoring.id)\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Ns1.DataSource(\"example\", new Ns1.DataSourceArgs\n        {\n            Sourcetype = \"nsone_v1\",\n        });\n        var exampleMonitoring = new Ns1.DataSource(\"exampleMonitoring\", new Ns1.DataSourceArgs\n        {\n            Sourcetype = \"nsone_monitoring\",\n        });\n        var uswestFeed = new Ns1.DataFeed(\"uswestFeed\", new Ns1.DataFeedArgs\n        {\n            Config = \n            {\n                { \"label\", \"uswest\" },\n            },\n            SourceId = example.Id,\n        });\n        var useastFeed = new Ns1.DataFeed(\"useastFeed\", new Ns1.DataFeedArgs\n        {\n            Config = \n            {\n                { \"label\", \"useast\" },\n            },\n            SourceId = example.Id,\n        });\n        var useastMonitorFeed = new Ns1.DataFeed(\"useastMonitorFeed\", new Ns1.DataFeedArgs\n        {\n            Config = \n            {\n                { \"jobid\", ns1_monitoringjob.Example_job.Id },\n            },\n            SourceId = exampleMonitoring.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := ns1.NewDataSource(ctx, \"example\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_v1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleMonitoring, err := ns1.NewDataSource(ctx, \"exampleMonitoring\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_monitoring\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"uswestFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tConfig: pulumi.StringMap{\n\t\t\t\t\"label\": pulumi.String(\"uswest\"),\n\t\t\t},\n\t\t\tSourceId: example.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"useastFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tConfig: pulumi.StringMap{\n\t\t\t\t\"label\": pulumi.String(\"useast\"),\n\t\t\t},\n\t\t\tSourceId: example.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"useastMonitorFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"jobid\": pulumi.Any(ns1_monitoringjob.Example_job.Id),\n\t\t\t},\n\t\t\tSourceId: exampleMonitoring.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Datafeed Api Doc](https://ns1.com/api#data-feeds)\n",
             "properties": {
@@ -1860,6 +2050,129 @@
                             "$ref": "#/types/ns1:index/NotifyListNotification:NotifyListNotification"
                         },
                         "description": "A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/pulsarJob:PulsarJob": {
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "appId": {
+                    "type": "string"
+                },
+                "blendMetricWeights": {
+                    "$ref": "#/types/ns1:index/PulsarJobBlendMetricWeights:PulsarJobBlendMetricWeights"
+                },
+                "community": {
+                    "type": "boolean"
+                },
+                "config": {
+                    "$ref": "#/types/ns1:index/PulsarJobConfig:PulsarJobConfig"
+                },
+                "customer": {
+                    "type": "integer"
+                },
+                "jobId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "shared": {
+                    "type": "boolean"
+                },
+                "typeId": {
+                    "type": "string"
+                },
+                "weights": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/PulsarJobWeight:PulsarJobWeight"
+                    }
+                }
+            },
+            "required": [
+                "appId",
+                "community",
+                "customer",
+                "jobId",
+                "name",
+                "typeId"
+            ],
+            "inputProperties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "appId": {
+                    "type": "string"
+                },
+                "blendMetricWeights": {
+                    "$ref": "#/types/ns1:index/PulsarJobBlendMetricWeights:PulsarJobBlendMetricWeights"
+                },
+                "config": {
+                    "$ref": "#/types/ns1:index/PulsarJobConfig:PulsarJobConfig"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "shared": {
+                    "type": "boolean"
+                },
+                "typeId": {
+                    "type": "string"
+                },
+                "weights": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/PulsarJobWeight:PulsarJobWeight"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "appId",
+                "typeId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PulsarJob resources.\n",
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "appId": {
+                        "type": "string"
+                    },
+                    "blendMetricWeights": {
+                        "$ref": "#/types/ns1:index/PulsarJobBlendMetricWeights:PulsarJobBlendMetricWeights"
+                    },
+                    "community": {
+                        "type": "boolean"
+                    },
+                    "config": {
+                        "$ref": "#/types/ns1:index/PulsarJobConfig:PulsarJobConfig"
+                    },
+                    "customer": {
+                        "type": "integer"
+                    },
+                    "jobId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "shared": {
+                        "type": "boolean"
+                    },
+                    "typeId": {
+                        "type": "string"
+                    },
+                    "weights": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/PulsarJobWeight:PulsarJobWeight"
+                        }
                     }
                 },
                 "type": "object"
