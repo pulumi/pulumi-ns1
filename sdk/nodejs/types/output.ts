@@ -235,7 +235,7 @@ export interface RecordFilter {
      * The filters' configuration. Simple key/value pairs
      * determined by the filter type.
      */
-    config: {[key: string]: any};
+    config?: {[key: string]: any};
     /**
      * Determines whether the filter is applied in the
      * filter chain.

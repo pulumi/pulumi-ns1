@@ -57,9 +57,9 @@ type APIKey struct {
 	DnsZonesAllows pulumi.StringArrayOutput `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrOutput `pulumi:"ipWhitelistStrict"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayOutput `pulumi:"ipWhitelists"`
 	// Whether the apikey can manage IPAM.
 	// Only relevant for the DDI product.
@@ -159,9 +159,9 @@ type apikeyState struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
 	// Whether the apikey can manage IPAM.
 	// Only relevant for the DDI product.
@@ -233,9 +233,9 @@ type APIKeyState struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayInput
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayInput
 	// Whether the apikey can manage IPAM.
 	// Only relevant for the DDI product.
@@ -311,9 +311,9 @@ type apikeyArgs struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
 	// Whether the apikey can manage IPAM.
 	// Only relevant for the DDI product.
@@ -384,9 +384,9 @@ type APIKeyArgs struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayInput
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayInput
 	// Whether the apikey can manage IPAM.
 	// Only relevant for the DDI product.

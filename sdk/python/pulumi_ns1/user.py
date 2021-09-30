@@ -75,8 +75,8 @@ class UserArgs:
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the user may not access.
-        :param pulumi.Input[bool] ip_whitelist_strict: Sets exclusivity on this IP whitelist.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
@@ -437,7 +437,7 @@ class UserArgs:
     @pulumi.getter(name="ipWhitelistStrict")
     def ip_whitelist_strict(self) -> Optional[pulumi.Input[bool]]:
         """
-        Sets exclusivity on this IP whitelist.
+        Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         """
         return pulumi.get(self, "ip_whitelist_strict")
 
@@ -449,7 +449,7 @@ class UserArgs:
     @pulumi.getter(name="ipWhitelists")
     def ip_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IP addresses to whitelist for this key.
+        Array of IP addresses/networks to which to grant the user access.
         """
         return pulumi.get(self, "ip_whitelists")
 
@@ -639,8 +639,8 @@ class _UserState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the user may not access.
         :param pulumi.Input[str] email: The email address of the user.
-        :param pulumi.Input[bool] ip_whitelist_strict: Sets exclusivity on this IP whitelist.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
@@ -992,7 +992,7 @@ class _UserState:
     @pulumi.getter(name="ipWhitelistStrict")
     def ip_whitelist_strict(self) -> Optional[pulumi.Input[bool]]:
         """
-        Sets exclusivity on this IP whitelist.
+        Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         """
         return pulumi.get(self, "ip_whitelist_strict")
 
@@ -1004,7 +1004,7 @@ class _UserState:
     @pulumi.getter(name="ipWhitelists")
     def ip_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IP addresses to whitelist for this key.
+        Array of IP addresses/networks to which to grant the user access.
         """
         return pulumi.get(self, "ip_whitelists")
 
@@ -1211,8 +1211,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the user may not access.
         :param pulumi.Input[str] email: The email address of the user.
-        :param pulumi.Input[bool] ip_whitelist_strict: Sets exclusivity on this IP whitelist.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
@@ -1412,8 +1412,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the user may not access.
         :param pulumi.Input[str] email: The email address of the user.
-        :param pulumi.Input[bool] ip_whitelist_strict: Sets exclusivity on this IP whitelist.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: The IP addresses to whitelist for this key.
+        :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
@@ -1644,7 +1644,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="ipWhitelistStrict")
     def ip_whitelist_strict(self) -> pulumi.Output[Optional[bool]]:
         """
-        Sets exclusivity on this IP whitelist.
+        Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         """
         return pulumi.get(self, "ip_whitelist_strict")
 
@@ -1652,7 +1652,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="ipWhitelists")
     def ip_whitelists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The IP addresses to whitelist for this key.
+        Array of IP addresses/networks to which to grant the user access.
         """
         return pulumi.get(self, "ip_whitelists")
 

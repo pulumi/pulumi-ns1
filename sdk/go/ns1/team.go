@@ -124,7 +124,7 @@ type Team struct {
 	DnsZonesAllows pulumi.StringArrayOutput `pulumi:"dnsZonesAllows"`
 	// List of zones that the team may not access.
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayOutput `pulumi:"ipWhitelists"`
 	// Whether the team can manage IPAM.
 	// Only relevant for the DDI product.
@@ -220,7 +220,7 @@ type teamState struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the team may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists []TeamIpWhitelist `pulumi:"ipWhitelists"`
 	// Whether the team can manage IPAM.
 	// Only relevant for the DDI product.
@@ -288,7 +288,7 @@ type TeamState struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the team may not access.
 	DnsZonesDenies pulumi.StringArrayInput
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayInput
 	// Whether the team can manage IPAM.
 	// Only relevant for the DDI product.
@@ -360,7 +360,7 @@ type teamArgs struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the team may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists []TeamIpWhitelist `pulumi:"ipWhitelists"`
 	// Whether the team can manage IPAM.
 	// Only relevant for the DDI product.
@@ -429,7 +429,7 @@ type TeamArgs struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the team may not access.
 	DnsZonesDenies pulumi.StringArrayInput
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayInput
 	// Whether the team can manage IPAM.
 	// Only relevant for the DDI product.
