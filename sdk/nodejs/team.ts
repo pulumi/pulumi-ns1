@@ -168,7 +168,7 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly dnsZonesDenies!: pulumi.Output<string[] | undefined>;
     /**
-     * The IP addresses to whitelist for this key.
+     * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
      */
     public readonly ipWhitelists!: pulumi.Output<outputs.TeamIpWhitelist[] | undefined>;
     /**
@@ -377,7 +377,7 @@ export interface TeamState {
      */
     readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The IP addresses to whitelist for this key.
+     * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
      */
     readonly ipWhitelists?: pulumi.Input<pulumi.Input<inputs.TeamIpWhitelist>[]>;
     /**
@@ -504,7 +504,7 @@ export interface TeamArgs {
      */
     readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The IP addresses to whitelist for this key.
+     * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
      */
     readonly ipWhitelists?: pulumi.Input<pulumi.Input<inputs.TeamIpWhitelist>[]>;
     /**

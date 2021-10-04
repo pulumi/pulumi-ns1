@@ -116,11 +116,11 @@ export class APIKey extends pulumi.CustomResource {
      */
     public readonly dnsZonesDenies!: pulumi.Output<string[] | undefined>;
     /**
-     * Sets exclusivity on this IP whitelist.
+     * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
     public readonly ipWhitelistStrict!: pulumi.Output<boolean | undefined>;
     /**
-     * The IP addresses to whitelist for this key.
+     * Array of IP addresses/networks to which to grant the API key access.
      */
     public readonly ipWhitelists!: pulumi.Output<string[] | undefined>;
     /**
@@ -343,11 +343,11 @@ export interface APIKeyState {
      */
     readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Sets exclusivity on this IP whitelist.
+     * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
     readonly ipWhitelistStrict?: pulumi.Input<boolean>;
     /**
-     * The IP addresses to whitelist for this key.
+     * Array of IP addresses/networks to which to grant the API key access.
      */
     readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -482,11 +482,11 @@ export interface APIKeyArgs {
      */
     readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Sets exclusivity on this IP whitelist.
+     * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
     readonly ipWhitelistStrict?: pulumi.Input<boolean>;
     /**
-     * The IP addresses to whitelist for this key.
+     * Array of IP addresses/networks to which to grant the API key access.
      */
     readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**

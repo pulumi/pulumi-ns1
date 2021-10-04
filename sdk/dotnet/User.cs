@@ -141,13 +141,13 @@ namespace Pulumi.Ns1
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// Sets exclusivity on this IP whitelist.
+        /// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         /// </summary>
         [Output("ipWhitelistStrict")]
         public Output<bool?> IpWhitelistStrict { get; private set; } = null!;
 
         /// <summary>
-        /// The IP addresses to whitelist for this key.
+        /// Array of IP addresses/networks to which to grant the user access.
         /// </summary>
         [Output("ipWhitelists")]
         public Output<ImmutableArray<string>> IpWhitelists { get; private set; } = null!;
@@ -414,7 +414,7 @@ namespace Pulumi.Ns1
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// Sets exclusivity on this IP whitelist.
+        /// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         /// </summary>
         [Input("ipWhitelistStrict")]
         public Input<bool>? IpWhitelistStrict { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Ns1
         private InputList<string>? _ipWhitelists;
 
         /// <summary>
-        /// The IP addresses to whitelist for this key.
+        /// Array of IP addresses/networks to which to grant the user access.
         /// </summary>
         public InputList<string> IpWhitelists
         {
@@ -666,7 +666,7 @@ namespace Pulumi.Ns1
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// Sets exclusivity on this IP whitelist.
+        /// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         /// </summary>
         [Input("ipWhitelistStrict")]
         public Input<bool>? IpWhitelistStrict { get; set; }
@@ -675,7 +675,7 @@ namespace Pulumi.Ns1
         private InputList<string>? _ipWhitelists;
 
         /// <summary>
-        /// The IP addresses to whitelist for this key.
+        /// Array of IP addresses/networks to which to grant the user access.
         /// </summary>
         public InputList<string> IpWhitelists
         {

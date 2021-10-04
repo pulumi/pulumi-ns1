@@ -367,15 +367,7 @@
             "type": "object",
             "required": [
                 "filter"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "config",
-                        "filter"
-                    ]
-                }
-            }
+            ]
         },
         "ns1:index/RecordRegion:RecordRegion": {
             "properties": {
@@ -1198,14 +1190,14 @@
                 },
                 "ipWhitelistStrict": {
                     "type": "boolean",
-                    "description": "Sets exclusivity on this IP whitelist.\n"
+                    "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
                 },
                 "ipWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The IP addresses to whitelist for this key.\n"
+                    "description": "Array of IP addresses/networks to which to grant the API key access.\n"
                 },
                 "ipamManageIpam": {
                     "type": "boolean",
@@ -1353,14 +1345,14 @@
                 },
                 "ipWhitelistStrict": {
                     "type": "boolean",
-                    "description": "Sets exclusivity on this IP whitelist.\n"
+                    "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
                 },
                 "ipWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The IP addresses to whitelist for this key.\n"
+                    "description": "Array of IP addresses/networks to which to grant the API key access.\n"
                 },
                 "ipamManageIpam": {
                     "type": "boolean",
@@ -1502,14 +1494,14 @@
                     },
                     "ipWhitelistStrict": {
                         "type": "boolean",
-                        "description": "Sets exclusivity on this IP whitelist.\n"
+                        "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
                     },
                     "ipWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "The IP addresses to whitelist for this key.\n"
+                        "description": "Array of IP addresses/networks to which to grant the API key access.\n"
                     },
                     "ipamManageIpam": {
                         "type": "boolean",
@@ -2479,7 +2471,7 @@
                     "items": {
                         "$ref": "#/types/ns1:index/TeamIpWhitelist:TeamIpWhitelist"
                     },
-                    "description": "The IP addresses to whitelist for this key.\n"
+                    "description": "Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each \"allow\" list.\n"
                 },
                 "ipamManageIpam": {
                     "type": "boolean",
@@ -2618,7 +2610,7 @@
                     "items": {
                         "$ref": "#/types/ns1:index/TeamIpWhitelist:TeamIpWhitelist"
                     },
-                    "description": "The IP addresses to whitelist for this key.\n"
+                    "description": "Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each \"allow\" list.\n"
                 },
                 "ipamManageIpam": {
                     "type": "boolean",
@@ -2756,7 +2748,7 @@
                         "items": {
                             "$ref": "#/types/ns1:index/TeamIpWhitelist:TeamIpWhitelist"
                         },
-                        "description": "The IP addresses to whitelist for this key.\n"
+                        "description": "Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each \"allow\" list.\n"
                     },
                     "ipamManageIpam": {
                         "type": "boolean",
@@ -2897,14 +2889,14 @@
                 },
                 "ipWhitelistStrict": {
                     "type": "boolean",
-                    "description": "Sets exclusivity on this IP whitelist.\n"
+                    "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
                 },
                 "ipWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The IP addresses to whitelist for this key.\n"
+                    "description": "Array of IP addresses/networks to which to grant the user access.\n"
                 },
                 "ipamManageIpam": {
                     "type": "boolean",
@@ -3063,14 +3055,14 @@
                 },
                 "ipWhitelistStrict": {
                     "type": "boolean",
-                    "description": "Sets exclusivity on this IP whitelist.\n"
+                    "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
                 },
                 "ipWhitelists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The IP addresses to whitelist for this key.\n"
+                    "description": "Array of IP addresses/networks to which to grant the user access.\n"
                 },
                 "ipamManageIpam": {
                     "type": "boolean",
@@ -3230,14 +3222,14 @@
                     },
                     "ipWhitelistStrict": {
                         "type": "boolean",
-                        "description": "Sets exclusivity on this IP whitelist.\n"
+                        "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
                     },
                     "ipWhitelists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "The IP addresses to whitelist for this key.\n"
+                        "description": "Array of IP addresses/networks to which to grant the user access.\n"
                     },
                     "ipamManageIpam": {
                         "type": "boolean",

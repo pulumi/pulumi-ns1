@@ -60,9 +60,9 @@ type User struct {
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
 	// The email address of the user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrOutput `pulumi:"ipWhitelistStrict"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists pulumi.StringArrayOutput `pulumi:"ipWhitelists"`
 	// Whether the user can manage IPAM.
 	// Only relevant for the DDI product.
@@ -170,9 +170,9 @@ type userState struct {
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
 	// The email address of the user.
 	Email *string `pulumi:"email"`
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
 	// Whether the user can manage IPAM.
 	// Only relevant for the DDI product.
@@ -246,9 +246,9 @@ type UserState struct {
 	DnsZonesDenies pulumi.StringArrayInput
 	// The email address of the user.
 	Email pulumi.StringPtrInput
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists pulumi.StringArrayInput
 	// Whether the user can manage IPAM.
 	// Only relevant for the DDI product.
@@ -326,9 +326,9 @@ type userArgs struct {
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
 	// The email address of the user.
 	Email string `pulumi:"email"`
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
 	// Whether the user can manage IPAM.
 	// Only relevant for the DDI product.
@@ -403,9 +403,9 @@ type UserArgs struct {
 	DnsZonesDenies pulumi.StringArrayInput
 	// The email address of the user.
 	Email pulumi.StringInput
-	// Sets exclusivity on this IP whitelist.
+	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
-	// The IP addresses to whitelist for this key.
+	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists pulumi.StringArrayInput
 	// Whether the user can manage IPAM.
 	// Only relevant for the DDI product.

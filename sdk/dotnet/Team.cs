@@ -209,7 +209,7 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<string>> DnsZonesDenies { get; private set; } = null!;
 
         /// <summary>
-        /// The IP addresses to whitelist for this key.
+        /// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
         /// </summary>
         [Output("ipWhitelists")]
         public Output<ImmutableArray<Outputs.TeamIpWhitelist>> IpWhitelists { get; private set; } = null!;
@@ -459,7 +459,7 @@ namespace Pulumi.Ns1
         private InputList<Inputs.TeamIpWhitelistArgs>? _ipWhitelists;
 
         /// <summary>
-        /// The IP addresses to whitelist for this key.
+        /// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
         /// </summary>
         public InputList<Inputs.TeamIpWhitelistArgs> IpWhitelists
         {
@@ -673,7 +673,7 @@ namespace Pulumi.Ns1
         private InputList<Inputs.TeamIpWhitelistGetArgs>? _ipWhitelists;
 
         /// <summary>
-        /// The IP addresses to whitelist for this key.
+        /// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
         /// </summary>
         public InputList<Inputs.TeamIpWhitelistGetArgs> IpWhitelists
         {
