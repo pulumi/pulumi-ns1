@@ -180,71 +180,71 @@ export interface ZoneState {
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
      */
-    readonly additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly autogenerateNsRecord?: pulumi.Input<boolean>;
+    additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
+    autogenerateNsRecord?: pulumi.Input<boolean>;
     /**
      * (Computed) Authoritative Name Servers.
      */
-    readonly dnsServers?: pulumi.Input<string>;
+    dnsServers?: pulumi.Input<string>;
     /**
      * Whether or not DNSSEC is enabled for the zone.
      * Note that DNSSEC must be enabled on the account by support for this to be set
      * to `true`.
      */
-    readonly dnssec?: pulumi.Input<boolean>;
+    dnssec?: pulumi.Input<boolean>;
     /**
      * The SOA Expiry. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly expiry?: pulumi.Input<number>;
+    expiry?: pulumi.Input<number>;
     /**
      * (Computed) The SOA Hostmaster.
      */
-    readonly hostmaster?: pulumi.Input<string>;
+    hostmaster?: pulumi.Input<string>;
     /**
      * The target zone(domain name) to link to.
      */
-    readonly link?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
     /**
      * - List of network IDs (`int`) for which the zone
      * should be made available. Default is network 0, the primary NSONE Global
      * Network. Normally, you should not have to worry about this.
      */
-    readonly networks?: pulumi.Input<pulumi.Input<number>[]>;
+    networks?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The SOA NX TTL. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly nxTtl?: pulumi.Input<number>;
+    nxTtl?: pulumi.Input<number>;
     /**
      * The primary zones' IPv4 address. This makes the zone a
      * secondary. Conflicts with `secondaries`.
      */
-    readonly primary?: pulumi.Input<string>;
+    primary?: pulumi.Input<string>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly refresh?: pulumi.Input<number>;
+    refresh?: pulumi.Input<number>;
     /**
      * The SOA Retry. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly retry?: pulumi.Input<number>;
+    retry?: pulumi.Input<number>;
     /**
      * List of secondary servers. This makes the zone a
      * primary. Conflicts with `primary` and `additionalPrimaries`.
      * Secondaries is documented below.
      */
-    readonly secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
+    secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
     /**
      * The SOA TTL.
      */
-    readonly ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number>;
     /**
      * The domain name of the zone.
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
 
 /**
@@ -255,61 +255,61 @@ export interface ZoneArgs {
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
      */
-    readonly additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly autogenerateNsRecord?: pulumi.Input<boolean>;
+    additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
+    autogenerateNsRecord?: pulumi.Input<boolean>;
     /**
      * Whether or not DNSSEC is enabled for the zone.
      * Note that DNSSEC must be enabled on the account by support for this to be set
      * to `true`.
      */
-    readonly dnssec?: pulumi.Input<boolean>;
+    dnssec?: pulumi.Input<boolean>;
     /**
      * The SOA Expiry. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly expiry?: pulumi.Input<number>;
+    expiry?: pulumi.Input<number>;
     /**
      * The target zone(domain name) to link to.
      */
-    readonly link?: pulumi.Input<string>;
+    link?: pulumi.Input<string>;
     /**
      * - List of network IDs (`int`) for which the zone
      * should be made available. Default is network 0, the primary NSONE Global
      * Network. Normally, you should not have to worry about this.
      */
-    readonly networks?: pulumi.Input<pulumi.Input<number>[]>;
+    networks?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The SOA NX TTL. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly nxTtl?: pulumi.Input<number>;
+    nxTtl?: pulumi.Input<number>;
     /**
      * The primary zones' IPv4 address. This makes the zone a
      * secondary. Conflicts with `secondaries`.
      */
-    readonly primary?: pulumi.Input<string>;
+    primary?: pulumi.Input<string>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly refresh?: pulumi.Input<number>;
+    refresh?: pulumi.Input<number>;
     /**
      * The SOA Retry. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    readonly retry?: pulumi.Input<number>;
+    retry?: pulumi.Input<number>;
     /**
      * List of secondary servers. This makes the zone a
      * primary. Conflicts with `primary` and `additionalPrimaries`.
      * Secondaries is documented below.
      */
-    readonly secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
+    secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
     /**
      * The SOA TTL.
      */
-    readonly ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number>;
     /**
      * The domain name of the zone.
      */
-    readonly zone: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
 }

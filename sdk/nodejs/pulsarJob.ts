@@ -100,29 +100,29 @@ export class PulsarJob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PulsarJob resources.
  */
 export interface PulsarJobState {
-    readonly active?: pulumi.Input<boolean>;
-    readonly appId?: pulumi.Input<string>;
-    readonly blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights>;
-    readonly community?: pulumi.Input<boolean>;
-    readonly config?: pulumi.Input<inputs.PulsarJobConfig>;
-    readonly customer?: pulumi.Input<number>;
-    readonly jobId?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
-    readonly shared?: pulumi.Input<boolean>;
-    readonly typeId?: pulumi.Input<string>;
-    readonly weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[]>;
+    active?: pulumi.Input<boolean>;
+    appId?: pulumi.Input<string>;
+    blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights>;
+    community?: pulumi.Input<boolean>;
+    config?: pulumi.Input<inputs.PulsarJobConfig>;
+    customer?: pulumi.Input<number>;
+    jobId?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    shared?: pulumi.Input<boolean>;
+    typeId?: pulumi.Input<string>;
+    weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[]>;
 }
 
 /**
  * The set of arguments for constructing a PulsarJob resource.
  */
 export interface PulsarJobArgs {
-    readonly active?: pulumi.Input<boolean>;
-    readonly appId: pulumi.Input<string>;
-    readonly blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights>;
-    readonly config?: pulumi.Input<inputs.PulsarJobConfig>;
-    readonly name?: pulumi.Input<string>;
-    readonly shared?: pulumi.Input<boolean>;
-    readonly typeId: pulumi.Input<string>;
-    readonly weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[]>;
+    active?: pulumi.Input<boolean>;
+    appId: pulumi.Input<string>;
+    blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights>;
+    config?: pulumi.Input<inputs.PulsarJobConfig>;
+    name?: pulumi.Input<string>;
+    shared?: pulumi.Input<boolean>;
+    typeId: pulumi.Input<string>;
+    weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[]>;
 }

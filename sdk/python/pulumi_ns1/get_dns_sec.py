@@ -13,6 +13,7 @@ __all__ = [
     'GetDNSSecResult',
     'AwaitableGetDNSSecResult',
     'get_dns_sec',
+    'get_dns_sec_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,28 @@ def get_dns_sec(zone: Optional[str] = None,
         id=__ret__.id,
         keys=__ret__.keys,
         zone=__ret__.zone)
+
+
+@_utilities.lift_output_func(get_dns_sec)
+def get_dns_sec_output(zone: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDNSSecResult]:
+    """
+    Provides DNSSEC details about a NS1 Zone.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_ns1 as ns1
+
+    # Get DNSSEC details about a NS1 Zone.
+    example_zone = ns1.Zone("exampleZone",
+        dnssec=True,
+        zone="terraform.example.io")
+    example_dns_sec = example_zone.zone.apply(lambda zone: ns1.get_dns_sec(zone=zone))
+    ```
+
+
+    :param str zone: The name of the zone to get DNSSEC details for.
+    """
+    ...

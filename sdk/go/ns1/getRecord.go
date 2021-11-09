@@ -4,6 +4,9 @@
 package ns1
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ns1.LookupRecord(ctx, &ns1.LookupRecordArgs{
+// 		_, err := ns1.LookupRecord(ctx, &GetRecordArgs{
 // 			Domain: "terraform.example.io",
 // 			Type:   "A",
 // 			Zone:   "example.io",
@@ -76,4 +79,102 @@ type LookupRecordResult struct {
 	// Whether to use EDNS client subnet data when available (in filter chain).
 	UseClientSubnet bool   `pulumi:"useClientSubnet"`
 	Zone            string `pulumi:"zone"`
+}
+
+func LookupRecordOutput(ctx *pulumi.Context, args LookupRecordOutputArgs, opts ...pulumi.InvokeOption) LookupRecordResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRecordResult, error) {
+			args := v.(LookupRecordArgs)
+			r, err := LookupRecord(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRecordResultOutput)
+}
+
+// A collection of arguments for invoking getRecord.
+type LookupRecordOutputArgs struct {
+	// The records' domain.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// The records' RR type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The zone the record belongs to.
+	Zone pulumi.StringInput `pulumi:"zone"`
+}
+
+func (LookupRecordOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRecordArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRecord.
+type LookupRecordResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRecordResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRecordResult)(nil)).Elem()
+}
+
+func (o LookupRecordResultOutput) ToLookupRecordResultOutput() LookupRecordResultOutput {
+	return o
+}
+
+func (o LookupRecordResultOutput) ToLookupRecordResultOutputWithContext(ctx context.Context) LookupRecordResultOutput {
+	return o
+}
+
+// List of NS1 answers.
+func (o LookupRecordResultOutput) Answers() GetRecordAnswerArrayOutput {
+	return o.ApplyT(func(v LookupRecordResult) []GetRecordAnswer { return v.Answers }).(GetRecordAnswerArrayOutput)
+}
+
+func (o LookupRecordResultOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordResult) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// List of NS1 filters.
+func (o LookupRecordResultOutput) Filters() GetRecordFilterArrayOutput {
+	return o.ApplyT(func(v LookupRecordResult) []GetRecordFilter { return v.Filters }).(GetRecordFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRecordResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The target record this links to.
+func (o LookupRecordResultOutput) Link() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordResult) string { return v.Link }).(pulumi.StringOutput)
+}
+
+// Map of metadata
+func (o LookupRecordResultOutput) Meta() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupRecordResult) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+}
+
+// List of regions.
+func (o LookupRecordResultOutput) Regions() GetRecordRegionArrayOutput {
+	return o.ApplyT(func(v LookupRecordResult) []GetRecordRegion { return v.Regions }).(GetRecordRegionArrayOutput)
+}
+
+func (o LookupRecordResultOutput) ShortAnswers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRecordResult) []string { return v.ShortAnswers }).(pulumi.StringArrayOutput)
+}
+
+// The records' time to live (in seconds).
+func (o LookupRecordResultOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupRecordResult) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+func (o LookupRecordResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether to use EDNS client subnet data when available (in filter chain).
+func (o LookupRecordResultOutput) UseClientSubnet() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRecordResult) bool { return v.UseClientSubnet }).(pulumi.BoolOutput)
+}
+
+func (o LookupRecordResultOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRecordResult) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRecordResultOutput{})
 }

@@ -277,140 +277,140 @@ export interface UserState {
     /**
      * Whether the user can modify account settings.
      */
-    readonly accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify account apikeys.
      */
-    readonly accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean>;
     /**
      * Whether the user can manage ip whitelist.
      */
-    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify account payment methods.
      */
-    readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * **Deprecated** Whether the user can modify the account plan.
      *
      * @deprecated obsolete, should no longer be used
      */
-    readonly accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify other teams in the account.
      */
-    readonly accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify account users.
      */
-    readonly accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean>;
     /**
      * Whether the user can view activity logs.
      */
-    readonly accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean>;
     /**
      * Whether the user can view invoices.
      */
-    readonly accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify data feeds.
      */
-    readonly dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify data sources.
      */
-    readonly dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean>;
     /**
      * Whether the user can publish to data feeds.
      */
-    readonly dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the user can manage DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpManageDhcp?: pulumi.Input<boolean>;
+    dhcpManageDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the user can view DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpViewDhcp?: pulumi.Input<boolean>;
+    dhcpViewDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify the accounts zones.
      */
-    readonly dnsManageZones?: pulumi.Input<boolean>;
-    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
-    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
+    dnsManageZones?: pulumi.Input<boolean>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
     /**
      * Whether the user can view the accounts zones.
      */
-    readonly dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
     /**
      * List of zones that the user may access.
      */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the user may not access.
      */
-    readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The email address of the user.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean>;
     /**
      * Array of IP addresses/networks to which to grant the user access.
      */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the user can manage IPAM.
      * Only relevant for the DDI product.
      */
-    readonly ipamManageIpam?: pulumi.Input<boolean>;
-    readonly ipamViewIpam?: pulumi.Input<boolean>;
+    ipamManageIpam?: pulumi.Input<boolean>;
+    ipamViewIpam?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify monitoring jobs.
      */
-    readonly monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify notification lists.
      */
-    readonly monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean>;
     /**
      * Whether the user can view monitoring jobs.
      */
-    readonly monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean>;
     /**
      * The free form name of the user.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      */
-    readonly notify?: pulumi.Input<{[key: string]: any}>;
+    notify?: pulumi.Input<{[key: string]: any}>;
     /**
      * Whether the user can manage global active directory.
      * Only relevant for the DDI product.
      */
-    readonly securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
      * Whether the user can manage global two factor authentication.
      */
-    readonly securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean>;
     /**
      * The teams that the user belongs to.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The users login name.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -420,138 +420,138 @@ export interface UserArgs {
     /**
      * Whether the user can modify account settings.
      */
-    readonly accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify account apikeys.
      */
-    readonly accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean>;
     /**
      * Whether the user can manage ip whitelist.
      */
-    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify account payment methods.
      */
-    readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * **Deprecated** Whether the user can modify the account plan.
      *
      * @deprecated obsolete, should no longer be used
      */
-    readonly accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify other teams in the account.
      */
-    readonly accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify account users.
      */
-    readonly accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean>;
     /**
      * Whether the user can view activity logs.
      */
-    readonly accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean>;
     /**
      * Whether the user can view invoices.
      */
-    readonly accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify data feeds.
      */
-    readonly dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify data sources.
      */
-    readonly dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean>;
     /**
      * Whether the user can publish to data feeds.
      */
-    readonly dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the user can manage DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpManageDhcp?: pulumi.Input<boolean>;
+    dhcpManageDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the user can view DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpViewDhcp?: pulumi.Input<boolean>;
+    dhcpViewDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify the accounts zones.
      */
-    readonly dnsManageZones?: pulumi.Input<boolean>;
-    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
-    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
+    dnsManageZones?: pulumi.Input<boolean>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
     /**
      * Whether the user can view the accounts zones.
      */
-    readonly dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
     /**
      * List of zones that the user may access.
      */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the user may not access.
      */
-    readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The email address of the user.
      */
-    readonly email: pulumi.Input<string>;
+    email: pulumi.Input<string>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean>;
     /**
      * Array of IP addresses/networks to which to grant the user access.
      */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the user can manage IPAM.
      * Only relevant for the DDI product.
      */
-    readonly ipamManageIpam?: pulumi.Input<boolean>;
-    readonly ipamViewIpam?: pulumi.Input<boolean>;
+    ipamManageIpam?: pulumi.Input<boolean>;
+    ipamViewIpam?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify monitoring jobs.
      */
-    readonly monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean>;
     /**
      * Whether the user can modify notification lists.
      */
-    readonly monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean>;
     /**
      * Whether the user can view monitoring jobs.
      */
-    readonly monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean>;
     /**
      * The free form name of the user.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      */
-    readonly notify?: pulumi.Input<{[key: string]: any}>;
+    notify?: pulumi.Input<{[key: string]: any}>;
     /**
      * Whether the user can manage global active directory.
      * Only relevant for the DDI product.
      */
-    readonly securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
      * Whether the user can manage global two factor authentication.
      */
-    readonly securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean>;
     /**
      * The teams that the user belongs to.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The users login name.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

@@ -19,6 +19,16 @@ namespace Pulumi.Ns1
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// The ns1 API key, this is required
+        /// </summary>
+        [Output("apikey")]
+        public Output<string?> Apikey { get; private set; } = null!;
+
+        [Output("endpoint")]
+        public Output<string?> Endpoint { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
         ///

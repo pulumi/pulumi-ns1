@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleDNSSec = exampleZone.zone.apply(zone => ns1.getDNSSec({
  *     zone: zone,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDNSSec(args: GetDNSSecArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSecResult> {
@@ -44,7 +44,7 @@ export interface GetDNSSecArgs {
     /**
      * The name of the zone to get DNSSEC details for.
      */
-    readonly zone: string;
+    zone: string;
 }
 
 /**
@@ -65,4 +65,18 @@ export interface GetDNSSecResult {
      */
     readonly keys: outputs.GetDNSSecKeys;
     readonly zone: string;
+}
+
+export function getDNSSecOutput(args: GetDNSSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSecResult> {
+    return pulumi.output(args).apply(a => getDNSSec(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDNSSec.
+ */
+export interface GetDNSSecOutputArgs {
+    /**
+     * The name of the zone to get DNSSEC details for.
+     */
+    zone: pulumi.Input<string>;
 }

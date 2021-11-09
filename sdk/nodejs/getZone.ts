@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * // Get details about a NS1 Zone.
  * const example = pulumi.output(ns1.getZone({
  *     zone: "terraform.example.io",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
@@ -44,11 +44,11 @@ export interface GetZoneArgs {
      * List of additional IPv4 addresses for the primary
      * zone.
      */
-    readonly additionalPrimaries?: string[];
+    additionalPrimaries?: string[];
     /**
      * The domain name of the zone.
      */
-    readonly zone: string;
+    zone: string;
 }
 
 /**
@@ -115,4 +115,23 @@ export interface GetZoneResult {
      */
     readonly ttl: number;
     readonly zone: string;
+}
+
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+    return pulumi.output(args).apply(a => getZone(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getZone.
+ */
+export interface GetZoneOutputArgs {
+    /**
+     * List of additional IPv4 addresses for the primary
+     * zone.
+     */
+    additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The domain name of the zone.
+     */
+    zone: pulumi.Input<string>;
 }

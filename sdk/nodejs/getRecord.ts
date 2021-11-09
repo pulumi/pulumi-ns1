@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *     domain: "terraform.example.io",
  *     type: "A",
  *     zone: "example.io",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRecord(args: GetRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordResult> {
@@ -46,15 +46,15 @@ export interface GetRecordArgs {
     /**
      * The records' domain.
      */
-    readonly domain: string;
+    domain: string;
     /**
      * The records' RR type.
      */
-    readonly type: string;
+    type: string;
     /**
      * The zone the record belongs to.
      */
-    readonly zone: string;
+    zone: string;
 }
 
 /**
@@ -97,4 +97,26 @@ export interface GetRecordResult {
      */
     readonly useClientSubnet: boolean;
     readonly zone: string;
+}
+
+export function getRecordOutput(args: GetRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordResult> {
+    return pulumi.output(args).apply(a => getRecord(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRecord.
+ */
+export interface GetRecordOutputArgs {
+    /**
+     * The records' domain.
+     */
+    domain: pulumi.Input<string>;
+    /**
+     * The records' RR type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The zone the record belongs to.
+     */
+    zone: pulumi.Input<string>;
 }

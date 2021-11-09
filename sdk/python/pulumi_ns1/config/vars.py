@@ -8,26 +8,32 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'apikey',
-    'enable_ddi',
-    'endpoint',
-    'ignore_ssl',
-    'rate_limit_parallelism',
-]
+import types
 
 __config__ = pulumi.Config('ns1')
 
-apikey = __config__.get('apikey')
-"""
-The ns1 API key, this is required
-"""
 
-enable_ddi = __config__.get('enableDdi')
+class _ExportableConfig(types.ModuleType):
+    @property
+    def apikey(self) -> Optional[str]:
+        """
+        The ns1 API key, this is required
+        """
+        return __config__.get('apikey')
 
-endpoint = __config__.get('endpoint')
+    @property
+    def enable_ddi(self) -> Optional[bool]:
+        return __config__.get_bool('enableDdi')
 
-ignore_ssl = __config__.get('ignoreSsl')
+    @property
+    def endpoint(self) -> Optional[str]:
+        return __config__.get('endpoint')
 
-rate_limit_parallelism = __config__.get('rateLimitParallelism')
+    @property
+    def ignore_ssl(self) -> Optional[bool]:
+        return __config__.get_bool('ignoreSsl')
+
+    @property
+    def rate_limit_parallelism(self) -> Optional[int]:
+        return __config__.get_int('rateLimitParallelism')
 

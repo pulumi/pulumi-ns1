@@ -349,7 +349,7 @@ func (o ApplicationDefaultConfigOutput) ToApplicationDefaultConfigPtrOutput() Ap
 }
 
 func (o ApplicationDefaultConfigOutput) ToApplicationDefaultConfigPtrOutputWithContext(ctx context.Context) ApplicationDefaultConfigPtrOutput {
-	return o.ApplyT(func(v ApplicationDefaultConfig) *ApplicationDefaultConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationDefaultConfig) *ApplicationDefaultConfig {
 		return &v
 	}).(ApplicationDefaultConfigPtrOutput)
 }
@@ -400,7 +400,13 @@ func (o ApplicationDefaultConfigPtrOutput) ToApplicationDefaultConfigPtrOutputWi
 }
 
 func (o ApplicationDefaultConfigPtrOutput) Elem() ApplicationDefaultConfigOutput {
-	return o.ApplyT(func(v *ApplicationDefaultConfig) ApplicationDefaultConfig { return *v }).(ApplicationDefaultConfigOutput)
+	return o.ApplyT(func(v *ApplicationDefaultConfig) ApplicationDefaultConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationDefaultConfig
+		return ret
+	}).(ApplicationDefaultConfigOutput)
 }
 
 // Indicates whether or not to use HTTP in measurements.
@@ -767,10 +773,11 @@ func (o PulsarJobBlendMetricWeightsOutput) ToPulsarJobBlendMetricWeightsPtrOutpu
 }
 
 func (o PulsarJobBlendMetricWeightsOutput) ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsPtrOutput {
-	return o.ApplyT(func(v PulsarJobBlendMetricWeights) *PulsarJobBlendMetricWeights {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PulsarJobBlendMetricWeights) *PulsarJobBlendMetricWeights {
 		return &v
 	}).(PulsarJobBlendMetricWeightsPtrOutput)
 }
+
 func (o PulsarJobBlendMetricWeightsOutput) Timestamp() pulumi.IntOutput {
 	return o.ApplyT(func(v PulsarJobBlendMetricWeights) int { return v.Timestamp }).(pulumi.IntOutput)
 }
@@ -790,7 +797,13 @@ func (o PulsarJobBlendMetricWeightsPtrOutput) ToPulsarJobBlendMetricWeightsPtrOu
 }
 
 func (o PulsarJobBlendMetricWeightsPtrOutput) Elem() PulsarJobBlendMetricWeightsOutput {
-	return o.ApplyT(func(v *PulsarJobBlendMetricWeights) PulsarJobBlendMetricWeights { return *v }).(PulsarJobBlendMetricWeightsOutput)
+	return o.ApplyT(func(v *PulsarJobBlendMetricWeights) PulsarJobBlendMetricWeights {
+		if v != nil {
+			return *v
+		}
+		var ret PulsarJobBlendMetricWeights
+		return ret
+	}).(PulsarJobBlendMetricWeightsOutput)
 }
 
 func (o PulsarJobBlendMetricWeightsPtrOutput) Timestamp() pulumi.IntPtrOutput {
@@ -907,10 +920,11 @@ func (o PulsarJobConfigOutput) ToPulsarJobConfigPtrOutput() PulsarJobConfigPtrOu
 }
 
 func (o PulsarJobConfigOutput) ToPulsarJobConfigPtrOutputWithContext(ctx context.Context) PulsarJobConfigPtrOutput {
-	return o.ApplyT(func(v PulsarJobConfig) *PulsarJobConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PulsarJobConfig) *PulsarJobConfig {
 		return &v
 	}).(PulsarJobConfigPtrOutput)
 }
+
 func (o PulsarJobConfigOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PulsarJobConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
@@ -958,7 +972,13 @@ func (o PulsarJobConfigPtrOutput) ToPulsarJobConfigPtrOutputWithContext(ctx cont
 }
 
 func (o PulsarJobConfigPtrOutput) Elem() PulsarJobConfigOutput {
-	return o.ApplyT(func(v *PulsarJobConfig) PulsarJobConfig { return *v }).(PulsarJobConfigOutput)
+	return o.ApplyT(func(v *PulsarJobConfig) PulsarJobConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PulsarJobConfig
+		return ret
+	}).(PulsarJobConfigOutput)
 }
 
 func (o PulsarJobConfigPtrOutput) Host() pulumi.StringPtrOutput {
@@ -3135,6 +3155,56 @@ func (o GetZoneSecondaryArrayOutput) Index(i pulumi.IntInput) GetZoneSecondaryOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsAllowInput)(nil)).Elem(), APIKeyDnsRecordsAllowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsAllowArrayInput)(nil)).Elem(), APIKeyDnsRecordsAllowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsDenyInput)(nil)).Elem(), APIKeyDnsRecordsDenyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsDenyArrayInput)(nil)).Elem(), APIKeyDnsRecordsDenyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefaultConfigInput)(nil)).Elem(), ApplicationDefaultConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefaultConfigPtrInput)(nil)).Elem(), ApplicationDefaultConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobRuleInput)(nil)).Elem(), MonitoringJobRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobRuleArrayInput)(nil)).Elem(), MonitoringJobRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyListNotificationInput)(nil)).Elem(), NotifyListNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyListNotificationArrayInput)(nil)).Elem(), NotifyListNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobBlendMetricWeightsInput)(nil)).Elem(), PulsarJobBlendMetricWeightsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobBlendMetricWeightsPtrInput)(nil)).Elem(), PulsarJobBlendMetricWeightsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobConfigInput)(nil)).Elem(), PulsarJobConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobConfigPtrInput)(nil)).Elem(), PulsarJobConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobWeightInput)(nil)).Elem(), PulsarJobWeightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobWeightArrayInput)(nil)).Elem(), PulsarJobWeightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordAnswerInput)(nil)).Elem(), RecordAnswerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordAnswerArrayInput)(nil)).Elem(), RecordAnswerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordFilterInput)(nil)).Elem(), RecordFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordFilterArrayInput)(nil)).Elem(), RecordFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordRegionInput)(nil)).Elem(), RecordRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordRegionArrayInput)(nil)).Elem(), RecordRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamDnsRecordsAllowInput)(nil)).Elem(), TeamDnsRecordsAllowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamDnsRecordsAllowArrayInput)(nil)).Elem(), TeamDnsRecordsAllowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamDnsRecordsDenyInput)(nil)).Elem(), TeamDnsRecordsDenyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamDnsRecordsDenyArrayInput)(nil)).Elem(), TeamDnsRecordsDenyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamIpWhitelistInput)(nil)).Elem(), TeamIpWhitelistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamIpWhitelistArrayInput)(nil)).Elem(), TeamIpWhitelistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDnsRecordsAllowInput)(nil)).Elem(), UserDnsRecordsAllowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDnsRecordsAllowArrayInput)(nil)).Elem(), UserDnsRecordsAllowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDnsRecordsDenyInput)(nil)).Elem(), UserDnsRecordsDenyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDnsRecordsDenyArrayInput)(nil)).Elem(), UserDnsRecordsDenyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSecondaryInput)(nil)).Elem(), ZoneSecondaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSecondaryArrayInput)(nil)).Elem(), ZoneSecondaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationInput)(nil)).Elem(), GetDNSSecDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDInput)(nil)).Elem(), GetDNSSecDelegationDArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDArrayInput)(nil)).Elem(), GetDNSSecDelegationDArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDnskeyInput)(nil)).Elem(), GetDNSSecDelegationDnskeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDnskeyArrayInput)(nil)).Elem(), GetDNSSecDelegationDnskeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeysInput)(nil)).Elem(), GetDNSSecKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeysDnskeyInput)(nil)).Elem(), GetDNSSecKeysDnskeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeysDnskeyArrayInput)(nil)).Elem(), GetDNSSecKeysDnskeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordAnswerInput)(nil)).Elem(), GetRecordAnswerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordAnswerArrayInput)(nil)).Elem(), GetRecordAnswerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordFilterInput)(nil)).Elem(), GetRecordFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordFilterArrayInput)(nil)).Elem(), GetRecordFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordRegionInput)(nil)).Elem(), GetRecordRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordRegionArrayInput)(nil)).Elem(), GetRecordRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneSecondaryInput)(nil)).Elem(), GetZoneSecondaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetZoneSecondaryArrayInput)(nil)).Elem(), GetZoneSecondaryArray{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsAllowOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsAllowArrayOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyOutput{})

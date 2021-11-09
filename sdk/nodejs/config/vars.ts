@@ -4,13 +4,49 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("ns1");
+declare var exports: any;
+const __config = new pulumi.Config("ns1");
 
 /**
  * The ns1 API key, this is required
  */
-export let apikey: string | undefined = __config.get("apikey");
-export let enableDdi: boolean | undefined = __config.getObject<boolean>("enableDdi");
-export let endpoint: string | undefined = __config.get("endpoint");
-export let ignoreSsl: boolean | undefined = __config.getObject<boolean>("ignoreSsl");
-export let rateLimitParallelism: number | undefined = __config.getObject<number>("rateLimitParallelism");
+export declare const apikey: string | undefined;
+Object.defineProperty(exports, "apikey", {
+    get() {
+        return __config.get("apikey");
+    },
+    enumerable: true,
+});
+
+export declare const enableDdi: boolean | undefined;
+Object.defineProperty(exports, "enableDdi", {
+    get() {
+        return __config.getObject<boolean>("enableDdi");
+    },
+    enumerable: true,
+});
+
+export declare const endpoint: string | undefined;
+Object.defineProperty(exports, "endpoint", {
+    get() {
+        return __config.get("endpoint");
+    },
+    enumerable: true,
+});
+
+export declare const ignoreSsl: boolean | undefined;
+Object.defineProperty(exports, "ignoreSsl", {
+    get() {
+        return __config.getObject<boolean>("ignoreSsl");
+    },
+    enumerable: true,
+});
+
+export declare const rateLimitParallelism: number | undefined;
+Object.defineProperty(exports, "rateLimitParallelism", {
+    get() {
+        return __config.getObject<number>("rateLimitParallelism");
+    },
+    enumerable: true,
+});
+

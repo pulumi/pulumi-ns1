@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Ns1
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Task<GetDNSSecResult> InvokeAsync(GetDNSSecArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides DNSSEC details about a NS1 Zone.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         // Get DNSSEC details about a NS1 Zone.
+        ///         var exampleZone = new Ns1.Zone("exampleZone", new Ns1.ZoneArgs
+        ///         {
+        ///             Dnssec = true,
+        ///             Zone = "terraform.example.io",
+        ///         });
+        ///         var exampleDNSSec = exampleZone.ZoneName.Apply(zone =&gt; Ns1.GetDNSSec.InvokeAsync(new Ns1.GetDNSSecArgs
+        ///         {
+        ///             Zone = zone,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDNSSecResult> Invoke(GetDNSSecInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +93,19 @@ namespace Pulumi.Ns1
         public string Zone { get; set; } = null!;
 
         public GetDNSSecArgs()
+        {
+        }
+    }
+
+    public sealed class GetDNSSecInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the zone to get DNSSEC details for.
+        /// </summary>
+        [Input("zone", required: true)]
+        public Input<string> Zone { get; set; } = null!;
+
+        public GetDNSSecInvokeArgs()
         {
         }
     }

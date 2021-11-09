@@ -28,15 +28,15 @@ import (
 // 		_, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
 // 			AccountManageUsers: pulumi.Bool(false),
 // 			DnsViewZones:       pulumi.Bool(false),
-// 			IpWhitelists: ns1.TeamIpWhitelistArray{
-// 				&ns1.TeamIpWhitelistArgs{
+// 			IpWhitelists: TeamIpWhitelistArray{
+// 				&TeamIpWhitelistArgs{
 // 					Name: pulumi.String("whitelist-1"),
 // 					Values: pulumi.StringArray{
 // 						pulumi.String("1.1.1.1"),
 // 						pulumi.String("2.2.2.2"),
 // 					},
 // 				},
-// 				&ns1.TeamIpWhitelistArgs{
+// 				&TeamIpWhitelistArgs{
 // 					Name: pulumi.String("whitelist-2"),
 // 					Values: pulumi.StringArray{
 // 						pulumi.String("3.3.3.3"),
@@ -50,8 +50,8 @@ import (
 // 		}
 // 		_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
 // 			DataManageDatasources: pulumi.Bool(true),
-// 			DnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{
-// 				&ns1.TeamDnsRecordsAllowArgs{
+// 			DnsRecordsAllows: TeamDnsRecordsAllowArray{
+// 				&TeamDnsRecordsAllowArgs{
 // 					Domain:            pulumi.String("terraform.example.io"),
 // 					IncludeSubdomains: pulumi.Bool(false),
 // 					Type:              pulumi.String("A"),
@@ -518,7 +518,7 @@ type TeamArrayInput interface {
 type TeamArray []TeamInput
 
 func (TeamArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Team)(nil))
+	return reflect.TypeOf((*[]*Team)(nil)).Elem()
 }
 
 func (i TeamArray) ToTeamArrayOutput() TeamArrayOutput {
@@ -543,7 +543,7 @@ type TeamMapInput interface {
 type TeamMap map[string]TeamInput
 
 func (TeamMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Team)(nil))
+	return reflect.TypeOf((*map[string]*Team)(nil)).Elem()
 }
 
 func (i TeamMap) ToTeamMapOutput() TeamMapOutput {
@@ -554,9 +554,7 @@ func (i TeamMap) ToTeamMapOutputWithContext(ctx context.Context) TeamMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMapOutput)
 }
 
-type TeamOutput struct {
-	*pulumi.OutputState
-}
+type TeamOutput struct{ *pulumi.OutputState }
 
 func (TeamOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Team)(nil))
@@ -575,14 +573,12 @@ func (o TeamOutput) ToTeamPtrOutput() TeamPtrOutput {
 }
 
 func (o TeamOutput) ToTeamPtrOutputWithContext(ctx context.Context) TeamPtrOutput {
-	return o.ApplyT(func(v Team) *Team {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Team) *Team {
 		return &v
 	}).(TeamPtrOutput)
 }
 
-type TeamPtrOutput struct {
-	*pulumi.OutputState
-}
+type TeamPtrOutput struct{ *pulumi.OutputState }
 
 func (TeamPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Team)(nil))
@@ -594,6 +590,16 @@ func (o TeamPtrOutput) ToTeamPtrOutput() TeamPtrOutput {
 
 func (o TeamPtrOutput) ToTeamPtrOutputWithContext(ctx context.Context) TeamPtrOutput {
 	return o
+}
+
+func (o TeamPtrOutput) Elem() TeamOutput {
+	return o.ApplyT(func(v *Team) Team {
+		if v != nil {
+			return *v
+		}
+		var ret Team
+		return ret
+	}).(TeamOutput)
 }
 
 type TeamArrayOutput struct{ *pulumi.OutputState }
@@ -637,6 +643,10 @@ func (o TeamMapOutput) MapIndex(k pulumi.StringInput) TeamOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamInput)(nil)).Elem(), &Team{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamPtrInput)(nil)).Elem(), &Team{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamArrayInput)(nil)).Elem(), TeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMapInput)(nil)).Elem(), TeamMap{})
 	pulumi.RegisterOutputType(TeamOutput{})
 	pulumi.RegisterOutputType(TeamPtrOutput{})
 	pulumi.RegisterOutputType(TeamArrayOutput{})
