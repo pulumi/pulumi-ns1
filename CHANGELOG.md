@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to terraform-bridge 3.11.0
-* Upgrade to pulumi 3.17.0
+_(none)_
 
 ---
+
+## 2.3.0 (2021-11-11)
+* Upgrade to terraform-bridge 3.11.0
+* Upgrade to pulumi 3.17.0
 
 ## 2.2.1 (2021-10-04)
 * Upgrade to v1.12.1 of the NS1 Terraform Provider
