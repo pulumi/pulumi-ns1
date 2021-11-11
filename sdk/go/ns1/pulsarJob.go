@@ -182,7 +182,7 @@ type PulsarJobArrayInput interface {
 type PulsarJobArray []PulsarJobInput
 
 func (PulsarJobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PulsarJob)(nil))
+	return reflect.TypeOf((*[]*PulsarJob)(nil)).Elem()
 }
 
 func (i PulsarJobArray) ToPulsarJobArrayOutput() PulsarJobArrayOutput {
@@ -207,7 +207,7 @@ type PulsarJobMapInput interface {
 type PulsarJobMap map[string]PulsarJobInput
 
 func (PulsarJobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PulsarJob)(nil))
+	return reflect.TypeOf((*map[string]*PulsarJob)(nil)).Elem()
 }
 
 func (i PulsarJobMap) ToPulsarJobMapOutput() PulsarJobMapOutput {
@@ -218,9 +218,7 @@ func (i PulsarJobMap) ToPulsarJobMapOutputWithContext(ctx context.Context) Pulsa
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobMapOutput)
 }
 
-type PulsarJobOutput struct {
-	*pulumi.OutputState
-}
+type PulsarJobOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PulsarJob)(nil))
@@ -239,14 +237,12 @@ func (o PulsarJobOutput) ToPulsarJobPtrOutput() PulsarJobPtrOutput {
 }
 
 func (o PulsarJobOutput) ToPulsarJobPtrOutputWithContext(ctx context.Context) PulsarJobPtrOutput {
-	return o.ApplyT(func(v PulsarJob) *PulsarJob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PulsarJob) *PulsarJob {
 		return &v
 	}).(PulsarJobPtrOutput)
 }
 
-type PulsarJobPtrOutput struct {
-	*pulumi.OutputState
-}
+type PulsarJobPtrOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PulsarJob)(nil))
@@ -258,6 +254,16 @@ func (o PulsarJobPtrOutput) ToPulsarJobPtrOutput() PulsarJobPtrOutput {
 
 func (o PulsarJobPtrOutput) ToPulsarJobPtrOutputWithContext(ctx context.Context) PulsarJobPtrOutput {
 	return o
+}
+
+func (o PulsarJobPtrOutput) Elem() PulsarJobOutput {
+	return o.ApplyT(func(v *PulsarJob) PulsarJob {
+		if v != nil {
+			return *v
+		}
+		var ret PulsarJob
+		return ret
+	}).(PulsarJobOutput)
 }
 
 type PulsarJobArrayOutput struct{ *pulumi.OutputState }
@@ -301,6 +307,10 @@ func (o PulsarJobMapOutput) MapIndex(k pulumi.StringInput) PulsarJobOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobInput)(nil)).Elem(), &PulsarJob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobPtrInput)(nil)).Elem(), &PulsarJob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobArrayInput)(nil)).Elem(), PulsarJobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobMapInput)(nil)).Elem(), PulsarJobMap{})
 	pulumi.RegisterOutputType(PulsarJobOutput{})
 	pulumi.RegisterOutputType(PulsarJobPtrOutput{})
 	pulumi.RegisterOutputType(PulsarJobArrayOutput{})

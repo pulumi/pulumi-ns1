@@ -4,6 +4,9 @@
 package ns1
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,62 @@ type GetDNSSecResult struct {
 	// (Computed) - Keys field is documented below.
 	Keys GetDNSSecKeys `pulumi:"keys"`
 	Zone string        `pulumi:"zone"`
+}
+
+func GetDNSSecOutput(ctx *pulumi.Context, args GetDNSSecOutputArgs, opts ...pulumi.InvokeOption) GetDNSSecResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDNSSecResult, error) {
+			args := v.(GetDNSSecArgs)
+			r, err := GetDNSSec(ctx, &args, opts...)
+			return *r, err
+		}).(GetDNSSecResultOutput)
+}
+
+// A collection of arguments for invoking getDNSSec.
+type GetDNSSecOutputArgs struct {
+	// The name of the zone to get DNSSEC details for.
+	Zone pulumi.StringInput `pulumi:"zone"`
+}
+
+func (GetDNSSecOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDNSSecArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDNSSec.
+type GetDNSSecResultOutput struct{ *pulumi.OutputState }
+
+func (GetDNSSecResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDNSSecResult)(nil)).Elem()
+}
+
+func (o GetDNSSecResultOutput) ToGetDNSSecResultOutput() GetDNSSecResultOutput {
+	return o
+}
+
+func (o GetDNSSecResultOutput) ToGetDNSSecResultOutputWithContext(ctx context.Context) GetDNSSecResultOutput {
+	return o
+}
+
+// (Computed) - Delegation field is documented
+// below.
+func (o GetDNSSecResultOutput) Delegation() GetDNSSecDelegationOutput {
+	return o.ApplyT(func(v GetDNSSecResult) GetDNSSecDelegation { return v.Delegation }).(GetDNSSecDelegationOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDNSSecResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDNSSecResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Computed) - Keys field is documented below.
+func (o GetDNSSecResultOutput) Keys() GetDNSSecKeysOutput {
+	return o.ApplyT(func(v GetDNSSecResult) GetDNSSecKeys { return v.Keys }).(GetDNSSecKeysOutput)
+}
+
+func (o GetDNSSecResultOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDNSSecResult) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDNSSecResultOutput{})
 }

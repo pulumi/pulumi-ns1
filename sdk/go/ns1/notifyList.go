@@ -25,16 +25,16 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ns1.NewNotifyList(ctx, "nl", &ns1.NotifyListArgs{
-// 			Notifications: ns1.NotifyListNotificationArray{
-// 				&ns1.NotifyListNotificationArgs{
-// 					Config: pulumi.StringMap{
-// 						"url": pulumi.String("http://www.mywebhook.com"),
+// 			Notifications: NotifyListNotificationArray{
+// 				&NotifyListNotificationArgs{
+// 					Config: pulumi.AnyMap{
+// 						"url": pulumi.Any("http://www.mywebhook.com"),
 // 					},
 // 					Type: pulumi.String("webhook"),
 // 				},
-// 				&ns1.NotifyListNotificationArgs{
-// 					Config: pulumi.StringMap{
-// 						"email": pulumi.String("test@test.com"),
+// 				&NotifyListNotificationArgs{
+// 					Config: pulumi.AnyMap{
+// 						"email": pulumi.Any("test@test.com"),
 // 					},
 // 					Type: pulumi.String("email"),
 // 				},
@@ -186,7 +186,7 @@ type NotifyListArrayInput interface {
 type NotifyListArray []NotifyListInput
 
 func (NotifyListArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NotifyList)(nil))
+	return reflect.TypeOf((*[]*NotifyList)(nil)).Elem()
 }
 
 func (i NotifyListArray) ToNotifyListArrayOutput() NotifyListArrayOutput {
@@ -211,7 +211,7 @@ type NotifyListMapInput interface {
 type NotifyListMap map[string]NotifyListInput
 
 func (NotifyListMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NotifyList)(nil))
+	return reflect.TypeOf((*map[string]*NotifyList)(nil)).Elem()
 }
 
 func (i NotifyListMap) ToNotifyListMapOutput() NotifyListMapOutput {
@@ -222,9 +222,7 @@ func (i NotifyListMap) ToNotifyListMapOutputWithContext(ctx context.Context) Not
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListMapOutput)
 }
 
-type NotifyListOutput struct {
-	*pulumi.OutputState
-}
+type NotifyListOutput struct{ *pulumi.OutputState }
 
 func (NotifyListOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotifyList)(nil))
@@ -243,14 +241,12 @@ func (o NotifyListOutput) ToNotifyListPtrOutput() NotifyListPtrOutput {
 }
 
 func (o NotifyListOutput) ToNotifyListPtrOutputWithContext(ctx context.Context) NotifyListPtrOutput {
-	return o.ApplyT(func(v NotifyList) *NotifyList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotifyList) *NotifyList {
 		return &v
 	}).(NotifyListPtrOutput)
 }
 
-type NotifyListPtrOutput struct {
-	*pulumi.OutputState
-}
+type NotifyListPtrOutput struct{ *pulumi.OutputState }
 
 func (NotifyListPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NotifyList)(nil))
@@ -262,6 +258,16 @@ func (o NotifyListPtrOutput) ToNotifyListPtrOutput() NotifyListPtrOutput {
 
 func (o NotifyListPtrOutput) ToNotifyListPtrOutputWithContext(ctx context.Context) NotifyListPtrOutput {
 	return o
+}
+
+func (o NotifyListPtrOutput) Elem() NotifyListOutput {
+	return o.ApplyT(func(v *NotifyList) NotifyList {
+		if v != nil {
+			return *v
+		}
+		var ret NotifyList
+		return ret
+	}).(NotifyListOutput)
 }
 
 type NotifyListArrayOutput struct{ *pulumi.OutputState }
@@ -305,6 +311,10 @@ func (o NotifyListMapOutput) MapIndex(k pulumi.StringInput) NotifyListOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyListInput)(nil)).Elem(), &NotifyList{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyListPtrInput)(nil)).Elem(), &NotifyList{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyListArrayInput)(nil)).Elem(), NotifyListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyListMapInput)(nil)).Elem(), NotifyListMap{})
 	pulumi.RegisterOutputType(NotifyListOutput{})
 	pulumi.RegisterOutputType(NotifyListPtrOutput{})
 	pulumi.RegisterOutputType(NotifyListArrayOutput{})

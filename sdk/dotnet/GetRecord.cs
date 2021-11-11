@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Ns1
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Task<GetRecordResult> InvokeAsync(GetRecordArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a NS1 Record. Use this if you would simply like to read
+        /// information from NS1 into your configurations. For read/write operations, you
+        /// should use a resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Ns1.GetRecord.InvokeAsync(new Ns1.GetRecordArgs
+        ///         {
+        ///             Domain = "terraform.example.io",
+        ///             Type = "A",
+        ///             Zone = "example.io",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRecordResult> Invoke(GetRecordInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithVersion());
     }
 
 
@@ -67,6 +101,31 @@ namespace Pulumi.Ns1
         public string Zone { get; set; } = null!;
 
         public GetRecordArgs()
+        {
+        }
+    }
+
+    public sealed class GetRecordInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The records' domain.
+        /// </summary>
+        [Input("domain", required: true)]
+        public Input<string> Domain { get; set; } = null!;
+
+        /// <summary>
+        /// The records' RR type.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// The zone the record belongs to.
+        /// </summary>
+        [Input("zone", required: true)]
+        public Input<string> Zone { get; set; } = null!;
+
+        public GetRecordInvokeArgs()
         {
         }
     }

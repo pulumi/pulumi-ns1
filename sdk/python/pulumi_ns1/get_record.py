@@ -13,6 +13,7 @@ __all__ = [
     'GetRecordResult',
     'AwaitableGetRecordResult',
     'get_record',
+    'get_record_output',
 ]
 
 @pulumi.output_type
@@ -211,3 +212,32 @@ def get_record(domain: Optional[str] = None,
         type=__ret__.type,
         use_client_subnet=__ret__.use_client_subnet,
         zone=__ret__.zone)
+
+
+@_utilities.lift_output_func(get_record)
+def get_record_output(domain: Optional[pulumi.Input[str]] = None,
+                      type: Optional[pulumi.Input[str]] = None,
+                      zone: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordResult]:
+    """
+    Provides details about a NS1 Record. Use this if you would simply like to read
+    information from NS1 into your configurations. For read/write operations, you
+    should use a resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_ns1 as ns1
+
+    example = ns1.get_record(domain="terraform.example.io",
+        type="A",
+        zone="example.io")
+    ```
+
+
+    :param str domain: The records' domain.
+    :param str type: The records' RR type.
+    :param str zone: The zone the record belongs to.
+    """
+    ...

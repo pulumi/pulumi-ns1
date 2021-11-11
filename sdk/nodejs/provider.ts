@@ -25,6 +25,11 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * The ns1 API key, this is required
+     */
+    public readonly apikey!: pulumi.Output<string | undefined>;
+    public readonly endpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -57,9 +62,9 @@ export interface ProviderArgs {
     /**
      * The ns1 API key, this is required
      */
-    readonly apikey?: pulumi.Input<string>;
-    readonly enableDdi?: pulumi.Input<boolean>;
-    readonly endpoint?: pulumi.Input<string>;
-    readonly ignoreSsl?: pulumi.Input<boolean>;
-    readonly rateLimitParallelism?: pulumi.Input<number>;
+    apikey?: pulumi.Input<string>;
+    enableDdi?: pulumi.Input<boolean>;
+    endpoint?: pulumi.Input<string>;
+    ignoreSsl?: pulumi.Input<boolean>;
+    rateLimitParallelism?: pulumi.Input<number>;
 }

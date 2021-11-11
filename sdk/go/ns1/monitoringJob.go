@@ -29,11 +29,11 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ns1.NewMonitoringJob(ctx, "uswestMonitor", &ns1.MonitoringJobArgs{
 // 			Active: pulumi.Bool(true),
-// 			Config: pulumi.Map{
-// 				"host": pulumi.String("example-elb-uswest.aws.amazon.com"),
-// 				"port": pulumi.Float64(443),
-// 				"send": pulumi.String(fmt.Sprintf("%v%v%v", "HEAD / HTTP/1.0\n", "\n", "\n")),
-// 				"ssl": pulumi.Float64(1),
+// 			Config: pulumi.AnyMap{
+// 				"host": pulumi.Any("example-elb-uswest.aws.amazon.com"),
+// 				"port": pulumi.Any(443),
+// 				"send": pulumi.Any(fmt.Sprintf("%v%v%v", "HEAD / HTTP/1.0\n", "\n", "\n")),
+// 				"ssl": pulumi.Any(1),
 // 			},
 // 			Frequency:    pulumi.Int(60),
 // 			JobType:      pulumi.String("tcp"),
@@ -45,8 +45,8 @@ import (
 // 				pulumi.String("sin"),
 // 				pulumi.String("lga"),
 // 			},
-// 			Rules: ns1.MonitoringJobRuleArray{
-// 				&ns1.MonitoringJobRuleArgs{
+// 			Rules: MonitoringJobRuleArray{
+// 				&MonitoringJobRuleArgs{
 // 					Comparison: pulumi.String("contains"),
 // 					Key:        pulumi.String("output"),
 // 					Value:      pulumi.String("200 OK"),
@@ -356,7 +356,7 @@ type MonitoringJobArrayInput interface {
 type MonitoringJobArray []MonitoringJobInput
 
 func (MonitoringJobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MonitoringJob)(nil))
+	return reflect.TypeOf((*[]*MonitoringJob)(nil)).Elem()
 }
 
 func (i MonitoringJobArray) ToMonitoringJobArrayOutput() MonitoringJobArrayOutput {
@@ -381,7 +381,7 @@ type MonitoringJobMapInput interface {
 type MonitoringJobMap map[string]MonitoringJobInput
 
 func (MonitoringJobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MonitoringJob)(nil))
+	return reflect.TypeOf((*map[string]*MonitoringJob)(nil)).Elem()
 }
 
 func (i MonitoringJobMap) ToMonitoringJobMapOutput() MonitoringJobMapOutput {
@@ -392,9 +392,7 @@ func (i MonitoringJobMap) ToMonitoringJobMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobMapOutput)
 }
 
-type MonitoringJobOutput struct {
-	*pulumi.OutputState
-}
+type MonitoringJobOutput struct{ *pulumi.OutputState }
 
 func (MonitoringJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MonitoringJob)(nil))
@@ -413,14 +411,12 @@ func (o MonitoringJobOutput) ToMonitoringJobPtrOutput() MonitoringJobPtrOutput {
 }
 
 func (o MonitoringJobOutput) ToMonitoringJobPtrOutputWithContext(ctx context.Context) MonitoringJobPtrOutput {
-	return o.ApplyT(func(v MonitoringJob) *MonitoringJob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringJob) *MonitoringJob {
 		return &v
 	}).(MonitoringJobPtrOutput)
 }
 
-type MonitoringJobPtrOutput struct {
-	*pulumi.OutputState
-}
+type MonitoringJobPtrOutput struct{ *pulumi.OutputState }
 
 func (MonitoringJobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MonitoringJob)(nil))
@@ -432,6 +428,16 @@ func (o MonitoringJobPtrOutput) ToMonitoringJobPtrOutput() MonitoringJobPtrOutpu
 
 func (o MonitoringJobPtrOutput) ToMonitoringJobPtrOutputWithContext(ctx context.Context) MonitoringJobPtrOutput {
 	return o
+}
+
+func (o MonitoringJobPtrOutput) Elem() MonitoringJobOutput {
+	return o.ApplyT(func(v *MonitoringJob) MonitoringJob {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringJob
+		return ret
+	}).(MonitoringJobOutput)
 }
 
 type MonitoringJobArrayOutput struct{ *pulumi.OutputState }
@@ -475,6 +481,10 @@ func (o MonitoringJobMapOutput) MapIndex(k pulumi.StringInput) MonitoringJobOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobInput)(nil)).Elem(), &MonitoringJob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobPtrInput)(nil)).Elem(), &MonitoringJob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobArrayInput)(nil)).Elem(), MonitoringJobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobMapInput)(nil)).Elem(), MonitoringJobMap{})
 	pulumi.RegisterOutputType(MonitoringJobOutput{})
 	pulumi.RegisterOutputType(MonitoringJobPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringJobArrayOutput{})

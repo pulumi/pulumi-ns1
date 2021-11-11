@@ -13,6 +13,7 @@ __all__ = [
     'GetZoneResult',
     'AwaitableGetZoneResult',
     'get_zone',
+    'get_zone_output',
 ]
 
 @pulumi.output_type
@@ -258,3 +259,29 @@ def get_zone(additional_primaries: Optional[Sequence[str]] = None,
         secondaries=__ret__.secondaries,
         ttl=__ret__.ttl,
         zone=__ret__.zone)
+
+
+@_utilities.lift_output_func(get_zone)
+def get_zone_output(additional_primaries: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                    zone: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
+    """
+    Provides details about a NS1 Zone. Use this if you would simply like to read
+    information from NS1 into your configurations. For read/write operations, you
+    should use a resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_ns1 as ns1
+
+    example = ns1.get_zone(zone="terraform.example.io")
+    ```
+
+
+    :param Sequence[str] additional_primaries: List of additional IPv4 addresses for the primary
+           zone.
+    :param str zone: The domain name of the zone.
+    """
+    ...

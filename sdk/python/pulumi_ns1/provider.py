@@ -158,3 +158,16 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter
+    def apikey(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ns1 API key, this is required
+        """
+        return pulumi.get(self, "apikey")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "endpoint")
+

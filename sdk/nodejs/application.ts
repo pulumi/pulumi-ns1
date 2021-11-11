@@ -134,25 +134,25 @@ export interface ApplicationState {
      * Indicates whether or not this application is currently active and usable for traffic
      * steering.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * The amount of time (in milliseconds) the browser should wait before running
      * measurements.
      */
-    readonly browserWaitMillis?: pulumi.Input<number>;
+    browserWaitMillis?: pulumi.Input<number>;
     /**
      * -(Optional) Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
-    readonly defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
+    defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
     /**
      * -(Optional) Number of jobs to measure per user impression.
      */
-    readonly jobsPerTransaction?: pulumi.Input<number>;
+    jobsPerTransaction?: pulumi.Input<number>;
     /**
      * Descriptive name for this Pulsar app.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -163,23 +163,23 @@ export interface ApplicationArgs {
      * Indicates whether or not this application is currently active and usable for traffic
      * steering.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * The amount of time (in milliseconds) the browser should wait before running
      * measurements.
      */
-    readonly browserWaitMillis?: pulumi.Input<number>;
+    browserWaitMillis?: pulumi.Input<number>;
     /**
      * -(Optional) Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
-    readonly defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
+    defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
     /**
      * -(Optional) Number of jobs to measure per user impression.
      */
-    readonly jobsPerTransaction?: pulumi.Input<number>;
+    jobsPerTransaction?: pulumi.Input<number>;
     /**
      * Descriptive name for this Pulsar app.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

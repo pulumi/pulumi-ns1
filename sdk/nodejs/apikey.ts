@@ -263,136 +263,136 @@ export interface APIKeyState {
     /**
      * Whether the apikey can modify account settings.
      */
-    readonly accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account apikeys.
      */
-    readonly accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can manage ip whitelist.
      */
-    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account payment methods.
      */
-    readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify the account plan.
      *
      * @deprecated obsolete, should no longer be used
      */
-    readonly accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify other teams in the account.
      */
-    readonly accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account users.
      */
-    readonly accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view activity logs.
      */
-    readonly accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view invoices.
      */
-    readonly accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify data feeds.
      */
-    readonly dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify data sources.
      */
-    readonly dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can publish to data feeds.
      */
-    readonly dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can manage DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpManageDhcp?: pulumi.Input<boolean>;
+    dhcpManageDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpViewDhcp?: pulumi.Input<boolean>;
+    dhcpViewDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify the accounts zones.
      */
-    readonly dnsManageZones?: pulumi.Input<boolean>;
-    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
-    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
+    dnsManageZones?: pulumi.Input<boolean>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
     /**
      * Whether the apikey can view the accounts zones.
      */
-    readonly dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
     /**
      * List of zones that the apikey may access.
      */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the apikey may not access.
      */
-    readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean>;
     /**
      * Array of IP addresses/networks to which to grant the API key access.
      */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the apikey can manage IPAM.
      * Only relevant for the DDI product.
      */
-    readonly ipamManageIpam?: pulumi.Input<boolean>;
+    ipamManageIpam?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view IPAM.
      * Only relevant for the DDI product.
      */
-    readonly ipamViewIpam?: pulumi.Input<boolean>;
+    ipamViewIpam?: pulumi.Input<boolean>;
     /**
      * (Computed) The apikeys authentication token.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * Whether the apikey can modify monitoring jobs.
      */
-    readonly monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify notification lists.
      */
-    readonly monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view monitoring jobs.
      */
-    readonly monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean>;
     /**
      * The free form name of the apikey.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether the apikey can manage global active directory.
      * Only relevant for the DDI product.
      */
-    readonly securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can manage global two factor authentication.
      */
-    readonly securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean>;
     /**
      * The teams that the apikey belongs to.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -402,130 +402,130 @@ export interface APIKeyArgs {
     /**
      * Whether the apikey can modify account settings.
      */
-    readonly accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account apikeys.
      */
-    readonly accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can manage ip whitelist.
      */
-    readonly accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account payment methods.
      */
-    readonly accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify the account plan.
      *
      * @deprecated obsolete, should no longer be used
      */
-    readonly accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify other teams in the account.
      */
-    readonly accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify account users.
      */
-    readonly accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view activity logs.
      */
-    readonly accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view invoices.
      */
-    readonly accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify data feeds.
      */
-    readonly dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify data sources.
      */
-    readonly dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can publish to data feeds.
      */
-    readonly dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can manage DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpManageDhcp?: pulumi.Input<boolean>;
+    dhcpManageDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view DHCP.
      * Only relevant for the DDI product.
      */
-    readonly dhcpViewDhcp?: pulumi.Input<boolean>;
+    dhcpViewDhcp?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify the accounts zones.
      */
-    readonly dnsManageZones?: pulumi.Input<boolean>;
-    readonly dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
-    readonly dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
+    dnsManageZones?: pulumi.Input<boolean>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
     /**
      * Whether the apikey can view the accounts zones.
      */
-    readonly dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    readonly dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
     /**
      * List of zones that the apikey may access.
      */
-    readonly dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of zones that the apikey may not access.
      */
-    readonly dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    readonly ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean>;
     /**
      * Array of IP addresses/networks to which to grant the API key access.
      */
-    readonly ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the apikey can manage IPAM.
      * Only relevant for the DDI product.
      */
-    readonly ipamManageIpam?: pulumi.Input<boolean>;
+    ipamManageIpam?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view IPAM.
      * Only relevant for the DDI product.
      */
-    readonly ipamViewIpam?: pulumi.Input<boolean>;
+    ipamViewIpam?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify monitoring jobs.
      */
-    readonly monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can modify notification lists.
      */
-    readonly monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can view monitoring jobs.
      */
-    readonly monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean>;
     /**
      * The free form name of the apikey.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether the apikey can manage global active directory.
      * Only relevant for the DDI product.
      */
-    readonly securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
      * Whether the apikey can manage global two factor authentication.
      */
-    readonly securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean>;
     /**
      * The teams that the apikey belongs to.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
 }

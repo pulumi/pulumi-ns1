@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Ns1
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a NS1 Zone. Use this if you would simply like to read
+        /// information from NS1 into your configurations. For read/write operations, you
+        /// should use a resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Ns1.GetZone.InvokeAsync(new Ns1.GetZoneArgs
+        ///         {
+        ///             Zone = "terraform.example.io",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -66,6 +98,32 @@ namespace Pulumi.Ns1
         public string Zone { get; set; } = null!;
 
         public GetZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("additionalPrimaries")]
+        private InputList<string>? _additionalPrimaries;
+
+        /// <summary>
+        /// List of additional IPv4 addresses for the primary
+        /// zone.
+        /// </summary>
+        public InputList<string> AdditionalPrimaries
+        {
+            get => _additionalPrimaries ?? (_additionalPrimaries = new InputList<string>());
+            set => _additionalPrimaries = value;
+        }
+
+        /// <summary>
+        /// The domain name of the zone.
+        /// </summary>
+        [Input("zone", required: true)]
+        public Input<string> Zone { get; set; } = null!;
+
+        public GetZoneInvokeArgs()
         {
         }
     }

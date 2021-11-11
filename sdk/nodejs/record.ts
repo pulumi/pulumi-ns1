@@ -167,54 +167,54 @@ export interface RecordState {
      * One or more NS1 answers for the records' specified type.
      * Answers are documented below.
      */
-    readonly answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
+    answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * One or more NS1 filters for the record(order matters).
      * Filters are documented below.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
     /**
      * The target record to link to. This means this record is a
      * 'linked' record, and it inherits all properties from its target.
      */
-    readonly link?: pulumi.Input<string>;
-    readonly meta?: pulumi.Input<{[key: string]: any}>;
+    link?: pulumi.Input<string>;
+    meta?: pulumi.Input<{[key: string]: any}>;
     /**
      * One or more "regions" for the record. These are really
      * just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
      * but remain `regions` here for legacy reasons. Regions are
      * documented below. Please note the ordering requirement!
      */
-    readonly regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
     /**
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
-    readonly shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The records' time to live (in seconds).
      */
-    readonly ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number>;
     /**
      * The records' RR type.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
      * * ` meta` - (Optional) meta is supported at the `record` level. Meta
      * is documented below.
      */
-    readonly useClientSubnet?: pulumi.Input<boolean>;
+    useClientSubnet?: pulumi.Input<boolean>;
     /**
      * The zone the record belongs to. Cannot have leading or
      * trailing dots (".") - see the example above and `FQDN formatting` below.
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
 
 /**
@@ -225,52 +225,52 @@ export interface RecordArgs {
      * One or more NS1 answers for the records' specified type.
      * Answers are documented below.
      */
-    readonly answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
+    answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
      */
-    readonly domain: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
     /**
      * One or more NS1 filters for the record(order matters).
      * Filters are documented below.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
     /**
      * The target record to link to. This means this record is a
      * 'linked' record, and it inherits all properties from its target.
      */
-    readonly link?: pulumi.Input<string>;
-    readonly meta?: pulumi.Input<{[key: string]: any}>;
+    link?: pulumi.Input<string>;
+    meta?: pulumi.Input<{[key: string]: any}>;
     /**
      * One or more "regions" for the record. These are really
      * just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
      * but remain `regions` here for legacy reasons. Regions are
      * documented below. Please note the ordering requirement!
      */
-    readonly regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
     /**
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
-    readonly shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The records' time to live (in seconds).
      */
-    readonly ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number>;
     /**
      * The records' RR type.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
      * * ` meta` - (Optional) meta is supported at the `record` level. Meta
      * is documented below.
      */
-    readonly useClientSubnet?: pulumi.Input<boolean>;
+    useClientSubnet?: pulumi.Input<boolean>;
     /**
      * The zone the record belongs to. Cannot have leading or
      * trailing dots (".") - see the example above and `FQDN formatting` below.
      */
-    readonly zone: pulumi.Input<string>;
+    zone: pulumi.Input<string>;
 }

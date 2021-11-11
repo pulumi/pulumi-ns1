@@ -106,11 +106,11 @@ export interface NotifyListState {
     /**
      * The free-form display name for the notify list.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.NotifyListNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.NotifyListNotification>[]>;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface NotifyListArgs {
     /**
      * The free-form display name for the notify list.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.NotifyListNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.NotifyListNotification>[]>;
 }
