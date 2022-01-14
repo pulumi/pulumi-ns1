@@ -11,6 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+//  $ pulumi import ns1:index/user:User <name> <username>`
+// ```
 type User struct {
 	pulumi.CustomResourceState
 

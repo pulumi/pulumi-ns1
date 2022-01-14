@@ -4,7 +4,7 @@ go 1.16
 
 replace (
 	github.com/hashicorp/go-getter => github.com/hashicorp/go-getter v1.4.0
-	github.com/ns1-terraform/terraform-provider-ns1 => github.com/pulumi/terraform-provider-ns1 v1.8.5-0.20210930143459-13b333c650cb
+	github.com/ns1-terraform/terraform-provider-ns1 => github.com/pulumi/terraform-provider-ns1 v1.8.5-0.20220114000902-821f7df64586
 )
 
 require (

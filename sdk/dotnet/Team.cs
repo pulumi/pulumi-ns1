@@ -82,6 +82,12 @@ namespace Pulumi.Ns1
     /// ## NS1 Documentation
     /// 
     /// [Team Api Docs](https://ns1.com/api#team)
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/team:Team &lt;name&gt; &lt;team_id&gt;`
+    /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/team:Team")]
     public partial class Team : Pulumi.CustomResource

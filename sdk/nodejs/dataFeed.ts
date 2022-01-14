@@ -13,29 +13,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const example = new ns1.DataSource("example", {
- *     sourcetype: "nsone_v1",
- * });
- * const exampleMonitoring = new ns1.DataSource("example_monitoring", {
- *     sourcetype: "nsone_monitoring",
- * });
- * const uswestFeed = new ns1.DataFeed("uswest_feed", {
+ * const example = new ns1.DataSource("example", {sourcetype: "nsone_v1"});
+ * const exampleMonitoring = new ns1.DataSource("exampleMonitoring", {sourcetype: "nsone_monitoring"});
+ * const uswestFeed = new ns1.DataFeed("uswestFeed", {
+ *     sourceId: example.id,
  *     config: {
  *         label: "uswest",
  *     },
- *     sourceId: example.id,
  * });
- * const useastFeed = new ns1.DataFeed("useast_feed", {
+ * const useastFeed = new ns1.DataFeed("useastFeed", {
+ *     sourceId: example.id,
  *     config: {
  *         label: "useast",
  *     },
- *     sourceId: example.id,
  * });
- * const useastMonitorFeed = new ns1.DataFeed("useast_monitor_feed", {
- *     config: {
- *         jobid: ns1_monitoringjob_example_job.id,
- *     },
+ * const useastMonitorFeed = new ns1.DataFeed("useastMonitorFeed", {
  *     sourceId: exampleMonitoring.id,
+ *     config: {
+ *         jobid: ns1_monitoringjob.example_job.id,
+ *     },
  * });
  * ```
  * ## NS1 Documentation

@@ -32,27 +32,27 @@ namespace Pulumi.Ns1
     ///         });
     ///         var uswestFeed = new Ns1.DataFeed("uswestFeed", new Ns1.DataFeedArgs
     ///         {
+    ///             SourceId = example.Id,
     ///             Config = 
     ///             {
     ///                 { "label", "uswest" },
     ///             },
-    ///             SourceId = example.Id,
     ///         });
     ///         var useastFeed = new Ns1.DataFeed("useastFeed", new Ns1.DataFeedArgs
     ///         {
+    ///             SourceId = example.Id,
     ///             Config = 
     ///             {
     ///                 { "label", "useast" },
     ///             },
-    ///             SourceId = example.Id,
     ///         });
     ///         var useastMonitorFeed = new Ns1.DataFeed("useastMonitorFeed", new Ns1.DataFeedArgs
     ///         {
+    ///             SourceId = exampleMonitoring.Id,
     ///             Config = 
     ///             {
     ///                 { "jobid", ns1_monitoringjob.Example_job.Id },
     ///             },
-    ///             SourceId = exampleMonitoring.Id,
     ///         });
     ///     }
     /// 

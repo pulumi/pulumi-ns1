@@ -56,6 +56,12 @@ import * as utilities from "./utilities";
  * ## NS1 Documentation
  *
  * [Team Api Docs](https://ns1.com/api#team)
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/team:Team <name> <team_id>`
+ * ```
  */
 export class Team extends pulumi.CustomResource {
     /**

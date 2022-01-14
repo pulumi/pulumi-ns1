@@ -38,28 +38,28 @@ import (
 // 			return err
 // 		}
 // 		_, err = ns1.NewDataFeed(ctx, "uswestFeed", &ns1.DataFeedArgs{
+// 			SourceId: example.ID(),
 // 			Config: pulumi.AnyMap{
 // 				"label": pulumi.Any("uswest"),
 // 			},
-// 			SourceId: example.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ns1.NewDataFeed(ctx, "useastFeed", &ns1.DataFeedArgs{
+// 			SourceId: example.ID(),
 // 			Config: pulumi.AnyMap{
 // 				"label": pulumi.Any("useast"),
 // 			},
-// 			SourceId: example.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ns1.NewDataFeed(ctx, "useastMonitorFeed", &ns1.DataFeedArgs{
+// 			SourceId: exampleMonitoring.ID(),
 // 			Config: pulumi.AnyMap{
 // 				"jobid": pulumi.Any(ns1_monitoringjob.Example_job.Id),
 // 			},
-// 			SourceId: exampleMonitoring.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

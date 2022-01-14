@@ -146,20 +146,20 @@ class DataFeed(pulumi.CustomResource):
         example = ns1.DataSource("example", sourcetype="nsone_v1")
         example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
         uswest_feed = ns1.DataFeed("uswestFeed",
+            source_id=example.id,
             config={
                 "label": "uswest",
-            },
-            source_id=example.id)
+            })
         useast_feed = ns1.DataFeed("useastFeed",
+            source_id=example.id,
             config={
                 "label": "useast",
-            },
-            source_id=example.id)
+            })
         useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
+            source_id=example_monitoring.id,
             config={
                 "jobid": ns1_monitoringjob["example_job"]["id"],
-            },
-            source_id=example_monitoring.id)
+            })
         ```
         ## NS1 Documentation
 
@@ -190,20 +190,20 @@ class DataFeed(pulumi.CustomResource):
         example = ns1.DataSource("example", sourcetype="nsone_v1")
         example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
         uswest_feed = ns1.DataFeed("uswestFeed",
+            source_id=example.id,
             config={
                 "label": "uswest",
-            },
-            source_id=example.id)
+            })
         useast_feed = ns1.DataFeed("useastFeed",
+            source_id=example.id,
             config={
                 "label": "useast",
-            },
-            source_id=example.id)
+            })
         useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
+            source_id=example_monitoring.id,
             config={
                 "jobid": ns1_monitoringjob["example_job"]["id"],
-            },
-            source_id=example_monitoring.id)
+            })
         ```
         ## NS1 Documentation
 

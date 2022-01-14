@@ -77,6 +77,12 @@ import (
 // ## NS1 Documentation
 //
 // [Team Api Docs](https://ns1.com/api#team)
+//
+// ## Import
+//
+// ```sh
+//  $ pulumi import ns1:index/team:Team <name> <team_id>`
+// ```
 type Team struct {
 	pulumi.CustomResourceState
 

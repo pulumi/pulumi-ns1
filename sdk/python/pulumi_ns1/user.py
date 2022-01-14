@@ -1186,7 +1186,12 @@ class User(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a User resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+         $ pulumi import ns1:index/user:User <name> <username>`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] account_manage_account_settings: Whether the user can modify account settings.
@@ -1233,7 +1238,12 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a User resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+         $ pulumi import ns1:index/user:User <name> <username>`
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -1082,6 +1082,12 @@ class Team(pulumi.CustomResource):
 
         [Team Api Docs](https://ns1.com/api#team)
 
+        ## Import
+
+        ```sh
+         $ pulumi import ns1:index/team:Team <name> <team_id>`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] account_manage_account_settings: Whether the team can modify account settings.
@@ -1171,6 +1177,12 @@ class Team(pulumi.CustomResource):
         ## NS1 Documentation
 
         [Team Api Docs](https://ns1.com/api#team)
+
+        ## Import
+
+        ```sh
+         $ pulumi import ns1:index/team:Team <name> <team_id>`
+        ```
 
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.
