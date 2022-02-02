@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Ns1
 {
@@ -33,10 +32,10 @@ namespace Pulumi.Ns1
         ///             Dnssec = true,
         ///             Zone = "terraform.example.io",
         ///         });
-        ///         var exampleDNSSec = exampleZone.ZoneName.Apply(zone =&gt; Ns1.GetDNSSec.InvokeAsync(new Ns1.GetDNSSecArgs
+        ///         var exampleDNSSec = Ns1.GetDNSSec.Invoke(new Ns1.GetDNSSecInvokeArgs
         ///         {
-        ///             Zone = zone,
-        ///         }));
+        ///             Zone = exampleZone.ZoneName,
+        ///         });
         ///     }
         /// 
         /// }
@@ -45,7 +44,7 @@ namespace Pulumi.Ns1
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDNSSecResult> InvokeAsync(GetDNSSecArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides DNSSEC details about a NS1 Zone.
@@ -68,10 +67,10 @@ namespace Pulumi.Ns1
         ///             Dnssec = true,
         ///             Zone = "terraform.example.io",
         ///         });
-        ///         var exampleDNSSec = exampleZone.ZoneName.Apply(zone =&gt; Ns1.GetDNSSec.InvokeAsync(new Ns1.GetDNSSecArgs
+        ///         var exampleDNSSec = Ns1.GetDNSSec.Invoke(new Ns1.GetDNSSecInvokeArgs
         ///         {
-        ///             Zone = zone,
-        ///         }));
+        ///             Zone = exampleZone.ZoneName,
+        ///         });
         ///     }
         /// 
         /// }
@@ -80,7 +79,7 @@ namespace Pulumi.Ns1
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDNSSecResult> Invoke(GetDNSSecInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -187,45 +187,45 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
-            inputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
-            inputs["accountManageIpWhitelist"] = state ? state.accountManageIpWhitelist : undefined;
-            inputs["accountManagePaymentMethods"] = state ? state.accountManagePaymentMethods : undefined;
-            inputs["accountManagePlan"] = state ? state.accountManagePlan : undefined;
-            inputs["accountManageTeams"] = state ? state.accountManageTeams : undefined;
-            inputs["accountManageUsers"] = state ? state.accountManageUsers : undefined;
-            inputs["accountViewActivityLog"] = state ? state.accountViewActivityLog : undefined;
-            inputs["accountViewInvoices"] = state ? state.accountViewInvoices : undefined;
-            inputs["dataManageDatafeeds"] = state ? state.dataManageDatafeeds : undefined;
-            inputs["dataManageDatasources"] = state ? state.dataManageDatasources : undefined;
-            inputs["dataPushToDatafeeds"] = state ? state.dataPushToDatafeeds : undefined;
-            inputs["dhcpManageDhcp"] = state ? state.dhcpManageDhcp : undefined;
-            inputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
-            inputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
-            inputs["dnsRecordsAllows"] = state ? state.dnsRecordsAllows : undefined;
-            inputs["dnsRecordsDenies"] = state ? state.dnsRecordsDenies : undefined;
-            inputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
-            inputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
-            inputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
-            inputs["dnsZonesDenies"] = state ? state.dnsZonesDenies : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["ipWhitelistStrict"] = state ? state.ipWhitelistStrict : undefined;
-            inputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
-            inputs["ipamManageIpam"] = state ? state.ipamManageIpam : undefined;
-            inputs["ipamViewIpam"] = state ? state.ipamViewIpam : undefined;
-            inputs["monitoringManageJobs"] = state ? state.monitoringManageJobs : undefined;
-            inputs["monitoringManageLists"] = state ? state.monitoringManageLists : undefined;
-            inputs["monitoringViewJobs"] = state ? state.monitoringViewJobs : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notify"] = state ? state.notify : undefined;
-            inputs["securityManageActiveDirectory"] = state ? state.securityManageActiveDirectory : undefined;
-            inputs["securityManageGlobal2fa"] = state ? state.securityManageGlobal2fa : undefined;
-            inputs["teams"] = state ? state.teams : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
+            resourceInputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
+            resourceInputs["accountManageIpWhitelist"] = state ? state.accountManageIpWhitelist : undefined;
+            resourceInputs["accountManagePaymentMethods"] = state ? state.accountManagePaymentMethods : undefined;
+            resourceInputs["accountManagePlan"] = state ? state.accountManagePlan : undefined;
+            resourceInputs["accountManageTeams"] = state ? state.accountManageTeams : undefined;
+            resourceInputs["accountManageUsers"] = state ? state.accountManageUsers : undefined;
+            resourceInputs["accountViewActivityLog"] = state ? state.accountViewActivityLog : undefined;
+            resourceInputs["accountViewInvoices"] = state ? state.accountViewInvoices : undefined;
+            resourceInputs["dataManageDatafeeds"] = state ? state.dataManageDatafeeds : undefined;
+            resourceInputs["dataManageDatasources"] = state ? state.dataManageDatasources : undefined;
+            resourceInputs["dataPushToDatafeeds"] = state ? state.dataPushToDatafeeds : undefined;
+            resourceInputs["dhcpManageDhcp"] = state ? state.dhcpManageDhcp : undefined;
+            resourceInputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
+            resourceInputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
+            resourceInputs["dnsRecordsAllows"] = state ? state.dnsRecordsAllows : undefined;
+            resourceInputs["dnsRecordsDenies"] = state ? state.dnsRecordsDenies : undefined;
+            resourceInputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
+            resourceInputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
+            resourceInputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
+            resourceInputs["dnsZonesDenies"] = state ? state.dnsZonesDenies : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["ipWhitelistStrict"] = state ? state.ipWhitelistStrict : undefined;
+            resourceInputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
+            resourceInputs["ipamManageIpam"] = state ? state.ipamManageIpam : undefined;
+            resourceInputs["ipamViewIpam"] = state ? state.ipamViewIpam : undefined;
+            resourceInputs["monitoringManageJobs"] = state ? state.monitoringManageJobs : undefined;
+            resourceInputs["monitoringManageLists"] = state ? state.monitoringManageLists : undefined;
+            resourceInputs["monitoringViewJobs"] = state ? state.monitoringViewJobs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notify"] = state ? state.notify : undefined;
+            resourceInputs["securityManageActiveDirectory"] = state ? state.securityManageActiveDirectory : undefined;
+            resourceInputs["securityManageGlobal2fa"] = state ? state.securityManageGlobal2fa : undefined;
+            resourceInputs["teams"] = state ? state.teams : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
@@ -234,46 +234,44 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["accountManageAccountSettings"] = args ? args.accountManageAccountSettings : undefined;
-            inputs["accountManageApikeys"] = args ? args.accountManageApikeys : undefined;
-            inputs["accountManageIpWhitelist"] = args ? args.accountManageIpWhitelist : undefined;
-            inputs["accountManagePaymentMethods"] = args ? args.accountManagePaymentMethods : undefined;
-            inputs["accountManagePlan"] = args ? args.accountManagePlan : undefined;
-            inputs["accountManageTeams"] = args ? args.accountManageTeams : undefined;
-            inputs["accountManageUsers"] = args ? args.accountManageUsers : undefined;
-            inputs["accountViewActivityLog"] = args ? args.accountViewActivityLog : undefined;
-            inputs["accountViewInvoices"] = args ? args.accountViewInvoices : undefined;
-            inputs["dataManageDatafeeds"] = args ? args.dataManageDatafeeds : undefined;
-            inputs["dataManageDatasources"] = args ? args.dataManageDatasources : undefined;
-            inputs["dataPushToDatafeeds"] = args ? args.dataPushToDatafeeds : undefined;
-            inputs["dhcpManageDhcp"] = args ? args.dhcpManageDhcp : undefined;
-            inputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
-            inputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
-            inputs["dnsRecordsAllows"] = args ? args.dnsRecordsAllows : undefined;
-            inputs["dnsRecordsDenies"] = args ? args.dnsRecordsDenies : undefined;
-            inputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
-            inputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
-            inputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
-            inputs["dnsZonesDenies"] = args ? args.dnsZonesDenies : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["ipWhitelistStrict"] = args ? args.ipWhitelistStrict : undefined;
-            inputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
-            inputs["ipamManageIpam"] = args ? args.ipamManageIpam : undefined;
-            inputs["ipamViewIpam"] = args ? args.ipamViewIpam : undefined;
-            inputs["monitoringManageJobs"] = args ? args.monitoringManageJobs : undefined;
-            inputs["monitoringManageLists"] = args ? args.monitoringManageLists : undefined;
-            inputs["monitoringViewJobs"] = args ? args.monitoringViewJobs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notify"] = args ? args.notify : undefined;
-            inputs["securityManageActiveDirectory"] = args ? args.securityManageActiveDirectory : undefined;
-            inputs["securityManageGlobal2fa"] = args ? args.securityManageGlobal2fa : undefined;
-            inputs["teams"] = args ? args.teams : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["accountManageAccountSettings"] = args ? args.accountManageAccountSettings : undefined;
+            resourceInputs["accountManageApikeys"] = args ? args.accountManageApikeys : undefined;
+            resourceInputs["accountManageIpWhitelist"] = args ? args.accountManageIpWhitelist : undefined;
+            resourceInputs["accountManagePaymentMethods"] = args ? args.accountManagePaymentMethods : undefined;
+            resourceInputs["accountManagePlan"] = args ? args.accountManagePlan : undefined;
+            resourceInputs["accountManageTeams"] = args ? args.accountManageTeams : undefined;
+            resourceInputs["accountManageUsers"] = args ? args.accountManageUsers : undefined;
+            resourceInputs["accountViewActivityLog"] = args ? args.accountViewActivityLog : undefined;
+            resourceInputs["accountViewInvoices"] = args ? args.accountViewInvoices : undefined;
+            resourceInputs["dataManageDatafeeds"] = args ? args.dataManageDatafeeds : undefined;
+            resourceInputs["dataManageDatasources"] = args ? args.dataManageDatasources : undefined;
+            resourceInputs["dataPushToDatafeeds"] = args ? args.dataPushToDatafeeds : undefined;
+            resourceInputs["dhcpManageDhcp"] = args ? args.dhcpManageDhcp : undefined;
+            resourceInputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
+            resourceInputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
+            resourceInputs["dnsRecordsAllows"] = args ? args.dnsRecordsAllows : undefined;
+            resourceInputs["dnsRecordsDenies"] = args ? args.dnsRecordsDenies : undefined;
+            resourceInputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
+            resourceInputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
+            resourceInputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
+            resourceInputs["dnsZonesDenies"] = args ? args.dnsZonesDenies : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["ipWhitelistStrict"] = args ? args.ipWhitelistStrict : undefined;
+            resourceInputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
+            resourceInputs["ipamManageIpam"] = args ? args.ipamManageIpam : undefined;
+            resourceInputs["ipamViewIpam"] = args ? args.ipamViewIpam : undefined;
+            resourceInputs["monitoringManageJobs"] = args ? args.monitoringManageJobs : undefined;
+            resourceInputs["monitoringManageLists"] = args ? args.monitoringManageLists : undefined;
+            resourceInputs["monitoringViewJobs"] = args ? args.monitoringViewJobs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notify"] = args ? args.notify : undefined;
+            resourceInputs["securityManageActiveDirectory"] = args ? args.securityManageActiveDirectory : undefined;
+            resourceInputs["securityManageGlobal2fa"] = args ? args.securityManageGlobal2fa : undefined;
+            resourceInputs["teams"] = args ? args.teams : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

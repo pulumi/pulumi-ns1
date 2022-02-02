@@ -93,7 +93,7 @@ def get_dns_sec(zone: Optional[str] = None,
     example_zone = ns1.Zone("exampleZone",
         dnssec=True,
         zone="terraform.example.io")
-    example_dns_sec = example_zone.zone.apply(lambda zone: ns1.get_dns_sec(zone=zone))
+    example_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)
     ```
 
 
@@ -130,7 +130,7 @@ def get_dns_sec_output(zone: Optional[pulumi.Input[str]] = None,
     example_zone = ns1.Zone("exampleZone",
         dnssec=True,
         zone="terraform.example.io")
-    example_dns_sec = example_zone.zone.apply(lambda zone: ns1.get_dns_sec(zone=zone))
+    example_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)
     ```
 
 

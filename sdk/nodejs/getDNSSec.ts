@@ -29,9 +29,7 @@ export function getDNSSec(args: GetDNSSecArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("ns1:index/getDNSSec:getDNSSec", {
         "zone": args.zone,
     }, opts);
