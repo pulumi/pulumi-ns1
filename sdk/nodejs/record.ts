@@ -114,21 +114,21 @@ export class Record extends pulumi.CustomResource {
      */
     constructor(name: string, args: RecordArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RecordArgs | RecordState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordState | undefined;
-            inputs["answers"] = state ? state.answers : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["link"] = state ? state.link : undefined;
-            inputs["meta"] = state ? state.meta : undefined;
-            inputs["regions"] = state ? state.regions : undefined;
-            inputs["shortAnswers"] = state ? state.shortAnswers : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["useClientSubnet"] = state ? state.useClientSubnet : undefined;
-            inputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["answers"] = state ? state.answers : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["link"] = state ? state.link : undefined;
+            resourceInputs["meta"] = state ? state.meta : undefined;
+            resourceInputs["regions"] = state ? state.regions : undefined;
+            resourceInputs["shortAnswers"] = state ? state.shortAnswers : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["useClientSubnet"] = state ? state.useClientSubnet : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as RecordArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
@@ -140,22 +140,20 @@ export class Record extends pulumi.CustomResource {
             if ((!args || args.zone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
-            inputs["answers"] = args ? args.answers : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["link"] = args ? args.link : undefined;
-            inputs["meta"] = args ? args.meta : undefined;
-            inputs["regions"] = args ? args.regions : undefined;
-            inputs["shortAnswers"] = args ? args.shortAnswers : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["useClientSubnet"] = args ? args.useClientSubnet : undefined;
-            inputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["answers"] = args ? args.answers : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["link"] = args ? args.link : undefined;
+            resourceInputs["meta"] = args ? args.meta : undefined;
+            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["shortAnswers"] = args ? args.shortAnswers : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["useClientSubnet"] = args ? args.useClientSubnet : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Record.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Record.__pulumiType, name, resourceInputs, opts);
     }
 }
 

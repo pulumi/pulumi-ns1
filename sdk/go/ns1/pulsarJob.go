@@ -128,7 +128,7 @@ type PulsarJobInput interface {
 }
 
 func (*PulsarJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*PulsarJob)(nil))
+	return reflect.TypeOf((**PulsarJob)(nil)).Elem()
 }
 
 func (i *PulsarJob) ToPulsarJobOutput() PulsarJobOutput {
@@ -137,35 +137,6 @@ func (i *PulsarJob) ToPulsarJobOutput() PulsarJobOutput {
 
 func (i *PulsarJob) ToPulsarJobOutputWithContext(ctx context.Context) PulsarJobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobOutput)
-}
-
-func (i *PulsarJob) ToPulsarJobPtrOutput() PulsarJobPtrOutput {
-	return i.ToPulsarJobPtrOutputWithContext(context.Background())
-}
-
-func (i *PulsarJob) ToPulsarJobPtrOutputWithContext(ctx context.Context) PulsarJobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobPtrOutput)
-}
-
-type PulsarJobPtrInput interface {
-	pulumi.Input
-
-	ToPulsarJobPtrOutput() PulsarJobPtrOutput
-	ToPulsarJobPtrOutputWithContext(ctx context.Context) PulsarJobPtrOutput
-}
-
-type pulsarJobPtrType PulsarJobArgs
-
-func (*pulsarJobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PulsarJob)(nil))
-}
-
-func (i *pulsarJobPtrType) ToPulsarJobPtrOutput() PulsarJobPtrOutput {
-	return i.ToPulsarJobPtrOutputWithContext(context.Background())
-}
-
-func (i *pulsarJobPtrType) ToPulsarJobPtrOutputWithContext(ctx context.Context) PulsarJobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobPtrOutput)
 }
 
 // PulsarJobArrayInput is an input type that accepts PulsarJobArray and PulsarJobArrayOutput values.
@@ -221,7 +192,7 @@ func (i PulsarJobMap) ToPulsarJobMapOutputWithContext(ctx context.Context) Pulsa
 type PulsarJobOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PulsarJob)(nil))
+	return reflect.TypeOf((**PulsarJob)(nil)).Elem()
 }
 
 func (o PulsarJobOutput) ToPulsarJobOutput() PulsarJobOutput {
@@ -232,44 +203,10 @@ func (o PulsarJobOutput) ToPulsarJobOutputWithContext(ctx context.Context) Pulsa
 	return o
 }
 
-func (o PulsarJobOutput) ToPulsarJobPtrOutput() PulsarJobPtrOutput {
-	return o.ToPulsarJobPtrOutputWithContext(context.Background())
-}
-
-func (o PulsarJobOutput) ToPulsarJobPtrOutputWithContext(ctx context.Context) PulsarJobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PulsarJob) *PulsarJob {
-		return &v
-	}).(PulsarJobPtrOutput)
-}
-
-type PulsarJobPtrOutput struct{ *pulumi.OutputState }
-
-func (PulsarJobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PulsarJob)(nil))
-}
-
-func (o PulsarJobPtrOutput) ToPulsarJobPtrOutput() PulsarJobPtrOutput {
-	return o
-}
-
-func (o PulsarJobPtrOutput) ToPulsarJobPtrOutputWithContext(ctx context.Context) PulsarJobPtrOutput {
-	return o
-}
-
-func (o PulsarJobPtrOutput) Elem() PulsarJobOutput {
-	return o.ApplyT(func(v *PulsarJob) PulsarJob {
-		if v != nil {
-			return *v
-		}
-		var ret PulsarJob
-		return ret
-	}).(PulsarJobOutput)
-}
-
 type PulsarJobArrayOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PulsarJob)(nil))
+	return reflect.TypeOf((*[]*PulsarJob)(nil)).Elem()
 }
 
 func (o PulsarJobArrayOutput) ToPulsarJobArrayOutput() PulsarJobArrayOutput {
@@ -281,15 +218,15 @@ func (o PulsarJobArrayOutput) ToPulsarJobArrayOutputWithContext(ctx context.Cont
 }
 
 func (o PulsarJobArrayOutput) Index(i pulumi.IntInput) PulsarJobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PulsarJob {
-		return vs[0].([]PulsarJob)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PulsarJob {
+		return vs[0].([]*PulsarJob)[vs[1].(int)]
 	}).(PulsarJobOutput)
 }
 
 type PulsarJobMapOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PulsarJob)(nil))
+	return reflect.TypeOf((*map[string]*PulsarJob)(nil)).Elem()
 }
 
 func (o PulsarJobMapOutput) ToPulsarJobMapOutput() PulsarJobMapOutput {
@@ -301,18 +238,16 @@ func (o PulsarJobMapOutput) ToPulsarJobMapOutputWithContext(ctx context.Context)
 }
 
 func (o PulsarJobMapOutput) MapIndex(k pulumi.StringInput) PulsarJobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PulsarJob {
-		return vs[0].(map[string]PulsarJob)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PulsarJob {
+		return vs[0].(map[string]*PulsarJob)[vs[1].(string)]
 	}).(PulsarJobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobInput)(nil)).Elem(), &PulsarJob{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobPtrInput)(nil)).Elem(), &PulsarJob{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobArrayInput)(nil)).Elem(), PulsarJobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PulsarJobMapInput)(nil)).Elem(), PulsarJobMap{})
 	pulumi.RegisterOutputType(PulsarJobOutput{})
-	pulumi.RegisterOutputType(PulsarJobPtrOutput{})
 	pulumi.RegisterOutputType(PulsarJobArrayOutput{})
 	pulumi.RegisterOutputType(PulsarJobMapOutput{})
 }

@@ -146,26 +146,26 @@ export class MonitoringJob extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitoringJobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitoringJobArgs | MonitoringJobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitoringJobState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["config"] = state ? state.config : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["jobType"] = state ? state.jobType : undefined;
-            inputs["mute"] = state ? state.mute : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["notifyDelay"] = state ? state.notifyDelay : undefined;
-            inputs["notifyFailback"] = state ? state.notifyFailback : undefined;
-            inputs["notifyList"] = state ? state.notifyList : undefined;
-            inputs["notifyRegional"] = state ? state.notifyRegional : undefined;
-            inputs["notifyRepeat"] = state ? state.notifyRepeat : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["rapidRecheck"] = state ? state.rapidRecheck : undefined;
-            inputs["regions"] = state ? state.regions : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["config"] = state ? state.config : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["jobType"] = state ? state.jobType : undefined;
+            resourceInputs["mute"] = state ? state.mute : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["notifyDelay"] = state ? state.notifyDelay : undefined;
+            resourceInputs["notifyFailback"] = state ? state.notifyFailback : undefined;
+            resourceInputs["notifyList"] = state ? state.notifyList : undefined;
+            resourceInputs["notifyRegional"] = state ? state.notifyRegional : undefined;
+            resourceInputs["notifyRepeat"] = state ? state.notifyRepeat : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["rapidRecheck"] = state ? state.rapidRecheck : undefined;
+            resourceInputs["regions"] = state ? state.regions : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as MonitoringJobArgs | undefined;
             if ((!args || args.config === undefined) && !opts.urn) {
@@ -180,27 +180,25 @@ export class MonitoringJob extends pulumi.CustomResource {
             if ((!args || args.regions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["config"] = args ? args.config : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["jobType"] = args ? args.jobType : undefined;
-            inputs["mute"] = args ? args.mute : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["notifyDelay"] = args ? args.notifyDelay : undefined;
-            inputs["notifyFailback"] = args ? args.notifyFailback : undefined;
-            inputs["notifyList"] = args ? args.notifyList : undefined;
-            inputs["notifyRegional"] = args ? args.notifyRegional : undefined;
-            inputs["notifyRepeat"] = args ? args.notifyRepeat : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["rapidRecheck"] = args ? args.rapidRecheck : undefined;
-            inputs["regions"] = args ? args.regions : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["jobType"] = args ? args.jobType : undefined;
+            resourceInputs["mute"] = args ? args.mute : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["notifyDelay"] = args ? args.notifyDelay : undefined;
+            resourceInputs["notifyFailback"] = args ? args.notifyFailback : undefined;
+            resourceInputs["notifyList"] = args ? args.notifyList : undefined;
+            resourceInputs["notifyRegional"] = args ? args.notifyRegional : undefined;
+            resourceInputs["notifyRepeat"] = args ? args.notifyRepeat : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["rapidRecheck"] = args ? args.rapidRecheck : undefined;
+            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MonitoringJob.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MonitoringJob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Ns1
 {
@@ -43,7 +42,7 @@ namespace Pulumi.Ns1
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRecordResult> InvokeAsync(GetRecordArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a NS1 Record. Use this if you would simply like to read
@@ -76,7 +75,7 @@ namespace Pulumi.Ns1
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRecordResult> Invoke(GetRecordInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithDefaults());
     }
 
 

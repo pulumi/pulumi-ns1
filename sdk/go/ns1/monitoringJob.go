@@ -302,7 +302,7 @@ type MonitoringJobInput interface {
 }
 
 func (*MonitoringJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringJob)(nil))
+	return reflect.TypeOf((**MonitoringJob)(nil)).Elem()
 }
 
 func (i *MonitoringJob) ToMonitoringJobOutput() MonitoringJobOutput {
@@ -311,35 +311,6 @@ func (i *MonitoringJob) ToMonitoringJobOutput() MonitoringJobOutput {
 
 func (i *MonitoringJob) ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobOutput)
-}
-
-func (i *MonitoringJob) ToMonitoringJobPtrOutput() MonitoringJobPtrOutput {
-	return i.ToMonitoringJobPtrOutputWithContext(context.Background())
-}
-
-func (i *MonitoringJob) ToMonitoringJobPtrOutputWithContext(ctx context.Context) MonitoringJobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobPtrOutput)
-}
-
-type MonitoringJobPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringJobPtrOutput() MonitoringJobPtrOutput
-	ToMonitoringJobPtrOutputWithContext(ctx context.Context) MonitoringJobPtrOutput
-}
-
-type monitoringJobPtrType MonitoringJobArgs
-
-func (*monitoringJobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringJob)(nil))
-}
-
-func (i *monitoringJobPtrType) ToMonitoringJobPtrOutput() MonitoringJobPtrOutput {
-	return i.ToMonitoringJobPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringJobPtrType) ToMonitoringJobPtrOutputWithContext(ctx context.Context) MonitoringJobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobPtrOutput)
 }
 
 // MonitoringJobArrayInput is an input type that accepts MonitoringJobArray and MonitoringJobArrayOutput values.
@@ -395,7 +366,7 @@ func (i MonitoringJobMap) ToMonitoringJobMapOutputWithContext(ctx context.Contex
 type MonitoringJobOutput struct{ *pulumi.OutputState }
 
 func (MonitoringJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringJob)(nil))
+	return reflect.TypeOf((**MonitoringJob)(nil)).Elem()
 }
 
 func (o MonitoringJobOutput) ToMonitoringJobOutput() MonitoringJobOutput {
@@ -406,44 +377,10 @@ func (o MonitoringJobOutput) ToMonitoringJobOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o MonitoringJobOutput) ToMonitoringJobPtrOutput() MonitoringJobPtrOutput {
-	return o.ToMonitoringJobPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringJobOutput) ToMonitoringJobPtrOutputWithContext(ctx context.Context) MonitoringJobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringJob) *MonitoringJob {
-		return &v
-	}).(MonitoringJobPtrOutput)
-}
-
-type MonitoringJobPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringJobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringJob)(nil))
-}
-
-func (o MonitoringJobPtrOutput) ToMonitoringJobPtrOutput() MonitoringJobPtrOutput {
-	return o
-}
-
-func (o MonitoringJobPtrOutput) ToMonitoringJobPtrOutputWithContext(ctx context.Context) MonitoringJobPtrOutput {
-	return o
-}
-
-func (o MonitoringJobPtrOutput) Elem() MonitoringJobOutput {
-	return o.ApplyT(func(v *MonitoringJob) MonitoringJob {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringJob
-		return ret
-	}).(MonitoringJobOutput)
-}
-
 type MonitoringJobArrayOutput struct{ *pulumi.OutputState }
 
 func (MonitoringJobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitoringJob)(nil))
+	return reflect.TypeOf((*[]*MonitoringJob)(nil)).Elem()
 }
 
 func (o MonitoringJobArrayOutput) ToMonitoringJobArrayOutput() MonitoringJobArrayOutput {
@@ -455,15 +392,15 @@ func (o MonitoringJobArrayOutput) ToMonitoringJobArrayOutputWithContext(ctx cont
 }
 
 func (o MonitoringJobArrayOutput) Index(i pulumi.IntInput) MonitoringJobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoringJob {
-		return vs[0].([]MonitoringJob)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitoringJob {
+		return vs[0].([]*MonitoringJob)[vs[1].(int)]
 	}).(MonitoringJobOutput)
 }
 
 type MonitoringJobMapOutput struct{ *pulumi.OutputState }
 
 func (MonitoringJobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MonitoringJob)(nil))
+	return reflect.TypeOf((*map[string]*MonitoringJob)(nil)).Elem()
 }
 
 func (o MonitoringJobMapOutput) ToMonitoringJobMapOutput() MonitoringJobMapOutput {
@@ -475,18 +412,16 @@ func (o MonitoringJobMapOutput) ToMonitoringJobMapOutputWithContext(ctx context.
 }
 
 func (o MonitoringJobMapOutput) MapIndex(k pulumi.StringInput) MonitoringJobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MonitoringJob {
-		return vs[0].(map[string]MonitoringJob)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MonitoringJob {
+		return vs[0].(map[string]*MonitoringJob)[vs[1].(string)]
 	}).(MonitoringJobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobInput)(nil)).Elem(), &MonitoringJob{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobPtrInput)(nil)).Elem(), &MonitoringJob{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobArrayInput)(nil)).Elem(), MonitoringJobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobMapInput)(nil)).Elem(), MonitoringJobMap{})
 	pulumi.RegisterOutputType(MonitoringJobOutput{})
-	pulumi.RegisterOutputType(MonitoringJobPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringJobArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringJobMapOutput{})
 }

@@ -54,21 +54,21 @@ export class PulsarJob extends pulumi.CustomResource {
      */
     constructor(name: string, args: PulsarJobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PulsarJobArgs | PulsarJobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PulsarJobState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["blendMetricWeights"] = state ? state.blendMetricWeights : undefined;
-            inputs["community"] = state ? state.community : undefined;
-            inputs["config"] = state ? state.config : undefined;
-            inputs["customer"] = state ? state.customer : undefined;
-            inputs["jobId"] = state ? state.jobId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["shared"] = state ? state.shared : undefined;
-            inputs["typeId"] = state ? state.typeId : undefined;
-            inputs["weights"] = state ? state.weights : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["blendMetricWeights"] = state ? state.blendMetricWeights : undefined;
+            resourceInputs["community"] = state ? state.community : undefined;
+            resourceInputs["config"] = state ? state.config : undefined;
+            resourceInputs["customer"] = state ? state.customer : undefined;
+            resourceInputs["jobId"] = state ? state.jobId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["shared"] = state ? state.shared : undefined;
+            resourceInputs["typeId"] = state ? state.typeId : undefined;
+            resourceInputs["weights"] = state ? state.weights : undefined;
         } else {
             const args = argsOrState as PulsarJobArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -77,22 +77,20 @@ export class PulsarJob extends pulumi.CustomResource {
             if ((!args || args.typeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typeId'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["blendMetricWeights"] = args ? args.blendMetricWeights : undefined;
-            inputs["config"] = args ? args.config : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["shared"] = args ? args.shared : undefined;
-            inputs["typeId"] = args ? args.typeId : undefined;
-            inputs["weights"] = args ? args.weights : undefined;
-            inputs["community"] = undefined /*out*/;
-            inputs["customer"] = undefined /*out*/;
-            inputs["jobId"] = undefined /*out*/;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["blendMetricWeights"] = args ? args.blendMetricWeights : undefined;
+            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["shared"] = args ? args.shared : undefined;
+            resourceInputs["typeId"] = args ? args.typeId : undefined;
+            resourceInputs["weights"] = args ? args.weights : undefined;
+            resourceInputs["community"] = undefined /*out*/;
+            resourceInputs["customer"] = undefined /*out*/;
+            resourceInputs["jobId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PulsarJob.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PulsarJob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

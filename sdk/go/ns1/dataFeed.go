@@ -171,7 +171,7 @@ type DataFeedInput interface {
 }
 
 func (*DataFeed) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFeed)(nil))
+	return reflect.TypeOf((**DataFeed)(nil)).Elem()
 }
 
 func (i *DataFeed) ToDataFeedOutput() DataFeedOutput {
@@ -180,35 +180,6 @@ func (i *DataFeed) ToDataFeedOutput() DataFeedOutput {
 
 func (i *DataFeed) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataFeedOutput)
-}
-
-func (i *DataFeed) ToDataFeedPtrOutput() DataFeedPtrOutput {
-	return i.ToDataFeedPtrOutputWithContext(context.Background())
-}
-
-func (i *DataFeed) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFeedPtrOutput)
-}
-
-type DataFeedPtrInput interface {
-	pulumi.Input
-
-	ToDataFeedPtrOutput() DataFeedPtrOutput
-	ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput
-}
-
-type dataFeedPtrType DataFeedArgs
-
-func (*dataFeedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataFeed)(nil))
-}
-
-func (i *dataFeedPtrType) ToDataFeedPtrOutput() DataFeedPtrOutput {
-	return i.ToDataFeedPtrOutputWithContext(context.Background())
-}
-
-func (i *dataFeedPtrType) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFeedPtrOutput)
 }
 
 // DataFeedArrayInput is an input type that accepts DataFeedArray and DataFeedArrayOutput values.
@@ -264,7 +235,7 @@ func (i DataFeedMap) ToDataFeedMapOutputWithContext(ctx context.Context) DataFee
 type DataFeedOutput struct{ *pulumi.OutputState }
 
 func (DataFeedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFeed)(nil))
+	return reflect.TypeOf((**DataFeed)(nil)).Elem()
 }
 
 func (o DataFeedOutput) ToDataFeedOutput() DataFeedOutput {
@@ -275,44 +246,10 @@ func (o DataFeedOutput) ToDataFeedOutputWithContext(ctx context.Context) DataFee
 	return o
 }
 
-func (o DataFeedOutput) ToDataFeedPtrOutput() DataFeedPtrOutput {
-	return o.ToDataFeedPtrOutputWithContext(context.Background())
-}
-
-func (o DataFeedOutput) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFeed) *DataFeed {
-		return &v
-	}).(DataFeedPtrOutput)
-}
-
-type DataFeedPtrOutput struct{ *pulumi.OutputState }
-
-func (DataFeedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataFeed)(nil))
-}
-
-func (o DataFeedPtrOutput) ToDataFeedPtrOutput() DataFeedPtrOutput {
-	return o
-}
-
-func (o DataFeedPtrOutput) ToDataFeedPtrOutputWithContext(ctx context.Context) DataFeedPtrOutput {
-	return o
-}
-
-func (o DataFeedPtrOutput) Elem() DataFeedOutput {
-	return o.ApplyT(func(v *DataFeed) DataFeed {
-		if v != nil {
-			return *v
-		}
-		var ret DataFeed
-		return ret
-	}).(DataFeedOutput)
-}
-
 type DataFeedArrayOutput struct{ *pulumi.OutputState }
 
 func (DataFeedArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataFeed)(nil))
+	return reflect.TypeOf((*[]*DataFeed)(nil)).Elem()
 }
 
 func (o DataFeedArrayOutput) ToDataFeedArrayOutput() DataFeedArrayOutput {
@@ -324,15 +261,15 @@ func (o DataFeedArrayOutput) ToDataFeedArrayOutputWithContext(ctx context.Contex
 }
 
 func (o DataFeedArrayOutput) Index(i pulumi.IntInput) DataFeedOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataFeed {
-		return vs[0].([]DataFeed)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataFeed {
+		return vs[0].([]*DataFeed)[vs[1].(int)]
 	}).(DataFeedOutput)
 }
 
 type DataFeedMapOutput struct{ *pulumi.OutputState }
 
 func (DataFeedMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataFeed)(nil))
+	return reflect.TypeOf((*map[string]*DataFeed)(nil)).Elem()
 }
 
 func (o DataFeedMapOutput) ToDataFeedMapOutput() DataFeedMapOutput {
@@ -344,18 +281,16 @@ func (o DataFeedMapOutput) ToDataFeedMapOutputWithContext(ctx context.Context) D
 }
 
 func (o DataFeedMapOutput) MapIndex(k pulumi.StringInput) DataFeedOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataFeed {
-		return vs[0].(map[string]DataFeed)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataFeed {
+		return vs[0].(map[string]*DataFeed)[vs[1].(string)]
 	}).(DataFeedOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFeedInput)(nil)).Elem(), &DataFeed{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataFeedPtrInput)(nil)).Elem(), &DataFeed{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFeedArrayInput)(nil)).Elem(), DataFeedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFeedMapInput)(nil)).Elem(), DataFeedMap{})
 	pulumi.RegisterOutputType(DataFeedOutput{})
-	pulumi.RegisterOutputType(DataFeedPtrOutput{})
 	pulumi.RegisterOutputType(DataFeedArrayOutput{})
 	pulumi.RegisterOutputType(DataFeedMapOutput{})
 }

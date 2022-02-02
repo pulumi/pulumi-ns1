@@ -125,50 +125,48 @@ export class Zone extends pulumi.CustomResource {
      */
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            inputs["additionalPrimaries"] = state ? state.additionalPrimaries : undefined;
-            inputs["autogenerateNsRecord"] = state ? state.autogenerateNsRecord : undefined;
-            inputs["dnsServers"] = state ? state.dnsServers : undefined;
-            inputs["dnssec"] = state ? state.dnssec : undefined;
-            inputs["expiry"] = state ? state.expiry : undefined;
-            inputs["hostmaster"] = state ? state.hostmaster : undefined;
-            inputs["link"] = state ? state.link : undefined;
-            inputs["networks"] = state ? state.networks : undefined;
-            inputs["nxTtl"] = state ? state.nxTtl : undefined;
-            inputs["primary"] = state ? state.primary : undefined;
-            inputs["refresh"] = state ? state.refresh : undefined;
-            inputs["retry"] = state ? state.retry : undefined;
-            inputs["secondaries"] = state ? state.secondaries : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
-            inputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["additionalPrimaries"] = state ? state.additionalPrimaries : undefined;
+            resourceInputs["autogenerateNsRecord"] = state ? state.autogenerateNsRecord : undefined;
+            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["dnssec"] = state ? state.dnssec : undefined;
+            resourceInputs["expiry"] = state ? state.expiry : undefined;
+            resourceInputs["hostmaster"] = state ? state.hostmaster : undefined;
+            resourceInputs["link"] = state ? state.link : undefined;
+            resourceInputs["networks"] = state ? state.networks : undefined;
+            resourceInputs["nxTtl"] = state ? state.nxTtl : undefined;
+            resourceInputs["primary"] = state ? state.primary : undefined;
+            resourceInputs["refresh"] = state ? state.refresh : undefined;
+            resourceInputs["retry"] = state ? state.retry : undefined;
+            resourceInputs["secondaries"] = state ? state.secondaries : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
             if ((!args || args.zone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
-            inputs["additionalPrimaries"] = args ? args.additionalPrimaries : undefined;
-            inputs["autogenerateNsRecord"] = args ? args.autogenerateNsRecord : undefined;
-            inputs["dnssec"] = args ? args.dnssec : undefined;
-            inputs["expiry"] = args ? args.expiry : undefined;
-            inputs["link"] = args ? args.link : undefined;
-            inputs["networks"] = args ? args.networks : undefined;
-            inputs["nxTtl"] = args ? args.nxTtl : undefined;
-            inputs["primary"] = args ? args.primary : undefined;
-            inputs["refresh"] = args ? args.refresh : undefined;
-            inputs["retry"] = args ? args.retry : undefined;
-            inputs["secondaries"] = args ? args.secondaries : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["zone"] = args ? args.zone : undefined;
-            inputs["dnsServers"] = undefined /*out*/;
-            inputs["hostmaster"] = undefined /*out*/;
+            resourceInputs["additionalPrimaries"] = args ? args.additionalPrimaries : undefined;
+            resourceInputs["autogenerateNsRecord"] = args ? args.autogenerateNsRecord : undefined;
+            resourceInputs["dnssec"] = args ? args.dnssec : undefined;
+            resourceInputs["expiry"] = args ? args.expiry : undefined;
+            resourceInputs["link"] = args ? args.link : undefined;
+            resourceInputs["networks"] = args ? args.networks : undefined;
+            resourceInputs["nxTtl"] = args ? args.nxTtl : undefined;
+            resourceInputs["primary"] = args ? args.primary : undefined;
+            resourceInputs["refresh"] = args ? args.refresh : undefined;
+            resourceInputs["retry"] = args ? args.retry : undefined;
+            resourceInputs["secondaries"] = args ? args.secondaries : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["dnsServers"] = undefined /*out*/;
+            resourceInputs["hostmaster"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Zone.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Zone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

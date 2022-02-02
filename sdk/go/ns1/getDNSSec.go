@@ -31,6 +31,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_ = ns1.GetDNSSecOutput(ctx, GetDNSSecOutputArgs{
+// 			Zone: exampleZone.Zone,
+// 		}, nil)
 // 		return nil
 // 	})
 // }

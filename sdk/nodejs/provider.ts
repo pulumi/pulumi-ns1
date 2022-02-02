@@ -39,19 +39,17 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["apikey"] = args ? args.apikey : undefined;
-            inputs["enableDdi"] = pulumi.output(args ? args.enableDdi : undefined).apply(JSON.stringify);
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["ignoreSsl"] = pulumi.output(args ? args.ignoreSsl : undefined).apply(JSON.stringify);
-            inputs["rateLimitParallelism"] = pulumi.output(args ? args.rateLimitParallelism : undefined).apply(JSON.stringify);
+            resourceInputs["apikey"] = args ? args.apikey : undefined;
+            resourceInputs["enableDdi"] = pulumi.output(args ? args.enableDdi : undefined).apply(JSON.stringify);
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["ignoreSsl"] = pulumi.output(args ? args.ignoreSsl : undefined).apply(JSON.stringify);
+            resourceInputs["rateLimitParallelism"] = pulumi.output(args ? args.rateLimitParallelism : undefined).apply(JSON.stringify);
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

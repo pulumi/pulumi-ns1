@@ -102,27 +102,25 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["browserWaitMillis"] = state ? state.browserWaitMillis : undefined;
-            inputs["defaultConfig"] = state ? state.defaultConfig : undefined;
-            inputs["jobsPerTransaction"] = state ? state.jobsPerTransaction : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["browserWaitMillis"] = state ? state.browserWaitMillis : undefined;
+            resourceInputs["defaultConfig"] = state ? state.defaultConfig : undefined;
+            resourceInputs["jobsPerTransaction"] = state ? state.jobsPerTransaction : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            inputs["active"] = args ? args.active : undefined;
-            inputs["browserWaitMillis"] = args ? args.browserWaitMillis : undefined;
-            inputs["defaultConfig"] = args ? args.defaultConfig : undefined;
-            inputs["jobsPerTransaction"] = args ? args.jobsPerTransaction : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["browserWaitMillis"] = args ? args.browserWaitMillis : undefined;
+            resourceInputs["defaultConfig"] = args ? args.defaultConfig : undefined;
+            resourceInputs["jobsPerTransaction"] = args ? args.jobsPerTransaction : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Application.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 
