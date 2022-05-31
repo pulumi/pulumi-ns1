@@ -2219,6 +2219,9 @@
                         "$ref": "pulumi.json#/Any"
                     }
                 },
+                "overrideTtl": {
+                    "type": "boolean"
+                },
                 "regions": {
                     "type": "array",
                     "items": {
@@ -2284,6 +2287,9 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     }
+                },
+                "overrideTtl": {
+                    "type": "boolean"
                 },
                 "regions": {
                     "type": "array",
@@ -2352,6 +2358,9 @@
                             "$ref": "pulumi.json#/Any"
                         }
                     },
+                    "overrideTtl": {
+                        "type": "boolean"
+                    },
                     "regions": {
                         "type": "array",
                         "items": {
@@ -2381,6 +2390,146 @@
                     "zone": {
                         "type": "string",
                         "description": "The zone the record belongs to. Cannot have leading or\ntrailing dots (\".\") - see the example above and `FQDN formatting` below.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/subnet:Subnet": {
+            "properties": {
+                "children": {
+                    "type": "integer"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "dhcpScoped": {
+                    "type": "boolean"
+                },
+                "freeAddresses": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                },
+                "parentId": {
+                    "type": "integer"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "totalAddresses": {
+                    "type": "string"
+                },
+                "usedAddresses": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "children",
+                "dhcpScoped",
+                "freeAddresses",
+                "name",
+                "parentId",
+                "status",
+                "tags",
+                "totalAddresses",
+                "usedAddresses"
+            ],
+            "inputProperties": {
+                "children": {
+                    "type": "integer"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "dhcpScoped": {
+                    "type": "boolean"
+                },
+                "freeAddresses": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "integer"
+                },
+                "parentId": {
+                    "type": "integer"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "totalAddresses": {
+                    "type": "string"
+                },
+                "usedAddresses": {
+                    "type": "string"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Subnet resources.\n",
+                "properties": {
+                    "children": {
+                        "type": "integer"
+                    },
+                    "desc": {
+                        "type": "string"
+                    },
+                    "dhcpScoped": {
+                        "type": "boolean"
+                    },
+                    "freeAddresses": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "networkId": {
+                        "type": "integer"
+                    },
+                    "parentId": {
+                        "type": "integer"
+                    },
+                    "prefix": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "totalAddresses": {
+                        "type": "string"
+                    },
+                    "usedAddresses": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -2799,6 +2948,64 @@
                     "securityManageGlobal2fa": {
                         "type": "boolean",
                         "description": "Whether the team can manage global two factor authentication.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/tsigkey:Tsigkey": {
+            "description": "Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Tsigkey(\"example\", {\n    algorithm: \"hmac-sha256\",\n    secret: \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Tsigkey(\"example\",\n    algorithm=\"hmac-sha256\",\n    secret=\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n```\n```csharp\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Ns1.Tsigkey(\"example\", new Ns1.TsigkeyArgs\n        {\n            Algorithm = \"hmac-sha256\",\n            Secret = \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTsigkey(ctx, \"example\", \u0026ns1.TsigkeyArgs{\n\t\t\tAlgorithm: pulumi.String(\"hmac-sha256\"),\n\t\t\tSecret:    pulumi.String(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[TSIG Keys Api Doc](https://ns1.com/api/#tsig)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/tsigkey:Tsigkey importTest \u003cname\u003e`\n```\n\n ",
+            "properties": {
+                "algorithm": {
+                    "type": "string",
+                    "description": "The algorithm used to hash the TSIG key's secret.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the tsigkey.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The key's secret to be hashed.\n"
+                }
+            },
+            "required": [
+                "algorithm",
+                "name",
+                "secret"
+            ],
+            "inputProperties": {
+                "algorithm": {
+                    "type": "string",
+                    "description": "The algorithm used to hash the TSIG key's secret.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the tsigkey.\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The key's secret to be hashed.\n"
+                }
+            },
+            "requiredInputs": [
+                "algorithm",
+                "secret"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Tsigkey resources.\n",
+                "properties": {
+                    "algorithm": {
+                        "type": "string",
+                        "description": "The algorithm used to hash the TSIG key's secret.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free form name of the tsigkey.\n"
+                    },
+                    "secret": {
+                        "type": "string",
+                        "description": "The key's secret to be hashed.\n"
                     }
                 },
                 "type": "object"
@@ -3366,6 +3573,13 @@
                     },
                     "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
                 },
+                "tsig": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "TSIG is documented below\n"
+                },
                 "ttl": {
                     "type": "integer",
                     "description": "The SOA TTL.\n"
@@ -3411,6 +3625,10 @@
                     "type": "integer",
                     "description": "The SOA Expiry. Conflicts with `primary` and\n`additional_primaries` (default must be accepted).\n"
                 },
+                "hostmaster": {
+                    "type": "string",
+                    "description": "(Computed) The SOA Hostmaster.\n"
+                },
                 "link": {
                     "type": "string",
                     "description": "The target zone(domain name) to link to.\n"
@@ -3444,6 +3662,13 @@
                         "$ref": "#/types/ns1:index/ZoneSecondary:ZoneSecondary"
                     },
                     "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
+                },
+                "tsig": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "TSIG is documented below\n"
                 },
                 "ttl": {
                     "type": "integer",
@@ -3524,6 +3749,13 @@
                             "$ref": "#/types/ns1:index/ZoneSecondary:ZoneSecondary"
                         },
                         "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
+                    },
+                    "tsig": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "TSIG is documented below\n"
                     },
                     "ttl": {
                         "type": "integer",

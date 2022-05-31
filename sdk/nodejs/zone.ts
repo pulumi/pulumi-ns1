@@ -70,7 +70,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * (Computed) The SOA Hostmaster.
      */
-    public /*out*/ readonly hostmaster!: pulumi.Output<string>;
+    public readonly hostmaster!: pulumi.Output<string>;
     /**
      * The target zone(domain name) to link to.
      */
@@ -108,6 +108,10 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly secondaries!: pulumi.Output<outputs.ZoneSecondary[] | undefined>;
     /**
+     * TSIG is documented below
+     */
+    public readonly tsig!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The SOA TTL.
      */
     public readonly ttl!: pulumi.Output<number>;
@@ -142,6 +146,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["refresh"] = state ? state.refresh : undefined;
             resourceInputs["retry"] = state ? state.retry : undefined;
             resourceInputs["secondaries"] = state ? state.secondaries : undefined;
+            resourceInputs["tsig"] = state ? state.tsig : undefined;
             resourceInputs["ttl"] = state ? state.ttl : undefined;
             resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
@@ -153,6 +158,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["autogenerateNsRecord"] = args ? args.autogenerateNsRecord : undefined;
             resourceInputs["dnssec"] = args ? args.dnssec : undefined;
             resourceInputs["expiry"] = args ? args.expiry : undefined;
+            resourceInputs["hostmaster"] = args ? args.hostmaster : undefined;
             resourceInputs["link"] = args ? args.link : undefined;
             resourceInputs["networks"] = args ? args.networks : undefined;
             resourceInputs["nxTtl"] = args ? args.nxTtl : undefined;
@@ -160,10 +166,10 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["refresh"] = args ? args.refresh : undefined;
             resourceInputs["retry"] = args ? args.retry : undefined;
             resourceInputs["secondaries"] = args ? args.secondaries : undefined;
+            resourceInputs["tsig"] = args ? args.tsig : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["dnsServers"] = undefined /*out*/;
-            resourceInputs["hostmaster"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Zone.__pulumiType, name, resourceInputs, opts);
@@ -236,6 +242,10 @@ export interface ZoneState {
      */
     secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
     /**
+     * TSIG is documented below
+     */
+    tsig?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The SOA TTL.
      */
     ttl?: pulumi.Input<number>;
@@ -266,6 +276,10 @@ export interface ZoneArgs {
      * `additionalPrimaries` (default must be accepted).
      */
     expiry?: pulumi.Input<number>;
+    /**
+     * (Computed) The SOA Hostmaster.
+     */
+    hostmaster?: pulumi.Input<string>;
     /**
      * The target zone(domain name) to link to.
      */
@@ -302,6 +316,10 @@ export interface ZoneArgs {
      * Secondaries is documented below.
      */
     secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
+    /**
+     * TSIG is documented below
+     */
+    tsig?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SOA TTL.
      */

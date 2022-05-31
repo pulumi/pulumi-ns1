@@ -42,8 +42,9 @@ type Record struct {
 	Filters RecordFilterArrayOutput `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link pulumi.StringPtrOutput `pulumi:"link"`
-	Meta pulumi.MapOutput       `pulumi:"meta"`
+	Link        pulumi.StringPtrOutput `pulumi:"link"`
+	Meta        pulumi.MapOutput       `pulumi:"meta"`
+	OverrideTtl pulumi.BoolPtrOutput   `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -114,8 +115,9 @@ type recordState struct {
 	Filters []RecordFilter `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link *string                `pulumi:"link"`
-	Meta map[string]interface{} `pulumi:"meta"`
+	Link        *string                `pulumi:"link"`
+	Meta        map[string]interface{} `pulumi:"meta"`
+	OverrideTtl *bool                  `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -149,8 +151,9 @@ type RecordState struct {
 	Filters RecordFilterArrayInput
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link pulumi.StringPtrInput
-	Meta pulumi.MapInput
+	Link        pulumi.StringPtrInput
+	Meta        pulumi.MapInput
+	OverrideTtl pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -188,8 +191,9 @@ type recordArgs struct {
 	Filters []RecordFilter `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link *string                `pulumi:"link"`
-	Meta map[string]interface{} `pulumi:"meta"`
+	Link        *string                `pulumi:"link"`
+	Meta        map[string]interface{} `pulumi:"meta"`
+	OverrideTtl *bool                  `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -224,8 +228,9 @@ type RecordArgs struct {
 	Filters RecordFilterArrayInput
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link pulumi.StringPtrInput
-	Meta pulumi.MapInput
+	Link        pulumi.StringPtrInput
+	Meta        pulumi.MapInput
+	OverrideTtl pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are

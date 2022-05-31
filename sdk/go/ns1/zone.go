@@ -62,6 +62,8 @@ type Zone struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries ZoneSecondaryArrayOutput `pulumi:"secondaries"`
+	// TSIG is documented below
+	Tsig pulumi.StringMapOutput `pulumi:"tsig"`
 	// The SOA TTL.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// The domain name of the zone.
@@ -137,6 +139,8 @@ type zoneState struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries []ZoneSecondary `pulumi:"secondaries"`
+	// TSIG is documented below
+	Tsig map[string]string `pulumi:"tsig"`
 	// The SOA TTL.
 	Ttl *int `pulumi:"ttl"`
 	// The domain name of the zone.
@@ -181,6 +185,8 @@ type ZoneState struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries ZoneSecondaryArrayInput
+	// TSIG is documented below
+	Tsig pulumi.StringMapInput
 	// The SOA TTL.
 	Ttl pulumi.IntPtrInput
 	// The domain name of the zone.
@@ -203,6 +209,8 @@ type zoneArgs struct {
 	// The SOA Expiry. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Expiry *int `pulumi:"expiry"`
+	// (Computed) The SOA Hostmaster.
+	Hostmaster *string `pulumi:"hostmaster"`
 	// The target zone(domain name) to link to.
 	Link *string `pulumi:"link"`
 	// - List of network IDs (`int`) for which the zone
@@ -225,6 +233,8 @@ type zoneArgs struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries []ZoneSecondary `pulumi:"secondaries"`
+	// TSIG is documented below
+	Tsig map[string]string `pulumi:"tsig"`
 	// The SOA TTL.
 	Ttl *int `pulumi:"ttl"`
 	// The domain name of the zone.
@@ -244,6 +254,8 @@ type ZoneArgs struct {
 	// The SOA Expiry. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Expiry pulumi.IntPtrInput
+	// (Computed) The SOA Hostmaster.
+	Hostmaster pulumi.StringPtrInput
 	// The target zone(domain name) to link to.
 	Link pulumi.StringPtrInput
 	// - List of network IDs (`int`) for which the zone
@@ -266,6 +278,8 @@ type ZoneArgs struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries ZoneSecondaryArrayInput
+	// TSIG is documented below
+	Tsig pulumi.StringMapInput
 	// The SOA TTL.
 	Ttl pulumi.IntPtrInput
 	// The domain name of the zone.

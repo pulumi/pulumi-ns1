@@ -62,6 +62,9 @@ namespace Pulumi.Ns1
         [Output("meta")]
         public Output<ImmutableDictionary<string, object>?> Meta { get; private set; } = null!;
 
+        [Output("overrideTtl")]
+        public Output<bool?> OverrideTtl { get; private set; } = null!;
+
         /// <summary>
         /// One or more "regions" for the record. These are really
         /// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
@@ -196,6 +199,9 @@ namespace Pulumi.Ns1
             set => _meta = value;
         }
 
+        [Input("overrideTtl")]
+        public Input<bool>? OverrideTtl { get; set; }
+
         [Input("regions")]
         private InputList<Inputs.RecordRegionArgs>? _regions;
 
@@ -302,6 +308,9 @@ namespace Pulumi.Ns1
             get => _meta ?? (_meta = new InputMap<object>());
             set => _meta = value;
         }
+
+        [Input("overrideTtl")]
+        public Input<bool>? OverrideTtl { get; set; }
 
         [Input("regions")]
         private InputList<Inputs.RecordRegionGetArgs>? _regions;

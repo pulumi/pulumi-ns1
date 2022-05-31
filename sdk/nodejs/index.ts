@@ -17,7 +17,9 @@ export * from "./notifyList";
 export * from "./provider";
 export * from "./pulsarJob";
 export * from "./record";
+export * from "./subnet";
 export * from "./team";
+export * from "./tsigkey";
 export * from "./user";
 export * from "./zone";
 
@@ -39,7 +41,9 @@ import { MonitoringJob } from "./monitoringJob";
 import { NotifyList } from "./notifyList";
 import { PulsarJob } from "./pulsarJob";
 import { Record } from "./record";
+import { Subnet } from "./subnet";
 import { Team } from "./team";
+import { Tsigkey } from "./tsigkey";
 import { User } from "./user";
 import { Zone } from "./zone";
 
@@ -63,8 +67,12 @@ const _module = {
                 return new PulsarJob(name, <any>undefined, { urn })
             case "ns1:index/record:Record":
                 return new Record(name, <any>undefined, { urn })
+            case "ns1:index/subnet:Subnet":
+                return new Subnet(name, <any>undefined, { urn })
             case "ns1:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
+            case "ns1:index/tsigkey:Tsigkey":
+                return new Tsigkey(name, <any>undefined, { urn })
             case "ns1:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "ns1:index/zone:Zone":
@@ -82,7 +90,9 @@ pulumi.runtime.registerResourceModule("ns1", "index/monitoringJob", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/notifyList", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/pulsarJob", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/record", _module)
+pulumi.runtime.registerResourceModule("ns1", "index/subnet", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/team", _module)
+pulumi.runtime.registerResourceModule("ns1", "index/tsigkey", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/user", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/zone", _module)
 
