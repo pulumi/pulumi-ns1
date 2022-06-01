@@ -17,7 +17,9 @@ from .notify_list import *
 from .provider import *
 from .pulsar_job import *
 from .record import *
+from .subnet import *
 from .team import *
+from .tsigkey import *
 from .user import *
 from .zone import *
 from ._inputs import *
@@ -99,10 +101,26 @@ _utilities.register(
  },
  {
   "pkg": "ns1",
+  "mod": "index/subnet",
+  "fqn": "pulumi_ns1",
+  "classes": {
+   "ns1:index/subnet:Subnet": "Subnet"
+  }
+ },
+ {
+  "pkg": "ns1",
   "mod": "index/team",
   "fqn": "pulumi_ns1",
   "classes": {
    "ns1:index/team:Team": "Team"
+  }
+ },
+ {
+  "pkg": "ns1",
+  "mod": "index/tsigkey",
+  "fqn": "pulumi_ns1",
+  "classes": {
+   "ns1:index/tsigkey:Tsigkey": "Tsigkey"
   }
  },
  {

@@ -20,6 +20,7 @@ class ZoneArgs:
                  autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
                  dnssec: Optional[pulumi.Input[bool]] = None,
                  expiry: Optional[pulumi.Input[int]] = None,
+                 hostmaster: Optional[pulumi.Input[str]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  nx_ttl: Optional[pulumi.Input[int]] = None,
@@ -27,6 +28,7 @@ class ZoneArgs:
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Zone resource.
@@ -38,6 +40,7 @@ class ZoneArgs:
                to `true`.
         :param pulumi.Input[int] expiry: The SOA Expiry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
+        :param pulumi.Input[str] hostmaster: (Computed) The SOA Hostmaster.
         :param pulumi.Input[str] link: The target zone(domain name) to link to.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] networks: - List of network IDs (`int`) for which the zone
                should be made available. Default is network 0, the primary NSONE Global
@@ -53,6 +56,7 @@ class ZoneArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         """
         pulumi.set(__self__, "zone", zone)
@@ -64,6 +68,8 @@ class ZoneArgs:
             pulumi.set(__self__, "dnssec", dnssec)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
+        if hostmaster is not None:
+            pulumi.set(__self__, "hostmaster", hostmaster)
         if link is not None:
             pulumi.set(__self__, "link", link)
         if networks is not None:
@@ -78,6 +84,8 @@ class ZoneArgs:
             pulumi.set(__self__, "retry", retry)
         if secondaries is not None:
             pulumi.set(__self__, "secondaries", secondaries)
+        if tsig is not None:
+            pulumi.set(__self__, "tsig", tsig)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
 
@@ -141,6 +149,18 @@ class ZoneArgs:
     @expiry.setter
     def expiry(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter
+    def hostmaster(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed) The SOA Hostmaster.
+        """
+        return pulumi.get(self, "hostmaster")
+
+    @hostmaster.setter
+    def hostmaster(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostmaster", value)
 
     @property
     @pulumi.getter
@@ -236,6 +256,18 @@ class ZoneArgs:
 
     @property
     @pulumi.getter
+    def tsig(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        TSIG is documented below
+        """
+        return pulumi.get(self, "tsig")
+
+    @tsig.setter
+    def tsig(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tsig", value)
+
+    @property
+    @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The SOA TTL.
@@ -263,6 +295,7 @@ class _ZoneState:
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
@@ -291,6 +324,7 @@ class _ZoneState:
         :param pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
         """
@@ -320,6 +354,8 @@ class _ZoneState:
             pulumi.set(__self__, "retry", retry)
         if secondaries is not None:
             pulumi.set(__self__, "secondaries", secondaries)
+        if tsig is not None:
+            pulumi.set(__self__, "tsig", tsig)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
         if zone is not None:
@@ -492,6 +528,18 @@ class _ZoneState:
 
     @property
     @pulumi.getter
+    def tsig(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        TSIG is documented below
+        """
+        return pulumi.get(self, "tsig")
+
+    @tsig.setter
+    def tsig(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tsig", value)
+
+    @property
+    @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The SOA TTL.
@@ -524,6 +572,7 @@ class Zone(pulumi.CustomResource):
                  autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
                  dnssec: Optional[pulumi.Input[bool]] = None,
                  expiry: Optional[pulumi.Input[int]] = None,
+                 hostmaster: Optional[pulumi.Input[str]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  nx_ttl: Optional[pulumi.Input[int]] = None,
@@ -531,6 +580,7 @@ class Zone(pulumi.CustomResource):
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -556,6 +606,7 @@ class Zone(pulumi.CustomResource):
                to `true`.
         :param pulumi.Input[int] expiry: The SOA Expiry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
+        :param pulumi.Input[str] hostmaster: (Computed) The SOA Hostmaster.
         :param pulumi.Input[str] link: The target zone(domain name) to link to.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] networks: - List of network IDs (`int`) for which the zone
                should be made available. Default is network 0, the primary NSONE Global
@@ -571,6 +622,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
         """
@@ -612,6 +664,7 @@ class Zone(pulumi.CustomResource):
                  autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
                  dnssec: Optional[pulumi.Input[bool]] = None,
                  expiry: Optional[pulumi.Input[int]] = None,
+                 hostmaster: Optional[pulumi.Input[str]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  nx_ttl: Optional[pulumi.Input[int]] = None,
@@ -619,6 +672,7 @@ class Zone(pulumi.CustomResource):
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -637,6 +691,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["autogenerate_ns_record"] = autogenerate_ns_record
             __props__.__dict__["dnssec"] = dnssec
             __props__.__dict__["expiry"] = expiry
+            __props__.__dict__["hostmaster"] = hostmaster
             __props__.__dict__["link"] = link
             __props__.__dict__["networks"] = networks
             __props__.__dict__["nx_ttl"] = nx_ttl
@@ -644,12 +699,12 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["refresh"] = refresh
             __props__.__dict__["retry"] = retry
             __props__.__dict__["secondaries"] = secondaries
+            __props__.__dict__["tsig"] = tsig
             __props__.__dict__["ttl"] = ttl
             if zone is None and not opts.urn:
                 raise TypeError("Missing required property 'zone'")
             __props__.__dict__["zone"] = zone
             __props__.__dict__["dns_servers"] = None
-            __props__.__dict__["hostmaster"] = None
         super(Zone, __self__).__init__(
             'ns1:index/zone:Zone',
             resource_name,
@@ -673,6 +728,7 @@ class Zone(pulumi.CustomResource):
             refresh: Optional[pulumi.Input[int]] = None,
             retry: Optional[pulumi.Input[int]] = None,
             secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+            tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'Zone':
         """
@@ -706,6 +762,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
         """
@@ -726,6 +783,7 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["refresh"] = refresh
         __props__.__dict__["retry"] = retry
         __props__.__dict__["secondaries"] = secondaries
+        __props__.__dict__["tsig"] = tsig
         __props__.__dict__["ttl"] = ttl
         __props__.__dict__["zone"] = zone
         return Zone(resource_name, opts=opts, __props__=__props__)
@@ -842,6 +900,14 @@ class Zone(pulumi.CustomResource):
         Secondaries is documented below.
         """
         return pulumi.get(self, "secondaries")
+
+    @property
+    @pulumi.getter
+    def tsig(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        TSIG is documented below
+        """
+        return pulumi.get(self, "tsig")
 
     @property
     @pulumi.getter

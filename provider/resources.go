@@ -92,8 +92,20 @@ func Provider() tfbridge.ProviderInfo {
 			"ns1_apikey":        {Tok: makeResource(mainMod, "APIKey")},
 			"ns1_team":          {Tok: makeResource(mainMod, "Team")},
 			"ns1_user":          {Tok: makeResource(mainMod, "User")},
-			"ns1_pulsarjob":     {Tok: makeResource(mainMod, "PulsarJob")},
-			"ns1_application":   {Tok: makeResource(mainMod, "Application")},
+			"ns1_pulsarjob": {
+				Tok: makeResource(mainMod, "PulsarJob"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"ns1_application": {Tok: makeResource(mainMod, "Application")},
+			"ns1_subnet": {
+				Tok: makeResource(mainMod, "Subnet"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"ns1_tsigkey": {Tok: makeResource(mainMod, "Tsigkey")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"ns1_zone":   {Tok: makeDataSource(mainMod, "getZone")},

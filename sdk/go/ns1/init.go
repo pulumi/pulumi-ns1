@@ -36,8 +36,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PulsarJob{}
 	case "ns1:index/record:Record":
 		r = &Record{}
+	case "ns1:index/subnet:Subnet":
+		r = &Subnet{}
 	case "ns1:index/team:Team":
 		r = &Team{}
+	case "ns1:index/tsigkey:Tsigkey":
+		r = &Tsigkey{}
 	case "ns1:index/user:User":
 		r = &User{}
 	case "ns1:index/zone:Zone":
@@ -112,7 +116,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"ns1",
+		"index/subnet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
 		"index/team",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
+		"index/tsigkey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

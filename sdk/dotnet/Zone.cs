@@ -113,6 +113,12 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<Outputs.ZoneSecondary>> Secondaries { get; private set; } = null!;
 
         /// <summary>
+        /// TSIG is documented below
+        /// </summary>
+        [Output("tsig")]
+        public Output<ImmutableDictionary<string, string>?> Tsig { get; private set; } = null!;
+
+        /// <summary>
         /// The SOA TTL.
         /// </summary>
         [Output("ttl")]
@@ -202,6 +208,12 @@ namespace Pulumi.Ns1
         public Input<int>? Expiry { get; set; }
 
         /// <summary>
+        /// (Computed) The SOA Hostmaster.
+        /// </summary>
+        [Input("hostmaster")]
+        public Input<string>? Hostmaster { get; set; }
+
+        /// <summary>
         /// The target zone(domain name) to link to.
         /// </summary>
         [Input("link")]
@@ -261,6 +273,18 @@ namespace Pulumi.Ns1
         {
             get => _secondaries ?? (_secondaries = new InputList<Inputs.ZoneSecondaryArgs>());
             set => _secondaries = value;
+        }
+
+        [Input("tsig")]
+        private InputMap<string>? _tsig;
+
+        /// <summary>
+        /// TSIG is documented below
+        /// </summary>
+        public InputMap<string> Tsig
+        {
+            get => _tsig ?? (_tsig = new InputMap<string>());
+            set => _tsig = value;
         }
 
         /// <summary>
@@ -385,6 +409,18 @@ namespace Pulumi.Ns1
         {
             get => _secondaries ?? (_secondaries = new InputList<Inputs.ZoneSecondaryGetArgs>());
             set => _secondaries = value;
+        }
+
+        [Input("tsig")]
+        private InputMap<string>? _tsig;
+
+        /// <summary>
+        /// TSIG is documented below
+        /// </summary>
+        public InputMap<string> Tsig
+        {
+            get => _tsig ?? (_tsig = new InputMap<string>());
+            set => _tsig = value;
         }
 
         /// <summary>
