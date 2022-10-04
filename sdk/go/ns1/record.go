@@ -20,13 +20,17 @@ import (
 // ## Import
 //
 // ```sh
-//  $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
+//
+//	$ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
+//
 // ```
 //
-//  So for the example above
+//	So for the example above
 //
 // ```sh
-//  $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+//
+//	$ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+//
 // ```
 type Record struct {
 	pulumi.CustomResourceState
@@ -278,7 +282,7 @@ func (i *Record) ToRecordOutputWithContext(ctx context.Context) RecordOutput {
 // RecordArrayInput is an input type that accepts RecordArray and RecordArrayOutput values.
 // You can construct a concrete instance of `RecordArrayInput` via:
 //
-//          RecordArray{ RecordArgs{...} }
+//	RecordArray{ RecordArgs{...} }
 type RecordArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +307,7 @@ func (i RecordArray) ToRecordArrayOutputWithContext(ctx context.Context) RecordA
 // RecordMapInput is an input type that accepts RecordMap and RecordMapOutput values.
 // You can construct a concrete instance of `RecordMapInput` via:
 //
-//          RecordMap{ "key": RecordArgs{...} }
+//	RecordMap{ "key": RecordArgs{...} }
 type RecordMapInput interface {
 	pulumi.Input
 

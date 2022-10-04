@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ns1.NewTsigkey(ctx, "example", &ns1.TsigkeyArgs{
-// 			Algorithm: pulumi.String("hmac-sha256"),
-// 			Secret:    pulumi.String("Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA=="),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewTsigkey(ctx, "example", &ns1.TsigkeyArgs{
+//				Algorithm: pulumi.String("hmac-sha256"),
+//				Secret:    pulumi.String("Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA=="),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## NS1 Documentation
 //
@@ -43,7 +46,9 @@ import (
 // ## Import
 //
 // ```sh
-//  $ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
+//
+//	$ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
+//
 // ```
 type Tsigkey struct {
 	pulumi.CustomResourceState
@@ -157,7 +162,7 @@ func (i *Tsigkey) ToTsigkeyOutputWithContext(ctx context.Context) TsigkeyOutput 
 // TsigkeyArrayInput is an input type that accepts TsigkeyArray and TsigkeyArrayOutput values.
 // You can construct a concrete instance of `TsigkeyArrayInput` via:
 //
-//          TsigkeyArray{ TsigkeyArgs{...} }
+//	TsigkeyArray{ TsigkeyArgs{...} }
 type TsigkeyArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +187,7 @@ func (i TsigkeyArray) ToTsigkeyArrayOutputWithContext(ctx context.Context) Tsigk
 // TsigkeyMapInput is an input type that accepts TsigkeyMap and TsigkeyMapOutput values.
 // You can construct a concrete instance of `TsigkeyMapInput` via:
 //
-//          TsigkeyMap{ "key": TsigkeyArgs{...} }
+//	TsigkeyMap{ "key": TsigkeyArgs{...} }
 type TsigkeyMapInput interface {
 	pulumi.Input
 

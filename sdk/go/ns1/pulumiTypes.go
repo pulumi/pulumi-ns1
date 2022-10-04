@@ -20,7 +20,7 @@ type APIKeyDnsRecordsAllow struct {
 // APIKeyDnsRecordsAllowInput is an input type that accepts APIKeyDnsRecordsAllowArgs and APIKeyDnsRecordsAllowOutput values.
 // You can construct a concrete instance of `APIKeyDnsRecordsAllowInput` via:
 //
-//          APIKeyDnsRecordsAllowArgs{...}
+//	APIKeyDnsRecordsAllowArgs{...}
 type APIKeyDnsRecordsAllowInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i APIKeyDnsRecordsAllowArgs) ToAPIKeyDnsRecordsAllowOutputWithContext(ctx 
 // APIKeyDnsRecordsAllowArrayInput is an input type that accepts APIKeyDnsRecordsAllowArray and APIKeyDnsRecordsAllowArrayOutput values.
 // You can construct a concrete instance of `APIKeyDnsRecordsAllowArrayInput` via:
 //
-//          APIKeyDnsRecordsAllowArray{ APIKeyDnsRecordsAllowArgs{...} }
+//	APIKeyDnsRecordsAllowArray{ APIKeyDnsRecordsAllowArgs{...} }
 type APIKeyDnsRecordsAllowArrayInput interface {
 	pulumi.Input
 
@@ -132,7 +132,7 @@ type APIKeyDnsRecordsDeny struct {
 // APIKeyDnsRecordsDenyInput is an input type that accepts APIKeyDnsRecordsDenyArgs and APIKeyDnsRecordsDenyOutput values.
 // You can construct a concrete instance of `APIKeyDnsRecordsDenyInput` via:
 //
-//          APIKeyDnsRecordsDenyArgs{...}
+//	APIKeyDnsRecordsDenyArgs{...}
 type APIKeyDnsRecordsDenyInput interface {
 	pulumi.Input
 
@@ -162,7 +162,7 @@ func (i APIKeyDnsRecordsDenyArgs) ToAPIKeyDnsRecordsDenyOutputWithContext(ctx co
 // APIKeyDnsRecordsDenyArrayInput is an input type that accepts APIKeyDnsRecordsDenyArray and APIKeyDnsRecordsDenyArrayOutput values.
 // You can construct a concrete instance of `APIKeyDnsRecordsDenyArrayInput` via:
 //
-//          APIKeyDnsRecordsDenyArray{ APIKeyDnsRecordsDenyArgs{...} }
+//	APIKeyDnsRecordsDenyArray{ APIKeyDnsRecordsDenyArgs{...} }
 type APIKeyDnsRecordsDenyArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +253,7 @@ type ApplicationDefaultConfig struct {
 // ApplicationDefaultConfigInput is an input type that accepts ApplicationDefaultConfigArgs and ApplicationDefaultConfigOutput values.
 // You can construct a concrete instance of `ApplicationDefaultConfigInput` via:
 //
-//          ApplicationDefaultConfigArgs{...}
+//	ApplicationDefaultConfigArgs{...}
 type ApplicationDefaultConfigInput interface {
 	pulumi.Input
 
@@ -300,11 +300,11 @@ func (i ApplicationDefaultConfigArgs) ToApplicationDefaultConfigPtrOutputWithCon
 // ApplicationDefaultConfigPtrInput is an input type that accepts ApplicationDefaultConfigArgs, ApplicationDefaultConfigPtr and ApplicationDefaultConfigPtrOutput values.
 // You can construct a concrete instance of `ApplicationDefaultConfigPtrInput` via:
 //
-//          ApplicationDefaultConfigArgs{...}
+//	        ApplicationDefaultConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationDefaultConfigPtrInput interface {
 	pulumi.Input
 
@@ -364,8 +364,8 @@ func (o ApplicationDefaultConfigOutput) Https() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationDefaultConfig) *bool { return v.Https }).(pulumi.BoolPtrOutput)
 }
 
-// - Maximum timeout per job
-//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+//   - Maximum timeout per job
+//     0, the primary NSONE Global Network. Normally, you should not have to worry about this.
 func (o ApplicationDefaultConfigOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationDefaultConfig) *int { return v.JobTimeoutMillis }).(pulumi.IntPtrOutput)
 }
@@ -429,8 +429,8 @@ func (o ApplicationDefaultConfigPtrOutput) Https() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// - Maximum timeout per job
-//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+//   - Maximum timeout per job
+//     0, the primary NSONE Global Network. Normally, you should not have to worry about this.
 func (o ApplicationDefaultConfigPtrOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationDefaultConfig) *int {
 		if v == nil {
@@ -479,7 +479,7 @@ type MonitoringJobRule struct {
 // MonitoringJobRuleInput is an input type that accepts MonitoringJobRuleArgs and MonitoringJobRuleOutput values.
 // You can construct a concrete instance of `MonitoringJobRuleInput` via:
 //
-//          MonitoringJobRuleArgs{...}
+//	MonitoringJobRuleArgs{...}
 type MonitoringJobRuleInput interface {
 	pulumi.Input
 
@@ -508,7 +508,7 @@ func (i MonitoringJobRuleArgs) ToMonitoringJobRuleOutputWithContext(ctx context.
 // MonitoringJobRuleArrayInput is an input type that accepts MonitoringJobRuleArray and MonitoringJobRuleArrayOutput values.
 // You can construct a concrete instance of `MonitoringJobRuleArrayInput` via:
 //
-//          MonitoringJobRuleArray{ MonitoringJobRuleArgs{...} }
+//	MonitoringJobRuleArray{ MonitoringJobRuleArgs{...} }
 type MonitoringJobRuleArrayInput interface {
 	pulumi.Input
 
@@ -586,7 +586,7 @@ type NotifyListNotification struct {
 // NotifyListNotificationInput is an input type that accepts NotifyListNotificationArgs and NotifyListNotificationOutput values.
 // You can construct a concrete instance of `NotifyListNotificationInput` via:
 //
-//          NotifyListNotificationArgs{...}
+//	NotifyListNotificationArgs{...}
 type NotifyListNotificationInput interface {
 	pulumi.Input
 
@@ -616,7 +616,7 @@ func (i NotifyListNotificationArgs) ToNotifyListNotificationOutputWithContext(ct
 // NotifyListNotificationArrayInput is an input type that accepts NotifyListNotificationArray and NotifyListNotificationArrayOutput values.
 // You can construct a concrete instance of `NotifyListNotificationArrayInput` via:
 //
-//          NotifyListNotificationArray{ NotifyListNotificationArgs{...} }
+//	NotifyListNotificationArray{ NotifyListNotificationArgs{...} }
 type NotifyListNotificationArrayInput interface {
 	pulumi.Input
 
@@ -689,7 +689,7 @@ type PulsarJobBlendMetricWeights struct {
 // PulsarJobBlendMetricWeightsInput is an input type that accepts PulsarJobBlendMetricWeightsArgs and PulsarJobBlendMetricWeightsOutput values.
 // You can construct a concrete instance of `PulsarJobBlendMetricWeightsInput` via:
 //
-//          PulsarJobBlendMetricWeightsArgs{...}
+//	PulsarJobBlendMetricWeightsArgs{...}
 type PulsarJobBlendMetricWeightsInput interface {
 	pulumi.Input
 
@@ -724,11 +724,11 @@ func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsPtrOutputW
 // PulsarJobBlendMetricWeightsPtrInput is an input type that accepts PulsarJobBlendMetricWeightsArgs, PulsarJobBlendMetricWeightsPtr and PulsarJobBlendMetricWeightsPtrOutput values.
 // You can construct a concrete instance of `PulsarJobBlendMetricWeightsPtrInput` via:
 //
-//          PulsarJobBlendMetricWeightsArgs{...}
+//	        PulsarJobBlendMetricWeightsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PulsarJobBlendMetricWeightsPtrInput interface {
 	pulumi.Input
 
@@ -829,7 +829,7 @@ type PulsarJobConfig struct {
 // PulsarJobConfigInput is an input type that accepts PulsarJobConfigArgs and PulsarJobConfigOutput values.
 // You can construct a concrete instance of `PulsarJobConfigInput` via:
 //
-//          PulsarJobConfigArgs{...}
+//	PulsarJobConfigArgs{...}
 type PulsarJobConfigInput interface {
 	pulumi.Input
 
@@ -871,11 +871,11 @@ func (i PulsarJobConfigArgs) ToPulsarJobConfigPtrOutputWithContext(ctx context.C
 // PulsarJobConfigPtrInput is an input type that accepts PulsarJobConfigArgs, PulsarJobConfigPtr and PulsarJobConfigPtrOutput values.
 // You can construct a concrete instance of `PulsarJobConfigPtrInput` via:
 //
-//          PulsarJobConfigArgs{...}
+//	        PulsarJobConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PulsarJobConfigPtrInput interface {
 	pulumi.Input
 
@@ -1063,7 +1063,7 @@ type PulsarJobWeight struct {
 // PulsarJobWeightInput is an input type that accepts PulsarJobWeightArgs and PulsarJobWeightOutput values.
 // You can construct a concrete instance of `PulsarJobWeightInput` via:
 //
-//          PulsarJobWeightArgs{...}
+//	PulsarJobWeightArgs{...}
 type PulsarJobWeightInput interface {
 	pulumi.Input
 
@@ -1093,7 +1093,7 @@ func (i PulsarJobWeightArgs) ToPulsarJobWeightOutputWithContext(ctx context.Cont
 // PulsarJobWeightArrayInput is an input type that accepts PulsarJobWeightArray and PulsarJobWeightArrayOutput values.
 // You can construct a concrete instance of `PulsarJobWeightArrayInput` via:
 //
-//          PulsarJobWeightArray{ PulsarJobWeightArgs{...} }
+//	PulsarJobWeightArray{ PulsarJobWeightArgs{...} }
 type PulsarJobWeightArrayInput interface {
 	pulumi.Input
 
@@ -1182,7 +1182,7 @@ type RecordAnswer struct {
 // RecordAnswerInput is an input type that accepts RecordAnswerArgs and RecordAnswerOutput values.
 // You can construct a concrete instance of `RecordAnswerInput` via:
 //
-//          RecordAnswerArgs{...}
+//	RecordAnswerArgs{...}
 type RecordAnswerInput interface {
 	pulumi.Input
 
@@ -1219,7 +1219,7 @@ func (i RecordAnswerArgs) ToRecordAnswerOutputWithContext(ctx context.Context) R
 // RecordAnswerArrayInput is an input type that accepts RecordAnswerArray and RecordAnswerArrayOutput values.
 // You can construct a concrete instance of `RecordAnswerArrayInput` via:
 //
-//          RecordAnswerArray{ RecordAnswerArgs{...} }
+//	RecordAnswerArray{ RecordAnswerArgs{...} }
 type RecordAnswerArrayInput interface {
 	pulumi.Input
 
@@ -1269,8 +1269,8 @@ func (o RecordAnswerOutput) Meta() pulumi.MapOutput {
 // single `region` per answer is currently supported. If you want an answer in
 // multiple regions, duplicating the answer (including metadata) is the correct
 // approach.
-// * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-//   is documented below.
+//   - `  meta ` - (Optional) meta is supported at the `answer` level. Meta
+//     is documented below.
 func (o RecordAnswerOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordAnswer) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -1309,7 +1309,7 @@ type RecordFilter struct {
 // RecordFilterInput is an input type that accepts RecordFilterArgs and RecordFilterOutput values.
 // You can construct a concrete instance of `RecordFilterInput` via:
 //
-//          RecordFilterArgs{...}
+//	RecordFilterArgs{...}
 type RecordFilterInput interface {
 	pulumi.Input
 
@@ -1343,7 +1343,7 @@ func (i RecordFilterArgs) ToRecordFilterOutputWithContext(ctx context.Context) R
 // RecordFilterArrayInput is an input type that accepts RecordFilterArray and RecordFilterArrayOutput values.
 // You can construct a concrete instance of `RecordFilterArrayInput` via:
 //
-//          RecordFilterArray{ RecordFilterArgs{...} }
+//	RecordFilterArray{ RecordFilterArgs{...} }
 type RecordFilterArrayInput interface {
 	pulumi.Input
 
@@ -1425,7 +1425,7 @@ type RecordRegion struct {
 // RecordRegionInput is an input type that accepts RecordRegionArgs and RecordRegionOutput values.
 // You can construct a concrete instance of `RecordRegionInput` via:
 //
-//          RecordRegionArgs{...}
+//	RecordRegionArgs{...}
 type RecordRegionInput interface {
 	pulumi.Input
 
@@ -1454,7 +1454,7 @@ func (i RecordRegionArgs) ToRecordRegionOutputWithContext(ctx context.Context) R
 // RecordRegionArrayInput is an input type that accepts RecordRegionArray and RecordRegionArrayOutput values.
 // You can construct a concrete instance of `RecordRegionArrayInput` via:
 //
-//          RecordRegionArray{ RecordRegionArgs{...} }
+//	RecordRegionArray{ RecordRegionArgs{...} }
 type RecordRegionArrayInput interface {
 	pulumi.Input
 
@@ -1529,7 +1529,7 @@ type TeamDnsRecordsAllow struct {
 // TeamDnsRecordsAllowInput is an input type that accepts TeamDnsRecordsAllowArgs and TeamDnsRecordsAllowOutput values.
 // You can construct a concrete instance of `TeamDnsRecordsAllowInput` via:
 //
-//          TeamDnsRecordsAllowArgs{...}
+//	TeamDnsRecordsAllowArgs{...}
 type TeamDnsRecordsAllowInput interface {
 	pulumi.Input
 
@@ -1559,7 +1559,7 @@ func (i TeamDnsRecordsAllowArgs) ToTeamDnsRecordsAllowOutputWithContext(ctx cont
 // TeamDnsRecordsAllowArrayInput is an input type that accepts TeamDnsRecordsAllowArray and TeamDnsRecordsAllowArrayOutput values.
 // You can construct a concrete instance of `TeamDnsRecordsAllowArrayInput` via:
 //
-//          TeamDnsRecordsAllowArray{ TeamDnsRecordsAllowArgs{...} }
+//	TeamDnsRecordsAllowArray{ TeamDnsRecordsAllowArgs{...} }
 type TeamDnsRecordsAllowArrayInput interface {
 	pulumi.Input
 
@@ -1641,7 +1641,7 @@ type TeamDnsRecordsDeny struct {
 // TeamDnsRecordsDenyInput is an input type that accepts TeamDnsRecordsDenyArgs and TeamDnsRecordsDenyOutput values.
 // You can construct a concrete instance of `TeamDnsRecordsDenyInput` via:
 //
-//          TeamDnsRecordsDenyArgs{...}
+//	TeamDnsRecordsDenyArgs{...}
 type TeamDnsRecordsDenyInput interface {
 	pulumi.Input
 
@@ -1671,7 +1671,7 @@ func (i TeamDnsRecordsDenyArgs) ToTeamDnsRecordsDenyOutputWithContext(ctx contex
 // TeamDnsRecordsDenyArrayInput is an input type that accepts TeamDnsRecordsDenyArray and TeamDnsRecordsDenyArrayOutput values.
 // You can construct a concrete instance of `TeamDnsRecordsDenyArrayInput` via:
 //
-//          TeamDnsRecordsDenyArray{ TeamDnsRecordsDenyArgs{...} }
+//	TeamDnsRecordsDenyArray{ TeamDnsRecordsDenyArgs{...} }
 type TeamDnsRecordsDenyArrayInput interface {
 	pulumi.Input
 
@@ -1752,7 +1752,7 @@ type TeamIpWhitelist struct {
 // TeamIpWhitelistInput is an input type that accepts TeamIpWhitelistArgs and TeamIpWhitelistOutput values.
 // You can construct a concrete instance of `TeamIpWhitelistInput` via:
 //
-//          TeamIpWhitelistArgs{...}
+//	TeamIpWhitelistArgs{...}
 type TeamIpWhitelistInput interface {
 	pulumi.Input
 
@@ -1781,7 +1781,7 @@ func (i TeamIpWhitelistArgs) ToTeamIpWhitelistOutputWithContext(ctx context.Cont
 // TeamIpWhitelistArrayInput is an input type that accepts TeamIpWhitelistArray and TeamIpWhitelistArrayOutput values.
 // You can construct a concrete instance of `TeamIpWhitelistArrayInput` via:
 //
-//          TeamIpWhitelistArray{ TeamIpWhitelistArgs{...} }
+//	TeamIpWhitelistArray{ TeamIpWhitelistArgs{...} }
 type TeamIpWhitelistArrayInput interface {
 	pulumi.Input
 
@@ -1856,7 +1856,7 @@ type UserDnsRecordsAllow struct {
 // UserDnsRecordsAllowInput is an input type that accepts UserDnsRecordsAllowArgs and UserDnsRecordsAllowOutput values.
 // You can construct a concrete instance of `UserDnsRecordsAllowInput` via:
 //
-//          UserDnsRecordsAllowArgs{...}
+//	UserDnsRecordsAllowArgs{...}
 type UserDnsRecordsAllowInput interface {
 	pulumi.Input
 
@@ -1886,7 +1886,7 @@ func (i UserDnsRecordsAllowArgs) ToUserDnsRecordsAllowOutputWithContext(ctx cont
 // UserDnsRecordsAllowArrayInput is an input type that accepts UserDnsRecordsAllowArray and UserDnsRecordsAllowArrayOutput values.
 // You can construct a concrete instance of `UserDnsRecordsAllowArrayInput` via:
 //
-//          UserDnsRecordsAllowArray{ UserDnsRecordsAllowArgs{...} }
+//	UserDnsRecordsAllowArray{ UserDnsRecordsAllowArgs{...} }
 type UserDnsRecordsAllowArrayInput interface {
 	pulumi.Input
 
@@ -1968,7 +1968,7 @@ type UserDnsRecordsDeny struct {
 // UserDnsRecordsDenyInput is an input type that accepts UserDnsRecordsDenyArgs and UserDnsRecordsDenyOutput values.
 // You can construct a concrete instance of `UserDnsRecordsDenyInput` via:
 //
-//          UserDnsRecordsDenyArgs{...}
+//	UserDnsRecordsDenyArgs{...}
 type UserDnsRecordsDenyInput interface {
 	pulumi.Input
 
@@ -1998,7 +1998,7 @@ func (i UserDnsRecordsDenyArgs) ToUserDnsRecordsDenyOutputWithContext(ctx contex
 // UserDnsRecordsDenyArrayInput is an input type that accepts UserDnsRecordsDenyArray and UserDnsRecordsDenyArrayOutput values.
 // You can construct a concrete instance of `UserDnsRecordsDenyArrayInput` via:
 //
-//          UserDnsRecordsDenyArray{ UserDnsRecordsDenyArgs{...} }
+//	UserDnsRecordsDenyArray{ UserDnsRecordsDenyArgs{...} }
 type UserDnsRecordsDenyArrayInput interface {
 	pulumi.Input
 
@@ -2087,7 +2087,7 @@ type ZoneSecondary struct {
 // ZoneSecondaryInput is an input type that accepts ZoneSecondaryArgs and ZoneSecondaryOutput values.
 // You can construct a concrete instance of `ZoneSecondaryInput` via:
 //
-//          ZoneSecondaryArgs{...}
+//	ZoneSecondaryArgs{...}
 type ZoneSecondaryInput interface {
 	pulumi.Input
 
@@ -2124,7 +2124,7 @@ func (i ZoneSecondaryArgs) ToZoneSecondaryOutputWithContext(ctx context.Context)
 // ZoneSecondaryArrayInput is an input type that accepts ZoneSecondaryArray and ZoneSecondaryArrayOutput values.
 // You can construct a concrete instance of `ZoneSecondaryArrayInput` via:
 //
-//          ZoneSecondaryArray{ ZoneSecondaryArgs{...} }
+//	ZoneSecondaryArray{ ZoneSecondaryArgs{...} }
 type ZoneSecondaryArrayInput interface {
 	pulumi.Input
 
@@ -2165,9 +2165,9 @@ func (o ZoneSecondaryOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v ZoneSecondary) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-// - List of network IDs (`int`) for which the zone
-//   should be made available. Default is network 0, the primary NSONE Global
-//   Network. Normally, you should not have to worry about this.
+//   - List of network IDs (`int`) for which the zone
+//     should be made available. Default is network 0, the primary NSONE Global
+//     Network. Normally, you should not have to worry about this.
 func (o ZoneSecondaryOutput) Networks() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v ZoneSecondary) []int { return v.Networks }).(pulumi.IntArrayOutput)
 }
@@ -2215,7 +2215,7 @@ type GetDNSSecDelegation struct {
 // GetDNSSecDelegationInput is an input type that accepts GetDNSSecDelegationArgs and GetDNSSecDelegationOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationInput` via:
 //
-//          GetDNSSecDelegationArgs{...}
+//	GetDNSSecDelegationArgs{...}
 type GetDNSSecDelegationInput interface {
 	pulumi.Input
 
@@ -2287,7 +2287,7 @@ type GetDNSSecDelegationD struct {
 // GetDNSSecDelegationDInput is an input type that accepts GetDNSSecDelegationDArgs and GetDNSSecDelegationDOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationDInput` via:
 //
-//          GetDNSSecDelegationDArgs{...}
+//	GetDNSSecDelegationDArgs{...}
 type GetDNSSecDelegationDInput interface {
 	pulumi.Input
 
@@ -2321,7 +2321,7 @@ func (i GetDNSSecDelegationDArgs) ToGetDNSSecDelegationDOutputWithContext(ctx co
 // GetDNSSecDelegationDArrayInput is an input type that accepts GetDNSSecDelegationDArray and GetDNSSecDelegationDArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationDArrayInput` via:
 //
-//          GetDNSSecDelegationDArray{ GetDNSSecDelegationDArgs{...} }
+//	GetDNSSecDelegationDArray{ GetDNSSecDelegationDArgs{...} }
 type GetDNSSecDelegationDArrayInput interface {
 	pulumi.Input
 
@@ -2411,7 +2411,7 @@ type GetDNSSecDelegationDnskey struct {
 // GetDNSSecDelegationDnskeyInput is an input type that accepts GetDNSSecDelegationDnskeyArgs and GetDNSSecDelegationDnskeyOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationDnskeyInput` via:
 //
-//          GetDNSSecDelegationDnskeyArgs{...}
+//	GetDNSSecDelegationDnskeyArgs{...}
 type GetDNSSecDelegationDnskeyInput interface {
 	pulumi.Input
 
@@ -2445,7 +2445,7 @@ func (i GetDNSSecDelegationDnskeyArgs) ToGetDNSSecDelegationDnskeyOutputWithCont
 // GetDNSSecDelegationDnskeyArrayInput is an input type that accepts GetDNSSecDelegationDnskeyArray and GetDNSSecDelegationDnskeyArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationDnskeyArrayInput` via:
 //
-//          GetDNSSecDelegationDnskeyArray{ GetDNSSecDelegationDnskeyArgs{...} }
+//	GetDNSSecDelegationDnskeyArray{ GetDNSSecDelegationDnskeyArgs{...} }
 type GetDNSSecDelegationDnskeyArrayInput interface {
 	pulumi.Input
 
@@ -2531,7 +2531,7 @@ type GetDNSSecKeys struct {
 // GetDNSSecKeysInput is an input type that accepts GetDNSSecKeysArgs and GetDNSSecKeysOutput values.
 // You can construct a concrete instance of `GetDNSSecKeysInput` via:
 //
-//          GetDNSSecKeysArgs{...}
+//	GetDNSSecKeysArgs{...}
 type GetDNSSecKeysInput interface {
 	pulumi.Input
 
@@ -2596,7 +2596,7 @@ type GetDNSSecKeysDnskey struct {
 // GetDNSSecKeysDnskeyInput is an input type that accepts GetDNSSecKeysDnskeyArgs and GetDNSSecKeysDnskeyOutput values.
 // You can construct a concrete instance of `GetDNSSecKeysDnskeyInput` via:
 //
-//          GetDNSSecKeysDnskeyArgs{...}
+//	GetDNSSecKeysDnskeyArgs{...}
 type GetDNSSecKeysDnskeyInput interface {
 	pulumi.Input
 
@@ -2630,7 +2630,7 @@ func (i GetDNSSecKeysDnskeyArgs) ToGetDNSSecKeysDnskeyOutputWithContext(ctx cont
 // GetDNSSecKeysDnskeyArrayInput is an input type that accepts GetDNSSecKeysDnskeyArray and GetDNSSecKeysDnskeyArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecKeysDnskeyArrayInput` via:
 //
-//          GetDNSSecKeysDnskeyArray{ GetDNSSecKeysDnskeyArgs{...} }
+//	GetDNSSecKeysDnskeyArray{ GetDNSSecKeysDnskeyArgs{...} }
 type GetDNSSecKeysDnskeyArrayInput interface {
 	pulumi.Input
 
@@ -2716,7 +2716,7 @@ type GetRecordAnswer struct {
 // GetRecordAnswerInput is an input type that accepts GetRecordAnswerArgs and GetRecordAnswerOutput values.
 // You can construct a concrete instance of `GetRecordAnswerInput` via:
 //
-//          GetRecordAnswerArgs{...}
+//	GetRecordAnswerArgs{...}
 type GetRecordAnswerInput interface {
 	pulumi.Input
 
@@ -2746,7 +2746,7 @@ func (i GetRecordAnswerArgs) ToGetRecordAnswerOutputWithContext(ctx context.Cont
 // GetRecordAnswerArrayInput is an input type that accepts GetRecordAnswerArray and GetRecordAnswerArrayOutput values.
 // You can construct a concrete instance of `GetRecordAnswerArrayInput` via:
 //
-//          GetRecordAnswerArray{ GetRecordAnswerArgs{...} }
+//	GetRecordAnswerArray{ GetRecordAnswerArgs{...} }
 type GetRecordAnswerArrayInput interface {
 	pulumi.Input
 
@@ -2824,7 +2824,7 @@ type GetRecordFilter struct {
 // GetRecordFilterInput is an input type that accepts GetRecordFilterArgs and GetRecordFilterOutput values.
 // You can construct a concrete instance of `GetRecordFilterInput` via:
 //
-//          GetRecordFilterArgs{...}
+//	GetRecordFilterArgs{...}
 type GetRecordFilterInput interface {
 	pulumi.Input
 
@@ -2853,7 +2853,7 @@ func (i GetRecordFilterArgs) ToGetRecordFilterOutputWithContext(ctx context.Cont
 // GetRecordFilterArrayInput is an input type that accepts GetRecordFilterArray and GetRecordFilterArrayOutput values.
 // You can construct a concrete instance of `GetRecordFilterArrayInput` via:
 //
-//          GetRecordFilterArray{ GetRecordFilterArgs{...} }
+//	GetRecordFilterArray{ GetRecordFilterArgs{...} }
 type GetRecordFilterArrayInput interface {
 	pulumi.Input
 
@@ -2930,7 +2930,7 @@ type GetRecordRegion struct {
 // GetRecordRegionInput is an input type that accepts GetRecordRegionArgs and GetRecordRegionOutput values.
 // You can construct a concrete instance of `GetRecordRegionInput` via:
 //
-//          GetRecordRegionArgs{...}
+//	GetRecordRegionArgs{...}
 type GetRecordRegionInput interface {
 	pulumi.Input
 
@@ -2959,7 +2959,7 @@ func (i GetRecordRegionArgs) ToGetRecordRegionOutputWithContext(ctx context.Cont
 // GetRecordRegionArrayInput is an input type that accepts GetRecordRegionArray and GetRecordRegionArrayOutput values.
 // You can construct a concrete instance of `GetRecordRegionArrayInput` via:
 //
-//          GetRecordRegionArray{ GetRecordRegionArgs{...} }
+//	GetRecordRegionArray{ GetRecordRegionArgs{...} }
 type GetRecordRegionArrayInput interface {
 	pulumi.Input
 
@@ -3040,7 +3040,7 @@ type GetZoneSecondary struct {
 // GetZoneSecondaryInput is an input type that accepts GetZoneSecondaryArgs and GetZoneSecondaryOutput values.
 // You can construct a concrete instance of `GetZoneSecondaryInput` via:
 //
-//          GetZoneSecondaryArgs{...}
+//	GetZoneSecondaryArgs{...}
 type GetZoneSecondaryInput interface {
 	pulumi.Input
 
@@ -3076,7 +3076,7 @@ func (i GetZoneSecondaryArgs) ToGetZoneSecondaryOutputWithContext(ctx context.Co
 // GetZoneSecondaryArrayInput is an input type that accepts GetZoneSecondaryArray and GetZoneSecondaryArrayOutput values.
 // You can construct a concrete instance of `GetZoneSecondaryArrayInput` via:
 //
-//          GetZoneSecondaryArray{ GetZoneSecondaryArgs{...} }
+//	GetZoneSecondaryArray{ GetZoneSecondaryArgs{...} }
 type GetZoneSecondaryArrayInput interface {
 	pulumi.Input
 

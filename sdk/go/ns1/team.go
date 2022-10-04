@@ -19,60 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
-// 			AccountManageUsers: pulumi.Bool(false),
-// 			DnsViewZones:       pulumi.Bool(false),
-// 			IpWhitelists: TeamIpWhitelistArray{
-// 				&TeamIpWhitelistArgs{
-// 					Name: pulumi.String("whitelist-1"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("1.1.1.1"),
-// 						pulumi.String("2.2.2.2"),
-// 					},
-// 				},
-// 				&TeamIpWhitelistArgs{
-// 					Name: pulumi.String("whitelist-2"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("3.3.3.3"),
-// 						pulumi.String("4.4.4.4"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
-// 			DataManageDatasources: pulumi.Bool(true),
-// 			DnsRecordsAllows: TeamDnsRecordsAllowArray{
-// 				&TeamDnsRecordsAllowArgs{
-// 					Domain:            pulumi.String("terraform.example.io"),
-// 					IncludeSubdomains: pulumi.Bool(false),
-// 					Type:              pulumi.String("A"),
-// 					Zone:              pulumi.String("example.io"),
-// 				},
-// 			},
-// 			DnsViewZones: pulumi.Bool(true),
-// 			DnsZonesAllows: pulumi.StringArray{
-// 				pulumi.String("mytest.zone"),
-// 			},
-// 			DnsZonesAllowByDefault: pulumi.Bool(true),
-// 			DnsZonesDenies: pulumi.StringArray{
-// 				pulumi.String("myother.zone"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
+//				AccountManageUsers: pulumi.Bool(false),
+//				DnsViewZones:       pulumi.Bool(false),
+//				IpWhitelists: TeamIpWhitelistArray{
+//					&TeamIpWhitelistArgs{
+//						Name: pulumi.String("whitelist-1"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("1.1.1.1"),
+//							pulumi.String("2.2.2.2"),
+//						},
+//					},
+//					&TeamIpWhitelistArgs{
+//						Name: pulumi.String("whitelist-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("3.3.3.3"),
+//							pulumi.String("4.4.4.4"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
+//				DataManageDatasources: pulumi.Bool(true),
+//				DnsRecordsAllows: TeamDnsRecordsAllowArray{
+//					&TeamDnsRecordsAllowArgs{
+//						Domain:            pulumi.String("terraform.example.io"),
+//						IncludeSubdomains: pulumi.Bool(false),
+//						Type:              pulumi.String("A"),
+//						Zone:              pulumi.String("example.io"),
+//					},
+//				},
+//				DnsViewZones: pulumi.Bool(true),
+//				DnsZonesAllows: pulumi.StringArray{
+//					pulumi.String("mytest.zone"),
+//				},
+//				DnsZonesAllowByDefault: pulumi.Bool(true),
+//				DnsZonesDenies: pulumi.StringArray{
+//					pulumi.String("myother.zone"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## NS1 Documentation
 //
@@ -81,7 +84,9 @@ import (
 // ## Import
 //
 // ```sh
-//  $ pulumi import ns1:index/team:Team <name> <team_id>`
+//
+//	$ pulumi import ns1:index/team:Team <name> <team_id>`
+//
 // ```
 type Team struct {
 	pulumi.CustomResourceState
@@ -484,7 +489,7 @@ func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 // TeamArrayInput is an input type that accepts TeamArray and TeamArrayOutput values.
 // You can construct a concrete instance of `TeamArrayInput` via:
 //
-//          TeamArray{ TeamArgs{...} }
+//	TeamArray{ TeamArgs{...} }
 type TeamArrayInput interface {
 	pulumi.Input
 
@@ -509,7 +514,7 @@ func (i TeamArray) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOu
 // TeamMapInput is an input type that accepts TeamMap and TeamMapOutput values.
 // You can construct a concrete instance of `TeamMapInput` via:
 //
-//          TeamMap{ "key": TeamArgs{...} }
+//	TeamMap{ "key": TeamArgs{...} }
 type TeamMapInput interface {
 	pulumi.Input
 
