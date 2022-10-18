@@ -42,9 +42,9 @@ namespace Pulumi.Ns1
     ///             RapidRecheck = true,
     ///             Regions = 
     ///             {
+    ///                 "lga",
     ///                 "sjc",
     ///                 "sin",
-    ///                 "lga",
     ///             },
     ///             Rules = 
     ///             {
@@ -151,7 +151,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The list of region codes in which to run the monitoring
-        /// job. See NS1 API docs for supported values.
+        /// job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
         /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The list of region codes in which to run the monitoring
-        /// job. See NS1 API docs for supported values.
+        /// job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
         /// </summary>
         public InputList<string> Regions
         {
@@ -421,7 +421,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The list of region codes in which to run the monitoring
-        /// job. See NS1 API docs for supported values.
+        /// job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
         /// </summary>
         public InputList<string> Regions
         {

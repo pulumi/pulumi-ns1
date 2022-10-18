@@ -142,7 +142,7 @@ func (i *PulsarJob) ToPulsarJobOutputWithContext(ctx context.Context) PulsarJobO
 // PulsarJobArrayInput is an input type that accepts PulsarJobArray and PulsarJobArrayOutput values.
 // You can construct a concrete instance of `PulsarJobArrayInput` via:
 //
-//          PulsarJobArray{ PulsarJobArgs{...} }
+//	PulsarJobArray{ PulsarJobArgs{...} }
 type PulsarJobArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +167,7 @@ func (i PulsarJobArray) ToPulsarJobArrayOutputWithContext(ctx context.Context) P
 // PulsarJobMapInput is an input type that accepts PulsarJobMap and PulsarJobMapOutput values.
 // You can construct a concrete instance of `PulsarJobMapInput` via:
 //
-//          PulsarJobMap{ "key": PulsarJobArgs{...} }
+//	PulsarJobMap{ "key": PulsarJobArgs{...} }
 type PulsarJobMapInput interface {
 	pulumi.Input
 

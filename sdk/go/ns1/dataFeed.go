@@ -19,54 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
-// 			Sourcetype: pulumi.String("nsone_v1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleMonitoring, err := ns1.NewDataSource(ctx, "exampleMonitoring", &ns1.DataSourceArgs{
-// 			Sourcetype: pulumi.String("nsone_monitoring"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ns1.NewDataFeed(ctx, "uswestFeed", &ns1.DataFeedArgs{
-// 			SourceId: example.ID(),
-// 			Config: pulumi.AnyMap{
-// 				"label": pulumi.Any("uswest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ns1.NewDataFeed(ctx, "useastFeed", &ns1.DataFeedArgs{
-// 			SourceId: example.ID(),
-// 			Config: pulumi.AnyMap{
-// 				"label": pulumi.Any("useast"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ns1.NewDataFeed(ctx, "useastMonitorFeed", &ns1.DataFeedArgs{
-// 			SourceId: exampleMonitoring.ID(),
-// 			Config: pulumi.AnyMap{
-// 				"jobid": pulumi.Any(ns1_monitoringjob.Example_job.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
+//				Sourcetype: pulumi.String("nsone_v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMonitoring, err := ns1.NewDataSource(ctx, "exampleMonitoring", &ns1.DataSourceArgs{
+//				Sourcetype: pulumi.String("nsone_monitoring"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewDataFeed(ctx, "uswestFeed", &ns1.DataFeedArgs{
+//				SourceId: example.ID(),
+//				Config: pulumi.AnyMap{
+//					"label": pulumi.Any("uswest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewDataFeed(ctx, "useastFeed", &ns1.DataFeedArgs{
+//				SourceId: example.ID(),
+//				Config: pulumi.AnyMap{
+//					"label": pulumi.Any("useast"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewDataFeed(ctx, "useastMonitorFeed", &ns1.DataFeedArgs{
+//				SourceId: exampleMonitoring.ID(),
+//				Config: pulumi.AnyMap{
+//					"jobid": pulumi.Any(ns1_monitoringjob.Example_job.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## NS1 Documentation
 //
@@ -185,7 +188,7 @@ func (i *DataFeed) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutp
 // DataFeedArrayInput is an input type that accepts DataFeedArray and DataFeedArrayOutput values.
 // You can construct a concrete instance of `DataFeedArrayInput` via:
 //
-//          DataFeedArray{ DataFeedArgs{...} }
+//	DataFeedArray{ DataFeedArgs{...} }
 type DataFeedArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +213,7 @@ func (i DataFeedArray) ToDataFeedArrayOutputWithContext(ctx context.Context) Dat
 // DataFeedMapInput is an input type that accepts DataFeedMap and DataFeedMapOutput values.
 // You can construct a concrete instance of `DataFeedMapInput` via:
 //
-//          DataFeedMap{ "key": DataFeedArgs{...} }
+//	DataFeedMap{ "key": DataFeedArgs{...} }
 type DataFeedMapInput interface {
 	pulumi.Input
 
