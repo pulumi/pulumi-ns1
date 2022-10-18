@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
-// 			Sourcetype: pulumi.String("nsone_v1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
+//				Sourcetype: pulumi.String("nsone_v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## NS1 Documentation
 //
@@ -152,7 +155,7 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 // DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
 // You can construct a concrete instance of `DataSourceArrayInput` via:
 //
-//          DataSourceArray{ DataSourceArgs{...} }
+//	DataSourceArray{ DataSourceArgs{...} }
 type DataSourceArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +180,7 @@ func (i DataSourceArray) ToDataSourceArrayOutputWithContext(ctx context.Context)
 // DataSourceMapInput is an input type that accepts DataSourceMap and DataSourceMapOutput values.
 // You can construct a concrete instance of `DataSourceMapInput` via:
 //
-//          DataSourceMap{ "key": DataSourceArgs{...} }
+//	DataSourceMap{ "key": DataSourceArgs{...} }
 type DataSourceMapInput interface {
 	pulumi.Input
 

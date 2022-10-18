@@ -437,7 +437,7 @@ func (i *APIKey) ToAPIKeyOutputWithContext(ctx context.Context) APIKeyOutput {
 // APIKeyArrayInput is an input type that accepts APIKeyArray and APIKeyArrayOutput values.
 // You can construct a concrete instance of `APIKeyArrayInput` via:
 //
-//          APIKeyArray{ APIKeyArgs{...} }
+//	APIKeyArray{ APIKeyArgs{...} }
 type APIKeyArrayInput interface {
 	pulumi.Input
 
@@ -462,7 +462,7 @@ func (i APIKeyArray) ToAPIKeyArrayOutputWithContext(ctx context.Context) APIKeyA
 // APIKeyMapInput is an input type that accepts APIKeyMap and APIKeyMapOutput values.
 // You can construct a concrete instance of `APIKeyMapInput` via:
 //
-//          APIKeyMap{ "key": APIKeyArgs{...} }
+//	APIKeyMap{ "key": APIKeyArgs{...} }
 type APIKeyMapInput interface {
 	pulumi.Input
 

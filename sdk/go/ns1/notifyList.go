@@ -18,34 +18,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ns1.NewNotifyList(ctx, "nl", &ns1.NotifyListArgs{
-// 			Notifications: NotifyListNotificationArray{
-// 				&NotifyListNotificationArgs{
-// 					Config: pulumi.AnyMap{
-// 						"url": pulumi.Any("http://www.mywebhook.com"),
-// 					},
-// 					Type: pulumi.String("webhook"),
-// 				},
-// 				&NotifyListNotificationArgs{
-// 					Config: pulumi.AnyMap{
-// 						"email": pulumi.Any("test@test.com"),
-// 					},
-// 					Type: pulumi.String("email"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewNotifyList(ctx, "nl", &ns1.NotifyListArgs{
+//				Notifications: NotifyListNotificationArray{
+//					&NotifyListNotificationArgs{
+//						Config: pulumi.AnyMap{
+//							"url": pulumi.Any("http://www.mywebhook.com"),
+//						},
+//						Type: pulumi.String("webhook"),
+//					},
+//					&NotifyListNotificationArgs{
+//						Config: pulumi.AnyMap{
+//							"email": pulumi.Any("test@test.com"),
+//						},
+//						Type: pulumi.String("email"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## NS1 Documentation
 //
@@ -146,7 +149,7 @@ func (i *NotifyList) ToNotifyListOutputWithContext(ctx context.Context) NotifyLi
 // NotifyListArrayInput is an input type that accepts NotifyListArray and NotifyListArrayOutput values.
 // You can construct a concrete instance of `NotifyListArrayInput` via:
 //
-//          NotifyListArray{ NotifyListArgs{...} }
+//	NotifyListArray{ NotifyListArgs{...} }
 type NotifyListArrayInput interface {
 	pulumi.Input
 
@@ -171,7 +174,7 @@ func (i NotifyListArray) ToNotifyListArrayOutputWithContext(ctx context.Context)
 // NotifyListMapInput is an input type that accepts NotifyListMap and NotifyListMapOutput values.
 // You can construct a concrete instance of `NotifyListMapInput` via:
 //
-//          NotifyListMap{ "key": NotifyListArgs{...} }
+//	NotifyListMap{ "key": NotifyListArgs{...} }
 type NotifyListMapInput interface {
 	pulumi.Input
 

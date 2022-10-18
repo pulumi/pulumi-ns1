@@ -14,13 +14,17 @@ import (
 // ## Import
 //
 // ```sh
-//  $ pulumi import ns1:index/zone:Zone <name> <zone>`
+//
+//	$ pulumi import ns1:index/zone:Zone <name> <zone>`
+//
 // ```
 //
-//  So for the example above
+//	So for the example above
 //
 // ```sh
-//  $ pulumi import ns1:index/zone:Zone example terraform.example.io`
+//
+//	$ pulumi import ns1:index/zone:Zone example terraform.example.io`
+//
 // ```
 type Zone struct {
 	pulumi.CustomResourceState
@@ -312,7 +316,7 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 // ZoneArrayInput is an input type that accepts ZoneArray and ZoneArrayOutput values.
 // You can construct a concrete instance of `ZoneArrayInput` via:
 //
-//          ZoneArray{ ZoneArgs{...} }
+//	ZoneArray{ ZoneArgs{...} }
 type ZoneArrayInput interface {
 	pulumi.Input
 
@@ -337,7 +341,7 @@ func (i ZoneArray) ToZoneArrayOutputWithContext(ctx context.Context) ZoneArrayOu
 // ZoneMapInput is an input type that accepts ZoneMap and ZoneMapOutput values.
 // You can construct a concrete instance of `ZoneMapInput` via:
 //
-//          ZoneMap{ "key": ZoneArgs{...} }
+//	ZoneMap{ "key": ZoneArgs{...} }
 type ZoneMapInput interface {
 	pulumi.Input
 

@@ -30,9 +30,9 @@ import * as utilities from "./utilities";
  *     policy: "quorum",
  *     rapidRecheck: true,
  *     regions: [
+ *         "lga",
  *         "sjc",
  *         "sin",
- *         "lga",
  *     ],
  *     rules: [{
  *         comparison: "contains",
@@ -129,7 +129,7 @@ export class MonitoringJob extends pulumi.CustomResource {
     public readonly rapidRecheck!: pulumi.Output<boolean | undefined>;
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values.
+     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
      */
     public readonly regions!: pulumi.Output<string[]>;
     /**
@@ -262,7 +262,7 @@ export interface MonitoringJobState {
     rapidRecheck?: pulumi.Input<boolean>;
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values.
+     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
      */
     regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -331,7 +331,7 @@ export interface MonitoringJobArgs {
     rapidRecheck?: pulumi.Input<boolean>;
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values.
+     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
     /**

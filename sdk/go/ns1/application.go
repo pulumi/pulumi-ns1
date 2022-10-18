@@ -18,27 +18,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ns1.NewApplication(ctx, "ns1App", &ns1.ApplicationArgs{
-// 			DefaultConfig: &ApplicationDefaultConfigArgs{
-// 				Http:                   pulumi.Bool(true),
-// 				Https:                  pulumi.Bool(false),
-// 				Job_timeout_millis:     100,
-// 				Request_timeout_millis: 100,
-// 				Static_values:          true,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewApplication(ctx, "ns1App", &ns1.ApplicationArgs{
+//				DefaultConfig: &ApplicationDefaultConfigArgs{
+//					Http:                   pulumi.Bool(true),
+//					Https:                  pulumi.Bool(false),
+//					Job_timeout_millis:     100,
+//					Request_timeout_millis: 100,
+//					Static_values:          true,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## NS1 Documentation
 //
@@ -47,13 +50,17 @@ import (
 // ## Import
 //
 // ```sh
-//  $ pulumi import ns1:index/application:Application `ns1_application`
+//
+//	$ pulumi import ns1:index/application:Application `ns1_application`
+//
 // ```
 //
-//  So for the example above
+//	So for the example above
 //
 // ```sh
-//  $ pulumi import ns1:index/application:Application example terraform.example.io`
+//
+//	$ pulumi import ns1:index/application:Application example terraform.example.io`
+//
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -196,7 +203,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
-//          ApplicationArray{ ApplicationArgs{...} }
+//	ApplicationArray{ ApplicationArgs{...} }
 type ApplicationArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +228,7 @@ func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Contex
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
 // You can construct a concrete instance of `ApplicationMapInput` via:
 //
-//          ApplicationMap{ "key": ApplicationArgs{...} }
+//	ApplicationMap{ "key": ApplicationArgs{...} }
 type ApplicationMapInput interface {
 	pulumi.Input
 
