@@ -21,6 +21,42 @@ import javax.annotation.Nullable;
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  * 
  * ## Example Usage
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.Application;
+ * import com.pulumi.ns1.ApplicationArgs;
+ * import com.pulumi.ns1.inputs.ApplicationDefaultConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ns1App = new Application(&#34;ns1App&#34;, ApplicationArgs.builder()        
+ *             .defaultConfig(ApplicationDefaultConfigArgs.builder()
+ *                 .http(true)
+ *                 .https(false)
+ *                 .job_timeout_millis(100)
+ *                 .request_timeout_millis(100)
+ *                 .static_values(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NS1 Documentation
  * 
  * [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -73,7 +109,7 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.browserWaitMillis);
     }
     /**
-     * -(Optional) Default job configuration. If a field is present here and not on a specific job
+     * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      * 
      */
@@ -81,7 +117,7 @@ public class Application extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ApplicationDefaultConfig> defaultConfig;
 
     /**
-     * @return -(Optional) Default job configuration. If a field is present here and not on a specific job
+     * @return Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      * 
      */
@@ -89,14 +125,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultConfig);
     }
     /**
-     * -(Optional) Number of jobs to measure per user impression.
+     * Number of jobs to measure per user impression.
      * 
      */
     @Export(name="jobsPerTransaction", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> jobsPerTransaction;
 
     /**
-     * @return -(Optional) Number of jobs to measure per user impression.
+     * @return Number of jobs to measure per user impression.
      * 
      */
     public Output<Optional<Integer>> jobsPerTransaction() {

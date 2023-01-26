@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface APIKeyDnsRecordsAllow {
     domain: string;
@@ -28,7 +29,7 @@ export interface ApplicationDefaultConfig {
      */
     https?: boolean;
     /**
-     * - Maximum timeout per job
+     * Maximum timeout per job
      * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
      */
     jobTimeoutMillis?: number;
@@ -37,11 +38,11 @@ export interface ApplicationDefaultConfig {
      */
     requestTimeoutMillis?: number;
     /**
-     * - Indicates whether or not to skip aggregation for this job's measurements
+     * Indicates whether or not to skip aggregation for this job's measurements
      */
     staticValues?: boolean;
     /**
-     * - Whether to use XMLHttpRequest (XHR) when taking measurements.
+     * Whether to use XMLHttpRequest (XHR) when taking measurements.
      */
     useXhr?: boolean;
 }
@@ -297,7 +298,7 @@ export interface ZoneSecondary {
      */
     ip: string;
     /**
-     * - List of network IDs (`int`) for which the zone
+     * List of network IDs (`int`) for which the zone
      * should be made available. Default is network 0, the primary NSONE Global
      * Network. Normally, you should not have to worry about this.
      */
@@ -312,3 +313,4 @@ export interface ZoneSecondary {
      */
     port: number;
 }
+

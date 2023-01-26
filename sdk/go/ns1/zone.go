@@ -29,6 +29,7 @@ import (
 type Zone struct {
 	pulumi.CustomResourceState
 
+	AdditionalPorts pulumi.IntArrayOutput `pulumi:"additionalPorts"`
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  pulumi.StringArrayOutput `pulumi:"additionalPrimaries"`
@@ -46,16 +47,17 @@ type Zone struct {
 	Hostmaster pulumi.StringOutput `pulumi:"hostmaster"`
 	// The target zone(domain name) to link to.
 	Link pulumi.StringPtrOutput `pulumi:"link"`
-	// - List of network IDs (`int`) for which the zone
-	//   should be made available. Default is network 0, the primary NSONE Global
-	//   Network. Normally, you should not have to worry about this.
+	// List of network IDs for which the zone is
+	// available. If no network is provided, the zone will be created in network 0,
+	// the primary NS1 Global Network.
 	Networks pulumi.IntArrayOutput `pulumi:"networks"`
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	NxTtl pulumi.IntOutput `pulumi:"nxTtl"`
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary pulumi.StringPtrOutput `pulumi:"primary"`
+	Primary     pulumi.StringPtrOutput `pulumi:"primary"`
+	PrimaryPort pulumi.IntOutput       `pulumi:"primaryPort"`
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh pulumi.IntOutput `pulumi:"refresh"`
@@ -106,6 +108,7 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
+	AdditionalPorts []int `pulumi:"additionalPorts"`
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  []string `pulumi:"additionalPrimaries"`
@@ -123,16 +126,17 @@ type zoneState struct {
 	Hostmaster *string `pulumi:"hostmaster"`
 	// The target zone(domain name) to link to.
 	Link *string `pulumi:"link"`
-	// - List of network IDs (`int`) for which the zone
-	//   should be made available. Default is network 0, the primary NSONE Global
-	//   Network. Normally, you should not have to worry about this.
+	// List of network IDs for which the zone is
+	// available. If no network is provided, the zone will be created in network 0,
+	// the primary NS1 Global Network.
 	Networks []int `pulumi:"networks"`
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	NxTtl *int `pulumi:"nxTtl"`
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary *string `pulumi:"primary"`
+	Primary     *string `pulumi:"primary"`
+	PrimaryPort *int    `pulumi:"primaryPort"`
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh *int `pulumi:"refresh"`
@@ -152,6 +156,7 @@ type zoneState struct {
 }
 
 type ZoneState struct {
+	AdditionalPorts pulumi.IntArrayInput
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  pulumi.StringArrayInput
@@ -169,16 +174,17 @@ type ZoneState struct {
 	Hostmaster pulumi.StringPtrInput
 	// The target zone(domain name) to link to.
 	Link pulumi.StringPtrInput
-	// - List of network IDs (`int`) for which the zone
-	//   should be made available. Default is network 0, the primary NSONE Global
-	//   Network. Normally, you should not have to worry about this.
+	// List of network IDs for which the zone is
+	// available. If no network is provided, the zone will be created in network 0,
+	// the primary NS1 Global Network.
 	Networks pulumi.IntArrayInput
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	NxTtl pulumi.IntPtrInput
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary pulumi.StringPtrInput
+	Primary     pulumi.StringPtrInput
+	PrimaryPort pulumi.IntPtrInput
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh pulumi.IntPtrInput
@@ -202,6 +208,7 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
+	AdditionalPorts []int `pulumi:"additionalPorts"`
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  []string `pulumi:"additionalPrimaries"`
@@ -217,16 +224,17 @@ type zoneArgs struct {
 	Hostmaster *string `pulumi:"hostmaster"`
 	// The target zone(domain name) to link to.
 	Link *string `pulumi:"link"`
-	// - List of network IDs (`int`) for which the zone
-	//   should be made available. Default is network 0, the primary NSONE Global
-	//   Network. Normally, you should not have to worry about this.
+	// List of network IDs for which the zone is
+	// available. If no network is provided, the zone will be created in network 0,
+	// the primary NS1 Global Network.
 	Networks []int `pulumi:"networks"`
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	NxTtl *int `pulumi:"nxTtl"`
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary *string `pulumi:"primary"`
+	Primary     *string `pulumi:"primary"`
+	PrimaryPort *int    `pulumi:"primaryPort"`
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh *int `pulumi:"refresh"`
@@ -247,6 +255,7 @@ type zoneArgs struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
+	AdditionalPorts pulumi.IntArrayInput
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  pulumi.StringArrayInput
@@ -262,16 +271,17 @@ type ZoneArgs struct {
 	Hostmaster pulumi.StringPtrInput
 	// The target zone(domain name) to link to.
 	Link pulumi.StringPtrInput
-	// - List of network IDs (`int`) for which the zone
-	//   should be made available. Default is network 0, the primary NSONE Global
-	//   Network. Normally, you should not have to worry about this.
+	// List of network IDs for which the zone is
+	// available. If no network is provided, the zone will be created in network 0,
+	// the primary NS1 Global Network.
 	Networks pulumi.IntArrayInput
 	// The SOA NX TTL. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	NxTtl pulumi.IntPtrInput
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary pulumi.StringPtrInput
+	Primary     pulumi.StringPtrInput
+	PrimaryPort pulumi.IntPtrInput
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh pulumi.IntPtrInput
@@ -375,6 +385,105 @@ func (o ZoneOutput) ToZoneOutput() ZoneOutput {
 
 func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return o
+}
+
+func (o ZoneOutput) AdditionalPorts() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntArrayOutput { return v.AdditionalPorts }).(pulumi.IntArrayOutput)
+}
+
+// List of additional IPv4 addresses for the primary
+// zone. Conflicts with `secondaries`.
+func (o ZoneOutput) AdditionalPrimaries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.AdditionalPrimaries }).(pulumi.StringArrayOutput)
+}
+
+func (o ZoneOutput) AutogenerateNsRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.BoolPtrOutput { return v.AutogenerateNsRecord }).(pulumi.BoolPtrOutput)
+}
+
+// (Computed) Authoritative Name Servers.
+func (o ZoneOutput) DnsServers() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.DnsServers }).(pulumi.StringOutput)
+}
+
+// Whether or not DNSSEC is enabled for the zone.
+// Note that DNSSEC must be enabled on the account by support for this to be set
+// to `true`.
+func (o ZoneOutput) Dnssec() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Zone) pulumi.BoolOutput { return v.Dnssec }).(pulumi.BoolOutput)
+}
+
+// The SOA Expiry. Conflicts with `primary` and
+// `additionalPrimaries` (default must be accepted).
+func (o ZoneOutput) Expiry() pulumi.IntOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.Expiry }).(pulumi.IntOutput)
+}
+
+// (Computed) The SOA Hostmaster.
+func (o ZoneOutput) Hostmaster() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Hostmaster }).(pulumi.StringOutput)
+}
+
+// The target zone(domain name) to link to.
+func (o ZoneOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// List of network IDs for which the zone is
+// available. If no network is provided, the zone will be created in network 0,
+// the primary NS1 Global Network.
+func (o ZoneOutput) Networks() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntArrayOutput { return v.Networks }).(pulumi.IntArrayOutput)
+}
+
+// The SOA NX TTL. Conflicts with `primary` and
+// `additionalPrimaries` (default must be accepted).
+func (o ZoneOutput) NxTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.NxTtl }).(pulumi.IntOutput)
+}
+
+// The primary zones' IPv4 address. This makes the zone a
+// secondary. Conflicts with `secondaries`.
+func (o ZoneOutput) Primary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Primary }).(pulumi.StringPtrOutput)
+}
+
+func (o ZoneOutput) PrimaryPort() pulumi.IntOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.PrimaryPort }).(pulumi.IntOutput)
+}
+
+// The SOA Refresh. Conflicts with `primary` and
+// `additionalPrimaries` (default must be accepted).
+func (o ZoneOutput) Refresh() pulumi.IntOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.Refresh }).(pulumi.IntOutput)
+}
+
+// The SOA Retry. Conflicts with `primary` and
+// `additionalPrimaries` (default must be accepted).
+func (o ZoneOutput) Retry() pulumi.IntOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.Retry }).(pulumi.IntOutput)
+}
+
+// List of secondary servers. This makes the zone a
+// primary. Conflicts with `primary` and `additionalPrimaries`.
+// Secondaries is documented below.
+func (o ZoneOutput) Secondaries() ZoneSecondaryArrayOutput {
+	return o.ApplyT(func(v *Zone) ZoneSecondaryArrayOutput { return v.Secondaries }).(ZoneSecondaryArrayOutput)
+}
+
+// TSIG is documented below
+func (o ZoneOutput) Tsig() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringMapOutput { return v.Tsig }).(pulumi.StringMapOutput)
+}
+
+// The SOA TTL.
+func (o ZoneOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
+}
+
+// The domain name of the zone.
+func (o ZoneOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Zone }).(pulumi.StringOutput)
 }
 
 type ZoneArrayOutput struct{ *pulumi.OutputState }

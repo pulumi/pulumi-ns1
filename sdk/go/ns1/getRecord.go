@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ns1.LookupRecord(ctx, &GetRecordArgs{
+//			_, err := ns1.LookupRecord(ctx, &ns1.LookupRecordArgs{
 //				Domain: "terraform.example.io",
 //				Type:   "A",
 //				Zone:   "example.io",
@@ -72,7 +72,8 @@ type LookupRecordResult struct {
 	// The target record this links to.
 	Link string `pulumi:"link"`
 	// Map of metadata
-	Meta map[string]interface{} `pulumi:"meta"`
+	Meta        map[string]interface{} `pulumi:"meta"`
+	OverrideTtl bool                   `pulumi:"overrideTtl"`
 	// List of regions.
 	Regions      []GetRecordRegion `pulumi:"regions"`
 	ShortAnswers []string          `pulumi:"shortAnswers"`
@@ -153,6 +154,10 @@ func (o LookupRecordResultOutput) Link() pulumi.StringOutput {
 // Map of metadata
 func (o LookupRecordResultOutput) Meta() pulumi.MapOutput {
 	return o.ApplyT(func(v LookupRecordResult) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+}
+
+func (o LookupRecordResultOutput) OverrideTtl() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRecordResult) bool { return v.OverrideTtl }).(pulumi.BoolOutput)
 }
 
 // List of regions.

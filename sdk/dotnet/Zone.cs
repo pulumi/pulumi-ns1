@@ -23,8 +23,11 @@ namespace Pulumi.Ns1
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/zone:Zone")]
-    public partial class Zone : Pulumi.CustomResource
+    public partial class Zone : global::Pulumi.CustomResource
     {
+        [Output("additionalPorts")]
+        public Output<ImmutableArray<int>> AdditionalPorts { get; private set; } = null!;
+
         /// <summary>
         /// List of additional IPv4 addresses for the primary
         /// zone. Conflicts with `secondaries`.
@@ -69,9 +72,9 @@ namespace Pulumi.Ns1
         public Output<string?> Link { get; private set; } = null!;
 
         /// <summary>
-        /// - List of network IDs (`int`) for which the zone
-        /// should be made available. Default is network 0, the primary NSONE Global
-        /// Network. Normally, you should not have to worry about this.
+        /// List of network IDs for which the zone is
+        /// available. If no network is provided, the zone will be created in network 0,
+        /// the primary NS1 Global Network.
         /// </summary>
         [Output("networks")]
         public Output<ImmutableArray<int>> Networks { get; private set; } = null!;
@@ -89,6 +92,9 @@ namespace Pulumi.Ns1
         /// </summary>
         [Output("primary")]
         public Output<string?> Primary { get; private set; } = null!;
+
+        [Output("primaryPort")]
+        public Output<int> PrimaryPort { get; private set; } = null!;
 
         /// <summary>
         /// The SOA Refresh. Conflicts with `primary` and
@@ -174,8 +180,16 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class ZoneArgs : Pulumi.ResourceArgs
+    public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalPorts")]
+        private InputList<int>? _additionalPorts;
+        public InputList<int> AdditionalPorts
+        {
+            get => _additionalPorts ?? (_additionalPorts = new InputList<int>());
+            set => _additionalPorts = value;
+        }
+
         [Input("additionalPrimaries")]
         private InputList<string>? _additionalPrimaries;
 
@@ -223,9 +237,9 @@ namespace Pulumi.Ns1
         private InputList<int>? _networks;
 
         /// <summary>
-        /// - List of network IDs (`int`) for which the zone
-        /// should be made available. Default is network 0, the primary NSONE Global
-        /// Network. Normally, you should not have to worry about this.
+        /// List of network IDs for which the zone is
+        /// available. If no network is provided, the zone will be created in network 0,
+        /// the primary NS1 Global Network.
         /// </summary>
         public InputList<int> Networks
         {
@@ -246,6 +260,9 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("primary")]
         public Input<string>? Primary { get; set; }
+
+        [Input("primaryPort")]
+        public Input<int>? PrimaryPort { get; set; }
 
         /// <summary>
         /// The SOA Refresh. Conflicts with `primary` and
@@ -302,10 +319,19 @@ namespace Pulumi.Ns1
         public ZoneArgs()
         {
         }
+        public static new ZoneArgs Empty => new ZoneArgs();
     }
 
-    public sealed class ZoneState : Pulumi.ResourceArgs
+    public sealed class ZoneState : global::Pulumi.ResourceArgs
     {
+        [Input("additionalPorts")]
+        private InputList<int>? _additionalPorts;
+        public InputList<int> AdditionalPorts
+        {
+            get => _additionalPorts ?? (_additionalPorts = new InputList<int>());
+            set => _additionalPorts = value;
+        }
+
         [Input("additionalPrimaries")]
         private InputList<string>? _additionalPrimaries;
 
@@ -359,9 +385,9 @@ namespace Pulumi.Ns1
         private InputList<int>? _networks;
 
         /// <summary>
-        /// - List of network IDs (`int`) for which the zone
-        /// should be made available. Default is network 0, the primary NSONE Global
-        /// Network. Normally, you should not have to worry about this.
+        /// List of network IDs for which the zone is
+        /// available. If no network is provided, the zone will be created in network 0,
+        /// the primary NS1 Global Network.
         /// </summary>
         public InputList<int> Networks
         {
@@ -382,6 +408,9 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("primary")]
         public Input<string>? Primary { get; set; }
+
+        [Input("primaryPort")]
+        public Input<int>? PrimaryPort { get; set; }
 
         /// <summary>
         /// The SOA Refresh. Conflicts with `primary` and
@@ -438,5 +467,6 @@ namespace Pulumi.Ns1
         public ZoneState()
         {
         }
+        public static new ZoneState Empty => new ZoneState();
     }
 }

@@ -227,7 +227,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+     * job. See NS1 API docs for supported values.
      * 
      */
     @Import(name="regions", required=true)
@@ -235,7 +235,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+     * job. See NS1 API docs for supported values.
      * 
      */
     public Output<List<String>> regions() {
@@ -582,7 +582,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param regions The list of region codes in which to run the monitoring
-         * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+         * job. See NS1 API docs for supported values.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param regions The list of region codes in which to run the monitoring
-         * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+         * job. See NS1 API docs for supported values.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param regions The list of region codes in which to run the monitoring
-         * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+         * job. See NS1 API docs for supported values.
          * 
          * @return builder
          * 

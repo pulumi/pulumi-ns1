@@ -53,7 +53,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * -(Optional) Default job configuration. If a field is present here and not on a specific job
+     * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      * 
      */
@@ -61,7 +61,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ApplicationDefaultConfigArgs> defaultConfig;
 
     /**
-     * @return -(Optional) Default job configuration. If a field is present here and not on a specific job
+     * @return Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      * 
      */
@@ -70,14 +70,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * -(Optional) Number of jobs to measure per user impression.
+     * Number of jobs to measure per user impression.
      * 
      */
     @Import(name="jobsPerTransaction")
     private @Nullable Output<Integer> jobsPerTransaction;
 
     /**
-     * @return -(Optional) Number of jobs to measure per user impression.
+     * @return Number of jobs to measure per user impression.
      * 
      */
     public Optional<Output<Integer>> jobsPerTransaction() {
@@ -174,7 +174,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultConfig -(Optional) Default job configuration. If a field is present here and not on a specific job
+         * @param defaultConfig Default job configuration. If a field is present here and not on a specific job
          * associated with this application, the default value specified here is used..
          * 
          * @return builder
@@ -186,7 +186,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultConfig -(Optional) Default job configuration. If a field is present here and not on a specific job
+         * @param defaultConfig Default job configuration. If a field is present here and not on a specific job
          * associated with this application, the default value specified here is used..
          * 
          * @return builder
@@ -197,7 +197,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobsPerTransaction -(Optional) Number of jobs to measure per user impression.
+         * @param jobsPerTransaction Number of jobs to measure per user impression.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobsPerTransaction -(Optional) Number of jobs to measure per user impression.
+         * @param jobsPerTransaction Number of jobs to measure per user impression.
          * 
          * @return builder
          * 

@@ -82,7 +82,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * **Deprecated** Whether the user can modify the account plan.
+     * No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -93,7 +93,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> accountManagePlan;
 
     /**
-     * @return **Deprecated** Whether the user can modify the account plan.
+     * @return No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -681,7 +681,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountManagePlan **Deprecated** Whether the user can modify the account plan.
+         * @param accountManagePlan No longer in use.
          * 
          * @return builder
          * 
@@ -696,7 +696,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountManagePlan **Deprecated** Whether the user can modify the account plan.
+         * @param accountManagePlan No longer in use.
          * 
          * @return builder
          * 

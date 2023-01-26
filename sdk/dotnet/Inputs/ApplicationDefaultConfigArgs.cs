@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class ApplicationDefaultConfigArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationDefaultConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not to use HTTP in measurements.
@@ -25,7 +25,7 @@ namespace Pulumi.Ns1.Inputs
         public Input<bool>? Https { get; set; }
 
         /// <summary>
-        /// - Maximum timeout per job
+        /// Maximum timeout per job
         /// 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
         /// </summary>
         [Input("jobTimeoutMillis")]
@@ -38,13 +38,13 @@ namespace Pulumi.Ns1.Inputs
         public Input<int>? RequestTimeoutMillis { get; set; }
 
         /// <summary>
-        /// - Indicates whether or not to skip aggregation for this job's measurements
+        /// Indicates whether or not to skip aggregation for this job's measurements
         /// </summary>
         [Input("staticValues")]
         public Input<bool>? StaticValues { get; set; }
 
         /// <summary>
-        /// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+        /// Whether to use XMLHttpRequest (XHR) when taking measurements.
         /// </summary>
         [Input("useXhr")]
         public Input<bool>? UseXhr { get; set; }
@@ -52,5 +52,6 @@ namespace Pulumi.Ns1.Inputs
         public ApplicationDefaultConfigArgs()
         {
         }
+        public static new ApplicationDefaultConfigArgs Empty => new ApplicationDefaultConfigArgs();
     }
 }

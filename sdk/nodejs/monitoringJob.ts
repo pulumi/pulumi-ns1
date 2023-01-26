@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,14 +15,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const uswestMonitor = new ns1.MonitoringJob("uswest_monitor", {
+ * const uswestMonitor = new ns1.MonitoringJob("uswestMonitor", {
  *     active: true,
  *     config: {
  *         host: "example-elb-uswest.aws.amazon.com",
  *         port: 443,
- *         send: `HEAD / HTTP/1.0
- * 
- * `,
+ *         send: "HEAD / HTTP/1.0\\r\\n\\r\\n",
  *         ssl: 1,
  *     },
  *     frequency: 60,
@@ -44,6 +43,12 @@ import * as utilities from "./utilities";
  * ## NS1 Documentation
  *
  * [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
+ * ```
  */
 export class MonitoringJob extends pulumi.CustomResource {
     /**
@@ -129,7 +134,7 @@ export class MonitoringJob extends pulumi.CustomResource {
     public readonly rapidRecheck!: pulumi.Output<boolean | undefined>;
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+     * job. See NS1 API docs for supported values.
      */
     public readonly regions!: pulumi.Output<string[]>;
     /**
@@ -262,7 +267,7 @@ export interface MonitoringJobState {
     rapidRecheck?: pulumi.Input<boolean>;
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+     * job. See NS1 API docs for supported values.
      */
     regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -331,7 +336,7 @@ export interface MonitoringJobArgs {
     rapidRecheck?: pulumi.Input<boolean>;
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+     * job. See NS1 API docs for supported values.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
     /**

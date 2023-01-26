@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class TeamDnsRecordsAllowArgs : Pulumi.ResourceArgs
+    public sealed class TeamDnsRecordsAllowArgs : global::Pulumi.ResourceArgs
     {
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.Ns1.Inputs
         public TeamDnsRecordsAllowArgs()
         {
         }
+        public static new TeamDnsRecordsAllowArgs Empty => new TeamDnsRecordsAllowArgs();
     }
 }

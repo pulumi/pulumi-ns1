@@ -203,6 +203,50 @@ func (o PulsarJobOutput) ToPulsarJobOutputWithContext(ctx context.Context) Pulsa
 	return o
 }
 
+func (o PulsarJobOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o PulsarJobOutput) BlendMetricWeights() PulsarJobBlendMetricWeightsPtrOutput {
+	return o.ApplyT(func(v *PulsarJob) PulsarJobBlendMetricWeightsPtrOutput { return v.BlendMetricWeights }).(PulsarJobBlendMetricWeightsPtrOutput)
+}
+
+func (o PulsarJobOutput) Community() pulumi.BoolOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.BoolOutput { return v.Community }).(pulumi.BoolOutput)
+}
+
+func (o PulsarJobOutput) Config() PulsarJobConfigPtrOutput {
+	return o.ApplyT(func(v *PulsarJob) PulsarJobConfigPtrOutput { return v.Config }).(PulsarJobConfigPtrOutput)
+}
+
+func (o PulsarJobOutput) Customer() pulumi.IntOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.IntOutput { return v.Customer }).(pulumi.IntOutput)
+}
+
+func (o PulsarJobOutput) JobId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.StringOutput { return v.JobId }).(pulumi.StringOutput)
+}
+
+func (o PulsarJobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PulsarJobOutput) Shared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.BoolPtrOutput { return v.Shared }).(pulumi.BoolPtrOutput)
+}
+
+func (o PulsarJobOutput) TypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PulsarJob) pulumi.StringOutput { return v.TypeId }).(pulumi.StringOutput)
+}
+
+func (o PulsarJobOutput) Weights() PulsarJobWeightArrayOutput {
+	return o.ApplyT(func(v *PulsarJob) PulsarJobWeightArrayOutput { return v.Weights }).(PulsarJobWeightArrayOutput)
+}
+
 type PulsarJobArrayOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobArrayOutput) ElementType() reflect.Type {

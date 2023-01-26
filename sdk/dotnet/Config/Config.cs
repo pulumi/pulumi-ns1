@@ -30,11 +30,11 @@ namespace Pulumi.Ns1
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("ns1");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("ns1");
 
         private static readonly __Value<string?> _apikey = new __Value<string?>(() => __config.Get("apikey"));
         /// <summary>
-        /// The ns1 API key, this is required
+        /// The ns1 API key (required)
         /// </summary>
         public static string? Apikey
         {
@@ -43,6 +43,9 @@ namespace Pulumi.Ns1
         }
 
         private static readonly __Value<bool?> _enableDdi = new __Value<bool?>(() => __config.GetBoolean("enableDdi"));
+        /// <summary>
+        /// Deprecated, no longer in use
+        /// </summary>
         public static bool? EnableDdi
         {
             get => _enableDdi.Get();
@@ -50,6 +53,9 @@ namespace Pulumi.Ns1
         }
 
         private static readonly __Value<string?> _endpoint = new __Value<string?>(() => __config.Get("endpoint"));
+        /// <summary>
+        /// URL prefix (including version) for API calls
+        /// </summary>
         public static string? Endpoint
         {
             get => _endpoint.Get();
@@ -57,6 +63,9 @@ namespace Pulumi.Ns1
         }
 
         private static readonly __Value<bool?> _ignoreSsl = new __Value<bool?>(() => __config.GetBoolean("ignoreSsl"));
+        /// <summary>
+        /// Don't validate server SSL/TLS certificate
+        /// </summary>
         public static bool? IgnoreSsl
         {
             get => _ignoreSsl.Get();
@@ -64,10 +73,33 @@ namespace Pulumi.Ns1
         }
 
         private static readonly __Value<int?> _rateLimitParallelism = new __Value<int?>(() => __config.GetInt32("rateLimitParallelism"));
+        /// <summary>
+        /// Tune response to rate limits, see docs
+        /// </summary>
         public static int? RateLimitParallelism
         {
             get => _rateLimitParallelism.Get();
             set => _rateLimitParallelism.Set(value);
+        }
+
+        private static readonly __Value<int?> _retryMax = new __Value<int?>(() => __config.GetInt32("retryMax"));
+        /// <summary>
+        /// Maximum retries for 50x errors (-1 to disable)
+        /// </summary>
+        public static int? RetryMax
+        {
+            get => _retryMax.Get();
+            set => _retryMax.Set(value);
+        }
+
+        private static readonly __Value<string?> _userAgent = new __Value<string?>(() => __config.Get("userAgent"));
+        /// <summary>
+        /// User-Agent string to use in NS1 API requests
+        /// </summary>
+        public static string? UserAgent
+        {
+            get => _userAgent.Get();
+            set => _userAgent.Set(value);
         }
 
     }

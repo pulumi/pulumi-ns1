@@ -15,57 +15,58 @@ namespace Pulumi.Ns1
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Ns1 = Pulumi.Ns1;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var uswestMonitor = new Ns1.MonitoringJob("uswestMonitor", new()
     ///     {
-    ///         var uswestMonitor = new Ns1.MonitoringJob("uswestMonitor", new Ns1.MonitoringJobArgs
+    ///         Active = true,
+    ///         Config = 
     ///         {
-    ///             Active = true,
-    ///             Config = 
+    ///             { "host", "example-elb-uswest.aws.amazon.com" },
+    ///             { "port", 443 },
+    ///             { "send", "HEAD / HTTP/1.0\\r\\n\\r\\n" },
+    ///             { "ssl", 1 },
+    ///         },
+    ///         Frequency = 60,
+    ///         JobType = "tcp",
+    ///         Mute = true,
+    ///         Policy = "quorum",
+    ///         RapidRecheck = true,
+    ///         Regions = new[]
+    ///         {
+    ///             "lga",
+    ///             "sjc",
+    ///             "sin",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Ns1.Inputs.MonitoringJobRuleArgs
     ///             {
-    ///                 { "host", "example-elb-uswest.aws.amazon.com" },
-    ///                 { "port", 443 },
-    ///                 { "send", @"HEAD / HTTP/1.0
-    /// 
-    /// 
-    /// " },
-    ///                 { "ssl", 1 },
+    ///                 Comparison = "contains",
+    ///                 Key = "output",
+    ///                 Value = "200 OK",
     ///             },
-    ///             Frequency = 60,
-    ///             JobType = "tcp",
-    ///             Mute = true,
-    ///             Policy = "quorum",
-    ///             RapidRecheck = true,
-    ///             Regions = 
-    ///             {
-    ///                 "lga",
-    ///                 "sjc",
-    ///                 "sin",
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new Ns1.Inputs.MonitoringJobRuleArgs
-    ///                 {
-    ///                     Comparison = "contains",
-    ///                     Key = "output",
-    ///                     Value = "200 OK",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## NS1 Documentation
     /// 
     /// [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/monitoringJob:MonitoringJob &lt;name&gt; &lt;monitoringjob_id&gt;`
+    /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/monitoringJob:MonitoringJob")]
-    public partial class MonitoringJob : Pulumi.CustomResource
+    public partial class MonitoringJob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates if the job is active or temporarily disabled.
@@ -151,7 +152,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The list of region codes in which to run the monitoring
-        /// job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+        /// job. See NS1 API docs for supported values.
         /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
@@ -206,7 +207,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class MonitoringJobArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates if the job is active or temporarily disabled.
@@ -301,7 +302,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The list of region codes in which to run the monitoring
-        /// job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+        /// job. See NS1 API docs for supported values.
         /// </summary>
         public InputList<string> Regions
         {
@@ -324,9 +325,10 @@ namespace Pulumi.Ns1
         public MonitoringJobArgs()
         {
         }
+        public static new MonitoringJobArgs Empty => new MonitoringJobArgs();
     }
 
-    public sealed class MonitoringJobState : Pulumi.ResourceArgs
+    public sealed class MonitoringJobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates if the job is active or temporarily disabled.
@@ -421,7 +423,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The list of region codes in which to run the monitoring
-        /// job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+        /// job. See NS1 API docs for supported values.
         /// </summary>
         public InputList<string> Regions
         {
@@ -444,5 +446,6 @@ namespace Pulumi.Ns1
         public MonitoringJobState()
         {
         }
+        public static new MonitoringJobState Empty => new MonitoringJobState();
     }
 }

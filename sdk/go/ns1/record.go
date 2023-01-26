@@ -343,6 +343,75 @@ func (o RecordOutput) ToRecordOutputWithContext(ctx context.Context) RecordOutpu
 	return o
 }
 
+// One or more NS1 answers for the records' specified type.
+// Answers are documented below.
+func (o RecordOutput) Answers() RecordAnswerArrayOutput {
+	return o.ApplyT(func(v *Record) RecordAnswerArrayOutput { return v.Answers }).(RecordAnswerArrayOutput)
+}
+
+// The records' domain. Cannot have leading or trailing
+// dots - see the example above and `FQDN formatting` below.
+func (o RecordOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+// One or more NS1 filters for the record(order matters).
+// Filters are documented below.
+func (o RecordOutput) Filters() RecordFilterArrayOutput {
+	return o.ApplyT(func(v *Record) RecordFilterArrayOutput { return v.Filters }).(RecordFilterArrayOutput)
+}
+
+// The target record to link to. This means this record is a
+// 'linked' record, and it inherits all properties from its target.
+func (o RecordOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringPtrOutput { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordOutput) Meta() pulumi.MapOutput {
+	return o.ApplyT(func(v *Record) pulumi.MapOutput { return v.Meta }).(pulumi.MapOutput)
+}
+
+func (o RecordOutput) OverrideTtl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Record) pulumi.BoolPtrOutput { return v.OverrideTtl }).(pulumi.BoolPtrOutput)
+}
+
+// One or more "regions" for the record. These are really
+// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
+// but remain `regions` here for legacy reasons. Regions are
+// documented below. Please note the ordering requirement!
+func (o RecordOutput) Regions() RecordRegionArrayOutput {
+	return o.ApplyT(func(v *Record) RecordRegionArrayOutput { return v.Regions }).(RecordRegionArrayOutput)
+}
+
+// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+func (o RecordOutput) ShortAnswers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringArrayOutput { return v.ShortAnswers }).(pulumi.StringArrayOutput)
+}
+
+// The records' time to live (in seconds).
+func (o RecordOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v *Record) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
+}
+
+// The records' RR type.
+func (o RecordOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether to use EDNS client subnet data when
+// available(in filter chain).
+//   - `  meta ` - (Optional) meta is supported at the `record` level. Meta
+//     is documented below.
+func (o RecordOutput) UseClientSubnet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Record) pulumi.BoolPtrOutput { return v.UseClientSubnet }).(pulumi.BoolPtrOutput)
+}
+
+// The zone the record belongs to. Cannot have leading or
+// trailing dots (".") - see the example above and `FQDN formatting` below.
+func (o RecordOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringOutput { return v.Zone }).(pulumi.StringOutput)
+}
+
 type RecordArrayOutput struct{ *pulumi.OutputState }
 
 func (RecordArrayOutput) ElementType() reflect.Type {

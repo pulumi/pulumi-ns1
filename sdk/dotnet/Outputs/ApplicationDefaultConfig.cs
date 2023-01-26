@@ -22,7 +22,7 @@ namespace Pulumi.Ns1.Outputs
         /// </summary>
         public readonly bool? Https;
         /// <summary>
-        /// - Maximum timeout per job
+        /// Maximum timeout per job
         /// 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
         /// </summary>
         public readonly int? JobTimeoutMillis;
@@ -31,11 +31,11 @@ namespace Pulumi.Ns1.Outputs
         /// </summary>
         public readonly int? RequestTimeoutMillis;
         /// <summary>
-        /// - Indicates whether or not to skip aggregation for this job's measurements
+        /// Indicates whether or not to skip aggregation for this job's measurements
         /// </summary>
         public readonly bool? StaticValues;
         /// <summary>
-        /// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+        /// Whether to use XMLHttpRequest (XHR) when taking measurements.
         /// </summary>
         public readonly bool? UseXhr;
 

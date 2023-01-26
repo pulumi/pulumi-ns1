@@ -37,6 +37,12 @@ import * as utilities from "./utilities";
  * ## NS1 Documentation
  *
  * [Datafeed Api Doc](https://ns1.com/api#data-feeds)
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
+ * ```
  */
 export class DataFeed extends pulumi.CustomResource {
     /**

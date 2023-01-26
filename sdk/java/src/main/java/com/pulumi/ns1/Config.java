@@ -13,22 +13,52 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("ns1");
 /**
- * The ns1 API key, this is required
+ * The ns1 API key (required)
  * 
  */
     public Optional<String> apikey() {
         return Codegen.stringProp("apikey").config(config).get();
     }
+/**
+ * Deprecated, no longer in use
+ * 
+ */
     public Optional<Boolean> enableDdi() {
         return Codegen.booleanProp("enableDdi").config(config).get();
     }
+/**
+ * URL prefix (including version) for API calls
+ * 
+ */
     public Optional<String> endpoint() {
         return Codegen.stringProp("endpoint").config(config).get();
     }
+/**
+ * Don&#39;t validate server SSL/TLS certificate
+ * 
+ */
     public Optional<Boolean> ignoreSsl() {
         return Codegen.booleanProp("ignoreSsl").config(config).get();
     }
+/**
+ * Tune response to rate limits, see docs
+ * 
+ */
     public Optional<Integer> rateLimitParallelism() {
         return Codegen.integerProp("rateLimitParallelism").config(config).get();
+    }
+/**
+ * Maximum retries for 50x errors (-1 to disable)
+ * 
+ */
+    public Optional<Integer> retryMax() {
+        return Codegen.integerProp("retryMax").config(config).get();
+    }
+/**
+ * User-Agent string to use in NS1 API requests
+ * 
+ */
+    public Optional<String> userAgent() {
+        return Codegen.stringProp("userAgent").config(config).get();
     }
 }

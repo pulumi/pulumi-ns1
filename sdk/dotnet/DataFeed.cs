@@ -15,55 +15,63 @@ namespace Pulumi.Ns1
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Ns1 = Pulumi.Ns1;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Ns1.DataSource("example", new()
     ///     {
-    ///         var example = new Ns1.DataSource("example", new Ns1.DataSourceArgs
-    ///         {
-    ///             Sourcetype = "nsone_v1",
-    ///         });
-    ///         var exampleMonitoring = new Ns1.DataSource("exampleMonitoring", new Ns1.DataSourceArgs
-    ///         {
-    ///             Sourcetype = "nsone_monitoring",
-    ///         });
-    ///         var uswestFeed = new Ns1.DataFeed("uswestFeed", new Ns1.DataFeedArgs
-    ///         {
-    ///             SourceId = example.Id,
-    ///             Config = 
-    ///             {
-    ///                 { "label", "uswest" },
-    ///             },
-    ///         });
-    ///         var useastFeed = new Ns1.DataFeed("useastFeed", new Ns1.DataFeedArgs
-    ///         {
-    ///             SourceId = example.Id,
-    ///             Config = 
-    ///             {
-    ///                 { "label", "useast" },
-    ///             },
-    ///         });
-    ///         var useastMonitorFeed = new Ns1.DataFeed("useastMonitorFeed", new Ns1.DataFeedArgs
-    ///         {
-    ///             SourceId = exampleMonitoring.Id,
-    ///             Config = 
-    ///             {
-    ///                 { "jobid", ns1_monitoringjob.Example_job.Id },
-    ///             },
-    ///         });
-    ///     }
+    ///         Sourcetype = "nsone_v1",
+    ///     });
     /// 
-    /// }
+    ///     var exampleMonitoring = new Ns1.DataSource("exampleMonitoring", new()
+    ///     {
+    ///         Sourcetype = "nsone_monitoring",
+    ///     });
+    /// 
+    ///     var uswestFeed = new Ns1.DataFeed("uswestFeed", new()
+    ///     {
+    ///         SourceId = example.Id,
+    ///         Config = 
+    ///         {
+    ///             { "label", "uswest" },
+    ///         },
+    ///     });
+    /// 
+    ///     var useastFeed = new Ns1.DataFeed("useastFeed", new()
+    ///     {
+    ///         SourceId = example.Id,
+    ///         Config = 
+    ///         {
+    ///             { "label", "useast" },
+    ///         },
+    ///     });
+    /// 
+    ///     var useastMonitorFeed = new Ns1.DataFeed("useastMonitorFeed", new()
+    ///     {
+    ///         SourceId = exampleMonitoring.Id,
+    ///         Config = 
+    ///         {
+    ///             { "jobid", ns1_monitoringjob.Example_job.Id },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## NS1 Documentation
     /// 
     /// [Datafeed Api Doc](https://ns1.com/api#data-feeds)
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/dataFeed:DataFeed &lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
+    /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/dataFeed:DataFeed")]
-    public partial class DataFeed : Pulumi.CustomResource
+    public partial class DataFeed : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The feeds configuration matching the specification in
@@ -128,7 +136,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class DataFeedArgs : Pulumi.ResourceArgs
+    public sealed class DataFeedArgs : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<object>? _config;
@@ -158,9 +166,10 @@ namespace Pulumi.Ns1
         public DataFeedArgs()
         {
         }
+        public static new DataFeedArgs Empty => new DataFeedArgs();
     }
 
-    public sealed class DataFeedState : Pulumi.ResourceArgs
+    public sealed class DataFeedState : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<object>? _config;
@@ -190,5 +199,6 @@ namespace Pulumi.Ns1
         public DataFeedState()
         {
         }
+        public static new DataFeedState Empty => new DataFeedState();
     }
 }

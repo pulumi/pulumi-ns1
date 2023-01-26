@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -57,7 +58,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
     /**
-     * **Deprecated** Whether the user can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -296,7 +297,7 @@ export interface UserState {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * **Deprecated** Whether the user can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -439,7 +440,7 @@ export interface UserArgs {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * **Deprecated** Whether the user can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */

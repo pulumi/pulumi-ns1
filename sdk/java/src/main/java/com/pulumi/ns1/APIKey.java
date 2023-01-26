@@ -18,6 +18,20 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+ * ```
+ * 
+ *  So for the example above
+ * 
+ * ```sh
+ *  $ pulumi import ns1:index/aPIKey:APIKey example &lt;ID&gt;`
+ * ```
+ * 
+ */
 @ResourceType(type="ns1:index/aPIKey:APIKey")
 public class APIKey extends com.pulumi.resources.CustomResource {
     /**
@@ -77,7 +91,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountManagePaymentMethods);
     }
     /**
-     * Whether the apikey can modify the account plan.
+     * No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -88,7 +102,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> accountManagePlan;
 
     /**
-     * @return Whether the apikey can modify the account plan.
+     * @return No longer in use.
      * 
      */
     public Output<Optional<Boolean>> accountManagePlan() {
@@ -238,15 +252,31 @@ public class APIKey extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> dnsManageZones() {
         return Codegen.optional(this.dnsManageZones);
     }
+    /**
+     * List of records that the apikey may access.
+     * 
+     */
     @Export(name="dnsRecordsAllows", type=List.class, parameters={APIKeyDnsRecordsAllow.class})
     private Output</* @Nullable */ List<APIKeyDnsRecordsAllow>> dnsRecordsAllows;
 
+    /**
+     * @return List of records that the apikey may access.
+     * 
+     */
     public Output<Optional<List<APIKeyDnsRecordsAllow>>> dnsRecordsAllows() {
         return Codegen.optional(this.dnsRecordsAllows);
     }
+    /**
+     * List of records that the apikey may not access.
+     * 
+     */
     @Export(name="dnsRecordsDenies", type=List.class, parameters={APIKeyDnsRecordsDeny.class})
     private Output</* @Nullable */ List<APIKeyDnsRecordsDeny>> dnsRecordsDenies;
 
+    /**
+     * @return List of records that the apikey may not access.
+     * 
+     */
     public Output<Optional<List<APIKeyDnsRecordsDeny>>> dnsRecordsDenies() {
         return Codegen.optional(this.dnsRecordsDenies);
     }
@@ -513,6 +543,9 @@ public class APIKey extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "key"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

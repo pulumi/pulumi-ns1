@@ -47,15 +47,15 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * - Maximum timeout per job
-     *   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+     * Maximum timeout per job
+     * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
      * 
      */
     @Import(name="jobTimeoutMillis")
     private @Nullable Output<Integer> jobTimeoutMillis;
 
     /**
-     * @return - Maximum timeout per job
+     * @return Maximum timeout per job
      * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
      * 
      */
@@ -79,14 +79,14 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * - Indicates whether or not to skip aggregation for this job&#39;s measurements
+     * Indicates whether or not to skip aggregation for this job&#39;s measurements
      * 
      */
     @Import(name="staticValues")
     private @Nullable Output<Boolean> staticValues;
 
     /**
-     * @return - Indicates whether or not to skip aggregation for this job&#39;s measurements
+     * @return Indicates whether or not to skip aggregation for this job&#39;s measurements
      * 
      */
     public Optional<Output<Boolean>> staticValues() {
@@ -94,14 +94,14 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * - Whether to use XMLHttpRequest (XHR) when taking measurements.
+     * Whether to use XMLHttpRequest (XHR) when taking measurements.
      * 
      */
     @Import(name="useXhr")
     private @Nullable Output<Boolean> useXhr;
 
     /**
-     * @return - Whether to use XMLHttpRequest (XHR) when taking measurements.
+     * @return Whether to use XMLHttpRequest (XHR) when taking measurements.
      * 
      */
     public Optional<Output<Boolean>> useXhr() {
@@ -180,7 +180,7 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param jobTimeoutMillis - Maximum timeout per job
+         * @param jobTimeoutMillis Maximum timeout per job
          * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
          * 
          * @return builder
@@ -192,7 +192,7 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param jobTimeoutMillis - Maximum timeout per job
+         * @param jobTimeoutMillis Maximum timeout per job
          * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
          * 
          * @return builder
@@ -224,7 +224,7 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param staticValues - Indicates whether or not to skip aggregation for this job&#39;s measurements
+         * @param staticValues Indicates whether or not to skip aggregation for this job&#39;s measurements
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param staticValues - Indicates whether or not to skip aggregation for this job&#39;s measurements
+         * @param staticValues Indicates whether or not to skip aggregation for this job&#39;s measurements
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param useXhr - Whether to use XMLHttpRequest (XHR) when taking measurements.
+         * @param useXhr Whether to use XMLHttpRequest (XHR) when taking measurements.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ApplicationDefaultConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param useXhr - Whether to use XMLHttpRequest (XHR) when taking measurements.
+         * @param useXhr Whether to use XMLHttpRequest (XHR) when taking measurements.
          * 
          * @return builder
          * 

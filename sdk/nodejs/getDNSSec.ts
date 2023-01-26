@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,21 +16,18 @@ import * as utilities from "./utilities";
  * import * as ns1 from "@pulumi/ns1";
  *
  * // Get DNSSEC details about a NS1 Zone.
- * const exampleZone = new ns1.Zone("example", {
+ * const exampleZone = new ns1.Zone("exampleZone", {
  *     dnssec: true,
  *     zone: "terraform.example.io",
  * });
- * const exampleDNSSec = exampleZone.zone.apply(zone => ns1.getDNSSec({
- *     zone: zone,
- * }));
+ * const exampleDNSSec = ns1.getDNSSecOutput({
+ *     zone: exampleZone.zone,
+ * });
  * ```
  */
 export function getDNSSec(args: GetDNSSecArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSecResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getDNSSec:getDNSSec", {
         "zone": args.zone,
     }, opts);
@@ -64,9 +62,27 @@ export interface GetDNSSecResult {
     readonly keys: outputs.GetDNSSecKeys;
     readonly zone: string;
 }
-
+/**
+ * Provides DNSSEC details about a NS1 Zone.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Get DNSSEC details about a NS1 Zone.
+ * const exampleZone = new ns1.Zone("exampleZone", {
+ *     dnssec: true,
+ *     zone: "terraform.example.io",
+ * });
+ * const exampleDNSSec = ns1.getDNSSecOutput({
+ *     zone: exampleZone.zone,
+ * });
+ * ```
+ */
 export function getDNSSecOutput(args: GetDNSSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSecResult> {
-    return pulumi.output(args).apply(a => getDNSSec(a, opts))
+    return pulumi.output(args).apply((a: any) => getDNSSec(a, opts))
 }
 
 /**

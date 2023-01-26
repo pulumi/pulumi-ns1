@@ -74,6 +74,14 @@ import (
 // ## NS1 Documentation
 //
 // [Datafeed Api Doc](https://ns1.com/api#data-feeds)
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
+//
+// ```
 type DataFeed struct {
 	pulumi.CustomResourceState
 
@@ -247,6 +255,22 @@ func (o DataFeedOutput) ToDataFeedOutput() DataFeedOutput {
 
 func (o DataFeedOutput) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput {
 	return o
+}
+
+// The feeds configuration matching the specification in
+// `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
+func (o DataFeedOutput) Config() pulumi.MapOutput {
+	return o.ApplyT(func(v *DataFeed) pulumi.MapOutput { return v.Config }).(pulumi.MapOutput)
+}
+
+// The free form name of the data feed.
+func (o DataFeedOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataFeed) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data source id that this feed is connected to.
+func (o DataFeedOutput) SourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataFeed) pulumi.StringOutput { return v.SourceId }).(pulumi.StringOutput)
 }
 
 type DataFeedArrayOutput struct{ *pulumi.OutputState }

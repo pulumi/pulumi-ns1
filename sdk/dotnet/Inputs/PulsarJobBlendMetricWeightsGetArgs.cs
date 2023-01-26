@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class PulsarJobBlendMetricWeightsGetArgs : Pulumi.ResourceArgs
+    public sealed class PulsarJobBlendMetricWeightsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("timestamp", required: true)]
         public Input<int> Timestamp { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Ns1.Inputs
         public PulsarJobBlendMetricWeightsGetArgs()
         {
         }
+        public static new PulsarJobBlendMetricWeightsGetArgs Empty => new PulsarJobBlendMetricWeightsGetArgs();
     }
 }

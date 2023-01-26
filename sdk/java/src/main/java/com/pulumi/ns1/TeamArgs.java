@@ -81,7 +81,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the team can modify the account plan.
+     * No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -92,7 +92,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> accountManagePlan;
 
     /**
-     * @return Whether the team can modify the account plan.
+     * @return No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -257,16 +257,32 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dnsManageZones);
     }
 
+    /**
+     * List of records that the team may access.
+     * 
+     */
     @Import(name="dnsRecordsAllows")
     private @Nullable Output<List<TeamDnsRecordsAllowArgs>> dnsRecordsAllows;
 
+    /**
+     * @return List of records that the team may access.
+     * 
+     */
     public Optional<Output<List<TeamDnsRecordsAllowArgs>>> dnsRecordsAllows() {
         return Optional.ofNullable(this.dnsRecordsAllows);
     }
 
+    /**
+     * List of records that the team may not access.
+     * 
+     */
     @Import(name="dnsRecordsDenies")
     private @Nullable Output<List<TeamDnsRecordsDenyArgs>> dnsRecordsDenies;
 
+    /**
+     * @return List of records that the team may not access.
+     * 
+     */
     public Optional<Output<List<TeamDnsRecordsDenyArgs>>> dnsRecordsDenies() {
         return Optional.ofNullable(this.dnsRecordsDenies);
     }
@@ -610,7 +626,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountManagePlan Whether the team can modify the account plan.
+         * @param accountManagePlan No longer in use.
          * 
          * @return builder
          * 
@@ -625,7 +641,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountManagePlan Whether the team can modify the account plan.
+         * @param accountManagePlan No longer in use.
          * 
          * @return builder
          * 
@@ -852,28 +868,64 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
             return dnsManageZones(Output.of(dnsManageZones));
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the team may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(@Nullable Output<List<TeamDnsRecordsAllowArgs>> dnsRecordsAllows) {
             $.dnsRecordsAllows = dnsRecordsAllows;
             return this;
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the team may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(List<TeamDnsRecordsAllowArgs> dnsRecordsAllows) {
             return dnsRecordsAllows(Output.of(dnsRecordsAllows));
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the team may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(TeamDnsRecordsAllowArgs... dnsRecordsAllows) {
             return dnsRecordsAllows(List.of(dnsRecordsAllows));
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the team may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(@Nullable Output<List<TeamDnsRecordsDenyArgs>> dnsRecordsDenies) {
             $.dnsRecordsDenies = dnsRecordsDenies;
             return this;
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the team may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(List<TeamDnsRecordsDenyArgs> dnsRecordsDenies) {
             return dnsRecordsDenies(Output.of(dnsRecordsDenies));
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the team may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(TeamDnsRecordsDenyArgs... dnsRecordsDenies) {
             return dnsRecordsDenies(List.of(dnsRecordsDenies));
         }

@@ -20,9 +20,64 @@ import javax.annotation.Nullable;
  * Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.DataSource;
+ * import com.pulumi.ns1.DataSourceArgs;
+ * import com.pulumi.ns1.DataFeed;
+ * import com.pulumi.ns1.DataFeedArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *             .sourcetype(&#34;nsone_v1&#34;)
+ *             .build());
+ * 
+ *         var exampleMonitoring = new DataSource(&#34;exampleMonitoring&#34;, DataSourceArgs.builder()        
+ *             .sourcetype(&#34;nsone_monitoring&#34;)
+ *             .build());
+ * 
+ *         var uswestFeed = new DataFeed(&#34;uswestFeed&#34;, DataFeedArgs.builder()        
+ *             .sourceId(example.id())
+ *             .config(Map.of(&#34;label&#34;, &#34;uswest&#34;))
+ *             .build());
+ * 
+ *         var useastFeed = new DataFeed(&#34;useastFeed&#34;, DataFeedArgs.builder()        
+ *             .sourceId(example.id())
+ *             .config(Map.of(&#34;label&#34;, &#34;useast&#34;))
+ *             .build());
+ * 
+ *         var useastMonitorFeed = new DataFeed(&#34;useastMonitorFeed&#34;, DataFeedArgs.builder()        
+ *             .sourceId(exampleMonitoring.id())
+ *             .config(Map.of(&#34;jobid&#34;, ns1_monitoringjob.example_job().id()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NS1 Documentation
  * 
  * [Datafeed Api Doc](https://ns1.com/api#data-feeds)
+ * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import ns1:index/dataFeed:DataFeed &lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
+ * ```
  * 
  */
 @ResourceType(type="ns1:index/dataFeed:DataFeed")

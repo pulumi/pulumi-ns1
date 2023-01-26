@@ -12,37 +12,6 @@ import (
 
 // Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ns1.NewApplication(ctx, "ns1App", &ns1.ApplicationArgs{
-//				DefaultConfig: &ApplicationDefaultConfigArgs{
-//					Http:                   pulumi.Bool(true),
-//					Https:                  pulumi.Bool(false),
-//					Job_timeout_millis:     100,
-//					Request_timeout_millis: 100,
-//					Static_values:          true,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## NS1 Documentation
 //
 // [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -71,10 +40,10 @@ type Application struct {
 	// The amount of time (in milliseconds) the browser should wait before running
 	// measurements.
 	BrowserWaitMillis pulumi.IntPtrOutput `pulumi:"browserWaitMillis"`
-	// -(Optional) Default job configuration. If a field is present here and not on a specific job
+	// Default job configuration. If a field is present here and not on a specific job
 	// associated with this application, the default value specified here is used..
 	DefaultConfig ApplicationDefaultConfigPtrOutput `pulumi:"defaultConfig"`
-	// -(Optional) Number of jobs to measure per user impression.
+	// Number of jobs to measure per user impression.
 	JobsPerTransaction pulumi.IntPtrOutput `pulumi:"jobsPerTransaction"`
 	// Descriptive name for this Pulsar app.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -115,10 +84,10 @@ type applicationState struct {
 	// The amount of time (in milliseconds) the browser should wait before running
 	// measurements.
 	BrowserWaitMillis *int `pulumi:"browserWaitMillis"`
-	// -(Optional) Default job configuration. If a field is present here and not on a specific job
+	// Default job configuration. If a field is present here and not on a specific job
 	// associated with this application, the default value specified here is used..
 	DefaultConfig *ApplicationDefaultConfig `pulumi:"defaultConfig"`
-	// -(Optional) Number of jobs to measure per user impression.
+	// Number of jobs to measure per user impression.
 	JobsPerTransaction *int `pulumi:"jobsPerTransaction"`
 	// Descriptive name for this Pulsar app.
 	Name *string `pulumi:"name"`
@@ -131,10 +100,10 @@ type ApplicationState struct {
 	// The amount of time (in milliseconds) the browser should wait before running
 	// measurements.
 	BrowserWaitMillis pulumi.IntPtrInput
-	// -(Optional) Default job configuration. If a field is present here and not on a specific job
+	// Default job configuration. If a field is present here and not on a specific job
 	// associated with this application, the default value specified here is used..
 	DefaultConfig ApplicationDefaultConfigPtrInput
-	// -(Optional) Number of jobs to measure per user impression.
+	// Number of jobs to measure per user impression.
 	JobsPerTransaction pulumi.IntPtrInput
 	// Descriptive name for this Pulsar app.
 	Name pulumi.StringPtrInput
@@ -151,10 +120,10 @@ type applicationArgs struct {
 	// The amount of time (in milliseconds) the browser should wait before running
 	// measurements.
 	BrowserWaitMillis *int `pulumi:"browserWaitMillis"`
-	// -(Optional) Default job configuration. If a field is present here and not on a specific job
+	// Default job configuration. If a field is present here and not on a specific job
 	// associated with this application, the default value specified here is used..
 	DefaultConfig *ApplicationDefaultConfig `pulumi:"defaultConfig"`
-	// -(Optional) Number of jobs to measure per user impression.
+	// Number of jobs to measure per user impression.
 	JobsPerTransaction *int `pulumi:"jobsPerTransaction"`
 	// Descriptive name for this Pulsar app.
 	Name *string `pulumi:"name"`
@@ -168,10 +137,10 @@ type ApplicationArgs struct {
 	// The amount of time (in milliseconds) the browser should wait before running
 	// measurements.
 	BrowserWaitMillis pulumi.IntPtrInput
-	// -(Optional) Default job configuration. If a field is present here and not on a specific job
+	// Default job configuration. If a field is present here and not on a specific job
 	// associated with this application, the default value specified here is used..
 	DefaultConfig ApplicationDefaultConfigPtrInput
-	// -(Optional) Number of jobs to measure per user impression.
+	// Number of jobs to measure per user impression.
 	JobsPerTransaction pulumi.IntPtrInput
 	// Descriptive name for this Pulsar app.
 	Name pulumi.StringPtrInput
@@ -262,6 +231,34 @@ func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
 
 func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
 	return o
+}
+
+// Indicates whether or not this application is currently active and usable for traffic
+// steering.
+func (o ApplicationOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// The amount of time (in milliseconds) the browser should wait before running
+// measurements.
+func (o ApplicationOutput) BrowserWaitMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.IntPtrOutput { return v.BrowserWaitMillis }).(pulumi.IntPtrOutput)
+}
+
+// Default job configuration. If a field is present here and not on a specific job
+// associated with this application, the default value specified here is used..
+func (o ApplicationOutput) DefaultConfig() ApplicationDefaultConfigPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationDefaultConfigPtrOutput { return v.DefaultConfig }).(ApplicationDefaultConfigPtrOutput)
+}
+
+// Number of jobs to measure per user impression.
+func (o ApplicationOutput) JobsPerTransaction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.IntPtrOutput { return v.JobsPerTransaction }).(pulumi.IntPtrOutput)
+}
+
+// Descriptive name for this Pulsar app.
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type ApplicationArrayOutput struct{ *pulumi.OutputState }

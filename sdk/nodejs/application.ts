@@ -2,29 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * // Create a new pulsar application with default config
- * const ns1App = new ns1.Application("ns1_app", {
- *     defaultConfig: {
- *         http: true,
- *         https: false,
- *         job_timeout_millis: 100,
- *         request_timeout_millis: 100,
- *         static_values: true,
- *     },
- * });
- * ```
  * ## NS1 Documentation
  *
  * [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -80,12 +64,12 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly browserWaitMillis!: pulumi.Output<number | undefined>;
     /**
-     * -(Optional) Default job configuration. If a field is present here and not on a specific job
+     * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
     public readonly defaultConfig!: pulumi.Output<outputs.ApplicationDefaultConfig | undefined>;
     /**
-     * -(Optional) Number of jobs to measure per user impression.
+     * Number of jobs to measure per user impression.
      */
     public readonly jobsPerTransaction!: pulumi.Output<number | undefined>;
     /**
@@ -139,12 +123,12 @@ export interface ApplicationState {
      */
     browserWaitMillis?: pulumi.Input<number>;
     /**
-     * -(Optional) Default job configuration. If a field is present here and not on a specific job
+     * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
     defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
     /**
-     * -(Optional) Number of jobs to measure per user impression.
+     * Number of jobs to measure per user impression.
      */
     jobsPerTransaction?: pulumi.Input<number>;
     /**
@@ -168,12 +152,12 @@ export interface ApplicationArgs {
      */
     browserWaitMillis?: pulumi.Input<number>;
     /**
-     * -(Optional) Default job configuration. If a field is present here and not on a specific job
+     * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
     defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
     /**
-     * -(Optional) Number of jobs to measure per user impression.
+     * Number of jobs to measure per user impression.
      */
     jobsPerTransaction?: pulumi.Input<number>;
     /**

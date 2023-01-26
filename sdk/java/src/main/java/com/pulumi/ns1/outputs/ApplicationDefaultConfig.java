@@ -23,7 +23,7 @@ public final class ApplicationDefaultConfig {
      */
     private @Nullable Boolean https;
     /**
-     * @return - Maximum timeout per job
+     * @return Maximum timeout per job
      * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
      * 
      */
@@ -34,12 +34,12 @@ public final class ApplicationDefaultConfig {
      */
     private @Nullable Integer requestTimeoutMillis;
     /**
-     * @return - Indicates whether or not to skip aggregation for this job&#39;s measurements
+     * @return Indicates whether or not to skip aggregation for this job&#39;s measurements
      * 
      */
     private @Nullable Boolean staticValues;
     /**
-     * @return - Whether to use XMLHttpRequest (XHR) when taking measurements.
+     * @return Whether to use XMLHttpRequest (XHR) when taking measurements.
      * 
      */
     private @Nullable Boolean useXhr;
@@ -60,7 +60,7 @@ public final class ApplicationDefaultConfig {
         return Optional.ofNullable(this.https);
     }
     /**
-     * @return - Maximum timeout per job
+     * @return Maximum timeout per job
      * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
      * 
      */
@@ -75,14 +75,14 @@ public final class ApplicationDefaultConfig {
         return Optional.ofNullable(this.requestTimeoutMillis);
     }
     /**
-     * @return - Indicates whether or not to skip aggregation for this job&#39;s measurements
+     * @return Indicates whether or not to skip aggregation for this job&#39;s measurements
      * 
      */
     public Optional<Boolean> staticValues() {
         return Optional.ofNullable(this.staticValues);
     }
     /**
-     * @return - Whether to use XMLHttpRequest (XHR) when taking measurements.
+     * @return Whether to use XMLHttpRequest (XHR) when taking measurements.
      * 
      */
     public Optional<Boolean> useXhr() {

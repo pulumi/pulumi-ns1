@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class NotifyListNotificationArgs : Pulumi.ResourceArgs
+    public sealed class NotifyListNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("config", required: true)]
         private InputMap<object>? _config;
@@ -33,5 +33,6 @@ namespace Pulumi.Ns1.Inputs
         public NotifyListNotificationArgs()
         {
         }
+        public static new NotifyListNotificationArgs Empty => new NotifyListNotificationArgs();
     }
 }

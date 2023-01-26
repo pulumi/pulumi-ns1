@@ -15,45 +15,49 @@ namespace Pulumi.Ns1
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Ns1 = Pulumi.Ns1;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var nl = new Ns1.NotifyList("nl", new()
     ///     {
-    ///         var nl = new Ns1.NotifyList("nl", new Ns1.NotifyListArgs
+    ///         Notifications = new[]
     ///         {
-    ///             Notifications = 
+    ///             new Ns1.Inputs.NotifyListNotificationArgs
     ///             {
-    ///                 new Ns1.Inputs.NotifyListNotificationArgs
+    ///                 Config = 
     ///                 {
-    ///                     Config = 
-    ///                     {
-    ///                         { "url", "http://www.mywebhook.com" },
-    ///                     },
-    ///                     Type = "webhook",
+    ///                     { "url", "http://www.mywebhook.com" },
     ///                 },
-    ///                 new Ns1.Inputs.NotifyListNotificationArgs
-    ///                 {
-    ///                     Config = 
-    ///                     {
-    ///                         { "email", "test@test.com" },
-    ///                     },
-    ///                     Type = "email",
-    ///                 },
+    ///                 Type = "webhook",
     ///             },
-    ///         });
-    ///     }
+    ///             new Ns1.Inputs.NotifyListNotificationArgs
+    ///             {
+    ///                 Config = 
+    ///                 {
+    ///                     { "email", "test@test.com" },
+    ///                 },
+    ///                 Type = "email",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## NS1 Documentation
     /// 
     /// [NotifyList Api Doc](https://ns1.com/api#notification-lists)
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/notifyList:NotifyList &lt;name&gt; &lt;notifylist_id&gt;`
+    /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/notifyList:NotifyList")]
-    public partial class NotifyList : Pulumi.CustomResource
+    public partial class NotifyList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The free-form display name for the notify list.
@@ -111,7 +115,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class NotifyListArgs : Pulumi.ResourceArgs
+    public sealed class NotifyListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The free-form display name for the notify list.
@@ -134,9 +138,10 @@ namespace Pulumi.Ns1
         public NotifyListArgs()
         {
         }
+        public static new NotifyListArgs Empty => new NotifyListArgs();
     }
 
-    public sealed class NotifyListState : Pulumi.ResourceArgs
+    public sealed class NotifyListState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The free-form display name for the notify list.
@@ -159,5 +164,6 @@ namespace Pulumi.Ns1
         public NotifyListState()
         {
         }
+        public static new NotifyListState Empty => new NotifyListState();
     }
 }

@@ -21,26 +21,24 @@ namespace Pulumi.Ns1
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Ns1 = Pulumi.Ns1;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Ns1.GetZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Ns1.GetZone.InvokeAsync(new Ns1.GetZoneArgs
-        ///         {
-        ///             Zone = "terraform.example.io",
-        ///         }));
-        ///     }
+        ///         Zone = "terraform.example.io",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a NS1 Zone. Use this if you would simply like to read
@@ -52,31 +50,37 @@ namespace Pulumi.Ns1
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Ns1 = Pulumi.Ns1;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Ns1.GetZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Ns1.GetZone.InvokeAsync(new Ns1.GetZoneArgs
-        ///         {
-        ///             Zone = "terraform.example.io",
-        ///         }));
-        ///     }
+        ///         Zone = "terraform.example.io",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
     {
+        [Input("additionalPorts")]
+        private List<int>? _additionalPorts;
+        public List<int> AdditionalPorts
+        {
+            get => _additionalPorts ?? (_additionalPorts = new List<int>());
+            set => _additionalPorts = value;
+        }
+
         [Input("additionalPrimaries")]
         private List<string>? _additionalPrimaries;
 
@@ -90,6 +94,9 @@ namespace Pulumi.Ns1
             set => _additionalPrimaries = value;
         }
 
+        [Input("primaryPort")]
+        public int? PrimaryPort { get; set; }
+
         /// <summary>
         /// The domain name of the zone.
         /// </summary>
@@ -99,10 +106,19 @@ namespace Pulumi.Ns1
         public GetZoneArgs()
         {
         }
+        public static new GetZoneArgs Empty => new GetZoneArgs();
     }
 
-    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("additionalPorts")]
+        private InputList<int>? _additionalPorts;
+        public InputList<int> AdditionalPorts
+        {
+            get => _additionalPorts ?? (_additionalPorts = new InputList<int>());
+            set => _additionalPorts = value;
+        }
+
         [Input("additionalPrimaries")]
         private InputList<string>? _additionalPrimaries;
 
@@ -116,6 +132,9 @@ namespace Pulumi.Ns1
             set => _additionalPrimaries = value;
         }
 
+        [Input("primaryPort")]
+        public Input<int>? PrimaryPort { get; set; }
+
         /// <summary>
         /// The domain name of the zone.
         /// </summary>
@@ -125,12 +144,14 @@ namespace Pulumi.Ns1
         public GetZoneInvokeArgs()
         {
         }
+        public static new GetZoneInvokeArgs Empty => new GetZoneInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetZoneResult
     {
+        public readonly ImmutableArray<int> AdditionalPorts;
         /// <summary>
         /// List of additional IPv4 addresses for the primary
         /// zone.
@@ -173,6 +194,7 @@ namespace Pulumi.Ns1
         /// The primary zones' IPv4 address.
         /// </summary>
         public readonly string Primary;
+        public readonly int? PrimaryPort;
         /// <summary>
         /// The SOA Refresh.
         /// </summary>
@@ -194,6 +216,8 @@ namespace Pulumi.Ns1
 
         [OutputConstructor]
         private GetZoneResult(
+            ImmutableArray<int> additionalPorts,
+
             ImmutableArray<string> additionalPrimaries,
 
             string dnsServers,
@@ -214,6 +238,8 @@ namespace Pulumi.Ns1
 
             string primary,
 
+            int? primaryPort,
+
             int refresh,
 
             int retry,
@@ -224,6 +250,7 @@ namespace Pulumi.Ns1
 
             string zone)
         {
+            AdditionalPorts = additionalPorts;
             AdditionalPrimaries = additionalPrimaries;
             DnsServers = dnsServers;
             Dnssec = dnssec;
@@ -234,6 +261,7 @@ namespace Pulumi.Ns1
             Networks = networks;
             NxTtl = nxTtl;
             Primary = primary;
+            PrimaryPort = primaryPort;
             Refresh = refresh;
             Retry = retry;
             Secondaries = secondaries;

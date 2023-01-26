@@ -10,10 +10,12 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GetZoneResult {
+    private @Nullable List<Integer> additionalPorts;
     /**
      * @return List of additional IPv4 addresses for the primary
      * zone.
@@ -66,6 +68,7 @@ public final class GetZoneResult {
      * 
      */
     private String primary;
+    private @Nullable Integer primaryPort;
     /**
      * @return The SOA Refresh.
      * 
@@ -90,6 +93,9 @@ public final class GetZoneResult {
     private String zone;
 
     private GetZoneResult() {}
+    public List<Integer> additionalPorts() {
+        return this.additionalPorts == null ? List.of() : this.additionalPorts;
+    }
     /**
      * @return List of additional IPv4 addresses for the primary
      * zone.
@@ -162,6 +168,9 @@ public final class GetZoneResult {
     public String primary() {
         return this.primary;
     }
+    public Optional<Integer> primaryPort() {
+        return Optional.ofNullable(this.primaryPort);
+    }
     /**
      * @return The SOA Refresh.
      * 
@@ -204,6 +213,7 @@ public final class GetZoneResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<Integer> additionalPorts;
         private @Nullable List<String> additionalPrimaries;
         private String dnsServers;
         private Boolean dnssec;
@@ -214,6 +224,7 @@ public final class GetZoneResult {
         private List<Integer> networks;
         private Integer nxTtl;
         private String primary;
+        private @Nullable Integer primaryPort;
         private Integer refresh;
         private Integer retry;
         private List<GetZoneSecondary> secondaries;
@@ -222,6 +233,7 @@ public final class GetZoneResult {
         public Builder() {}
         public Builder(GetZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalPorts = defaults.additionalPorts;
     	      this.additionalPrimaries = defaults.additionalPrimaries;
     	      this.dnsServers = defaults.dnsServers;
     	      this.dnssec = defaults.dnssec;
@@ -232,6 +244,7 @@ public final class GetZoneResult {
     	      this.networks = defaults.networks;
     	      this.nxTtl = defaults.nxTtl;
     	      this.primary = defaults.primary;
+    	      this.primaryPort = defaults.primaryPort;
     	      this.refresh = defaults.refresh;
     	      this.retry = defaults.retry;
     	      this.secondaries = defaults.secondaries;
@@ -239,6 +252,14 @@ public final class GetZoneResult {
     	      this.zone = defaults.zone;
         }
 
+        @CustomType.Setter
+        public Builder additionalPorts(@Nullable List<Integer> additionalPorts) {
+            this.additionalPorts = additionalPorts;
+            return this;
+        }
+        public Builder additionalPorts(Integer... additionalPorts) {
+            return additionalPorts(List.of(additionalPorts));
+        }
         @CustomType.Setter
         public Builder additionalPrimaries(@Nullable List<String> additionalPrimaries) {
             this.additionalPrimaries = additionalPrimaries;
@@ -296,6 +317,11 @@ public final class GetZoneResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryPort(@Nullable Integer primaryPort) {
+            this.primaryPort = primaryPort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder refresh(Integer refresh) {
             this.refresh = Objects.requireNonNull(refresh);
             return this;
@@ -325,6 +351,7 @@ public final class GetZoneResult {
         }
         public GetZoneResult build() {
             final var o = new GetZoneResult();
+            o.additionalPorts = additionalPorts;
             o.additionalPrimaries = additionalPrimaries;
             o.dnsServers = dnsServers;
             o.dnssec = dnssec;
@@ -335,6 +362,7 @@ public final class GetZoneResult {
             o.networks = networks;
             o.nxTtl = nxTtl;
             o.primary = primary;
+            o.primaryPort = primaryPort;
             o.refresh = refresh;
             o.retry = retry;
             o.secondaries = secondaries;

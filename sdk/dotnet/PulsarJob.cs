@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1
 {
     [Ns1ResourceType("ns1:index/pulsarJob:PulsarJob")]
-    public partial class PulsarJob : Pulumi.CustomResource
+    public partial class PulsarJob : global::Pulumi.CustomResource
     {
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class PulsarJobArgs : Pulumi.ResourceArgs
+    public sealed class PulsarJobArgs : global::Pulumi.ResourceArgs
     {
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -123,9 +123,10 @@ namespace Pulumi.Ns1
         public PulsarJobArgs()
         {
         }
+        public static new PulsarJobArgs Empty => new PulsarJobArgs();
     }
 
-    public sealed class PulsarJobState : Pulumi.ResourceArgs
+    public sealed class PulsarJobState : global::Pulumi.ResourceArgs
     {
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -168,5 +169,6 @@ namespace Pulumi.Ns1
         public PulsarJobState()
         {
         }
+        public static new PulsarJobState Empty => new PulsarJobState();
     }
 }

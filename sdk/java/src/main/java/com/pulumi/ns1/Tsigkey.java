@@ -17,6 +17,35 @@ import javax.annotation.Nullable;
  * Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.Tsigkey;
+ * import com.pulumi.ns1.TsigkeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Tsigkey(&#34;example&#34;, TsigkeyArgs.builder()        
+ *             .algorithm(&#34;hmac-sha256&#34;)
+ *             .secret(&#34;Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NS1 Documentation
  * 
  * [TSIG Keys Api Doc](https://ns1.com/api/#tsig)

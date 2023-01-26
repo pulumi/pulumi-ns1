@@ -20,9 +20,43 @@ import javax.annotation.Nullable;
  * Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.DataSource;
+ * import com.pulumi.ns1.DataSourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *             .sourcetype(&#34;nsone_v1&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NS1 Documentation
  * 
  * [Datasource Api Doc](https://ns1.com/api#data-sources)
+ * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import ns1:index/dataSource:DataSource &lt;name&gt; &lt;datasource_id&gt;`
+ * ```
  * 
  */
 @ResourceType(type="ns1:index/dataSource:DataSource")

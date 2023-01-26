@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -18,10 +19,8 @@ import * as utilities from "./utilities";
  * // Create a new NS1 Team
  * const example = new ns1.Team("example", {
  *     accountManageUsers: false,
- *     // Configure permissions
  *     dnsViewZones: false,
  *     ipWhitelists: [
- *         // Optional IP whitelists
  *         {
  *             name: "whitelist-1",
  *             values: [
@@ -108,7 +107,7 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the team can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -155,7 +154,13 @@ export class Team extends pulumi.CustomResource {
      * Whether the team can modify the accounts zones.
      */
     public readonly dnsManageZones!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of records that the team may access.
+     */
     public readonly dnsRecordsAllows!: pulumi.Output<outputs.TeamDnsRecordsAllow[] | undefined>;
+    /**
+     * List of records that the team may not access.
+     */
     public readonly dnsRecordsDenies!: pulumi.Output<outputs.TeamDnsRecordsDeny[] | undefined>;
     /**
      * Whether the team can view the accounts zones.
@@ -315,7 +320,7 @@ export interface TeamState {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * Whether the team can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -362,7 +367,13 @@ export interface TeamState {
      * Whether the team can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
+    /**
+     * List of records that the team may access.
+     */
     dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsAllow>[]>;
+    /**
+     * List of records that the team may not access.
+     */
     dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsDeny>[]>;
     /**
      * Whether the team can view the accounts zones.
@@ -442,7 +453,7 @@ export interface TeamArgs {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * Whether the team can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -489,7 +500,13 @@ export interface TeamArgs {
      * Whether the team can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
+    /**
+     * List of records that the team may access.
+     */
     dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsAllow>[]>;
+    /**
+     * List of records that the team may not access.
+     */
     dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.TeamDnsRecordsDeny>[]>;
     /**
      * Whether the team can view the accounts zones.

@@ -26,10 +26,17 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * The ns1 API key, this is required
+     * The ns1 API key (required)
      */
     public readonly apikey!: pulumi.Output<string | undefined>;
+    /**
+     * URL prefix (including version) for API calls
+     */
     public readonly endpoint!: pulumi.Output<string | undefined>;
+    /**
+     * User-Agent string to use in NS1 API requests
+     */
+    public readonly userAgent!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -47,6 +54,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["ignoreSsl"] = pulumi.output(args ? args.ignoreSsl : undefined).apply(JSON.stringify);
             resourceInputs["rateLimitParallelism"] = pulumi.output(args ? args.rateLimitParallelism : undefined).apply(JSON.stringify);
+            resourceInputs["retryMax"] = pulumi.output(args ? args.retryMax : undefined).apply(JSON.stringify);
+            resourceInputs["userAgent"] = args ? args.userAgent : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -58,11 +67,31 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * The ns1 API key, this is required
+     * The ns1 API key (required)
      */
     apikey?: pulumi.Input<string>;
+    /**
+     * Deprecated, no longer in use
+     */
     enableDdi?: pulumi.Input<boolean>;
+    /**
+     * URL prefix (including version) for API calls
+     */
     endpoint?: pulumi.Input<string>;
+    /**
+     * Don't validate server SSL/TLS certificate
+     */
     ignoreSsl?: pulumi.Input<boolean>;
+    /**
+     * Tune response to rate limits, see docs
+     */
     rateLimitParallelism?: pulumi.Input<number>;
+    /**
+     * Maximum retries for 50x errors (-1 to disable)
+     */
+    retryMax?: pulumi.Input<number>;
+    /**
+     * User-Agent string to use in NS1 API requests
+     */
+    userAgent?: pulumi.Input<string>;
 }

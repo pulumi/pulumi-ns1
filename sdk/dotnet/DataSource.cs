@@ -15,27 +15,31 @@ namespace Pulumi.Ns1
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Ns1 = Pulumi.Ns1;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Ns1.DataSource("example", new()
     ///     {
-    ///         var example = new Ns1.DataSource("example", new Ns1.DataSourceArgs
-    ///         {
-    ///             Sourcetype = "nsone_v1",
-    ///         });
-    ///     }
+    ///         Sourcetype = "nsone_v1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## NS1 Documentation
     /// 
     /// [Datasource Api Doc](https://ns1.com/api#data-sources)
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/dataSource:DataSource &lt;name&gt; &lt;datasource_id&gt;`
+    /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/dataSource:DataSource")]
-    public partial class DataSource : Pulumi.CustomResource
+    public partial class DataSource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The data source configuration, determined by its type,
@@ -100,7 +104,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class DataSourceArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<object>? _config;
@@ -130,9 +134,10 @@ namespace Pulumi.Ns1
         public DataSourceArgs()
         {
         }
+        public static new DataSourceArgs Empty => new DataSourceArgs();
     }
 
-    public sealed class DataSourceState : Pulumi.ResourceArgs
+    public sealed class DataSourceState : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<object>? _config;
@@ -162,5 +167,6 @@ namespace Pulumi.Ns1
         public DataSourceState()
         {
         }
+        public static new DataSourceState Empty => new DataSourceState();
     }
 }

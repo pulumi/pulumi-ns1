@@ -15,21 +15,19 @@ namespace Pulumi.Ns1
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Ns1 = Pulumi.Ns1;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Ns1.Tsigkey("example", new()
     ///     {
-    ///         var example = new Ns1.Tsigkey("example", new Ns1.TsigkeyArgs
-    ///         {
-    ///             Algorithm = "hmac-sha256",
-    ///             Secret = "Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==",
-    ///         });
-    ///     }
+    ///         Algorithm = "hmac-sha256",
+    ///         Secret = "Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## NS1 Documentation
     /// 
@@ -42,7 +40,7 @@ namespace Pulumi.Ns1
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/tsigkey:Tsigkey")]
-    public partial class Tsigkey : Pulumi.CustomResource
+    public partial class Tsigkey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The algorithm used to hash the TSIG key's secret.
@@ -106,7 +104,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class TsigkeyArgs : Pulumi.ResourceArgs
+    public sealed class TsigkeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The algorithm used to hash the TSIG key's secret.
@@ -129,9 +127,10 @@ namespace Pulumi.Ns1
         public TsigkeyArgs()
         {
         }
+        public static new TsigkeyArgs Empty => new TsigkeyArgs();
     }
 
-    public sealed class TsigkeyState : Pulumi.ResourceArgs
+    public sealed class TsigkeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The algorithm used to hash the TSIG key's secret.
@@ -154,5 +153,6 @@ namespace Pulumi.Ns1
         public TsigkeyState()
         {
         }
+        public static new TsigkeyState Empty => new TsigkeyState();
     }
 }

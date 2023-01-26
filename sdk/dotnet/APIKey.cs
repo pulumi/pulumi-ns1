@@ -9,8 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Ns1
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+    /// ```
+    /// 
+    ///  So for the example above
+    /// 
+    /// ```sh
+    ///  $ pulumi import ns1:index/aPIKey:APIKey example &lt;ID&gt;`
+    /// ```
+    /// </summary>
     [Ns1ResourceType("ns1:index/aPIKey:APIKey")]
-    public partial class APIKey : Pulumi.CustomResource
+    public partial class APIKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the apikey can modify account settings.
@@ -37,7 +50,7 @@ namespace Pulumi.Ns1
         public Output<bool?> AccountManagePaymentMethods { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the apikey can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Output("accountManagePlan")]
         public Output<bool?> AccountManagePlan { get; private set; } = null!;
@@ -104,9 +117,15 @@ namespace Pulumi.Ns1
         [Output("dnsManageZones")]
         public Output<bool?> DnsManageZones { get; private set; } = null!;
 
+        /// <summary>
+        /// List of records that the apikey may access.
+        /// </summary>
         [Output("dnsRecordsAllows")]
         public Output<ImmutableArray<Outputs.APIKeyDnsRecordsAllow>> DnsRecordsAllows { get; private set; } = null!;
 
+        /// <summary>
+        /// List of records that the apikey may not access.
+        /// </summary>
         [Output("dnsRecordsDenies")]
         public Output<ImmutableArray<Outputs.APIKeyDnsRecordsDeny>> DnsRecordsDenies { get; private set; } = null!;
 
@@ -232,6 +251,10 @@ namespace Pulumi.Ns1
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "key",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -253,7 +276,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class APIKeyArgs : Pulumi.ResourceArgs
+    public sealed class APIKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the apikey can modify account settings.
@@ -280,7 +303,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// Whether the apikey can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }
@@ -349,6 +372,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsAllows")]
         private InputList<Inputs.APIKeyDnsRecordsAllowArgs>? _dnsRecordsAllows;
+
+        /// <summary>
+        /// List of records that the apikey may access.
+        /// </summary>
         public InputList<Inputs.APIKeyDnsRecordsAllowArgs> DnsRecordsAllows
         {
             get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.APIKeyDnsRecordsAllowArgs>());
@@ -357,6 +384,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsDenies")]
         private InputList<Inputs.APIKeyDnsRecordsDenyArgs>? _dnsRecordsDenies;
+
+        /// <summary>
+        /// List of records that the apikey may not access.
+        /// </summary>
         public InputList<Inputs.APIKeyDnsRecordsDenyArgs> DnsRecordsDenies
         {
             get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.APIKeyDnsRecordsDenyArgs>());
@@ -483,9 +514,10 @@ namespace Pulumi.Ns1
         public APIKeyArgs()
         {
         }
+        public static new APIKeyArgs Empty => new APIKeyArgs();
     }
 
-    public sealed class APIKeyState : Pulumi.ResourceArgs
+    public sealed class APIKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the apikey can modify account settings.
@@ -512,7 +544,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// Whether the apikey can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }
@@ -581,6 +613,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsAllows")]
         private InputList<Inputs.APIKeyDnsRecordsAllowGetArgs>? _dnsRecordsAllows;
+
+        /// <summary>
+        /// List of records that the apikey may access.
+        /// </summary>
         public InputList<Inputs.APIKeyDnsRecordsAllowGetArgs> DnsRecordsAllows
         {
             get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.APIKeyDnsRecordsAllowGetArgs>());
@@ -589,6 +625,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsDenies")]
         private InputList<Inputs.APIKeyDnsRecordsDenyGetArgs>? _dnsRecordsDenies;
+
+        /// <summary>
+        /// List of records that the apikey may not access.
+        /// </summary>
         public InputList<Inputs.APIKeyDnsRecordsDenyGetArgs> DnsRecordsDenies
         {
             get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.APIKeyDnsRecordsDenyGetArgs>());
@@ -663,11 +703,21 @@ namespace Pulumi.Ns1
         [Input("ipamViewIpam")]
         public Input<bool>? IpamViewIpam { get; set; }
 
+        [Input("key")]
+        private Input<string>? _key;
+
         /// <summary>
         /// (Computed) The apikeys authentication token.
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Whether the apikey can modify monitoring jobs.
@@ -721,5 +771,6 @@ namespace Pulumi.Ns1
         public APIKeyState()
         {
         }
+        public static new APIKeyState Empty => new APIKeyState();
     }
 }

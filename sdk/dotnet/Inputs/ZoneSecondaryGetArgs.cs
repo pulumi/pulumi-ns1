@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class ZoneSecondaryGetArgs : Pulumi.ResourceArgs
+    public sealed class ZoneSecondaryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IPv4 address of the secondary server.
@@ -22,7 +22,7 @@ namespace Pulumi.Ns1.Inputs
         private InputList<int>? _networks;
 
         /// <summary>
-        /// - List of network IDs (`int`) for which the zone
+        /// List of network IDs (`int`) for which the zone
         /// should be made available. Default is network 0, the primary NSONE Global
         /// Network. Normally, you should not have to worry about this.
         /// </summary>
@@ -48,5 +48,6 @@ namespace Pulumi.Ns1.Inputs
         public ZoneSecondaryGetArgs()
         {
         }
+        public static new ZoneSecondaryGetArgs Empty => new ZoneSecondaryGetArgs();
     }
 }

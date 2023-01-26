@@ -10,6 +10,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+//
+// ```
+//
+//	So for the example above
+//
+// ```sh
+//
+//	$ pulumi import ns1:index/aPIKey:APIKey example <ID>`
+//
+// ```
 type APIKey struct {
 	pulumi.CustomResourceState
 
@@ -21,7 +36,7 @@ type APIKey struct {
 	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
-	// Whether the apikey can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
@@ -46,9 +61,11 @@ type APIKey struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrOutput `pulumi:"dhcpViewDhcp"`
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrOutput             `pulumi:"dnsManageZones"`
+	DnsManageZones pulumi.BoolPtrOutput `pulumi:"dnsManageZones"`
+	// List of records that the apikey may access.
 	DnsRecordsAllows APIKeyDnsRecordsAllowArrayOutput `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies APIKeyDnsRecordsDenyArrayOutput  `pulumi:"dnsRecordsDenies"`
+	// List of records that the apikey may not access.
+	DnsRecordsDenies APIKeyDnsRecordsDenyArrayOutput `pulumi:"dnsRecordsDenies"`
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrOutput `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -93,6 +110,10 @@ func NewAPIKey(ctx *pulumi.Context,
 		args = &APIKeyArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"key",
+	})
+	opts = append(opts, secrets)
 	var resource APIKey
 	err := ctx.RegisterResource("ns1:index/aPIKey:APIKey", name, args, &resource, opts...)
 	if err != nil {
@@ -123,7 +144,7 @@ type apikeyState struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// Whether the apikey can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -148,9 +169,11 @@ type apikeyState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones   *bool                   `pulumi:"dnsManageZones"`
+	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	// List of records that the apikey may access.
 	DnsRecordsAllows []APIKeyDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies []APIKeyDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
+	// List of records that the apikey may not access.
+	DnsRecordsDenies []APIKeyDnsRecordsDeny `pulumi:"dnsRecordsDenies"`
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -197,7 +220,7 @@ type APIKeyState struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// Whether the apikey can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -222,8 +245,10 @@ type APIKeyState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrInput
+	DnsManageZones pulumi.BoolPtrInput
+	// List of records that the apikey may access.
 	DnsRecordsAllows APIKeyDnsRecordsAllowArrayInput
+	// List of records that the apikey may not access.
 	DnsRecordsDenies APIKeyDnsRecordsDenyArrayInput
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
@@ -275,7 +300,7 @@ type apikeyArgs struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// Whether the apikey can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -300,9 +325,11 @@ type apikeyArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones   *bool                   `pulumi:"dnsManageZones"`
+	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	// List of records that the apikey may access.
 	DnsRecordsAllows []APIKeyDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies []APIKeyDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
+	// List of records that the apikey may not access.
+	DnsRecordsDenies []APIKeyDnsRecordsDeny `pulumi:"dnsRecordsDenies"`
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -348,7 +375,7 @@ type APIKeyArgs struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// Whether the apikey can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -373,8 +400,10 @@ type APIKeyArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the apikey can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrInput
+	DnsManageZones pulumi.BoolPtrInput
+	// List of records that the apikey may access.
 	DnsRecordsAllows APIKeyDnsRecordsAllowArrayInput
+	// List of records that the apikey may not access.
 	DnsRecordsDenies APIKeyDnsRecordsDenyArrayInput
 	// Whether the apikey can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
@@ -496,6 +525,178 @@ func (o APIKeyOutput) ToAPIKeyOutput() APIKeyOutput {
 
 func (o APIKeyOutput) ToAPIKeyOutputWithContext(ctx context.Context) APIKeyOutput {
 	return o
+}
+
+// Whether the apikey can modify account settings.
+func (o APIKeyOutput) AccountManageAccountSettings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManageAccountSettings }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify account apikeys.
+func (o APIKeyOutput) AccountManageApikeys() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManageApikeys }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can manage ip whitelist.
+func (o APIKeyOutput) AccountManageIpWhitelist() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManageIpWhitelist }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify account payment methods.
+func (o APIKeyOutput) AccountManagePaymentMethods() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManagePaymentMethods }).(pulumi.BoolPtrOutput)
+}
+
+// No longer in use.
+//
+// Deprecated: obsolete, should no longer be used
+func (o APIKeyOutput) AccountManagePlan() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManagePlan }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify other teams in the account.
+func (o APIKeyOutput) AccountManageTeams() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManageTeams }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify account users.
+func (o APIKeyOutput) AccountManageUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManageUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can view activity logs.
+func (o APIKeyOutput) AccountViewActivityLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountViewActivityLog }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can view invoices.
+func (o APIKeyOutput) AccountViewInvoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountViewInvoices }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify data feeds.
+func (o APIKeyOutput) DataManageDatafeeds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DataManageDatafeeds }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify data sources.
+func (o APIKeyOutput) DataManageDatasources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DataManageDatasources }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can publish to data feeds.
+func (o APIKeyOutput) DataPushToDatafeeds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DataPushToDatafeeds }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can manage DHCP.
+// Only relevant for the DDI product.
+func (o APIKeyOutput) DhcpManageDhcp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DhcpManageDhcp }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can view DHCP.
+// Only relevant for the DDI product.
+func (o APIKeyOutput) DhcpViewDhcp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DhcpViewDhcp }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify the accounts zones.
+func (o APIKeyOutput) DnsManageZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DnsManageZones }).(pulumi.BoolPtrOutput)
+}
+
+// List of records that the apikey may access.
+func (o APIKeyOutput) DnsRecordsAllows() APIKeyDnsRecordsAllowArrayOutput {
+	return o.ApplyT(func(v *APIKey) APIKeyDnsRecordsAllowArrayOutput { return v.DnsRecordsAllows }).(APIKeyDnsRecordsAllowArrayOutput)
+}
+
+// List of records that the apikey may not access.
+func (o APIKeyOutput) DnsRecordsDenies() APIKeyDnsRecordsDenyArrayOutput {
+	return o.ApplyT(func(v *APIKey) APIKeyDnsRecordsDenyArrayOutput { return v.DnsRecordsDenies }).(APIKeyDnsRecordsDenyArrayOutput)
+}
+
+// Whether the apikey can view the accounts zones.
+func (o APIKeyOutput) DnsViewZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DnsViewZones }).(pulumi.BoolPtrOutput)
+}
+
+// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
+func (o APIKeyOutput) DnsZonesAllowByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.DnsZonesAllowByDefault }).(pulumi.BoolPtrOutput)
+}
+
+// List of zones that the apikey may access.
+func (o APIKeyOutput) DnsZonesAllows() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.StringArrayOutput { return v.DnsZonesAllows }).(pulumi.StringArrayOutput)
+}
+
+// List of zones that the apikey may not access.
+func (o APIKeyOutput) DnsZonesDenies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.StringArrayOutput { return v.DnsZonesDenies }).(pulumi.StringArrayOutput)
+}
+
+// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
+func (o APIKeyOutput) IpWhitelistStrict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.IpWhitelistStrict }).(pulumi.BoolPtrOutput)
+}
+
+// Array of IP addresses/networks to which to grant the API key access.
+func (o APIKeyOutput) IpWhitelists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.StringArrayOutput { return v.IpWhitelists }).(pulumi.StringArrayOutput)
+}
+
+// Whether the apikey can manage IPAM.
+// Only relevant for the DDI product.
+func (o APIKeyOutput) IpamManageIpam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.IpamManageIpam }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can view IPAM.
+// Only relevant for the DDI product.
+func (o APIKeyOutput) IpamViewIpam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.IpamViewIpam }).(pulumi.BoolPtrOutput)
+}
+
+// (Computed) The apikeys authentication token.
+func (o APIKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Whether the apikey can modify monitoring jobs.
+func (o APIKeyOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringManageJobs }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can modify notification lists.
+func (o APIKeyOutput) MonitoringManageLists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringManageLists }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can view monitoring jobs.
+func (o APIKeyOutput) MonitoringViewJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringViewJobs }).(pulumi.BoolPtrOutput)
+}
+
+// The free form name of the apikey.
+func (o APIKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the apikey can manage global active directory.
+// Only relevant for the DDI product.
+func (o APIKeyOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can manage global two factor authentication.
+func (o APIKeyOutput) SecurityManageGlobal2fa() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.SecurityManageGlobal2fa }).(pulumi.BoolPtrOutput)
+}
+
+// The teams that the apikey belongs to.
+func (o APIKeyOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.StringArrayOutput { return v.Teams }).(pulumi.StringArrayOutput)
 }
 
 type APIKeyArrayOutput struct{ *pulumi.OutputState }

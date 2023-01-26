@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class UserDnsRecordsDenyGetArgs : Pulumi.ResourceArgs
+    public sealed class UserDnsRecordsDenyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.Ns1.Inputs
         public UserDnsRecordsDenyGetArgs()
         {
         }
+        public static new UserDnsRecordsDenyGetArgs Empty => new UserDnsRecordsDenyGetArgs();
     }
 }
