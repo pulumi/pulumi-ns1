@@ -17,9 +17,12 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	// The ns1 API key, this is required
-	Apikey   pulumi.StringPtrOutput `pulumi:"apikey"`
+	// The ns1 API key (required)
+	Apikey pulumi.StringPtrOutput `pulumi:"apikey"`
+	// URL prefix (including version) for API calls
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// User-Agent string to use in NS1 API requests
+	UserAgent pulumi.StringPtrOutput `pulumi:"userAgent"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -38,22 +41,38 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	// The ns1 API key, this is required
-	Apikey               *string `pulumi:"apikey"`
-	EnableDdi            *bool   `pulumi:"enableDdi"`
-	Endpoint             *string `pulumi:"endpoint"`
-	IgnoreSsl            *bool   `pulumi:"ignoreSsl"`
-	RateLimitParallelism *int    `pulumi:"rateLimitParallelism"`
+	// The ns1 API key (required)
+	Apikey *string `pulumi:"apikey"`
+	// Deprecated, no longer in use
+	EnableDdi *bool `pulumi:"enableDdi"`
+	// URL prefix (including version) for API calls
+	Endpoint *string `pulumi:"endpoint"`
+	// Don't validate server SSL/TLS certificate
+	IgnoreSsl *bool `pulumi:"ignoreSsl"`
+	// Tune response to rate limits, see docs
+	RateLimitParallelism *int `pulumi:"rateLimitParallelism"`
+	// Maximum retries for 50x errors (-1 to disable)
+	RetryMax *int `pulumi:"retryMax"`
+	// User-Agent string to use in NS1 API requests
+	UserAgent *string `pulumi:"userAgent"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	// The ns1 API key, this is required
-	Apikey               pulumi.StringPtrInput
-	EnableDdi            pulumi.BoolPtrInput
-	Endpoint             pulumi.StringPtrInput
-	IgnoreSsl            pulumi.BoolPtrInput
+	// The ns1 API key (required)
+	Apikey pulumi.StringPtrInput
+	// Deprecated, no longer in use
+	EnableDdi pulumi.BoolPtrInput
+	// URL prefix (including version) for API calls
+	Endpoint pulumi.StringPtrInput
+	// Don't validate server SSL/TLS certificate
+	IgnoreSsl pulumi.BoolPtrInput
+	// Tune response to rate limits, see docs
 	RateLimitParallelism pulumi.IntPtrInput
+	// Maximum retries for 50x errors (-1 to disable)
+	RetryMax pulumi.IntPtrInput
+	// User-Agent string to use in NS1 API requests
+	UserAgent pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -91,6 +110,21 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+// The ns1 API key (required)
+func (o ProviderOutput) Apikey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Apikey }).(pulumi.StringPtrOutput)
+}
+
+// URL prefix (including version) for API calls
+func (o ProviderOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// User-Agent string to use in NS1 API requests
+func (o ProviderOutput) UserAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.UserAgent }).(pulumi.StringPtrOutput)
 }
 
 func init() {

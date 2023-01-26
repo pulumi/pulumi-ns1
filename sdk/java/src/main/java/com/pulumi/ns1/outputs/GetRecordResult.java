@@ -43,6 +43,7 @@ public final class GetRecordResult {
      * 
      */
     private Map<String,Object> meta;
+    private Boolean overrideTtl;
     /**
      * @return List of regions.
      * 
@@ -101,6 +102,9 @@ public final class GetRecordResult {
     public Map<String,Object> meta() {
         return this.meta;
     }
+    public Boolean overrideTtl() {
+        return this.overrideTtl;
+    }
     /**
      * @return List of regions.
      * 
@@ -147,6 +151,7 @@ public final class GetRecordResult {
         private String id;
         private String link;
         private Map<String,Object> meta;
+        private Boolean overrideTtl;
         private List<GetRecordRegion> regions;
         private List<String> shortAnswers;
         private Integer ttl;
@@ -162,6 +167,7 @@ public final class GetRecordResult {
     	      this.id = defaults.id;
     	      this.link = defaults.link;
     	      this.meta = defaults.meta;
+    	      this.overrideTtl = defaults.overrideTtl;
     	      this.regions = defaults.regions;
     	      this.shortAnswers = defaults.shortAnswers;
     	      this.ttl = defaults.ttl;
@@ -204,6 +210,11 @@ public final class GetRecordResult {
         @CustomType.Setter
         public Builder meta(Map<String,Object> meta) {
             this.meta = Objects.requireNonNull(meta);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder overrideTtl(Boolean overrideTtl) {
+            this.overrideTtl = Objects.requireNonNull(overrideTtl);
             return this;
         }
         @CustomType.Setter
@@ -250,6 +261,7 @@ public final class GetRecordResult {
             o.id = id;
             o.link = link;
             o.meta = meta;
+            o.overrideTtl = overrideTtl;
             o.regions = regions;
             o.shortAnswers = shortAnswers;
             o.ttl = ttl;

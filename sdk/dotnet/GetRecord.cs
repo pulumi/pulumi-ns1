@@ -21,28 +21,26 @@ namespace Pulumi.Ns1
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Ns1 = Pulumi.Ns1;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Ns1.GetRecord.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Ns1.GetRecord.InvokeAsync(new Ns1.GetRecordArgs
-        ///         {
-        ///             Domain = "terraform.example.io",
-        ///             Type = "A",
-        ///             Zone = "example.io",
-        ///         }));
-        ///     }
+        ///         Domain = "terraform.example.io",
+        ///         Type = "A",
+        ///         Zone = "example.io",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRecordResult> InvokeAsync(GetRecordArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a NS1 Record. Use this if you would simply like to read
@@ -54,32 +52,30 @@ namespace Pulumi.Ns1
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Ns1 = Pulumi.Ns1;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Ns1.GetRecord.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Ns1.GetRecord.InvokeAsync(new Ns1.GetRecordArgs
-        ///         {
-        ///             Domain = "terraform.example.io",
-        ///             Type = "A",
-        ///             Zone = "example.io",
-        ///         }));
-        ///     }
+        ///         Domain = "terraform.example.io",
+        ///         Type = "A",
+        ///         Zone = "example.io",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRecordResult> Invoke(GetRecordInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetRecordArgs : Pulumi.InvokeArgs
+    public sealed class GetRecordArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The records' domain.
@@ -102,9 +98,10 @@ namespace Pulumi.Ns1
         public GetRecordArgs()
         {
         }
+        public static new GetRecordArgs Empty => new GetRecordArgs();
     }
 
-    public sealed class GetRecordInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecordInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The records' domain.
@@ -127,6 +124,7 @@ namespace Pulumi.Ns1
         public GetRecordInvokeArgs()
         {
         }
+        public static new GetRecordInvokeArgs Empty => new GetRecordInvokeArgs();
     }
 
 
@@ -154,6 +152,7 @@ namespace Pulumi.Ns1
         /// Map of metadata
         /// </summary>
         public readonly ImmutableDictionary<string, object> Meta;
+        public readonly bool OverrideTtl;
         /// <summary>
         /// List of regions.
         /// </summary>
@@ -184,6 +183,8 @@ namespace Pulumi.Ns1
 
             ImmutableDictionary<string, object> meta,
 
+            bool overrideTtl,
+
             ImmutableArray<Outputs.GetRecordRegionResult> regions,
 
             ImmutableArray<string> shortAnswers,
@@ -202,6 +203,7 @@ namespace Pulumi.Ns1
             Id = id;
             Link = link;
             Meta = meta;
+            OverrideTtl = overrideTtl;
             Regions = regions;
             ShortAnswers = shortAnswers;
             Ttl = ttl;

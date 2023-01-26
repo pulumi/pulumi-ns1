@@ -20,9 +20,52 @@ import javax.annotation.Nullable;
  * Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.NotifyList;
+ * import com.pulumi.ns1.NotifyListArgs;
+ * import com.pulumi.ns1.inputs.NotifyListNotificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var nl = new NotifyList(&#34;nl&#34;, NotifyListArgs.builder()        
+ *             .notifications(            
+ *                 NotifyListNotificationArgs.builder()
+ *                     .config(Map.of(&#34;url&#34;, &#34;http://www.mywebhook.com&#34;))
+ *                     .type(&#34;webhook&#34;)
+ *                     .build(),
+ *                 NotifyListNotificationArgs.builder()
+ *                     .config(Map.of(&#34;email&#34;, &#34;test@test.com&#34;))
+ *                     .type(&#34;email&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NS1 Documentation
  * 
  * [NotifyList Api Doc](https://ns1.com/api#notification-lists)
+ * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import ns1:index/notifyList:NotifyList &lt;name&gt; &lt;notifylist_id&gt;`
+ * ```
  * 
  */
 @ResourceType(type="ns1:index/notifyList:NotifyList")

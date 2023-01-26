@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -16,20 +17,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * // Get details about a NS1 Record.
- * const example = pulumi.output(ns1.getRecord({
+ * const example = ns1.getRecord({
  *     domain: "terraform.example.io",
  *     type: "A",
  *     zone: "example.io",
- * }));
+ * });
  * ```
  */
 export function getRecord(args: GetRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getRecord:getRecord", {
         "domain": args.domain,
         "type": args.type,
@@ -80,6 +77,7 @@ export interface GetRecordResult {
      * Map of metadata
      */
     readonly meta: {[key: string]: any};
+    readonly overrideTtl: boolean;
     /**
      * List of regions.
      */
@@ -96,9 +94,26 @@ export interface GetRecordResult {
     readonly useClientSubnet: boolean;
     readonly zone: string;
 }
-
+/**
+ * Provides details about a NS1 Record. Use this if you would simply like to read
+ * information from NS1 into your configurations. For read/write operations, you
+ * should use a resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const example = ns1.getRecord({
+ *     domain: "terraform.example.io",
+ *     type: "A",
+ *     zone: "example.io",
+ * });
+ * ```
+ */
 export function getRecordOutput(args: GetRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordResult> {
-    return pulumi.output(args).apply(a => getRecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getRecord(a, opts))
 }
 
 /**

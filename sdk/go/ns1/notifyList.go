@@ -27,14 +27,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ns1.NewNotifyList(ctx, "nl", &ns1.NotifyListArgs{
-//				Notifications: NotifyListNotificationArray{
-//					&NotifyListNotificationArgs{
+//				Notifications: ns1.NotifyListNotificationArray{
+//					&ns1.NotifyListNotificationArgs{
 //						Config: pulumi.AnyMap{
 //							"url": pulumi.Any("http://www.mywebhook.com"),
 //						},
 //						Type: pulumi.String("webhook"),
 //					},
-//					&NotifyListNotificationArgs{
+//					&ns1.NotifyListNotificationArgs{
 //						Config: pulumi.AnyMap{
 //							"email": pulumi.Any("test@test.com"),
 //						},
@@ -53,6 +53,14 @@ import (
 // ## NS1 Documentation
 //
 // [NotifyList Api Doc](https://ns1.com/api#notification-lists)
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
+//
+// ```
 type NotifyList struct {
 	pulumi.CustomResourceState
 
@@ -208,6 +216,16 @@ func (o NotifyListOutput) ToNotifyListOutput() NotifyListOutput {
 
 func (o NotifyListOutput) ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput {
 	return o
+}
+
+// The free-form display name for the notify list.
+func (o NotifyListOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotifyList) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+func (o NotifyListOutput) Notifications() NotifyListNotificationArrayOutput {
+	return o.ApplyT(func(v *NotifyList) NotifyListNotificationArrayOutput { return v.Notifications }).(NotifyListNotificationArrayOutput)
 }
 
 type NotifyListArrayOutput struct{ *pulumi.OutputState }

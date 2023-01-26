@@ -80,7 +80,7 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the apikey can modify the account plan.
+     * No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -91,7 +91,7 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> accountManagePlan;
 
     /**
-     * @return Whether the apikey can modify the account plan.
+     * @return No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -256,16 +256,32 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dnsManageZones);
     }
 
+    /**
+     * List of records that the apikey may access.
+     * 
+     */
     @Import(name="dnsRecordsAllows")
     private @Nullable Output<List<APIKeyDnsRecordsAllowArgs>> dnsRecordsAllows;
 
+    /**
+     * @return List of records that the apikey may access.
+     * 
+     */
     public Optional<Output<List<APIKeyDnsRecordsAllowArgs>>> dnsRecordsAllows() {
         return Optional.ofNullable(this.dnsRecordsAllows);
     }
 
+    /**
+     * List of records that the apikey may not access.
+     * 
+     */
     @Import(name="dnsRecordsDenies")
     private @Nullable Output<List<APIKeyDnsRecordsDenyArgs>> dnsRecordsDenies;
 
+    /**
+     * @return List of records that the apikey may not access.
+     * 
+     */
     public Optional<Output<List<APIKeyDnsRecordsDenyArgs>>> dnsRecordsDenies() {
         return Optional.ofNullable(this.dnsRecordsDenies);
     }
@@ -641,7 +657,7 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountManagePlan Whether the apikey can modify the account plan.
+         * @param accountManagePlan No longer in use.
          * 
          * @return builder
          * 
@@ -656,7 +672,7 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountManagePlan Whether the apikey can modify the account plan.
+         * @param accountManagePlan No longer in use.
          * 
          * @return builder
          * 
@@ -883,28 +899,64 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
             return dnsManageZones(Output.of(dnsManageZones));
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the apikey may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(@Nullable Output<List<APIKeyDnsRecordsAllowArgs>> dnsRecordsAllows) {
             $.dnsRecordsAllows = dnsRecordsAllows;
             return this;
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the apikey may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(List<APIKeyDnsRecordsAllowArgs> dnsRecordsAllows) {
             return dnsRecordsAllows(Output.of(dnsRecordsAllows));
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the apikey may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(APIKeyDnsRecordsAllowArgs... dnsRecordsAllows) {
             return dnsRecordsAllows(List.of(dnsRecordsAllows));
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the apikey may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(@Nullable Output<List<APIKeyDnsRecordsDenyArgs>> dnsRecordsDenies) {
             $.dnsRecordsDenies = dnsRecordsDenies;
             return this;
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the apikey may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(List<APIKeyDnsRecordsDenyArgs> dnsRecordsDenies) {
             return dnsRecordsDenies(Output.of(dnsRecordsDenies));
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the apikey may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(APIKeyDnsRecordsDenyArgs... dnsRecordsDenies) {
             return dnsRecordsDenies(List.of(dnsRecordsDenies));
         }

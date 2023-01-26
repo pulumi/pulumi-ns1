@@ -207,6 +207,54 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 	return o
 }
 
+func (o SubnetOutput) Children() pulumi.IntOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntOutput { return v.Children }).(pulumi.IntOutput)
+}
+
+func (o SubnetOutput) Desc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Desc }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) DhcpScoped() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.DhcpScoped }).(pulumi.BoolOutput)
+}
+
+func (o SubnetOutput) FreeAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.FreeAddresses }).(pulumi.StringOutput)
+}
+
+func (o SubnetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SubnetOutput) NetworkId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.NetworkId }).(pulumi.IntPtrOutput)
+}
+
+func (o SubnetOutput) ParentId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntOutput { return v.ParentId }).(pulumi.IntOutput)
+}
+
+func (o SubnetOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o SubnetOutput) Tags() pulumi.MapOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.MapOutput { return v.Tags }).(pulumi.MapOutput)
+}
+
+func (o SubnetOutput) TotalAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.TotalAddresses }).(pulumi.StringOutput)
+}
+
+func (o SubnetOutput) UsedAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.UsedAddresses }).(pulumi.StringOutput)
+}
+
 type SubnetArrayOutput struct{ *pulumi.OutputState }
 
 func (SubnetArrayOutput) ElementType() reflect.Type {

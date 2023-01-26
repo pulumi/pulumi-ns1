@@ -223,6 +223,21 @@ func (o TsigkeyOutput) ToTsigkeyOutputWithContext(ctx context.Context) TsigkeyOu
 	return o
 }
 
+// The algorithm used to hash the TSIG key's secret.
+func (o TsigkeyOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tsigkey) pulumi.StringOutput { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// The free form name of the tsigkey.
+func (o TsigkeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tsigkey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The key's secret to be hashed.
+func (o TsigkeyOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tsigkey) pulumi.StringOutput { return v.Secret }).(pulumi.StringOutput)
+}
+
 type TsigkeyArrayOutput struct{ *pulumi.OutputState }
 
 func (TsigkeyArrayOutput) ElementType() reflect.Type {

@@ -20,6 +20,13 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ZoneArgs Empty = new ZoneArgs();
 
+    @Import(name="additionalPorts")
+    private @Nullable Output<List<Integer>> additionalPorts;
+
+    public Optional<Output<List<Integer>>> additionalPorts() {
+        return Optional.ofNullable(this.additionalPorts);
+    }
+
     /**
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
@@ -111,18 +118,18 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - List of network IDs (`int`) for which the zone
-     *   should be made available. Default is network 0, the primary NSONE Global
-     *   Network. Normally, you should not have to worry about this.
+     * List of network IDs for which the zone is
+     * available. If no network is provided, the zone will be created in network 0,
+     * the primary NS1 Global Network.
      * 
      */
     @Import(name="networks")
     private @Nullable Output<List<Integer>> networks;
 
     /**
-     * @return - List of network IDs (`int`) for which the zone
-     * should be made available. Default is network 0, the primary NSONE Global
-     * Network. Normally, you should not have to worry about this.
+     * @return List of network IDs for which the zone is
+     * available. If no network is provided, the zone will be created in network 0,
+     * the primary NS1 Global Network.
      * 
      */
     public Optional<Output<List<Integer>>> networks() {
@@ -161,6 +168,13 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> primary() {
         return Optional.ofNullable(this.primary);
+    }
+
+    @Import(name="primaryPort")
+    private @Nullable Output<Integer> primaryPort;
+
+    public Optional<Output<Integer>> primaryPort() {
+        return Optional.ofNullable(this.primaryPort);
     }
 
     /**
@@ -264,6 +278,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
     private ZoneArgs() {}
 
     private ZoneArgs(ZoneArgs $) {
+        this.additionalPorts = $.additionalPorts;
         this.additionalPrimaries = $.additionalPrimaries;
         this.autogenerateNsRecord = $.autogenerateNsRecord;
         this.dnssec = $.dnssec;
@@ -273,6 +288,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         this.networks = $.networks;
         this.nxTtl = $.nxTtl;
         this.primary = $.primary;
+        this.primaryPort = $.primaryPort;
         this.refresh = $.refresh;
         this.retry = $.retry;
         this.secondaries = $.secondaries;
@@ -297,6 +313,19 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ZoneArgs defaults) {
             $ = new ZoneArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder additionalPorts(@Nullable Output<List<Integer>> additionalPorts) {
+            $.additionalPorts = additionalPorts;
+            return this;
+        }
+
+        public Builder additionalPorts(List<Integer> additionalPorts) {
+            return additionalPorts(Output.of(additionalPorts));
+        }
+
+        public Builder additionalPorts(Integer... additionalPorts) {
+            return additionalPorts(List.of(additionalPorts));
         }
 
         /**
@@ -433,9 +462,9 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networks - List of network IDs (`int`) for which the zone
-         * should be made available. Default is network 0, the primary NSONE Global
-         * Network. Normally, you should not have to worry about this.
+         * @param networks List of network IDs for which the zone is
+         * available. If no network is provided, the zone will be created in network 0,
+         * the primary NS1 Global Network.
          * 
          * @return builder
          * 
@@ -446,9 +475,9 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networks - List of network IDs (`int`) for which the zone
-         * should be made available. Default is network 0, the primary NSONE Global
-         * Network. Normally, you should not have to worry about this.
+         * @param networks List of network IDs for which the zone is
+         * available. If no network is provided, the zone will be created in network 0,
+         * the primary NS1 Global Network.
          * 
          * @return builder
          * 
@@ -458,9 +487,9 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networks - List of network IDs (`int`) for which the zone
-         * should be made available. Default is network 0, the primary NSONE Global
-         * Network. Normally, you should not have to worry about this.
+         * @param networks List of network IDs for which the zone is
+         * available. If no network is provided, the zone will be created in network 0,
+         * the primary NS1 Global Network.
          * 
          * @return builder
          * 
@@ -513,6 +542,15 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder primary(String primary) {
             return primary(Output.of(primary));
+        }
+
+        public Builder primaryPort(@Nullable Output<Integer> primaryPort) {
+            $.primaryPort = primaryPort;
+            return this;
+        }
+
+        public Builder primaryPort(Integer primaryPort) {
+            return primaryPort(Output.of(primaryPort));
         }
 
         /**

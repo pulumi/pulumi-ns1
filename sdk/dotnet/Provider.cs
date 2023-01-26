@@ -16,16 +16,25 @@ namespace Pulumi.Ns1
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [Ns1ResourceType("pulumi:providers:ns1")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// The ns1 API key, this is required
+        /// The ns1 API key (required)
         /// </summary>
         [Output("apikey")]
         public Output<string?> Apikey { get; private set; } = null!;
 
+        /// <summary>
+        /// URL prefix (including version) for API calls
+        /// </summary>
         [Output("endpoint")]
         public Output<string?> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// User-Agent string to use in NS1 API requests
+        /// </summary>
+        [Output("userAgent")]
+        public Output<string?> UserAgent { get; private set; } = null!;
 
 
         /// <summary>
@@ -53,28 +62,53 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ns1 API key, this is required
+        /// The ns1 API key (required)
         /// </summary>
         [Input("apikey")]
         public Input<string>? Apikey { get; set; }
 
+        /// <summary>
+        /// Deprecated, no longer in use
+        /// </summary>
         [Input("enableDdi", json: true)]
         public Input<bool>? EnableDdi { get; set; }
 
+        /// <summary>
+        /// URL prefix (including version) for API calls
+        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// Don't validate server SSL/TLS certificate
+        /// </summary>
         [Input("ignoreSsl", json: true)]
         public Input<bool>? IgnoreSsl { get; set; }
 
+        /// <summary>
+        /// Tune response to rate limits, see docs
+        /// </summary>
         [Input("rateLimitParallelism", json: true)]
         public Input<int>? RateLimitParallelism { get; set; }
+
+        /// <summary>
+        /// Maximum retries for 50x errors (-1 to disable)
+        /// </summary>
+        [Input("retryMax", json: true)]
+        public Input<int>? RetryMax { get; set; }
+
+        /// <summary>
+        /// User-Agent string to use in NS1 API requests
+        /// </summary>
+        [Input("userAgent")]
+        public Input<string>? UserAgent { get; set; }
 
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

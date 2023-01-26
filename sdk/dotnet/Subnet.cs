@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1
 {
     [Ns1ResourceType("ns1:index/subnet:Subnet")]
-    public partial class Subnet : Pulumi.CustomResource
+    public partial class Subnet : global::Pulumi.CustomResource
     {
         [Output("children")]
         public Output<int> Children { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class SubnetArgs : Pulumi.ResourceArgs
+    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         [Input("children")]
         public Input<int>? Children { get; set; }
@@ -138,9 +138,10 @@ namespace Pulumi.Ns1
         public SubnetArgs()
         {
         }
+        public static new SubnetArgs Empty => new SubnetArgs();
     }
 
-    public sealed class SubnetState : Pulumi.ResourceArgs
+    public sealed class SubnetState : global::Pulumi.ResourceArgs
     {
         [Input("children")]
         public Input<int>? Children { get; set; }
@@ -186,5 +187,6 @@ namespace Pulumi.Ns1
         public SubnetState()
         {
         }
+        public static new SubnetState Empty => new SubnetState();
     }
 }

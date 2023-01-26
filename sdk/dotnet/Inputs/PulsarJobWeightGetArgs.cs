@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class PulsarJobWeightGetArgs : Pulumi.ResourceArgs
+    public sealed class PulsarJobWeightGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValue", required: true)]
         public Input<double> DefaultValue { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.Ns1.Inputs
         public PulsarJobWeightGetArgs()
         {
         }
+        public static new PulsarJobWeightGetArgs Empty => new PulsarJobWeightGetArgs();
     }
 }

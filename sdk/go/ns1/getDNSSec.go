@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = ns1.GetDNSSecOutput(ctx, GetDNSSecOutputArgs{
+//			_ = ns1.GetDNSSecOutput(ctx, ns1.GetDNSSecOutputArgs{
 //				Zone: exampleZone.Zone,
 //			}, nil)
 //			return nil

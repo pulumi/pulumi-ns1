@@ -24,9 +24,64 @@ import javax.annotation.Nullable;
  * Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.MonitoringJob;
+ * import com.pulumi.ns1.MonitoringJobArgs;
+ * import com.pulumi.ns1.inputs.MonitoringJobRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var uswestMonitor = new MonitoringJob(&#34;uswestMonitor&#34;, MonitoringJobArgs.builder()        
+ *             .active(true)
+ *             .config(Map.ofEntries(
+ *                 Map.entry(&#34;host&#34;, &#34;example-elb-uswest.aws.amazon.com&#34;),
+ *                 Map.entry(&#34;port&#34;, 443),
+ *                 Map.entry(&#34;send&#34;, &#34;HEAD / HTTP/1.0\\r\\n\\r\\n&#34;),
+ *                 Map.entry(&#34;ssl&#34;, 1)
+ *             ))
+ *             .frequency(60)
+ *             .jobType(&#34;tcp&#34;)
+ *             .mute(true)
+ *             .policy(&#34;quorum&#34;)
+ *             .rapidRecheck(true)
+ *             .regions(            
+ *                 &#34;lga&#34;,
+ *                 &#34;sjc&#34;,
+ *                 &#34;sin&#34;)
+ *             .rules(MonitoringJobRuleArgs.builder()
+ *                 .comparison(&#34;contains&#34;)
+ *                 .key(&#34;output&#34;)
+ *                 .value(&#34;200 OK&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NS1 Documentation
  * 
  * [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
+ * 
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import ns1:index/monitoringJob:MonitoringJob &lt;name&gt; &lt;monitoringjob_id&gt;`
+ * ```
  * 
  */
 @ResourceType(type="ns1:index/monitoringJob:MonitoringJob")
@@ -223,7 +278,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
     }
     /**
      * The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+     * job. See NS1 API docs for supported values.
      * 
      */
     @Export(name="regions", type=List.class, parameters={String.class})
@@ -231,7 +286,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The list of region codes in which to run the monitoring
-     * job. See NS1 API docs for supported values. NOTE: order alphabetically by region code.
+     * job. See NS1 API docs for supported values.
      * 
      */
     public Output<List<String>> regions() {

@@ -24,6 +24,64 @@ import javax.annotation.Nullable;
  * teams. The credentials used must have the `manage_teams` permission set.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.Team;
+ * import com.pulumi.ns1.TeamArgs;
+ * import com.pulumi.ns1.inputs.TeamIpWhitelistArgs;
+ * import com.pulumi.ns1.inputs.TeamDnsRecordsAllowArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
+ *             .accountManageUsers(false)
+ *             .dnsViewZones(false)
+ *             .ipWhitelists(            
+ *                 TeamIpWhitelistArgs.builder()
+ *                     .name(&#34;whitelist-1&#34;)
+ *                     .values(                    
+ *                         &#34;1.1.1.1&#34;,
+ *                         &#34;2.2.2.2&#34;)
+ *                     .build(),
+ *                 TeamIpWhitelistArgs.builder()
+ *                     .name(&#34;whitelist-2&#34;)
+ *                     .values(                    
+ *                         &#34;3.3.3.3&#34;,
+ *                         &#34;4.4.4.4&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var example2 = new Team(&#34;example2&#34;, TeamArgs.builder()        
+ *             .dataManageDatasources(true)
+ *             .dnsRecordsAllows(TeamDnsRecordsAllowArgs.builder()
+ *                 .domain(&#34;terraform.example.io&#34;)
+ *                 .includeSubdomains(false)
+ *                 .type(&#34;A&#34;)
+ *                 .zone(&#34;example.io&#34;)
+ *                 .build())
+ *             .dnsViewZones(true)
+ *             .dnsZonesAllows(&#34;mytest.zone&#34;)
+ *             .dnsZonesAllowByDefault(true)
+ *             .dnsZonesDenies(&#34;myother.zone&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## NS1 Documentation
  * 
  * [Team Api Docs](https://ns1.com/api#team)
@@ -94,7 +152,7 @@ public class Team extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountManagePaymentMethods);
     }
     /**
-     * Whether the team can modify the account plan.
+     * No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -105,7 +163,7 @@ public class Team extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> accountManagePlan;
 
     /**
-     * @return Whether the team can modify the account plan.
+     * @return No longer in use.
      * 
      */
     public Output<Optional<Boolean>> accountManagePlan() {
@@ -255,15 +313,31 @@ public class Team extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> dnsManageZones() {
         return Codegen.optional(this.dnsManageZones);
     }
+    /**
+     * List of records that the team may access.
+     * 
+     */
     @Export(name="dnsRecordsAllows", type=List.class, parameters={TeamDnsRecordsAllow.class})
     private Output</* @Nullable */ List<TeamDnsRecordsAllow>> dnsRecordsAllows;
 
+    /**
+     * @return List of records that the team may access.
+     * 
+     */
     public Output<Optional<List<TeamDnsRecordsAllow>>> dnsRecordsAllows() {
         return Codegen.optional(this.dnsRecordsAllows);
     }
+    /**
+     * List of records that the team may not access.
+     * 
+     */
     @Export(name="dnsRecordsDenies", type=List.class, parameters={TeamDnsRecordsDeny.class})
     private Output</* @Nullable */ List<TeamDnsRecordsDeny>> dnsRecordsDenies;
 
+    /**
+     * @return List of records that the team may not access.
+     * 
+     */
     public Output<Optional<List<TeamDnsRecordsDeny>>> dnsRecordsDenies() {
         return Codegen.optional(this.dnsRecordsDenies);
     }

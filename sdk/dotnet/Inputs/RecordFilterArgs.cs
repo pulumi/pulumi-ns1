@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class RecordFilterArgs : Pulumi.ResourceArgs
+    public sealed class RecordFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<object>? _config;
@@ -41,5 +41,6 @@ namespace Pulumi.Ns1.Inputs
         public RecordFilterArgs()
         {
         }
+        public static new RecordFilterArgs Empty => new RecordFilterArgs();
     }
 }

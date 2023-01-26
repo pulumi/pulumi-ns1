@@ -18,7 +18,7 @@ namespace Pulumi.Ns1.Outputs
         /// </summary>
         public readonly string Ip;
         /// <summary>
-        /// - List of network IDs (`int`) for which the zone
+        /// List of network IDs (`int`) for which the zone
         /// should be made available. Default is network 0, the primary NSONE Global
         /// Network. Normally, you should not have to worry about this.
         /// </summary>

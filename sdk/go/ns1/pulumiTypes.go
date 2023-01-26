@@ -239,14 +239,14 @@ type ApplicationDefaultConfig struct {
 	Http bool `pulumi:"http"`
 	// Indicates whether or not to use HTTPS in measurements.
 	Https *bool `pulumi:"https"`
-	// - Maximum timeout per job
-	//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+	// Maximum timeout per job
+	// 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
 	JobTimeoutMillis *int `pulumi:"jobTimeoutMillis"`
 	// Maximum timeout per request.
 	RequestTimeoutMillis *int `pulumi:"requestTimeoutMillis"`
-	// - Indicates whether or not to skip aggregation for this job's measurements
+	// Indicates whether or not to skip aggregation for this job's measurements
 	StaticValues *bool `pulumi:"staticValues"`
-	// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+	// Whether to use XMLHttpRequest (XHR) when taking measurements.
 	UseXhr *bool `pulumi:"useXhr"`
 }
 
@@ -266,14 +266,14 @@ type ApplicationDefaultConfigArgs struct {
 	Http pulumi.BoolInput `pulumi:"http"`
 	// Indicates whether or not to use HTTPS in measurements.
 	Https pulumi.BoolPtrInput `pulumi:"https"`
-	// - Maximum timeout per job
-	//   0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+	// Maximum timeout per job
+	// 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
 	JobTimeoutMillis pulumi.IntPtrInput `pulumi:"jobTimeoutMillis"`
 	// Maximum timeout per request.
 	RequestTimeoutMillis pulumi.IntPtrInput `pulumi:"requestTimeoutMillis"`
-	// - Indicates whether or not to skip aggregation for this job's measurements
+	// Indicates whether or not to skip aggregation for this job's measurements
 	StaticValues pulumi.BoolPtrInput `pulumi:"staticValues"`
-	// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+	// Whether to use XMLHttpRequest (XHR) when taking measurements.
 	UseXhr pulumi.BoolPtrInput `pulumi:"useXhr"`
 }
 
@@ -364,8 +364,8 @@ func (o ApplicationDefaultConfigOutput) Https() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationDefaultConfig) *bool { return v.Https }).(pulumi.BoolPtrOutput)
 }
 
-//   - Maximum timeout per job
-//     0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+// Maximum timeout per job
+// 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
 func (o ApplicationDefaultConfigOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationDefaultConfig) *int { return v.JobTimeoutMillis }).(pulumi.IntPtrOutput)
 }
@@ -375,12 +375,12 @@ func (o ApplicationDefaultConfigOutput) RequestTimeoutMillis() pulumi.IntPtrOutp
 	return o.ApplyT(func(v ApplicationDefaultConfig) *int { return v.RequestTimeoutMillis }).(pulumi.IntPtrOutput)
 }
 
-// - Indicates whether or not to skip aggregation for this job's measurements
+// Indicates whether or not to skip aggregation for this job's measurements
 func (o ApplicationDefaultConfigOutput) StaticValues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationDefaultConfig) *bool { return v.StaticValues }).(pulumi.BoolPtrOutput)
 }
 
-// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+// Whether to use XMLHttpRequest (XHR) when taking measurements.
 func (o ApplicationDefaultConfigOutput) UseXhr() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationDefaultConfig) *bool { return v.UseXhr }).(pulumi.BoolPtrOutput)
 }
@@ -429,8 +429,8 @@ func (o ApplicationDefaultConfigPtrOutput) Https() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-//   - Maximum timeout per job
-//     0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+// Maximum timeout per job
+// 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
 func (o ApplicationDefaultConfigPtrOutput) JobTimeoutMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationDefaultConfig) *int {
 		if v == nil {
@@ -450,7 +450,7 @@ func (o ApplicationDefaultConfigPtrOutput) RequestTimeoutMillis() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// - Indicates whether or not to skip aggregation for this job's measurements
+// Indicates whether or not to skip aggregation for this job's measurements
 func (o ApplicationDefaultConfigPtrOutput) StaticValues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationDefaultConfig) *bool {
 		if v == nil {
@@ -460,7 +460,7 @@ func (o ApplicationDefaultConfigPtrOutput) StaticValues() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// - Whether to use XMLHttpRequest (XHR) when taking measurements.
+// Whether to use XMLHttpRequest (XHR) when taking measurements.
 func (o ApplicationDefaultConfigPtrOutput) UseXhr() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationDefaultConfig) *bool {
 		if v == nil {
@@ -2073,9 +2073,9 @@ func (o UserDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) UserDnsRecordsDe
 type ZoneSecondary struct {
 	// IPv4 address of the secondary server.
 	Ip string `pulumi:"ip"`
-	// - List of network IDs (`int`) for which the zone
-	//   should be made available. Default is network 0, the primary NSONE Global
-	//   Network. Normally, you should not have to worry about this.
+	// List of network IDs (`int`) for which the zone
+	// should be made available. Default is network 0, the primary NSONE Global
+	// Network. Normally, you should not have to worry about this.
 	Networks []int `pulumi:"networks"`
 	// Whether we send `NOTIFY` messages to the secondary host
 	// when the zone changes. Default `false`.
@@ -2098,9 +2098,9 @@ type ZoneSecondaryInput interface {
 type ZoneSecondaryArgs struct {
 	// IPv4 address of the secondary server.
 	Ip pulumi.StringInput `pulumi:"ip"`
-	// - List of network IDs (`int`) for which the zone
-	//   should be made available. Default is network 0, the primary NSONE Global
-	//   Network. Normally, you should not have to worry about this.
+	// List of network IDs (`int`) for which the zone
+	// should be made available. Default is network 0, the primary NSONE Global
+	// Network. Normally, you should not have to worry about this.
 	Networks pulumi.IntArrayInput `pulumi:"networks"`
 	// Whether we send `NOTIFY` messages to the secondary host
 	// when the zone changes. Default `false`.
@@ -2165,9 +2165,9 @@ func (o ZoneSecondaryOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v ZoneSecondary) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-//   - List of network IDs (`int`) for which the zone
-//     should be made available. Default is network 0, the primary NSONE Global
-//     Network. Normally, you should not have to worry about this.
+// List of network IDs (`int`) for which the zone
+// should be made available. Default is network 0, the primary NSONE Global
+// Network. Normally, you should not have to worry about this.
 func (o ZoneSecondaryOutput) Networks() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v ZoneSecondary) []int { return v.Networks }).(pulumi.IntArrayOutput)
 }

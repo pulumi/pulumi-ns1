@@ -34,16 +34,16 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - List of network IDs (`int`) for which the zone
-     *   should be made available. Default is network 0, the primary NSONE Global
-     *   Network. Normally, you should not have to worry about this.
+     * List of network IDs (`int`) for which the zone
+     * should be made available. Default is network 0, the primary NSONE Global
+     * Network. Normally, you should not have to worry about this.
      * 
      */
     @Import(name="networks")
     private @Nullable Output<List<Integer>> networks;
 
     /**
-     * @return - List of network IDs (`int`) for which the zone
+     * @return List of network IDs (`int`) for which the zone
      * should be made available. Default is network 0, the primary NSONE Global
      * Network. Normally, you should not have to worry about this.
      * 
@@ -133,7 +133,7 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networks - List of network IDs (`int`) for which the zone
+         * @param networks List of network IDs (`int`) for which the zone
          * should be made available. Default is network 0, the primary NSONE Global
          * Network. Normally, you should not have to worry about this.
          * 
@@ -146,7 +146,7 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networks - List of network IDs (`int`) for which the zone
+         * @param networks List of network IDs (`int`) for which the zone
          * should be made available. Default is network 0, the primary NSONE Global
          * Network. Normally, you should not have to worry about this.
          * 
@@ -158,7 +158,7 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networks - List of network IDs (`int`) for which the zone
+         * @param networks List of network IDs (`int`) for which the zone
          * should be made available. Default is network 0, the primary NSONE Global
          * Network. Normally, you should not have to worry about this.
          * 

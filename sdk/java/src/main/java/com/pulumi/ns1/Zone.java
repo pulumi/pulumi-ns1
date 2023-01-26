@@ -35,6 +35,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="ns1:index/zone:Zone")
 public class Zone extends com.pulumi.resources.CustomResource {
+    @Export(name="additionalPorts", type=List.class, parameters={Integer.class})
+    private Output</* @Nullable */ List<Integer>> additionalPorts;
+
+    public Output<Optional<List<Integer>>> additionalPorts() {
+        return Codegen.optional(this.additionalPorts);
+    }
     /**
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
@@ -134,18 +140,18 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.link);
     }
     /**
-     * - List of network IDs (`int`) for which the zone
-     *   should be made available. Default is network 0, the primary NSONE Global
-     *   Network. Normally, you should not have to worry about this.
+     * List of network IDs for which the zone is
+     * available. If no network is provided, the zone will be created in network 0,
+     * the primary NS1 Global Network.
      * 
      */
     @Export(name="networks", type=List.class, parameters={Integer.class})
     private Output<List<Integer>> networks;
 
     /**
-     * @return - List of network IDs (`int`) for which the zone
-     * should be made available. Default is network 0, the primary NSONE Global
-     * Network. Normally, you should not have to worry about this.
+     * @return List of network IDs for which the zone is
+     * available. If no network is provided, the zone will be created in network 0,
+     * the primary NS1 Global Network.
      * 
      */
     public Output<List<Integer>> networks() {
@@ -182,6 +188,12 @@ public class Zone extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> primary() {
         return Codegen.optional(this.primary);
+    }
+    @Export(name="primaryPort", type=Integer.class, parameters={})
+    private Output<Integer> primaryPort;
+
+    public Output<Integer> primaryPort() {
+        return this.primaryPort;
     }
     /**
      * The SOA Refresh. Conflicts with `primary` and

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -16,20 +17,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * // Get details about a NS1 Zone.
- * const example = pulumi.output(ns1.getZone({
+ * const example = ns1.getZone({
  *     zone: "terraform.example.io",
- * }));
+ * });
  * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getZone:getZone", {
+        "additionalPorts": args.additionalPorts,
         "additionalPrimaries": args.additionalPrimaries,
+        "primaryPort": args.primaryPort,
         "zone": args.zone,
     }, opts);
 }
@@ -38,11 +37,13 @@ export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getZone.
  */
 export interface GetZoneArgs {
+    additionalPorts?: number[];
     /**
      * List of additional IPv4 addresses for the primary
      * zone.
      */
     additionalPrimaries?: string[];
+    primaryPort?: number;
     /**
      * The domain name of the zone.
      */
@@ -53,6 +54,7 @@ export interface GetZoneArgs {
  * A collection of values returned by getZone.
  */
 export interface GetZoneResult {
+    readonly additionalPorts?: number[];
     /**
      * List of additional IPv4 addresses for the primary
      * zone.
@@ -95,6 +97,7 @@ export interface GetZoneResult {
      * The primary zones' IPv4 address.
      */
     readonly primary: string;
+    readonly primaryPort?: number;
     /**
      * The SOA Refresh.
      */
@@ -114,20 +117,37 @@ export interface GetZoneResult {
     readonly ttl: number;
     readonly zone: string;
 }
-
+/**
+ * Provides details about a NS1 Zone. Use this if you would simply like to read
+ * information from NS1 into your configurations. For read/write operations, you
+ * should use a resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const example = ns1.getZone({
+ *     zone: "terraform.example.io",
+ * });
+ * ```
+ */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
-    return pulumi.output(args).apply(a => getZone(a, opts))
+    return pulumi.output(args).apply((a: any) => getZone(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getZone.
  */
 export interface GetZoneOutputArgs {
+    additionalPorts?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of additional IPv4 addresses for the primary
      * zone.
      */
     additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
+    primaryPort?: pulumi.Input<number>;
     /**
      * The domain name of the zone.
      */

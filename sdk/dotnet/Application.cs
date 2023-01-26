@@ -12,32 +12,6 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Ns1 = Pulumi.Ns1;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new pulsar application with default config
-    ///         var ns1App = new Ns1.Application("ns1App", new Ns1.ApplicationArgs
-    ///         {
-    ///             DefaultConfig = new Ns1.Inputs.ApplicationDefaultConfigArgs
-    ///             {
-    ///                 Http = true,
-    ///                 Https = false,
-    ///                 Job_timeout_millis = 100,
-    ///                 Request_timeout_millis = 100,
-    ///                 Static_values = true,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// ## NS1 Documentation
     /// 
     /// [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -55,7 +29,7 @@ namespace Pulumi.Ns1
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether or not this application is currently active and usable for traffic
@@ -72,14 +46,14 @@ namespace Pulumi.Ns1
         public Output<int?> BrowserWaitMillis { get; private set; } = null!;
 
         /// <summary>
-        /// -(Optional) Default job configuration. If a field is present here and not on a specific job
+        /// Default job configuration. If a field is present here and not on a specific job
         /// associated with this application, the default value specified here is used..
         /// </summary>
         [Output("defaultConfig")]
         public Output<Outputs.ApplicationDefaultConfig?> DefaultConfig { get; private set; } = null!;
 
         /// <summary>
-        /// -(Optional) Number of jobs to measure per user impression.
+        /// Number of jobs to measure per user impression.
         /// </summary>
         [Output("jobsPerTransaction")]
         public Output<int?> JobsPerTransaction { get; private set; } = null!;
@@ -134,7 +108,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not this application is currently active and usable for traffic
@@ -151,14 +125,14 @@ namespace Pulumi.Ns1
         public Input<int>? BrowserWaitMillis { get; set; }
 
         /// <summary>
-        /// -(Optional) Default job configuration. If a field is present here and not on a specific job
+        /// Default job configuration. If a field is present here and not on a specific job
         /// associated with this application, the default value specified here is used..
         /// </summary>
         [Input("defaultConfig")]
         public Input<Inputs.ApplicationDefaultConfigArgs>? DefaultConfig { get; set; }
 
         /// <summary>
-        /// -(Optional) Number of jobs to measure per user impression.
+        /// Number of jobs to measure per user impression.
         /// </summary>
         [Input("jobsPerTransaction")]
         public Input<int>? JobsPerTransaction { get; set; }
@@ -172,9 +146,10 @@ namespace Pulumi.Ns1
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether or not this application is currently active and usable for traffic
@@ -191,14 +166,14 @@ namespace Pulumi.Ns1
         public Input<int>? BrowserWaitMillis { get; set; }
 
         /// <summary>
-        /// -(Optional) Default job configuration. If a field is present here and not on a specific job
+        /// Default job configuration. If a field is present here and not on a specific job
         /// associated with this application, the default value specified here is used..
         /// </summary>
         [Input("defaultConfig")]
         public Input<Inputs.ApplicationDefaultConfigGetArgs>? DefaultConfig { get; set; }
 
         /// <summary>
-        /// -(Optional) Number of jobs to measure per user impression.
+        /// Number of jobs to measure per user impression.
         /// </summary>
         [Input("jobsPerTransaction")]
         public Input<int>? JobsPerTransaction { get; set; }
@@ -212,5 +187,6 @@ namespace Pulumi.Ns1
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

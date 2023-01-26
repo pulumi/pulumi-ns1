@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class MonitoringJobRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class MonitoringJobRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("comparison", required: true)]
         public Input<string> Comparison { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.Ns1.Inputs
         public MonitoringJobRuleGetArgs()
         {
         }
+        public static new MonitoringJobRuleGetArgs Empty => new MonitoringJobRuleGetArgs();
     }
 }

@@ -8,7 +8,7 @@ declare var exports: any;
 const __config = new pulumi.Config("ns1");
 
 /**
- * The ns1 API key, this is required
+ * The ns1 API key (required)
  */
 export declare const apikey: string | undefined;
 Object.defineProperty(exports, "apikey", {
@@ -18,6 +18,9 @@ Object.defineProperty(exports, "apikey", {
     enumerable: true,
 });
 
+/**
+ * Deprecated, no longer in use
+ */
 export declare const enableDdi: boolean | undefined;
 Object.defineProperty(exports, "enableDdi", {
     get() {
@@ -26,6 +29,9 @@ Object.defineProperty(exports, "enableDdi", {
     enumerable: true,
 });
 
+/**
+ * URL prefix (including version) for API calls
+ */
 export declare const endpoint: string | undefined;
 Object.defineProperty(exports, "endpoint", {
     get() {
@@ -34,6 +40,9 @@ Object.defineProperty(exports, "endpoint", {
     enumerable: true,
 });
 
+/**
+ * Don't validate server SSL/TLS certificate
+ */
 export declare const ignoreSsl: boolean | undefined;
 Object.defineProperty(exports, "ignoreSsl", {
     get() {
@@ -42,10 +51,35 @@ Object.defineProperty(exports, "ignoreSsl", {
     enumerable: true,
 });
 
+/**
+ * Tune response to rate limits, see docs
+ */
 export declare const rateLimitParallelism: number | undefined;
 Object.defineProperty(exports, "rateLimitParallelism", {
     get() {
         return __config.getObject<number>("rateLimitParallelism");
+    },
+    enumerable: true,
+});
+
+/**
+ * Maximum retries for 50x errors (-1 to disable)
+ */
+export declare const retryMax: number | undefined;
+Object.defineProperty(exports, "retryMax", {
+    get() {
+        return __config.getObject<number>("retryMax");
+    },
+    enumerable: true,
+});
+
+/**
+ * User-Agent string to use in NS1 API requests
+ */
+export declare const userAgent: string | undefined;
+Object.defineProperty(exports, "userAgent", {
+    get() {
+        return __config.get("userAgent");
     },
     enumerable: true,
 });

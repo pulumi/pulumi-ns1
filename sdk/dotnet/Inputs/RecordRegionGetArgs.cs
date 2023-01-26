@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class RecordRegionGetArgs : Pulumi.ResourceArgs
+    public sealed class RecordRegionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("meta")]
         private InputMap<object>? _meta;
@@ -29,5 +29,6 @@ namespace Pulumi.Ns1.Inputs
         public RecordRegionGetArgs()
         {
         }
+        public static new RecordRegionGetArgs Empty => new RecordRegionGetArgs();
     }
 }

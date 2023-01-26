@@ -17,7 +17,7 @@ namespace Pulumi.Ns1
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the user can modify account settings.
@@ -44,7 +44,7 @@ namespace Pulumi.Ns1
         public Output<bool?> AccountManagePaymentMethods { get; private set; } = null!;
 
         /// <summary>
-        /// **Deprecated** Whether the user can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Output("accountManagePlan")]
         public Output<bool?> AccountManagePlan { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the user can modify account settings.
@@ -295,7 +295,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// **Deprecated** Whether the user can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }
@@ -518,9 +518,10 @@ namespace Pulumi.Ns1
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the user can modify account settings.
@@ -547,7 +548,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// **Deprecated** Whether the user can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }
@@ -770,5 +771,6 @@ namespace Pulumi.Ns1
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

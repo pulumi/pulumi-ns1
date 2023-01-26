@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class RecordAnswerGetArgs : Pulumi.ResourceArgs
+    public sealed class RecordAnswerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Space delimited string of RDATA fields dependent on the record type.
@@ -41,5 +41,6 @@ namespace Pulumi.Ns1.Inputs
         public RecordAnswerGetArgs()
         {
         }
+        public static new RecordAnswerGetArgs Empty => new RecordAnswerGetArgs();
     }
 }

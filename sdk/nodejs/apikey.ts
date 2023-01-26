@@ -2,9 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+ * ```
+ *
+ *  So for the example above
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
+ * ```
+ */
 export class APIKey extends pulumi.CustomResource {
     /**
      * Get an existing APIKey resource's state with the given name, ID, and optional extra
@@ -50,7 +64,7 @@ export class APIKey extends pulumi.CustomResource {
      */
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the apikey can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -97,7 +111,13 @@ export class APIKey extends pulumi.CustomResource {
      * Whether the apikey can modify the accounts zones.
      */
     public readonly dnsManageZones!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of records that the apikey may access.
+     */
     public readonly dnsRecordsAllows!: pulumi.Output<outputs.APIKeyDnsRecordsAllow[] | undefined>;
+    /**
+     * List of records that the apikey may not access.
+     */
     public readonly dnsRecordsDenies!: pulumi.Output<outputs.APIKeyDnsRecordsDeny[] | undefined>;
     /**
      * Whether the apikey can view the accounts zones.
@@ -250,6 +270,8 @@ export class APIKey extends pulumi.CustomResource {
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["key"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(APIKey.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -275,7 +297,7 @@ export interface APIKeyState {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * Whether the apikey can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -322,7 +344,13 @@ export interface APIKeyState {
      * Whether the apikey can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
+    /**
+     * List of records that the apikey may access.
+     */
     dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    /**
+     * List of records that the apikey may not access.
+     */
     dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
     /**
      * Whether the apikey can view the accounts zones.
@@ -414,7 +442,7 @@ export interface APIKeyArgs {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * Whether the apikey can modify the account plan.
+     * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -461,7 +489,13 @@ export interface APIKeyArgs {
      * Whether the apikey can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
+    /**
+     * List of records that the apikey may access.
+     */
     dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    /**
+     * List of records that the apikey may not access.
+     */
     dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
     /**
      * Whether the apikey can view the accounts zones.

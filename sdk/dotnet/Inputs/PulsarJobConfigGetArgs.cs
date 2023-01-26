@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class PulsarJobConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class PulsarJobConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("host")]
         public Input<string>? Host { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.Ns1.Inputs
         public PulsarJobConfigGetArgs()
         {
         }
+        public static new PulsarJobConfigGetArgs Empty => new PulsarJobConfigGetArgs();
     }
 }

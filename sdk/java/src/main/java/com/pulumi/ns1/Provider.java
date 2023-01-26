@@ -23,24 +23,46 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:ns1")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * The ns1 API key, this is required
+     * The ns1 API key (required)
      * 
      */
     @Export(name="apikey", type=String.class, parameters={})
     private Output</* @Nullable */ String> apikey;
 
     /**
-     * @return The ns1 API key, this is required
+     * @return The ns1 API key (required)
      * 
      */
     public Output<Optional<String>> apikey() {
         return Codegen.optional(this.apikey);
     }
+    /**
+     * URL prefix (including version) for API calls
+     * 
+     */
     @Export(name="endpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> endpoint;
 
+    /**
+     * @return URL prefix (including version) for API calls
+     * 
+     */
     public Output<Optional<String>> endpoint() {
         return Codegen.optional(this.endpoint);
+    }
+    /**
+     * User-Agent string to use in NS1 API requests
+     * 
+     */
+    @Export(name="userAgent", type=String.class, parameters={})
+    private Output</* @Nullable */ String> userAgent;
+
+    /**
+     * @return User-Agent string to use in NS1 API requests
+     * 
+     */
+    public Output<Optional<String>> userAgent() {
+        return Codegen.optional(this.userAgent);
     }
 
     /**

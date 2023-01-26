@@ -29,7 +29,7 @@ namespace Pulumi.Ns1
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/record:Record")]
-    public partial class Record : Pulumi.CustomResource
+    public partial class Record : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more NS1 answers for the records' specified type.
@@ -149,7 +149,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class RecordArgs : Pulumi.ResourceArgs
+    public sealed class RecordArgs : global::Pulumi.ResourceArgs
     {
         [Input("answers")]
         private InputList<Inputs.RecordAnswerArgs>? _answers;
@@ -257,9 +257,10 @@ namespace Pulumi.Ns1
         public RecordArgs()
         {
         }
+        public static new RecordArgs Empty => new RecordArgs();
     }
 
-    public sealed class RecordState : Pulumi.ResourceArgs
+    public sealed class RecordState : global::Pulumi.ResourceArgs
     {
         [Input("answers")]
         private InputList<Inputs.RecordAnswerGetArgs>? _answers;
@@ -367,5 +368,6 @@ namespace Pulumi.Ns1
         public RecordState()
         {
         }
+        public static new RecordState Empty => new RecordState();
     }
 }

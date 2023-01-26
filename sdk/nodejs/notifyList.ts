@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,26 +15,30 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const nl = new ns1.NotifyList("nl", {
- *     notifications: [
- *         {
- *             config: {
- *                 url: "http://www.mywebhook.com",
- *             },
- *             type: "webhook",
+ * const nl = new ns1.NotifyList("nl", {notifications: [
+ *     {
+ *         config: {
+ *             url: "http://www.mywebhook.com",
  *         },
- *         {
- *             config: {
- *                 email: "test@test.com",
- *             },
- *             type: "email",
+ *         type: "webhook",
+ *     },
+ *     {
+ *         config: {
+ *             email: "test@test.com",
  *         },
- *     ],
- * });
+ *         type: "email",
+ *     },
+ * ]});
  * ```
  * ## NS1 Documentation
  *
  * [NotifyList Api Doc](https://ns1.com/api#notification-lists)
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
+ * ```
  */
 export class NotifyList extends pulumi.CustomResource {
     /**

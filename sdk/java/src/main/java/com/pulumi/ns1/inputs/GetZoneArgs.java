@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,13 @@ import javax.annotation.Nullable;
 public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetZoneArgs Empty = new GetZoneArgs();
+
+    @Import(name="additionalPorts")
+    private @Nullable Output<List<Integer>> additionalPorts;
+
+    public Optional<Output<List<Integer>>> additionalPorts() {
+        return Optional.ofNullable(this.additionalPorts);
+    }
 
     /**
      * List of additional IPv4 addresses for the primary
@@ -31,6 +39,13 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<List<String>>> additionalPrimaries() {
         return Optional.ofNullable(this.additionalPrimaries);
+    }
+
+    @Import(name="primaryPort")
+    private @Nullable Output<Integer> primaryPort;
+
+    public Optional<Output<Integer>> primaryPort() {
+        return Optional.ofNullable(this.primaryPort);
     }
 
     /**
@@ -51,7 +66,9 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
     private GetZoneArgs() {}
 
     private GetZoneArgs(GetZoneArgs $) {
+        this.additionalPorts = $.additionalPorts;
         this.additionalPrimaries = $.additionalPrimaries;
+        this.primaryPort = $.primaryPort;
         this.zone = $.zone;
     }
 
@@ -71,6 +88,19 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetZoneArgs defaults) {
             $ = new GetZoneArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder additionalPorts(@Nullable Output<List<Integer>> additionalPorts) {
+            $.additionalPorts = additionalPorts;
+            return this;
+        }
+
+        public Builder additionalPorts(List<Integer> additionalPorts) {
+            return additionalPorts(Output.of(additionalPorts));
+        }
+
+        public Builder additionalPorts(Integer... additionalPorts) {
+            return additionalPorts(List.of(additionalPorts));
         }
 
         /**
@@ -105,6 +135,15 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder additionalPrimaries(String... additionalPrimaries) {
             return additionalPrimaries(List.of(additionalPrimaries));
+        }
+
+        public Builder primaryPort(@Nullable Output<Integer> primaryPort) {
+            $.primaryPort = primaryPort;
+            return this;
+        }
+
+        public Builder primaryPort(Integer primaryPort) {
+            return primaryPort(Output.of(primaryPort));
         }
 
         /**

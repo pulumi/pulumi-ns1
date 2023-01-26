@@ -41,6 +41,14 @@ import (
 // ## NS1 Documentation
 //
 // [Datasource Api Doc](https://ns1.com/api#data-sources)
+//
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
+//
+// ```
 type DataSource struct {
 	pulumi.CustomResourceState
 
@@ -214,6 +222,22 @@ func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {
 
 func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
 	return o
+}
+
+// The data source configuration, determined by its type,
+// matching the specification in `config` from /data/sourcetypes.
+func (o DataSourceOutput) Config() pulumi.MapOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.MapOutput { return v.Config }).(pulumi.MapOutput)
+}
+
+// The free form name of the data source.
+func (o DataSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+func (o DataSourceOutput) Sourcetype() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Sourcetype }).(pulumi.StringOutput)
 }
 
 type DataSourceArrayOutput struct{ *pulumi.OutputState }

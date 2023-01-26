@@ -30,15 +30,15 @@ import (
 //			_, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
 //				AccountManageUsers: pulumi.Bool(false),
 //				DnsViewZones:       pulumi.Bool(false),
-//				IpWhitelists: TeamIpWhitelistArray{
-//					&TeamIpWhitelistArgs{
+//				IpWhitelists: ns1.TeamIpWhitelistArray{
+//					&ns1.TeamIpWhitelistArgs{
 //						Name: pulumi.String("whitelist-1"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("1.1.1.1"),
 //							pulumi.String("2.2.2.2"),
 //						},
 //					},
-//					&TeamIpWhitelistArgs{
+//					&ns1.TeamIpWhitelistArgs{
 //						Name: pulumi.String("whitelist-2"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("3.3.3.3"),
@@ -52,8 +52,8 @@ import (
 //			}
 //			_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
 //				DataManageDatasources: pulumi.Bool(true),
-//				DnsRecordsAllows: TeamDnsRecordsAllowArray{
-//					&TeamDnsRecordsAllowArgs{
+//				DnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{
+//					&ns1.TeamDnsRecordsAllowArgs{
 //						Domain:            pulumi.String("terraform.example.io"),
 //						IncludeSubdomains: pulumi.Bool(false),
 //						Type:              pulumi.String("A"),
@@ -99,7 +99,7 @@ type Team struct {
 	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
-	// Whether the team can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
@@ -124,9 +124,11 @@ type Team struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrOutput `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrOutput           `pulumi:"dnsManageZones"`
+	DnsManageZones pulumi.BoolPtrOutput `pulumi:"dnsManageZones"`
+	// List of records that the team may access.
 	DnsRecordsAllows TeamDnsRecordsAllowArrayOutput `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies TeamDnsRecordsDenyArrayOutput  `pulumi:"dnsRecordsDenies"`
+	// List of records that the team may not access.
+	DnsRecordsDenies TeamDnsRecordsDenyArrayOutput `pulumi:"dnsRecordsDenies"`
 	// Whether the team can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrOutput `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -195,7 +197,7 @@ type teamState struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// Whether the team can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -220,9 +222,11 @@ type teamState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
-	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	// List of records that the team may access.
 	DnsRecordsAllows []TeamDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies []TeamDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
+	// List of records that the team may not access.
+	DnsRecordsDenies []TeamDnsRecordsDeny `pulumi:"dnsRecordsDenies"`
 	// Whether the team can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -263,7 +267,7 @@ type TeamState struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// Whether the team can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -288,8 +292,10 @@ type TeamState struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the team can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrInput
+	DnsManageZones pulumi.BoolPtrInput
+	// List of records that the team may access.
 	DnsRecordsAllows TeamDnsRecordsAllowArrayInput
+	// List of records that the team may not access.
 	DnsRecordsDenies TeamDnsRecordsDenyArrayInput
 	// Whether the team can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
@@ -335,7 +341,7 @@ type teamArgs struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// Whether the team can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -360,9 +366,11 @@ type teamArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
-	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	// List of records that the team may access.
 	DnsRecordsAllows []TeamDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies []TeamDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
+	// List of records that the team may not access.
+	DnsRecordsDenies []TeamDnsRecordsDeny `pulumi:"dnsRecordsDenies"`
 	// Whether the team can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -404,7 +412,7 @@ type TeamArgs struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the team can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// Whether the team can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -429,8 +437,10 @@ type TeamArgs struct {
 	// Only relevant for the DDI product.
 	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the team can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrInput
+	DnsManageZones pulumi.BoolPtrInput
+	// List of records that the team may access.
 	DnsRecordsAllows TeamDnsRecordsAllowArrayInput
+	// List of records that the team may not access.
 	DnsRecordsDenies TeamDnsRecordsDenyArrayInput
 	// Whether the team can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
@@ -548,6 +558,163 @@ func (o TeamOutput) ToTeamOutput() TeamOutput {
 
 func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
+}
+
+// Whether the team can modify account settings.
+func (o TeamOutput) AccountManageAccountSettings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountManageAccountSettings }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify account apikeys.
+func (o TeamOutput) AccountManageApikeys() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountManageApikeys }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can manage ip whitelist.
+func (o TeamOutput) AccountManageIpWhitelist() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountManageIpWhitelist }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify account payment methods.
+func (o TeamOutput) AccountManagePaymentMethods() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountManagePaymentMethods }).(pulumi.BoolPtrOutput)
+}
+
+// No longer in use.
+//
+// Deprecated: obsolete, should no longer be used
+func (o TeamOutput) AccountManagePlan() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountManagePlan }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify other teams in the account.
+func (o TeamOutput) AccountManageTeams() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountManageTeams }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify account users.
+func (o TeamOutput) AccountManageUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountManageUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can view activity logs.
+func (o TeamOutput) AccountViewActivityLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountViewActivityLog }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can view invoices.
+func (o TeamOutput) AccountViewInvoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.AccountViewInvoices }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify data feeds.
+func (o TeamOutput) DataManageDatafeeds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DataManageDatafeeds }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify data sources.
+func (o TeamOutput) DataManageDatasources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DataManageDatasources }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can publish to data feeds.
+func (o TeamOutput) DataPushToDatafeeds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DataPushToDatafeeds }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can manage DHCP.
+// Only relevant for the DDI product.
+func (o TeamOutput) DhcpManageDhcp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DhcpManageDhcp }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can view DHCP.
+// Only relevant for the DDI product.
+func (o TeamOutput) DhcpViewDhcp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DhcpViewDhcp }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify the accounts zones.
+func (o TeamOutput) DnsManageZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DnsManageZones }).(pulumi.BoolPtrOutput)
+}
+
+// List of records that the team may access.
+func (o TeamOutput) DnsRecordsAllows() TeamDnsRecordsAllowArrayOutput {
+	return o.ApplyT(func(v *Team) TeamDnsRecordsAllowArrayOutput { return v.DnsRecordsAllows }).(TeamDnsRecordsAllowArrayOutput)
+}
+
+// List of records that the team may not access.
+func (o TeamOutput) DnsRecordsDenies() TeamDnsRecordsDenyArrayOutput {
+	return o.ApplyT(func(v *Team) TeamDnsRecordsDenyArrayOutput { return v.DnsRecordsDenies }).(TeamDnsRecordsDenyArrayOutput)
+}
+
+// Whether the team can view the accounts zones.
+func (o TeamOutput) DnsViewZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DnsViewZones }).(pulumi.BoolPtrOutput)
+}
+
+// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
+func (o TeamOutput) DnsZonesAllowByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DnsZonesAllowByDefault }).(pulumi.BoolPtrOutput)
+}
+
+// List of zones that the team may access.
+func (o TeamOutput) DnsZonesAllows() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringArrayOutput { return v.DnsZonesAllows }).(pulumi.StringArrayOutput)
+}
+
+// List of zones that the team may not access.
+func (o TeamOutput) DnsZonesDenies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringArrayOutput { return v.DnsZonesDenies }).(pulumi.StringArrayOutput)
+}
+
+// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
+func (o TeamOutput) IpWhitelists() TeamIpWhitelistArrayOutput {
+	return o.ApplyT(func(v *Team) TeamIpWhitelistArrayOutput { return v.IpWhitelists }).(TeamIpWhitelistArrayOutput)
+}
+
+// Whether the team can manage IPAM.
+// Only relevant for the DDI product.
+func (o TeamOutput) IpamManageIpam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.IpamManageIpam }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can view IPAM.
+// Only relevant for the DDI product.
+func (o TeamOutput) IpamViewIpam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.IpamViewIpam }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify monitoring jobs.
+func (o TeamOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringManageJobs }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can modify notification lists.
+func (o TeamOutput) MonitoringManageLists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringManageLists }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can view monitoring jobs.
+func (o TeamOutput) MonitoringViewJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringViewJobs }).(pulumi.BoolPtrOutput)
+}
+
+// The free form name of the team.
+func (o TeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the team can manage global active directory.
+// Only relevant for the DDI product.
+func (o TeamOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can manage global two factor authentication.
+func (o TeamOutput) SecurityManageGlobal2fa() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.SecurityManageGlobal2fa }).(pulumi.BoolPtrOutput)
 }
 
 type TeamArrayOutput struct{ *pulumi.OutputState }

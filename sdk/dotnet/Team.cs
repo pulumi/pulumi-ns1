@@ -16,68 +16,67 @@ namespace Pulumi.Ns1
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Ns1 = Pulumi.Ns1;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new NS1 Team
+    ///     var example = new Ns1.Team("example", new()
     ///     {
-    ///         // Create a new NS1 Team
-    ///         var example = new Ns1.Team("example", new Ns1.TeamArgs
+    ///         AccountManageUsers = false,
+    ///         DnsViewZones = false,
+    ///         IpWhitelists = new[]
     ///         {
-    ///             AccountManageUsers = false,
-    ///             DnsViewZones = false,
-    ///             IpWhitelists = 
+    ///             new Ns1.Inputs.TeamIpWhitelistArgs
     ///             {
-    ///                 new Ns1.Inputs.TeamIpWhitelistArgs
+    ///                 Name = "whitelist-1",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "whitelist-1",
-    ///                     Values = 
-    ///                     {
-    ///                         "1.1.1.1",
-    ///                         "2.2.2.2",
-    ///                     },
-    ///                 },
-    ///                 new Ns1.Inputs.TeamIpWhitelistArgs
-    ///                 {
-    ///                     Name = "whitelist-2",
-    ///                     Values = 
-    ///                     {
-    ///                         "3.3.3.3",
-    ///                         "4.4.4.4",
-    ///                     },
+    ///                     "1.1.1.1",
+    ///                     "2.2.2.2",
     ///                 },
     ///             },
-    ///         });
-    ///         // Another team
-    ///         var example2 = new Ns1.Team("example2", new Ns1.TeamArgs
-    ///         {
-    ///             DataManageDatasources = true,
-    ///             DnsRecordsAllows = 
+    ///             new Ns1.Inputs.TeamIpWhitelistArgs
     ///             {
-    ///                 new Ns1.Inputs.TeamDnsRecordsAllowArgs
+    ///                 Name = "whitelist-2",
+    ///                 Values = new[]
     ///                 {
-    ///                     Domain = "terraform.example.io",
-    ///                     IncludeSubdomains = false,
-    ///                     Type = "A",
-    ///                     Zone = "example.io",
+    ///                     "3.3.3.3",
+    ///                     "4.4.4.4",
     ///                 },
     ///             },
-    ///             DnsViewZones = true,
-    ///             DnsZonesAllows = 
-    ///             {
-    ///                 "mytest.zone",
-    ///             },
-    ///             DnsZonesAllowByDefault = true,
-    ///             DnsZonesDenies = 
-    ///             {
-    ///                 "myother.zone",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     // Another team
+    ///     var example2 = new Ns1.Team("example2", new()
+    ///     {
+    ///         DataManageDatasources = true,
+    ///         DnsRecordsAllows = new[]
+    ///         {
+    ///             new Ns1.Inputs.TeamDnsRecordsAllowArgs
+    ///             {
+    ///                 Domain = "terraform.example.io",
+    ///                 IncludeSubdomains = false,
+    ///                 Type = "A",
+    ///                 Zone = "example.io",
+    ///             },
+    ///         },
+    ///         DnsViewZones = true,
+    ///         DnsZonesAllows = new[]
+    ///         {
+    ///             "mytest.zone",
+    ///         },
+    ///         DnsZonesAllowByDefault = true,
+    ///         DnsZonesDenies = new[]
+    ///         {
+    ///             "myother.zone",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## NS1 Documentation
     /// 
@@ -90,7 +89,7 @@ namespace Pulumi.Ns1
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/team:Team")]
-    public partial class Team : Pulumi.CustomResource
+    public partial class Team : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the team can modify account settings.
@@ -117,7 +116,7 @@ namespace Pulumi.Ns1
         public Output<bool?> AccountManagePaymentMethods { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the team can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Output("accountManagePlan")]
         public Output<bool?> AccountManagePlan { get; private set; } = null!;
@@ -184,9 +183,15 @@ namespace Pulumi.Ns1
         [Output("dnsManageZones")]
         public Output<bool?> DnsManageZones { get; private set; } = null!;
 
+        /// <summary>
+        /// List of records that the team may access.
+        /// </summary>
         [Output("dnsRecordsAllows")]
         public Output<ImmutableArray<Outputs.TeamDnsRecordsAllow>> DnsRecordsAllows { get; private set; } = null!;
 
+        /// <summary>
+        /// List of records that the team may not access.
+        /// </summary>
         [Output("dnsRecordsDenies")]
         public Output<ImmutableArray<Outputs.TeamDnsRecordsDeny>> DnsRecordsDenies { get; private set; } = null!;
 
@@ -315,7 +320,7 @@ namespace Pulumi.Ns1
         }
     }
 
-    public sealed class TeamArgs : Pulumi.ResourceArgs
+    public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the team can modify account settings.
@@ -342,7 +347,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// Whether the team can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }
@@ -411,6 +416,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsAllows")]
         private InputList<Inputs.TeamDnsRecordsAllowArgs>? _dnsRecordsAllows;
+
+        /// <summary>
+        /// List of records that the team may access.
+        /// </summary>
         public InputList<Inputs.TeamDnsRecordsAllowArgs> DnsRecordsAllows
         {
             get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.TeamDnsRecordsAllowArgs>());
@@ -419,6 +428,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsDenies")]
         private InputList<Inputs.TeamDnsRecordsDenyArgs>? _dnsRecordsDenies;
+
+        /// <summary>
+        /// List of records that the team may not access.
+        /// </summary>
         public InputList<Inputs.TeamDnsRecordsDenyArgs> DnsRecordsDenies
         {
             get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.TeamDnsRecordsDenyArgs>());
@@ -527,9 +540,10 @@ namespace Pulumi.Ns1
         public TeamArgs()
         {
         }
+        public static new TeamArgs Empty => new TeamArgs();
     }
 
-    public sealed class TeamState : Pulumi.ResourceArgs
+    public sealed class TeamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the team can modify account settings.
@@ -556,7 +570,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// Whether the team can modify the account plan.
+        /// No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }
@@ -625,6 +639,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsAllows")]
         private InputList<Inputs.TeamDnsRecordsAllowGetArgs>? _dnsRecordsAllows;
+
+        /// <summary>
+        /// List of records that the team may access.
+        /// </summary>
         public InputList<Inputs.TeamDnsRecordsAllowGetArgs> DnsRecordsAllows
         {
             get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.TeamDnsRecordsAllowGetArgs>());
@@ -633,6 +651,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsDenies")]
         private InputList<Inputs.TeamDnsRecordsDenyGetArgs>? _dnsRecordsDenies;
+
+        /// <summary>
+        /// List of records that the team may not access.
+        /// </summary>
         public InputList<Inputs.TeamDnsRecordsDenyGetArgs> DnsRecordsDenies
         {
             get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.TeamDnsRecordsDenyGetArgs>());
@@ -741,5 +763,6 @@ namespace Pulumi.Ns1
         public TeamState()
         {
         }
+        public static new TeamState Empty => new TeamState();
     }
 }

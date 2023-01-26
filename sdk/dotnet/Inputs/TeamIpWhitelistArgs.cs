@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1.Inputs
 {
 
-    public sealed class TeamIpWhitelistArgs : Pulumi.ResourceArgs
+    public sealed class TeamIpWhitelistArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The free form name of the team.
@@ -29,5 +29,6 @@ namespace Pulumi.Ns1.Inputs
         public TeamIpWhitelistArgs()
         {
         }
+        public static new TeamIpWhitelistArgs Empty => new TeamIpWhitelistArgs();
     }
 }

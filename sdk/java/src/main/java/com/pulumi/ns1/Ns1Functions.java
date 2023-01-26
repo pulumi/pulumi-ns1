@@ -24,6 +24,41 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Zone;
+     * import com.pulumi.ns1.ZoneArgs;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetDNSSecArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+     *             .dnssec(true)
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *             .zone(exampleZone.zone())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetDNSSecResult> getDNSSec(GetDNSSecArgs args) {
@@ -33,6 +68,41 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Zone;
+     * import com.pulumi.ns1.ZoneArgs;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetDNSSecArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+     *             .dnssec(true)
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *             .zone(exampleZone.zone())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetDNSSecResult> getDNSSecPlain(GetDNSSecPlainArgs args) {
@@ -42,6 +112,41 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Zone;
+     * import com.pulumi.ns1.ZoneArgs;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetDNSSecArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+     *             .dnssec(true)
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *             .zone(exampleZone.zone())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetDNSSecResult> getDNSSec(GetDNSSecArgs args, InvokeOptions options) {
@@ -51,6 +156,41 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Zone;
+     * import com.pulumi.ns1.ZoneArgs;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetDNSSecArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+     *             .dnssec(true)
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *             .zone(exampleZone.zone())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetDNSSecResult> getDNSSecPlain(GetDNSSecPlainArgs args, InvokeOptions options) {
@@ -62,6 +202,36 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .domain(&#34;terraform.example.io&#34;)
+     *             .type(&#34;A&#34;)
+     *             .zone(&#34;example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetRecordResult> getRecord(GetRecordArgs args) {
@@ -73,6 +243,36 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .domain(&#34;terraform.example.io&#34;)
+     *             .type(&#34;A&#34;)
+     *             .zone(&#34;example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args) {
@@ -84,6 +284,36 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .domain(&#34;terraform.example.io&#34;)
+     *             .type(&#34;A&#34;)
+     *             .zone(&#34;example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetRecordResult> getRecord(GetRecordArgs args, InvokeOptions options) {
@@ -95,6 +325,36 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .domain(&#34;terraform.example.io&#34;)
+     *             .type(&#34;A&#34;)
+     *             .zone(&#34;example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args, InvokeOptions options) {
@@ -106,6 +366,34 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
@@ -117,6 +405,34 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
@@ -128,6 +444,34 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
@@ -139,6 +483,34 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
+     *             .zone(&#34;terraform.example.io&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {

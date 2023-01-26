@@ -29,7 +29,7 @@ type User struct {
 	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
-	// **Deprecated** Whether the user can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
@@ -139,7 +139,7 @@ type userState struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// **Deprecated** Whether the user can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -215,7 +215,7 @@ type UserState struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// **Deprecated** Whether the user can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -295,7 +295,7 @@ type userArgs struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// **Deprecated** Whether the user can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -372,7 +372,7 @@ type UserArgs struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// **Deprecated** Whether the user can modify the account plan.
+	// No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -524,6 +524,184 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
+}
+
+// Whether the user can modify account settings.
+func (o UserOutput) AccountManageAccountSettings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManageAccountSettings }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify account apikeys.
+func (o UserOutput) AccountManageApikeys() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManageApikeys }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can manage ip whitelist.
+func (o UserOutput) AccountManageIpWhitelist() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManageIpWhitelist }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify account payment methods.
+func (o UserOutput) AccountManagePaymentMethods() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManagePaymentMethods }).(pulumi.BoolPtrOutput)
+}
+
+// No longer in use.
+//
+// Deprecated: obsolete, should no longer be used
+func (o UserOutput) AccountManagePlan() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManagePlan }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify other teams in the account.
+func (o UserOutput) AccountManageTeams() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManageTeams }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify account users.
+func (o UserOutput) AccountManageUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManageUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can view activity logs.
+func (o UserOutput) AccountViewActivityLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountViewActivityLog }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can view invoices.
+func (o UserOutput) AccountViewInvoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountViewInvoices }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify data feeds.
+func (o UserOutput) DataManageDatafeeds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DataManageDatafeeds }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify data sources.
+func (o UserOutput) DataManageDatasources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DataManageDatasources }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can publish to data feeds.
+func (o UserOutput) DataPushToDatafeeds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DataPushToDatafeeds }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can manage DHCP.
+// Only relevant for the DDI product.
+func (o UserOutput) DhcpManageDhcp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DhcpManageDhcp }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can view DHCP.
+// Only relevant for the DDI product.
+func (o UserOutput) DhcpViewDhcp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DhcpViewDhcp }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify the accounts zones.
+func (o UserOutput) DnsManageZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DnsManageZones }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserOutput) DnsRecordsAllows() UserDnsRecordsAllowArrayOutput {
+	return o.ApplyT(func(v *User) UserDnsRecordsAllowArrayOutput { return v.DnsRecordsAllows }).(UserDnsRecordsAllowArrayOutput)
+}
+
+func (o UserOutput) DnsRecordsDenies() UserDnsRecordsDenyArrayOutput {
+	return o.ApplyT(func(v *User) UserDnsRecordsDenyArrayOutput { return v.DnsRecordsDenies }).(UserDnsRecordsDenyArrayOutput)
+}
+
+// Whether the user can view the accounts zones.
+func (o UserOutput) DnsViewZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DnsViewZones }).(pulumi.BoolPtrOutput)
+}
+
+// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
+func (o UserOutput) DnsZonesAllowByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DnsZonesAllowByDefault }).(pulumi.BoolPtrOutput)
+}
+
+// List of zones that the user may access.
+func (o UserOutput) DnsZonesAllows() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.DnsZonesAllows }).(pulumi.StringArrayOutput)
+}
+
+// List of zones that the user may not access.
+func (o UserOutput) DnsZonesDenies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.DnsZonesDenies }).(pulumi.StringArrayOutput)
+}
+
+// The email address of the user.
+func (o UserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
+func (o UserOutput) IpWhitelistStrict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.IpWhitelistStrict }).(pulumi.BoolPtrOutput)
+}
+
+// Array of IP addresses/networks to which to grant the user access.
+func (o UserOutput) IpWhitelists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.IpWhitelists }).(pulumi.StringArrayOutput)
+}
+
+// Whether the user can manage IPAM.
+// Only relevant for the DDI product.
+func (o UserOutput) IpamManageIpam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.IpamManageIpam }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserOutput) IpamViewIpam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.IpamViewIpam }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify monitoring jobs.
+func (o UserOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringManageJobs }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can modify notification lists.
+func (o UserOutput) MonitoringManageLists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringManageLists }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can view monitoring jobs.
+func (o UserOutput) MonitoringViewJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringViewJobs }).(pulumi.BoolPtrOutput)
+}
+
+// The free form name of the user.
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether or not to notify the user of specified events. Only `billing` is available currently.
+func (o UserOutput) Notify() pulumi.MapOutput {
+	return o.ApplyT(func(v *User) pulumi.MapOutput { return v.Notify }).(pulumi.MapOutput)
+}
+
+// Whether the user can manage global active directory.
+// Only relevant for the DDI product.
+func (o UserOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can manage global two factor authentication.
+func (o UserOutput) SecurityManageGlobal2fa() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SecurityManageGlobal2fa }).(pulumi.BoolPtrOutput)
+}
+
+// The teams that the user belongs to.
+func (o UserOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Teams }).(pulumi.StringArrayOutput)
+}
+
+// The users login name.
+func (o UserOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

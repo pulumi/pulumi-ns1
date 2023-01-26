@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -46,6 +47,7 @@ export class Zone extends pulumi.CustomResource {
         return obj['__pulumiType'] === Zone.__pulumiType;
     }
 
+    public readonly additionalPorts!: pulumi.Output<number[] | undefined>;
     /**
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
@@ -76,9 +78,9 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly link!: pulumi.Output<string | undefined>;
     /**
-     * - List of network IDs (`int`) for which the zone
-     * should be made available. Default is network 0, the primary NSONE Global
-     * Network. Normally, you should not have to worry about this.
+     * List of network IDs for which the zone is
+     * available. If no network is provided, the zone will be created in network 0,
+     * the primary NS1 Global Network.
      */
     public readonly networks!: pulumi.Output<number[]>;
     /**
@@ -91,6 +93,7 @@ export class Zone extends pulumi.CustomResource {
      * secondary. Conflicts with `secondaries`.
      */
     public readonly primary!: pulumi.Output<string | undefined>;
+    public readonly primaryPort!: pulumi.Output<number>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
@@ -133,6 +136,7 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
+            resourceInputs["additionalPorts"] = state ? state.additionalPorts : undefined;
             resourceInputs["additionalPrimaries"] = state ? state.additionalPrimaries : undefined;
             resourceInputs["autogenerateNsRecord"] = state ? state.autogenerateNsRecord : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
@@ -143,6 +147,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["networks"] = state ? state.networks : undefined;
             resourceInputs["nxTtl"] = state ? state.nxTtl : undefined;
             resourceInputs["primary"] = state ? state.primary : undefined;
+            resourceInputs["primaryPort"] = state ? state.primaryPort : undefined;
             resourceInputs["refresh"] = state ? state.refresh : undefined;
             resourceInputs["retry"] = state ? state.retry : undefined;
             resourceInputs["secondaries"] = state ? state.secondaries : undefined;
@@ -154,6 +159,7 @@ export class Zone extends pulumi.CustomResource {
             if ((!args || args.zone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
+            resourceInputs["additionalPorts"] = args ? args.additionalPorts : undefined;
             resourceInputs["additionalPrimaries"] = args ? args.additionalPrimaries : undefined;
             resourceInputs["autogenerateNsRecord"] = args ? args.autogenerateNsRecord : undefined;
             resourceInputs["dnssec"] = args ? args.dnssec : undefined;
@@ -163,6 +169,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["networks"] = args ? args.networks : undefined;
             resourceInputs["nxTtl"] = args ? args.nxTtl : undefined;
             resourceInputs["primary"] = args ? args.primary : undefined;
+            resourceInputs["primaryPort"] = args ? args.primaryPort : undefined;
             resourceInputs["refresh"] = args ? args.refresh : undefined;
             resourceInputs["retry"] = args ? args.retry : undefined;
             resourceInputs["secondaries"] = args ? args.secondaries : undefined;
@@ -180,6 +187,7 @@ export class Zone extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Zone resources.
  */
 export interface ZoneState {
+    additionalPorts?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
@@ -210,9 +218,9 @@ export interface ZoneState {
      */
     link?: pulumi.Input<string>;
     /**
-     * - List of network IDs (`int`) for which the zone
-     * should be made available. Default is network 0, the primary NSONE Global
-     * Network. Normally, you should not have to worry about this.
+     * List of network IDs for which the zone is
+     * available. If no network is provided, the zone will be created in network 0,
+     * the primary NS1 Global Network.
      */
     networks?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -225,6 +233,7 @@ export interface ZoneState {
      * secondary. Conflicts with `secondaries`.
      */
     primary?: pulumi.Input<string>;
+    primaryPort?: pulumi.Input<number>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
@@ -259,6 +268,7 @@ export interface ZoneState {
  * The set of arguments for constructing a Zone resource.
  */
 export interface ZoneArgs {
+    additionalPorts?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
@@ -285,9 +295,9 @@ export interface ZoneArgs {
      */
     link?: pulumi.Input<string>;
     /**
-     * - List of network IDs (`int`) for which the zone
-     * should be made available. Default is network 0, the primary NSONE Global
-     * Network. Normally, you should not have to worry about this.
+     * List of network IDs for which the zone is
+     * available. If no network is provided, the zone will be created in network 0,
+     * the primary NS1 Global Network.
      */
     networks?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -300,6 +310,7 @@ export interface ZoneArgs {
      * secondary. Conflicts with `secondaries`.
      */
     primary?: pulumi.Input<string>;
+    primaryPort?: pulumi.Input<number>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
