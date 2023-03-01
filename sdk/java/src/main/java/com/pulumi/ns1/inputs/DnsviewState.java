@@ -13,9 +13,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class DnsviewState extends com.pulumi.resources.ResourceArgs {
+public final class DnsViewState extends com.pulumi.resources.ResourceArgs {
 
-    public static final DnsviewState Empty = new DnsviewState();
+    public static final DnsViewState Empty = new DnsViewState();
 
     @Import(name="createdAt")
     private @Nullable Output<Integer> createdAt;
@@ -73,9 +73,9 @@ public final class DnsviewState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.zones);
     }
 
-    private DnsviewState() {}
+    private DnsViewState() {}
 
-    private DnsviewState(DnsviewState $) {
+    private DnsViewState(DnsViewState $) {
         this.createdAt = $.createdAt;
         this.name = $.name;
         this.networks = $.networks;
@@ -89,19 +89,19 @@ public final class DnsviewState extends com.pulumi.resources.ResourceArgs {
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(DnsviewState defaults) {
+    public static Builder builder(DnsViewState defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private DnsviewState $;
+        private DnsViewState $;
 
         public Builder() {
-            $ = new DnsviewState();
+            $ = new DnsViewState();
         }
 
-        public Builder(DnsviewState defaults) {
-            $ = new DnsviewState(Objects.requireNonNull(defaults));
+        public Builder(DnsViewState defaults) {
+            $ = new DnsViewState(Objects.requireNonNull(defaults));
         }
 
         public Builder createdAt(@Nullable Output<Integer> createdAt) {
@@ -192,7 +192,7 @@ public final class DnsviewState extends com.pulumi.resources.ResourceArgs {
             return zones(List.of(zones));
         }
 
-        public DnsviewState build() {
+        public DnsViewState build() {
             return $;
         }
     }
