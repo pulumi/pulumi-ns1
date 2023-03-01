@@ -67,15 +67,16 @@ func Provider() tfbridge.ProviderInfo {
 	p := shimv1.NewProvider(ns1.Provider().(*schema.Provider))
 
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "ns1",
-		Description: "A Pulumi package for creating and managing ns1 cloud resources.",
-		Keywords:    []string{"pulumi", "ns1"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		GitHubOrg:   "ns1-terraform",
-		Repository:  "https://github.com/pulumi/pulumi-ns1",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		P:                p,
+		Name:             "ns1",
+		Description:      "A Pulumi package for creating and managing ns1 cloud resources.",
+		Keywords:         []string{"pulumi", "ns1"},
+		License:          "Apache-2.0",
+		Homepage:         "https://pulumi.io",
+		GitHubOrg:        "ns1-terraform",
+		Repository:       "https://github.com/pulumi/pulumi-ns1",
+		Config:           map[string]*tfbridge.SchemaInfo{},
+		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"ns1_zone": {
 				Tok: makeResource(mainMod, "Zone"),
