@@ -23,6 +23,7 @@ import (
 	"github.com/ns1-terraform/terraform-provider-ns1/ns1"
 	"github.com/pulumi/pulumi-ns1/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -108,6 +109,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"ns1_tsigkey": {Tok: makeResource(mainMod, "Tsigkey")},
+			"ns1_dnsview": {
+				Tok: makeResource(mainMod, "DnsView"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"ns1_zone":   {Tok: makeDataSource(mainMod, "getZone")},
@@ -144,7 +151,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := prov.ComputeDefaults(tfbridge.TokensSingleModule("ns1_", mainMod, func(module, name string) (string, error) {
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("ns1_", mainMod, func(module, name string) (string, error) {
 		return tfbridge.MakeResource(mainPkg, module, name).String(), nil
 	}))
 	contract.AssertNoError(err)

@@ -1859,7 +1859,7 @@
                 "type": "object"
             }
         },
-        "ns1:index/dnsview:Dnsview": {
+        "ns1:index/dnsView:DnsView": {
             "properties": {
                 "createdAt": {
                     "type": "integer"
@@ -1937,7 +1937,7 @@
                 }
             },
             "stateInputs": {
-                "description": "Input properties used for looking up and filtering Dnsview resources.\n",
+                "description": "Input properties used for looking up and filtering DnsView resources.\n",
                 "properties": {
                     "createdAt": {
                         "type": "integer"
