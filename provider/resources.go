@@ -110,7 +110,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"ns1_tsigkey": {Tok: makeResource(mainMod, "Tsigkey")},
 			"ns1_dnsview": {
-				Tok: makeResource(mainMod, "DnsView"),
+				Tok: makeResource(mainMod, "Dnsview"),
 				Docs: &tfbridge.DocInfo{
 					Markdown: []byte(" "),
 				},
@@ -151,7 +151,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := x.ComputeDefaults(&prov, x.TokensSingleModule("ns1_", mainMod, s.MakeStandardToken(mainPkg)))
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("ns1_", mainMod, x.MakeStandardToken(mainPkg)))
 	contract.AssertNoError(err)
 
 	prov.SetAutonaming(255, "-")
