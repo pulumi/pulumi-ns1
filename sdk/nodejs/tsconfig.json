@@ -19,7 +19,7 @@
         "config/vars.ts",
         "dataFeed.ts",
         "dataSource.ts",
-        "dnsView.ts",
+        "dnsview.ts",
         "getDNSSec.ts",
         "getRecord.ts",
         "getZone.ts",

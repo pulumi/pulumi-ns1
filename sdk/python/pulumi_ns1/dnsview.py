@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
-__all__ = ['DnsViewArgs', 'DnsView']
+__all__ = ['DnsviewArgs', 'Dnsview']
 
 @pulumi.input_type
-class DnsViewArgs:
+class DnsviewArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -21,7 +21,7 @@ class DnsViewArgs:
                  update_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a DnsView resource.
+        The set of arguments for constructing a Dnsview resource.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -92,7 +92,7 @@ class DnsViewArgs:
 
 
 @pulumi.input_type
-class _DnsViewState:
+class _DnsviewState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class _DnsViewState:
                  updated_at: Optional[pulumi.Input[int]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Input properties used for looking up and filtering DnsView resources.
+        Input properties used for looking up and filtering Dnsview resources.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -195,7 +195,7 @@ class _DnsViewState:
         pulumi.set(self, "zones", value)
 
 
-class DnsView(pulumi.CustomResource):
+class Dnsview(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,7 +208,7 @@ class DnsView(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a DnsView resource with the given unique name, props, and options.
+        Create a Dnsview resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -216,17 +216,17 @@ class DnsView(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DnsViewArgs] = None,
+                 args: Optional[DnsviewArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DnsView resource with the given unique name, props, and options.
+        Create a Dnsview resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param DnsViewArgs args: The arguments to use to populate this resource's properties.
+        :param DnsviewArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DnsViewArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DnsviewArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -248,7 +248,7 @@ class DnsView(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DnsViewArgs.__new__(DnsViewArgs)
+            __props__ = DnsviewArgs.__new__(DnsviewArgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["networks"] = networks
@@ -258,8 +258,8 @@ class DnsView(pulumi.CustomResource):
             __props__.__dict__["zones"] = zones
             __props__.__dict__["created_at"] = None
             __props__.__dict__["updated_at"] = None
-        super(DnsView, __self__).__init__(
-            'ns1:index/dnsView:DnsView',
+        super(Dnsview, __self__).__init__(
+            'ns1:index/dnsview:Dnsview',
             resource_name,
             __props__,
             opts)
@@ -275,9 +275,9 @@ class DnsView(pulumi.CustomResource):
             read_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             update_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             updated_at: Optional[pulumi.Input[int]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'DnsView':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Dnsview':
         """
-        Get an existing DnsView resource's state with the given name, id, and optional extra
+        Get an existing Dnsview resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -286,7 +286,7 @@ class DnsView(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _DnsViewState.__new__(_DnsViewState)
+        __props__ = _DnsviewState.__new__(_DnsviewState)
 
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["name"] = name
@@ -296,7 +296,7 @@ class DnsView(pulumi.CustomResource):
         __props__.__dict__["update_acls"] = update_acls
         __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["zones"] = zones
-        return DnsView(resource_name, opts=opts, __props__=__props__)
+        return Dnsview(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="createdAt")

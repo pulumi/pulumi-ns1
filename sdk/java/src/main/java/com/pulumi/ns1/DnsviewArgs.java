@@ -13,9 +13,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class DnsViewArgs extends com.pulumi.resources.ResourceArgs {
+public final class DnsviewArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final DnsViewArgs Empty = new DnsViewArgs();
+    public static final DnsviewArgs Empty = new DnsviewArgs();
 
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -59,9 +59,9 @@ public final class DnsViewArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.zones);
     }
 
-    private DnsViewArgs() {}
+    private DnsviewArgs() {}
 
-    private DnsViewArgs(DnsViewArgs $) {
+    private DnsviewArgs(DnsviewArgs $) {
         this.name = $.name;
         this.networks = $.networks;
         this.preference = $.preference;
@@ -73,19 +73,19 @@ public final class DnsViewArgs extends com.pulumi.resources.ResourceArgs {
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(DnsViewArgs defaults) {
+    public static Builder builder(DnsviewArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private DnsViewArgs $;
+        private DnsviewArgs $;
 
         public Builder() {
-            $ = new DnsViewArgs();
+            $ = new DnsviewArgs();
         }
 
-        public Builder(DnsViewArgs defaults) {
-            $ = new DnsViewArgs(Objects.requireNonNull(defaults));
+        public Builder(DnsviewArgs defaults) {
+            $ = new DnsviewArgs(Objects.requireNonNull(defaults));
         }
 
         public Builder name(@Nullable Output<String> name) {
@@ -158,7 +158,7 @@ public final class DnsViewArgs extends com.pulumi.resources.ResourceArgs {
             return zones(List.of(zones));
         }
 
-        public DnsViewArgs build() {
+        public DnsviewArgs build() {
             return $;
         }
     }

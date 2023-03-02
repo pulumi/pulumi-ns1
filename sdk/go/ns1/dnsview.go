@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type DnsView struct {
+type Dnsview struct {
 	pulumi.CustomResourceState
 
 	CreatedAt  pulumi.IntOutput         `pulumi:"createdAt"`
@@ -23,35 +23,35 @@ type DnsView struct {
 	Zones      pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
-// NewDnsView registers a new resource with the given unique name, arguments, and options.
-func NewDnsView(ctx *pulumi.Context,
-	name string, args *DnsViewArgs, opts ...pulumi.ResourceOption) (*DnsView, error) {
+// NewDnsview registers a new resource with the given unique name, arguments, and options.
+func NewDnsview(ctx *pulumi.Context,
+	name string, args *DnsviewArgs, opts ...pulumi.ResourceOption) (*Dnsview, error) {
 	if args == nil {
-		args = &DnsViewArgs{}
+		args = &DnsviewArgs{}
 	}
 
-	var resource DnsView
-	err := ctx.RegisterResource("ns1:index/dnsView:DnsView", name, args, &resource, opts...)
+	var resource Dnsview
+	err := ctx.RegisterResource("ns1:index/dnsview:Dnsview", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetDnsView gets an existing DnsView resource's state with the given name, ID, and optional
+// GetDnsview gets an existing Dnsview resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetDnsView(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *DnsViewState, opts ...pulumi.ResourceOption) (*DnsView, error) {
-	var resource DnsView
-	err := ctx.ReadResource("ns1:index/dnsView:DnsView", name, id, state, &resource, opts...)
+func GetDnsview(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *DnsviewState, opts ...pulumi.ResourceOption) (*Dnsview, error) {
+	var resource Dnsview
+	err := ctx.ReadResource("ns1:index/dnsview:Dnsview", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering DnsView resources.
-type dnsViewState struct {
+// Input properties used for looking up and filtering Dnsview resources.
+type dnsviewState struct {
 	CreatedAt  *int     `pulumi:"createdAt"`
 	Name       *string  `pulumi:"name"`
 	Networks   []int    `pulumi:"networks"`
@@ -62,7 +62,7 @@ type dnsViewState struct {
 	Zones      []string `pulumi:"zones"`
 }
 
-type DnsViewState struct {
+type DnsviewState struct {
 	CreatedAt  pulumi.IntPtrInput
 	Name       pulumi.StringPtrInput
 	Networks   pulumi.IntArrayInput
@@ -73,11 +73,11 @@ type DnsViewState struct {
 	Zones      pulumi.StringArrayInput
 }
 
-func (DnsViewState) ElementType() reflect.Type {
-	return reflect.TypeOf((*dnsViewState)(nil)).Elem()
+func (DnsviewState) ElementType() reflect.Type {
+	return reflect.TypeOf((*dnsviewState)(nil)).Elem()
 }
 
-type dnsViewArgs struct {
+type dnsviewArgs struct {
 	Name       *string  `pulumi:"name"`
 	Networks   []int    `pulumi:"networks"`
 	Preference *int     `pulumi:"preference"`
@@ -86,8 +86,8 @@ type dnsViewArgs struct {
 	Zones      []string `pulumi:"zones"`
 }
 
-// The set of arguments for constructing a DnsView resource.
-type DnsViewArgs struct {
+// The set of arguments for constructing a Dnsview resource.
+type DnsviewArgs struct {
 	Name       pulumi.StringPtrInput
 	Networks   pulumi.IntArrayInput
 	Preference pulumi.IntPtrInput
@@ -96,170 +96,170 @@ type DnsViewArgs struct {
 	Zones      pulumi.StringArrayInput
 }
 
-func (DnsViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*dnsViewArgs)(nil)).Elem()
+func (DnsviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*dnsviewArgs)(nil)).Elem()
 }
 
-type DnsViewInput interface {
+type DnsviewInput interface {
 	pulumi.Input
 
-	ToDnsViewOutput() DnsViewOutput
-	ToDnsViewOutputWithContext(ctx context.Context) DnsViewOutput
+	ToDnsviewOutput() DnsviewOutput
+	ToDnsviewOutputWithContext(ctx context.Context) DnsviewOutput
 }
 
-func (*DnsView) ElementType() reflect.Type {
-	return reflect.TypeOf((**DnsView)(nil)).Elem()
+func (*Dnsview) ElementType() reflect.Type {
+	return reflect.TypeOf((**Dnsview)(nil)).Elem()
 }
 
-func (i *DnsView) ToDnsViewOutput() DnsViewOutput {
-	return i.ToDnsViewOutputWithContext(context.Background())
+func (i *Dnsview) ToDnsviewOutput() DnsviewOutput {
+	return i.ToDnsviewOutputWithContext(context.Background())
 }
 
-func (i *DnsView) ToDnsViewOutputWithContext(ctx context.Context) DnsViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsViewOutput)
+func (i *Dnsview) ToDnsviewOutputWithContext(ctx context.Context) DnsviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsviewOutput)
 }
 
-// DnsViewArrayInput is an input type that accepts DnsViewArray and DnsViewArrayOutput values.
-// You can construct a concrete instance of `DnsViewArrayInput` via:
+// DnsviewArrayInput is an input type that accepts DnsviewArray and DnsviewArrayOutput values.
+// You can construct a concrete instance of `DnsviewArrayInput` via:
 //
-//	DnsViewArray{ DnsViewArgs{...} }
-type DnsViewArrayInput interface {
+//	DnsviewArray{ DnsviewArgs{...} }
+type DnsviewArrayInput interface {
 	pulumi.Input
 
-	ToDnsViewArrayOutput() DnsViewArrayOutput
-	ToDnsViewArrayOutputWithContext(context.Context) DnsViewArrayOutput
+	ToDnsviewArrayOutput() DnsviewArrayOutput
+	ToDnsviewArrayOutputWithContext(context.Context) DnsviewArrayOutput
 }
 
-type DnsViewArray []DnsViewInput
+type DnsviewArray []DnsviewInput
 
-func (DnsViewArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*DnsView)(nil)).Elem()
+func (DnsviewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*Dnsview)(nil)).Elem()
 }
 
-func (i DnsViewArray) ToDnsViewArrayOutput() DnsViewArrayOutput {
-	return i.ToDnsViewArrayOutputWithContext(context.Background())
+func (i DnsviewArray) ToDnsviewArrayOutput() DnsviewArrayOutput {
+	return i.ToDnsviewArrayOutputWithContext(context.Background())
 }
 
-func (i DnsViewArray) ToDnsViewArrayOutputWithContext(ctx context.Context) DnsViewArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsViewArrayOutput)
+func (i DnsviewArray) ToDnsviewArrayOutputWithContext(ctx context.Context) DnsviewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsviewArrayOutput)
 }
 
-// DnsViewMapInput is an input type that accepts DnsViewMap and DnsViewMapOutput values.
-// You can construct a concrete instance of `DnsViewMapInput` via:
+// DnsviewMapInput is an input type that accepts DnsviewMap and DnsviewMapOutput values.
+// You can construct a concrete instance of `DnsviewMapInput` via:
 //
-//	DnsViewMap{ "key": DnsViewArgs{...} }
-type DnsViewMapInput interface {
+//	DnsviewMap{ "key": DnsviewArgs{...} }
+type DnsviewMapInput interface {
 	pulumi.Input
 
-	ToDnsViewMapOutput() DnsViewMapOutput
-	ToDnsViewMapOutputWithContext(context.Context) DnsViewMapOutput
+	ToDnsviewMapOutput() DnsviewMapOutput
+	ToDnsviewMapOutputWithContext(context.Context) DnsviewMapOutput
 }
 
-type DnsViewMap map[string]DnsViewInput
+type DnsviewMap map[string]DnsviewInput
 
-func (DnsViewMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*DnsView)(nil)).Elem()
+func (DnsviewMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*Dnsview)(nil)).Elem()
 }
 
-func (i DnsViewMap) ToDnsViewMapOutput() DnsViewMapOutput {
-	return i.ToDnsViewMapOutputWithContext(context.Background())
+func (i DnsviewMap) ToDnsviewMapOutput() DnsviewMapOutput {
+	return i.ToDnsviewMapOutputWithContext(context.Background())
 }
 
-func (i DnsViewMap) ToDnsViewMapOutputWithContext(ctx context.Context) DnsViewMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsViewMapOutput)
+func (i DnsviewMap) ToDnsviewMapOutputWithContext(ctx context.Context) DnsviewMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsviewMapOutput)
 }
 
-type DnsViewOutput struct{ *pulumi.OutputState }
+type DnsviewOutput struct{ *pulumi.OutputState }
 
-func (DnsViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DnsView)(nil)).Elem()
+func (DnsviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Dnsview)(nil)).Elem()
 }
 
-func (o DnsViewOutput) ToDnsViewOutput() DnsViewOutput {
+func (o DnsviewOutput) ToDnsviewOutput() DnsviewOutput {
 	return o
 }
 
-func (o DnsViewOutput) ToDnsViewOutputWithContext(ctx context.Context) DnsViewOutput {
+func (o DnsviewOutput) ToDnsviewOutputWithContext(ctx context.Context) DnsviewOutput {
 	return o
 }
 
-func (o DnsViewOutput) CreatedAt() pulumi.IntOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.IntOutput { return v.CreatedAt }).(pulumi.IntOutput)
+func (o DnsviewOutput) CreatedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.IntOutput { return v.CreatedAt }).(pulumi.IntOutput)
 }
 
-func (o DnsViewOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o DnsviewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o DnsViewOutput) Networks() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.IntArrayOutput { return v.Networks }).(pulumi.IntArrayOutput)
+func (o DnsviewOutput) Networks() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.IntArrayOutput { return v.Networks }).(pulumi.IntArrayOutput)
 }
 
-func (o DnsViewOutput) Preference() pulumi.IntOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.IntOutput { return v.Preference }).(pulumi.IntOutput)
+func (o DnsviewOutput) Preference() pulumi.IntOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.IntOutput { return v.Preference }).(pulumi.IntOutput)
 }
 
-func (o DnsViewOutput) ReadAcls() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.StringArrayOutput { return v.ReadAcls }).(pulumi.StringArrayOutput)
+func (o DnsviewOutput) ReadAcls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.StringArrayOutput { return v.ReadAcls }).(pulumi.StringArrayOutput)
 }
 
-func (o DnsViewOutput) UpdateAcls() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.StringArrayOutput { return v.UpdateAcls }).(pulumi.StringArrayOutput)
+func (o DnsviewOutput) UpdateAcls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.StringArrayOutput { return v.UpdateAcls }).(pulumi.StringArrayOutput)
 }
 
-func (o DnsViewOutput) UpdatedAt() pulumi.IntOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.IntOutput { return v.UpdatedAt }).(pulumi.IntOutput)
+func (o DnsviewOutput) UpdatedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.IntOutput { return v.UpdatedAt }).(pulumi.IntOutput)
 }
 
-func (o DnsViewOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DnsView) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+func (o DnsviewOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dnsview) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
-type DnsViewArrayOutput struct{ *pulumi.OutputState }
+type DnsviewArrayOutput struct{ *pulumi.OutputState }
 
-func (DnsViewArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*DnsView)(nil)).Elem()
+func (DnsviewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*Dnsview)(nil)).Elem()
 }
 
-func (o DnsViewArrayOutput) ToDnsViewArrayOutput() DnsViewArrayOutput {
+func (o DnsviewArrayOutput) ToDnsviewArrayOutput() DnsviewArrayOutput {
 	return o
 }
 
-func (o DnsViewArrayOutput) ToDnsViewArrayOutputWithContext(ctx context.Context) DnsViewArrayOutput {
+func (o DnsviewArrayOutput) ToDnsviewArrayOutputWithContext(ctx context.Context) DnsviewArrayOutput {
 	return o
 }
 
-func (o DnsViewArrayOutput) Index(i pulumi.IntInput) DnsViewOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DnsView {
-		return vs[0].([]*DnsView)[vs[1].(int)]
-	}).(DnsViewOutput)
+func (o DnsviewArrayOutput) Index(i pulumi.IntInput) DnsviewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Dnsview {
+		return vs[0].([]*Dnsview)[vs[1].(int)]
+	}).(DnsviewOutput)
 }
 
-type DnsViewMapOutput struct{ *pulumi.OutputState }
+type DnsviewMapOutput struct{ *pulumi.OutputState }
 
-func (DnsViewMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*DnsView)(nil)).Elem()
+func (DnsviewMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*Dnsview)(nil)).Elem()
 }
 
-func (o DnsViewMapOutput) ToDnsViewMapOutput() DnsViewMapOutput {
+func (o DnsviewMapOutput) ToDnsviewMapOutput() DnsviewMapOutput {
 	return o
 }
 
-func (o DnsViewMapOutput) ToDnsViewMapOutputWithContext(ctx context.Context) DnsViewMapOutput {
+func (o DnsviewMapOutput) ToDnsviewMapOutputWithContext(ctx context.Context) DnsviewMapOutput {
 	return o
 }
 
-func (o DnsViewMapOutput) MapIndex(k pulumi.StringInput) DnsViewOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DnsView {
-		return vs[0].(map[string]*DnsView)[vs[1].(string)]
-	}).(DnsViewOutput)
+func (o DnsviewMapOutput) MapIndex(k pulumi.StringInput) DnsviewOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Dnsview {
+		return vs[0].(map[string]*Dnsview)[vs[1].(string)]
+	}).(DnsviewOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsViewInput)(nil)).Elem(), &DnsView{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsViewArrayInput)(nil)).Elem(), DnsViewArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DnsViewMapInput)(nil)).Elem(), DnsViewMap{})
-	pulumi.RegisterOutputType(DnsViewOutput{})
-	pulumi.RegisterOutputType(DnsViewArrayOutput{})
-	pulumi.RegisterOutputType(DnsViewMapOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsviewInput)(nil)).Elem(), &Dnsview{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsviewArrayInput)(nil)).Elem(), DnsviewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsviewMapInput)(nil)).Elem(), DnsviewMap{})
+	pulumi.RegisterOutputType(DnsviewOutput{})
+	pulumi.RegisterOutputType(DnsviewArrayOutput{})
+	pulumi.RegisterOutputType(DnsviewMapOutput{})
 }

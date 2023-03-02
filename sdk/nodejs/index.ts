@@ -25,10 +25,10 @@ export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
-export { DnsViewArgs, DnsViewState } from "./dnsView";
-export type DnsView = import("./dnsView").DnsView;
-export const DnsView: typeof import("./dnsView").DnsView = null as any;
-utilities.lazyLoad(exports, ["DnsView"], () => require("./dnsView"));
+export { DnsviewArgs, DnsviewState } from "./dnsview";
+export type Dnsview = import("./dnsview").Dnsview;
+export const Dnsview: typeof import("./dnsview").Dnsview = null as any;
+utilities.lazyLoad(exports, ["Dnsview"], () => require("./dnsview"));
 
 export { GetDNSSecArgs, GetDNSSecResult, GetDNSSecOutputArgs } from "./getDNSSec";
 export const getDNSSec: typeof import("./getDNSSec").getDNSSec = null as any;
@@ -117,8 +117,8 @@ const _module = {
                 return new DataFeed(name, <any>undefined, { urn })
             case "ns1:index/dataSource:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
-            case "ns1:index/dnsView:DnsView":
-                return new DnsView(name, <any>undefined, { urn })
+            case "ns1:index/dnsview:Dnsview":
+                return new Dnsview(name, <any>undefined, { urn })
             case "ns1:index/monitoringJob:MonitoringJob":
                 return new MonitoringJob(name, <any>undefined, { urn })
             case "ns1:index/notifyList:NotifyList":
@@ -146,7 +146,7 @@ pulumi.runtime.registerResourceModule("ns1", "index/aPIKey", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/application", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataFeed", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataSource", _module)
-pulumi.runtime.registerResourceModule("ns1", "index/dnsView", _module)
+pulumi.runtime.registerResourceModule("ns1", "index/dnsview", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/monitoringJob", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/notifyList", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/pulsarJob", _module)

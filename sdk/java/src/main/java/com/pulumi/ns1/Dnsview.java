@@ -7,17 +7,17 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import com.pulumi.ns1.DnsViewArgs;
+import com.pulumi.ns1.DnsviewArgs;
 import com.pulumi.ns1.Utilities;
-import com.pulumi.ns1.inputs.DnsViewState;
+import com.pulumi.ns1.inputs.DnsviewState;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-@ResourceType(type="ns1:index/dnsView:DnsView")
-public class DnsView extends com.pulumi.resources.CustomResource {
+@ResourceType(type="ns1:index/dnsview:Dnsview")
+public class Dnsview extends com.pulumi.resources.CustomResource {
     @Export(name="createdAt", type=Integer.class, parameters={})
     private Output<Integer> createdAt;
 
@@ -71,15 +71,15 @@ public class DnsView extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DnsView(String name) {
-        this(name, DnsViewArgs.Empty);
+    public Dnsview(String name) {
+        this(name, DnsviewArgs.Empty);
     }
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DnsView(String name, @Nullable DnsViewArgs args) {
+    public Dnsview(String name, @Nullable DnsviewArgs args) {
         this(name, args, null);
     }
     /**
@@ -88,12 +88,12 @@ public class DnsView extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DnsView(String name, @Nullable DnsViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/dnsView:DnsView", name, args == null ? DnsViewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Dnsview(String name, @Nullable DnsviewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/dnsview:Dnsview", name, args == null ? DnsviewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
-    private DnsView(String name, Output<String> id, @Nullable DnsViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/dnsView:DnsView", name, state, makeResourceOptions(options, id));
+    private Dnsview(String name, Output<String> id, @Nullable DnsviewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/dnsview:Dnsview", name, state, makeResourceOptions(options, id));
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
@@ -112,7 +112,7 @@ public class DnsView extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DnsView get(String name, Output<String> id, @Nullable DnsViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        return new DnsView(name, id, state, options);
+    public static Dnsview get(String name, Output<String> id, @Nullable DnsviewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        return new Dnsview(name, id, state, options);
     }
 }

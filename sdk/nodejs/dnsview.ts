@@ -4,9 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-export class DnsView extends pulumi.CustomResource {
+export class Dnsview extends pulumi.CustomResource {
     /**
-     * Get an existing DnsView resource's state with the given name, ID, and optional extra
+     * Get an existing Dnsview resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -14,22 +14,22 @@ export class DnsView extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DnsViewState, opts?: pulumi.CustomResourceOptions): DnsView {
-        return new DnsView(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DnsviewState, opts?: pulumi.CustomResourceOptions): Dnsview {
+        return new Dnsview(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'ns1:index/dnsView:DnsView';
+    public static readonly __pulumiType = 'ns1:index/dnsview:Dnsview';
 
     /**
-     * Returns true if the given object is an instance of DnsView.  This is designed to work even
+     * Returns true if the given object is an instance of Dnsview.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DnsView {
+    public static isInstance(obj: any): obj is Dnsview {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DnsView.__pulumiType;
+        return obj['__pulumiType'] === Dnsview.__pulumiType;
     }
 
     public /*out*/ readonly createdAt!: pulumi.Output<number>;
@@ -42,18 +42,18 @@ export class DnsView extends pulumi.CustomResource {
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
-     * Create a DnsView resource with the given unique name, arguments, and options.
+     * Create a Dnsview resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DnsViewArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DnsViewArgs | DnsViewState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DnsviewArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DnsviewArgs | DnsviewState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DnsViewState | undefined;
+            const state = argsOrState as DnsviewState | undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networks"] = state ? state.networks : undefined;
@@ -63,7 +63,7 @@ export class DnsView extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
-            const args = argsOrState as DnsViewArgs | undefined;
+            const args = argsOrState as DnsviewArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networks"] = args ? args.networks : undefined;
             resourceInputs["preference"] = args ? args.preference : undefined;
@@ -74,14 +74,14 @@ export class DnsView extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DnsView.__pulumiType, name, resourceInputs, opts);
+        super(Dnsview.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DnsView resources.
+ * Input properties used for looking up and filtering Dnsview resources.
  */
-export interface DnsViewState {
+export interface DnsviewState {
     createdAt?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     networks?: pulumi.Input<pulumi.Input<number>[]>;
@@ -93,9 +93,9 @@ export interface DnsViewState {
 }
 
 /**
- * The set of arguments for constructing a DnsView resource.
+ * The set of arguments for constructing a Dnsview resource.
  */
-export interface DnsViewArgs {
+export interface DnsviewArgs {
     name?: pulumi.Input<string>;
     networks?: pulumi.Input<pulumi.Input<number>[]>;
     preference?: pulumi.Input<number>;

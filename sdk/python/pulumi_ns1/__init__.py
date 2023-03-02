@@ -9,7 +9,7 @@ from .api_key import *
 from .application import *
 from .data_feed import *
 from .data_source import *
-from .dns_view import *
+from .dnsview import *
 from .get_dns_sec import *
 from .get_record import *
 from .get_zone import *
@@ -70,10 +70,10 @@ _utilities.register(
  },
  {
   "pkg": "ns1",
-  "mod": "index/dnsView",
+  "mod": "index/dnsview",
   "fqn": "pulumi_ns1",
   "classes": {
-   "ns1:index/dnsView:DnsView": "DnsView"
+   "ns1:index/dnsview:Dnsview": "Dnsview"
   }
  },
  {
