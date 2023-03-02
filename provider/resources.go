@@ -151,9 +151,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := x.ComputeDefaults(&prov, x.TokensSingleModule("ns1_", mainMod, func(module, name string) (string, error) {
-		return tfbridge.MakeResource(mainPkg, module, name).String(), nil
-	}))
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("ns1_", mainMod, s.MakeStandardToken(mainPkg)))
 	contract.AssertNoError(err)
 
 	prov.SetAutonaming(255, "-")
