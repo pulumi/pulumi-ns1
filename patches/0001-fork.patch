@@ -1,0 +1,43 @@
+diff --git b/go.mod a/go.mod
+index 973fb21..6b8e198 100644
+--- b/go.mod
++++ a/go.mod
+@@ -1,4 +1,4 @@
+-module github.com/terraform-providers/terraform-provider-ns1
++module github.com/ns1-terraform/terraform-provider-ns1
+ 
+ go 1.19
+ 
+diff --git b/main.go a/main.go
+index e07eac5..57e6ec6 100644
+--- b/main.go
++++ a/main.go
+@@ -2,7 +2,7 @@ package main
+ 
+ import (
+ 	"github.com/hashicorp/terraform-plugin-sdk/plugin"
+-	"github.com/terraform-providers/terraform-provider-ns1/ns1"
++	"github.com/ns1-terraform/terraform-provider-ns1/ns1"
+ )
+ 
+ func main() {
+diff --git b/ns1/resource_record.go a/ns1/resource_record.go
+index 32d9062..650206e 100644
+--- b/ns1/resource_record.go
++++ a/ns1/resource_record.go
+@@ -92,14 +92,7 @@ func recordResource() *schema.Resource {
+ 				Type:     schema.TypeList,
+ 				Optional: true,
+ 				Elem:     &schema.Schema{Type: schema.TypeString},
+-				Deprecated: `short_answers will be deprecated in a future release.
+-It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "short_answers" can be achieved with dynamic blocks:
+-  dynamic "answers" {
+-    for_each = ["4.4.4.4", "5.5.5.5"]
+-    content {
+-      answer  = answers.value
+-    }
+-  }`,
++				Deprecated: `short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.`,
+ 			},
+ 			"answers": {
+ 				Type:     schema.TypeList,

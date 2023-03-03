@@ -1,0 +1,4 @@
+[submodule "upstream"]
+	path = upstream
+	url = https://github.com/ns1-terraform/terraform-provider-ns1.git
+	ignore = dirty
