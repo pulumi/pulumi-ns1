@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-ns1/provider/v2
+module github.com/pulumi/pulumi-ns1/provider/v3
 
 go 1.19
 
@@ -9,6 +9,7 @@ replace github.com/spf13/afero => github.com/spf13/afero v1.2.2
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.17.2
 	github.com/ns1-terraform/terraform-provider-ns1 v0.0.0
+	github.com/pulumi/pulumi-ns1/provider/v2 v2.0.0-20230306195220-851fa1fb5827
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.41.0
 	github.com/pulumi/pulumi/sdk/v3 v3.55.0
 )

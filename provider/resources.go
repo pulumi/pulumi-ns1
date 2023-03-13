@@ -21,7 +21,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/ns1-terraform/terraform-provider-ns1/ns1"
-	"github.com/pulumi/pulumi-ns1/provider/v2/pkg/version"
+	"github.com/pulumi/pulumi-ns1/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
