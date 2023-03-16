@@ -11,7 +11,7 @@ namespace Pulumi.Ns1.Outputs
 {
 
     [OutputType]
-    public sealed class GetDNSSecKeysDnskeyResult
+    public sealed class GetDNSSecKeyDnskeyResult
     {
         /// <summary>
         /// (Computed) Algorithm of the key.
@@ -31,7 +31,7 @@ namespace Pulumi.Ns1.Outputs
         public readonly string PublicKey;
 
         [OutputConstructor]
-        private GetDNSSecKeysDnskeyResult(
+        private GetDNSSecKeyDnskeyResult(
             string algorithm,
 
             string flags,

@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-ns1/sdk/v2
+module github.com/pulumi/pulumi-ns1/sdk/v3
 
 go 1.19
 

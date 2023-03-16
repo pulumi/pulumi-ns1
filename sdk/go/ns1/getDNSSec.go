@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-ns1/sdk/v2/go/ns1"
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,12 +60,12 @@ type GetDNSSecArgs struct {
 type GetDNSSecResult struct {
 	// (Computed) - Delegation field is documented
 	// below.
-	Delegation GetDNSSecDelegation `pulumi:"delegation"`
+	Delegations []GetDNSSecDelegation `pulumi:"delegations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (Computed) - Keys field is documented below.
-	Keys GetDNSSecKeys `pulumi:"keys"`
-	Zone string        `pulumi:"zone"`
+	Keys []GetDNSSecKey `pulumi:"keys"`
+	Zone string         `pulumi:"zone"`
 }
 
 func GetDNSSecOutput(ctx *pulumi.Context, args GetDNSSecOutputArgs, opts ...pulumi.InvokeOption) GetDNSSecResultOutput {
@@ -108,8 +108,8 @@ func (o GetDNSSecResultOutput) ToGetDNSSecResultOutputWithContext(ctx context.Co
 
 // (Computed) - Delegation field is documented
 // below.
-func (o GetDNSSecResultOutput) Delegation() GetDNSSecDelegationOutput {
-	return o.ApplyT(func(v GetDNSSecResult) GetDNSSecDelegation { return v.Delegation }).(GetDNSSecDelegationOutput)
+func (o GetDNSSecResultOutput) Delegations() GetDNSSecDelegationArrayOutput {
+	return o.ApplyT(func(v GetDNSSecResult) []GetDNSSecDelegation { return v.Delegations }).(GetDNSSecDelegationArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -118,8 +118,8 @@ func (o GetDNSSecResultOutput) Id() pulumi.StringOutput {
 }
 
 // (Computed) - Keys field is documented below.
-func (o GetDNSSecResultOutput) Keys() GetDNSSecKeysOutput {
-	return o.ApplyT(func(v GetDNSSecResult) GetDNSSecKeys { return v.Keys }).(GetDNSSecKeysOutput)
+func (o GetDNSSecResultOutput) Keys() GetDNSSecKeyArrayOutput {
+	return o.ApplyT(func(v GetDNSSecResult) []GetDNSSecKey { return v.Keys }).(GetDNSSecKeyArrayOutput)
 }
 
 func (o GetDNSSecResultOutput) Zone() pulumi.StringOutput {

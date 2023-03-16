@@ -8,7 +8,7 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class GetDNSSecKeysDnskey {
+public final class GetDNSSecKeyDnskey {
     /**
      * @return (Computed) Algorithm of the key.
      * 
@@ -30,7 +30,7 @@ public final class GetDNSSecKeysDnskey {
      */
     private String publicKey;
 
-    private GetDNSSecKeysDnskey() {}
+    private GetDNSSecKeyDnskey() {}
     /**
      * @return (Computed) Algorithm of the key.
      * 
@@ -64,7 +64,7 @@ public final class GetDNSSecKeysDnskey {
         return new Builder();
     }
 
-    public static Builder builder(GetDNSSecKeysDnskey defaults) {
+    public static Builder builder(GetDNSSecKeyDnskey defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -74,7 +74,7 @@ public final class GetDNSSecKeysDnskey {
         private String protocol;
         private String publicKey;
         public Builder() {}
-        public Builder(GetDNSSecKeysDnskey defaults) {
+        public Builder(GetDNSSecKeyDnskey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.algorithm = defaults.algorithm;
     	      this.flags = defaults.flags;
@@ -102,8 +102,8 @@ public final class GetDNSSecKeysDnskey {
             this.publicKey = Objects.requireNonNull(publicKey);
             return this;
         }
-        public GetDNSSecKeysDnskey build() {
-            final var o = new GetDNSSecKeysDnskey();
+        public GetDNSSecKeyDnskey build() {
+            final var o = new GetDNSSecKeyDnskey();
             o.algorithm = algorithm;
             o.flags = flags;
             o.protocol = protocol;

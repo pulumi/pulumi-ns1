@@ -15,8 +15,10 @@ import com.pulumi.ns1.inputs.GetRecordPlainArgs;
 import com.pulumi.ns1.inputs.GetZoneArgs;
 import com.pulumi.ns1.inputs.GetZonePlainArgs;
 import com.pulumi.ns1.outputs.GetDNSSecResult;
+import com.pulumi.ns1.outputs.GetNetworksResult;
 import com.pulumi.ns1.outputs.GetRecordResult;
 import com.pulumi.ns1.outputs.GetZoneResult;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class Ns1Functions {
@@ -195,6 +197,222 @@ public final class Ns1Functions {
      */
     public static CompletableFuture<GetDNSSecResult> getDNSSecPlain(GetDNSSecPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("ns1:index/getDNSSec:getDNSSec", TypeShape.of(GetDNSSecResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about NS1 Networks. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getNetworks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworksResult> getNetworks() {
+        return getNetworks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about NS1 Networks. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getNetworks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworksResult> getNetworksPlain() {
+        return getNetworksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about NS1 Networks. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getNetworks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworksResult> getNetworks(InvokeArgs args) {
+        return getNetworks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about NS1 Networks. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getNetworks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworksResult> getNetworksPlain(InvokeArgs args) {
+        return getNetworksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about NS1 Networks. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getNetworks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNetworksResult> getNetworks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about NS1 Networks. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getNetworks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNetworksResult> getNetworksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("ns1:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a NS1 Record. Use this if you would simply like to read

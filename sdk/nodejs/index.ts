@@ -35,6 +35,10 @@ export const getDNSSec: typeof import("./getDNSSec").getDNSSec = null as any;
 export const getDNSSecOutput: typeof import("./getDNSSec").getDNSSecOutput = null as any;
 utilities.lazyLoad(exports, ["getDNSSec","getDNSSecOutput"], () => require("./getDNSSec"));
 
+export { GetNetworksResult } from "./getNetworks";
+export const getNetworks: typeof import("./getNetworks").getNetworks = null as any;
+utilities.lazyLoad(exports, ["getNetworks"], () => require("./getNetworks"));
+
 export { GetRecordArgs, GetRecordResult, GetRecordOutputArgs } from "./getRecord";
 export const getRecord: typeof import("./getRecord").getRecord = null as any;
 export const getRecordOutput: typeof import("./getRecord").getRecordOutput = null as any;

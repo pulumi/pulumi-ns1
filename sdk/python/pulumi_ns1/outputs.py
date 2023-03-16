@@ -31,8 +31,9 @@ __all__ = [
     'GetDNSSecDelegationResult',
     'GetDNSSecDelegationDResult',
     'GetDNSSecDelegationDnskeyResult',
-    'GetDNSSecKeysResult',
-    'GetDNSSecKeysDnskeyResult',
+    'GetDNSSecKeyResult',
+    'GetDNSSecKeyDnskeyResult',
+    'GetNetworksNetworkResult',
     'GetRecordAnswerResult',
     'GetRecordFilterResult',
     'GetRecordRegionResult',
@@ -1005,12 +1006,12 @@ class GetDNSSecDelegationDnskeyResult(dict):
 
 
 @pulumi.output_type
-class GetDNSSecKeysResult(dict):
+class GetDNSSecKeyResult(dict):
     def __init__(__self__, *,
-                 dnskeys: Sequence['outputs.GetDNSSecKeysDnskeyResult'],
+                 dnskeys: Sequence['outputs.GetDNSSecKeyDnskeyResult'],
                  ttl: int):
         """
-        :param Sequence['GetDNSSecKeysDnskeyArgs'] dnskeys: (Computed) List of Keys. Key is documented below.
+        :param Sequence['GetDNSSecKeyDnskeyArgs'] dnskeys: (Computed) List of Keys. Key is documented below.
         :param int ttl: (Computed) TTL for the Keys (int).
         """
         pulumi.set(__self__, "dnskeys", dnskeys)
@@ -1018,7 +1019,7 @@ class GetDNSSecKeysResult(dict):
 
     @property
     @pulumi.getter
-    def dnskeys(self) -> Sequence['outputs.GetDNSSecKeysDnskeyResult']:
+    def dnskeys(self) -> Sequence['outputs.GetDNSSecKeyDnskeyResult']:
         """
         (Computed) List of Keys. Key is documented below.
         """
@@ -1034,7 +1035,7 @@ class GetDNSSecKeysResult(dict):
 
 
 @pulumi.output_type
-class GetDNSSecKeysDnskeyResult(dict):
+class GetDNSSecKeyDnskeyResult(dict):
     def __init__(__self__, *,
                  algorithm: str,
                  flags: str,
@@ -1082,6 +1083,46 @@ class GetDNSSecKeysDnskeyResult(dict):
         (Computed) Public key for the key.
         """
         return pulumi.get(self, "public_key")
+
+
+@pulumi.output_type
+class GetNetworksNetworkResult(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 name: str,
+                 network_id: int):
+        """
+        :param str label: Label associated with the network.
+        :param str name: Name of the network.
+        :param int network_id: network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_id", network_id)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Label associated with the network.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the network.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> int:
+        """
+        network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.
+        """
+        return pulumi.get(self, "network_id")
 
 
 @pulumi.output_type

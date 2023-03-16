@@ -2244,6 +2244,31 @@ func (i GetDNSSecDelegationArgs) ToGetDNSSecDelegationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationOutput)
 }
 
+// GetDNSSecDelegationArrayInput is an input type that accepts GetDNSSecDelegationArray and GetDNSSecDelegationArrayOutput values.
+// You can construct a concrete instance of `GetDNSSecDelegationArrayInput` via:
+//
+//	GetDNSSecDelegationArray{ GetDNSSecDelegationArgs{...} }
+type GetDNSSecDelegationArrayInput interface {
+	pulumi.Input
+
+	ToGetDNSSecDelegationArrayOutput() GetDNSSecDelegationArrayOutput
+	ToGetDNSSecDelegationArrayOutputWithContext(context.Context) GetDNSSecDelegationArrayOutput
+}
+
+type GetDNSSecDelegationArray []GetDNSSecDelegationInput
+
+func (GetDNSSecDelegationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDNSSecDelegation)(nil)).Elem()
+}
+
+func (i GetDNSSecDelegationArray) ToGetDNSSecDelegationArrayOutput() GetDNSSecDelegationArrayOutput {
+	return i.ToGetDNSSecDelegationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDNSSecDelegationArray) ToGetDNSSecDelegationArrayOutputWithContext(ctx context.Context) GetDNSSecDelegationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationArrayOutput)
+}
+
 type GetDNSSecDelegationOutput struct{ *pulumi.OutputState }
 
 func (GetDNSSecDelegationOutput) ElementType() reflect.Type {
@@ -2271,6 +2296,26 @@ func (o GetDNSSecDelegationOutput) Ds() GetDNSSecDelegationDArrayOutput {
 // (Computed) TTL for the Keys (int).
 func (o GetDNSSecDelegationOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDNSSecDelegation) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+type GetDNSSecDelegationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDNSSecDelegationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDNSSecDelegation)(nil)).Elem()
+}
+
+func (o GetDNSSecDelegationArrayOutput) ToGetDNSSecDelegationArrayOutput() GetDNSSecDelegationArrayOutput {
+	return o
+}
+
+func (o GetDNSSecDelegationArrayOutput) ToGetDNSSecDelegationArrayOutputWithContext(ctx context.Context) GetDNSSecDelegationArrayOutput {
+	return o
+}
+
+func (o GetDNSSecDelegationArrayOutput) Index(i pulumi.IntInput) GetDNSSecDelegationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDNSSecDelegation {
+		return vs[0].([]GetDNSSecDelegation)[vs[1].(int)]
+	}).(GetDNSSecDelegationOutput)
 }
 
 type GetDNSSecDelegationD struct {
@@ -2521,68 +2566,113 @@ func (o GetDNSSecDelegationDnskeyArrayOutput) Index(i pulumi.IntInput) GetDNSSec
 	}).(GetDNSSecDelegationDnskeyOutput)
 }
 
-type GetDNSSecKeys struct {
+type GetDNSSecKey struct {
 	// (Computed) List of Keys. Key is documented below.
-	Dnskeys []GetDNSSecKeysDnskey `pulumi:"dnskeys"`
+	Dnskeys []GetDNSSecKeyDnskey `pulumi:"dnskeys"`
 	// (Computed) TTL for the Keys (int).
 	Ttl int `pulumi:"ttl"`
 }
 
-// GetDNSSecKeysInput is an input type that accepts GetDNSSecKeysArgs and GetDNSSecKeysOutput values.
-// You can construct a concrete instance of `GetDNSSecKeysInput` via:
+// GetDNSSecKeyInput is an input type that accepts GetDNSSecKeyArgs and GetDNSSecKeyOutput values.
+// You can construct a concrete instance of `GetDNSSecKeyInput` via:
 //
-//	GetDNSSecKeysArgs{...}
-type GetDNSSecKeysInput interface {
+//	GetDNSSecKeyArgs{...}
+type GetDNSSecKeyInput interface {
 	pulumi.Input
 
-	ToGetDNSSecKeysOutput() GetDNSSecKeysOutput
-	ToGetDNSSecKeysOutputWithContext(context.Context) GetDNSSecKeysOutput
+	ToGetDNSSecKeyOutput() GetDNSSecKeyOutput
+	ToGetDNSSecKeyOutputWithContext(context.Context) GetDNSSecKeyOutput
 }
 
-type GetDNSSecKeysArgs struct {
+type GetDNSSecKeyArgs struct {
 	// (Computed) List of Keys. Key is documented below.
-	Dnskeys GetDNSSecKeysDnskeyArrayInput `pulumi:"dnskeys"`
+	Dnskeys GetDNSSecKeyDnskeyArrayInput `pulumi:"dnskeys"`
 	// (Computed) TTL for the Keys (int).
 	Ttl pulumi.IntInput `pulumi:"ttl"`
 }
 
-func (GetDNSSecKeysArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDNSSecKeys)(nil)).Elem()
+func (GetDNSSecKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDNSSecKey)(nil)).Elem()
 }
 
-func (i GetDNSSecKeysArgs) ToGetDNSSecKeysOutput() GetDNSSecKeysOutput {
-	return i.ToGetDNSSecKeysOutputWithContext(context.Background())
+func (i GetDNSSecKeyArgs) ToGetDNSSecKeyOutput() GetDNSSecKeyOutput {
+	return i.ToGetDNSSecKeyOutputWithContext(context.Background())
 }
 
-func (i GetDNSSecKeysArgs) ToGetDNSSecKeysOutputWithContext(ctx context.Context) GetDNSSecKeysOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeysOutput)
+func (i GetDNSSecKeyArgs) ToGetDNSSecKeyOutputWithContext(ctx context.Context) GetDNSSecKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyOutput)
 }
 
-type GetDNSSecKeysOutput struct{ *pulumi.OutputState }
+// GetDNSSecKeyArrayInput is an input type that accepts GetDNSSecKeyArray and GetDNSSecKeyArrayOutput values.
+// You can construct a concrete instance of `GetDNSSecKeyArrayInput` via:
+//
+//	GetDNSSecKeyArray{ GetDNSSecKeyArgs{...} }
+type GetDNSSecKeyArrayInput interface {
+	pulumi.Input
 
-func (GetDNSSecKeysOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDNSSecKeys)(nil)).Elem()
+	ToGetDNSSecKeyArrayOutput() GetDNSSecKeyArrayOutput
+	ToGetDNSSecKeyArrayOutputWithContext(context.Context) GetDNSSecKeyArrayOutput
 }
 
-func (o GetDNSSecKeysOutput) ToGetDNSSecKeysOutput() GetDNSSecKeysOutput {
+type GetDNSSecKeyArray []GetDNSSecKeyInput
+
+func (GetDNSSecKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDNSSecKey)(nil)).Elem()
+}
+
+func (i GetDNSSecKeyArray) ToGetDNSSecKeyArrayOutput() GetDNSSecKeyArrayOutput {
+	return i.ToGetDNSSecKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDNSSecKeyArray) ToGetDNSSecKeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyArrayOutput)
+}
+
+type GetDNSSecKeyOutput struct{ *pulumi.OutputState }
+
+func (GetDNSSecKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDNSSecKey)(nil)).Elem()
+}
+
+func (o GetDNSSecKeyOutput) ToGetDNSSecKeyOutput() GetDNSSecKeyOutput {
 	return o
 }
 
-func (o GetDNSSecKeysOutput) ToGetDNSSecKeysOutputWithContext(ctx context.Context) GetDNSSecKeysOutput {
+func (o GetDNSSecKeyOutput) ToGetDNSSecKeyOutputWithContext(ctx context.Context) GetDNSSecKeyOutput {
 	return o
 }
 
 // (Computed) List of Keys. Key is documented below.
-func (o GetDNSSecKeysOutput) Dnskeys() GetDNSSecKeysDnskeyArrayOutput {
-	return o.ApplyT(func(v GetDNSSecKeys) []GetDNSSecKeysDnskey { return v.Dnskeys }).(GetDNSSecKeysDnskeyArrayOutput)
+func (o GetDNSSecKeyOutput) Dnskeys() GetDNSSecKeyDnskeyArrayOutput {
+	return o.ApplyT(func(v GetDNSSecKey) []GetDNSSecKeyDnskey { return v.Dnskeys }).(GetDNSSecKeyDnskeyArrayOutput)
 }
 
 // (Computed) TTL for the Keys (int).
-func (o GetDNSSecKeysOutput) Ttl() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDNSSecKeys) int { return v.Ttl }).(pulumi.IntOutput)
+func (o GetDNSSecKeyOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDNSSecKey) int { return v.Ttl }).(pulumi.IntOutput)
 }
 
-type GetDNSSecKeysDnskey struct {
+type GetDNSSecKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDNSSecKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDNSSecKey)(nil)).Elem()
+}
+
+func (o GetDNSSecKeyArrayOutput) ToGetDNSSecKeyArrayOutput() GetDNSSecKeyArrayOutput {
+	return o
+}
+
+func (o GetDNSSecKeyArrayOutput) ToGetDNSSecKeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeyArrayOutput {
+	return o
+}
+
+func (o GetDNSSecKeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDNSSecKey {
+		return vs[0].([]GetDNSSecKey)[vs[1].(int)]
+	}).(GetDNSSecKeyOutput)
+}
+
+type GetDNSSecKeyDnskey struct {
 	// (Computed) Algorithm of the key.
 	Algorithm string `pulumi:"algorithm"`
 	// (Computed) Flags for the key.
@@ -2593,18 +2683,18 @@ type GetDNSSecKeysDnskey struct {
 	PublicKey string `pulumi:"publicKey"`
 }
 
-// GetDNSSecKeysDnskeyInput is an input type that accepts GetDNSSecKeysDnskeyArgs and GetDNSSecKeysDnskeyOutput values.
-// You can construct a concrete instance of `GetDNSSecKeysDnskeyInput` via:
+// GetDNSSecKeyDnskeyInput is an input type that accepts GetDNSSecKeyDnskeyArgs and GetDNSSecKeyDnskeyOutput values.
+// You can construct a concrete instance of `GetDNSSecKeyDnskeyInput` via:
 //
-//	GetDNSSecKeysDnskeyArgs{...}
-type GetDNSSecKeysDnskeyInput interface {
+//	GetDNSSecKeyDnskeyArgs{...}
+type GetDNSSecKeyDnskeyInput interface {
 	pulumi.Input
 
-	ToGetDNSSecKeysDnskeyOutput() GetDNSSecKeysDnskeyOutput
-	ToGetDNSSecKeysDnskeyOutputWithContext(context.Context) GetDNSSecKeysDnskeyOutput
+	ToGetDNSSecKeyDnskeyOutput() GetDNSSecKeyDnskeyOutput
+	ToGetDNSSecKeyDnskeyOutputWithContext(context.Context) GetDNSSecKeyDnskeyOutput
 }
 
-type GetDNSSecKeysDnskeyArgs struct {
+type GetDNSSecKeyDnskeyArgs struct {
 	// (Computed) Algorithm of the key.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
 	// (Computed) Flags for the key.
@@ -2615,95 +2705,210 @@ type GetDNSSecKeysDnskeyArgs struct {
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 }
 
-func (GetDNSSecKeysDnskeyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDNSSecKeysDnskey)(nil)).Elem()
+func (GetDNSSecKeyDnskeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDNSSecKeyDnskey)(nil)).Elem()
 }
 
-func (i GetDNSSecKeysDnskeyArgs) ToGetDNSSecKeysDnskeyOutput() GetDNSSecKeysDnskeyOutput {
-	return i.ToGetDNSSecKeysDnskeyOutputWithContext(context.Background())
+func (i GetDNSSecKeyDnskeyArgs) ToGetDNSSecKeyDnskeyOutput() GetDNSSecKeyDnskeyOutput {
+	return i.ToGetDNSSecKeyDnskeyOutputWithContext(context.Background())
 }
 
-func (i GetDNSSecKeysDnskeyArgs) ToGetDNSSecKeysDnskeyOutputWithContext(ctx context.Context) GetDNSSecKeysDnskeyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeysDnskeyOutput)
+func (i GetDNSSecKeyDnskeyArgs) ToGetDNSSecKeyDnskeyOutputWithContext(ctx context.Context) GetDNSSecKeyDnskeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyDnskeyOutput)
 }
 
-// GetDNSSecKeysDnskeyArrayInput is an input type that accepts GetDNSSecKeysDnskeyArray and GetDNSSecKeysDnskeyArrayOutput values.
-// You can construct a concrete instance of `GetDNSSecKeysDnskeyArrayInput` via:
+// GetDNSSecKeyDnskeyArrayInput is an input type that accepts GetDNSSecKeyDnskeyArray and GetDNSSecKeyDnskeyArrayOutput values.
+// You can construct a concrete instance of `GetDNSSecKeyDnskeyArrayInput` via:
 //
-//	GetDNSSecKeysDnskeyArray{ GetDNSSecKeysDnskeyArgs{...} }
-type GetDNSSecKeysDnskeyArrayInput interface {
+//	GetDNSSecKeyDnskeyArray{ GetDNSSecKeyDnskeyArgs{...} }
+type GetDNSSecKeyDnskeyArrayInput interface {
 	pulumi.Input
 
-	ToGetDNSSecKeysDnskeyArrayOutput() GetDNSSecKeysDnskeyArrayOutput
-	ToGetDNSSecKeysDnskeyArrayOutputWithContext(context.Context) GetDNSSecKeysDnskeyArrayOutput
+	ToGetDNSSecKeyDnskeyArrayOutput() GetDNSSecKeyDnskeyArrayOutput
+	ToGetDNSSecKeyDnskeyArrayOutputWithContext(context.Context) GetDNSSecKeyDnskeyArrayOutput
 }
 
-type GetDNSSecKeysDnskeyArray []GetDNSSecKeysDnskeyInput
+type GetDNSSecKeyDnskeyArray []GetDNSSecKeyDnskeyInput
 
-func (GetDNSSecKeysDnskeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDNSSecKeysDnskey)(nil)).Elem()
+func (GetDNSSecKeyDnskeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDNSSecKeyDnskey)(nil)).Elem()
 }
 
-func (i GetDNSSecKeysDnskeyArray) ToGetDNSSecKeysDnskeyArrayOutput() GetDNSSecKeysDnskeyArrayOutput {
-	return i.ToGetDNSSecKeysDnskeyArrayOutputWithContext(context.Background())
+func (i GetDNSSecKeyDnskeyArray) ToGetDNSSecKeyDnskeyArrayOutput() GetDNSSecKeyDnskeyArrayOutput {
+	return i.ToGetDNSSecKeyDnskeyArrayOutputWithContext(context.Background())
 }
 
-func (i GetDNSSecKeysDnskeyArray) ToGetDNSSecKeysDnskeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeysDnskeyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeysDnskeyArrayOutput)
+func (i GetDNSSecKeyDnskeyArray) ToGetDNSSecKeyDnskeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeyDnskeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyDnskeyArrayOutput)
 }
 
-type GetDNSSecKeysDnskeyOutput struct{ *pulumi.OutputState }
+type GetDNSSecKeyDnskeyOutput struct{ *pulumi.OutputState }
 
-func (GetDNSSecKeysDnskeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDNSSecKeysDnskey)(nil)).Elem()
+func (GetDNSSecKeyDnskeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDNSSecKeyDnskey)(nil)).Elem()
 }
 
-func (o GetDNSSecKeysDnskeyOutput) ToGetDNSSecKeysDnskeyOutput() GetDNSSecKeysDnskeyOutput {
+func (o GetDNSSecKeyDnskeyOutput) ToGetDNSSecKeyDnskeyOutput() GetDNSSecKeyDnskeyOutput {
 	return o
 }
 
-func (o GetDNSSecKeysDnskeyOutput) ToGetDNSSecKeysDnskeyOutputWithContext(ctx context.Context) GetDNSSecKeysDnskeyOutput {
+func (o GetDNSSecKeyDnskeyOutput) ToGetDNSSecKeyDnskeyOutputWithContext(ctx context.Context) GetDNSSecKeyDnskeyOutput {
 	return o
 }
 
 // (Computed) Algorithm of the key.
-func (o GetDNSSecKeysDnskeyOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDNSSecKeysDnskey) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o GetDNSSecKeyDnskeyOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDNSSecKeyDnskey) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
 // (Computed) Flags for the key.
-func (o GetDNSSecKeysDnskeyOutput) Flags() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDNSSecKeysDnskey) string { return v.Flags }).(pulumi.StringOutput)
+func (o GetDNSSecKeyDnskeyOutput) Flags() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDNSSecKeyDnskey) string { return v.Flags }).(pulumi.StringOutput)
 }
 
 // (Computed) Protocol of the key.
-func (o GetDNSSecKeysDnskeyOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDNSSecKeysDnskey) string { return v.Protocol }).(pulumi.StringOutput)
+func (o GetDNSSecKeyDnskeyOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDNSSecKeyDnskey) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // (Computed) Public key for the key.
-func (o GetDNSSecKeysDnskeyOutput) PublicKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDNSSecKeysDnskey) string { return v.PublicKey }).(pulumi.StringOutput)
+func (o GetDNSSecKeyDnskeyOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDNSSecKeyDnskey) string { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-type GetDNSSecKeysDnskeyArrayOutput struct{ *pulumi.OutputState }
+type GetDNSSecKeyDnskeyArrayOutput struct{ *pulumi.OutputState }
 
-func (GetDNSSecKeysDnskeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDNSSecKeysDnskey)(nil)).Elem()
+func (GetDNSSecKeyDnskeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDNSSecKeyDnskey)(nil)).Elem()
 }
 
-func (o GetDNSSecKeysDnskeyArrayOutput) ToGetDNSSecKeysDnskeyArrayOutput() GetDNSSecKeysDnskeyArrayOutput {
+func (o GetDNSSecKeyDnskeyArrayOutput) ToGetDNSSecKeyDnskeyArrayOutput() GetDNSSecKeyDnskeyArrayOutput {
 	return o
 }
 
-func (o GetDNSSecKeysDnskeyArrayOutput) ToGetDNSSecKeysDnskeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeysDnskeyArrayOutput {
+func (o GetDNSSecKeyDnskeyArrayOutput) ToGetDNSSecKeyDnskeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeyDnskeyArrayOutput {
 	return o
 }
 
-func (o GetDNSSecKeysDnskeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecKeysDnskeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDNSSecKeysDnskey {
-		return vs[0].([]GetDNSSecKeysDnskey)[vs[1].(int)]
-	}).(GetDNSSecKeysDnskeyOutput)
+func (o GetDNSSecKeyDnskeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecKeyDnskeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDNSSecKeyDnskey {
+		return vs[0].([]GetDNSSecKeyDnskey)[vs[1].(int)]
+	}).(GetDNSSecKeyDnskeyOutput)
+}
+
+type GetNetworksNetwork struct {
+	// Label associated with the network.
+	Label string `pulumi:"label"`
+	// Name of the network.
+	Name string `pulumi:"name"`
+	// network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.
+	NetworkId int `pulumi:"networkId"`
+}
+
+// GetNetworksNetworkInput is an input type that accepts GetNetworksNetworkArgs and GetNetworksNetworkOutput values.
+// You can construct a concrete instance of `GetNetworksNetworkInput` via:
+//
+//	GetNetworksNetworkArgs{...}
+type GetNetworksNetworkInput interface {
+	pulumi.Input
+
+	ToGetNetworksNetworkOutput() GetNetworksNetworkOutput
+	ToGetNetworksNetworkOutputWithContext(context.Context) GetNetworksNetworkOutput
+}
+
+type GetNetworksNetworkArgs struct {
+	// Label associated with the network.
+	Label pulumi.StringInput `pulumi:"label"`
+	// Name of the network.
+	Name pulumi.StringInput `pulumi:"name"`
+	// network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.
+	NetworkId pulumi.IntInput `pulumi:"networkId"`
+}
+
+func (GetNetworksNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworksNetwork)(nil)).Elem()
+}
+
+func (i GetNetworksNetworkArgs) ToGetNetworksNetworkOutput() GetNetworksNetworkOutput {
+	return i.ToGetNetworksNetworkOutputWithContext(context.Background())
+}
+
+func (i GetNetworksNetworkArgs) ToGetNetworksNetworkOutputWithContext(ctx context.Context) GetNetworksNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworksNetworkOutput)
+}
+
+// GetNetworksNetworkArrayInput is an input type that accepts GetNetworksNetworkArray and GetNetworksNetworkArrayOutput values.
+// You can construct a concrete instance of `GetNetworksNetworkArrayInput` via:
+//
+//	GetNetworksNetworkArray{ GetNetworksNetworkArgs{...} }
+type GetNetworksNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworksNetworkArrayOutput() GetNetworksNetworkArrayOutput
+	ToGetNetworksNetworkArrayOutputWithContext(context.Context) GetNetworksNetworkArrayOutput
+}
+
+type GetNetworksNetworkArray []GetNetworksNetworkInput
+
+func (GetNetworksNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworksNetwork)(nil)).Elem()
+}
+
+func (i GetNetworksNetworkArray) ToGetNetworksNetworkArrayOutput() GetNetworksNetworkArrayOutput {
+	return i.ToGetNetworksNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworksNetworkArray) ToGetNetworksNetworkArrayOutputWithContext(ctx context.Context) GetNetworksNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworksNetworkArrayOutput)
+}
+
+type GetNetworksNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetNetworksNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworksNetwork)(nil)).Elem()
+}
+
+func (o GetNetworksNetworkOutput) ToGetNetworksNetworkOutput() GetNetworksNetworkOutput {
+	return o
+}
+
+func (o GetNetworksNetworkOutput) ToGetNetworksNetworkOutputWithContext(ctx context.Context) GetNetworksNetworkOutput {
+	return o
+}
+
+// Label associated with the network.
+func (o GetNetworksNetworkOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksNetwork) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// Name of the network.
+func (o GetNetworksNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksNetwork) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.
+func (o GetNetworksNetworkOutput) NetworkId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworksNetwork) int { return v.NetworkId }).(pulumi.IntOutput)
+}
+
+type GetNetworksNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworksNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworksNetwork)(nil)).Elem()
+}
+
+func (o GetNetworksNetworkArrayOutput) ToGetNetworksNetworkArrayOutput() GetNetworksNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworksNetworkArrayOutput) ToGetNetworksNetworkArrayOutputWithContext(ctx context.Context) GetNetworksNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworksNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworksNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworksNetwork {
+		return vs[0].([]GetNetworksNetwork)[vs[1].(int)]
+	}).(GetNetworksNetworkOutput)
 }
 
 type GetRecordAnswer struct {
@@ -3190,13 +3395,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSecondaryInput)(nil)).Elem(), ZoneSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSecondaryArrayInput)(nil)).Elem(), ZoneSecondaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationInput)(nil)).Elem(), GetDNSSecDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationArrayInput)(nil)).Elem(), GetDNSSecDelegationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDInput)(nil)).Elem(), GetDNSSecDelegationDArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDArrayInput)(nil)).Elem(), GetDNSSecDelegationDArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDnskeyInput)(nil)).Elem(), GetDNSSecDelegationDnskeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDnskeyArrayInput)(nil)).Elem(), GetDNSSecDelegationDnskeyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeysInput)(nil)).Elem(), GetDNSSecKeysArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeysDnskeyInput)(nil)).Elem(), GetDNSSecKeysDnskeyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeysDnskeyArrayInput)(nil)).Elem(), GetDNSSecKeysDnskeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeyInput)(nil)).Elem(), GetDNSSecKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeyArrayInput)(nil)).Elem(), GetDNSSecKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeyDnskeyInput)(nil)).Elem(), GetDNSSecKeyDnskeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeyDnskeyArrayInput)(nil)).Elem(), GetDNSSecKeyDnskeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkInput)(nil)).Elem(), GetNetworksNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkArrayInput)(nil)).Elem(), GetNetworksNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordAnswerInput)(nil)).Elem(), GetRecordAnswerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordAnswerArrayInput)(nil)).Elem(), GetRecordAnswerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordFilterInput)(nil)).Elem(), GetRecordFilterArgs{})
@@ -3240,13 +3449,17 @@ func init() {
 	pulumi.RegisterOutputType(ZoneSecondaryOutput{})
 	pulumi.RegisterOutputType(ZoneSecondaryArrayOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationOutput{})
+	pulumi.RegisterOutputType(GetDNSSecDelegationArrayOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationDOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationDArrayOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationDnskeyOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationDnskeyArrayOutput{})
-	pulumi.RegisterOutputType(GetDNSSecKeysOutput{})
-	pulumi.RegisterOutputType(GetDNSSecKeysDnskeyOutput{})
-	pulumi.RegisterOutputType(GetDNSSecKeysDnskeyArrayOutput{})
+	pulumi.RegisterOutputType(GetDNSSecKeyOutput{})
+	pulumi.RegisterOutputType(GetDNSSecKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetDNSSecKeyDnskeyOutput{})
+	pulumi.RegisterOutputType(GetDNSSecKeyDnskeyArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworksNetworkOutput{})
+	pulumi.RegisterOutputType(GetNetworksNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetRecordAnswerOutput{})
 	pulumi.RegisterOutputType(GetRecordAnswerArrayOutput{})
 	pulumi.RegisterOutputType(GetRecordFilterOutput{})
