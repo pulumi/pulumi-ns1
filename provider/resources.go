@@ -19,12 +19,11 @@ import (
 	"path/filepath"
 	"unicode"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/ns1-terraform/terraform-provider-ns1/ns1"
 	"github.com/pulumi/pulumi-ns1/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
@@ -65,7 +64,7 @@ func makeResource(mod string, res string) tokens.Type {
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
-	p := shimv1.NewProvider(ns1.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(ns1.Provider())
 
 	prov := tfbridge.ProviderInfo{
 		P:                p,
