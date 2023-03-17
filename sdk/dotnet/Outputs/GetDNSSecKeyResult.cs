@@ -11,20 +11,20 @@ namespace Pulumi.Ns1.Outputs
 {
 
     [OutputType]
-    public sealed class GetDNSSecKeysResult
+    public sealed class GetDNSSecKeyResult
     {
         /// <summary>
         /// (Computed) List of Keys. Key is documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDNSSecKeysDnskeyResult> Dnskeys;
+        public readonly ImmutableArray<Outputs.GetDNSSecKeyDnskeyResult> Dnskeys;
         /// <summary>
         /// (Computed) TTL for the Keys (int).
         /// </summary>
         public readonly int Ttl;
 
         [OutputConstructor]
-        private GetDNSSecKeysResult(
-            ImmutableArray<Outputs.GetDNSSecKeysDnskeyResult> dnskeys,
+        private GetDNSSecKeyResult(
+            ImmutableArray<Outputs.GetDNSSecKeyDnskeyResult> dnskeys,
 
             int ttl)
         {

@@ -5,8 +5,9 @@ package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.ns1.outputs.GetDNSSecDelegation;
-import com.pulumi.ns1.outputs.GetDNSSecKeys;
+import com.pulumi.ns1.outputs.GetDNSSecKey;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -16,7 +17,7 @@ public final class GetDNSSecResult {
      * below.
      * 
      */
-    private GetDNSSecDelegation delegation;
+    private List<GetDNSSecDelegation> delegations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -26,7 +27,7 @@ public final class GetDNSSecResult {
      * @return (Computed) - Keys field is documented below.
      * 
      */
-    private GetDNSSecKeys keys;
+    private List<GetDNSSecKey> keys;
     private String zone;
 
     private GetDNSSecResult() {}
@@ -35,8 +36,8 @@ public final class GetDNSSecResult {
      * below.
      * 
      */
-    public GetDNSSecDelegation delegation() {
-        return this.delegation;
+    public List<GetDNSSecDelegation> delegations() {
+        return this.delegations;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -49,7 +50,7 @@ public final class GetDNSSecResult {
      * @return (Computed) - Keys field is documented below.
      * 
      */
-    public GetDNSSecKeys keys() {
+    public List<GetDNSSecKey> keys() {
         return this.keys;
     }
     public String zone() {
@@ -65,23 +66,26 @@ public final class GetDNSSecResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private GetDNSSecDelegation delegation;
+        private List<GetDNSSecDelegation> delegations;
         private String id;
-        private GetDNSSecKeys keys;
+        private List<GetDNSSecKey> keys;
         private String zone;
         public Builder() {}
         public Builder(GetDNSSecResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.delegation = defaults.delegation;
+    	      this.delegations = defaults.delegations;
     	      this.id = defaults.id;
     	      this.keys = defaults.keys;
     	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
-        public Builder delegation(GetDNSSecDelegation delegation) {
-            this.delegation = Objects.requireNonNull(delegation);
+        public Builder delegations(List<GetDNSSecDelegation> delegations) {
+            this.delegations = Objects.requireNonNull(delegations);
             return this;
+        }
+        public Builder delegations(GetDNSSecDelegation... delegations) {
+            return delegations(List.of(delegations));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -89,9 +93,12 @@ public final class GetDNSSecResult {
             return this;
         }
         @CustomType.Setter
-        public Builder keys(GetDNSSecKeys keys) {
+        public Builder keys(List<GetDNSSecKey> keys) {
             this.keys = Objects.requireNonNull(keys);
             return this;
+        }
+        public Builder keys(GetDNSSecKey... keys) {
+            return keys(List.of(keys));
         }
         @CustomType.Setter
         public Builder zone(String zone) {
@@ -100,7 +107,7 @@ public final class GetDNSSecResult {
         }
         public GetDNSSecResult build() {
             final var o = new GetDNSSecResult();
-            o.delegation = delegation;
+            o.delegations = delegations;
             o.id = id;
             o.keys = keys;
             o.zone = zone;

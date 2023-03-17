@@ -22,15 +22,15 @@ class GetDNSSecResult:
     """
     A collection of values returned by getDNSSec.
     """
-    def __init__(__self__, delegation=None, id=None, keys=None, zone=None):
-        if delegation and not isinstance(delegation, dict):
-            raise TypeError("Expected argument 'delegation' to be a dict")
-        pulumi.set(__self__, "delegation", delegation)
+    def __init__(__self__, delegations=None, id=None, keys=None, zone=None):
+        if delegations and not isinstance(delegations, list):
+            raise TypeError("Expected argument 'delegations' to be a list")
+        pulumi.set(__self__, "delegations", delegations)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if keys and not isinstance(keys, dict):
-            raise TypeError("Expected argument 'keys' to be a dict")
+        if keys and not isinstance(keys, list):
+            raise TypeError("Expected argument 'keys' to be a list")
         pulumi.set(__self__, "keys", keys)
         if zone and not isinstance(zone, str):
             raise TypeError("Expected argument 'zone' to be a str")
@@ -38,12 +38,12 @@ class GetDNSSecResult:
 
     @property
     @pulumi.getter
-    def delegation(self) -> 'outputs.GetDNSSecDelegationResult':
+    def delegations(self) -> Sequence['outputs.GetDNSSecDelegationResult']:
         """
         (Computed) - Delegation field is documented
         below.
         """
-        return pulumi.get(self, "delegation")
+        return pulumi.get(self, "delegations")
 
     @property
     @pulumi.getter
@@ -55,7 +55,7 @@ class GetDNSSecResult:
 
     @property
     @pulumi.getter
-    def keys(self) -> 'outputs.GetDNSSecKeysResult':
+    def keys(self) -> Sequence['outputs.GetDNSSecKeyResult']:
         """
         (Computed) - Keys field is documented below.
         """
@@ -73,7 +73,7 @@ class AwaitableGetDNSSecResult(GetDNSSecResult):
         if False:
             yield self
         return GetDNSSecResult(
-            delegation=self.delegation,
+            delegations=self.delegations,
             id=self.id,
             keys=self.keys,
             zone=self.zone)
@@ -106,7 +106,7 @@ def get_dns_sec(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('ns1:index/getDNSSec:getDNSSec', __args__, opts=opts, typ=GetDNSSecResult).value
 
     return AwaitableGetDNSSecResult(
-        delegation=__ret__.delegation,
+        delegations=__ret__.delegations,
         id=__ret__.id,
         keys=__ret__.keys,
         zone=__ret__.zone)

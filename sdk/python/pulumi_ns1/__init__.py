@@ -11,6 +11,7 @@ from .data_feed import *
 from .data_source import *
 from .dnsview import *
 from .get_dns_sec import *
+from .get_networks import *
 from .get_record import *
 from .get_zone import *
 from .monitoring_job import *

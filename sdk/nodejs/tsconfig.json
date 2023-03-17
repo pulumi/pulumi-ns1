@@ -21,6 +21,7 @@
         "dataSource.ts",
         "dnsview.ts",
         "getDNSSec.ts",
+        "getNetworks.ts",
         "getRecord.ts",
         "getZone.ts",
         "index.ts",

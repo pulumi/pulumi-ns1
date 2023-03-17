@@ -12,6 +12,37 @@ import (
 
 // Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewApplication(ctx, "ns1App", &ns1.ApplicationArgs{
+//				DefaultConfig: &ns1.ApplicationDefaultConfigArgs{
+//					Http:                 pulumi.Bool(true),
+//					Https:                pulumi.Bool(false),
+//					JobTimeoutMillis:     pulumi.Int(100),
+//					RequestTimeoutMillis: pulumi.Int(100),
+//					StaticValues:         pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## NS1 Documentation
 //
 // [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -42,7 +73,7 @@ type Application struct {
 	BrowserWaitMillis pulumi.IntPtrOutput `pulumi:"browserWaitMillis"`
 	// Default job configuration. If a field is present here and not on a specific job
 	// associated with this application, the default value specified here is used..
-	DefaultConfig ApplicationDefaultConfigPtrOutput `pulumi:"defaultConfig"`
+	DefaultConfig ApplicationDefaultConfigOutput `pulumi:"defaultConfig"`
 	// Number of jobs to measure per user impression.
 	JobsPerTransaction pulumi.IntPtrOutput `pulumi:"jobsPerTransaction"`
 	// Descriptive name for this Pulsar app.
@@ -247,8 +278,8 @@ func (o ApplicationOutput) BrowserWaitMillis() pulumi.IntPtrOutput {
 
 // Default job configuration. If a field is present here and not on a specific job
 // associated with this application, the default value specified here is used..
-func (o ApplicationOutput) DefaultConfig() ApplicationDefaultConfigPtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationDefaultConfigPtrOutput { return v.DefaultConfig }).(ApplicationDefaultConfigPtrOutput)
+func (o ApplicationOutput) DefaultConfig() ApplicationDefaultConfigOutput {
+	return o.ApplyT(func(v *Application) ApplicationDefaultConfigOutput { return v.DefaultConfig }).(ApplicationDefaultConfigOutput)
 }
 
 // Number of jobs to measure per user impression.

@@ -100,18 +100,18 @@ export interface GetDNSSecDelegationDnskey {
     publicKey: string;
 }
 
-export interface GetDNSSecKeys {
+export interface GetDNSSecKey {
     /**
      * (Computed) List of Keys. Key is documented below.
      */
-    dnskeys: outputs.GetDNSSecKeysDnskey[];
+    dnskeys: outputs.GetDNSSecKeyDnskey[];
     /**
      * (Computed) TTL for the Keys (int).
      */
     ttl: number;
 }
 
-export interface GetDNSSecKeysDnskey {
+export interface GetDNSSecKeyDnskey {
     /**
      * (Computed) Algorithm of the key.
      */
@@ -128,6 +128,21 @@ export interface GetDNSSecKeysDnskey {
      * (Computed) Public key for the key.
      */
     publicKey: string;
+}
+
+export interface GetNetworksNetwork {
+    /**
+     * Label associated with the network.
+     */
+    label: string;
+    /**
+     * Name of the network.
+     */
+    name: string;
+    /**
+     * network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.
+     */
+    networkId: number;
 }
 
 export interface GetRecordAnswer {

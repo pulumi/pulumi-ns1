@@ -4,30 +4,30 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.ns1.outputs.GetDNSSecKeysDnskey;
+import com.pulumi.ns1.outputs.GetDNSSecKeyDnskey;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
-public final class GetDNSSecKeys {
+public final class GetDNSSecKey {
     /**
      * @return (Computed) List of Keys. Key is documented below.
      * 
      */
-    private List<GetDNSSecKeysDnskey> dnskeys;
+    private List<GetDNSSecKeyDnskey> dnskeys;
     /**
      * @return (Computed) TTL for the Keys (int).
      * 
      */
     private Integer ttl;
 
-    private GetDNSSecKeys() {}
+    private GetDNSSecKey() {}
     /**
      * @return (Computed) List of Keys. Key is documented below.
      * 
      */
-    public List<GetDNSSecKeysDnskey> dnskeys() {
+    public List<GetDNSSecKeyDnskey> dnskeys() {
         return this.dnskeys;
     }
     /**
@@ -42,26 +42,26 @@ public final class GetDNSSecKeys {
         return new Builder();
     }
 
-    public static Builder builder(GetDNSSecKeys defaults) {
+    public static Builder builder(GetDNSSecKey defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetDNSSecKeysDnskey> dnskeys;
+        private List<GetDNSSecKeyDnskey> dnskeys;
         private Integer ttl;
         public Builder() {}
-        public Builder(GetDNSSecKeys defaults) {
+        public Builder(GetDNSSecKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnskeys = defaults.dnskeys;
     	      this.ttl = defaults.ttl;
         }
 
         @CustomType.Setter
-        public Builder dnskeys(List<GetDNSSecKeysDnskey> dnskeys) {
+        public Builder dnskeys(List<GetDNSSecKeyDnskey> dnskeys) {
             this.dnskeys = Objects.requireNonNull(dnskeys);
             return this;
         }
-        public Builder dnskeys(GetDNSSecKeysDnskey... dnskeys) {
+        public Builder dnskeys(GetDNSSecKeyDnskey... dnskeys) {
             return dnskeys(List.of(dnskeys));
         }
         @CustomType.Setter
@@ -69,8 +69,8 @@ public final class GetDNSSecKeys {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
         }
-        public GetDNSSecKeys build() {
-            final var o = new GetDNSSecKeys();
+        public GetDNSSecKey build() {
+            final var o = new GetDNSSecKey();
             o.dnskeys = dnskeys;
             o.ttl = ttl;
             return o;

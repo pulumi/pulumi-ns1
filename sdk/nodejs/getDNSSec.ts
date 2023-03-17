@@ -51,7 +51,7 @@ export interface GetDNSSecResult {
      * (Computed) - Delegation field is documented
      * below.
      */
-    readonly delegation: outputs.GetDNSSecDelegation;
+    readonly delegations: outputs.GetDNSSecDelegation[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -59,7 +59,7 @@ export interface GetDNSSecResult {
     /**
      * (Computed) - Keys field is documented below.
      */
-    readonly keys: outputs.GetDNSSecKeys;
+    readonly keys: outputs.GetDNSSecKey[];
     readonly zone: string;
 }
 /**

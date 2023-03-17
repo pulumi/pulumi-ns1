@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -48,9 +47,9 @@ import javax.annotation.Nullable;
  *             .defaultConfig(ApplicationDefaultConfigArgs.builder()
  *                 .http(true)
  *                 .https(false)
- *                 .job_timeout_millis(100)
- *                 .request_timeout_millis(100)
- *                 .static_values(true)
+ *                 .jobTimeoutMillis(100)
+ *                 .requestTimeoutMillis(100)
+ *                 .staticValues(true)
  *                 .build())
  *             .build());
  * 
@@ -114,15 +113,15 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultConfig", type=ApplicationDefaultConfig.class, parameters={})
-    private Output</* @Nullable */ ApplicationDefaultConfig> defaultConfig;
+    private Output<ApplicationDefaultConfig> defaultConfig;
 
     /**
      * @return Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      * 
      */
-    public Output<Optional<ApplicationDefaultConfig>> defaultConfig() {
-        return Codegen.optional(this.defaultConfig);
+    public Output<ApplicationDefaultConfig> defaultConfig() {
+        return this.defaultConfig;
     }
     /**
      * Number of jobs to measure per user impression.

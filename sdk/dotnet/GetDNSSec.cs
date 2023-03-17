@@ -117,7 +117,7 @@ namespace Pulumi.Ns1
         /// (Computed) - Delegation field is documented
         /// below.
         /// </summary>
-        public readonly Outputs.GetDNSSecDelegationResult Delegation;
+        public readonly ImmutableArray<Outputs.GetDNSSecDelegationResult> Delegations;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -125,20 +125,20 @@ namespace Pulumi.Ns1
         /// <summary>
         /// (Computed) - Keys field is documented below.
         /// </summary>
-        public readonly Outputs.GetDNSSecKeysResult Keys;
+        public readonly ImmutableArray<Outputs.GetDNSSecKeyResult> Keys;
         public readonly string Zone;
 
         [OutputConstructor]
         private GetDNSSecResult(
-            Outputs.GetDNSSecDelegationResult delegation,
+            ImmutableArray<Outputs.GetDNSSecDelegationResult> delegations,
 
             string id,
 
-            Outputs.GetDNSSecKeysResult keys,
+            ImmutableArray<Outputs.GetDNSSecKeyResult> keys,
 
             string zone)
         {
-            Delegation = delegation;
+            Delegations = delegations;
             Id = id;
             Keys = keys;
             Zone = zone;

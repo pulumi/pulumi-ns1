@@ -1,30 +1,41 @@
-diff --git b/go.mod a/go.mod
-index 973fb21..6b8e198 100644
---- b/go.mod
-+++ a/go.mod
+From 9571e4ac60532da4f30cb30ebbd6a35de580a010 Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Thu, 16 Mar 2023 16:54:28 +0100
+Subject: [PATCH] fork
+
+---
+ go.mod                 | 2 +-
+ main.go                | 2 +-
+ ns1/resource_record.go | 9 +--------
+ 3 files changed, 3 insertions(+), 10 deletions(-)
+
+diff --git a/go.mod b/go.mod
+index 5565b62..d34e1ef 100644
+--- a/go.mod
++++ b/go.mod
 @@ -1,4 +1,4 @@
 -module github.com/terraform-providers/terraform-provider-ns1
 +module github.com/ns1-terraform/terraform-provider-ns1
  
  go 1.19
  
-diff --git b/main.go a/main.go
-index e07eac5..57e6ec6 100644
---- b/main.go
-+++ a/main.go
-@@ -2,7 +2,7 @@ package main
+diff --git a/main.go b/main.go
+index 97093e2..dd93b8b 100644
+--- a/main.go
++++ b/main.go
+@@ -6,7 +6,7 @@ import (
+ 	"log"
  
- import (
- 	"github.com/hashicorp/terraform-plugin-sdk/plugin"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 -	"github.com/terraform-providers/terraform-provider-ns1/ns1"
 +	"github.com/ns1-terraform/terraform-provider-ns1/ns1"
  )
  
  func main() {
-diff --git b/ns1/resource_record.go a/ns1/resource_record.go
-index 32d9062..650206e 100644
---- b/ns1/resource_record.go
-+++ a/ns1/resource_record.go
+diff --git a/ns1/resource_record.go b/ns1/resource_record.go
+index df6c695..1d5476c 100644
+--- a/ns1/resource_record.go
++++ b/ns1/resource_record.go
 @@ -92,14 +92,7 @@ func recordResource() *schema.Resource {
  				Type:     schema.TypeList,
  				Optional: true,
@@ -41,3 +52,6 @@ index 32d9062..650206e 100644
  			},
  			"answers": {
  				Type:     schema.TypeList,
+-- 
+2.39.1
+

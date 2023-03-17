@@ -12,6 +12,30 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new pulsar application with default config
+    ///     var ns1App = new Ns1.Application("ns1App", new()
+    ///     {
+    ///         DefaultConfig = new Ns1.Inputs.ApplicationDefaultConfigArgs
+    ///         {
+    ///             Http = true,
+    ///             Https = false,
+    ///             JobTimeoutMillis = 100,
+    ///             RequestTimeoutMillis = 100,
+    ///             StaticValues = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## NS1 Documentation
     /// 
     /// [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -50,7 +74,7 @@ namespace Pulumi.Ns1
         /// associated with this application, the default value specified here is used..
         /// </summary>
         [Output("defaultConfig")]
-        public Output<Outputs.ApplicationDefaultConfig?> DefaultConfig { get; private set; } = null!;
+        public Output<Outputs.ApplicationDefaultConfig> DefaultConfig { get; private set; } = null!;
 
         /// <summary>
         /// Number of jobs to measure per user impression.
