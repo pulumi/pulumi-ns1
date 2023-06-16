@@ -20,12 +20,52 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Space delimited string of RDATA fields dependent on the record type.
      * 
+     * A:
+     * 
+     * answer = &#34;1.2.3.4&#34;
+     * 
+     * CNAME:
+     * 
+     * answer = &#34;www.example.com&#34;
+     * 
+     * MX:
+     * 
+     * answer = &#34;5 mail.example.com&#34;
+     * 
+     * SRV:
+     * 
+     * answer = &#34;10 0 2380 node-1.example.com&#34;
+     * 
+     * SPF:
+     * 
+     * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
+     * 
      */
     @Import(name="answer")
     private @Nullable Output<String> answer;
 
     /**
      * @return Space delimited string of RDATA fields dependent on the record type.
+     * 
+     * A:
+     * 
+     * answer = &#34;1.2.3.4&#34;
+     * 
+     * CNAME:
+     * 
+     * answer = &#34;www.example.com&#34;
+     * 
+     * MX:
+     * 
+     * answer = &#34;5 mail.example.com&#34;
+     * 
+     * SRV:
+     * 
+     * answer = &#34;10 0 2380 node-1.example.com&#34;
+     * 
+     * SPF:
+     * 
+     * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
      */
     public Optional<Output<String>> answer() {
@@ -95,6 +135,26 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param answer Space delimited string of RDATA fields dependent on the record type.
          * 
+         * A:
+         * 
+         * answer = &#34;1.2.3.4&#34;
+         * 
+         * CNAME:
+         * 
+         * answer = &#34;www.example.com&#34;
+         * 
+         * MX:
+         * 
+         * answer = &#34;5 mail.example.com&#34;
+         * 
+         * SRV:
+         * 
+         * answer = &#34;10 0 2380 node-1.example.com&#34;
+         * 
+         * SPF:
+         * 
+         * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
+         * 
          * @return builder
          * 
          */
@@ -105,6 +165,26 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param answer Space delimited string of RDATA fields dependent on the record type.
+         * 
+         * A:
+         * 
+         * answer = &#34;1.2.3.4&#34;
+         * 
+         * CNAME:
+         * 
+         * answer = &#34;www.example.com&#34;
+         * 
+         * MX:
+         * 
+         * answer = &#34;5 mail.example.com&#34;
+         * 
+         * SRV:
+         * 
+         * answer = &#34;10 0 2380 node-1.example.com&#34;
+         * 
+         * SPF:
+         * 
+         * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
          * 
          * @return builder
          * 

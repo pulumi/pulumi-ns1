@@ -1134,6 +1134,41 @@ class APIKey(pulumi.CustomResource):
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example_team = ns1.Team("exampleTeam")
+        example_api_key = ns1.APIKey("exampleAPIKey",
+            teams=[example_team.id],
+            ip_whitelists=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
+        ```
+        ## Permissions
+
+        An API key will inherit permissions from the teams it is assigned to.
+        If a key is assigned to a team and also has individual permissions set on the key, the individual permissions
+        will be overridden by the inherited team permissions.
+        In a future release, setting permissions on a key that is part of a team will be explicitly disabled.
+
+        When a key is removed from all teams completely, it will inherit whatever permissions it had previously.
+        If a key is removed from all it's teams, it will probably be necessary to run `pulumi up` a second time
+        to update the keys permissions from it's old team permissions to new key-specific permissions.
+
+        See [the NS1 API docs](https://ns1.com/api#getget-all-account-users) for an overview of permission semantics or for [more details](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) about the individual permission flags.
+
+        ## NS1 Documentation
+
+        [ApiKeys Api Doc](https://ns1.com/api#api-key)
+
         ## Import
 
         ```sh
@@ -1193,6 +1228,41 @@ class APIKey(pulumi.CustomResource):
                  args: Optional[APIKeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example_team = ns1.Team("exampleTeam")
+        example_api_key = ns1.APIKey("exampleAPIKey",
+            teams=[example_team.id],
+            ip_whitelists=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
+        ```
+        ## Permissions
+
+        An API key will inherit permissions from the teams it is assigned to.
+        If a key is assigned to a team and also has individual permissions set on the key, the individual permissions
+        will be overridden by the inherited team permissions.
+        In a future release, setting permissions on a key that is part of a team will be explicitly disabled.
+
+        When a key is removed from all teams completely, it will inherit whatever permissions it had previously.
+        If a key is removed from all it's teams, it will probably be necessary to run `pulumi up` a second time
+        to update the keys permissions from it's old team permissions to new key-specific permissions.
+
+        See [the NS1 API docs](https://ns1.com/api#getget-all-account-users) for an overview of permission semantics or for [more details](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) about the individual permission flags.
+
+        ## NS1 Documentation
+
+        [ApiKeys Api Doc](https://ns1.com/api#api-key)
+
         ## Import
 
         ```sh

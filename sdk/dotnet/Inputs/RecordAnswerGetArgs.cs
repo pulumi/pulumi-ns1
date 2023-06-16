@@ -14,6 +14,26 @@ namespace Pulumi.Ns1.Inputs
     {
         /// <summary>
         /// Space delimited string of RDATA fields dependent on the record type.
+        /// 
+        /// A:
+        /// 
+        /// answer = "1.2.3.4"
+        /// 
+        /// CNAME:
+        /// 
+        /// answer = "www.example.com"
+        /// 
+        /// MX:
+        /// 
+        /// answer = "5 mail.example.com"
+        /// 
+        /// SRV:
+        /// 
+        /// answer = "10 0 2380 node-1.example.com"
+        /// 
+        /// SPF:
+        /// 
+        /// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
         /// </summary>
         [Input("answer")]
         public Input<string>? Answer { get; set; }

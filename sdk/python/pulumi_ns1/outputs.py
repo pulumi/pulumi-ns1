@@ -463,6 +463,26 @@ class RecordAnswer(dict):
                  region: Optional[str] = None):
         """
         :param str answer: Space delimited string of RDATA fields dependent on the record type.
+               
+               A:
+               
+               answer = "1.2.3.4"
+               
+               CNAME:
+               
+               answer = "www.example.com"
+               
+               MX:
+               
+               answer = "5 mail.example.com"
+               
+               SRV:
+               
+               answer = "10 0 2380 node-1.example.com"
+               
+               SPF:
+               
+               answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
         :param str region: The region (Answer Group really) that this answer
                belongs to. This should be one of the names specified in `regions`. Only a
                single `region` per answer is currently supported. If you want an answer in
@@ -483,6 +503,26 @@ class RecordAnswer(dict):
     def answer(self) -> Optional[str]:
         """
         Space delimited string of RDATA fields dependent on the record type.
+
+        A:
+
+        answer = "1.2.3.4"
+
+        CNAME:
+
+        answer = "www.example.com"
+
+        MX:
+
+        answer = "5 mail.example.com"
+
+        SRV:
+
+        answer = "10 0 2380 node-1.example.com"
+
+        SPF:
+
+        answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
         """
         return pulumi.get(self, "answer")
 

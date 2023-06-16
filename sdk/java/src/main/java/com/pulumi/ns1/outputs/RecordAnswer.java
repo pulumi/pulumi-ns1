@@ -16,6 +16,26 @@ public final class RecordAnswer {
     /**
      * @return Space delimited string of RDATA fields dependent on the record type.
      * 
+     * A:
+     * 
+     * answer = &#34;1.2.3.4&#34;
+     * 
+     * CNAME:
+     * 
+     * answer = &#34;www.example.com&#34;
+     * 
+     * MX:
+     * 
+     * answer = &#34;5 mail.example.com&#34;
+     * 
+     * SRV:
+     * 
+     * answer = &#34;10 0 2380 node-1.example.com&#34;
+     * 
+     * SPF:
+     * 
+     * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
+     * 
      */
     private @Nullable String answer;
     private @Nullable Map<String,Object> meta;
@@ -34,6 +54,26 @@ public final class RecordAnswer {
     private RecordAnswer() {}
     /**
      * @return Space delimited string of RDATA fields dependent on the record type.
+     * 
+     * A:
+     * 
+     * answer = &#34;1.2.3.4&#34;
+     * 
+     * CNAME:
+     * 
+     * answer = &#34;www.example.com&#34;
+     * 
+     * MX:
+     * 
+     * answer = &#34;5 mail.example.com&#34;
+     * 
+     * SRV:
+     * 
+     * answer = &#34;10 0 2380 node-1.example.com&#34;
+     * 
+     * SPF:
+     * 
+     * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
      */
     public Optional<String> answer() {

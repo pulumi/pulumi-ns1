@@ -21,6 +21,71 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a NS1 User resource. Creating a user sends an invitation email to the
+ * user&#39;s email address. This can be used to create, modify, and delete users.
+ * The credentials used must have the `manage_users` permission set.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.Team;
+ * import com.pulumi.ns1.TeamArgs;
+ * import com.pulumi.ns1.User;
+ * import com.pulumi.ns1.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleTeam = new Team(&#34;exampleTeam&#34;, TeamArgs.builder()        
+ *             .ipWhitelists(            
+ *                 &#34;1.1.1.1&#34;,
+ *                 &#34;2.2.2.2&#34;)
+ *             .dnsViewZones(false)
+ *             .accountManageUsers(false)
+ *             .build());
+ * 
+ *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *             .username(&#34;example_user&#34;)
+ *             .email(&#34;user@example.com&#34;)
+ *             .teams(exampleTeam.id())
+ *             .notify(Map.of(&#34;billing&#34;, false))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Permissions
+ * 
+ * A user will inherit permissions from the teams they are assigned to.
+ * If a user is assigned to a team and also has individual permissions set on the user, the individual permissions
+ * will be overridden by the inherited team permissions.
+ * In a future release, setting permissions on a user that is part of a team will be explicitly disabled.
+ * 
+ * When a user is removed from all teams completely, they will inherit whatever permissions they had previously.
+ * If a user is removed from all their teams, it will probably be necessary to run `pulumi up` a second time
+ * to update the users permissions from their old team permissions to new user-specific permissions.
+ * 
+ * See [this NS1 Help Center article](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) for an overview of user permission settings.
+ * 
+ * ## NS1 Documentation
+ * 
+ * [User Api Docs](https://ns1.com/api#user)
+ * 
+ * [Managing user permissions](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions)
+ * 
  * ## Import
  * 
  * ```sh
