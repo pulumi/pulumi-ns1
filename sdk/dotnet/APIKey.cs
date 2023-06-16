@@ -10,6 +10,54 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1
 {
     /// <summary>
+    /// Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTeam = new Ns1.Team("exampleTeam");
+    /// 
+    ///     var exampleAPIKey = new Ns1.APIKey("exampleAPIKey", new()
+    ///     {
+    ///         Teams = new[]
+    ///         {
+    ///             exampleTeam.Id,
+    ///         },
+    ///         IpWhitelists = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///             "2.2.2.2",
+    ///         },
+    ///         DnsViewZones = false,
+    ///         AccountManageUsers = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Permissions
+    /// 
+    /// An API key will inherit permissions from the teams it is assigned to.
+    /// If a key is assigned to a team and also has individual permissions set on the key, the individual permissions
+    /// will be overridden by the inherited team permissions.
+    /// In a future release, setting permissions on a key that is part of a team will be explicitly disabled.
+    /// 
+    /// When a key is removed from all teams completely, it will inherit whatever permissions it had previously.
+    /// If a key is removed from all it's teams, it will probably be necessary to run `pulumi up` a second time
+    /// to update the keys permissions from it's old team permissions to new key-specific permissions.
+    /// 
+    /// See [the NS1 API docs](https://ns1.com/api#getget-all-account-users) for an overview of permission semantics or for [more details](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) about the individual permission flags.
+    /// 
+    /// ## NS1 Documentation
+    /// 
+    /// [ApiKeys Api Doc](https://ns1.com/api#api-key)
+    /// 
     /// ## Import
     /// 
     /// ```sh

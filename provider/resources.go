@@ -15,6 +15,8 @@
 package ns1
 
 import (
+	// Allow metadata embedding
+	_ "embed"
 	"fmt"
 	"path/filepath"
 	"unicode"
@@ -62,6 +64,9 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
+//go:embed cmd/pulumi-resource-ns1/bridge-metadata.json
+var metadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(ns1.Provider())
@@ -69,6 +74,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:                p,
 		Name:             "ns1",
+		Version:          version.Version,
 		Description:      "A Pulumi package for creating and managing ns1 cloud resources.",
 		Keywords:         []string{"pulumi", "ns1"},
 		License:          "Apache-2.0",
@@ -77,6 +83,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:       "https://github.com/pulumi/pulumi-ns1",
 		Config:           map[string]*tfbridge.SchemaInfo{},
 		UpstreamRepoPath: "./upstream",
+		MetadataInfo:     tfbridge.NewProviderMetadata(metadata),
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"ns1_zone": {
 				Tok: makeResource(mainMod, "Zone"),
@@ -86,21 +93,17 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"ns1_record":        {Tok: makeResource(mainMod, "Record")},
 			"ns1_monitoringjob": {Tok: makeResource(mainMod, "MonitoringJob")},
 			"ns1_notifylist":    {Tok: makeResource(mainMod, "NotifyList")},
 			"ns1_datasource":    {Tok: makeResource(mainMod, "DataSource")},
 			"ns1_datafeed":      {Tok: makeResource(mainMod, "DataFeed")},
 			"ns1_apikey":        {Tok: makeResource(mainMod, "APIKey")},
-			"ns1_team":          {Tok: makeResource(mainMod, "Team")},
-			"ns1_user":          {Tok: makeResource(mainMod, "User")},
 			"ns1_pulsarjob": {
 				Tok: makeResource(mainMod, "PulsarJob"),
 				Docs: &tfbridge.DocInfo{
 					Markdown: []byte(" "),
 				},
 			},
-			"ns1_application": {Tok: makeResource(mainMod, "Application")},
 			"ns1_subnet": {
 				Tok: makeResource(mainMod, "Subnet"),
 				Docs: &tfbridge.DocInfo{
@@ -116,9 +119,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"ns1_zone":   {Tok: makeDataSource(mainMod, "getZone")},
 			"ns1_dnssec": {Tok: makeDataSource(mainMod, "getDNSSec")},
-			"ns1_record": {Tok: makeDataSource(mainMod, "getRecord")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -151,9 +152,12 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("ns1_", mainMod, x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "failed to compute default tokens")
 
 	prov.SetAutonaming(255, "-")
+
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "failed to apply automatic aliases")
 
 	return prov
 }

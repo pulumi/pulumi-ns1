@@ -19,6 +19,62 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.Team;
+ * import com.pulumi.ns1.APIKey;
+ * import com.pulumi.ns1.APIKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleTeam = new Team(&#34;exampleTeam&#34;);
+ * 
+ *         var exampleAPIKey = new APIKey(&#34;exampleAPIKey&#34;, APIKeyArgs.builder()        
+ *             .teams(exampleTeam.id())
+ *             .ipWhitelists(            
+ *                 &#34;1.1.1.1&#34;,
+ *                 &#34;2.2.2.2&#34;)
+ *             .dnsViewZones(false)
+ *             .accountManageUsers(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Permissions
+ * 
+ * An API key will inherit permissions from the teams it is assigned to.
+ * If a key is assigned to a team and also has individual permissions set on the key, the individual permissions
+ * will be overridden by the inherited team permissions.
+ * In a future release, setting permissions on a key that is part of a team will be explicitly disabled.
+ * 
+ * When a key is removed from all teams completely, it will inherit whatever permissions it had previously.
+ * If a key is removed from all it&#39;s teams, it will probably be necessary to run `pulumi up` a second time
+ * to update the keys permissions from it&#39;s old team permissions to new key-specific permissions.
+ * 
+ * See [the NS1 API docs](https://ns1.com/api#getget-all-account-users) for an overview of permission semantics or for [more details](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) about the individual permission flags.
+ * 
+ * ## NS1 Documentation
+ * 
+ * [ApiKeys Api Doc](https://ns1.com/api#api-key)
+ * 
  * ## Import
  * 
  * ```sh

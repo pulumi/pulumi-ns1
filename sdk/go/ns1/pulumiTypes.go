@@ -1167,6 +1167,26 @@ func (o PulsarJobWeightArrayOutput) Index(i pulumi.IntInput) PulsarJobWeightOutp
 
 type RecordAnswer struct {
 	// Space delimited string of RDATA fields dependent on the record type.
+	//
+	// A:
+	//
+	// answer = "1.2.3.4"
+	//
+	// CNAME:
+	//
+	// answer = "www.example.com"
+	//
+	// MX:
+	//
+	// answer = "5 mail.example.com"
+	//
+	// SRV:
+	//
+	// answer = "10 0 2380 node-1.example.com"
+	//
+	// SPF:
+	//
+	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 	Answer *string                `pulumi:"answer"`
 	Meta   map[string]interface{} `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
@@ -1192,6 +1212,26 @@ type RecordAnswerInput interface {
 
 type RecordAnswerArgs struct {
 	// Space delimited string of RDATA fields dependent on the record type.
+	//
+	// A:
+	//
+	// answer = "1.2.3.4"
+	//
+	// CNAME:
+	//
+	// answer = "www.example.com"
+	//
+	// MX:
+	//
+	// answer = "5 mail.example.com"
+	//
+	// SRV:
+	//
+	// answer = "10 0 2380 node-1.example.com"
+	//
+	// SPF:
+	//
+	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 	Answer pulumi.StringPtrInput `pulumi:"answer"`
 	Meta   pulumi.MapInput       `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
@@ -1256,6 +1296,26 @@ func (o RecordAnswerOutput) ToRecordAnswerOutputWithContext(ctx context.Context)
 }
 
 // Space delimited string of RDATA fields dependent on the record type.
+//
+// A:
+//
+// answer = "1.2.3.4"
+//
+// CNAME:
+//
+// answer = "www.example.com"
+//
+// MX:
+//
+// answer = "5 mail.example.com"
+//
+// SRV:
+//
+// answer = "10 0 2380 node-1.example.com"
+//
+// SPF:
+//
+// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 func (o RecordAnswerOutput) Answer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordAnswer) *string { return v.Answer }).(pulumi.StringPtrOutput)
 }

@@ -10,6 +10,66 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1
 {
     /// <summary>
+    /// Provides a NS1 User resource. Creating a user sends an invitation email to the
+    /// user's email address. This can be used to create, modify, and delete users.
+    /// The credentials used must have the `manage_users` permission set.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTeam = new Ns1.Team("exampleTeam", new()
+    ///     {
+    ///         IpWhitelists = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///             "2.2.2.2",
+    ///         },
+    ///         DnsViewZones = false,
+    ///         AccountManageUsers = false,
+    ///     });
+    /// 
+    ///     var exampleUser = new Ns1.User("exampleUser", new()
+    ///     {
+    ///         Username = "example_user",
+    ///         Email = "user@example.com",
+    ///         Teams = new[]
+    ///         {
+    ///             exampleTeam.Id,
+    ///         },
+    ///         Notify = 
+    ///         {
+    ///             { "billing", false },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Permissions
+    /// 
+    /// A user will inherit permissions from the teams they are assigned to.
+    /// If a user is assigned to a team and also has individual permissions set on the user, the individual permissions
+    /// will be overridden by the inherited team permissions.
+    /// In a future release, setting permissions on a user that is part of a team will be explicitly disabled.
+    /// 
+    /// When a user is removed from all teams completely, they will inherit whatever permissions they had previously.
+    /// If a user is removed from all their teams, it will probably be necessary to run `pulumi up` a second time
+    /// to update the users permissions from their old team permissions to new user-specific permissions.
+    /// 
+    /// See [this NS1 Help Center article](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) for an overview of user permission settings.
+    /// 
+    /// ## NS1 Documentation
+    /// 
+    /// [User Api Docs](https://ns1.com/api#user)
+    /// 
+    /// [Managing user permissions](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions)
+    /// 
     /// ## Import
     /// 
     /// ```sh

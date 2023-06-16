@@ -17,6 +17,7 @@ namespace Pulumi.Ns1
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Ns1 = Pulumi.Ns1;
     /// 
