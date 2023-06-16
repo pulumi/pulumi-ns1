@@ -84,36 +84,16 @@
         "ns1:index/APIKeyDnsRecordsAllow:APIKeyDnsRecordsAllow": {
             "properties": {
                 "domain": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "includeSubdomains": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -127,36 +107,16 @@
         "ns1:index/APIKeyDnsRecordsDeny:APIKeyDnsRecordsDeny": {
             "properties": {
                 "domain": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "includeSubdomains": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -171,57 +131,27 @@
             "properties": {
                 "http": {
                     "type": "boolean",
-                    "description": "Indicates whether or not to use HTTP in measurements.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Indicates whether or not to use HTTP in measurements.\n"
                 },
                 "https": {
                     "type": "boolean",
-                    "description": "Indicates whether or not to use HTTPS in measurements.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Indicates whether or not to use HTTPS in measurements.\n"
                 },
                 "jobTimeoutMillis": {
                     "type": "integer",
-                    "description": "Maximum timeout per job\n0, the primary NSONE Global Network. Normally, you should not have to worry about this.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Maximum timeout per job\n0, the primary NSONE Global Network. Normally, you should not have to worry about this.\n"
                 },
                 "requestTimeoutMillis": {
                     "type": "integer",
-                    "description": "Maximum timeout per request.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Maximum timeout per request.\n"
                 },
                 "staticValues": {
                     "type": "boolean",
-                    "description": "Indicates whether or not to skip aggregation for this job's measurements\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Indicates whether or not to skip aggregation for this job's measurements\n"
                 },
                 "useXhr": {
                     "type": "boolean",
-                    "description": "Whether to use XMLHttpRequest (XHR) when taking measurements.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether to use XMLHttpRequest (XHR) when taking measurements.\n"
                 }
             },
             "type": "object",
@@ -232,28 +162,13 @@
         "ns1:index/MonitoringJobRule:MonitoringJobRule": {
             "properties": {
                 "comparison": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "value": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -270,21 +185,11 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Configuration details for the given notifier type.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Configuration details for the given notifier type.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of notifier. Available notifiers are indicated in /notifytypes endpoint.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The type of notifier. Available notifiers are indicated in /notifytypes endpoint.\n"
                 }
             },
             "type": "object",
@@ -296,12 +201,7 @@
         "ns1:index/PulsarJobBlendMetricWeights:PulsarJobBlendMetricWeights": {
             "properties": {
                 "timestamp": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -312,68 +212,28 @@
         "ns1:index/PulsarJobConfig:PulsarJobConfig": {
             "properties": {
                 "host": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "http": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "https": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "jobTimeoutMillis": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "requestTimeoutMillis": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "staticValues": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "urlPath": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "useXhr": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 }
             },
             "type": "object"
@@ -381,36 +241,16 @@
         "ns1:index/PulsarJobWeight:PulsarJobWeight": {
             "properties": {
                 "defaultValue": {
-                    "type": "number",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "number"
                 },
                 "maximize": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "weight": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -424,32 +264,17 @@
             "properties": {
                 "answer": {
                     "type": "string",
-                    "description": "Space delimited string of RDATA fields dependent on the record type.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Space delimited string of RDATA fields dependent on the record type.\n\nA:\n\nanswer = \"1.2.3.4\"\n\nCNAME:\n\nanswer = \"www.example.com\"\n\nMX:\n\nanswer = \"5 mail.example.com\"\n\nSRV:\n\nanswer = \"10 0 2380 node-1.example.com\"\n\nSPF:\n\nanswer = \"v=DKIM1; k=rsa; p=XXXXXXXX\"\n"
                 },
                 "meta": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "region": {
                     "type": "string",
-                    "description": "The region (Answer Group really) that this answer\nbelongs to. This should be one of the names specified in `regions`. Only a\nsingle `region` per answer is currently supported. If you want an answer in\nmultiple regions, duplicating the answer (including metadata) is the correct\napproach.\n* ` meta` - (Optional) meta is supported at the `answer` level. Meta\nis documented below.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The region (Answer Group really) that this answer\nbelongs to. This should be one of the names specified in `regions`. Only a\nsingle `region` per answer is currently supported. If you want an answer in\nmultiple regions, duplicating the answer (including metadata) is the correct\napproach.\n* ` meta` - (Optional) meta is supported at the `answer` level. Meta\nis documented below.\n"
                 }
             },
             "type": "object"
@@ -461,30 +286,15 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "The filters' configuration. Simple key/value pairs\ndetermined by the filter type.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The filters' configuration. Simple key/value pairs\ndetermined by the filter type.\n"
                 },
                 "disabled": {
                     "type": "boolean",
-                    "description": "Determines whether the filter is applied in the\nfilter chain.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Determines whether the filter is applied in the\nfilter chain.\n"
                 },
                 "filter": {
                     "type": "string",
-                    "description": "The type of filter.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The type of filter.\n"
                 }
             },
             "type": "object",
@@ -498,21 +308,11 @@
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the region (or Answer Group).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the region (or Answer Group).\n"
                 }
             },
             "type": "object",
@@ -523,36 +323,16 @@
         "ns1:index/TeamDnsRecordsAllow:TeamDnsRecordsAllow": {
             "properties": {
                 "domain": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "includeSubdomains": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -566,36 +346,16 @@
         "ns1:index/TeamDnsRecordsDeny:TeamDnsRecordsDeny": {
             "properties": {
                 "domain": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "includeSubdomains": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -610,22 +370,12 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The free form name of the team.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The free form name of the team.\n"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -638,36 +388,16 @@
         "ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow": {
             "properties": {
                 "domain": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "includeSubdomains": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -681,36 +411,16 @@
         "ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny": {
             "properties": {
                 "domain": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "includeSubdomains": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zone": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -725,42 +435,22 @@
             "properties": {
                 "ip": {
                     "type": "string",
-                    "description": "IPv4 address of the secondary server.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "IPv4 address of the secondary server.\n"
                 },
                 "networks": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "List of network IDs (`int`) for which the zone\nshould be made available. Default is network 0, the primary NSONE Global\nNetwork. Normally, you should not have to worry about this.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "List of network IDs (`int`) for which the zone\nshould be made available. Default is network 0, the primary NSONE Global\nNetwork. Normally, you should not have to worry about this.\n"
                 },
                 "notify": {
                     "type": "boolean",
-                    "description": "Whether we send `NOTIFY` messages to the secondary host\nwhen the zone changes. Default `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether we send `NOTIFY` messages to the secondary host\nwhen the zone changes. Default `false`.\n"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "Port of the the secondary server. Default `53`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Port of the the secondary server. Default `53`.\n"
                 }
             },
             "type": "object",
@@ -785,33 +475,18 @@
                     "items": {
                         "$ref": "#/types/ns1:index/getDNSSecDelegationDnskey:getDNSSecDelegationDnskey"
                     },
-                    "description": "(Computed) List of Keys. Key is documented below.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) List of Keys. Key is documented below.\n"
                 },
                 "ds": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/ns1:index/getDNSSecDelegationD:getDNSSecDelegationD"
                     },
-                    "description": "(Computed) List of Keys. Key is documented below.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) List of Keys. Key is documented below.\n"
                 },
                 "ttl": {
                     "type": "integer",
-                    "description": "(Computed) TTL for the Keys (int).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) TTL for the Keys (int).\n"
                 }
             },
             "type": "object",
@@ -830,39 +505,19 @@
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "(Computed) Algorithm of the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Algorithm of the key.\n"
                 },
                 "flags": {
                     "type": "string",
-                    "description": "(Computed) Flags for the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Flags for the key.\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "(Computed) Protocol of the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Protocol of the key.\n"
                 },
                 "publicKey": {
                     "type": "string",
-                    "description": "(Computed) Public key for the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Public key for the key.\n"
                 }
             },
             "type": "object",
@@ -882,39 +537,19 @@
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "(Computed) Algorithm of the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Algorithm of the key.\n"
                 },
                 "flags": {
                     "type": "string",
-                    "description": "(Computed) Flags for the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Flags for the key.\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "(Computed) Protocol of the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Protocol of the key.\n"
                 },
                 "publicKey": {
                     "type": "string",
-                    "description": "(Computed) Public key for the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Public key for the key.\n"
                 }
             },
             "type": "object",
@@ -937,21 +572,11 @@
                     "items": {
                         "$ref": "#/types/ns1:index/getDNSSecKeyDnskey:getDNSSecKeyDnskey"
                     },
-                    "description": "(Computed) List of Keys. Key is documented below.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) List of Keys. Key is documented below.\n"
                 },
                 "ttl": {
                     "type": "integer",
-                    "description": "(Computed) TTL for the Keys (int).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) TTL for the Keys (int).\n"
                 }
             },
             "type": "object",
@@ -969,39 +594,19 @@
             "properties": {
                 "algorithm": {
                     "type": "string",
-                    "description": "(Computed) Algorithm of the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Algorithm of the key.\n"
                 },
                 "flags": {
                     "type": "string",
-                    "description": "(Computed) Flags for the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Flags for the key.\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "(Computed) Protocol of the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Protocol of the key.\n"
                 },
                 "publicKey": {
                     "type": "string",
-                    "description": "(Computed) Public key for the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Computed) Public key for the key.\n"
                 }
             },
             "type": "object",
@@ -1021,30 +626,15 @@
             "properties": {
                 "label": {
                     "type": "string",
-                    "description": "Label associated with the network.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Label associated with the network.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the network.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Name of the network.\n"
                 },
                 "networkId": {
                     "type": "integer",
-                    "description": "network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.\n"
                 }
             },
             "type": "object",
@@ -1062,32 +652,17 @@
         "ns1:index/getRecordAnswer:getRecordAnswer": {
             "properties": {
                 "answer": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "meta": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Map of metadata\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Map of metadata\n"
                 },
                 "region": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1108,28 +683,13 @@
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "disabled": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "filter": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1151,20 +711,10 @@
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
                     },
-                    "description": "Map of metadata\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Map of metadata\n"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1182,42 +732,22 @@
             "properties": {
                 "ip": {
                     "type": "string",
-                    "description": "IPv4 address of the secondary server.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "IPv4 address of the secondary server.\n"
                 },
                 "networks": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "List of network IDs (`int`) for which the zone should be made\navailable. Default is network 0, the primary NSONE Global Network.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "List of network IDs (`int`) for which the zone should be made\navailable. Default is network 0, the primary NSONE Global Network.\n"
                 },
                 "notify": {
                     "type": "boolean",
-                    "description": "Whether we send `NOTIFY` messages to the secondary host\nwhen the zone changes. Default `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Whether we send `NOTIFY` messages to the secondary host\nwhen the zone changes. Default `false`.\n"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "Port of the the secondary server. Default `53`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Port of the the secondary server. Default `53`.\n"
                 }
             },
             "type": "object",
@@ -1299,7 +829,7 @@
     },
     "resources": {
         "ns1:index/aPIKey:APIKey": {
-            "description": "\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/aPIKey:APIKey example \u003cID\u003e`\n```\n\n ",
+            "description": "Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst exampleTeam = new ns1.Team(\"exampleTeam\", {});\nconst exampleAPIKey = new ns1.APIKey(\"exampleAPIKey\", {\n    teams: [exampleTeam.id],\n    ipWhitelists: [\n        \"1.1.1.1\",\n        \"2.2.2.2\",\n    ],\n    dnsViewZones: false,\n    accountManageUsers: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample_team = ns1.Team(\"exampleTeam\")\nexample_api_key = ns1.APIKey(\"exampleAPIKey\",\n    teams=[example_team.id],\n    ip_whitelists=[\n        \"1.1.1.1\",\n        \"2.2.2.2\",\n    ],\n    dns_view_zones=False,\n    account_manage_users=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleTeam = new Ns1.Team(\"exampleTeam\");\n\n    var exampleAPIKey = new Ns1.APIKey(\"exampleAPIKey\", new()\n    {\n        Teams = new[]\n        {\n            exampleTeam.Id,\n        },\n        IpWhitelists = new[]\n        {\n            \"1.1.1.1\",\n            \"2.2.2.2\",\n        },\n        DnsViewZones = false,\n        AccountManageUsers = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleTeam, err := ns1.NewTeam(ctx, \"exampleTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewAPIKey(ctx, \"exampleAPIKey\", \u0026ns1.APIKeyArgs{\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\texampleTeam.ID(),\n\t\t\t},\n\t\t\tIpWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t},\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Team;\nimport com.pulumi.ns1.APIKey;\nimport com.pulumi.ns1.APIKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleTeam = new Team(\"exampleTeam\");\n\n        var exampleAPIKey = new APIKey(\"exampleAPIKey\", APIKeyArgs.builder()        \n            .teams(exampleTeam.id())\n            .ipWhitelists(            \n                \"1.1.1.1\",\n                \"2.2.2.2\")\n            .dnsViewZones(false)\n            .accountManageUsers(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleTeam:\n    type: ns1:Team\n  exampleAPIKey:\n    type: ns1:APIKey\n    properties:\n      teams:\n        - ${exampleTeam.id}\n      # Optional IP whitelist\n      ipWhitelists:\n        - 1.1.1.1\n        - 2.2.2.2\n      # Configure permissions\n      dnsViewZones: false\n      accountManageUsers: false\n```\n{{% /example %}}\n{{% /examples %}}\n## Permissions\n\nAn API key will inherit permissions from the teams it is assigned to.\nIf a key is assigned to a team and also has individual permissions set on the key, the individual permissions\nwill be overridden by the inherited team permissions.\nIn a future release, setting permissions on a key that is part of a team will be explicitly disabled.\n\nWhen a key is removed from all teams completely, it will inherit whatever permissions it had previously.\nIf a key is removed from all it's teams, it will probably be necessary to run `pulumi up` a second time\nto update the keys permissions from it's old team permissions to new key-specific permissions.\n\nSee [the NS1 API docs](https://ns1.com/api#getget-all-account-users) for an overview of permission semantics or for [more details](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) about the individual permission flags.\n\n## NS1 Documentation\n\n[ApiKeys Api Doc](https://ns1.com/api#api-key)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/aPIKey:APIKey example \u003cID\u003e`\n```\n\n ",
             "properties": {
                 "accountManageAccountSettings": {
                     "type": "boolean",
@@ -1767,7 +1297,7 @@
             }
         },
         "ns1:index/application:Application": {
-            "description": "Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new pulsar application with default config\nconst ns1App = new ns1.Application(\"ns1App\", {defaultConfig: {\n    http: true,\n    https: false,\n    jobTimeoutMillis: 100,\n    requestTimeoutMillis: 100,\n    staticValues: true,\n}});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new pulsar application with default config\nns1_app = ns1.Application(\"ns1App\", default_config=ns1.ApplicationDefaultConfigArgs(\n    http=True,\n    https=False,\n    job_timeout_millis=100,\n    request_timeout_millis=100,\n    static_values=True,\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new pulsar application with default config\n    var ns1App = new Ns1.Application(\"ns1App\", new()\n    {\n        DefaultConfig = new Ns1.Inputs.ApplicationDefaultConfigArgs\n        {\n            Http = true,\n            Https = false,\n            JobTimeoutMillis = 100,\n            RequestTimeoutMillis = 100,\n            StaticValues = true,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewApplication(ctx, \"ns1App\", \u0026ns1.ApplicationArgs{\n\t\t\tDefaultConfig: \u0026ns1.ApplicationDefaultConfigArgs{\n\t\t\t\tHttp:                 pulumi.Bool(true),\n\t\t\t\tHttps:                pulumi.Bool(false),\n\t\t\t\tJobTimeoutMillis:     pulumi.Int(100),\n\t\t\t\tRequestTimeoutMillis: pulumi.Int(100),\n\t\t\t\tStaticValues:         pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Application;\nimport com.pulumi.ns1.ApplicationArgs;\nimport com.pulumi.ns1.inputs.ApplicationDefaultConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var ns1App = new Application(\"ns1App\", ApplicationArgs.builder()        \n            .defaultConfig(ApplicationDefaultConfigArgs.builder()\n                .http(true)\n                .https(false)\n                .jobTimeoutMillis(100)\n                .requestTimeoutMillis(100)\n                .staticValues(true)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new pulsar application with default config\n  ns1App:\n    type: ns1:Application\n    properties:\n      defaultConfig:\n        http: true\n        https: false\n        jobTimeoutMillis: 100\n        requestTimeoutMillis: 100\n        staticValues: true\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/application:Application `ns1_application`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/application:Application example terraform.example.io`\n```\n\n ",
+            "description": "Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new pulsar application with default config\nconst ns1App = new ns1.Application(\"ns1App\", {defaultConfig: {\n    http: true,\n    https: false,\n    jobTimeoutMillis: 100,\n    requestTimeoutMillis: 100,\n    staticValues: true,\n}});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new pulsar application with default config\nns1_app = ns1.Application(\"ns1App\", default_config=ns1.ApplicationDefaultConfigArgs(\n    http=True,\n    https=False,\n    job_timeout_millis=100,\n    request_timeout_millis=100,\n    static_values=True,\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new pulsar application with default config\n    var ns1App = new Ns1.Application(\"ns1App\", new()\n    {\n        DefaultConfig = new Ns1.Inputs.ApplicationDefaultConfigArgs\n        {\n            Http = true,\n            Https = false,\n            JobTimeoutMillis = 100,\n            RequestTimeoutMillis = 100,\n            StaticValues = true,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewApplication(ctx, \"ns1App\", \u0026ns1.ApplicationArgs{\n\t\t\tDefaultConfig: \u0026ns1.ApplicationDefaultConfigArgs{\n\t\t\t\tHttp:                 pulumi.Bool(true),\n\t\t\t\tHttps:                pulumi.Bool(false),\n\t\t\t\tJobTimeoutMillis:     pulumi.Int(100),\n\t\t\t\tRequestTimeoutMillis: pulumi.Int(100),\n\t\t\t\tStaticValues:         pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Application;\nimport com.pulumi.ns1.ApplicationArgs;\nimport com.pulumi.ns1.inputs.ApplicationDefaultConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var ns1App = new Application(\"ns1App\", ApplicationArgs.builder()        \n            .defaultConfig(ApplicationDefaultConfigArgs.builder()\n                .http(true)\n                .https(false)\n                .jobTimeoutMillis(100)\n                .requestTimeoutMillis(100)\n                .staticValues(true)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new pulsar application with default config\n  ns1App:\n    type: ns1:Application\n    properties:\n      defaultConfig:\n        http: true\n        https: false\n        jobTimeoutMillis: 100\n        requestTimeoutMillis: 100\n        staticValues: true\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/application:Application `ns1_application`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/application:Application example terraform.example.io`\n```\n\n ",
             "properties": {
                 "active": {
                     "type": "boolean",
@@ -1844,7 +1374,7 @@
             }
         },
         "ns1:index/dataFeed:DataFeed": {
-            "description": "Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.DataSource(\"example\", {sourcetype: \"nsone_v1\"});\nconst exampleMonitoring = new ns1.DataSource(\"exampleMonitoring\", {sourcetype: \"nsone_monitoring\"});\nconst uswestFeed = new ns1.DataFeed(\"uswestFeed\", {\n    sourceId: example.id,\n    config: {\n        label: \"uswest\",\n    },\n});\nconst useastFeed = new ns1.DataFeed(\"useastFeed\", {\n    sourceId: example.id,\n    config: {\n        label: \"useast\",\n    },\n});\nconst useastMonitorFeed = new ns1.DataFeed(\"useastMonitorFeed\", {\n    sourceId: exampleMonitoring.id,\n    config: {\n        jobid: ns1_monitoringjob.example_job.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.DataSource(\"example\", sourcetype=\"nsone_v1\")\nexample_monitoring = ns1.DataSource(\"exampleMonitoring\", sourcetype=\"nsone_monitoring\")\nuswest_feed = ns1.DataFeed(\"uswestFeed\",\n    source_id=example.id,\n    config={\n        \"label\": \"uswest\",\n    })\nuseast_feed = ns1.DataFeed(\"useastFeed\",\n    source_id=example.id,\n    config={\n        \"label\": \"useast\",\n    })\nuseast_monitor_feed = ns1.DataFeed(\"useastMonitorFeed\",\n    source_id=example_monitoring.id,\n    config={\n        \"jobid\": ns1_monitoringjob[\"example_job\"][\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.DataSource(\"example\", new()\n    {\n        Sourcetype = \"nsone_v1\",\n    });\n\n    var exampleMonitoring = new Ns1.DataSource(\"exampleMonitoring\", new()\n    {\n        Sourcetype = \"nsone_monitoring\",\n    });\n\n    var uswestFeed = new Ns1.DataFeed(\"uswestFeed\", new()\n    {\n        SourceId = example.Id,\n        Config = \n        {\n            { \"label\", \"uswest\" },\n        },\n    });\n\n    var useastFeed = new Ns1.DataFeed(\"useastFeed\", new()\n    {\n        SourceId = example.Id,\n        Config = \n        {\n            { \"label\", \"useast\" },\n        },\n    });\n\n    var useastMonitorFeed = new Ns1.DataFeed(\"useastMonitorFeed\", new()\n    {\n        SourceId = exampleMonitoring.Id,\n        Config = \n        {\n            { \"jobid\", ns1_monitoringjob.Example_job.Id },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := ns1.NewDataSource(ctx, \"example\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_v1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleMonitoring, err := ns1.NewDataSource(ctx, \"exampleMonitoring\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_monitoring\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"uswestFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tSourceId: example.ID(),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"label\": pulumi.Any(\"uswest\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"useastFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tSourceId: example.ID(),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"label\": pulumi.Any(\"useast\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"useastMonitorFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tSourceId: exampleMonitoring.ID(),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"jobid\": pulumi.Any(ns1_monitoringjob.Example_job.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.DataSource;\nimport com.pulumi.ns1.DataSourceArgs;\nimport com.pulumi.ns1.DataFeed;\nimport com.pulumi.ns1.DataFeedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new DataSource(\"example\", DataSourceArgs.builder()        \n            .sourcetype(\"nsone_v1\")\n            .build());\n\n        var exampleMonitoring = new DataSource(\"exampleMonitoring\", DataSourceArgs.builder()        \n            .sourcetype(\"nsone_monitoring\")\n            .build());\n\n        var uswestFeed = new DataFeed(\"uswestFeed\", DataFeedArgs.builder()        \n            .sourceId(example.id())\n            .config(Map.of(\"label\", \"uswest\"))\n            .build());\n\n        var useastFeed = new DataFeed(\"useastFeed\", DataFeedArgs.builder()        \n            .sourceId(example.id())\n            .config(Map.of(\"label\", \"useast\"))\n            .build());\n\n        var useastMonitorFeed = new DataFeed(\"useastMonitorFeed\", DataFeedArgs.builder()        \n            .sourceId(exampleMonitoring.id())\n            .config(Map.of(\"jobid\", ns1_monitoringjob.example_job().id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:DataSource\n    properties:\n      sourcetype: nsone_v1\n  exampleMonitoring:\n    type: ns1:DataSource\n    properties:\n      sourcetype: nsone_monitoring\n  uswestFeed:\n    type: ns1:DataFeed\n    properties:\n      sourceId: ${example.id}\n      config:\n        label: uswest\n  useastFeed:\n    type: ns1:DataFeed\n    properties:\n      sourceId: ${example.id}\n      config:\n        label: useast\n  useastMonitorFeed:\n    type: ns1:DataFeed\n    properties:\n      sourceId: ${exampleMonitoring.id}\n      config:\n        jobid: ${ns1_monitoringjob.example_job.id}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Datafeed Api Doc](https://ns1.com/api#data-feeds)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/dataFeed:DataFeed \u003cname\u003e \u003cdatasource_id\u003e/\u003cdatafeed_id\u003e`\n```\n\n ",
+            "description": "Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.DataSource(\"example\", {sourcetype: \"nsone_v1\"});\nconst exampleMonitoring = new ns1.DataSource(\"exampleMonitoring\", {sourcetype: \"nsone_monitoring\"});\nconst uswestFeed = new ns1.DataFeed(\"uswestFeed\", {\n    sourceId: example.id,\n    config: {\n        label: \"uswest\",\n    },\n});\nconst useastFeed = new ns1.DataFeed(\"useastFeed\", {\n    sourceId: example.id,\n    config: {\n        label: \"useast\",\n    },\n});\nconst useastMonitorFeed = new ns1.DataFeed(\"useastMonitorFeed\", {\n    sourceId: exampleMonitoring.id,\n    config: {\n        jobid: ns1_monitoringjob.example_job.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.DataSource(\"example\", sourcetype=\"nsone_v1\")\nexample_monitoring = ns1.DataSource(\"exampleMonitoring\", sourcetype=\"nsone_monitoring\")\nuswest_feed = ns1.DataFeed(\"uswestFeed\",\n    source_id=example.id,\n    config={\n        \"label\": \"uswest\",\n    })\nuseast_feed = ns1.DataFeed(\"useastFeed\",\n    source_id=example.id,\n    config={\n        \"label\": \"useast\",\n    })\nuseast_monitor_feed = ns1.DataFeed(\"useastMonitorFeed\",\n    source_id=example_monitoring.id,\n    config={\n        \"jobid\": ns1_monitoringjob[\"example_job\"][\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.DataSource(\"example\", new()\n    {\n        Sourcetype = \"nsone_v1\",\n    });\n\n    var exampleMonitoring = new Ns1.DataSource(\"exampleMonitoring\", new()\n    {\n        Sourcetype = \"nsone_monitoring\",\n    });\n\n    var uswestFeed = new Ns1.DataFeed(\"uswestFeed\", new()\n    {\n        SourceId = example.Id,\n        Config = \n        {\n            { \"label\", \"uswest\" },\n        },\n    });\n\n    var useastFeed = new Ns1.DataFeed(\"useastFeed\", new()\n    {\n        SourceId = example.Id,\n        Config = \n        {\n            { \"label\", \"useast\" },\n        },\n    });\n\n    var useastMonitorFeed = new Ns1.DataFeed(\"useastMonitorFeed\", new()\n    {\n        SourceId = exampleMonitoring.Id,\n        Config = \n        {\n            { \"jobid\", ns1_monitoringjob.Example_job.Id },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := ns1.NewDataSource(ctx, \"example\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_v1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleMonitoring, err := ns1.NewDataSource(ctx, \"exampleMonitoring\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_monitoring\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"uswestFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tSourceId: example.ID(),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"label\": pulumi.Any(\"uswest\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"useastFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tSourceId: example.ID(),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"label\": pulumi.Any(\"useast\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewDataFeed(ctx, \"useastMonitorFeed\", \u0026ns1.DataFeedArgs{\n\t\t\tSourceId: exampleMonitoring.ID(),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"jobid\": pulumi.Any(ns1_monitoringjob.Example_job.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.DataSource;\nimport com.pulumi.ns1.DataSourceArgs;\nimport com.pulumi.ns1.DataFeed;\nimport com.pulumi.ns1.DataFeedArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new DataSource(\"example\", DataSourceArgs.builder()        \n            .sourcetype(\"nsone_v1\")\n            .build());\n\n        var exampleMonitoring = new DataSource(\"exampleMonitoring\", DataSourceArgs.builder()        \n            .sourcetype(\"nsone_monitoring\")\n            .build());\n\n        var uswestFeed = new DataFeed(\"uswestFeed\", DataFeedArgs.builder()        \n            .sourceId(example.id())\n            .config(Map.of(\"label\", \"uswest\"))\n            .build());\n\n        var useastFeed = new DataFeed(\"useastFeed\", DataFeedArgs.builder()        \n            .sourceId(example.id())\n            .config(Map.of(\"label\", \"useast\"))\n            .build());\n\n        var useastMonitorFeed = new DataFeed(\"useastMonitorFeed\", DataFeedArgs.builder()        \n            .sourceId(exampleMonitoring.id())\n            .config(Map.of(\"jobid\", ns1_monitoringjob.example_job().id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:DataSource\n    properties:\n      sourcetype: nsone_v1\n  exampleMonitoring:\n    type: ns1:DataSource\n    properties:\n      sourcetype: nsone_monitoring\n  uswestFeed:\n    type: ns1:DataFeed\n    properties:\n      sourceId: ${example.id}\n      config:\n        label: uswest\n  useastFeed:\n    type: ns1:DataFeed\n    properties:\n      sourceId: ${example.id}\n      config:\n        label: useast\n  useastMonitorFeed:\n    type: ns1:DataFeed\n    properties:\n      sourceId: ${exampleMonitoring.id}\n      config:\n        jobid: ${ns1_monitoringjob.example_job.id}\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Datafeed Api Doc](https://ns1.com/api#data-feeds)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/dataFeed:DataFeed \u003cname\u003e \u003cdatasource_id\u003e/\u003cdatafeed_id\u003e`\n```\n\n ",
             "properties": {
                 "config": {
                     "type": "object",
@@ -1911,7 +1441,7 @@
             }
         },
         "ns1:index/dataSource:DataSource": {
-            "description": "Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.DataSource(\"example\", {sourcetype: \"nsone_v1\"});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.DataSource(\"example\", sourcetype=\"nsone_v1\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.DataSource(\"example\", new()\n    {\n        Sourcetype = \"nsone_v1\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewDataSource(ctx, \"example\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_v1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.DataSource;\nimport com.pulumi.ns1.DataSourceArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new DataSource(\"example\", DataSourceArgs.builder()        \n            .sourcetype(\"nsone_v1\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:DataSource\n    properties:\n      sourcetype: nsone_v1\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Datasource Api Doc](https://ns1.com/api#data-sources)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/dataSource:DataSource \u003cname\u003e \u003cdatasource_id\u003e`\n```\n\n ",
+            "description": "Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.DataSource(\"example\", {sourcetype: \"nsone_v1\"});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.DataSource(\"example\", sourcetype=\"nsone_v1\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.DataSource(\"example\", new()\n    {\n        Sourcetype = \"nsone_v1\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewDataSource(ctx, \"example\", \u0026ns1.DataSourceArgs{\n\t\t\tSourcetype: pulumi.String(\"nsone_v1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.DataSource;\nimport com.pulumi.ns1.DataSourceArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new DataSource(\"example\", DataSourceArgs.builder()        \n            .sourcetype(\"nsone_v1\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:DataSource\n    properties:\n      sourcetype: nsone_v1\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Datasource Api Doc](https://ns1.com/api#data-sources)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/dataSource:DataSource \u003cname\u003e \u003cdatasource_id\u003e`\n```\n\n ",
             "properties": {
                 "config": {
                     "type": "object",
@@ -2098,7 +1628,7 @@
             }
         },
         "ns1:index/monitoringJob:MonitoringJob": {
-            "description": "Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst uswestMonitor = new ns1.MonitoringJob(\"uswestMonitor\", {\n    active: true,\n    config: {\n        host: \"example-elb-uswest.aws.amazon.com\",\n        port: 443,\n        send: \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\",\n        ssl: 1,\n    },\n    frequency: 60,\n    jobType: \"tcp\",\n    mute: true,\n    policy: \"quorum\",\n    rapidRecheck: true,\n    regions: [\n        \"lga\",\n        \"sjc\",\n        \"sin\",\n    ],\n    rules: [{\n        comparison: \"contains\",\n        key: \"output\",\n        value: \"200 OK\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nuswest_monitor = ns1.MonitoringJob(\"uswestMonitor\",\n    active=True,\n    config={\n        \"host\": \"example-elb-uswest.aws.amazon.com\",\n        \"port\": 443,\n        \"send\": \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\",\n        \"ssl\": 1,\n    },\n    frequency=60,\n    job_type=\"tcp\",\n    mute=True,\n    policy=\"quorum\",\n    rapid_recheck=True,\n    regions=[\n        \"lga\",\n        \"sjc\",\n        \"sin\",\n    ],\n    rules=[ns1.MonitoringJobRuleArgs(\n        comparison=\"contains\",\n        key=\"output\",\n        value=\"200 OK\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var uswestMonitor = new Ns1.MonitoringJob(\"uswestMonitor\", new()\n    {\n        Active = true,\n        Config = \n        {\n            { \"host\", \"example-elb-uswest.aws.amazon.com\" },\n            { \"port\", 443 },\n            { \"send\", \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\" },\n            { \"ssl\", 1 },\n        },\n        Frequency = 60,\n        JobType = \"tcp\",\n        Mute = true,\n        Policy = \"quorum\",\n        RapidRecheck = true,\n        Regions = new[]\n        {\n            \"lga\",\n            \"sjc\",\n            \"sin\",\n        },\n        Rules = new[]\n        {\n            new Ns1.Inputs.MonitoringJobRuleArgs\n            {\n                Comparison = \"contains\",\n                Key = \"output\",\n                Value = \"200 OK\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewMonitoringJob(ctx, \"uswestMonitor\", \u0026ns1.MonitoringJobArgs{\n\t\t\tActive: pulumi.Bool(true),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"host\": pulumi.Any(\"example-elb-uswest.aws.amazon.com\"),\n\t\t\t\t\"port\": pulumi.Any(443),\n\t\t\t\t\"send\": pulumi.Any(\"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\"),\n\t\t\t\t\"ssl\":  pulumi.Any(1),\n\t\t\t},\n\t\t\tFrequency:    pulumi.Int(60),\n\t\t\tJobType:      pulumi.String(\"tcp\"),\n\t\t\tMute:         pulumi.Bool(true),\n\t\t\tPolicy:       pulumi.String(\"quorum\"),\n\t\t\tRapidRecheck: pulumi.Bool(true),\n\t\t\tRegions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"lga\"),\n\t\t\t\tpulumi.String(\"sjc\"),\n\t\t\t\tpulumi.String(\"sin\"),\n\t\t\t},\n\t\t\tRules: ns1.MonitoringJobRuleArray{\n\t\t\t\t\u0026ns1.MonitoringJobRuleArgs{\n\t\t\t\t\tComparison: pulumi.String(\"contains\"),\n\t\t\t\t\tKey:        pulumi.String(\"output\"),\n\t\t\t\t\tValue:      pulumi.String(\"200 OK\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.MonitoringJob;\nimport com.pulumi.ns1.MonitoringJobArgs;\nimport com.pulumi.ns1.inputs.MonitoringJobRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var uswestMonitor = new MonitoringJob(\"uswestMonitor\", MonitoringJobArgs.builder()        \n            .active(true)\n            .config(Map.ofEntries(\n                Map.entry(\"host\", \"example-elb-uswest.aws.amazon.com\"),\n                Map.entry(\"port\", 443),\n                Map.entry(\"send\", \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\"),\n                Map.entry(\"ssl\", 1)\n            ))\n            .frequency(60)\n            .jobType(\"tcp\")\n            .mute(true)\n            .policy(\"quorum\")\n            .rapidRecheck(true)\n            .regions(            \n                \"lga\",\n                \"sjc\",\n                \"sin\")\n            .rules(MonitoringJobRuleArgs.builder()\n                .comparison(\"contains\")\n                .key(\"output\")\n                .value(\"200 OK\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  uswestMonitor:\n    type: ns1:MonitoringJob\n    properties:\n      active: true\n      config:\n        host: example-elb-uswest.aws.amazon.com\n        port: 443\n        send: HEAD / HTTP/1.0\\r\\n\\r\\n\n        ssl: 1\n      frequency: 60\n      jobType: tcp\n      mute: true\n      policy: quorum\n      rapidRecheck: true\n      regions:\n        - lga\n        - sjc\n        - sin\n      rules:\n        - comparison: contains\n          key: output\n          value: 200 OK\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/monitoringJob:MonitoringJob \u003cname\u003e \u003cmonitoringjob_id\u003e`\n```\n\n ",
+            "description": "Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst uswestMonitor = new ns1.MonitoringJob(\"uswestMonitor\", {\n    active: true,\n    config: {\n        host: \"example-elb-uswest.aws.amazon.com\",\n        port: 443,\n        send: \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\",\n        ssl: 1,\n    },\n    frequency: 60,\n    jobType: \"tcp\",\n    mute: true,\n    policy: \"quorum\",\n    rapidRecheck: true,\n    regions: [\n        \"lga\",\n        \"sjc\",\n        \"sin\",\n    ],\n    rules: [{\n        comparison: \"contains\",\n        key: \"output\",\n        value: \"200 OK\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nuswest_monitor = ns1.MonitoringJob(\"uswestMonitor\",\n    active=True,\n    config={\n        \"host\": \"example-elb-uswest.aws.amazon.com\",\n        \"port\": 443,\n        \"send\": \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\",\n        \"ssl\": 1,\n    },\n    frequency=60,\n    job_type=\"tcp\",\n    mute=True,\n    policy=\"quorum\",\n    rapid_recheck=True,\n    regions=[\n        \"lga\",\n        \"sjc\",\n        \"sin\",\n    ],\n    rules=[ns1.MonitoringJobRuleArgs(\n        comparison=\"contains\",\n        key=\"output\",\n        value=\"200 OK\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var uswestMonitor = new Ns1.MonitoringJob(\"uswestMonitor\", new()\n    {\n        Active = true,\n        Config = \n        {\n            { \"host\", \"example-elb-uswest.aws.amazon.com\" },\n            { \"port\", 443 },\n            { \"send\", \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\" },\n            { \"ssl\", 1 },\n        },\n        Frequency = 60,\n        JobType = \"tcp\",\n        Mute = true,\n        Policy = \"quorum\",\n        RapidRecheck = true,\n        Regions = new[]\n        {\n            \"lga\",\n            \"sjc\",\n            \"sin\",\n        },\n        Rules = new[]\n        {\n            new Ns1.Inputs.MonitoringJobRuleArgs\n            {\n                Comparison = \"contains\",\n                Key = \"output\",\n                Value = \"200 OK\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewMonitoringJob(ctx, \"uswestMonitor\", \u0026ns1.MonitoringJobArgs{\n\t\t\tActive: pulumi.Bool(true),\n\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\"host\": pulumi.Any(\"example-elb-uswest.aws.amazon.com\"),\n\t\t\t\t\"port\": pulumi.Any(443),\n\t\t\t\t\"send\": pulumi.Any(\"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\"),\n\t\t\t\t\"ssl\":  pulumi.Any(1),\n\t\t\t},\n\t\t\tFrequency:    pulumi.Int(60),\n\t\t\tJobType:      pulumi.String(\"tcp\"),\n\t\t\tMute:         pulumi.Bool(true),\n\t\t\tPolicy:       pulumi.String(\"quorum\"),\n\t\t\tRapidRecheck: pulumi.Bool(true),\n\t\t\tRegions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"lga\"),\n\t\t\t\tpulumi.String(\"sjc\"),\n\t\t\t\tpulumi.String(\"sin\"),\n\t\t\t},\n\t\t\tRules: ns1.MonitoringJobRuleArray{\n\t\t\t\t\u0026ns1.MonitoringJobRuleArgs{\n\t\t\t\t\tComparison: pulumi.String(\"contains\"),\n\t\t\t\t\tKey:        pulumi.String(\"output\"),\n\t\t\t\t\tValue:      pulumi.String(\"200 OK\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.MonitoringJob;\nimport com.pulumi.ns1.MonitoringJobArgs;\nimport com.pulumi.ns1.inputs.MonitoringJobRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var uswestMonitor = new MonitoringJob(\"uswestMonitor\", MonitoringJobArgs.builder()        \n            .active(true)\n            .config(Map.ofEntries(\n                Map.entry(\"host\", \"example-elb-uswest.aws.amazon.com\"),\n                Map.entry(\"port\", 443),\n                Map.entry(\"send\", \"HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n\"),\n                Map.entry(\"ssl\", 1)\n            ))\n            .frequency(60)\n            .jobType(\"tcp\")\n            .mute(true)\n            .policy(\"quorum\")\n            .rapidRecheck(true)\n            .regions(            \n                \"lga\",\n                \"sjc\",\n                \"sin\")\n            .rules(MonitoringJobRuleArgs.builder()\n                .comparison(\"contains\")\n                .key(\"output\")\n                .value(\"200 OK\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  uswestMonitor:\n    type: ns1:MonitoringJob\n    properties:\n      active: true\n      config:\n        host: example-elb-uswest.aws.amazon.com\n        port: 443\n        send: HEAD / HTTP/1.0\\r\\n\\r\\n\n        ssl: 1\n      frequency: 60\n      jobType: tcp\n      mute: true\n      policy: quorum\n      rapidRecheck: true\n      regions:\n        - lga\n        - sjc\n        - sin\n      rules:\n        - comparison: contains\n          key: output\n          value: 200 OK\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/monitoringJob:MonitoringJob \u003cname\u003e \u003cmonitoringjob_id\u003e`\n```\n\n ",
             "properties": {
                 "active": {
                     "type": "boolean",
@@ -2342,7 +1872,7 @@
             }
         },
         "ns1:index/notifyList:NotifyList": {
-            "description": "Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst nl = new ns1.NotifyList(\"nl\", {notifications: [\n    {\n        config: {\n            url: \"http://www.mywebhook.com\",\n        },\n        type: \"webhook\",\n    },\n    {\n        config: {\n            email: \"test@test.com\",\n        },\n        type: \"email\",\n    },\n]});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nnl = ns1.NotifyList(\"nl\", notifications=[\n    ns1.NotifyListNotificationArgs(\n        config={\n            \"url\": \"http://www.mywebhook.com\",\n        },\n        type=\"webhook\",\n    ),\n    ns1.NotifyListNotificationArgs(\n        config={\n            \"email\": \"test@test.com\",\n        },\n        type=\"email\",\n    ),\n])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nl = new Ns1.NotifyList(\"nl\", new()\n    {\n        Notifications = new[]\n        {\n            new Ns1.Inputs.NotifyListNotificationArgs\n            {\n                Config = \n                {\n                    { \"url\", \"http://www.mywebhook.com\" },\n                },\n                Type = \"webhook\",\n            },\n            new Ns1.Inputs.NotifyListNotificationArgs\n            {\n                Config = \n                {\n                    { \"email\", \"test@test.com\" },\n                },\n                Type = \"email\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewNotifyList(ctx, \"nl\", \u0026ns1.NotifyListArgs{\n\t\t\tNotifications: ns1.NotifyListNotificationArray{\n\t\t\t\t\u0026ns1.NotifyListNotificationArgs{\n\t\t\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\t\t\"url\": pulumi.Any(\"http://www.mywebhook.com\"),\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"webhook\"),\n\t\t\t\t},\n\t\t\t\t\u0026ns1.NotifyListNotificationArgs{\n\t\t\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\t\t\"email\": pulumi.Any(\"test@test.com\"),\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"email\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.NotifyList;\nimport com.pulumi.ns1.NotifyListArgs;\nimport com.pulumi.ns1.inputs.NotifyListNotificationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var nl = new NotifyList(\"nl\", NotifyListArgs.builder()        \n            .notifications(            \n                NotifyListNotificationArgs.builder()\n                    .config(Map.of(\"url\", \"http://www.mywebhook.com\"))\n                    .type(\"webhook\")\n                    .build(),\n                NotifyListNotificationArgs.builder()\n                    .config(Map.of(\"email\", \"test@test.com\"))\n                    .type(\"email\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  nl:\n    type: ns1:NotifyList\n    properties:\n      notifications:\n        - config:\n            url: http://www.mywebhook.com\n          type: webhook\n        - config:\n            email: test@test.com\n          type: email\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[NotifyList Api Doc](https://ns1.com/api#notification-lists)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/notifyList:NotifyList \u003cname\u003e \u003cnotifylist_id\u003e`\n```\n\n ",
+            "description": "Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst nl = new ns1.NotifyList(\"nl\", {notifications: [\n    {\n        config: {\n            url: \"http://www.mywebhook.com\",\n        },\n        type: \"webhook\",\n    },\n    {\n        config: {\n            email: \"test@test.com\",\n        },\n        type: \"email\",\n    },\n]});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nnl = ns1.NotifyList(\"nl\", notifications=[\n    ns1.NotifyListNotificationArgs(\n        config={\n            \"url\": \"http://www.mywebhook.com\",\n        },\n        type=\"webhook\",\n    ),\n    ns1.NotifyListNotificationArgs(\n        config={\n            \"email\": \"test@test.com\",\n        },\n        type=\"email\",\n    ),\n])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nl = new Ns1.NotifyList(\"nl\", new()\n    {\n        Notifications = new[]\n        {\n            new Ns1.Inputs.NotifyListNotificationArgs\n            {\n                Config = \n                {\n                    { \"url\", \"http://www.mywebhook.com\" },\n                },\n                Type = \"webhook\",\n            },\n            new Ns1.Inputs.NotifyListNotificationArgs\n            {\n                Config = \n                {\n                    { \"email\", \"test@test.com\" },\n                },\n                Type = \"email\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewNotifyList(ctx, \"nl\", \u0026ns1.NotifyListArgs{\n\t\t\tNotifications: ns1.NotifyListNotificationArray{\n\t\t\t\t\u0026ns1.NotifyListNotificationArgs{\n\t\t\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\t\t\"url\": pulumi.Any(\"http://www.mywebhook.com\"),\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"webhook\"),\n\t\t\t\t},\n\t\t\t\t\u0026ns1.NotifyListNotificationArgs{\n\t\t\t\t\tConfig: pulumi.AnyMap{\n\t\t\t\t\t\t\"email\": pulumi.Any(\"test@test.com\"),\n\t\t\t\t\t},\n\t\t\t\t\tType: pulumi.String(\"email\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.NotifyList;\nimport com.pulumi.ns1.NotifyListArgs;\nimport com.pulumi.ns1.inputs.NotifyListNotificationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var nl = new NotifyList(\"nl\", NotifyListArgs.builder()        \n            .notifications(            \n                NotifyListNotificationArgs.builder()\n                    .config(Map.of(\"url\", \"http://www.mywebhook.com\"))\n                    .type(\"webhook\")\n                    .build(),\n                NotifyListNotificationArgs.builder()\n                    .config(Map.of(\"email\", \"test@test.com\"))\n                    .type(\"email\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  nl:\n    type: ns1:NotifyList\n    properties:\n      notifications:\n        - config:\n            url: http://www.mywebhook.com\n          type: webhook\n        - config:\n            email: test@test.com\n          type: email\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[NotifyList Api Doc](https://ns1.com/api#notification-lists)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/notifyList:NotifyList \u003cname\u003e \u003cnotifylist_id\u003e`\n```\n\n ",
             "properties": {
                 "name": {
                     "type": "string",
@@ -2868,7 +2398,7 @@
             }
         },
         "ns1:index/team:Team": {
-            "description": "Provides a NS1 Team resource. This can be used to create, modify, and delete\nteams. The credentials used must have the `manage_teams` permission set.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new NS1 Team\nconst example = new ns1.Team(\"example\", {\n    accountManageUsers: false,\n    dnsViewZones: false,\n    ipWhitelists: [\n        {\n            name: \"whitelist-1\",\n            values: [\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        },\n        {\n            name: \"whitelist-2\",\n            values: [\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        },\n    ],\n});\n// Another team\nconst example2 = new ns1.Team(\"example2\", {\n    dataManageDatasources: true,\n    dnsRecordsAllows: [{\n        domain: \"terraform.example.io\",\n        includeSubdomains: false,\n        type: \"A\",\n        zone: \"example.io\",\n    }],\n    dnsViewZones: true,\n    dnsZonesAllows: [\"mytest.zone\"],\n    dnsZonesAllowByDefault: true,\n    dnsZonesDenies: [\"myother.zone\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new NS1 Team\nexample = ns1.Team(\"example\",\n    account_manage_users=False,\n    dns_view_zones=False,\n    ip_whitelists=[\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-1\",\n            values=[\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        ),\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-2\",\n            values=[\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        ),\n    ])\n# Another team\nexample2 = ns1.Team(\"example2\",\n    data_manage_datasources=True,\n    dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(\n        domain=\"terraform.example.io\",\n        include_subdomains=False,\n        type=\"A\",\n        zone=\"example.io\",\n    )],\n    dns_view_zones=True,\n    dns_zones_allows=[\"mytest.zone\"],\n    dns_zones_allow_by_default=True,\n    dns_zones_denies=[\"myother.zone\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new NS1 Team\n    var example = new Ns1.Team(\"example\", new()\n    {\n        AccountManageUsers = false,\n        DnsViewZones = false,\n        IpWhitelists = new[]\n        {\n            new Ns1.Inputs.TeamIpWhitelistArgs\n            {\n                Name = \"whitelist-1\",\n                Values = new[]\n                {\n                    \"1.1.1.1\",\n                    \"2.2.2.2\",\n                },\n            },\n            new Ns1.Inputs.TeamIpWhitelistArgs\n            {\n                Name = \"whitelist-2\",\n                Values = new[]\n                {\n                    \"3.3.3.3\",\n                    \"4.4.4.4\",\n                },\n            },\n        },\n    });\n\n    // Another team\n    var example2 = new Ns1.Team(\"example2\", new()\n    {\n        DataManageDatasources = true,\n        DnsRecordsAllows = new[]\n        {\n            new Ns1.Inputs.TeamDnsRecordsAllowArgs\n            {\n                Domain = \"terraform.example.io\",\n                IncludeSubdomains = false,\n                Type = \"A\",\n                Zone = \"example.io\",\n            },\n        },\n        DnsViewZones = true,\n        DnsZonesAllows = new[]\n        {\n            \"mytest.zone\",\n        },\n        DnsZonesAllowByDefault = true,\n        DnsZonesDenies = new[]\n        {\n            \"myother.zone\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTeam(ctx, \"example\", \u0026ns1.TeamArgs{\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tIpWhitelists: ns1.TeamIpWhitelistArray{\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-1\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-2\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"3.3.3.3\"),\n\t\t\t\t\t\tpulumi.String(\"4.4.4.4\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewTeam(ctx, \"example2\", \u0026ns1.TeamArgs{\n\t\t\tDataManageDatasources: pulumi.Bool(true),\n\t\t\tDnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{\n\t\t\t\t\u0026ns1.TeamDnsRecordsAllowArgs{\n\t\t\t\t\tDomain:            pulumi.String(\"terraform.example.io\"),\n\t\t\t\t\tIncludeSubdomains: pulumi.Bool(false),\n\t\t\t\t\tType:              pulumi.String(\"A\"),\n\t\t\t\t\tZone:              pulumi.String(\"example.io\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDnsViewZones: pulumi.Bool(true),\n\t\t\tDnsZonesAllows: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"mytest.zone\"),\n\t\t\t},\n\t\t\tDnsZonesAllowByDefault: pulumi.Bool(true),\n\t\t\tDnsZonesDenies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"myother.zone\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Team;\nimport com.pulumi.ns1.TeamArgs;\nimport com.pulumi.ns1.inputs.TeamIpWhitelistArgs;\nimport com.pulumi.ns1.inputs.TeamDnsRecordsAllowArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Team(\"example\", TeamArgs.builder()        \n            .accountManageUsers(false)\n            .dnsViewZones(false)\n            .ipWhitelists(            \n                TeamIpWhitelistArgs.builder()\n                    .name(\"whitelist-1\")\n                    .values(                    \n                        \"1.1.1.1\",\n                        \"2.2.2.2\")\n                    .build(),\n                TeamIpWhitelistArgs.builder()\n                    .name(\"whitelist-2\")\n                    .values(                    \n                        \"3.3.3.3\",\n                        \"4.4.4.4\")\n                    .build())\n            .build());\n\n        var example2 = new Team(\"example2\", TeamArgs.builder()        \n            .dataManageDatasources(true)\n            .dnsRecordsAllows(TeamDnsRecordsAllowArgs.builder()\n                .domain(\"terraform.example.io\")\n                .includeSubdomains(false)\n                .type(\"A\")\n                .zone(\"example.io\")\n                .build())\n            .dnsViewZones(true)\n            .dnsZonesAllows(\"mytest.zone\")\n            .dnsZonesAllowByDefault(true)\n            .dnsZonesDenies(\"myother.zone\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new NS1 Team\n  example:\n    type: ns1:Team\n    properties:\n      accountManageUsers: false\n      # Configure permissions\n      dnsViewZones: false\n      ipWhitelists:\n        - name: whitelist-1\n          values:\n            - 1.1.1.1\n            - 2.2.2.2\n        - name: whitelist-2\n          values:\n            - 3.3.3.3\n            - 4.4.4.4\n  # Another team\n  example2:\n    type: ns1:Team\n    properties:\n      dataManageDatasources: true\n      dnsRecordsAllows:\n        - domain: terraform.example.io\n          includeSubdomains: false\n          type: A\n          zone: example.io\n      dnsViewZones: true\n      dnsZonesAllows:\n        - mytest.zone\n      dnsZonesAllowByDefault: true\n      dnsZonesDenies:\n        - myother.zone\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Team Api Docs](https://ns1.com/api#team)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/team:Team \u003cname\u003e \u003cteam_id\u003e`\n```\n\n ",
+            "description": "Provides a NS1 Team resource. This can be used to create, modify, and delete\nteams. The credentials used must have the `manage_teams` permission set.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new NS1 Team\nconst example = new ns1.Team(\"example\", {\n    accountManageUsers: false,\n    dnsViewZones: false,\n    ipWhitelists: [\n        {\n            name: \"whitelist-1\",\n            values: [\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        },\n        {\n            name: \"whitelist-2\",\n            values: [\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        },\n    ],\n});\n// Another team\nconst example2 = new ns1.Team(\"example2\", {\n    dataManageDatasources: true,\n    dnsRecordsAllows: [{\n        domain: \"terraform.example.io\",\n        includeSubdomains: false,\n        type: \"A\",\n        zone: \"example.io\",\n    }],\n    dnsViewZones: true,\n    dnsZonesAllows: [\"mytest.zone\"],\n    dnsZonesAllowByDefault: true,\n    dnsZonesDenies: [\"myother.zone\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new NS1 Team\nexample = ns1.Team(\"example\",\n    account_manage_users=False,\n    dns_view_zones=False,\n    ip_whitelists=[\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-1\",\n            values=[\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        ),\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-2\",\n            values=[\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        ),\n    ])\n# Another team\nexample2 = ns1.Team(\"example2\",\n    data_manage_datasources=True,\n    dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(\n        domain=\"terraform.example.io\",\n        include_subdomains=False,\n        type=\"A\",\n        zone=\"example.io\",\n    )],\n    dns_view_zones=True,\n    dns_zones_allows=[\"mytest.zone\"],\n    dns_zones_allow_by_default=True,\n    dns_zones_denies=[\"myother.zone\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new NS1 Team\n    var example = new Ns1.Team(\"example\", new()\n    {\n        AccountManageUsers = false,\n        DnsViewZones = false,\n        IpWhitelists = new[]\n        {\n            new Ns1.Inputs.TeamIpWhitelistArgs\n            {\n                Name = \"whitelist-1\",\n                Values = new[]\n                {\n                    \"1.1.1.1\",\n                    \"2.2.2.2\",\n                },\n            },\n            new Ns1.Inputs.TeamIpWhitelistArgs\n            {\n                Name = \"whitelist-2\",\n                Values = new[]\n                {\n                    \"3.3.3.3\",\n                    \"4.4.4.4\",\n                },\n            },\n        },\n    });\n\n    // Another team\n    var example2 = new Ns1.Team(\"example2\", new()\n    {\n        DataManageDatasources = true,\n        DnsRecordsAllows = new[]\n        {\n            new Ns1.Inputs.TeamDnsRecordsAllowArgs\n            {\n                Domain = \"terraform.example.io\",\n                IncludeSubdomains = false,\n                Type = \"A\",\n                Zone = \"example.io\",\n            },\n        },\n        DnsViewZones = true,\n        DnsZonesAllows = new[]\n        {\n            \"mytest.zone\",\n        },\n        DnsZonesAllowByDefault = true,\n        DnsZonesDenies = new[]\n        {\n            \"myother.zone\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTeam(ctx, \"example\", \u0026ns1.TeamArgs{\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tIpWhitelists: ns1.TeamIpWhitelistArray{\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-1\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-2\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"3.3.3.3\"),\n\t\t\t\t\t\tpulumi.String(\"4.4.4.4\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewTeam(ctx, \"example2\", \u0026ns1.TeamArgs{\n\t\t\tDataManageDatasources: pulumi.Bool(true),\n\t\t\tDnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{\n\t\t\t\t\u0026ns1.TeamDnsRecordsAllowArgs{\n\t\t\t\t\tDomain:            pulumi.String(\"terraform.example.io\"),\n\t\t\t\t\tIncludeSubdomains: pulumi.Bool(false),\n\t\t\t\t\tType:              pulumi.String(\"A\"),\n\t\t\t\t\tZone:              pulumi.String(\"example.io\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDnsViewZones: pulumi.Bool(true),\n\t\t\tDnsZonesAllows: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"mytest.zone\"),\n\t\t\t},\n\t\t\tDnsZonesAllowByDefault: pulumi.Bool(true),\n\t\t\tDnsZonesDenies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"myother.zone\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Team;\nimport com.pulumi.ns1.TeamArgs;\nimport com.pulumi.ns1.inputs.TeamIpWhitelistArgs;\nimport com.pulumi.ns1.inputs.TeamDnsRecordsAllowArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Team(\"example\", TeamArgs.builder()        \n            .accountManageUsers(false)\n            .dnsViewZones(false)\n            .ipWhitelists(            \n                TeamIpWhitelistArgs.builder()\n                    .name(\"whitelist-1\")\n                    .values(                    \n                        \"1.1.1.1\",\n                        \"2.2.2.2\")\n                    .build(),\n                TeamIpWhitelistArgs.builder()\n                    .name(\"whitelist-2\")\n                    .values(                    \n                        \"3.3.3.3\",\n                        \"4.4.4.4\")\n                    .build())\n            .build());\n\n        var example2 = new Team(\"example2\", TeamArgs.builder()        \n            .dataManageDatasources(true)\n            .dnsRecordsAllows(TeamDnsRecordsAllowArgs.builder()\n                .domain(\"terraform.example.io\")\n                .includeSubdomains(false)\n                .type(\"A\")\n                .zone(\"example.io\")\n                .build())\n            .dnsViewZones(true)\n            .dnsZonesAllows(\"mytest.zone\")\n            .dnsZonesAllowByDefault(true)\n            .dnsZonesDenies(\"myother.zone\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new NS1 Team\n  example:\n    type: ns1:Team\n    properties:\n      accountManageUsers: false\n      # Configure permissions\n      dnsViewZones: false\n      ipWhitelists:\n        - name: whitelist-1\n          values:\n            - 1.1.1.1\n            - 2.2.2.2\n        - name: whitelist-2\n          values:\n            - 3.3.3.3\n            - 4.4.4.4\n  # Another team\n  example2:\n    type: ns1:Team\n    properties:\n      dataManageDatasources: true\n      dnsRecordsAllows:\n        - domain: terraform.example.io\n          includeSubdomains: false\n          type: A\n          zone: example.io\n      dnsViewZones: true\n      dnsZonesAllows:\n        - mytest.zone\n      dnsZonesAllowByDefault: true\n      dnsZonesDenies:\n        - myother.zone\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Team Api Docs](https://ns1.com/api#team)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/team:Team \u003cname\u003e \u003cteam_id\u003e`\n```\n\n ",
             "properties": {
                 "accountManageAccountSettings": {
                     "type": "boolean",
@@ -3292,7 +2822,7 @@
             }
         },
         "ns1:index/tsigkey:Tsigkey": {
-            "description": "Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Tsigkey(\"example\", {\n    algorithm: \"hmac-sha256\",\n    secret: \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Tsigkey(\"example\",\n    algorithm=\"hmac-sha256\",\n    secret=\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Tsigkey(\"example\", new()\n    {\n        Algorithm = \"hmac-sha256\",\n        Secret = \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTsigkey(ctx, \"example\", \u0026ns1.TsigkeyArgs{\n\t\t\tAlgorithm: pulumi.String(\"hmac-sha256\"),\n\t\t\tSecret:    pulumi.String(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Tsigkey;\nimport com.pulumi.ns1.TsigkeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Tsigkey(\"example\", TsigkeyArgs.builder()        \n            .algorithm(\"hmac-sha256\")\n            .secret(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Tsigkey\n    properties:\n      algorithm: hmac-sha256\n      secret: Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[TSIG Keys Api Doc](https://ns1.com/api/#tsig)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/tsigkey:Tsigkey importTest \u003cname\u003e`\n```\n\n ",
+            "description": "Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Tsigkey(\"example\", {\n    algorithm: \"hmac-sha256\",\n    secret: \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Tsigkey(\"example\",\n    algorithm=\"hmac-sha256\",\n    secret=\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Tsigkey(\"example\", new()\n    {\n        Algorithm = \"hmac-sha256\",\n        Secret = \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTsigkey(ctx, \"example\", \u0026ns1.TsigkeyArgs{\n\t\t\tAlgorithm: pulumi.String(\"hmac-sha256\"),\n\t\t\tSecret:    pulumi.String(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Tsigkey;\nimport com.pulumi.ns1.TsigkeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Tsigkey(\"example\", TsigkeyArgs.builder()        \n            .algorithm(\"hmac-sha256\")\n            .secret(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Tsigkey\n    properties:\n      algorithm: hmac-sha256\n      secret: Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[TSIG Keys Api Doc](https://ns1.com/api/#tsig)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/tsigkey:Tsigkey importTest \u003cname\u003e`\n```\n\n ",
             "properties": {
                 "algorithm": {
                     "type": "string",
@@ -3350,7 +2880,7 @@
             }
         },
         "ns1:index/user:User": {
-            "description": "\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/user:User \u003cname\u003e \u003cusername\u003e`\n```\n\n ",
+            "description": "Provides a NS1 User resource. Creating a user sends an invitation email to the\nuser's email address. This can be used to create, modify, and delete users.\nThe credentials used must have the `manage_users` permission set.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst exampleTeam = new ns1.Team(\"exampleTeam\", {\n    ipWhitelists: [\n        \"1.1.1.1\",\n        \"2.2.2.2\",\n    ],\n    dnsViewZones: false,\n    accountManageUsers: false,\n});\nconst exampleUser = new ns1.User(\"exampleUser\", {\n    username: \"example_user\",\n    email: \"user@example.com\",\n    teams: [exampleTeam.id],\n    notify: {\n        billing: false,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample_team = ns1.Team(\"exampleTeam\",\n    ip_whitelists=[\n        \"1.1.1.1\",\n        \"2.2.2.2\",\n    ],\n    dns_view_zones=False,\n    account_manage_users=False)\nexample_user = ns1.User(\"exampleUser\",\n    username=\"example_user\",\n    email=\"user@example.com\",\n    teams=[example_team.id],\n    notify={\n        \"billing\": False,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleTeam = new Ns1.Team(\"exampleTeam\", new()\n    {\n        IpWhitelists = new[]\n        {\n            \"1.1.1.1\",\n            \"2.2.2.2\",\n        },\n        DnsViewZones = false,\n        AccountManageUsers = false,\n    });\n\n    var exampleUser = new Ns1.User(\"exampleUser\", new()\n    {\n        Username = \"example_user\",\n        Email = \"user@example.com\",\n        Teams = new[]\n        {\n            exampleTeam.Id,\n        },\n        Notify = \n        {\n            { \"billing\", false },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleTeam, err := ns1.NewTeam(ctx, \"exampleTeam\", \u0026ns1.TeamArgs{\n\t\t\tIpWhitelists: ns1.TeamIpWhitelistArray{\n\t\t\t\t\"1.1.1.1\",\n\t\t\t\t\"2.2.2.2\",\n\t\t\t},\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewUser(ctx, \"exampleUser\", \u0026ns1.UserArgs{\n\t\t\tUsername: pulumi.String(\"example_user\"),\n\t\t\tEmail:    pulumi.String(\"user@example.com\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\texampleTeam.ID(),\n\t\t\t},\n\t\t\tNotify: pulumi.AnyMap{\n\t\t\t\t\"billing\": pulumi.Any(false),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Team;\nimport com.pulumi.ns1.TeamArgs;\nimport com.pulumi.ns1.User;\nimport com.pulumi.ns1.UserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleTeam = new Team(\"exampleTeam\", TeamArgs.builder()        \n            .ipWhitelists(            \n                \"1.1.1.1\",\n                \"2.2.2.2\")\n            .dnsViewZones(false)\n            .accountManageUsers(false)\n            .build());\n\n        var exampleUser = new User(\"exampleUser\", UserArgs.builder()        \n            .username(\"example_user\")\n            .email(\"user@example.com\")\n            .teams(exampleTeam.id())\n            .notify(Map.of(\"billing\", false))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleTeam:\n    type: ns1:Team\n    properties:\n      # Optional IP whitelist\n      ipWhitelists:\n        - 1.1.1.1\n        - 2.2.2.2\n      dnsViewZones: false\n      accountManageUsers: false\n  exampleUser:\n    type: ns1:User\n    properties:\n      username: example_user\n      email: user@example.com\n      teams:\n        - ${exampleTeam.id}\n      notify:\n        billing: false\n```\n{{% /example %}}\n{{% /examples %}}\n## Permissions\n\nA user will inherit permissions from the teams they are assigned to.\nIf a user is assigned to a team and also has individual permissions set on the user, the individual permissions\nwill be overridden by the inherited team permissions.\nIn a future release, setting permissions on a user that is part of a team will be explicitly disabled.\n\nWhen a user is removed from all teams completely, they will inherit whatever permissions they had previously.\nIf a user is removed from all their teams, it will probably be necessary to run `pulumi up` a second time\nto update the users permissions from their old team permissions to new user-specific permissions.\n\nSee [this NS1 Help Center article](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) for an overview of user permission settings.\n\n## NS1 Documentation\n\n[User Api Docs](https://ns1.com/api#user)\n\n[Managing user permissions](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/user:User \u003cname\u003e \u003cusername\u003e`\n```\n\n ",
             "properties": {
                 "accountManageAccountSettings": {
                     "type": "boolean",
@@ -4149,7 +3679,7 @@
     },
     "functions": {
         "ns1:index/getDNSSec:getDNSSec": {
-            "description": "Provides DNSSEC details about a NS1 Zone.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Get DNSSEC details about a NS1 Zone.\nconst exampleZone = new ns1.Zone(\"exampleZone\", {\n    dnssec: true,\n    zone: \"terraform.example.io\",\n});\nconst exampleDNSSec = ns1.getDNSSecOutput({\n    zone: exampleZone.zone,\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Get DNSSEC details about a NS1 Zone.\nexample_zone = ns1.Zone(\"exampleZone\",\n    dnssec=True,\n    zone=\"terraform.example.io\")\nexample_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Get DNSSEC details about a NS1 Zone.\n    var exampleZone = new Ns1.Zone(\"exampleZone\", new()\n    {\n        Dnssec = true,\n        ZoneName = \"terraform.example.io\",\n    });\n\n    var exampleDNSSec = Ns1.GetDNSSec.Invoke(new()\n    {\n        Zone = exampleZone.ZoneName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleZone, err := ns1.NewZone(ctx, \"exampleZone\", \u0026ns1.ZoneArgs{\n\t\t\tDnssec: pulumi.Bool(true),\n\t\t\tZone:   pulumi.String(\"terraform.example.io\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = ns1.GetDNSSecOutput(ctx, ns1.GetDNSSecOutputArgs{\n\t\t\tZone: exampleZone.Zone,\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Zone;\nimport com.pulumi.ns1.ZoneArgs;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetDNSSecArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleZone = new Zone(\"exampleZone\", ZoneArgs.builder()        \n            .dnssec(true)\n            .zone(\"terraform.example.io\")\n            .build());\n\n        final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()\n            .zone(exampleZone.zone())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Get DNSSEC details about a NS1 Zone.\n  exampleZone:\n    type: ns1:Zone\n    properties:\n      dnssec: true\n      zone: terraform.example.io\nvariables:\n  exampleDNSSec:\n    fn::invoke:\n      Function: ns1:getDNSSec\n      Arguments:\n        zone: ${exampleZone.zone}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides DNSSEC details about a NS1 Zone.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Get DNSSEC details about a NS1 Zone.\nconst exampleZone = new ns1.Zone(\"exampleZone\", {\n    dnssec: true,\n    zone: \"terraform.example.io\",\n});\nconst exampleDNSSec = ns1.getDNSSecOutput({\n    zone: exampleZone.zone,\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Get DNSSEC details about a NS1 Zone.\nexample_zone = ns1.Zone(\"exampleZone\",\n    dnssec=True,\n    zone=\"terraform.example.io\")\nexample_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Get DNSSEC details about a NS1 Zone.\n    var exampleZone = new Ns1.Zone(\"exampleZone\", new()\n    {\n        Dnssec = true,\n        ZoneName = \"terraform.example.io\",\n    });\n\n    var exampleDNSSec = Ns1.GetDNSSec.Invoke(new()\n    {\n        Zone = exampleZone.ZoneName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleZone, err := ns1.NewZone(ctx, \"exampleZone\", \u0026ns1.ZoneArgs{\n\t\t\tDnssec: pulumi.Bool(true),\n\t\t\tZone:   pulumi.String(\"terraform.example.io\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = ns1.GetDNSSecOutput(ctx, ns1.GetDNSSecOutputArgs{\n\t\t\tZone: exampleZone.Zone,\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Zone;\nimport com.pulumi.ns1.ZoneArgs;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetDNSSecArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleZone = new Zone(\"exampleZone\", ZoneArgs.builder()        \n            .dnssec(true)\n            .zone(\"terraform.example.io\")\n            .build());\n\n        final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()\n            .zone(exampleZone.zone())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Get DNSSEC details about a NS1 Zone.\n  exampleZone:\n    type: ns1:Zone\n    properties:\n      dnssec: true\n      zone: terraform.example.io\nvariables:\n  exampleDNSSec:\n    fn::invoke:\n      Function: ns1:getDNSSec\n      Arguments:\n        zone: ${exampleZone.zone}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getDNSSec.\n",
                 "properties": {
@@ -4198,7 +3728,7 @@
             }
         },
         "ns1:index/getNetworks:getNetworks": {
-            "description": "Provides details about NS1 Networks. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = ns1.getNetworks({});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_networks()\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Ns1.GetNetworks.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.GetNetworks(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Ns1Functions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = Ns1Functions.getNetworks();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: ns1:getNetworks\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides details about NS1 Networks. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = ns1.getNetworks({});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_networks()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Ns1.GetNetworks.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.GetNetworks(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Ns1Functions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = Ns1Functions.getNetworks();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: ns1:getNetworks\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getNetworks.\n",
                 "properties": {
@@ -4222,7 +3752,7 @@
             }
         },
         "ns1:index/getRecord:getRecord": {
-            "description": "Provides details about a NS1 Record. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = ns1.getRecord({\n    domain: \"terraform.example.io\",\n    type: \"A\",\n    zone: \"example.io\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_record(domain=\"terraform.example.io\",\n    type=\"A\",\n    zone=\"example.io\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Ns1.GetRecord.Invoke(new()\n    {\n        Domain = \"terraform.example.io\",\n        Type = \"A\",\n        Zone = \"example.io\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.LookupRecord(ctx, \u0026ns1.LookupRecordArgs{\n\t\t\tDomain: \"terraform.example.io\",\n\t\t\tType:   \"A\",\n\t\t\tZone:   \"example.io\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetRecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = Ns1Functions.getRecord(GetRecordArgs.builder()\n            .domain(\"terraform.example.io\")\n            .type(\"A\")\n            .zone(\"example.io\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: ns1:getRecord\n      Arguments:\n        domain: terraform.example.io\n        type: A\n        zone: example.io\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides details about a NS1 Record. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = ns1.getRecord({\n    domain: \"terraform.example.io\",\n    type: \"A\",\n    zone: \"example.io\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_record(domain=\"terraform.example.io\",\n    type=\"A\",\n    zone=\"example.io\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Ns1.GetRecord.Invoke(new()\n    {\n        Domain = \"terraform.example.io\",\n        Type = \"A\",\n        Zone = \"example.io\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.LookupRecord(ctx, \u0026ns1.LookupRecordArgs{\n\t\t\tDomain: \"terraform.example.io\",\n\t\t\tType:   \"A\",\n\t\t\tZone:   \"example.io\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetRecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = Ns1Functions.getRecord(GetRecordArgs.builder()\n            .domain(\"terraform.example.io\")\n            .type(\"A\")\n            .zone(\"example.io\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: ns1:getRecord\n      Arguments:\n        domain: terraform.example.io\n        type: A\n        zone: example.io\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getRecord.\n",
                 "properties": {
@@ -4331,7 +3861,7 @@
             }
         },
         "ns1:index/getZone:getZone": {
-            "description": "Provides details about a NS1 Zone. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = ns1.getZone({\n    zone: \"terraform.example.io\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_zone(zone=\"terraform.example.io\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Ns1.GetZone.Invoke(new()\n    {\n        Zone = \"terraform.example.io\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.LookupZone(ctx, \u0026ns1.LookupZoneArgs{\n\t\t\tZone: \"terraform.example.io\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetZoneArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = Ns1Functions.getZone(GetZoneArgs.builder()\n            .zone(\"terraform.example.io\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: ns1:getZone\n      Arguments:\n        zone: terraform.example.io\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides details about a NS1 Zone. Use this if you would simply like to read\ninformation from NS1 into your configurations. For read/write operations, you\nshould use a resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = ns1.getZone({\n    zone: \"terraform.example.io\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_zone(zone=\"terraform.example.io\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Ns1.GetZone.Invoke(new()\n    {\n        Zone = \"terraform.example.io\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.LookupZone(ctx, \u0026ns1.LookupZoneArgs{\n\t\t\tZone: \"terraform.example.io\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetZoneArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = Ns1Functions.getZone(GetZoneArgs.builder()\n            .zone(\"terraform.example.io\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: ns1:getZone\n      Arguments:\n        zone: terraform.example.io\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getZone.\n",
                 "properties": {
