@@ -150,7 +150,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	prov.MustComputeDefaults(tfbridgetokens.SingleModule("ns1_", mainMod, tfbridgetokens.MakeStandard(mainPkg)))
+	prov.MustComputeTokens(tfbridgetokens.SingleModule("ns1_", mainMod, tfbridgetokens.MakeStandard(mainPkg)))
 	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")
