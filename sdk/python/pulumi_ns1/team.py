@@ -202,6 +202,9 @@ class TeamArgs:
         """
         No longer in use.
         """
+        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
+        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
+
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
@@ -703,6 +706,9 @@ class _TeamState:
         """
         No longer in use.
         """
+        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
+        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
+
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
@@ -1447,6 +1453,9 @@ class Team(pulumi.CustomResource):
         """
         No longer in use.
         """
+        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
+        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
+
         return pulumi.get(self, "account_manage_plan")
 
     @property

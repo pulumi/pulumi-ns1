@@ -240,6 +240,9 @@ class UserArgs:
         """
         No longer in use.
         """
+        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
+        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
+
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
@@ -783,6 +786,9 @@ class _UserState:
         """
         No longer in use.
         """
+        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
+        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
+
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
@@ -1602,6 +1608,9 @@ class User(pulumi.CustomResource):
         """
         No longer in use.
         """
+        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
+        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
+
         return pulumi.get(self, "account_manage_plan")
 
     @property
