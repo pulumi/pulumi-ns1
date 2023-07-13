@@ -207,19 +207,19 @@ def get_record(domain: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('ns1:index/getRecord:getRecord', __args__, opts=opts, typ=GetRecordResult).value
 
     return AwaitableGetRecordResult(
-        answers=__ret__.answers,
-        domain=__ret__.domain,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        link=__ret__.link,
-        meta=__ret__.meta,
-        override_ttl=__ret__.override_ttl,
-        regions=__ret__.regions,
-        short_answers=__ret__.short_answers,
-        ttl=__ret__.ttl,
-        type=__ret__.type,
-        use_client_subnet=__ret__.use_client_subnet,
-        zone=__ret__.zone)
+        answers=pulumi.get(__ret__, 'answers'),
+        domain=pulumi.get(__ret__, 'domain'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        link=pulumi.get(__ret__, 'link'),
+        meta=pulumi.get(__ret__, 'meta'),
+        override_ttl=pulumi.get(__ret__, 'override_ttl'),
+        regions=pulumi.get(__ret__, 'regions'),
+        short_answers=pulumi.get(__ret__, 'short_answers'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        type=pulumi.get(__ret__, 'type'),
+        use_client_subnet=pulumi.get(__ret__, 'use_client_subnet'),
+        zone=pulumi.get(__ret__, 'zone'))
 
 
 @_utilities.lift_output_func(get_record)

@@ -77,5 +77,5 @@ def get_networks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNet
     __ret__ = pulumi.runtime.invoke('ns1:index/getNetworks:getNetworks', __args__, opts=opts, typ=GetNetworksResult).value
 
     return AwaitableGetNetworksResult(
-        id=__ret__.id,
-        networks=__ret__.networks)
+        id=pulumi.get(__ret__, 'id'),
+        networks=pulumi.get(__ret__, 'networks'))

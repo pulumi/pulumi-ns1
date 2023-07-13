@@ -189,6 +189,9 @@ class RecordArgs:
     @property
     @pulumi.getter(name="shortAnswers")
     def short_answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
+        pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+
         return pulumi.get(self, "short_answers")
 
     @short_answers.setter
@@ -377,6 +380,9 @@ class _RecordState:
     @property
     @pulumi.getter(name="shortAnswers")
     def short_answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
+        pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+
         return pulumi.get(self, "short_answers")
 
     @short_answers.setter
@@ -706,6 +712,9 @@ class Record(pulumi.CustomResource):
     @property
     @pulumi.getter(name="shortAnswers")
     def short_answers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
+        pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+
         return pulumi.get(self, "short_answers")
 
     @property

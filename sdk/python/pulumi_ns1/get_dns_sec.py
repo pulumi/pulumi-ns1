@@ -106,10 +106,10 @@ def get_dns_sec(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('ns1:index/getDNSSec:getDNSSec', __args__, opts=opts, typ=GetDNSSecResult).value
 
     return AwaitableGetDNSSecResult(
-        delegations=__ret__.delegations,
-        id=__ret__.id,
-        keys=__ret__.keys,
-        zone=__ret__.zone)
+        delegations=pulumi.get(__ret__, 'delegations'),
+        id=pulumi.get(__ret__, 'id'),
+        keys=pulumi.get(__ret__, 'keys'),
+        zone=pulumi.get(__ret__, 'zone'))
 
 
 @_utilities.lift_output_func(get_dns_sec)

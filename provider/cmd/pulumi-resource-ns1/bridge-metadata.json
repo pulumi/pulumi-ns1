@@ -202,16 +202,85 @@
         },
         "datasources": {
             "ns1_dnssec": {
-                "current": "ns1:index/getDNSSec:getDNSSec"
+                "current": "ns1:index/getDNSSec:getDNSSec",
+                "majorVersion": 3,
+                "fields": {
+                    "delegation": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "dnskey": {
+                                    "maxItemsOne": false
+                                },
+                                "ds": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "keys": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "dnskey": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "ns1_networks": {
-                "current": "ns1:index/getNetworks:getNetworks"
+                "current": "ns1:index/getNetworks:getNetworks",
+                "majorVersion": 3,
+                "fields": {
+                    "networks": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "ns1_record": {
-                "current": "ns1:index/getRecord:getRecord"
+                "current": "ns1:index/getRecord:getRecord",
+                "majorVersion": 3,
+                "fields": {
+                    "answers": {
+                        "maxItemsOne": false
+                    },
+                    "filters": {
+                        "maxItemsOne": false
+                    },
+                    "regions": {
+                        "maxItemsOne": false
+                    },
+                    "short_answers": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "ns1_zone": {
-                "current": "ns1:index/getZone:getZone"
+                "current": "ns1:index/getZone:getZone",
+                "majorVersion": 3,
+                "fields": {
+                    "additional_ports": {
+                        "maxItemsOne": false
+                    },
+                    "additional_primaries": {
+                        "maxItemsOne": false
+                    },
+                    "networks": {
+                        "maxItemsOne": false
+                    },
+                    "secondaries": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "networks": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },

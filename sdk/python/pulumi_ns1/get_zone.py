@@ -264,23 +264,23 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
     __ret__ = pulumi.runtime.invoke('ns1:index/getZone:getZone', __args__, opts=opts, typ=GetZoneResult).value
 
     return AwaitableGetZoneResult(
-        additional_ports=__ret__.additional_ports,
-        additional_primaries=__ret__.additional_primaries,
-        dns_servers=__ret__.dns_servers,
-        dnssec=__ret__.dnssec,
-        expiry=__ret__.expiry,
-        hostmaster=__ret__.hostmaster,
-        id=__ret__.id,
-        link=__ret__.link,
-        networks=__ret__.networks,
-        nx_ttl=__ret__.nx_ttl,
-        primary=__ret__.primary,
-        primary_port=__ret__.primary_port,
-        refresh=__ret__.refresh,
-        retry=__ret__.retry,
-        secondaries=__ret__.secondaries,
-        ttl=__ret__.ttl,
-        zone=__ret__.zone)
+        additional_ports=pulumi.get(__ret__, 'additional_ports'),
+        additional_primaries=pulumi.get(__ret__, 'additional_primaries'),
+        dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        dnssec=pulumi.get(__ret__, 'dnssec'),
+        expiry=pulumi.get(__ret__, 'expiry'),
+        hostmaster=pulumi.get(__ret__, 'hostmaster'),
+        id=pulumi.get(__ret__, 'id'),
+        link=pulumi.get(__ret__, 'link'),
+        networks=pulumi.get(__ret__, 'networks'),
+        nx_ttl=pulumi.get(__ret__, 'nx_ttl'),
+        primary=pulumi.get(__ret__, 'primary'),
+        primary_port=pulumi.get(__ret__, 'primary_port'),
+        refresh=pulumi.get(__ret__, 'refresh'),
+        retry=pulumi.get(__ret__, 'retry'),
+        secondaries=pulumi.get(__ret__, 'secondaries'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        zone=pulumi.get(__ret__, 'zone'))
 
 
 @_utilities.lift_output_func(get_zone)
