@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func LookupRecord(ctx *pulumi.Context, args *LookupRecordArgs, opts ...pulumi.InvokeOption) (*LookupRecordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRecordResult
 	err := ctx.Invoke("ns1:index/getRecord:getRecord", args, &rv, opts...)
 	if err != nil {

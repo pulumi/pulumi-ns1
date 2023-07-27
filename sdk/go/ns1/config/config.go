@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // The ns1 API key (required)
 func GetApikey(ctx *pulumi.Context) string {

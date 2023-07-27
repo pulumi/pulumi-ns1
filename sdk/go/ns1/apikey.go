@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -170,6 +171,7 @@ func NewAPIKey(ctx *pulumi.Context,
 		"key",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource APIKey
 	err := ctx.RegisterResource("ns1:index/aPIKey:APIKey", name, args, &resource, opts...)
 	if err != nil {

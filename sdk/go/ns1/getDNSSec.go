@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetDNSSec(ctx *pulumi.Context, args *GetDNSSecArgs, opts ...pulumi.InvokeOption) (*GetDNSSecResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDNSSecResult
 	err := ctx.Invoke("ns1:index/getDNSSec:getDNSSec", args, &rv, opts...)
 	if err != nil {

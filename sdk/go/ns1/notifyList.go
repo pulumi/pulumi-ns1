@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -77,6 +78,7 @@ func NewNotifyList(ctx *pulumi.Context,
 		args = &NotifyListArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotifyList
 	err := ctx.RegisterResource("ns1:index/notifyList:NotifyList", name, args, &resource, opts...)
 	if err != nil {
