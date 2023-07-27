@@ -4,6 +4,7 @@
 package ns1
 
 import (
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ import (
 //
 // ```
 func GetNetworks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetNetworksResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworksResult
 	err := ctx.Invoke("ns1:index/getNetworks:getNetworks", nil, &rv, opts...)
 	if err != nil {

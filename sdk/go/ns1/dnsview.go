@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,6 +31,7 @@ func NewDnsview(ctx *pulumi.Context,
 		args = &DnsviewArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dnsview
 	err := ctx.RegisterResource("ns1:index/dnsview:Dnsview", name, args, &resource, opts...)
 	if err != nil {

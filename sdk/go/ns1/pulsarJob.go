@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewPulsarJob(ctx *pulumi.Context,
 	if args.TypeId == nil {
 		return nil, errors.New("invalid value for required argument 'TypeId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PulsarJob
 	err := ctx.RegisterResource("ns1:index/pulsarJob:PulsarJob", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,6 +75,7 @@ func NewTsigkey(ctx *pulumi.Context,
 	if args.Secret == nil {
 		return nil, errors.New("invalid value for required argument 'Secret'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tsigkey
 	err := ctx.RegisterResource("ns1:index/tsigkey:Tsigkey", name, args, &resource, opts...)
 	if err != nil {

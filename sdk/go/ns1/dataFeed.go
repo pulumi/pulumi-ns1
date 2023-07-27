@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -104,6 +105,7 @@ func NewDataFeed(ctx *pulumi.Context,
 	if args.SourceId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataFeed
 	err := ctx.RegisterResource("ns1:index/dataFeed:DataFeed", name, args, &resource, opts...)
 	if err != nil {
