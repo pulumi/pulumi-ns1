@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-ns1/provider/v3
 
-go 1.19
+go 1.20
 
 replace github.com/ns1-terraform/terraform-provider-ns1 => ../upstream
 
