@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i APIKeyDnsRecordsAllowArgs) ToAPIKeyDnsRecordsAllowOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsAllowOutput)
 }
 
+func (i APIKeyDnsRecordsAllowArgs) ToOutput(ctx context.Context) pulumix.Output[APIKeyDnsRecordsAllow] {
+	return pulumix.Output[APIKeyDnsRecordsAllow]{
+		OutputState: i.ToAPIKeyDnsRecordsAllowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // APIKeyDnsRecordsAllowArrayInput is an input type that accepts APIKeyDnsRecordsAllowArray and APIKeyDnsRecordsAllowArrayOutput values.
 // You can construct a concrete instance of `APIKeyDnsRecordsAllowArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i APIKeyDnsRecordsAllowArray) ToAPIKeyDnsRecordsAllowArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsAllowArrayOutput)
 }
 
+func (i APIKeyDnsRecordsAllowArray) ToOutput(ctx context.Context) pulumix.Output[[]APIKeyDnsRecordsAllow] {
+	return pulumix.Output[[]APIKeyDnsRecordsAllow]{
+		OutputState: i.ToAPIKeyDnsRecordsAllowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type APIKeyDnsRecordsAllowOutput struct{ *pulumi.OutputState }
 
 func (APIKeyDnsRecordsAllowOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o APIKeyDnsRecordsAllowOutput) ToAPIKeyDnsRecordsAllowOutput() APIKeyDnsRe
 
 func (o APIKeyDnsRecordsAllowOutput) ToAPIKeyDnsRecordsAllowOutputWithContext(ctx context.Context) APIKeyDnsRecordsAllowOutput {
 	return o
+}
+
+func (o APIKeyDnsRecordsAllowOutput) ToOutput(ctx context.Context) pulumix.Output[APIKeyDnsRecordsAllow] {
+	return pulumix.Output[APIKeyDnsRecordsAllow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o APIKeyDnsRecordsAllowOutput) Domain() pulumi.StringOutput {
@@ -117,6 +136,12 @@ func (o APIKeyDnsRecordsAllowArrayOutput) ToAPIKeyDnsRecordsAllowArrayOutput() A
 
 func (o APIKeyDnsRecordsAllowArrayOutput) ToAPIKeyDnsRecordsAllowArrayOutputWithContext(ctx context.Context) APIKeyDnsRecordsAllowArrayOutput {
 	return o
+}
+
+func (o APIKeyDnsRecordsAllowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]APIKeyDnsRecordsAllow] {
+	return pulumix.Output[[]APIKeyDnsRecordsAllow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o APIKeyDnsRecordsAllowArrayOutput) Index(i pulumi.IntInput) APIKeyDnsRecordsAllowOutput {
@@ -162,6 +187,12 @@ func (i APIKeyDnsRecordsDenyArgs) ToAPIKeyDnsRecordsDenyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsDenyOutput)
 }
 
+func (i APIKeyDnsRecordsDenyArgs) ToOutput(ctx context.Context) pulumix.Output[APIKeyDnsRecordsDeny] {
+	return pulumix.Output[APIKeyDnsRecordsDeny]{
+		OutputState: i.ToAPIKeyDnsRecordsDenyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // APIKeyDnsRecordsDenyArrayInput is an input type that accepts APIKeyDnsRecordsDenyArray and APIKeyDnsRecordsDenyArrayOutput values.
 // You can construct a concrete instance of `APIKeyDnsRecordsDenyArrayInput` via:
 //
@@ -187,6 +218,12 @@ func (i APIKeyDnsRecordsDenyArray) ToAPIKeyDnsRecordsDenyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(APIKeyDnsRecordsDenyArrayOutput)
 }
 
+func (i APIKeyDnsRecordsDenyArray) ToOutput(ctx context.Context) pulumix.Output[[]APIKeyDnsRecordsDeny] {
+	return pulumix.Output[[]APIKeyDnsRecordsDeny]{
+		OutputState: i.ToAPIKeyDnsRecordsDenyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type APIKeyDnsRecordsDenyOutput struct{ *pulumi.OutputState }
 
 func (APIKeyDnsRecordsDenyOutput) ElementType() reflect.Type {
@@ -199,6 +236,12 @@ func (o APIKeyDnsRecordsDenyOutput) ToAPIKeyDnsRecordsDenyOutput() APIKeyDnsReco
 
 func (o APIKeyDnsRecordsDenyOutput) ToAPIKeyDnsRecordsDenyOutputWithContext(ctx context.Context) APIKeyDnsRecordsDenyOutput {
 	return o
+}
+
+func (o APIKeyDnsRecordsDenyOutput) ToOutput(ctx context.Context) pulumix.Output[APIKeyDnsRecordsDeny] {
+	return pulumix.Output[APIKeyDnsRecordsDeny]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o APIKeyDnsRecordsDenyOutput) Domain() pulumi.StringOutput {
@@ -229,6 +272,12 @@ func (o APIKeyDnsRecordsDenyArrayOutput) ToAPIKeyDnsRecordsDenyArrayOutput() API
 
 func (o APIKeyDnsRecordsDenyArrayOutput) ToAPIKeyDnsRecordsDenyArrayOutputWithContext(ctx context.Context) APIKeyDnsRecordsDenyArrayOutput {
 	return o
+}
+
+func (o APIKeyDnsRecordsDenyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]APIKeyDnsRecordsDeny] {
+	return pulumix.Output[[]APIKeyDnsRecordsDeny]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o APIKeyDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) APIKeyDnsRecordsDenyOutput {
@@ -292,6 +341,12 @@ func (i ApplicationDefaultConfigArgs) ToApplicationDefaultConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefaultConfigOutput)
 }
 
+func (i ApplicationDefaultConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationDefaultConfig] {
+	return pulumix.Output[ApplicationDefaultConfig]{
+		OutputState: i.ToApplicationDefaultConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationDefaultConfigArgs) ToApplicationDefaultConfigPtrOutput() ApplicationDefaultConfigPtrOutput {
 	return i.ToApplicationDefaultConfigPtrOutputWithContext(context.Background())
 }
@@ -333,6 +388,12 @@ func (i *applicationDefaultConfigPtrType) ToApplicationDefaultConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefaultConfigPtrOutput)
 }
 
+func (i *applicationDefaultConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationDefaultConfig] {
+	return pulumix.Output[*ApplicationDefaultConfig]{
+		OutputState: i.ToApplicationDefaultConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationDefaultConfigOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefaultConfigOutput) ElementType() reflect.Type {
@@ -355,6 +416,12 @@ func (o ApplicationDefaultConfigOutput) ToApplicationDefaultConfigPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationDefaultConfig) *ApplicationDefaultConfig {
 		return &v
 	}).(ApplicationDefaultConfigPtrOutput)
+}
+
+func (o ApplicationDefaultConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationDefaultConfig] {
+	return pulumix.Output[ApplicationDefaultConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether or not to use HTTP in measurements.
@@ -400,6 +467,12 @@ func (o ApplicationDefaultConfigPtrOutput) ToApplicationDefaultConfigPtrOutput()
 
 func (o ApplicationDefaultConfigPtrOutput) ToApplicationDefaultConfigPtrOutputWithContext(ctx context.Context) ApplicationDefaultConfigPtrOutput {
 	return o
+}
+
+func (o ApplicationDefaultConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationDefaultConfig] {
+	return pulumix.Output[*ApplicationDefaultConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationDefaultConfigPtrOutput) Elem() ApplicationDefaultConfigOutput {
@@ -508,6 +581,12 @@ func (i MonitoringJobRuleArgs) ToMonitoringJobRuleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobRuleOutput)
 }
 
+func (i MonitoringJobRuleArgs) ToOutput(ctx context.Context) pulumix.Output[MonitoringJobRule] {
+	return pulumix.Output[MonitoringJobRule]{
+		OutputState: i.ToMonitoringJobRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MonitoringJobRuleArrayInput is an input type that accepts MonitoringJobRuleArray and MonitoringJobRuleArrayOutput values.
 // You can construct a concrete instance of `MonitoringJobRuleArrayInput` via:
 //
@@ -533,6 +612,12 @@ func (i MonitoringJobRuleArray) ToMonitoringJobRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobRuleArrayOutput)
 }
 
+func (i MonitoringJobRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitoringJobRule] {
+	return pulumix.Output[[]MonitoringJobRule]{
+		OutputState: i.ToMonitoringJobRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitoringJobRuleOutput struct{ *pulumi.OutputState }
 
 func (MonitoringJobRuleOutput) ElementType() reflect.Type {
@@ -545,6 +630,12 @@ func (o MonitoringJobRuleOutput) ToMonitoringJobRuleOutput() MonitoringJobRuleOu
 
 func (o MonitoringJobRuleOutput) ToMonitoringJobRuleOutputWithContext(ctx context.Context) MonitoringJobRuleOutput {
 	return o
+}
+
+func (o MonitoringJobRuleOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringJobRule] {
+	return pulumix.Output[MonitoringJobRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitoringJobRuleOutput) Comparison() pulumi.StringOutput {
@@ -571,6 +662,12 @@ func (o MonitoringJobRuleArrayOutput) ToMonitoringJobRuleArrayOutput() Monitorin
 
 func (o MonitoringJobRuleArrayOutput) ToMonitoringJobRuleArrayOutputWithContext(ctx context.Context) MonitoringJobRuleArrayOutput {
 	return o
+}
+
+func (o MonitoringJobRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitoringJobRule] {
+	return pulumix.Output[[]MonitoringJobRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitoringJobRuleArrayOutput) Index(i pulumi.IntInput) MonitoringJobRuleOutput {
@@ -616,6 +713,12 @@ func (i NotifyListNotificationArgs) ToNotifyListNotificationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListNotificationOutput)
 }
 
+func (i NotifyListNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[NotifyListNotification] {
+	return pulumix.Output[NotifyListNotification]{
+		OutputState: i.ToNotifyListNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotifyListNotificationArrayInput is an input type that accepts NotifyListNotificationArray and NotifyListNotificationArrayOutput values.
 // You can construct a concrete instance of `NotifyListNotificationArrayInput` via:
 //
@@ -641,6 +744,12 @@ func (i NotifyListNotificationArray) ToNotifyListNotificationArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListNotificationArrayOutput)
 }
 
+func (i NotifyListNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]NotifyListNotification] {
+	return pulumix.Output[[]NotifyListNotification]{
+		OutputState: i.ToNotifyListNotificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotifyListNotificationOutput struct{ *pulumi.OutputState }
 
 func (NotifyListNotificationOutput) ElementType() reflect.Type {
@@ -653,6 +762,12 @@ func (o NotifyListNotificationOutput) ToNotifyListNotificationOutput() NotifyLis
 
 func (o NotifyListNotificationOutput) ToNotifyListNotificationOutputWithContext(ctx context.Context) NotifyListNotificationOutput {
 	return o
+}
+
+func (o NotifyListNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[NotifyListNotification] {
+	return pulumix.Output[NotifyListNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration details for the given notifier type.
@@ -677,6 +792,12 @@ func (o NotifyListNotificationArrayOutput) ToNotifyListNotificationArrayOutput()
 
 func (o NotifyListNotificationArrayOutput) ToNotifyListNotificationArrayOutputWithContext(ctx context.Context) NotifyListNotificationArrayOutput {
 	return o
+}
+
+func (o NotifyListNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotifyListNotification] {
+	return pulumix.Output[[]NotifyListNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotifyListNotificationArrayOutput) Index(i pulumi.IntInput) NotifyListNotificationOutput {
@@ -714,6 +835,12 @@ func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsOutput() P
 
 func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobBlendMetricWeightsOutput)
+}
+
+func (i PulsarJobBlendMetricWeightsArgs) ToOutput(ctx context.Context) pulumix.Output[PulsarJobBlendMetricWeights] {
+	return pulumix.Output[PulsarJobBlendMetricWeights]{
+		OutputState: i.ToPulsarJobBlendMetricWeightsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PulsarJobBlendMetricWeightsArgs) ToPulsarJobBlendMetricWeightsPtrOutput() PulsarJobBlendMetricWeightsPtrOutput {
@@ -757,6 +884,12 @@ func (i *pulsarJobBlendMetricWeightsPtrType) ToPulsarJobBlendMetricWeightsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobBlendMetricWeightsPtrOutput)
 }
 
+func (i *pulsarJobBlendMetricWeightsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PulsarJobBlendMetricWeights] {
+	return pulumix.Output[*PulsarJobBlendMetricWeights]{
+		OutputState: i.ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PulsarJobBlendMetricWeightsOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobBlendMetricWeightsOutput) ElementType() reflect.Type {
@@ -781,6 +914,12 @@ func (o PulsarJobBlendMetricWeightsOutput) ToPulsarJobBlendMetricWeightsPtrOutpu
 	}).(PulsarJobBlendMetricWeightsPtrOutput)
 }
 
+func (o PulsarJobBlendMetricWeightsOutput) ToOutput(ctx context.Context) pulumix.Output[PulsarJobBlendMetricWeights] {
+	return pulumix.Output[PulsarJobBlendMetricWeights]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PulsarJobBlendMetricWeightsOutput) Timestamp() pulumi.IntOutput {
 	return o.ApplyT(func(v PulsarJobBlendMetricWeights) int { return v.Timestamp }).(pulumi.IntOutput)
 }
@@ -797,6 +936,12 @@ func (o PulsarJobBlendMetricWeightsPtrOutput) ToPulsarJobBlendMetricWeightsPtrOu
 
 func (o PulsarJobBlendMetricWeightsPtrOutput) ToPulsarJobBlendMetricWeightsPtrOutputWithContext(ctx context.Context) PulsarJobBlendMetricWeightsPtrOutput {
 	return o
+}
+
+func (o PulsarJobBlendMetricWeightsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PulsarJobBlendMetricWeights] {
+	return pulumix.Output[*PulsarJobBlendMetricWeights]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PulsarJobBlendMetricWeightsPtrOutput) Elem() PulsarJobBlendMetricWeightsOutput {
@@ -863,6 +1008,12 @@ func (i PulsarJobConfigArgs) ToPulsarJobConfigOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobConfigOutput)
 }
 
+func (i PulsarJobConfigArgs) ToOutput(ctx context.Context) pulumix.Output[PulsarJobConfig] {
+	return pulumix.Output[PulsarJobConfig]{
+		OutputState: i.ToPulsarJobConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PulsarJobConfigArgs) ToPulsarJobConfigPtrOutput() PulsarJobConfigPtrOutput {
 	return i.ToPulsarJobConfigPtrOutputWithContext(context.Background())
 }
@@ -904,6 +1055,12 @@ func (i *pulsarJobConfigPtrType) ToPulsarJobConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobConfigPtrOutput)
 }
 
+func (i *pulsarJobConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*PulsarJobConfig] {
+	return pulumix.Output[*PulsarJobConfig]{
+		OutputState: i.ToPulsarJobConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PulsarJobConfigOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobConfigOutput) ElementType() reflect.Type {
@@ -926,6 +1083,12 @@ func (o PulsarJobConfigOutput) ToPulsarJobConfigPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PulsarJobConfig) *PulsarJobConfig {
 		return &v
 	}).(PulsarJobConfigPtrOutput)
+}
+
+func (o PulsarJobConfigOutput) ToOutput(ctx context.Context) pulumix.Output[PulsarJobConfig] {
+	return pulumix.Output[PulsarJobConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PulsarJobConfigOutput) Host() pulumi.StringPtrOutput {
@@ -972,6 +1135,12 @@ func (o PulsarJobConfigPtrOutput) ToPulsarJobConfigPtrOutput() PulsarJobConfigPt
 
 func (o PulsarJobConfigPtrOutput) ToPulsarJobConfigPtrOutputWithContext(ctx context.Context) PulsarJobConfigPtrOutput {
 	return o
+}
+
+func (o PulsarJobConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PulsarJobConfig] {
+	return pulumix.Output[*PulsarJobConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PulsarJobConfigPtrOutput) Elem() PulsarJobConfigOutput {
@@ -1093,6 +1262,12 @@ func (i PulsarJobWeightArgs) ToPulsarJobWeightOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobWeightOutput)
 }
 
+func (i PulsarJobWeightArgs) ToOutput(ctx context.Context) pulumix.Output[PulsarJobWeight] {
+	return pulumix.Output[PulsarJobWeight]{
+		OutputState: i.ToPulsarJobWeightOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PulsarJobWeightArrayInput is an input type that accepts PulsarJobWeightArray and PulsarJobWeightArrayOutput values.
 // You can construct a concrete instance of `PulsarJobWeightArrayInput` via:
 //
@@ -1118,6 +1293,12 @@ func (i PulsarJobWeightArray) ToPulsarJobWeightArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobWeightArrayOutput)
 }
 
+func (i PulsarJobWeightArray) ToOutput(ctx context.Context) pulumix.Output[[]PulsarJobWeight] {
+	return pulumix.Output[[]PulsarJobWeight]{
+		OutputState: i.ToPulsarJobWeightArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PulsarJobWeightOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobWeightOutput) ElementType() reflect.Type {
@@ -1130,6 +1311,12 @@ func (o PulsarJobWeightOutput) ToPulsarJobWeightOutput() PulsarJobWeightOutput {
 
 func (o PulsarJobWeightOutput) ToPulsarJobWeightOutputWithContext(ctx context.Context) PulsarJobWeightOutput {
 	return o
+}
+
+func (o PulsarJobWeightOutput) ToOutput(ctx context.Context) pulumix.Output[PulsarJobWeight] {
+	return pulumix.Output[PulsarJobWeight]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PulsarJobWeightOutput) DefaultValue() pulumi.Float64Output {
@@ -1160,6 +1347,12 @@ func (o PulsarJobWeightArrayOutput) ToPulsarJobWeightArrayOutput() PulsarJobWeig
 
 func (o PulsarJobWeightArrayOutput) ToPulsarJobWeightArrayOutputWithContext(ctx context.Context) PulsarJobWeightArrayOutput {
 	return o
+}
+
+func (o PulsarJobWeightArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PulsarJobWeight] {
+	return pulumix.Output[[]PulsarJobWeight]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PulsarJobWeightArrayOutput) Index(i pulumi.IntInput) PulsarJobWeightOutput {
@@ -1259,6 +1452,12 @@ func (i RecordAnswerArgs) ToRecordAnswerOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RecordAnswerOutput)
 }
 
+func (i RecordAnswerArgs) ToOutput(ctx context.Context) pulumix.Output[RecordAnswer] {
+	return pulumix.Output[RecordAnswer]{
+		OutputState: i.ToRecordAnswerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecordAnswerArrayInput is an input type that accepts RecordAnswerArray and RecordAnswerArrayOutput values.
 // You can construct a concrete instance of `RecordAnswerArrayInput` via:
 //
@@ -1284,6 +1483,12 @@ func (i RecordAnswerArray) ToRecordAnswerArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RecordAnswerArrayOutput)
 }
 
+func (i RecordAnswerArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordAnswer] {
+	return pulumix.Output[[]RecordAnswer]{
+		OutputState: i.ToRecordAnswerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordAnswerOutput struct{ *pulumi.OutputState }
 
 func (RecordAnswerOutput) ElementType() reflect.Type {
@@ -1296,6 +1501,12 @@ func (o RecordAnswerOutput) ToRecordAnswerOutput() RecordAnswerOutput {
 
 func (o RecordAnswerOutput) ToRecordAnswerOutputWithContext(ctx context.Context) RecordAnswerOutput {
 	return o
+}
+
+func (o RecordAnswerOutput) ToOutput(ctx context.Context) pulumix.Output[RecordAnswer] {
+	return pulumix.Output[RecordAnswer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Space delimited string of RDATA fields dependent on the record type.
@@ -1352,6 +1563,12 @@ func (o RecordAnswerArrayOutput) ToRecordAnswerArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o RecordAnswerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordAnswer] {
+	return pulumix.Output[[]RecordAnswer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecordAnswerArrayOutput) Index(i pulumi.IntInput) RecordAnswerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordAnswer {
 		return vs[0].([]RecordAnswer)[vs[1].(int)]
@@ -1403,6 +1620,12 @@ func (i RecordFilterArgs) ToRecordFilterOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RecordFilterOutput)
 }
 
+func (i RecordFilterArgs) ToOutput(ctx context.Context) pulumix.Output[RecordFilter] {
+	return pulumix.Output[RecordFilter]{
+		OutputState: i.ToRecordFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecordFilterArrayInput is an input type that accepts RecordFilterArray and RecordFilterArrayOutput values.
 // You can construct a concrete instance of `RecordFilterArrayInput` via:
 //
@@ -1428,6 +1651,12 @@ func (i RecordFilterArray) ToRecordFilterArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RecordFilterArrayOutput)
 }
 
+func (i RecordFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordFilter] {
+	return pulumix.Output[[]RecordFilter]{
+		OutputState: i.ToRecordFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordFilterOutput struct{ *pulumi.OutputState }
 
 func (RecordFilterOutput) ElementType() reflect.Type {
@@ -1440,6 +1669,12 @@ func (o RecordFilterOutput) ToRecordFilterOutput() RecordFilterOutput {
 
 func (o RecordFilterOutput) ToRecordFilterOutputWithContext(ctx context.Context) RecordFilterOutput {
 	return o
+}
+
+func (o RecordFilterOutput) ToOutput(ctx context.Context) pulumix.Output[RecordFilter] {
+	return pulumix.Output[RecordFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The filters' configuration. Simple key/value pairs
@@ -1471,6 +1706,12 @@ func (o RecordFilterArrayOutput) ToRecordFilterArrayOutput() RecordFilterArrayOu
 
 func (o RecordFilterArrayOutput) ToRecordFilterArrayOutputWithContext(ctx context.Context) RecordFilterArrayOutput {
 	return o
+}
+
+func (o RecordFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordFilter] {
+	return pulumix.Output[[]RecordFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordFilterArrayOutput) Index(i pulumi.IntInput) RecordFilterOutput {
@@ -1514,6 +1755,12 @@ func (i RecordRegionArgs) ToRecordRegionOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RecordRegionOutput)
 }
 
+func (i RecordRegionArgs) ToOutput(ctx context.Context) pulumix.Output[RecordRegion] {
+	return pulumix.Output[RecordRegion]{
+		OutputState: i.ToRecordRegionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecordRegionArrayInput is an input type that accepts RecordRegionArray and RecordRegionArrayOutput values.
 // You can construct a concrete instance of `RecordRegionArrayInput` via:
 //
@@ -1539,6 +1786,12 @@ func (i RecordRegionArray) ToRecordRegionArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RecordRegionArrayOutput)
 }
 
+func (i RecordRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordRegion] {
+	return pulumix.Output[[]RecordRegion]{
+		OutputState: i.ToRecordRegionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordRegionOutput struct{ *pulumi.OutputState }
 
 func (RecordRegionOutput) ElementType() reflect.Type {
@@ -1551,6 +1804,12 @@ func (o RecordRegionOutput) ToRecordRegionOutput() RecordRegionOutput {
 
 func (o RecordRegionOutput) ToRecordRegionOutputWithContext(ctx context.Context) RecordRegionOutput {
 	return o
+}
+
+func (o RecordRegionOutput) ToOutput(ctx context.Context) pulumix.Output[RecordRegion] {
+	return pulumix.Output[RecordRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordRegionOutput) Meta() pulumi.MapOutput {
@@ -1574,6 +1833,12 @@ func (o RecordRegionArrayOutput) ToRecordRegionArrayOutput() RecordRegionArrayOu
 
 func (o RecordRegionArrayOutput) ToRecordRegionArrayOutputWithContext(ctx context.Context) RecordRegionArrayOutput {
 	return o
+}
+
+func (o RecordRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordRegion] {
+	return pulumix.Output[[]RecordRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordRegionArrayOutput) Index(i pulumi.IntInput) RecordRegionOutput {
@@ -1619,6 +1884,12 @@ func (i TeamDnsRecordsAllowArgs) ToTeamDnsRecordsAllowOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsAllowOutput)
 }
 
+func (i TeamDnsRecordsAllowArgs) ToOutput(ctx context.Context) pulumix.Output[TeamDnsRecordsAllow] {
+	return pulumix.Output[TeamDnsRecordsAllow]{
+		OutputState: i.ToTeamDnsRecordsAllowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TeamDnsRecordsAllowArrayInput is an input type that accepts TeamDnsRecordsAllowArray and TeamDnsRecordsAllowArrayOutput values.
 // You can construct a concrete instance of `TeamDnsRecordsAllowArrayInput` via:
 //
@@ -1644,6 +1915,12 @@ func (i TeamDnsRecordsAllowArray) ToTeamDnsRecordsAllowArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsAllowArrayOutput)
 }
 
+func (i TeamDnsRecordsAllowArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamDnsRecordsAllow] {
+	return pulumix.Output[[]TeamDnsRecordsAllow]{
+		OutputState: i.ToTeamDnsRecordsAllowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TeamDnsRecordsAllowOutput struct{ *pulumi.OutputState }
 
 func (TeamDnsRecordsAllowOutput) ElementType() reflect.Type {
@@ -1656,6 +1933,12 @@ func (o TeamDnsRecordsAllowOutput) ToTeamDnsRecordsAllowOutput() TeamDnsRecordsA
 
 func (o TeamDnsRecordsAllowOutput) ToTeamDnsRecordsAllowOutputWithContext(ctx context.Context) TeamDnsRecordsAllowOutput {
 	return o
+}
+
+func (o TeamDnsRecordsAllowOutput) ToOutput(ctx context.Context) pulumix.Output[TeamDnsRecordsAllow] {
+	return pulumix.Output[TeamDnsRecordsAllow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamDnsRecordsAllowOutput) Domain() pulumi.StringOutput {
@@ -1686,6 +1969,12 @@ func (o TeamDnsRecordsAllowArrayOutput) ToTeamDnsRecordsAllowArrayOutput() TeamD
 
 func (o TeamDnsRecordsAllowArrayOutput) ToTeamDnsRecordsAllowArrayOutputWithContext(ctx context.Context) TeamDnsRecordsAllowArrayOutput {
 	return o
+}
+
+func (o TeamDnsRecordsAllowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamDnsRecordsAllow] {
+	return pulumix.Output[[]TeamDnsRecordsAllow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamDnsRecordsAllowArrayOutput) Index(i pulumi.IntInput) TeamDnsRecordsAllowOutput {
@@ -1731,6 +2020,12 @@ func (i TeamDnsRecordsDenyArgs) ToTeamDnsRecordsDenyOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsDenyOutput)
 }
 
+func (i TeamDnsRecordsDenyArgs) ToOutput(ctx context.Context) pulumix.Output[TeamDnsRecordsDeny] {
+	return pulumix.Output[TeamDnsRecordsDeny]{
+		OutputState: i.ToTeamDnsRecordsDenyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TeamDnsRecordsDenyArrayInput is an input type that accepts TeamDnsRecordsDenyArray and TeamDnsRecordsDenyArrayOutput values.
 // You can construct a concrete instance of `TeamDnsRecordsDenyArrayInput` via:
 //
@@ -1756,6 +2051,12 @@ func (i TeamDnsRecordsDenyArray) ToTeamDnsRecordsDenyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TeamDnsRecordsDenyArrayOutput)
 }
 
+func (i TeamDnsRecordsDenyArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamDnsRecordsDeny] {
+	return pulumix.Output[[]TeamDnsRecordsDeny]{
+		OutputState: i.ToTeamDnsRecordsDenyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TeamDnsRecordsDenyOutput struct{ *pulumi.OutputState }
 
 func (TeamDnsRecordsDenyOutput) ElementType() reflect.Type {
@@ -1768,6 +2069,12 @@ func (o TeamDnsRecordsDenyOutput) ToTeamDnsRecordsDenyOutput() TeamDnsRecordsDen
 
 func (o TeamDnsRecordsDenyOutput) ToTeamDnsRecordsDenyOutputWithContext(ctx context.Context) TeamDnsRecordsDenyOutput {
 	return o
+}
+
+func (o TeamDnsRecordsDenyOutput) ToOutput(ctx context.Context) pulumix.Output[TeamDnsRecordsDeny] {
+	return pulumix.Output[TeamDnsRecordsDeny]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamDnsRecordsDenyOutput) Domain() pulumi.StringOutput {
@@ -1798,6 +2105,12 @@ func (o TeamDnsRecordsDenyArrayOutput) ToTeamDnsRecordsDenyArrayOutput() TeamDns
 
 func (o TeamDnsRecordsDenyArrayOutput) ToTeamDnsRecordsDenyArrayOutputWithContext(ctx context.Context) TeamDnsRecordsDenyArrayOutput {
 	return o
+}
+
+func (o TeamDnsRecordsDenyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamDnsRecordsDeny] {
+	return pulumix.Output[[]TeamDnsRecordsDeny]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) TeamDnsRecordsDenyOutput {
@@ -1841,6 +2154,12 @@ func (i TeamIpWhitelistArgs) ToTeamIpWhitelistOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamIpWhitelistOutput)
 }
 
+func (i TeamIpWhitelistArgs) ToOutput(ctx context.Context) pulumix.Output[TeamIpWhitelist] {
+	return pulumix.Output[TeamIpWhitelist]{
+		OutputState: i.ToTeamIpWhitelistOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TeamIpWhitelistArrayInput is an input type that accepts TeamIpWhitelistArray and TeamIpWhitelistArrayOutput values.
 // You can construct a concrete instance of `TeamIpWhitelistArrayInput` via:
 //
@@ -1866,6 +2185,12 @@ func (i TeamIpWhitelistArray) ToTeamIpWhitelistArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TeamIpWhitelistArrayOutput)
 }
 
+func (i TeamIpWhitelistArray) ToOutput(ctx context.Context) pulumix.Output[[]TeamIpWhitelist] {
+	return pulumix.Output[[]TeamIpWhitelist]{
+		OutputState: i.ToTeamIpWhitelistArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TeamIpWhitelistOutput struct{ *pulumi.OutputState }
 
 func (TeamIpWhitelistOutput) ElementType() reflect.Type {
@@ -1878,6 +2203,12 @@ func (o TeamIpWhitelistOutput) ToTeamIpWhitelistOutput() TeamIpWhitelistOutput {
 
 func (o TeamIpWhitelistOutput) ToTeamIpWhitelistOutputWithContext(ctx context.Context) TeamIpWhitelistOutput {
 	return o
+}
+
+func (o TeamIpWhitelistOutput) ToOutput(ctx context.Context) pulumix.Output[TeamIpWhitelist] {
+	return pulumix.Output[TeamIpWhitelist]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The free form name of the team.
@@ -1901,6 +2232,12 @@ func (o TeamIpWhitelistArrayOutput) ToTeamIpWhitelistArrayOutput() TeamIpWhiteli
 
 func (o TeamIpWhitelistArrayOutput) ToTeamIpWhitelistArrayOutputWithContext(ctx context.Context) TeamIpWhitelistArrayOutput {
 	return o
+}
+
+func (o TeamIpWhitelistArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TeamIpWhitelist] {
+	return pulumix.Output[[]TeamIpWhitelist]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamIpWhitelistArrayOutput) Index(i pulumi.IntInput) TeamIpWhitelistOutput {
@@ -1946,6 +2283,12 @@ func (i UserDnsRecordsAllowArgs) ToUserDnsRecordsAllowOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsAllowOutput)
 }
 
+func (i UserDnsRecordsAllowArgs) ToOutput(ctx context.Context) pulumix.Output[UserDnsRecordsAllow] {
+	return pulumix.Output[UserDnsRecordsAllow]{
+		OutputState: i.ToUserDnsRecordsAllowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserDnsRecordsAllowArrayInput is an input type that accepts UserDnsRecordsAllowArray and UserDnsRecordsAllowArrayOutput values.
 // You can construct a concrete instance of `UserDnsRecordsAllowArrayInput` via:
 //
@@ -1971,6 +2314,12 @@ func (i UserDnsRecordsAllowArray) ToUserDnsRecordsAllowArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsAllowArrayOutput)
 }
 
+func (i UserDnsRecordsAllowArray) ToOutput(ctx context.Context) pulumix.Output[[]UserDnsRecordsAllow] {
+	return pulumix.Output[[]UserDnsRecordsAllow]{
+		OutputState: i.ToUserDnsRecordsAllowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserDnsRecordsAllowOutput struct{ *pulumi.OutputState }
 
 func (UserDnsRecordsAllowOutput) ElementType() reflect.Type {
@@ -1983,6 +2332,12 @@ func (o UserDnsRecordsAllowOutput) ToUserDnsRecordsAllowOutput() UserDnsRecordsA
 
 func (o UserDnsRecordsAllowOutput) ToUserDnsRecordsAllowOutputWithContext(ctx context.Context) UserDnsRecordsAllowOutput {
 	return o
+}
+
+func (o UserDnsRecordsAllowOutput) ToOutput(ctx context.Context) pulumix.Output[UserDnsRecordsAllow] {
+	return pulumix.Output[UserDnsRecordsAllow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserDnsRecordsAllowOutput) Domain() pulumi.StringOutput {
@@ -2013,6 +2368,12 @@ func (o UserDnsRecordsAllowArrayOutput) ToUserDnsRecordsAllowArrayOutput() UserD
 
 func (o UserDnsRecordsAllowArrayOutput) ToUserDnsRecordsAllowArrayOutputWithContext(ctx context.Context) UserDnsRecordsAllowArrayOutput {
 	return o
+}
+
+func (o UserDnsRecordsAllowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserDnsRecordsAllow] {
+	return pulumix.Output[[]UserDnsRecordsAllow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserDnsRecordsAllowArrayOutput) Index(i pulumi.IntInput) UserDnsRecordsAllowOutput {
@@ -2058,6 +2419,12 @@ func (i UserDnsRecordsDenyArgs) ToUserDnsRecordsDenyOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsDenyOutput)
 }
 
+func (i UserDnsRecordsDenyArgs) ToOutput(ctx context.Context) pulumix.Output[UserDnsRecordsDeny] {
+	return pulumix.Output[UserDnsRecordsDeny]{
+		OutputState: i.ToUserDnsRecordsDenyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserDnsRecordsDenyArrayInput is an input type that accepts UserDnsRecordsDenyArray and UserDnsRecordsDenyArrayOutput values.
 // You can construct a concrete instance of `UserDnsRecordsDenyArrayInput` via:
 //
@@ -2083,6 +2450,12 @@ func (i UserDnsRecordsDenyArray) ToUserDnsRecordsDenyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserDnsRecordsDenyArrayOutput)
 }
 
+func (i UserDnsRecordsDenyArray) ToOutput(ctx context.Context) pulumix.Output[[]UserDnsRecordsDeny] {
+	return pulumix.Output[[]UserDnsRecordsDeny]{
+		OutputState: i.ToUserDnsRecordsDenyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserDnsRecordsDenyOutput struct{ *pulumi.OutputState }
 
 func (UserDnsRecordsDenyOutput) ElementType() reflect.Type {
@@ -2095,6 +2468,12 @@ func (o UserDnsRecordsDenyOutput) ToUserDnsRecordsDenyOutput() UserDnsRecordsDen
 
 func (o UserDnsRecordsDenyOutput) ToUserDnsRecordsDenyOutputWithContext(ctx context.Context) UserDnsRecordsDenyOutput {
 	return o
+}
+
+func (o UserDnsRecordsDenyOutput) ToOutput(ctx context.Context) pulumix.Output[UserDnsRecordsDeny] {
+	return pulumix.Output[UserDnsRecordsDeny]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserDnsRecordsDenyOutput) Domain() pulumi.StringOutput {
@@ -2125,6 +2504,12 @@ func (o UserDnsRecordsDenyArrayOutput) ToUserDnsRecordsDenyArrayOutput() UserDns
 
 func (o UserDnsRecordsDenyArrayOutput) ToUserDnsRecordsDenyArrayOutputWithContext(ctx context.Context) UserDnsRecordsDenyArrayOutput {
 	return o
+}
+
+func (o UserDnsRecordsDenyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserDnsRecordsDeny] {
+	return pulumix.Output[[]UserDnsRecordsDeny]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) UserDnsRecordsDenyOutput {
@@ -2184,6 +2569,12 @@ func (i ZoneSecondaryArgs) ToZoneSecondaryOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneSecondaryOutput)
 }
 
+func (i ZoneSecondaryArgs) ToOutput(ctx context.Context) pulumix.Output[ZoneSecondary] {
+	return pulumix.Output[ZoneSecondary]{
+		OutputState: i.ToZoneSecondaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ZoneSecondaryArrayInput is an input type that accepts ZoneSecondaryArray and ZoneSecondaryArrayOutput values.
 // You can construct a concrete instance of `ZoneSecondaryArrayInput` via:
 //
@@ -2209,6 +2600,12 @@ func (i ZoneSecondaryArray) ToZoneSecondaryArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneSecondaryArrayOutput)
 }
 
+func (i ZoneSecondaryArray) ToOutput(ctx context.Context) pulumix.Output[[]ZoneSecondary] {
+	return pulumix.Output[[]ZoneSecondary]{
+		OutputState: i.ToZoneSecondaryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ZoneSecondaryOutput struct{ *pulumi.OutputState }
 
 func (ZoneSecondaryOutput) ElementType() reflect.Type {
@@ -2221,6 +2618,12 @@ func (o ZoneSecondaryOutput) ToZoneSecondaryOutput() ZoneSecondaryOutput {
 
 func (o ZoneSecondaryOutput) ToZoneSecondaryOutputWithContext(ctx context.Context) ZoneSecondaryOutput {
 	return o
+}
+
+func (o ZoneSecondaryOutput) ToOutput(ctx context.Context) pulumix.Output[ZoneSecondary] {
+	return pulumix.Output[ZoneSecondary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IPv4 address of the secondary server.
@@ -2258,6 +2661,12 @@ func (o ZoneSecondaryArrayOutput) ToZoneSecondaryArrayOutput() ZoneSecondaryArra
 
 func (o ZoneSecondaryArrayOutput) ToZoneSecondaryArrayOutputWithContext(ctx context.Context) ZoneSecondaryArrayOutput {
 	return o
+}
+
+func (o ZoneSecondaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ZoneSecondary] {
+	return pulumix.Output[[]ZoneSecondary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ZoneSecondaryArrayOutput) Index(i pulumi.IntInput) ZoneSecondaryOutput {
@@ -2307,6 +2716,12 @@ func (i GetDNSSecDelegationArgs) ToGetDNSSecDelegationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationOutput)
 }
 
+func (i GetDNSSecDelegationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecDelegation] {
+	return pulumix.Output[GetDNSSecDelegation]{
+		OutputState: i.ToGetDNSSecDelegationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDNSSecDelegationArrayInput is an input type that accepts GetDNSSecDelegationArray and GetDNSSecDelegationArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationArrayInput` via:
 //
@@ -2332,6 +2747,12 @@ func (i GetDNSSecDelegationArray) ToGetDNSSecDelegationArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationArrayOutput)
 }
 
+func (i GetDNSSecDelegationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecDelegation] {
+	return pulumix.Output[[]GetDNSSecDelegation]{
+		OutputState: i.ToGetDNSSecDelegationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDNSSecDelegationOutput struct{ *pulumi.OutputState }
 
 func (GetDNSSecDelegationOutput) ElementType() reflect.Type {
@@ -2344,6 +2765,12 @@ func (o GetDNSSecDelegationOutput) ToGetDNSSecDelegationOutput() GetDNSSecDelega
 
 func (o GetDNSSecDelegationOutput) ToGetDNSSecDelegationOutputWithContext(ctx context.Context) GetDNSSecDelegationOutput {
 	return o
+}
+
+func (o GetDNSSecDelegationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecDelegation] {
+	return pulumix.Output[GetDNSSecDelegation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Computed) List of Keys. Key is documented below.
@@ -2373,6 +2800,12 @@ func (o GetDNSSecDelegationArrayOutput) ToGetDNSSecDelegationArrayOutput() GetDN
 
 func (o GetDNSSecDelegationArrayOutput) ToGetDNSSecDelegationArrayOutputWithContext(ctx context.Context) GetDNSSecDelegationArrayOutput {
 	return o
+}
+
+func (o GetDNSSecDelegationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecDelegation] {
+	return pulumix.Output[[]GetDNSSecDelegation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDNSSecDelegationArrayOutput) Index(i pulumi.IntInput) GetDNSSecDelegationOutput {
@@ -2426,6 +2859,12 @@ func (i GetDNSSecDelegationDArgs) ToGetDNSSecDelegationDOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationDOutput)
 }
 
+func (i GetDNSSecDelegationDArgs) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecDelegationD] {
+	return pulumix.Output[GetDNSSecDelegationD]{
+		OutputState: i.ToGetDNSSecDelegationDOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDNSSecDelegationDArrayInput is an input type that accepts GetDNSSecDelegationDArray and GetDNSSecDelegationDArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationDArrayInput` via:
 //
@@ -2451,6 +2890,12 @@ func (i GetDNSSecDelegationDArray) ToGetDNSSecDelegationDArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationDArrayOutput)
 }
 
+func (i GetDNSSecDelegationDArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecDelegationD] {
+	return pulumix.Output[[]GetDNSSecDelegationD]{
+		OutputState: i.ToGetDNSSecDelegationDArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDNSSecDelegationDOutput struct{ *pulumi.OutputState }
 
 func (GetDNSSecDelegationDOutput) ElementType() reflect.Type {
@@ -2463,6 +2908,12 @@ func (o GetDNSSecDelegationDOutput) ToGetDNSSecDelegationDOutput() GetDNSSecDele
 
 func (o GetDNSSecDelegationDOutput) ToGetDNSSecDelegationDOutputWithContext(ctx context.Context) GetDNSSecDelegationDOutput {
 	return o
+}
+
+func (o GetDNSSecDelegationDOutput) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecDelegationD] {
+	return pulumix.Output[GetDNSSecDelegationD]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Computed) Algorithm of the key.
@@ -2497,6 +2948,12 @@ func (o GetDNSSecDelegationDArrayOutput) ToGetDNSSecDelegationDArrayOutput() Get
 
 func (o GetDNSSecDelegationDArrayOutput) ToGetDNSSecDelegationDArrayOutputWithContext(ctx context.Context) GetDNSSecDelegationDArrayOutput {
 	return o
+}
+
+func (o GetDNSSecDelegationDArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecDelegationD] {
+	return pulumix.Output[[]GetDNSSecDelegationD]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDNSSecDelegationDArrayOutput) Index(i pulumi.IntInput) GetDNSSecDelegationDOutput {
@@ -2550,6 +3007,12 @@ func (i GetDNSSecDelegationDnskeyArgs) ToGetDNSSecDelegationDnskeyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationDnskeyOutput)
 }
 
+func (i GetDNSSecDelegationDnskeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecDelegationDnskey] {
+	return pulumix.Output[GetDNSSecDelegationDnskey]{
+		OutputState: i.ToGetDNSSecDelegationDnskeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDNSSecDelegationDnskeyArrayInput is an input type that accepts GetDNSSecDelegationDnskeyArray and GetDNSSecDelegationDnskeyArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecDelegationDnskeyArrayInput` via:
 //
@@ -2575,6 +3038,12 @@ func (i GetDNSSecDelegationDnskeyArray) ToGetDNSSecDelegationDnskeyArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecDelegationDnskeyArrayOutput)
 }
 
+func (i GetDNSSecDelegationDnskeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecDelegationDnskey] {
+	return pulumix.Output[[]GetDNSSecDelegationDnskey]{
+		OutputState: i.ToGetDNSSecDelegationDnskeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDNSSecDelegationDnskeyOutput struct{ *pulumi.OutputState }
 
 func (GetDNSSecDelegationDnskeyOutput) ElementType() reflect.Type {
@@ -2587,6 +3056,12 @@ func (o GetDNSSecDelegationDnskeyOutput) ToGetDNSSecDelegationDnskeyOutput() Get
 
 func (o GetDNSSecDelegationDnskeyOutput) ToGetDNSSecDelegationDnskeyOutputWithContext(ctx context.Context) GetDNSSecDelegationDnskeyOutput {
 	return o
+}
+
+func (o GetDNSSecDelegationDnskeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecDelegationDnskey] {
+	return pulumix.Output[GetDNSSecDelegationDnskey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Computed) Algorithm of the key.
@@ -2621,6 +3096,12 @@ func (o GetDNSSecDelegationDnskeyArrayOutput) ToGetDNSSecDelegationDnskeyArrayOu
 
 func (o GetDNSSecDelegationDnskeyArrayOutput) ToGetDNSSecDelegationDnskeyArrayOutputWithContext(ctx context.Context) GetDNSSecDelegationDnskeyArrayOutput {
 	return o
+}
+
+func (o GetDNSSecDelegationDnskeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecDelegationDnskey] {
+	return pulumix.Output[[]GetDNSSecDelegationDnskey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDNSSecDelegationDnskeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecDelegationDnskeyOutput {
@@ -2666,6 +3147,12 @@ func (i GetDNSSecKeyArgs) ToGetDNSSecKeyOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyOutput)
 }
 
+func (i GetDNSSecKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecKey] {
+	return pulumix.Output[GetDNSSecKey]{
+		OutputState: i.ToGetDNSSecKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDNSSecKeyArrayInput is an input type that accepts GetDNSSecKeyArray and GetDNSSecKeyArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecKeyArrayInput` via:
 //
@@ -2691,6 +3178,12 @@ func (i GetDNSSecKeyArray) ToGetDNSSecKeyArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyArrayOutput)
 }
 
+func (i GetDNSSecKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecKey] {
+	return pulumix.Output[[]GetDNSSecKey]{
+		OutputState: i.ToGetDNSSecKeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDNSSecKeyOutput struct{ *pulumi.OutputState }
 
 func (GetDNSSecKeyOutput) ElementType() reflect.Type {
@@ -2703,6 +3196,12 @@ func (o GetDNSSecKeyOutput) ToGetDNSSecKeyOutput() GetDNSSecKeyOutput {
 
 func (o GetDNSSecKeyOutput) ToGetDNSSecKeyOutputWithContext(ctx context.Context) GetDNSSecKeyOutput {
 	return o
+}
+
+func (o GetDNSSecKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecKey] {
+	return pulumix.Output[GetDNSSecKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Computed) List of Keys. Key is documented below.
@@ -2727,6 +3226,12 @@ func (o GetDNSSecKeyArrayOutput) ToGetDNSSecKeyArrayOutput() GetDNSSecKeyArrayOu
 
 func (o GetDNSSecKeyArrayOutput) ToGetDNSSecKeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeyArrayOutput {
 	return o
+}
+
+func (o GetDNSSecKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecKey] {
+	return pulumix.Output[[]GetDNSSecKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDNSSecKeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecKeyOutput {
@@ -2780,6 +3285,12 @@ func (i GetDNSSecKeyDnskeyArgs) ToGetDNSSecKeyDnskeyOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyDnskeyOutput)
 }
 
+func (i GetDNSSecKeyDnskeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecKeyDnskey] {
+	return pulumix.Output[GetDNSSecKeyDnskey]{
+		OutputState: i.ToGetDNSSecKeyDnskeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDNSSecKeyDnskeyArrayInput is an input type that accepts GetDNSSecKeyDnskeyArray and GetDNSSecKeyDnskeyArrayOutput values.
 // You can construct a concrete instance of `GetDNSSecKeyDnskeyArrayInput` via:
 //
@@ -2805,6 +3316,12 @@ func (i GetDNSSecKeyDnskeyArray) ToGetDNSSecKeyDnskeyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetDNSSecKeyDnskeyArrayOutput)
 }
 
+func (i GetDNSSecKeyDnskeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecKeyDnskey] {
+	return pulumix.Output[[]GetDNSSecKeyDnskey]{
+		OutputState: i.ToGetDNSSecKeyDnskeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDNSSecKeyDnskeyOutput struct{ *pulumi.OutputState }
 
 func (GetDNSSecKeyDnskeyOutput) ElementType() reflect.Type {
@@ -2817,6 +3334,12 @@ func (o GetDNSSecKeyDnskeyOutput) ToGetDNSSecKeyDnskeyOutput() GetDNSSecKeyDnske
 
 func (o GetDNSSecKeyDnskeyOutput) ToGetDNSSecKeyDnskeyOutputWithContext(ctx context.Context) GetDNSSecKeyDnskeyOutput {
 	return o
+}
+
+func (o GetDNSSecKeyDnskeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecKeyDnskey] {
+	return pulumix.Output[GetDNSSecKeyDnskey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Computed) Algorithm of the key.
@@ -2851,6 +3374,12 @@ func (o GetDNSSecKeyDnskeyArrayOutput) ToGetDNSSecKeyDnskeyArrayOutput() GetDNSS
 
 func (o GetDNSSecKeyDnskeyArrayOutput) ToGetDNSSecKeyDnskeyArrayOutputWithContext(ctx context.Context) GetDNSSecKeyDnskeyArrayOutput {
 	return o
+}
+
+func (o GetDNSSecKeyDnskeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDNSSecKeyDnskey] {
+	return pulumix.Output[[]GetDNSSecKeyDnskey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDNSSecKeyDnskeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecKeyDnskeyOutput {
@@ -2900,6 +3429,12 @@ func (i GetNetworksNetworkArgs) ToGetNetworksNetworkOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworksNetworkOutput)
 }
 
+func (i GetNetworksNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworksNetwork] {
+	return pulumix.Output[GetNetworksNetwork]{
+		OutputState: i.ToGetNetworksNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworksNetworkArrayInput is an input type that accepts GetNetworksNetworkArray and GetNetworksNetworkArrayOutput values.
 // You can construct a concrete instance of `GetNetworksNetworkArrayInput` via:
 //
@@ -2925,6 +3460,12 @@ func (i GetNetworksNetworkArray) ToGetNetworksNetworkArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworksNetworkArrayOutput)
 }
 
+func (i GetNetworksNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworksNetwork] {
+	return pulumix.Output[[]GetNetworksNetwork]{
+		OutputState: i.ToGetNetworksNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworksNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetNetworksNetworkOutput) ElementType() reflect.Type {
@@ -2937,6 +3478,12 @@ func (o GetNetworksNetworkOutput) ToGetNetworksNetworkOutput() GetNetworksNetwor
 
 func (o GetNetworksNetworkOutput) ToGetNetworksNetworkOutputWithContext(ctx context.Context) GetNetworksNetworkOutput {
 	return o
+}
+
+func (o GetNetworksNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworksNetwork] {
+	return pulumix.Output[GetNetworksNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Label associated with the network.
@@ -2966,6 +3513,12 @@ func (o GetNetworksNetworkArrayOutput) ToGetNetworksNetworkArrayOutput() GetNetw
 
 func (o GetNetworksNetworkArrayOutput) ToGetNetworksNetworkArrayOutputWithContext(ctx context.Context) GetNetworksNetworkArrayOutput {
 	return o
+}
+
+func (o GetNetworksNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworksNetwork] {
+	return pulumix.Output[[]GetNetworksNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworksNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworksNetworkOutput {
@@ -3011,6 +3564,12 @@ func (i GetRecordAnswerArgs) ToGetRecordAnswerOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecordAnswerOutput)
 }
 
+func (i GetRecordAnswerArgs) ToOutput(ctx context.Context) pulumix.Output[GetRecordAnswer] {
+	return pulumix.Output[GetRecordAnswer]{
+		OutputState: i.ToGetRecordAnswerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetRecordAnswerArrayInput is an input type that accepts GetRecordAnswerArray and GetRecordAnswerArrayOutput values.
 // You can construct a concrete instance of `GetRecordAnswerArrayInput` via:
 //
@@ -3036,6 +3595,12 @@ func (i GetRecordAnswerArray) ToGetRecordAnswerArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecordAnswerArrayOutput)
 }
 
+func (i GetRecordAnswerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRecordAnswer] {
+	return pulumix.Output[[]GetRecordAnswer]{
+		OutputState: i.ToGetRecordAnswerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetRecordAnswerOutput struct{ *pulumi.OutputState }
 
 func (GetRecordAnswerOutput) ElementType() reflect.Type {
@@ -3048,6 +3613,12 @@ func (o GetRecordAnswerOutput) ToGetRecordAnswerOutput() GetRecordAnswerOutput {
 
 func (o GetRecordAnswerOutput) ToGetRecordAnswerOutputWithContext(ctx context.Context) GetRecordAnswerOutput {
 	return o
+}
+
+func (o GetRecordAnswerOutput) ToOutput(ctx context.Context) pulumix.Output[GetRecordAnswer] {
+	return pulumix.Output[GetRecordAnswer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRecordAnswerOutput) Answer() pulumi.StringOutput {
@@ -3075,6 +3646,12 @@ func (o GetRecordAnswerArrayOutput) ToGetRecordAnswerArrayOutput() GetRecordAnsw
 
 func (o GetRecordAnswerArrayOutput) ToGetRecordAnswerArrayOutputWithContext(ctx context.Context) GetRecordAnswerArrayOutput {
 	return o
+}
+
+func (o GetRecordAnswerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRecordAnswer] {
+	return pulumix.Output[[]GetRecordAnswer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRecordAnswerArrayOutput) Index(i pulumi.IntInput) GetRecordAnswerOutput {
@@ -3118,6 +3695,12 @@ func (i GetRecordFilterArgs) ToGetRecordFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecordFilterOutput)
 }
 
+func (i GetRecordFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRecordFilter] {
+	return pulumix.Output[GetRecordFilter]{
+		OutputState: i.ToGetRecordFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetRecordFilterArrayInput is an input type that accepts GetRecordFilterArray and GetRecordFilterArrayOutput values.
 // You can construct a concrete instance of `GetRecordFilterArrayInput` via:
 //
@@ -3143,6 +3726,12 @@ func (i GetRecordFilterArray) ToGetRecordFilterArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecordFilterArrayOutput)
 }
 
+func (i GetRecordFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRecordFilter] {
+	return pulumix.Output[[]GetRecordFilter]{
+		OutputState: i.ToGetRecordFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetRecordFilterOutput struct{ *pulumi.OutputState }
 
 func (GetRecordFilterOutput) ElementType() reflect.Type {
@@ -3155,6 +3744,12 @@ func (o GetRecordFilterOutput) ToGetRecordFilterOutput() GetRecordFilterOutput {
 
 func (o GetRecordFilterOutput) ToGetRecordFilterOutputWithContext(ctx context.Context) GetRecordFilterOutput {
 	return o
+}
+
+func (o GetRecordFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRecordFilter] {
+	return pulumix.Output[GetRecordFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRecordFilterOutput) Config() pulumi.MapOutput {
@@ -3181,6 +3776,12 @@ func (o GetRecordFilterArrayOutput) ToGetRecordFilterArrayOutput() GetRecordFilt
 
 func (o GetRecordFilterArrayOutput) ToGetRecordFilterArrayOutputWithContext(ctx context.Context) GetRecordFilterArrayOutput {
 	return o
+}
+
+func (o GetRecordFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRecordFilter] {
+	return pulumix.Output[[]GetRecordFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRecordFilterArrayOutput) Index(i pulumi.IntInput) GetRecordFilterOutput {
@@ -3224,6 +3825,12 @@ func (i GetRecordRegionArgs) ToGetRecordRegionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecordRegionOutput)
 }
 
+func (i GetRecordRegionArgs) ToOutput(ctx context.Context) pulumix.Output[GetRecordRegion] {
+	return pulumix.Output[GetRecordRegion]{
+		OutputState: i.ToGetRecordRegionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetRecordRegionArrayInput is an input type that accepts GetRecordRegionArray and GetRecordRegionArrayOutput values.
 // You can construct a concrete instance of `GetRecordRegionArrayInput` via:
 //
@@ -3249,6 +3856,12 @@ func (i GetRecordRegionArray) ToGetRecordRegionArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecordRegionArrayOutput)
 }
 
+func (i GetRecordRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRecordRegion] {
+	return pulumix.Output[[]GetRecordRegion]{
+		OutputState: i.ToGetRecordRegionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetRecordRegionOutput struct{ *pulumi.OutputState }
 
 func (GetRecordRegionOutput) ElementType() reflect.Type {
@@ -3261,6 +3874,12 @@ func (o GetRecordRegionOutput) ToGetRecordRegionOutput() GetRecordRegionOutput {
 
 func (o GetRecordRegionOutput) ToGetRecordRegionOutputWithContext(ctx context.Context) GetRecordRegionOutput {
 	return o
+}
+
+func (o GetRecordRegionOutput) ToOutput(ctx context.Context) pulumix.Output[GetRecordRegion] {
+	return pulumix.Output[GetRecordRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Map of metadata
@@ -3284,6 +3903,12 @@ func (o GetRecordRegionArrayOutput) ToGetRecordRegionArrayOutput() GetRecordRegi
 
 func (o GetRecordRegionArrayOutput) ToGetRecordRegionArrayOutputWithContext(ctx context.Context) GetRecordRegionArrayOutput {
 	return o
+}
+
+func (o GetRecordRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRecordRegion] {
+	return pulumix.Output[[]GetRecordRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRecordRegionArrayOutput) Index(i pulumi.IntInput) GetRecordRegionOutput {
@@ -3341,6 +3966,12 @@ func (i GetZoneSecondaryArgs) ToGetZoneSecondaryOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetZoneSecondaryOutput)
 }
 
+func (i GetZoneSecondaryArgs) ToOutput(ctx context.Context) pulumix.Output[GetZoneSecondary] {
+	return pulumix.Output[GetZoneSecondary]{
+		OutputState: i.ToGetZoneSecondaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetZoneSecondaryArrayInput is an input type that accepts GetZoneSecondaryArray and GetZoneSecondaryArrayOutput values.
 // You can construct a concrete instance of `GetZoneSecondaryArrayInput` via:
 //
@@ -3366,6 +3997,12 @@ func (i GetZoneSecondaryArray) ToGetZoneSecondaryArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetZoneSecondaryArrayOutput)
 }
 
+func (i GetZoneSecondaryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetZoneSecondary] {
+	return pulumix.Output[[]GetZoneSecondary]{
+		OutputState: i.ToGetZoneSecondaryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetZoneSecondaryOutput struct{ *pulumi.OutputState }
 
 func (GetZoneSecondaryOutput) ElementType() reflect.Type {
@@ -3378,6 +4015,12 @@ func (o GetZoneSecondaryOutput) ToGetZoneSecondaryOutput() GetZoneSecondaryOutpu
 
 func (o GetZoneSecondaryOutput) ToGetZoneSecondaryOutputWithContext(ctx context.Context) GetZoneSecondaryOutput {
 	return o
+}
+
+func (o GetZoneSecondaryOutput) ToOutput(ctx context.Context) pulumix.Output[GetZoneSecondary] {
+	return pulumix.Output[GetZoneSecondary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IPv4 address of the secondary server.
@@ -3414,6 +4057,12 @@ func (o GetZoneSecondaryArrayOutput) ToGetZoneSecondaryArrayOutput() GetZoneSeco
 
 func (o GetZoneSecondaryArrayOutput) ToGetZoneSecondaryArrayOutputWithContext(ctx context.Context) GetZoneSecondaryArrayOutput {
 	return o
+}
+
+func (o GetZoneSecondaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetZoneSecondary] {
+	return pulumix.Output[[]GetZoneSecondary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetZoneSecondaryArrayOutput) Index(i pulumi.IntInput) GetZoneSecondaryOutput {

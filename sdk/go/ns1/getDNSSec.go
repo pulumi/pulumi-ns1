@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides DNSSEC details about a NS1 Zone.
@@ -106,6 +107,12 @@ func (o GetDNSSecResultOutput) ToGetDNSSecResultOutput() GetDNSSecResultOutput {
 
 func (o GetDNSSecResultOutput) ToGetDNSSecResultOutputWithContext(ctx context.Context) GetDNSSecResultOutput {
 	return o
+}
+
+func (o GetDNSSecResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDNSSecResult] {
+	return pulumix.Output[GetDNSSecResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Computed) - Delegation field is documented

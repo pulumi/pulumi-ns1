@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 Team resource. This can be used to create, modify, and delete
@@ -498,6 +499,12 @@ func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamOutput)
 }
 
+func (i *Team) ToOutput(ctx context.Context) pulumix.Output[*Team] {
+	return pulumix.Output[*Team]{
+		OutputState: i.ToTeamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TeamArrayInput is an input type that accepts TeamArray and TeamArrayOutput values.
 // You can construct a concrete instance of `TeamArrayInput` via:
 //
@@ -521,6 +528,12 @@ func (i TeamArray) ToTeamArrayOutput() TeamArrayOutput {
 
 func (i TeamArray) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamArrayOutput)
+}
+
+func (i TeamArray) ToOutput(ctx context.Context) pulumix.Output[[]*Team] {
+	return pulumix.Output[[]*Team]{
+		OutputState: i.ToTeamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TeamMapInput is an input type that accepts TeamMap and TeamMapOutput values.
@@ -548,6 +561,12 @@ func (i TeamMap) ToTeamMapOutputWithContext(ctx context.Context) TeamMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMapOutput)
 }
 
+func (i TeamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Team] {
+	return pulumix.Output[map[string]*Team]{
+		OutputState: i.ToTeamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TeamOutput struct{ *pulumi.OutputState }
 
 func (TeamOutput) ElementType() reflect.Type {
@@ -560,6 +579,12 @@ func (o TeamOutput) ToTeamOutput() TeamOutput {
 
 func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
+}
+
+func (o TeamOutput) ToOutput(ctx context.Context) pulumix.Output[*Team] {
+	return pulumix.Output[*Team]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the team can modify account settings.
@@ -733,6 +758,12 @@ func (o TeamArrayOutput) ToTeamArrayOutputWithContext(ctx context.Context) TeamA
 	return o
 }
 
+func (o TeamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Team] {
+	return pulumix.Output[[]*Team]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TeamArrayOutput) Index(i pulumi.IntInput) TeamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Team {
 		return vs[0].([]*Team)[vs[1].(int)]
@@ -751,6 +782,12 @@ func (o TeamMapOutput) ToTeamMapOutput() TeamMapOutput {
 
 func (o TeamMapOutput) ToTeamMapOutputWithContext(ctx context.Context) TeamMapOutput {
 	return o
+}
+
+func (o TeamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Team] {
+	return pulumix.Output[map[string]*Team]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamMapOutput) MapIndex(k pulumi.StringInput) TeamOutput {

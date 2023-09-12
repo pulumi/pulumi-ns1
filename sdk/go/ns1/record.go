@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 Record resource. This can be used to create, modify, and delete records.
@@ -281,6 +282,12 @@ func (i *Record) ToRecordOutputWithContext(ctx context.Context) RecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecordOutput)
 }
 
+func (i *Record) ToOutput(ctx context.Context) pulumix.Output[*Record] {
+	return pulumix.Output[*Record]{
+		OutputState: i.ToRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecordArrayInput is an input type that accepts RecordArray and RecordArrayOutput values.
 // You can construct a concrete instance of `RecordArrayInput` via:
 //
@@ -304,6 +311,12 @@ func (i RecordArray) ToRecordArrayOutput() RecordArrayOutput {
 
 func (i RecordArray) ToRecordArrayOutputWithContext(ctx context.Context) RecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecordArrayOutput)
+}
+
+func (i RecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*Record] {
+	return pulumix.Output[[]*Record]{
+		OutputState: i.ToRecordArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RecordMapInput is an input type that accepts RecordMap and RecordMapOutput values.
@@ -331,6 +344,12 @@ func (i RecordMap) ToRecordMapOutputWithContext(ctx context.Context) RecordMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordMapOutput)
 }
 
+func (i RecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Record] {
+	return pulumix.Output[map[string]*Record]{
+		OutputState: i.ToRecordMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordOutput struct{ *pulumi.OutputState }
 
 func (RecordOutput) ElementType() reflect.Type {
@@ -343,6 +362,12 @@ func (o RecordOutput) ToRecordOutput() RecordOutput {
 
 func (o RecordOutput) ToRecordOutputWithContext(ctx context.Context) RecordOutput {
 	return o
+}
+
+func (o RecordOutput) ToOutput(ctx context.Context) pulumix.Output[*Record] {
+	return pulumix.Output[*Record]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more NS1 answers for the records' specified type.
@@ -428,6 +453,12 @@ func (o RecordArrayOutput) ToRecordArrayOutputWithContext(ctx context.Context) R
 	return o
 }
 
+func (o RecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Record] {
+	return pulumix.Output[[]*Record]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecordArrayOutput) Index(i pulumi.IntInput) RecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Record {
 		return vs[0].([]*Record)[vs[1].(int)]
@@ -446,6 +477,12 @@ func (o RecordMapOutput) ToRecordMapOutput() RecordMapOutput {
 
 func (o RecordMapOutput) ToRecordMapOutputWithContext(ctx context.Context) RecordMapOutput {
 	return o
+}
+
+func (o RecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Record] {
+	return pulumix.Output[map[string]*Record]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordMapOutput) MapIndex(k pulumi.StringInput) RecordOutput {
