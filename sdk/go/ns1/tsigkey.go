@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
@@ -161,6 +162,12 @@ func (i *Tsigkey) ToTsigkeyOutputWithContext(ctx context.Context) TsigkeyOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TsigkeyOutput)
 }
 
+func (i *Tsigkey) ToOutput(ctx context.Context) pulumix.Output[*Tsigkey] {
+	return pulumix.Output[*Tsigkey]{
+		OutputState: i.ToTsigkeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TsigkeyArrayInput is an input type that accepts TsigkeyArray and TsigkeyArrayOutput values.
 // You can construct a concrete instance of `TsigkeyArrayInput` via:
 //
@@ -184,6 +191,12 @@ func (i TsigkeyArray) ToTsigkeyArrayOutput() TsigkeyArrayOutput {
 
 func (i TsigkeyArray) ToTsigkeyArrayOutputWithContext(ctx context.Context) TsigkeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TsigkeyArrayOutput)
+}
+
+func (i TsigkeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Tsigkey] {
+	return pulumix.Output[[]*Tsigkey]{
+		OutputState: i.ToTsigkeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TsigkeyMapInput is an input type that accepts TsigkeyMap and TsigkeyMapOutput values.
@@ -211,6 +224,12 @@ func (i TsigkeyMap) ToTsigkeyMapOutputWithContext(ctx context.Context) TsigkeyMa
 	return pulumi.ToOutputWithContext(ctx, i).(TsigkeyMapOutput)
 }
 
+func (i TsigkeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Tsigkey] {
+	return pulumix.Output[map[string]*Tsigkey]{
+		OutputState: i.ToTsigkeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TsigkeyOutput struct{ *pulumi.OutputState }
 
 func (TsigkeyOutput) ElementType() reflect.Type {
@@ -223,6 +242,12 @@ func (o TsigkeyOutput) ToTsigkeyOutput() TsigkeyOutput {
 
 func (o TsigkeyOutput) ToTsigkeyOutputWithContext(ctx context.Context) TsigkeyOutput {
 	return o
+}
+
+func (o TsigkeyOutput) ToOutput(ctx context.Context) pulumix.Output[*Tsigkey] {
+	return pulumix.Output[*Tsigkey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The algorithm used to hash the TSIG key's secret.
@@ -254,6 +279,12 @@ func (o TsigkeyArrayOutput) ToTsigkeyArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o TsigkeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Tsigkey] {
+	return pulumix.Output[[]*Tsigkey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TsigkeyArrayOutput) Index(i pulumi.IntInput) TsigkeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Tsigkey {
 		return vs[0].([]*Tsigkey)[vs[1].(int)]
@@ -272,6 +303,12 @@ func (o TsigkeyMapOutput) ToTsigkeyMapOutput() TsigkeyMapOutput {
 
 func (o TsigkeyMapOutput) ToTsigkeyMapOutputWithContext(ctx context.Context) TsigkeyMapOutput {
 	return o
+}
+
+func (o TsigkeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Tsigkey] {
+	return pulumix.Output[map[string]*Tsigkey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TsigkeyMapOutput) MapIndex(k pulumi.StringInput) TsigkeyOutput {

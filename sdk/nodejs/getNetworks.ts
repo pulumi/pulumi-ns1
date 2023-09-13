@@ -41,3 +41,20 @@ export interface GetNetworksResult {
      */
     readonly networks: outputs.GetNetworksNetwork[];
 }
+/**
+ * Provides details about NS1 Networks. Use this if you would simply like to read
+ * information from NS1 into your configurations. For read/write operations, you
+ * should use a resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const example = ns1.getNetworks({});
+ * ```
+ */
+export function getNetworksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
+    return pulumi.output(getNetworks(opts))
+}

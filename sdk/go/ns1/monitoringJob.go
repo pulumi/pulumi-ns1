@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
@@ -324,6 +325,12 @@ func (i *MonitoringJob) ToMonitoringJobOutputWithContext(ctx context.Context) Mo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobOutput)
 }
 
+func (i *MonitoringJob) ToOutput(ctx context.Context) pulumix.Output[*MonitoringJob] {
+	return pulumix.Output[*MonitoringJob]{
+		OutputState: i.ToMonitoringJobOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MonitoringJobArrayInput is an input type that accepts MonitoringJobArray and MonitoringJobArrayOutput values.
 // You can construct a concrete instance of `MonitoringJobArrayInput` via:
 //
@@ -347,6 +354,12 @@ func (i MonitoringJobArray) ToMonitoringJobArrayOutput() MonitoringJobArrayOutpu
 
 func (i MonitoringJobArray) ToMonitoringJobArrayOutputWithContext(ctx context.Context) MonitoringJobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobArrayOutput)
+}
+
+func (i MonitoringJobArray) ToOutput(ctx context.Context) pulumix.Output[[]*MonitoringJob] {
+	return pulumix.Output[[]*MonitoringJob]{
+		OutputState: i.ToMonitoringJobArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MonitoringJobMapInput is an input type that accepts MonitoringJobMap and MonitoringJobMapOutput values.
@@ -374,6 +387,12 @@ func (i MonitoringJobMap) ToMonitoringJobMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringJobMapOutput)
 }
 
+func (i MonitoringJobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitoringJob] {
+	return pulumix.Output[map[string]*MonitoringJob]{
+		OutputState: i.ToMonitoringJobMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitoringJobOutput struct{ *pulumi.OutputState }
 
 func (MonitoringJobOutput) ElementType() reflect.Type {
@@ -386,6 +405,12 @@ func (o MonitoringJobOutput) ToMonitoringJobOutput() MonitoringJobOutput {
 
 func (o MonitoringJobOutput) ToMonitoringJobOutputWithContext(ctx context.Context) MonitoringJobOutput {
 	return o
+}
+
+func (o MonitoringJobOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringJob] {
+	return pulumix.Output[*MonitoringJob]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates if the job is active or temporarily disabled.
@@ -483,6 +508,12 @@ func (o MonitoringJobArrayOutput) ToMonitoringJobArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o MonitoringJobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MonitoringJob] {
+	return pulumix.Output[[]*MonitoringJob]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MonitoringJobArrayOutput) Index(i pulumi.IntInput) MonitoringJobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitoringJob {
 		return vs[0].([]*MonitoringJob)[vs[1].(int)]
@@ -501,6 +532,12 @@ func (o MonitoringJobMapOutput) ToMonitoringJobMapOutput() MonitoringJobMapOutpu
 
 func (o MonitoringJobMapOutput) ToMonitoringJobMapOutputWithContext(ctx context.Context) MonitoringJobMapOutput {
 	return o
+}
+
+func (o MonitoringJobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitoringJob] {
+	return pulumix.Output[map[string]*MonitoringJob]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitoringJobMapOutput) MapIndex(k pulumi.StringInput) MonitoringJobOutput {
