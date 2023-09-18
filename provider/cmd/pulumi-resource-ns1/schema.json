@@ -1294,6 +1294,59 @@
                 "type": "object"
             }
         },
+        "ns1:index/accountWhitelist:AccountWhitelist": {
+            "description": "Provides a NS1 Global IP Whitelist resource.\n\nThis can be used to create, modify, and delete Global IP Whitelists.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.AccountWhitelist(\"example\", {values: [\n    \"1.1.1.1\",\n    \"2.2.2.2\",\n]});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.AccountWhitelist(\"example\", values=[\n    \"1.1.1.1\",\n    \"2.2.2.2\",\n])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.AccountWhitelist(\"example\", new()\n    {\n        Values = new[]\n        {\n            \"1.1.1.1\",\n            \"2.2.2.2\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewAccountWhitelist(ctx, \"example\", \u0026ns1.AccountWhitelistArgs{\n\t\t\tValues: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.AccountWhitelist;\nimport com.pulumi.ns1.AccountWhitelistArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new AccountWhitelist(\"example\", AccountWhitelistArgs.builder()        \n            .values(            \n                \"1.1.1.1\",\n                \"2.2.2.2\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:AccountWhitelist\n    properties:\n      values:\n        - 1.1.1.1\n        - 2.2.2.2\n```\n\n\u003e You current source IP must be present in one of the whitelists to prevent locking yourself out.\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Global IP Whitelist Doc](https://ns1.com/api?docId=2282)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example \u003cID\u003e`\n```\n\n ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the whitelist.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Array of IP addresses/networks from which to allow access.\n"
+                }
+            },
+            "required": [
+                "name",
+                "values"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The free form name of the whitelist.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Array of IP addresses/networks from which to allow access.\n"
+                }
+            },
+            "requiredInputs": [
+                "values"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AccountWhitelist resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The free form name of the whitelist.\n"
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Array of IP addresses/networks from which to allow access.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "ns1:index/application:Application": {
             "description": "Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new pulsar application with default config\nconst ns1App = new ns1.Application(\"ns1App\", {defaultConfig: {\n    http: true,\n    https: false,\n    jobTimeoutMillis: 100,\n    requestTimeoutMillis: 100,\n    staticValues: true,\n}});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new pulsar application with default config\nns1_app = ns1.Application(\"ns1App\", default_config=ns1.ApplicationDefaultConfigArgs(\n    http=True,\n    https=False,\n    job_timeout_millis=100,\n    request_timeout_millis=100,\n    static_values=True,\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new pulsar application with default config\n    var ns1App = new Ns1.Application(\"ns1App\", new()\n    {\n        DefaultConfig = new Ns1.Inputs.ApplicationDefaultConfigArgs\n        {\n            Http = true,\n            Https = false,\n            JobTimeoutMillis = 100,\n            RequestTimeoutMillis = 100,\n            StaticValues = true,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewApplication(ctx, \"ns1App\", \u0026ns1.ApplicationArgs{\n\t\t\tDefaultConfig: \u0026ns1.ApplicationDefaultConfigArgs{\n\t\t\t\tHttp:                 pulumi.Bool(true),\n\t\t\t\tHttps:                pulumi.Bool(false),\n\t\t\t\tJobTimeoutMillis:     pulumi.Int(100),\n\t\t\t\tRequestTimeoutMillis: pulumi.Int(100),\n\t\t\t\tStaticValues:         pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Application;\nimport com.pulumi.ns1.ApplicationArgs;\nimport com.pulumi.ns1.inputs.ApplicationDefaultConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var ns1App = new Application(\"ns1App\", ApplicationArgs.builder()        \n            .defaultConfig(ApplicationDefaultConfigArgs.builder()\n                .http(true)\n                .https(false)\n                .jobTimeoutMillis(100)\n                .requestTimeoutMillis(100)\n                .staticValues(true)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new pulsar application with default config\n  ns1App:\n    type: ns1:Application\n    properties:\n      defaultConfig:\n        http: true\n        https: false\n        jobTimeoutMillis: 100\n        requestTimeoutMillis: 100\n        staticValues: true\n```\n{{% /example %}}\n{{% /examples %}}\n## NS1 Documentation\n\n[Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)\n\n\n## Import\n\n\n\n```sh\n $ pulumi import ns1:index/application:Application `ns1_application`\n```\n\n So for the example above\n\n```sh\n $ pulumi import ns1:index/application:Application example terraform.example.io`\n```\n\n ",
             "properties": {
