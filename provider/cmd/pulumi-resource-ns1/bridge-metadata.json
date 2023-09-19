@@ -1,6 +1,15 @@
 {
     "auto-aliasing": {
         "resources": {
+            "ns1_account_whitelist": {
+                "current": "ns1:index/accountWhitelist:AccountWhitelist",
+                "majorVersion": 3,
+                "fields": {
+                    "values": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "ns1_apikey": {
                 "current": "ns1:index/aPIKey:APIKey",
                 "majorVersion": 3,
@@ -287,6 +296,7 @@
     "renames": {
         "resources": {
             "ns1:index/aPIKey:APIKey": "ns1_apikey",
+            "ns1:index/accountWhitelist:AccountWhitelist": "ns1_account_whitelist",
             "ns1:index/application:Application": "ns1_application",
             "ns1:index/dataFeed:DataFeed": "ns1_datafeed",
             "ns1:index/dataSource:DataSource": "ns1_datasource",

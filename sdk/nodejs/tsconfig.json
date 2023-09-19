@@ -13,6 +13,7 @@
         "strict": true
     },
     "files": [
+        "accountWhitelist.ts",
         "apikey.ts",
         "application.ts",
         "config/index.ts",

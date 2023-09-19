@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .account_whitelist import *
 from .api_key import *
 from .application import *
 from .data_feed import *
@@ -43,6 +44,14 @@ _utilities.register(
   "fqn": "pulumi_ns1",
   "classes": {
    "ns1:index/aPIKey:APIKey": "APIKey"
+  }
+ },
+ {
+  "pkg": "ns1",
+  "mod": "index/accountWhitelist",
+  "fqn": "pulumi_ns1",
+  "classes": {
+   "ns1:index/accountWhitelist:AccountWhitelist": "AccountWhitelist"
   }
  },
  {
