@@ -18,49 +18,49 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="ns1:index/dnsview:Dnsview")
 public class Dnsview extends com.pulumi.resources.CustomResource {
-    @Export(name="createdAt", type=Integer.class, parameters={})
+    @Export(name="createdAt", refs={Integer.class}, tree="[0]")
     private Output<Integer> createdAt;
 
     public Output<Integer> createdAt() {
         return this.createdAt;
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="networks", type=List.class, parameters={Integer.class})
+    @Export(name="networks", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> networks;
 
     public Output<Optional<List<Integer>>> networks() {
         return Codegen.optional(this.networks);
     }
-    @Export(name="preference", type=Integer.class, parameters={})
+    @Export(name="preference", refs={Integer.class}, tree="[0]")
     private Output<Integer> preference;
 
     public Output<Integer> preference() {
         return this.preference;
     }
-    @Export(name="readAcls", type=List.class, parameters={String.class})
+    @Export(name="readAcls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> readAcls;
 
     public Output<Optional<List<String>>> readAcls() {
         return Codegen.optional(this.readAcls);
     }
-    @Export(name="updateAcls", type=List.class, parameters={String.class})
+    @Export(name="updateAcls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> updateAcls;
 
     public Output<Optional<List<String>>> updateAcls() {
         return Codegen.optional(this.updateAcls);
     }
-    @Export(name="updatedAt", type=Integer.class, parameters={})
+    @Export(name="updatedAt", refs={Integer.class}, tree="[0]")
     private Output<Integer> updatedAt;
 
     public Output<Integer> updatedAt() {
         return this.updatedAt;
     }
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     public Output<Optional<List<String>>> zones() {

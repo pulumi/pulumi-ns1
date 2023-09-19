@@ -99,7 +99,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify account settings.
      * 
      */
-    @Export(name="accountManageAccountSettings", type=Boolean.class, parameters={})
+    @Export(name="accountManageAccountSettings", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageAccountSettings;
 
     /**
@@ -113,7 +113,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify account apikeys.
      * 
      */
-    @Export(name="accountManageApikeys", type=Boolean.class, parameters={})
+    @Export(name="accountManageApikeys", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageApikeys;
 
     /**
@@ -127,7 +127,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can manage ip whitelist.
      * 
      */
-    @Export(name="accountManageIpWhitelist", type=Boolean.class, parameters={})
+    @Export(name="accountManageIpWhitelist", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageIpWhitelist;
 
     /**
@@ -141,7 +141,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify account payment methods.
      * 
      */
-    @Export(name="accountManagePaymentMethods", type=Boolean.class, parameters={})
+    @Export(name="accountManagePaymentMethods", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePaymentMethods;
 
     /**
@@ -159,7 +159,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* obsolete, should no longer be used */
-    @Export(name="accountManagePlan", type=Boolean.class, parameters={})
+    @Export(name="accountManagePlan", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePlan;
 
     /**
@@ -173,7 +173,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify other teams in the account.
      * 
      */
-    @Export(name="accountManageTeams", type=Boolean.class, parameters={})
+    @Export(name="accountManageTeams", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageTeams;
 
     /**
@@ -187,7 +187,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify account users.
      * 
      */
-    @Export(name="accountManageUsers", type=Boolean.class, parameters={})
+    @Export(name="accountManageUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageUsers;
 
     /**
@@ -201,7 +201,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can view activity logs.
      * 
      */
-    @Export(name="accountViewActivityLog", type=Boolean.class, parameters={})
+    @Export(name="accountViewActivityLog", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountViewActivityLog;
 
     /**
@@ -215,7 +215,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can view invoices.
      * 
      */
-    @Export(name="accountViewInvoices", type=Boolean.class, parameters={})
+    @Export(name="accountViewInvoices", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountViewInvoices;
 
     /**
@@ -229,7 +229,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify data feeds.
      * 
      */
-    @Export(name="dataManageDatafeeds", type=Boolean.class, parameters={})
+    @Export(name="dataManageDatafeeds", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataManageDatafeeds;
 
     /**
@@ -243,7 +243,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify data sources.
      * 
      */
-    @Export(name="dataManageDatasources", type=Boolean.class, parameters={})
+    @Export(name="dataManageDatasources", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataManageDatasources;
 
     /**
@@ -257,7 +257,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can publish to data feeds.
      * 
      */
-    @Export(name="dataPushToDatafeeds", type=Boolean.class, parameters={})
+    @Export(name="dataPushToDatafeeds", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataPushToDatafeeds;
 
     /**
@@ -272,7 +272,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="dhcpManageDhcp", type=Boolean.class, parameters={})
+    @Export(name="dhcpManageDhcp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dhcpManageDhcp;
 
     /**
@@ -288,7 +288,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="dhcpViewDhcp", type=Boolean.class, parameters={})
+    @Export(name="dhcpViewDhcp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dhcpViewDhcp;
 
     /**
@@ -303,7 +303,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify the accounts zones.
      * 
      */
-    @Export(name="dnsManageZones", type=Boolean.class, parameters={})
+    @Export(name="dnsManageZones", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsManageZones;
 
     /**
@@ -313,13 +313,13 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> dnsManageZones() {
         return Codegen.optional(this.dnsManageZones);
     }
-    @Export(name="dnsRecordsAllows", type=List.class, parameters={UserDnsRecordsAllow.class})
+    @Export(name="dnsRecordsAllows", refs={List.class,UserDnsRecordsAllow.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserDnsRecordsAllow>> dnsRecordsAllows;
 
     public Output<Optional<List<UserDnsRecordsAllow>>> dnsRecordsAllows() {
         return Codegen.optional(this.dnsRecordsAllows);
     }
-    @Export(name="dnsRecordsDenies", type=List.class, parameters={UserDnsRecordsDeny.class})
+    @Export(name="dnsRecordsDenies", refs={List.class,UserDnsRecordsDeny.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserDnsRecordsDeny>> dnsRecordsDenies;
 
     public Output<Optional<List<UserDnsRecordsDeny>>> dnsRecordsDenies() {
@@ -329,7 +329,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can view the accounts zones.
      * 
      */
-    @Export(name="dnsViewZones", type=Boolean.class, parameters={})
+    @Export(name="dnsViewZones", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsViewZones;
 
     /**
@@ -343,7 +343,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
      * 
      */
-    @Export(name="dnsZonesAllowByDefault", type=Boolean.class, parameters={})
+    @Export(name="dnsZonesAllowByDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsZonesAllowByDefault;
 
     /**
@@ -357,7 +357,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * List of zones that the user may access.
      * 
      */
-    @Export(name="dnsZonesAllows", type=List.class, parameters={String.class})
+    @Export(name="dnsZonesAllows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsZonesAllows;
 
     /**
@@ -371,7 +371,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * List of zones that the user may not access.
      * 
      */
-    @Export(name="dnsZonesDenies", type=List.class, parameters={String.class})
+    @Export(name="dnsZonesDenies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsZonesDenies;
 
     /**
@@ -385,7 +385,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The email address of the user.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -399,7 +399,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      * 
      */
-    @Export(name="ipWhitelistStrict", type=Boolean.class, parameters={})
+    @Export(name="ipWhitelistStrict", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipWhitelistStrict;
 
     /**
@@ -413,7 +413,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Array of IP addresses/networks to which to grant the user access.
      * 
      */
-    @Export(name="ipWhitelists", type=List.class, parameters={String.class})
+    @Export(name="ipWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipWhitelists;
 
     /**
@@ -428,7 +428,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="ipamManageIpam", type=Boolean.class, parameters={})
+    @Export(name="ipamManageIpam", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipamManageIpam;
 
     /**
@@ -439,7 +439,7 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> ipamManageIpam() {
         return Codegen.optional(this.ipamManageIpam);
     }
-    @Export(name="ipamViewIpam", type=Boolean.class, parameters={})
+    @Export(name="ipamViewIpam", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipamViewIpam;
 
     public Output<Optional<Boolean>> ipamViewIpam() {
@@ -449,7 +449,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify monitoring jobs.
      * 
      */
-    @Export(name="monitoringManageJobs", type=Boolean.class, parameters={})
+    @Export(name="monitoringManageJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageJobs;
 
     /**
@@ -463,7 +463,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can modify notification lists.
      * 
      */
-    @Export(name="monitoringManageLists", type=Boolean.class, parameters={})
+    @Export(name="monitoringManageLists", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageLists;
 
     /**
@@ -477,7 +477,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can view monitoring jobs.
      * 
      */
-    @Export(name="monitoringViewJobs", type=Boolean.class, parameters={})
+    @Export(name="monitoringViewJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringViewJobs;
 
     /**
@@ -491,7 +491,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The free form name of the user.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -505,7 +505,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
      */
-    @Export(name="notify", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="notify", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> notify;
 
     /**
@@ -520,7 +520,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="securityManageActiveDirectory", type=Boolean.class, parameters={})
+    @Export(name="securityManageActiveDirectory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageActiveDirectory;
 
     /**
@@ -535,7 +535,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user can manage global two factor authentication.
      * 
      */
-    @Export(name="securityManageGlobal2fa", type=Boolean.class, parameters={})
+    @Export(name="securityManageGlobal2fa", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageGlobal2fa;
 
     /**
@@ -549,7 +549,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The teams that the user belongs to.
      * 
      */
-    @Export(name="teams", type=List.class, parameters={String.class})
+    @Export(name="teams", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> teams;
 
     /**
@@ -563,7 +563,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The users login name.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

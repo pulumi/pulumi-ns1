@@ -80,7 +80,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * steering.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -96,7 +96,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * measurements.
      * 
      */
-    @Export(name="browserWaitMillis", type=Integer.class, parameters={})
+    @Export(name="browserWaitMillis", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> browserWaitMillis;
 
     /**
@@ -112,7 +112,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * associated with this application, the default value specified here is used..
      * 
      */
-    @Export(name="defaultConfig", type=ApplicationDefaultConfig.class, parameters={})
+    @Export(name="defaultConfig", refs={ApplicationDefaultConfig.class}, tree="[0]")
     private Output<ApplicationDefaultConfig> defaultConfig;
 
     /**
@@ -127,7 +127,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Number of jobs to measure per user impression.
      * 
      */
-    @Export(name="jobsPerTransaction", type=Integer.class, parameters={})
+    @Export(name="jobsPerTransaction", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> jobsPerTransaction;
 
     /**
@@ -141,7 +141,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Descriptive name for this Pulsar app.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

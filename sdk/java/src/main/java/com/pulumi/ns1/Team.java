@@ -99,7 +99,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify account settings.
      * 
      */
-    @Export(name="accountManageAccountSettings", type=Boolean.class, parameters={})
+    @Export(name="accountManageAccountSettings", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageAccountSettings;
 
     /**
@@ -113,7 +113,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify account apikeys.
      * 
      */
-    @Export(name="accountManageApikeys", type=Boolean.class, parameters={})
+    @Export(name="accountManageApikeys", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageApikeys;
 
     /**
@@ -127,7 +127,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can manage ip whitelist.
      * 
      */
-    @Export(name="accountManageIpWhitelist", type=Boolean.class, parameters={})
+    @Export(name="accountManageIpWhitelist", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageIpWhitelist;
 
     /**
@@ -141,7 +141,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify account payment methods.
      * 
      */
-    @Export(name="accountManagePaymentMethods", type=Boolean.class, parameters={})
+    @Export(name="accountManagePaymentMethods", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePaymentMethods;
 
     /**
@@ -159,7 +159,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* obsolete, should no longer be used */
-    @Export(name="accountManagePlan", type=Boolean.class, parameters={})
+    @Export(name="accountManagePlan", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePlan;
 
     /**
@@ -173,7 +173,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify other teams in the account.
      * 
      */
-    @Export(name="accountManageTeams", type=Boolean.class, parameters={})
+    @Export(name="accountManageTeams", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageTeams;
 
     /**
@@ -187,7 +187,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify account users.
      * 
      */
-    @Export(name="accountManageUsers", type=Boolean.class, parameters={})
+    @Export(name="accountManageUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageUsers;
 
     /**
@@ -201,7 +201,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can view activity logs.
      * 
      */
-    @Export(name="accountViewActivityLog", type=Boolean.class, parameters={})
+    @Export(name="accountViewActivityLog", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountViewActivityLog;
 
     /**
@@ -215,7 +215,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can view invoices.
      * 
      */
-    @Export(name="accountViewInvoices", type=Boolean.class, parameters={})
+    @Export(name="accountViewInvoices", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountViewInvoices;
 
     /**
@@ -229,7 +229,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify data feeds.
      * 
      */
-    @Export(name="dataManageDatafeeds", type=Boolean.class, parameters={})
+    @Export(name="dataManageDatafeeds", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataManageDatafeeds;
 
     /**
@@ -243,7 +243,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify data sources.
      * 
      */
-    @Export(name="dataManageDatasources", type=Boolean.class, parameters={})
+    @Export(name="dataManageDatasources", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataManageDatasources;
 
     /**
@@ -257,7 +257,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can publish to data feeds.
      * 
      */
-    @Export(name="dataPushToDatafeeds", type=Boolean.class, parameters={})
+    @Export(name="dataPushToDatafeeds", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataPushToDatafeeds;
 
     /**
@@ -272,7 +272,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="dhcpManageDhcp", type=Boolean.class, parameters={})
+    @Export(name="dhcpManageDhcp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dhcpManageDhcp;
 
     /**
@@ -288,7 +288,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="dhcpViewDhcp", type=Boolean.class, parameters={})
+    @Export(name="dhcpViewDhcp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dhcpViewDhcp;
 
     /**
@@ -303,7 +303,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify the accounts zones.
      * 
      */
-    @Export(name="dnsManageZones", type=Boolean.class, parameters={})
+    @Export(name="dnsManageZones", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsManageZones;
 
     /**
@@ -317,7 +317,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * List of records that the team may access.
      * 
      */
-    @Export(name="dnsRecordsAllows", type=List.class, parameters={TeamDnsRecordsAllow.class})
+    @Export(name="dnsRecordsAllows", refs={List.class,TeamDnsRecordsAllow.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamDnsRecordsAllow>> dnsRecordsAllows;
 
     /**
@@ -331,7 +331,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * List of records that the team may not access.
      * 
      */
-    @Export(name="dnsRecordsDenies", type=List.class, parameters={TeamDnsRecordsDeny.class})
+    @Export(name="dnsRecordsDenies", refs={List.class,TeamDnsRecordsDeny.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamDnsRecordsDeny>> dnsRecordsDenies;
 
     /**
@@ -345,7 +345,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can view the accounts zones.
      * 
      */
-    @Export(name="dnsViewZones", type=Boolean.class, parameters={})
+    @Export(name="dnsViewZones", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsViewZones;
 
     /**
@@ -359,7 +359,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
      * 
      */
-    @Export(name="dnsZonesAllowByDefault", type=Boolean.class, parameters={})
+    @Export(name="dnsZonesAllowByDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsZonesAllowByDefault;
 
     /**
@@ -373,7 +373,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * List of zones that the team may access.
      * 
      */
-    @Export(name="dnsZonesAllows", type=List.class, parameters={String.class})
+    @Export(name="dnsZonesAllows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsZonesAllows;
 
     /**
@@ -387,7 +387,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * List of zones that the team may not access.
      * 
      */
-    @Export(name="dnsZonesDenies", type=List.class, parameters={String.class})
+    @Export(name="dnsZonesDenies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsZonesDenies;
 
     /**
@@ -401,7 +401,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each &#34;allow&#34; list.
      * 
      */
-    @Export(name="ipWhitelists", type=List.class, parameters={TeamIpWhitelist.class})
+    @Export(name="ipWhitelists", refs={List.class,TeamIpWhitelist.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TeamIpWhitelist>> ipWhitelists;
 
     /**
@@ -416,7 +416,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="ipamManageIpam", type=Boolean.class, parameters={})
+    @Export(name="ipamManageIpam", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipamManageIpam;
 
     /**
@@ -432,7 +432,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="ipamViewIpam", type=Boolean.class, parameters={})
+    @Export(name="ipamViewIpam", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipamViewIpam;
 
     /**
@@ -447,7 +447,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify monitoring jobs.
      * 
      */
-    @Export(name="monitoringManageJobs", type=Boolean.class, parameters={})
+    @Export(name="monitoringManageJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageJobs;
 
     /**
@@ -461,7 +461,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can modify notification lists.
      * 
      */
-    @Export(name="monitoringManageLists", type=Boolean.class, parameters={})
+    @Export(name="monitoringManageLists", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageLists;
 
     /**
@@ -475,7 +475,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can view monitoring jobs.
      * 
      */
-    @Export(name="monitoringViewJobs", type=Boolean.class, parameters={})
+    @Export(name="monitoringViewJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringViewJobs;
 
     /**
@@ -489,7 +489,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The free form name of the team.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -504,7 +504,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="securityManageActiveDirectory", type=Boolean.class, parameters={})
+    @Export(name="securityManageActiveDirectory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageActiveDirectory;
 
     /**
@@ -519,7 +519,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * Whether the team can manage global two factor authentication.
      * 
      */
-    @Export(name="securityManageGlobal2fa", type=Boolean.class, parameters={})
+    @Export(name="securityManageGlobal2fa", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageGlobal2fa;
 
     /**

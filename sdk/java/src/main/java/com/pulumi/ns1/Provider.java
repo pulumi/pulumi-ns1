@@ -26,7 +26,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The ns1 API key (required)
      * 
      */
-    @Export(name="apikey", type=String.class, parameters={})
+    @Export(name="apikey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apikey;
 
     /**
@@ -40,7 +40,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * URL prefix (including version) for API calls
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpoint;
 
     /**
@@ -54,7 +54,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * User-Agent string to use in NS1 API requests
      * 
      */
-    @Export(name="userAgent", type=String.class, parameters={})
+    @Export(name="userAgent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userAgent;
 
     /**
