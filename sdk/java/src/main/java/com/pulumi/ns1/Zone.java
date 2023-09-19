@@ -35,7 +35,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="ns1:index/zone:Zone")
 public class Zone extends com.pulumi.resources.CustomResource {
-    @Export(name="additionalPorts", type=List.class, parameters={Integer.class})
+    @Export(name="additionalPorts", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> additionalPorts;
 
     public Output<Optional<List<Integer>>> additionalPorts() {
@@ -46,7 +46,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * zone. Conflicts with `secondaries`.
      * 
      */
-    @Export(name="additionalPrimaries", type=List.class, parameters={String.class})
+    @Export(name="additionalPrimaries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> additionalPrimaries;
 
     /**
@@ -57,7 +57,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> additionalPrimaries() {
         return Codegen.optional(this.additionalPrimaries);
     }
-    @Export(name="autogenerateNsRecord", type=Boolean.class, parameters={})
+    @Export(name="autogenerateNsRecord", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autogenerateNsRecord;
 
     public Output<Optional<Boolean>> autogenerateNsRecord() {
@@ -67,7 +67,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * (Computed) Authoritative Name Servers.
      * 
      */
-    @Export(name="dnsServers", type=String.class, parameters={})
+    @Export(name="dnsServers", refs={String.class}, tree="[0]")
     private Output<String> dnsServers;
 
     /**
@@ -83,7 +83,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * to `true`.
      * 
      */
-    @Export(name="dnssec", type=Boolean.class, parameters={})
+    @Export(name="dnssec", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> dnssec;
 
     /**
@@ -100,7 +100,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * `additional_primaries` (default must be accepted).
      * 
      */
-    @Export(name="expiry", type=Integer.class, parameters={})
+    @Export(name="expiry", refs={Integer.class}, tree="[0]")
     private Output<Integer> expiry;
 
     /**
@@ -115,7 +115,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * (Computed) The SOA Hostmaster.
      * 
      */
-    @Export(name="hostmaster", type=String.class, parameters={})
+    @Export(name="hostmaster", refs={String.class}, tree="[0]")
     private Output<String> hostmaster;
 
     /**
@@ -129,7 +129,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The target zone(domain name) to link to.
      * 
      */
-    @Export(name="link", type=String.class, parameters={})
+    @Export(name="link", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> link;
 
     /**
@@ -145,7 +145,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * the primary NS1 Global Network.
      * 
      */
-    @Export(name="networks", type=List.class, parameters={Integer.class})
+    @Export(name="networks", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> networks;
 
     /**
@@ -162,7 +162,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * `additional_primaries` (default must be accepted).
      * 
      */
-    @Export(name="nxTtl", type=Integer.class, parameters={})
+    @Export(name="nxTtl", refs={Integer.class}, tree="[0]")
     private Output<Integer> nxTtl;
 
     /**
@@ -178,7 +178,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * secondary. Conflicts with `secondaries`.
      * 
      */
-    @Export(name="primary", type=String.class, parameters={})
+    @Export(name="primary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primary;
 
     /**
@@ -189,7 +189,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> primary() {
         return Codegen.optional(this.primary);
     }
-    @Export(name="primaryPort", type=Integer.class, parameters={})
+    @Export(name="primaryPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> primaryPort;
 
     public Output<Integer> primaryPort() {
@@ -200,7 +200,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * `additional_primaries` (default must be accepted).
      * 
      */
-    @Export(name="refresh", type=Integer.class, parameters={})
+    @Export(name="refresh", refs={Integer.class}, tree="[0]")
     private Output<Integer> refresh;
 
     /**
@@ -216,7 +216,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * `additional_primaries` (default must be accepted).
      * 
      */
-    @Export(name="retry", type=Integer.class, parameters={})
+    @Export(name="retry", refs={Integer.class}, tree="[0]")
     private Output<Integer> retry;
 
     /**
@@ -233,7 +233,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Secondaries is documented below.
      * 
      */
-    @Export(name="secondaries", type=List.class, parameters={ZoneSecondary.class})
+    @Export(name="secondaries", refs={List.class,ZoneSecondary.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ZoneSecondary>> secondaries;
 
     /**
@@ -249,7 +249,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * TSIG is documented below
      * 
      */
-    @Export(name="tsig", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tsig", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tsig;
 
     /**
@@ -263,7 +263,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The SOA TTL.
      * 
      */
-    @Export(name="ttl", type=Integer.class, parameters={})
+    @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
     /**
@@ -277,7 +277,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The domain name of the zone.
      * 
      */
-    @Export(name="zone", type=String.class, parameters={})
+    @Export(name="zone", refs={String.class}, tree="[0]")
     private Output<String> zone;
 
     /**

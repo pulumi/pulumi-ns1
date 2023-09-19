@@ -66,7 +66,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * matching the specification in `config` from /data/sourcetypes.
      * 
      */
-    @Export(name="config", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="config", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> config;
 
     /**
@@ -81,7 +81,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The free form name of the data source.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -95,7 +95,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
      * 
      */
-    @Export(name="sourcetype", type=String.class, parameters={})
+    @Export(name="sourcetype", refs={String.class}, tree="[0]")
     private Output<String> sourcetype;
 
     /**

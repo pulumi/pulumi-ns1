@@ -90,7 +90,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * Indicates if the job is active or temporarily disabled.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -104,7 +104,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
-    @Export(name="config", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="config", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output<Map<String,Object>> config;
 
     /**
@@ -118,7 +118,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * The frequency, in seconds, at which to run the monitoring job in each region.
      * 
      */
-    @Export(name="frequency", type=Integer.class, parameters={})
+    @Export(name="frequency", refs={Integer.class}, tree="[0]")
     private Output<Integer> frequency;
 
     /**
@@ -132,7 +132,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
      * 
      */
-    @Export(name="jobType", type=String.class, parameters={})
+    @Export(name="jobType", refs={String.class}, tree="[0]")
     private Output<String> jobType;
 
     /**
@@ -146,7 +146,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * turn off the notifications for the monitoring job.
      * 
      */
-    @Export(name="mute", type=Boolean.class, parameters={})
+    @Export(name="mute", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mute;
 
     /**
@@ -160,7 +160,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * The free-form display name for the monitoring job.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -174,7 +174,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * Freeform notes to be included in any notifications about this job.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -188,7 +188,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * The time in seconds after a failure to wait before sending a notification.
      * 
      */
-    @Export(name="notifyDelay", type=Integer.class, parameters={})
+    @Export(name="notifyDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> notifyDelay;
 
     /**
@@ -202,7 +202,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * If true, a notification is sent when a job returns to an &#34;up&#34; state.
      * 
      */
-    @Export(name="notifyFailback", type=Boolean.class, parameters={})
+    @Export(name="notifyFailback", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> notifyFailback;
 
     /**
@@ -212,7 +212,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> notifyFailback() {
         return Codegen.optional(this.notifyFailback);
     }
-    @Export(name="notifyList", type=String.class, parameters={})
+    @Export(name="notifyList", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notifyList;
 
     public Output<Optional<String>> notifyList() {
@@ -222,7 +222,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
      * 
      */
-    @Export(name="notifyRegional", type=Boolean.class, parameters={})
+    @Export(name="notifyRegional", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> notifyRegional;
 
     /**
@@ -236,7 +236,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * The time in seconds between repeat notifications of a failed job.
      * 
      */
-    @Export(name="notifyRepeat", type=Integer.class, parameters={})
+    @Export(name="notifyRepeat", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> notifyRepeat;
 
     /**
@@ -251,7 +251,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * based on the status of the job in all regions. See NS1 API docs for supported values.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policy;
 
     /**
@@ -266,7 +266,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
      * 
      */
-    @Export(name="rapidRecheck", type=Boolean.class, parameters={})
+    @Export(name="rapidRecheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rapidRecheck;
 
     /**
@@ -281,7 +281,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * job. See NS1 API docs for supported values.
      * 
      */
-    @Export(name="regions", type=List.class, parameters={String.class})
+    @Export(name="regions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> regions;
 
     /**
@@ -296,7 +296,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={MonitoringJobRule.class})
+    @Export(name="rules", refs={List.class,MonitoringJobRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitoringJobRule>> rules;
 
     /**

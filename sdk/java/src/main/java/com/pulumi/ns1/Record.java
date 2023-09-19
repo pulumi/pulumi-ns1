@@ -49,7 +49,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * Answers are documented below.
      * 
      */
-    @Export(name="answers", type=List.class, parameters={RecordAnswer.class})
+    @Export(name="answers", refs={List.class,RecordAnswer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordAnswer>> answers;
 
     /**
@@ -65,7 +65,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * dots - see the example above and `FQDN formatting` below.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -81,7 +81,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * Filters are documented below.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={RecordFilter.class})
+    @Export(name="filters", refs={List.class,RecordFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordFilter>> filters;
 
     /**
@@ -97,7 +97,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * &#39;linked&#39; record, and it inherits all properties from its target.
      * 
      */
-    @Export(name="link", type=String.class, parameters={})
+    @Export(name="link", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> link;
 
     /**
@@ -108,13 +108,13 @@ public class Record extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> link() {
         return Codegen.optional(this.link);
     }
-    @Export(name="meta", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="meta", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> meta;
 
     public Output<Optional<Map<String,Object>>> meta() {
         return Codegen.optional(this.meta);
     }
-    @Export(name="overrideTtl", type=Boolean.class, parameters={})
+    @Export(name="overrideTtl", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overrideTtl;
 
     public Output<Optional<Boolean>> overrideTtl() {
@@ -127,7 +127,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * documented below. Please note the ordering requirement!
      * 
      */
-    @Export(name="regions", type=List.class, parameters={RecordRegion.class})
+    @Export(name="regions", refs={List.class,RecordRegion.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordRegion>> regions;
 
     /**
@@ -146,7 +146,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
-    @Export(name="shortAnswers", type=List.class, parameters={String.class})
+    @Export(name="shortAnswers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> shortAnswers;
 
     public Output<Optional<List<String>>> shortAnswers() {
@@ -156,7 +156,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * The records&#39; time to live (in seconds).
      * 
      */
-    @Export(name="ttl", type=Integer.class, parameters={})
+    @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
     /**
@@ -170,7 +170,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * The records&#39; RR type.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -187,7 +187,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      *   is documented below.
      * 
      */
-    @Export(name="useClientSubnet", type=Boolean.class, parameters={})
+    @Export(name="useClientSubnet", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useClientSubnet;
 
     /**
@@ -205,7 +205,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      * trailing dots (&#34;.&#34;) - see the example above and `FQDN formatting` below.
      * 
      */
-    @Export(name="zone", type=String.class, parameters={})
+    @Export(name="zone", refs={String.class}, tree="[0]")
     private Output<String> zone;
 
     /**

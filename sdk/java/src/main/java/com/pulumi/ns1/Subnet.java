@@ -20,73 +20,73 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="ns1:index/subnet:Subnet")
 public class Subnet extends com.pulumi.resources.CustomResource {
-    @Export(name="children", type=Integer.class, parameters={})
+    @Export(name="children", refs={Integer.class}, tree="[0]")
     private Output<Integer> children;
 
     public Output<Integer> children() {
         return this.children;
     }
-    @Export(name="desc", type=String.class, parameters={})
+    @Export(name="desc", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> desc;
 
     public Output<Optional<String>> desc() {
         return Codegen.optional(this.desc);
     }
-    @Export(name="dhcpScoped", type=Boolean.class, parameters={})
+    @Export(name="dhcpScoped", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> dhcpScoped;
 
     public Output<Boolean> dhcpScoped() {
         return this.dhcpScoped;
     }
-    @Export(name="freeAddresses", type=String.class, parameters={})
+    @Export(name="freeAddresses", refs={String.class}, tree="[0]")
     private Output<String> freeAddresses;
 
     public Output<String> freeAddresses() {
         return this.freeAddresses;
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="networkId", type=Integer.class, parameters={})
+    @Export(name="networkId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> networkId;
 
     public Output<Optional<Integer>> networkId() {
         return Codegen.optional(this.networkId);
     }
-    @Export(name="parentId", type=Integer.class, parameters={})
+    @Export(name="parentId", refs={Integer.class}, tree="[0]")
     private Output<Integer> parentId;
 
     public Output<Integer> parentId() {
         return this.parentId;
     }
-    @Export(name="prefix", type=String.class, parameters={})
+    @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
     public Output<Optional<String>> prefix() {
         return Codegen.optional(this.prefix);
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     public Output<String> status() {
         return this.status;
     }
-    @Export(name="tags", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="tags", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output<Map<String,Object>> tags;
 
     public Output<Map<String,Object>> tags() {
         return this.tags;
     }
-    @Export(name="totalAddresses", type=String.class, parameters={})
+    @Export(name="totalAddresses", refs={String.class}, tree="[0]")
     private Output<String> totalAddresses;
 
     public Output<String> totalAddresses() {
         return this.totalAddresses;
     }
-    @Export(name="usedAddresses", type=String.class, parameters={})
+    @Export(name="usedAddresses", refs={String.class}, tree="[0]")
     private Output<String> usedAddresses;
 
     public Output<String> usedAddresses() {

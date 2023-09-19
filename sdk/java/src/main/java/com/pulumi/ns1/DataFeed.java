@@ -87,7 +87,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      * 
      */
-    @Export(name="config", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="config", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> config;
 
     /**
@@ -102,7 +102,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * The free form name of the data feed.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -116,7 +116,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * The data source id that this feed is connected to.
      * 
      */
-    @Export(name="sourceId", type=String.class, parameters={})
+    @Export(name="sourceId", refs={String.class}, tree="[0]")
     private Output<String> sourceId;
 
     /**

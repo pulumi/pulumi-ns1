@@ -69,7 +69,7 @@ public class AccountWhitelist extends com.pulumi.resources.CustomResource {
      * The free form name of the whitelist.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -83,7 +83,7 @@ public class AccountWhitelist extends com.pulumi.resources.CustomResource {
      * Array of IP addresses/networks from which to allow access.
      * 
      */
-    @Export(name="values", type=List.class, parameters={String.class})
+    @Export(name="values", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> values;
 
     /**

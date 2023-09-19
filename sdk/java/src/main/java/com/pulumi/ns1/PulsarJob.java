@@ -22,67 +22,67 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="ns1:index/pulsarJob:PulsarJob")
 public class PulsarJob extends com.pulumi.resources.CustomResource {
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     public Output<Optional<Boolean>> active() {
         return Codegen.optional(this.active);
     }
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     public Output<String> appId() {
         return this.appId;
     }
-    @Export(name="blendMetricWeights", type=PulsarJobBlendMetricWeights.class, parameters={})
+    @Export(name="blendMetricWeights", refs={PulsarJobBlendMetricWeights.class}, tree="[0]")
     private Output</* @Nullable */ PulsarJobBlendMetricWeights> blendMetricWeights;
 
     public Output<Optional<PulsarJobBlendMetricWeights>> blendMetricWeights() {
         return Codegen.optional(this.blendMetricWeights);
     }
-    @Export(name="community", type=Boolean.class, parameters={})
+    @Export(name="community", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> community;
 
     public Output<Boolean> community() {
         return this.community;
     }
-    @Export(name="config", type=PulsarJobConfig.class, parameters={})
+    @Export(name="config", refs={PulsarJobConfig.class}, tree="[0]")
     private Output</* @Nullable */ PulsarJobConfig> config;
 
     public Output<Optional<PulsarJobConfig>> config() {
         return Codegen.optional(this.config);
     }
-    @Export(name="customer", type=Integer.class, parameters={})
+    @Export(name="customer", refs={Integer.class}, tree="[0]")
     private Output<Integer> customer;
 
     public Output<Integer> customer() {
         return this.customer;
     }
-    @Export(name="jobId", type=String.class, parameters={})
+    @Export(name="jobId", refs={String.class}, tree="[0]")
     private Output<String> jobId;
 
     public Output<String> jobId() {
         return this.jobId;
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="shared", type=Boolean.class, parameters={})
+    @Export(name="shared", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> shared;
 
     public Output<Optional<Boolean>> shared() {
         return Codegen.optional(this.shared);
     }
-    @Export(name="typeId", type=String.class, parameters={})
+    @Export(name="typeId", refs={String.class}, tree="[0]")
     private Output<String> typeId;
 
     public Output<String> typeId() {
         return this.typeId;
     }
-    @Export(name="weights", type=List.class, parameters={PulsarJobWeight.class})
+    @Export(name="weights", refs={List.class,PulsarJobWeight.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PulsarJobWeight>> weights;
 
     public Output<Optional<List<PulsarJobWeight>>> weights() {

@@ -94,7 +94,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify account settings.
      * 
      */
-    @Export(name="accountManageAccountSettings", type=Boolean.class, parameters={})
+    @Export(name="accountManageAccountSettings", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageAccountSettings;
 
     /**
@@ -108,7 +108,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify account apikeys.
      * 
      */
-    @Export(name="accountManageApikeys", type=Boolean.class, parameters={})
+    @Export(name="accountManageApikeys", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageApikeys;
 
     /**
@@ -122,7 +122,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can manage ip whitelist.
      * 
      */
-    @Export(name="accountManageIpWhitelist", type=Boolean.class, parameters={})
+    @Export(name="accountManageIpWhitelist", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageIpWhitelist;
 
     /**
@@ -136,7 +136,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify account payment methods.
      * 
      */
-    @Export(name="accountManagePaymentMethods", type=Boolean.class, parameters={})
+    @Export(name="accountManagePaymentMethods", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePaymentMethods;
 
     /**
@@ -154,7 +154,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* obsolete, should no longer be used */
-    @Export(name="accountManagePlan", type=Boolean.class, parameters={})
+    @Export(name="accountManagePlan", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePlan;
 
     /**
@@ -168,7 +168,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify other teams in the account.
      * 
      */
-    @Export(name="accountManageTeams", type=Boolean.class, parameters={})
+    @Export(name="accountManageTeams", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageTeams;
 
     /**
@@ -182,7 +182,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify account users.
      * 
      */
-    @Export(name="accountManageUsers", type=Boolean.class, parameters={})
+    @Export(name="accountManageUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManageUsers;
 
     /**
@@ -196,7 +196,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can view activity logs.
      * 
      */
-    @Export(name="accountViewActivityLog", type=Boolean.class, parameters={})
+    @Export(name="accountViewActivityLog", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountViewActivityLog;
 
     /**
@@ -210,7 +210,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can view invoices.
      * 
      */
-    @Export(name="accountViewInvoices", type=Boolean.class, parameters={})
+    @Export(name="accountViewInvoices", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountViewInvoices;
 
     /**
@@ -224,7 +224,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify data feeds.
      * 
      */
-    @Export(name="dataManageDatafeeds", type=Boolean.class, parameters={})
+    @Export(name="dataManageDatafeeds", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataManageDatafeeds;
 
     /**
@@ -238,7 +238,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify data sources.
      * 
      */
-    @Export(name="dataManageDatasources", type=Boolean.class, parameters={})
+    @Export(name="dataManageDatasources", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataManageDatasources;
 
     /**
@@ -252,7 +252,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can publish to data feeds.
      * 
      */
-    @Export(name="dataPushToDatafeeds", type=Boolean.class, parameters={})
+    @Export(name="dataPushToDatafeeds", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataPushToDatafeeds;
 
     /**
@@ -267,7 +267,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="dhcpManageDhcp", type=Boolean.class, parameters={})
+    @Export(name="dhcpManageDhcp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dhcpManageDhcp;
 
     /**
@@ -283,7 +283,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="dhcpViewDhcp", type=Boolean.class, parameters={})
+    @Export(name="dhcpViewDhcp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dhcpViewDhcp;
 
     /**
@@ -298,7 +298,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify the accounts zones.
      * 
      */
-    @Export(name="dnsManageZones", type=Boolean.class, parameters={})
+    @Export(name="dnsManageZones", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsManageZones;
 
     /**
@@ -312,7 +312,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * List of records that the apikey may access.
      * 
      */
-    @Export(name="dnsRecordsAllows", type=List.class, parameters={APIKeyDnsRecordsAllow.class})
+    @Export(name="dnsRecordsAllows", refs={List.class,APIKeyDnsRecordsAllow.class}, tree="[0,1]")
     private Output</* @Nullable */ List<APIKeyDnsRecordsAllow>> dnsRecordsAllows;
 
     /**
@@ -326,7 +326,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * List of records that the apikey may not access.
      * 
      */
-    @Export(name="dnsRecordsDenies", type=List.class, parameters={APIKeyDnsRecordsDeny.class})
+    @Export(name="dnsRecordsDenies", refs={List.class,APIKeyDnsRecordsDeny.class}, tree="[0,1]")
     private Output</* @Nullable */ List<APIKeyDnsRecordsDeny>> dnsRecordsDenies;
 
     /**
@@ -340,7 +340,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can view the accounts zones.
      * 
      */
-    @Export(name="dnsViewZones", type=Boolean.class, parameters={})
+    @Export(name="dnsViewZones", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsViewZones;
 
     /**
@@ -354,7 +354,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
      * 
      */
-    @Export(name="dnsZonesAllowByDefault", type=Boolean.class, parameters={})
+    @Export(name="dnsZonesAllowByDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsZonesAllowByDefault;
 
     /**
@@ -368,7 +368,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * List of zones that the apikey may access.
      * 
      */
-    @Export(name="dnsZonesAllows", type=List.class, parameters={String.class})
+    @Export(name="dnsZonesAllows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsZonesAllows;
 
     /**
@@ -382,7 +382,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * List of zones that the apikey may not access.
      * 
      */
-    @Export(name="dnsZonesDenies", type=List.class, parameters={String.class})
+    @Export(name="dnsZonesDenies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsZonesDenies;
 
     /**
@@ -396,7 +396,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      * 
      */
-    @Export(name="ipWhitelistStrict", type=Boolean.class, parameters={})
+    @Export(name="ipWhitelistStrict", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipWhitelistStrict;
 
     /**
@@ -410,7 +410,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Array of IP addresses/networks to which to grant the API key access.
      * 
      */
-    @Export(name="ipWhitelists", type=List.class, parameters={String.class})
+    @Export(name="ipWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipWhitelists;
 
     /**
@@ -425,7 +425,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="ipamManageIpam", type=Boolean.class, parameters={})
+    @Export(name="ipamManageIpam", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipamManageIpam;
 
     /**
@@ -441,7 +441,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="ipamViewIpam", type=Boolean.class, parameters={})
+    @Export(name="ipamViewIpam", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipamViewIpam;
 
     /**
@@ -456,7 +456,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * (Computed) The apikeys authentication token.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -470,7 +470,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify monitoring jobs.
      * 
      */
-    @Export(name="monitoringManageJobs", type=Boolean.class, parameters={})
+    @Export(name="monitoringManageJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageJobs;
 
     /**
@@ -484,7 +484,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can modify notification lists.
      * 
      */
-    @Export(name="monitoringManageLists", type=Boolean.class, parameters={})
+    @Export(name="monitoringManageLists", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageLists;
 
     /**
@@ -498,7 +498,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can view monitoring jobs.
      * 
      */
-    @Export(name="monitoringViewJobs", type=Boolean.class, parameters={})
+    @Export(name="monitoringViewJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringViewJobs;
 
     /**
@@ -512,7 +512,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * The free form name of the apikey.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -527,7 +527,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Only relevant for the DDI product.
      * 
      */
-    @Export(name="securityManageActiveDirectory", type=Boolean.class, parameters={})
+    @Export(name="securityManageActiveDirectory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageActiveDirectory;
 
     /**
@@ -542,7 +542,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * Whether the apikey can manage global two factor authentication.
      * 
      */
-    @Export(name="securityManageGlobal2fa", type=Boolean.class, parameters={})
+    @Export(name="securityManageGlobal2fa", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageGlobal2fa;
 
     /**
@@ -556,7 +556,7 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * The teams that the apikey belongs to.
      * 
      */
-    @Export(name="teams", type=List.class, parameters={String.class})
+    @Export(name="teams", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> teams;
 
     /**

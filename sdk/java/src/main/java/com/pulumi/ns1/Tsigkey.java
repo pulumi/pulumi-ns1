@@ -63,7 +63,7 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
      * The algorithm used to hash the TSIG key&#39;s secret.
      * 
      */
-    @Export(name="algorithm", type=String.class, parameters={})
+    @Export(name="algorithm", refs={String.class}, tree="[0]")
     private Output<String> algorithm;
 
     /**
@@ -77,7 +77,7 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
      * The free form name of the tsigkey.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -91,7 +91,7 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
      * The key&#39;s secret to be hashed.
      * 
      */
-    @Export(name="secret", type=String.class, parameters={})
+    @Export(name="secret", refs={String.class}, tree="[0]")
     private Output<String> secret;
 
     /**

@@ -74,7 +74,7 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
      * The free-form display name for the notify list.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -88,7 +88,7 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
      * A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
      * 
      */
-    @Export(name="notifications", type=List.class, parameters={NotifyListNotification.class})
+    @Export(name="notifications", refs={List.class,NotifyListNotification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NotifyListNotification>> notifications;
 
     /**
