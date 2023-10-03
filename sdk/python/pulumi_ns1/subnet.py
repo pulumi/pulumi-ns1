@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SubnetArgs', 'Subnet']
@@ -29,30 +29,61 @@ class SubnetArgs:
         """
         The set of arguments for constructing a Subnet resource.
         """
+        SubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            children=children,
+            desc=desc,
+            dhcp_scoped=dhcp_scoped,
+            free_addresses=free_addresses,
+            name=name,
+            network_id=network_id,
+            parent_id=parent_id,
+            prefix=prefix,
+            status=status,
+            tags=tags,
+            total_addresses=total_addresses,
+            used_addresses=used_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             children: Optional[pulumi.Input[int]] = None,
+             desc: Optional[pulumi.Input[str]] = None,
+             dhcp_scoped: Optional[pulumi.Input[bool]] = None,
+             free_addresses: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[int]] = None,
+             parent_id: Optional[pulumi.Input[int]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             total_addresses: Optional[pulumi.Input[str]] = None,
+             used_addresses: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if children is not None:
-            pulumi.set(__self__, "children", children)
+            _setter("children", children)
         if desc is not None:
-            pulumi.set(__self__, "desc", desc)
+            _setter("desc", desc)
         if dhcp_scoped is not None:
-            pulumi.set(__self__, "dhcp_scoped", dhcp_scoped)
+            _setter("dhcp_scoped", dhcp_scoped)
         if free_addresses is not None:
-            pulumi.set(__self__, "free_addresses", free_addresses)
+            _setter("free_addresses", free_addresses)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
         if parent_id is not None:
-            pulumi.set(__self__, "parent_id", parent_id)
+            _setter("parent_id", parent_id)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if total_addresses is not None:
-            pulumi.set(__self__, "total_addresses", total_addresses)
+            _setter("total_addresses", total_addresses)
         if used_addresses is not None:
-            pulumi.set(__self__, "used_addresses", used_addresses)
+            _setter("used_addresses", used_addresses)
 
     @property
     @pulumi.getter
@@ -181,30 +212,61 @@ class _SubnetState:
         """
         Input properties used for looking up and filtering Subnet resources.
         """
+        _SubnetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            children=children,
+            desc=desc,
+            dhcp_scoped=dhcp_scoped,
+            free_addresses=free_addresses,
+            name=name,
+            network_id=network_id,
+            parent_id=parent_id,
+            prefix=prefix,
+            status=status,
+            tags=tags,
+            total_addresses=total_addresses,
+            used_addresses=used_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             children: Optional[pulumi.Input[int]] = None,
+             desc: Optional[pulumi.Input[str]] = None,
+             dhcp_scoped: Optional[pulumi.Input[bool]] = None,
+             free_addresses: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[int]] = None,
+             parent_id: Optional[pulumi.Input[int]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             total_addresses: Optional[pulumi.Input[str]] = None,
+             used_addresses: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if children is not None:
-            pulumi.set(__self__, "children", children)
+            _setter("children", children)
         if desc is not None:
-            pulumi.set(__self__, "desc", desc)
+            _setter("desc", desc)
         if dhcp_scoped is not None:
-            pulumi.set(__self__, "dhcp_scoped", dhcp_scoped)
+            _setter("dhcp_scoped", dhcp_scoped)
         if free_addresses is not None:
-            pulumi.set(__self__, "free_addresses", free_addresses)
+            _setter("free_addresses", free_addresses)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
         if parent_id is not None:
-            pulumi.set(__self__, "parent_id", parent_id)
+            _setter("parent_id", parent_id)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if total_addresses is not None:
-            pulumi.set(__self__, "total_addresses", total_addresses)
+            _setter("total_addresses", total_addresses)
         if used_addresses is not None:
-            pulumi.set(__self__, "used_addresses", used_addresses)
+            _setter("used_addresses", used_addresses)
 
     @property
     @pulumi.getter
@@ -356,6 +418,10 @@ class Subnet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

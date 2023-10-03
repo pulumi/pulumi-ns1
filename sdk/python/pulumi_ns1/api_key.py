@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,73 +88,144 @@ class APIKeyArgs:
         :param pulumi.Input[bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: The teams that the apikey belongs to.
         """
+        APIKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_manage_account_settings=account_manage_account_settings,
+            account_manage_apikeys=account_manage_apikeys,
+            account_manage_ip_whitelist=account_manage_ip_whitelist,
+            account_manage_payment_methods=account_manage_payment_methods,
+            account_manage_plan=account_manage_plan,
+            account_manage_teams=account_manage_teams,
+            account_manage_users=account_manage_users,
+            account_view_activity_log=account_view_activity_log,
+            account_view_invoices=account_view_invoices,
+            data_manage_datafeeds=data_manage_datafeeds,
+            data_manage_datasources=data_manage_datasources,
+            data_push_to_datafeeds=data_push_to_datafeeds,
+            dhcp_manage_dhcp=dhcp_manage_dhcp,
+            dhcp_view_dhcp=dhcp_view_dhcp,
+            dns_manage_zones=dns_manage_zones,
+            dns_records_allows=dns_records_allows,
+            dns_records_denies=dns_records_denies,
+            dns_view_zones=dns_view_zones,
+            dns_zones_allow_by_default=dns_zones_allow_by_default,
+            dns_zones_allows=dns_zones_allows,
+            dns_zones_denies=dns_zones_denies,
+            ip_whitelist_strict=ip_whitelist_strict,
+            ip_whitelists=ip_whitelists,
+            ipam_manage_ipam=ipam_manage_ipam,
+            ipam_view_ipam=ipam_view_ipam,
+            monitoring_manage_jobs=monitoring_manage_jobs,
+            monitoring_manage_lists=monitoring_manage_lists,
+            monitoring_view_jobs=monitoring_view_jobs,
+            name=name,
+            security_manage_active_directory=security_manage_active_directory,
+            security_manage_global2fa=security_manage_global2fa,
+            teams=teams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_manage_account_settings: Optional[pulumi.Input[bool]] = None,
+             account_manage_apikeys: Optional[pulumi.Input[bool]] = None,
+             account_manage_ip_whitelist: Optional[pulumi.Input[bool]] = None,
+             account_manage_payment_methods: Optional[pulumi.Input[bool]] = None,
+             account_manage_plan: Optional[pulumi.Input[bool]] = None,
+             account_manage_teams: Optional[pulumi.Input[bool]] = None,
+             account_manage_users: Optional[pulumi.Input[bool]] = None,
+             account_view_activity_log: Optional[pulumi.Input[bool]] = None,
+             account_view_invoices: Optional[pulumi.Input[bool]] = None,
+             data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
+             data_manage_datasources: Optional[pulumi.Input[bool]] = None,
+             data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
+             dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
+             dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
+             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+             dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]] = None,
+             dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]] = None,
+             dns_view_zones: Optional[pulumi.Input[bool]] = None,
+             dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
+             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
+             ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
+             ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+             monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
+             monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+             monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
+             security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_manage_account_settings is not None:
-            pulumi.set(__self__, "account_manage_account_settings", account_manage_account_settings)
+            _setter("account_manage_account_settings", account_manage_account_settings)
         if account_manage_apikeys is not None:
-            pulumi.set(__self__, "account_manage_apikeys", account_manage_apikeys)
+            _setter("account_manage_apikeys", account_manage_apikeys)
         if account_manage_ip_whitelist is not None:
-            pulumi.set(__self__, "account_manage_ip_whitelist", account_manage_ip_whitelist)
+            _setter("account_manage_ip_whitelist", account_manage_ip_whitelist)
         if account_manage_payment_methods is not None:
-            pulumi.set(__self__, "account_manage_payment_methods", account_manage_payment_methods)
+            _setter("account_manage_payment_methods", account_manage_payment_methods)
         if account_manage_plan is not None:
             warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
             pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
         if account_manage_plan is not None:
-            pulumi.set(__self__, "account_manage_plan", account_manage_plan)
+            _setter("account_manage_plan", account_manage_plan)
         if account_manage_teams is not None:
-            pulumi.set(__self__, "account_manage_teams", account_manage_teams)
+            _setter("account_manage_teams", account_manage_teams)
         if account_manage_users is not None:
-            pulumi.set(__self__, "account_manage_users", account_manage_users)
+            _setter("account_manage_users", account_manage_users)
         if account_view_activity_log is not None:
-            pulumi.set(__self__, "account_view_activity_log", account_view_activity_log)
+            _setter("account_view_activity_log", account_view_activity_log)
         if account_view_invoices is not None:
-            pulumi.set(__self__, "account_view_invoices", account_view_invoices)
+            _setter("account_view_invoices", account_view_invoices)
         if data_manage_datafeeds is not None:
-            pulumi.set(__self__, "data_manage_datafeeds", data_manage_datafeeds)
+            _setter("data_manage_datafeeds", data_manage_datafeeds)
         if data_manage_datasources is not None:
-            pulumi.set(__self__, "data_manage_datasources", data_manage_datasources)
+            _setter("data_manage_datasources", data_manage_datasources)
         if data_push_to_datafeeds is not None:
-            pulumi.set(__self__, "data_push_to_datafeeds", data_push_to_datafeeds)
+            _setter("data_push_to_datafeeds", data_push_to_datafeeds)
         if dhcp_manage_dhcp is not None:
-            pulumi.set(__self__, "dhcp_manage_dhcp", dhcp_manage_dhcp)
+            _setter("dhcp_manage_dhcp", dhcp_manage_dhcp)
         if dhcp_view_dhcp is not None:
-            pulumi.set(__self__, "dhcp_view_dhcp", dhcp_view_dhcp)
+            _setter("dhcp_view_dhcp", dhcp_view_dhcp)
         if dns_manage_zones is not None:
-            pulumi.set(__self__, "dns_manage_zones", dns_manage_zones)
+            _setter("dns_manage_zones", dns_manage_zones)
         if dns_records_allows is not None:
-            pulumi.set(__self__, "dns_records_allows", dns_records_allows)
+            _setter("dns_records_allows", dns_records_allows)
         if dns_records_denies is not None:
-            pulumi.set(__self__, "dns_records_denies", dns_records_denies)
+            _setter("dns_records_denies", dns_records_denies)
         if dns_view_zones is not None:
-            pulumi.set(__self__, "dns_view_zones", dns_view_zones)
+            _setter("dns_view_zones", dns_view_zones)
         if dns_zones_allow_by_default is not None:
-            pulumi.set(__self__, "dns_zones_allow_by_default", dns_zones_allow_by_default)
+            _setter("dns_zones_allow_by_default", dns_zones_allow_by_default)
         if dns_zones_allows is not None:
-            pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
+            _setter("dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
-            pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+            _setter("dns_zones_denies", dns_zones_denies)
         if ip_whitelist_strict is not None:
-            pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
+            _setter("ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
-            pulumi.set(__self__, "ip_whitelists", ip_whitelists)
+            _setter("ip_whitelists", ip_whitelists)
         if ipam_manage_ipam is not None:
-            pulumi.set(__self__, "ipam_manage_ipam", ipam_manage_ipam)
+            _setter("ipam_manage_ipam", ipam_manage_ipam)
         if ipam_view_ipam is not None:
-            pulumi.set(__self__, "ipam_view_ipam", ipam_view_ipam)
+            _setter("ipam_view_ipam", ipam_view_ipam)
         if monitoring_manage_jobs is not None:
-            pulumi.set(__self__, "monitoring_manage_jobs", monitoring_manage_jobs)
+            _setter("monitoring_manage_jobs", monitoring_manage_jobs)
         if monitoring_manage_lists is not None:
-            pulumi.set(__self__, "monitoring_manage_lists", monitoring_manage_lists)
+            _setter("monitoring_manage_lists", monitoring_manage_lists)
         if monitoring_view_jobs is not None:
-            pulumi.set(__self__, "monitoring_view_jobs", monitoring_view_jobs)
+            _setter("monitoring_view_jobs", monitoring_view_jobs)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_manage_active_directory is not None:
-            pulumi.set(__self__, "security_manage_active_directory", security_manage_active_directory)
+            _setter("security_manage_active_directory", security_manage_active_directory)
         if security_manage_global2fa is not None:
-            pulumi.set(__self__, "security_manage_global2fa", security_manage_global2fa)
+            _setter("security_manage_global2fa", security_manage_global2fa)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
 
     @property
     @pulumi.getter(name="accountManageAccountSettings")
@@ -626,75 +697,148 @@ class _APIKeyState:
         :param pulumi.Input[bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: The teams that the apikey belongs to.
         """
+        _APIKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_manage_account_settings=account_manage_account_settings,
+            account_manage_apikeys=account_manage_apikeys,
+            account_manage_ip_whitelist=account_manage_ip_whitelist,
+            account_manage_payment_methods=account_manage_payment_methods,
+            account_manage_plan=account_manage_plan,
+            account_manage_teams=account_manage_teams,
+            account_manage_users=account_manage_users,
+            account_view_activity_log=account_view_activity_log,
+            account_view_invoices=account_view_invoices,
+            data_manage_datafeeds=data_manage_datafeeds,
+            data_manage_datasources=data_manage_datasources,
+            data_push_to_datafeeds=data_push_to_datafeeds,
+            dhcp_manage_dhcp=dhcp_manage_dhcp,
+            dhcp_view_dhcp=dhcp_view_dhcp,
+            dns_manage_zones=dns_manage_zones,
+            dns_records_allows=dns_records_allows,
+            dns_records_denies=dns_records_denies,
+            dns_view_zones=dns_view_zones,
+            dns_zones_allow_by_default=dns_zones_allow_by_default,
+            dns_zones_allows=dns_zones_allows,
+            dns_zones_denies=dns_zones_denies,
+            ip_whitelist_strict=ip_whitelist_strict,
+            ip_whitelists=ip_whitelists,
+            ipam_manage_ipam=ipam_manage_ipam,
+            ipam_view_ipam=ipam_view_ipam,
+            key=key,
+            monitoring_manage_jobs=monitoring_manage_jobs,
+            monitoring_manage_lists=monitoring_manage_lists,
+            monitoring_view_jobs=monitoring_view_jobs,
+            name=name,
+            security_manage_active_directory=security_manage_active_directory,
+            security_manage_global2fa=security_manage_global2fa,
+            teams=teams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_manage_account_settings: Optional[pulumi.Input[bool]] = None,
+             account_manage_apikeys: Optional[pulumi.Input[bool]] = None,
+             account_manage_ip_whitelist: Optional[pulumi.Input[bool]] = None,
+             account_manage_payment_methods: Optional[pulumi.Input[bool]] = None,
+             account_manage_plan: Optional[pulumi.Input[bool]] = None,
+             account_manage_teams: Optional[pulumi.Input[bool]] = None,
+             account_manage_users: Optional[pulumi.Input[bool]] = None,
+             account_view_activity_log: Optional[pulumi.Input[bool]] = None,
+             account_view_invoices: Optional[pulumi.Input[bool]] = None,
+             data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
+             data_manage_datasources: Optional[pulumi.Input[bool]] = None,
+             data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
+             dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
+             dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
+             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
+             dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]] = None,
+             dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]] = None,
+             dns_view_zones: Optional[pulumi.Input[bool]] = None,
+             dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
+             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
+             ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
+             ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
+             monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+             monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
+             security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_manage_account_settings is not None:
-            pulumi.set(__self__, "account_manage_account_settings", account_manage_account_settings)
+            _setter("account_manage_account_settings", account_manage_account_settings)
         if account_manage_apikeys is not None:
-            pulumi.set(__self__, "account_manage_apikeys", account_manage_apikeys)
+            _setter("account_manage_apikeys", account_manage_apikeys)
         if account_manage_ip_whitelist is not None:
-            pulumi.set(__self__, "account_manage_ip_whitelist", account_manage_ip_whitelist)
+            _setter("account_manage_ip_whitelist", account_manage_ip_whitelist)
         if account_manage_payment_methods is not None:
-            pulumi.set(__self__, "account_manage_payment_methods", account_manage_payment_methods)
+            _setter("account_manage_payment_methods", account_manage_payment_methods)
         if account_manage_plan is not None:
             warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
             pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
         if account_manage_plan is not None:
-            pulumi.set(__self__, "account_manage_plan", account_manage_plan)
+            _setter("account_manage_plan", account_manage_plan)
         if account_manage_teams is not None:
-            pulumi.set(__self__, "account_manage_teams", account_manage_teams)
+            _setter("account_manage_teams", account_manage_teams)
         if account_manage_users is not None:
-            pulumi.set(__self__, "account_manage_users", account_manage_users)
+            _setter("account_manage_users", account_manage_users)
         if account_view_activity_log is not None:
-            pulumi.set(__self__, "account_view_activity_log", account_view_activity_log)
+            _setter("account_view_activity_log", account_view_activity_log)
         if account_view_invoices is not None:
-            pulumi.set(__self__, "account_view_invoices", account_view_invoices)
+            _setter("account_view_invoices", account_view_invoices)
         if data_manage_datafeeds is not None:
-            pulumi.set(__self__, "data_manage_datafeeds", data_manage_datafeeds)
+            _setter("data_manage_datafeeds", data_manage_datafeeds)
         if data_manage_datasources is not None:
-            pulumi.set(__self__, "data_manage_datasources", data_manage_datasources)
+            _setter("data_manage_datasources", data_manage_datasources)
         if data_push_to_datafeeds is not None:
-            pulumi.set(__self__, "data_push_to_datafeeds", data_push_to_datafeeds)
+            _setter("data_push_to_datafeeds", data_push_to_datafeeds)
         if dhcp_manage_dhcp is not None:
-            pulumi.set(__self__, "dhcp_manage_dhcp", dhcp_manage_dhcp)
+            _setter("dhcp_manage_dhcp", dhcp_manage_dhcp)
         if dhcp_view_dhcp is not None:
-            pulumi.set(__self__, "dhcp_view_dhcp", dhcp_view_dhcp)
+            _setter("dhcp_view_dhcp", dhcp_view_dhcp)
         if dns_manage_zones is not None:
-            pulumi.set(__self__, "dns_manage_zones", dns_manage_zones)
+            _setter("dns_manage_zones", dns_manage_zones)
         if dns_records_allows is not None:
-            pulumi.set(__self__, "dns_records_allows", dns_records_allows)
+            _setter("dns_records_allows", dns_records_allows)
         if dns_records_denies is not None:
-            pulumi.set(__self__, "dns_records_denies", dns_records_denies)
+            _setter("dns_records_denies", dns_records_denies)
         if dns_view_zones is not None:
-            pulumi.set(__self__, "dns_view_zones", dns_view_zones)
+            _setter("dns_view_zones", dns_view_zones)
         if dns_zones_allow_by_default is not None:
-            pulumi.set(__self__, "dns_zones_allow_by_default", dns_zones_allow_by_default)
+            _setter("dns_zones_allow_by_default", dns_zones_allow_by_default)
         if dns_zones_allows is not None:
-            pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
+            _setter("dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
-            pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+            _setter("dns_zones_denies", dns_zones_denies)
         if ip_whitelist_strict is not None:
-            pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
+            _setter("ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
-            pulumi.set(__self__, "ip_whitelists", ip_whitelists)
+            _setter("ip_whitelists", ip_whitelists)
         if ipam_manage_ipam is not None:
-            pulumi.set(__self__, "ipam_manage_ipam", ipam_manage_ipam)
+            _setter("ipam_manage_ipam", ipam_manage_ipam)
         if ipam_view_ipam is not None:
-            pulumi.set(__self__, "ipam_view_ipam", ipam_view_ipam)
+            _setter("ipam_view_ipam", ipam_view_ipam)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if monitoring_manage_jobs is not None:
-            pulumi.set(__self__, "monitoring_manage_jobs", monitoring_manage_jobs)
+            _setter("monitoring_manage_jobs", monitoring_manage_jobs)
         if monitoring_manage_lists is not None:
-            pulumi.set(__self__, "monitoring_manage_lists", monitoring_manage_lists)
+            _setter("monitoring_manage_lists", monitoring_manage_lists)
         if monitoring_view_jobs is not None:
-            pulumi.set(__self__, "monitoring_view_jobs", monitoring_view_jobs)
+            _setter("monitoring_view_jobs", monitoring_view_jobs)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_manage_active_directory is not None:
-            pulumi.set(__self__, "security_manage_active_directory", security_manage_active_directory)
+            _setter("security_manage_active_directory", security_manage_active_directory)
         if security_manage_global2fa is not None:
-            pulumi.set(__self__, "security_manage_global2fa", security_manage_global2fa)
+            _setter("security_manage_global2fa", security_manage_global2fa)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
 
     @property
     @pulumi.getter(name="accountManageAccountSettings")
@@ -1291,6 +1435,10 @@ class APIKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            APIKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1341,9 +1489,6 @@ class APIKey(pulumi.CustomResource):
             __props__.__dict__["account_manage_apikeys"] = account_manage_apikeys
             __props__.__dict__["account_manage_ip_whitelist"] = account_manage_ip_whitelist
             __props__.__dict__["account_manage_payment_methods"] = account_manage_payment_methods
-            if account_manage_plan is not None and not opts.urn:
-                warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
-                pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
             __props__.__dict__["account_manage_plan"] = account_manage_plan
             __props__.__dict__["account_manage_teams"] = account_manage_teams
             __props__.__dict__["account_manage_users"] = account_manage_users

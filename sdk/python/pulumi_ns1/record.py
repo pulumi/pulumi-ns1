@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,30 +51,61 @@ class RecordArgs:
                * ` meta` - (Optional) meta is supported at the `record` level. Meta
                is documented below.
         """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone", zone)
+        RecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            type=type,
+            zone=zone,
+            answers=answers,
+            filters=filters,
+            link=link,
+            meta=meta,
+            override_ttl=override_ttl,
+            regions=regions,
+            short_answers=short_answers,
+            ttl=ttl,
+            use_client_subnet=use_client_subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             type: pulumi.Input[str],
+             zone: pulumi.Input[str],
+             answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             override_ttl: Optional[pulumi.Input[bool]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
+             short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             use_client_subnet: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("type", type)
+        _setter("zone", zone)
         if answers is not None:
-            pulumi.set(__self__, "answers", answers)
+            _setter("answers", answers)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if meta is not None:
-            pulumi.set(__self__, "meta", meta)
+            _setter("meta", meta)
         if override_ttl is not None:
-            pulumi.set(__self__, "override_ttl", override_ttl)
+            _setter("override_ttl", override_ttl)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if short_answers is not None:
             warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
             pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
         if short_answers is not None:
-            pulumi.set(__self__, "short_answers", short_answers)
+            _setter("short_answers", short_answers)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if use_client_subnet is not None:
-            pulumi.set(__self__, "use_client_subnet", use_client_subnet)
+            _setter("use_client_subnet", use_client_subnet)
 
     @property
     @pulumi.getter
@@ -264,33 +295,64 @@ class _RecordState:
         :param pulumi.Input[str] zone: The zone the record belongs to. Cannot have leading or
                trailing dots (".") - see the example above and `FQDN formatting` below.
         """
+        _RecordState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            answers=answers,
+            domain=domain,
+            filters=filters,
+            link=link,
+            meta=meta,
+            override_ttl=override_ttl,
+            regions=regions,
+            short_answers=short_answers,
+            ttl=ttl,
+            type=type,
+            use_client_subnet=use_client_subnet,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             override_ttl: Optional[pulumi.Input[bool]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
+             short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             use_client_subnet: Optional[pulumi.Input[bool]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if answers is not None:
-            pulumi.set(__self__, "answers", answers)
+            _setter("answers", answers)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if meta is not None:
-            pulumi.set(__self__, "meta", meta)
+            _setter("meta", meta)
         if override_ttl is not None:
-            pulumi.set(__self__, "override_ttl", override_ttl)
+            _setter("override_ttl", override_ttl)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if short_answers is not None:
             warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
             pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
         if short_answers is not None:
-            pulumi.set(__self__, "short_answers", short_answers)
+            _setter("short_answers", short_answers)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if use_client_subnet is not None:
-            pulumi.set(__self__, "use_client_subnet", use_client_subnet)
+            _setter("use_client_subnet", use_client_subnet)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -537,6 +599,10 @@ class Record(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RecordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -572,9 +638,6 @@ class Record(pulumi.CustomResource):
             __props__.__dict__["meta"] = meta
             __props__.__dict__["override_ttl"] = override_ttl
             __props__.__dict__["regions"] = regions
-            if short_answers is not None and not opts.urn:
-                warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
-                pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
             __props__.__dict__["short_answers"] = short_answers
             __props__.__dict__["ttl"] = ttl
             if type is None and not opts.urn:

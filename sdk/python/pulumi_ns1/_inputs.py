@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -36,10 +36,25 @@ class APIKeyDnsRecordsAllowArgs:
                  include_subdomains: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  zone: pulumi.Input[str]):
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "include_subdomains", include_subdomains)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone", zone)
+        APIKeyDnsRecordsAllowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            include_subdomains=include_subdomains,
+            type=type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             include_subdomains: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("include_subdomains", include_subdomains)
+        _setter("type", type)
+        _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -85,10 +100,25 @@ class APIKeyDnsRecordsDenyArgs:
                  include_subdomains: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  zone: pulumi.Input[str]):
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "include_subdomains", include_subdomains)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone", zone)
+        APIKeyDnsRecordsDenyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            include_subdomains=include_subdomains,
+            type=type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             include_subdomains: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("include_subdomains", include_subdomains)
+        _setter("type", type)
+        _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -145,17 +175,36 @@ class ApplicationDefaultConfigArgs:
         :param pulumi.Input[bool] static_values: Indicates whether or not to skip aggregation for this job's measurements
         :param pulumi.Input[bool] use_xhr: Whether to use XMLHttpRequest (XHR) when taking measurements.
         """
-        pulumi.set(__self__, "http", http)
+        ApplicationDefaultConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http=http,
+            https=https,
+            job_timeout_millis=job_timeout_millis,
+            request_timeout_millis=request_timeout_millis,
+            static_values=static_values,
+            use_xhr=use_xhr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http: pulumi.Input[bool],
+             https: Optional[pulumi.Input[bool]] = None,
+             job_timeout_millis: Optional[pulumi.Input[int]] = None,
+             request_timeout_millis: Optional[pulumi.Input[int]] = None,
+             static_values: Optional[pulumi.Input[bool]] = None,
+             use_xhr: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("http", http)
         if https is not None:
-            pulumi.set(__self__, "https", https)
+            _setter("https", https)
         if job_timeout_millis is not None:
-            pulumi.set(__self__, "job_timeout_millis", job_timeout_millis)
+            _setter("job_timeout_millis", job_timeout_millis)
         if request_timeout_millis is not None:
-            pulumi.set(__self__, "request_timeout_millis", request_timeout_millis)
+            _setter("request_timeout_millis", request_timeout_millis)
         if static_values is not None:
-            pulumi.set(__self__, "static_values", static_values)
+            _setter("static_values", static_values)
         if use_xhr is not None:
-            pulumi.set(__self__, "use_xhr", use_xhr)
+            _setter("use_xhr", use_xhr)
 
     @property
     @pulumi.getter
@@ -237,9 +286,22 @@ class MonitoringJobRuleArgs:
                  comparison: pulumi.Input[str],
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        MonitoringJobRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison=comparison,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison: pulumi.Input[str],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison", comparison)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -278,8 +340,19 @@ class NotifyListNotificationArgs:
         :param pulumi.Input[Mapping[str, Any]] config: Configuration details for the given notifier type.
         :param pulumi.Input[str] type: The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
         """
-        pulumi.set(__self__, "config", config)
-        pulumi.set(__self__, "type", type)
+        NotifyListNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: pulumi.Input[Mapping[str, Any]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("config", config)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -310,7 +383,16 @@ class NotifyListNotificationArgs:
 class PulsarJobBlendMetricWeightsArgs:
     def __init__(__self__, *,
                  timestamp: pulumi.Input[int]):
-        pulumi.set(__self__, "timestamp", timestamp)
+        PulsarJobBlendMetricWeightsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timestamp: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -333,22 +415,45 @@ class PulsarJobConfigArgs:
                  static_values: Optional[pulumi.Input[bool]] = None,
                  url_path: Optional[pulumi.Input[str]] = None,
                  use_xhr: Optional[pulumi.Input[bool]] = None):
+        PulsarJobConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host=host,
+            http=http,
+            https=https,
+            job_timeout_millis=job_timeout_millis,
+            request_timeout_millis=request_timeout_millis,
+            static_values=static_values,
+            url_path=url_path,
+            use_xhr=use_xhr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host: Optional[pulumi.Input[str]] = None,
+             http: Optional[pulumi.Input[bool]] = None,
+             https: Optional[pulumi.Input[bool]] = None,
+             job_timeout_millis: Optional[pulumi.Input[int]] = None,
+             request_timeout_millis: Optional[pulumi.Input[int]] = None,
+             static_values: Optional[pulumi.Input[bool]] = None,
+             url_path: Optional[pulumi.Input[str]] = None,
+             use_xhr: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if https is not None:
-            pulumi.set(__self__, "https", https)
+            _setter("https", https)
         if job_timeout_millis is not None:
-            pulumi.set(__self__, "job_timeout_millis", job_timeout_millis)
+            _setter("job_timeout_millis", job_timeout_millis)
         if request_timeout_millis is not None:
-            pulumi.set(__self__, "request_timeout_millis", request_timeout_millis)
+            _setter("request_timeout_millis", request_timeout_millis)
         if static_values is not None:
-            pulumi.set(__self__, "static_values", static_values)
+            _setter("static_values", static_values)
         if url_path is not None:
-            pulumi.set(__self__, "url_path", url_path)
+            _setter("url_path", url_path)
         if use_xhr is not None:
-            pulumi.set(__self__, "use_xhr", use_xhr)
+            _setter("use_xhr", use_xhr)
 
     @property
     @pulumi.getter
@@ -430,11 +535,26 @@ class PulsarJobWeightArgs:
                  name: pulumi.Input[str],
                  weight: pulumi.Input[int],
                  maximize: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "default_value", default_value)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "weight", weight)
+        PulsarJobWeightArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_value=default_value,
+            name=name,
+            weight=weight,
+            maximize=maximize,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_value: pulumi.Input[float],
+             name: pulumi.Input[str],
+             weight: pulumi.Input[int],
+             maximize: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_value", default_value)
+        _setter("name", name)
+        _setter("weight", weight)
         if maximize is not None:
-            pulumi.set(__self__, "maximize", maximize)
+            _setter("maximize", maximize)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -509,12 +629,25 @@ class RecordAnswerArgs:
                * ` meta` - (Optional) meta is supported at the `answer` level. Meta
                is documented below.
         """
+        RecordAnswerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            answer=answer,
+            meta=meta,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             answer: Optional[pulumi.Input[str]] = None,
+             meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if answer is not None:
-            pulumi.set(__self__, "answer", answer)
+            _setter("answer", answer)
         if meta is not None:
-            pulumi.set(__self__, "meta", meta)
+            _setter("meta", meta)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -589,11 +722,24 @@ class RecordFilterArgs:
         :param pulumi.Input[bool] disabled: Determines whether the filter is applied in the
                filter chain.
         """
-        pulumi.set(__self__, "filter", filter)
+        RecordFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter=filter,
+            config=config,
+            disabled=disabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter: pulumi.Input[str],
+             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filter", filter)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
 
     @property
     @pulumi.getter
@@ -642,9 +788,20 @@ class RecordRegionArgs:
         """
         :param pulumi.Input[str] name: Name of the region (or Answer Group).
         """
-        pulumi.set(__self__, "name", name)
+        RecordRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            meta=meta,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if meta is not None:
-            pulumi.set(__self__, "meta", meta)
+            _setter("meta", meta)
 
     @property
     @pulumi.getter
@@ -675,10 +832,25 @@ class TeamDnsRecordsAllowArgs:
                  include_subdomains: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  zone: pulumi.Input[str]):
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "include_subdomains", include_subdomains)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone", zone)
+        TeamDnsRecordsAllowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            include_subdomains=include_subdomains,
+            type=type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             include_subdomains: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("include_subdomains", include_subdomains)
+        _setter("type", type)
+        _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -724,10 +896,25 @@ class TeamDnsRecordsDenyArgs:
                  include_subdomains: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  zone: pulumi.Input[str]):
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "include_subdomains", include_subdomains)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone", zone)
+        TeamDnsRecordsDenyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            include_subdomains=include_subdomains,
+            type=type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             include_subdomains: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("include_subdomains", include_subdomains)
+        _setter("type", type)
+        _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -774,8 +961,19 @@ class TeamIpWhitelistArgs:
         """
         :param pulumi.Input[str] name: The free form name of the team.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        TeamIpWhitelistArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -806,10 +1004,25 @@ class UserDnsRecordsAllowArgs:
                  include_subdomains: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  zone: pulumi.Input[str]):
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "include_subdomains", include_subdomains)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone", zone)
+        UserDnsRecordsAllowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            include_subdomains=include_subdomains,
+            type=type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             include_subdomains: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("include_subdomains", include_subdomains)
+        _setter("type", type)
+        _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -855,10 +1068,25 @@ class UserDnsRecordsDenyArgs:
                  include_subdomains: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  zone: pulumi.Input[str]):
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "include_subdomains", include_subdomains)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone", zone)
+        UserDnsRecordsDenyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            include_subdomains=include_subdomains,
+            type=type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             include_subdomains: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
+        _setter("include_subdomains", include_subdomains)
+        _setter("type", type)
+        _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -913,13 +1141,28 @@ class ZoneSecondaryArgs:
                when the zone changes. Default `false`.
         :param pulumi.Input[int] port: Port of the the secondary server. Default `53`.
         """
-        pulumi.set(__self__, "ip", ip)
+        ZoneSecondaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            networks=networks,
+            notify=notify,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: pulumi.Input[str],
+             networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             notify: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip", ip)
         if networks is not None:
-            pulumi.set(__self__, "networks", networks)
+            _setter("networks", networks)
         if notify is not None:
-            pulumi.set(__self__, "notify", notify)
+            _setter("notify", notify)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DataSourceArgs', 'DataSource']
@@ -24,11 +24,24 @@ class DataSourceArgs:
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
         """
-        pulumi.set(__self__, "sourcetype", sourcetype)
+        DataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sourcetype=sourcetype,
+            config=config,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sourcetype: pulumi.Input[str],
+             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sourcetype", sourcetype)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -81,12 +94,25 @@ class _DataSourceState:
         :param pulumi.Input[str] name: The free form name of the data source.
         :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
         """
+        _DataSourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            name=name,
+            sourcetype=sourcetype,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sourcetype: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sourcetype is not None:
-            pulumi.set(__self__, "sourcetype", sourcetype)
+            _setter("sourcetype", sourcetype)
 
     @property
     @pulumi.getter
@@ -200,6 +226,10 @@ class DataSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
