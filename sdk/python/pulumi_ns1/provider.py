@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -31,20 +31,41 @@ class ProviderArgs:
         :param pulumi.Input[int] retry_max: Maximum retries for 50x errors (-1 to disable)
         :param pulumi.Input[str] user_agent: User-Agent string to use in NS1 API requests
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apikey=apikey,
+            enable_ddi=enable_ddi,
+            endpoint=endpoint,
+            ignore_ssl=ignore_ssl,
+            rate_limit_parallelism=rate_limit_parallelism,
+            retry_max=retry_max,
+            user_agent=user_agent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apikey: Optional[pulumi.Input[str]] = None,
+             enable_ddi: Optional[pulumi.Input[bool]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             ignore_ssl: Optional[pulumi.Input[bool]] = None,
+             rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
+             retry_max: Optional[pulumi.Input[int]] = None,
+             user_agent: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if apikey is not None:
-            pulumi.set(__self__, "apikey", apikey)
+            _setter("apikey", apikey)
         if enable_ddi is not None:
-            pulumi.set(__self__, "enable_ddi", enable_ddi)
+            _setter("enable_ddi", enable_ddi)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if ignore_ssl is not None:
-            pulumi.set(__self__, "ignore_ssl", ignore_ssl)
+            _setter("ignore_ssl", ignore_ssl)
         if rate_limit_parallelism is not None:
-            pulumi.set(__self__, "rate_limit_parallelism", rate_limit_parallelism)
+            _setter("rate_limit_parallelism", rate_limit_parallelism)
         if retry_max is not None:
-            pulumi.set(__self__, "retry_max", retry_max)
+            _setter("retry_max", retry_max)
         if user_agent is not None:
-            pulumi.set(__self__, "user_agent", user_agent)
+            _setter("user_agent", user_agent)
 
     @property
     @pulumi.getter
@@ -182,6 +203,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

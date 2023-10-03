@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DnsviewArgs', 'Dnsview']
@@ -23,18 +23,37 @@ class DnsviewArgs:
         """
         The set of arguments for constructing a Dnsview resource.
         """
+        DnsviewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            networks=networks,
+            preference=preference,
+            read_acls=read_acls,
+            update_acls=update_acls,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             preference: Optional[pulumi.Input[int]] = None,
+             read_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             update_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if networks is not None:
-            pulumi.set(__self__, "networks", networks)
+            _setter("networks", networks)
         if preference is not None:
-            pulumi.set(__self__, "preference", preference)
+            _setter("preference", preference)
         if read_acls is not None:
-            pulumi.set(__self__, "read_acls", read_acls)
+            _setter("read_acls", read_acls)
         if update_acls is not None:
-            pulumi.set(__self__, "update_acls", update_acls)
+            _setter("update_acls", update_acls)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -105,22 +124,45 @@ class _DnsviewState:
         """
         Input properties used for looking up and filtering Dnsview resources.
         """
+        _DnsviewState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            name=name,
+            networks=networks,
+            preference=preference,
+            read_acls=read_acls,
+            update_acls=update_acls,
+            updated_at=updated_at,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             preference: Optional[pulumi.Input[int]] = None,
+             read_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             update_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             updated_at: Optional[pulumi.Input[int]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if networks is not None:
-            pulumi.set(__self__, "networks", networks)
+            _setter("networks", networks)
         if preference is not None:
-            pulumi.set(__self__, "preference", preference)
+            _setter("preference", preference)
         if read_acls is not None:
-            pulumi.set(__self__, "read_acls", read_acls)
+            _setter("read_acls", read_acls)
         if update_acls is not None:
-            pulumi.set(__self__, "update_acls", update_acls)
+            _setter("update_acls", update_acls)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -230,6 +272,10 @@ class Dnsview(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DnsviewArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

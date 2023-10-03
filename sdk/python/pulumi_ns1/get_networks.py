@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetNetworksResult',
     'AwaitableGetNetworksResult',
     'get_networks',
+    'get_networks_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,22 @@ def get_networks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNet
     return AwaitableGetNetworksResult(
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'))
+
+
+@_utilities.lift_output_func(get_networks)
+def get_networks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworksResult]:
+    """
+    Provides details about NS1 Networks. Use this if you would simply like to read
+    information from NS1 into your configurations. For read/write operations, you
+    should use a resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_ns1 as ns1
+
+    example = ns1.get_networks()
+    ```
+    """
+    ...
