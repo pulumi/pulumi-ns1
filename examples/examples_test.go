@@ -17,6 +17,7 @@ func getCwd(t *testing.T) string {
 }
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Skipf("Skipping due to an expired token")
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 	}
