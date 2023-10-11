@@ -210,6 +210,7 @@ namespace Pulumi.Ns1
         /// documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetZoneSecondaryResult> Secondaries;
+        public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
         /// The SOA TTL.
         /// </summary>
@@ -248,6 +249,8 @@ namespace Pulumi.Ns1
 
             ImmutableArray<Outputs.GetZoneSecondaryResult> secondaries,
 
+            ImmutableDictionary<string, object> tags,
+
             int ttl,
 
             string zone)
@@ -267,6 +270,7 @@ namespace Pulumi.Ns1
             Refresh = refresh;
             Retry = retry;
             Secondaries = secondaries;
+            Tags = tags;
             Ttl = ttl;
             Zone = zone;
         }

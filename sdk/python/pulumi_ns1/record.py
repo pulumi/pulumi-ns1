@@ -20,12 +20,14 @@ class RecordArgs:
                  type: pulumi.Input[str],
                  zone: pulumi.Input[str],
                  answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  use_client_subnet: Optional[pulumi.Input[bool]] = None):
         """
@@ -57,12 +59,14 @@ class RecordArgs:
             type=type,
             zone=zone,
             answers=answers,
+            blocked_tags=blocked_tags,
             filters=filters,
             link=link,
             meta=meta,
             override_ttl=override_ttl,
             regions=regions,
             short_answers=short_answers,
+            tags=tags,
             ttl=ttl,
             use_client_subnet=use_client_subnet,
         )
@@ -73,12 +77,14 @@ class RecordArgs:
              type: pulumi.Input[str],
              zone: pulumi.Input[str],
              answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+             blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
              link: Optional[pulumi.Input[str]] = None,
              meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              override_ttl: Optional[pulumi.Input[bool]] = None,
              regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
              short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              use_client_subnet: Optional[pulumi.Input[bool]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
@@ -87,6 +93,8 @@ class RecordArgs:
         _setter("zone", zone)
         if answers is not None:
             _setter("answers", answers)
+        if blocked_tags is not None:
+            _setter("blocked_tags", blocked_tags)
         if filters is not None:
             _setter("filters", filters)
         if link is not None:
@@ -102,6 +110,8 @@ class RecordArgs:
             pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
         if short_answers is not None:
             _setter("short_answers", short_answers)
+        if tags is not None:
+            _setter("tags", tags)
         if ttl is not None:
             _setter("ttl", ttl)
         if use_client_subnet is not None:
@@ -157,6 +167,15 @@ class RecordArgs:
     @answers.setter
     def answers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]]):
         pulumi.set(self, "answers", value)
+
+    @property
+    @pulumi.getter(name="blockedTags")
+    def blocked_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "blocked_tags")
+
+    @blocked_tags.setter
+    def blocked_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "blocked_tags", value)
 
     @property
     @pulumi.getter
@@ -231,6 +250,15 @@ class RecordArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The records' time to live (in seconds).
@@ -261,6 +289,7 @@ class RecordArgs:
 class _RecordState:
     def __init__(__self__, *,
                  answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
@@ -268,6 +297,7 @@ class _RecordState:
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_client_subnet: Optional[pulumi.Input[bool]] = None,
@@ -298,6 +328,7 @@ class _RecordState:
         _RecordState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             answers=answers,
+            blocked_tags=blocked_tags,
             domain=domain,
             filters=filters,
             link=link,
@@ -305,6 +336,7 @@ class _RecordState:
             override_ttl=override_ttl,
             regions=regions,
             short_answers=short_answers,
+            tags=tags,
             ttl=ttl,
             type=type,
             use_client_subnet=use_client_subnet,
@@ -314,6 +346,7 @@ class _RecordState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+             blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              domain: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
              link: Optional[pulumi.Input[str]] = None,
@@ -321,6 +354,7 @@ class _RecordState:
              override_ttl: Optional[pulumi.Input[bool]] = None,
              regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
              short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
              use_client_subnet: Optional[pulumi.Input[bool]] = None,
@@ -328,6 +362,8 @@ class _RecordState:
              opts: Optional[pulumi.ResourceOptions]=None):
         if answers is not None:
             _setter("answers", answers)
+        if blocked_tags is not None:
+            _setter("blocked_tags", blocked_tags)
         if domain is not None:
             _setter("domain", domain)
         if filters is not None:
@@ -345,6 +381,8 @@ class _RecordState:
             pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
         if short_answers is not None:
             _setter("short_answers", short_answers)
+        if tags is not None:
+            _setter("tags", tags)
         if ttl is not None:
             _setter("ttl", ttl)
         if type is not None:
@@ -366,6 +404,15 @@ class _RecordState:
     @answers.setter
     def answers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]]):
         pulumi.set(self, "answers", value)
+
+    @property
+    @pulumi.getter(name="blockedTags")
+    def blocked_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "blocked_tags")
+
+    @blocked_tags.setter
+    def blocked_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "blocked_tags", value)
 
     @property
     @pulumi.getter
@@ -453,6 +500,15 @@ class _RecordState:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The records' time to live (in seconds).
@@ -510,6 +566,7 @@ class Record(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  answers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]]] = None,
+                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
@@ -517,6 +574,7 @@ class Record(pulumi.CustomResource):
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_client_subnet: Optional[pulumi.Input[bool]] = None,
@@ -609,6 +667,7 @@ class Record(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  answers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]]] = None,
+                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
@@ -616,6 +675,7 @@ class Record(pulumi.CustomResource):
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_client_subnet: Optional[pulumi.Input[bool]] = None,
@@ -630,6 +690,7 @@ class Record(pulumi.CustomResource):
             __props__ = RecordArgs.__new__(RecordArgs)
 
             __props__.__dict__["answers"] = answers
+            __props__.__dict__["blocked_tags"] = blocked_tags
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
@@ -639,6 +700,7 @@ class Record(pulumi.CustomResource):
             __props__.__dict__["override_ttl"] = override_ttl
             __props__.__dict__["regions"] = regions
             __props__.__dict__["short_answers"] = short_answers
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["ttl"] = ttl
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -658,6 +720,7 @@ class Record(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             answers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAnswerArgs']]]]] = None,
+            blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFilterArgs']]]]] = None,
             link: Optional[pulumi.Input[str]] = None,
@@ -665,6 +728,7 @@ class Record(pulumi.CustomResource):
             override_ttl: Optional[pulumi.Input[bool]] = None,
             regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordRegionArgs']]]]] = None,
             short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[str]] = None,
             use_client_subnet: Optional[pulumi.Input[bool]] = None,
@@ -702,6 +766,7 @@ class Record(pulumi.CustomResource):
         __props__ = _RecordState.__new__(_RecordState)
 
         __props__.__dict__["answers"] = answers
+        __props__.__dict__["blocked_tags"] = blocked_tags
         __props__.__dict__["domain"] = domain
         __props__.__dict__["filters"] = filters
         __props__.__dict__["link"] = link
@@ -709,6 +774,7 @@ class Record(pulumi.CustomResource):
         __props__.__dict__["override_ttl"] = override_ttl
         __props__.__dict__["regions"] = regions
         __props__.__dict__["short_answers"] = short_answers
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["ttl"] = ttl
         __props__.__dict__["type"] = type
         __props__.__dict__["use_client_subnet"] = use_client_subnet
@@ -723,6 +789,11 @@ class Record(pulumi.CustomResource):
         Answers are documented below.
         """
         return pulumi.get(self, "answers")
+
+    @property
+    @pulumi.getter(name="blockedTags")
+    def blocked_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "blocked_tags")
 
     @property
     @pulumi.getter
@@ -779,6 +850,11 @@ class Record(pulumi.CustomResource):
         pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
 
         return pulumi.get(self, "short_answers")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

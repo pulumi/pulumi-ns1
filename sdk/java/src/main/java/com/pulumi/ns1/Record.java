@@ -60,6 +60,12 @@ public class Record extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<RecordAnswer>>> answers() {
         return Codegen.optional(this.answers);
     }
+    @Export(name="blockedTags", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> blockedTags;
+
+    public Output<Optional<List<String>>> blockedTags() {
+        return Codegen.optional(this.blockedTags);
+    }
     /**
      * The records&#39; domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
@@ -151,6 +157,12 @@ public class Record extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<List<String>>> shortAnswers() {
         return Codegen.optional(this.shortAnswers);
+    }
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
     }
     /**
      * The records&#39; time to live (in seconds).

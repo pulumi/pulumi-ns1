@@ -58,6 +58,7 @@ export class Record extends pulumi.CustomResource {
      * Answers are documented below.
      */
     public readonly answers!: pulumi.Output<outputs.RecordAnswer[] | undefined>;
+    public readonly blockedTags!: pulumi.Output<string[] | undefined>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
@@ -86,6 +87,7 @@ export class Record extends pulumi.CustomResource {
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
     public readonly shortAnswers!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The records' time to live (in seconds).
      */
@@ -121,6 +123,7 @@ export class Record extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RecordState | undefined;
             resourceInputs["answers"] = state ? state.answers : undefined;
+            resourceInputs["blockedTags"] = state ? state.blockedTags : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
             resourceInputs["link"] = state ? state.link : undefined;
@@ -128,6 +131,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["overrideTtl"] = state ? state.overrideTtl : undefined;
             resourceInputs["regions"] = state ? state.regions : undefined;
             resourceInputs["shortAnswers"] = state ? state.shortAnswers : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["ttl"] = state ? state.ttl : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["useClientSubnet"] = state ? state.useClientSubnet : undefined;
@@ -144,6 +148,7 @@ export class Record extends pulumi.CustomResource {
                 throw new Error("Missing required property 'zone'");
             }
             resourceInputs["answers"] = args ? args.answers : undefined;
+            resourceInputs["blockedTags"] = args ? args.blockedTags : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["link"] = args ? args.link : undefined;
@@ -151,6 +156,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["overrideTtl"] = args ? args.overrideTtl : undefined;
             resourceInputs["regions"] = args ? args.regions : undefined;
             resourceInputs["shortAnswers"] = args ? args.shortAnswers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["useClientSubnet"] = args ? args.useClientSubnet : undefined;
@@ -170,6 +176,7 @@ export interface RecordState {
      * Answers are documented below.
      */
     answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
+    blockedTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
@@ -198,6 +205,7 @@ export interface RecordState {
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
     shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The records' time to live (in seconds).
      */
@@ -229,6 +237,7 @@ export interface RecordArgs {
      * Answers are documented below.
      */
     answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
+    blockedTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
@@ -257,6 +266,7 @@ export interface RecordArgs {
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
     shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The records' time to live (in seconds).
      */

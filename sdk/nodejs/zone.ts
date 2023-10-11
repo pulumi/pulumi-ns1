@@ -110,6 +110,7 @@ export class Zone extends pulumi.CustomResource {
      * Secondaries is documented below.
      */
     public readonly secondaries!: pulumi.Output<outputs.ZoneSecondary[] | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * TSIG is documented below
      */
@@ -151,6 +152,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["refresh"] = state ? state.refresh : undefined;
             resourceInputs["retry"] = state ? state.retry : undefined;
             resourceInputs["secondaries"] = state ? state.secondaries : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tsig"] = state ? state.tsig : undefined;
             resourceInputs["ttl"] = state ? state.ttl : undefined;
             resourceInputs["zone"] = state ? state.zone : undefined;
@@ -173,6 +175,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["refresh"] = args ? args.refresh : undefined;
             resourceInputs["retry"] = args ? args.retry : undefined;
             resourceInputs["secondaries"] = args ? args.secondaries : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tsig"] = args ? args.tsig : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
@@ -250,6 +253,7 @@ export interface ZoneState {
      * Secondaries is documented below.
      */
     secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * TSIG is documented below
      */
@@ -327,6 +331,7 @@ export interface ZoneArgs {
      * Secondaries is documented below.
      */
     secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * TSIG is documented below
      */

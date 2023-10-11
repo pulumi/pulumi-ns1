@@ -78,8 +78,9 @@ type LookupRecordResult struct {
 	Meta        map[string]interface{} `pulumi:"meta"`
 	OverrideTtl bool                   `pulumi:"overrideTtl"`
 	// List of regions.
-	Regions      []GetRecordRegion `pulumi:"regions"`
-	ShortAnswers []string          `pulumi:"shortAnswers"`
+	Regions      []GetRecordRegion      `pulumi:"regions"`
+	ShortAnswers []string               `pulumi:"shortAnswers"`
+	Tags         map[string]interface{} `pulumi:"tags"`
 	// The records' time to live (in seconds).
 	Ttl  int    `pulumi:"ttl"`
 	Type string `pulumi:"type"`
@@ -176,6 +177,10 @@ func (o LookupRecordResultOutput) Regions() GetRecordRegionArrayOutput {
 
 func (o LookupRecordResultOutput) ShortAnswers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRecordResult) []string { return v.ShortAnswers }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupRecordResultOutput) Tags() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupRecordResult) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
 
 // The records' time to live (in seconds).

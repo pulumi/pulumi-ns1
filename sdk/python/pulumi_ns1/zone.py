@@ -31,6 +31,7 @@ class ZoneArgs:
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None):
         """
@@ -79,6 +80,7 @@ class ZoneArgs:
             refresh=refresh,
             retry=retry,
             secondaries=secondaries,
+            tags=tags,
             tsig=tsig,
             ttl=ttl,
         )
@@ -100,6 +102,7 @@ class ZoneArgs:
              refresh: Optional[pulumi.Input[int]] = None,
              retry: Optional[pulumi.Input[int]] = None,
              secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
@@ -132,6 +135,8 @@ class ZoneArgs:
             _setter("retry", retry)
         if secondaries is not None:
             _setter("secondaries", secondaries)
+        if tags is not None:
+            _setter("tags", tags)
         if tsig is not None:
             _setter("tsig", tsig)
         if ttl is not None:
@@ -322,6 +327,15 @@ class ZoneArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def tsig(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         TSIG is documented below
@@ -363,6 +377,7 @@ class _ZoneState:
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
@@ -413,6 +428,7 @@ class _ZoneState:
             refresh=refresh,
             retry=retry,
             secondaries=secondaries,
+            tags=tags,
             tsig=tsig,
             ttl=ttl,
             zone=zone,
@@ -435,6 +451,7 @@ class _ZoneState:
              refresh: Optional[pulumi.Input[int]] = None,
              retry: Optional[pulumi.Input[int]] = None,
              secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              zone: Optional[pulumi.Input[str]] = None,
@@ -469,6 +486,8 @@ class _ZoneState:
             _setter("retry", retry)
         if secondaries is not None:
             _setter("secondaries", secondaries)
+        if tags is not None:
+            _setter("tags", tags)
         if tsig is not None:
             _setter("tsig", tsig)
         if ttl is not None:
@@ -661,6 +680,15 @@ class _ZoneState:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def tsig(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         TSIG is documented below
@@ -715,6 +743,7 @@ class Zone(pulumi.CustomResource):
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -813,6 +842,7 @@ class Zone(pulumi.CustomResource):
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
                  secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -839,6 +869,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["refresh"] = refresh
             __props__.__dict__["retry"] = retry
             __props__.__dict__["secondaries"] = secondaries
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["tsig"] = tsig
             __props__.__dict__["ttl"] = ttl
             if zone is None and not opts.urn:
@@ -870,6 +901,7 @@ class Zone(pulumi.CustomResource):
             refresh: Optional[pulumi.Input[int]] = None,
             retry: Optional[pulumi.Input[int]] = None,
             secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'Zone':
@@ -927,6 +959,7 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["refresh"] = refresh
         __props__.__dict__["retry"] = retry
         __props__.__dict__["secondaries"] = secondaries
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["tsig"] = tsig
         __props__.__dict__["ttl"] = ttl
         __props__.__dict__["zone"] = zone
@@ -1054,6 +1087,11 @@ class Zone(pulumi.CustomResource):
         Secondaries is documented below.
         """
         return pulumi.get(self, "secondaries")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

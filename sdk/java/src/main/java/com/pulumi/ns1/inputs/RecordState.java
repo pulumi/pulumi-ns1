@@ -40,6 +40,13 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.answers);
     }
 
+    @Import(name="blockedTags")
+    private @Nullable Output<List<String>> blockedTags;
+
+    public Optional<Output<List<String>>> blockedTags() {
+        return Optional.ofNullable(this.blockedTags);
+    }
+
     /**
      * The records&#39; domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
@@ -145,6 +152,13 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.shortAnswers);
     }
 
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     /**
      * The records&#39; time to live (in seconds).
      * 
@@ -217,6 +231,7 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
 
     private RecordState(RecordState $) {
         this.answers = $.answers;
+        this.blockedTags = $.blockedTags;
         this.domain = $.domain;
         this.filters = $.filters;
         this.link = $.link;
@@ -224,6 +239,7 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         this.overrideTtl = $.overrideTtl;
         this.regions = $.regions;
         this.shortAnswers = $.shortAnswers;
+        this.tags = $.tags;
         this.ttl = $.ttl;
         this.type = $.type;
         this.useClientSubnet = $.useClientSubnet;
@@ -280,6 +296,19 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder answers(RecordAnswerArgs... answers) {
             return answers(List.of(answers));
+        }
+
+        public Builder blockedTags(@Nullable Output<List<String>> blockedTags) {
+            $.blockedTags = blockedTags;
+            return this;
+        }
+
+        public Builder blockedTags(List<String> blockedTags) {
+            return blockedTags(Output.of(blockedTags));
+        }
+
+        public Builder blockedTags(String... blockedTags) {
+            return blockedTags(List.of(blockedTags));
         }
 
         /**
@@ -455,6 +484,15 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
         public Builder shortAnswers(String... shortAnswers) {
             return shortAnswers(List.of(shortAnswers));
+        }
+
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         /**

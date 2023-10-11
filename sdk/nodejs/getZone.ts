@@ -111,6 +111,7 @@ export interface GetZoneResult {
      * documented below.
      */
     readonly secondaries: outputs.GetZoneSecondary[];
+    readonly tags: {[key: string]: any};
     /**
      * The SOA TTL.
      */

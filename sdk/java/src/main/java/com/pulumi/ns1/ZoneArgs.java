@@ -230,6 +230,13 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.secondaries);
     }
 
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     /**
      * TSIG is documented below
      * 
@@ -292,6 +299,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         this.refresh = $.refresh;
         this.retry = $.retry;
         this.secondaries = $.secondaries;
+        this.tags = $.tags;
         this.tsig = $.tsig;
         this.ttl = $.ttl;
         this.zone = $.zone;
@@ -634,6 +642,15 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondaries(ZoneSecondaryArgs... secondaries) {
             return secondaries(List.of(secondaries));
+        }
+
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         /**

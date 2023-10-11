@@ -38,6 +38,9 @@ namespace Pulumi.Ns1
         [Output("answers")]
         public Output<ImmutableArray<Outputs.RecordAnswer>> Answers { get; private set; } = null!;
 
+        [Output("blockedTags")]
+        public Output<ImmutableArray<string>> BlockedTags { get; private set; } = null!;
+
         /// <summary>
         /// The records' domain. Cannot have leading or trailing
         /// dots - see the example above and `FQDN formatting` below.
@@ -76,6 +79,9 @@ namespace Pulumi.Ns1
 
         [Output("shortAnswers")]
         public Output<ImmutableArray<string>> ShortAnswers { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The records' time to live (in seconds).
@@ -164,6 +170,14 @@ namespace Pulumi.Ns1
             set => _answers = value;
         }
 
+        [Input("blockedTags")]
+        private InputList<string>? _blockedTags;
+        public InputList<string> BlockedTags
+        {
+            get => _blockedTags ?? (_blockedTags = new InputList<string>());
+            set => _blockedTags = value;
+        }
+
         /// <summary>
         /// The records' domain. Cannot have leading or trailing
         /// dots - see the example above and `FQDN formatting` below.
@@ -226,6 +240,14 @@ namespace Pulumi.Ns1
             set => _shortAnswers = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The records' time to live (in seconds).
         /// </summary>
@@ -273,6 +295,14 @@ namespace Pulumi.Ns1
         {
             get => _answers ?? (_answers = new InputList<Inputs.RecordAnswerGetArgs>());
             set => _answers = value;
+        }
+
+        [Input("blockedTags")]
+        private InputList<string>? _blockedTags;
+        public InputList<string> BlockedTags
+        {
+            get => _blockedTags ?? (_blockedTags = new InputList<string>());
+            set => _blockedTags = value;
         }
 
         /// <summary>
@@ -335,6 +365,14 @@ namespace Pulumi.Ns1
         {
             get => _shortAnswers ?? (_shortAnswers = new InputList<string>());
             set => _shortAnswers = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         /// <summary>
