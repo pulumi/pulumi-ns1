@@ -2107,6 +2107,12 @@
                     },
                     "description": "One or more NS1 answers for the records' specified type.\nAnswers are documented below.\n"
                 },
+                "blockedTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "domain": {
                     "type": "string",
                     "description": "The records' domain. Cannot have leading or trailing\ndots - see the example above and `FQDN formatting` below.\n"
@@ -2145,6 +2151,12 @@
                     },
                     "deprecationMessage": "short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block."
                 },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "ttl": {
                     "type": "integer",
                     "description": "The records' time to live (in seconds).\n"
@@ -2175,6 +2187,12 @@
                         "$ref": "#/types/ns1:index/RecordAnswer:RecordAnswer"
                     },
                     "description": "One or more NS1 answers for the records' specified type.\nAnswers are documented below.\n"
+                },
+                "blockedTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "domain": {
                     "type": "string",
@@ -2215,6 +2233,12 @@
                     },
                     "deprecationMessage": "short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block."
                 },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "ttl": {
                     "type": "integer",
                     "description": "The records' time to live (in seconds).\n"
@@ -2248,6 +2272,12 @@
                             "$ref": "#/types/ns1:index/RecordAnswer:RecordAnswer"
                         },
                         "description": "One or more NS1 answers for the records' specified type.\nAnswers are documented below.\n"
+                    },
+                    "blockedTags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "domain": {
                         "type": "string",
@@ -2287,6 +2317,12 @@
                             "type": "string"
                         },
                         "deprecationMessage": "short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block."
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "ttl": {
                         "type": "integer",
@@ -3505,6 +3541,12 @@
                     },
                     "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
                 },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "tsig": {
                     "type": "object",
                     "additionalProperties": {
@@ -3606,6 +3648,12 @@
                     },
                     "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
                 },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "tsig": {
                     "type": "object",
                     "additionalProperties": {
@@ -3703,6 +3751,12 @@
                             "$ref": "#/types/ns1:index/ZoneSecondary:ZoneSecondary"
                         },
                         "description": "List of secondary servers. This makes the zone a\nprimary. Conflicts with `primary` and `additional_primaries`.\nSecondaries is documented below.\n"
+                    },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "tsig": {
                         "type": "object",
@@ -3880,6 +3934,12 @@
                             "type": "string"
                         }
                     },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
                     "ttl": {
                         "type": "integer",
                         "description": "The records' time to live (in seconds).\n"
@@ -3905,6 +3965,7 @@
                     "overrideTtl",
                     "regions",
                     "shortAnswers",
+                    "tags",
                     "ttl",
                     "type",
                     "useClientSubnet",
@@ -4017,6 +4078,12 @@
                         },
                         "description": "List of secondary servers. Secondaries is\ndocumented below.\n"
                     },
+                    "tags": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
                     "ttl": {
                         "type": "integer",
                         "description": "The SOA TTL.\n"
@@ -4038,6 +4105,7 @@
                     "refresh",
                     "retry",
                     "secondaries",
+                    "tags",
                     "ttl",
                     "zone",
                     "id"

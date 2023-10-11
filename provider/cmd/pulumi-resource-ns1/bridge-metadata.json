@@ -112,6 +112,9 @@
                     "answers": {
                         "maxItemsOne": false
                     },
+                    "blocked_tags": {
+                        "maxItemsOne": false
+                    },
                     "filters": {
                         "maxItemsOne": false
                     },
@@ -447,6 +450,7 @@
                 "typeId": "type_id"
             },
             "ns1:index/record:Record": {
+                "blockedTags": "blocked_tags",
                 "overrideTtl": "override_ttl",
                 "shortAnswers": "short_answers",
                 "useClientSubnet": "use_client_subnet"
