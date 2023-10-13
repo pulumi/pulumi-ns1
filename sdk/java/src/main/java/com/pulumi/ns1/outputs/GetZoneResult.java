@@ -7,8 +7,10 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.ns1.outputs.GetZoneSecondary;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Object;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -85,6 +87,7 @@ public final class GetZoneResult {
      * 
      */
     private List<GetZoneSecondary> secondaries;
+    private Map<String,Object> tags;
     /**
      * @return The SOA TTL.
      * 
@@ -193,6 +196,9 @@ public final class GetZoneResult {
     public List<GetZoneSecondary> secondaries() {
         return this.secondaries;
     }
+    public Map<String,Object> tags() {
+        return this.tags;
+    }
     /**
      * @return The SOA TTL.
      * 
@@ -228,6 +234,7 @@ public final class GetZoneResult {
         private Integer refresh;
         private Integer retry;
         private List<GetZoneSecondary> secondaries;
+        private Map<String,Object> tags;
         private Integer ttl;
         private String zone;
         public Builder() {}
@@ -248,6 +255,7 @@ public final class GetZoneResult {
     	      this.refresh = defaults.refresh;
     	      this.retry = defaults.retry;
     	      this.secondaries = defaults.secondaries;
+    	      this.tags = defaults.tags;
     	      this.ttl = defaults.ttl;
     	      this.zone = defaults.zone;
         }
@@ -340,6 +348,11 @@ public final class GetZoneResult {
             return secondaries(List.of(secondaries));
         }
         @CustomType.Setter
+        public Builder tags(Map<String,Object> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
@@ -366,6 +379,7 @@ public final class GetZoneResult {
             o.refresh = refresh;
             o.retry = retry;
             o.secondaries = secondaries;
+            o.tags = tags;
             o.ttl = ttl;
             o.zone = zone;
             return o;

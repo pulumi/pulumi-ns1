@@ -83,6 +83,7 @@ export interface GetRecordResult {
      */
     readonly regions: outputs.GetRecordRegion[];
     readonly shortAnswers: string[];
+    readonly tags: {[key: string]: any};
     /**
      * The records' time to live (in seconds).
      */

@@ -22,7 +22,7 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, additional_ports=None, additional_primaries=None, dns_servers=None, dnssec=None, expiry=None, hostmaster=None, id=None, link=None, networks=None, nx_ttl=None, primary=None, primary_port=None, refresh=None, retry=None, secondaries=None, ttl=None, zone=None):
+    def __init__(__self__, additional_ports=None, additional_primaries=None, dns_servers=None, dnssec=None, expiry=None, hostmaster=None, id=None, link=None, networks=None, nx_ttl=None, primary=None, primary_port=None, refresh=None, retry=None, secondaries=None, tags=None, ttl=None, zone=None):
         if additional_ports and not isinstance(additional_ports, list):
             raise TypeError("Expected argument 'additional_ports' to be a list")
         pulumi.set(__self__, "additional_ports", additional_ports)
@@ -68,6 +68,9 @@ class GetZoneResult:
         if secondaries and not isinstance(secondaries, list):
             raise TypeError("Expected argument 'secondaries' to be a list")
         pulumi.set(__self__, "secondaries", secondaries)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if ttl and not isinstance(ttl, int):
             raise TypeError("Expected argument 'ttl' to be a int")
         pulumi.set(__self__, "ttl", ttl)
@@ -194,6 +197,11 @@ class GetZoneResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def ttl(self) -> int:
         """
         The SOA TTL.
@@ -227,6 +235,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             refresh=self.refresh,
             retry=self.retry,
             secondaries=self.secondaries,
+            tags=self.tags,
             ttl=self.ttl,
             zone=self.zone)
 
@@ -279,6 +288,7 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
         refresh=pulumi.get(__ret__, 'refresh'),
         retry=pulumi.get(__ret__, 'retry'),
         secondaries=pulumi.get(__ret__, 'secondaries'),
+        tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone=pulumi.get(__ret__, 'zone'))
 

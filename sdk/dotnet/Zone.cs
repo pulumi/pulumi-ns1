@@ -118,6 +118,9 @@ namespace Pulumi.Ns1
         [Output("secondaries")]
         public Output<ImmutableArray<Outputs.ZoneSecondary>> Secondaries { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
         /// <summary>
         /// TSIG is documented below
         /// </summary>
@@ -292,6 +295,14 @@ namespace Pulumi.Ns1
             set => _secondaries = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("tsig")]
         private InputMap<string>? _tsig;
 
@@ -438,6 +449,14 @@ namespace Pulumi.Ns1
         {
             get => _secondaries ?? (_secondaries = new InputList<Inputs.ZoneSecondaryGetArgs>());
             set => _secondaries = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         [Input("tsig")]

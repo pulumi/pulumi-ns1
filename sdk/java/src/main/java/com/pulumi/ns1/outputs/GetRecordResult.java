@@ -50,6 +50,7 @@ public final class GetRecordResult {
      */
     private List<GetRecordRegion> regions;
     private List<String> shortAnswers;
+    private Map<String,Object> tags;
     /**
      * @return The records&#39; time to live (in seconds).
      * 
@@ -115,6 +116,9 @@ public final class GetRecordResult {
     public List<String> shortAnswers() {
         return this.shortAnswers;
     }
+    public Map<String,Object> tags() {
+        return this.tags;
+    }
     /**
      * @return The records&#39; time to live (in seconds).
      * 
@@ -154,6 +158,7 @@ public final class GetRecordResult {
         private Boolean overrideTtl;
         private List<GetRecordRegion> regions;
         private List<String> shortAnswers;
+        private Map<String,Object> tags;
         private Integer ttl;
         private String type;
         private Boolean useClientSubnet;
@@ -170,6 +175,7 @@ public final class GetRecordResult {
     	      this.overrideTtl = defaults.overrideTtl;
     	      this.regions = defaults.regions;
     	      this.shortAnswers = defaults.shortAnswers;
+    	      this.tags = defaults.tags;
     	      this.ttl = defaults.ttl;
     	      this.type = defaults.type;
     	      this.useClientSubnet = defaults.useClientSubnet;
@@ -234,6 +240,11 @@ public final class GetRecordResult {
             return shortAnswers(List.of(shortAnswers));
         }
         @CustomType.Setter
+        public Builder tags(Map<String,Object> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
@@ -264,6 +275,7 @@ public final class GetRecordResult {
             o.overrideTtl = overrideTtl;
             o.regions = regions;
             o.shortAnswers = shortAnswers;
+            o.tags = tags;
             o.ttl = ttl;
             o.type = type;
             o.useClientSubnet = useClientSubnet;

@@ -22,7 +22,7 @@ class GetRecordResult:
     """
     A collection of values returned by getRecord.
     """
-    def __init__(__self__, answers=None, domain=None, filters=None, id=None, link=None, meta=None, override_ttl=None, regions=None, short_answers=None, ttl=None, type=None, use_client_subnet=None, zone=None):
+    def __init__(__self__, answers=None, domain=None, filters=None, id=None, link=None, meta=None, override_ttl=None, regions=None, short_answers=None, tags=None, ttl=None, type=None, use_client_subnet=None, zone=None):
         if answers and not isinstance(answers, list):
             raise TypeError("Expected argument 'answers' to be a list")
         pulumi.set(__self__, "answers", answers)
@@ -50,6 +50,9 @@ class GetRecordResult:
         if short_answers and not isinstance(short_answers, list):
             raise TypeError("Expected argument 'short_answers' to be a list")
         pulumi.set(__self__, "short_answers", short_answers)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if ttl and not isinstance(ttl, int):
             raise TypeError("Expected argument 'ttl' to be a int")
         pulumi.set(__self__, "ttl", ttl)
@@ -128,6 +131,11 @@ class GetRecordResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def ttl(self) -> int:
         """
         The records' time to live (in seconds).
@@ -168,6 +176,7 @@ class AwaitableGetRecordResult(GetRecordResult):
             override_ttl=self.override_ttl,
             regions=self.regions,
             short_answers=self.short_answers,
+            tags=self.tags,
             ttl=self.ttl,
             type=self.type,
             use_client_subnet=self.use_client_subnet,
@@ -216,6 +225,7 @@ def get_record(domain: Optional[str] = None,
         override_ttl=pulumi.get(__ret__, 'override_ttl'),
         regions=pulumi.get(__ret__, 'regions'),
         short_answers=pulumi.get(__ret__, 'short_answers'),
+        tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         type=pulumi.get(__ret__, 'type'),
         use_client_subnet=pulumi.get(__ret__, 'use_client_subnet'),

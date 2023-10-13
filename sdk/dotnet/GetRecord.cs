@@ -160,6 +160,7 @@ namespace Pulumi.Ns1
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRecordRegionResult> Regions;
         public readonly ImmutableArray<string> ShortAnswers;
+        public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
         /// The records' time to live (in seconds).
         /// </summary>
@@ -191,6 +192,8 @@ namespace Pulumi.Ns1
 
             ImmutableArray<string> shortAnswers,
 
+            ImmutableDictionary<string, object> tags,
+
             int ttl,
 
             string type,
@@ -208,6 +211,7 @@ namespace Pulumi.Ns1
             OverrideTtl = overrideTtl;
             Regions = regions;
             ShortAnswers = shortAnswers;
+            Tags = tags;
             Ttl = ttl;
             Type = type;
             UseClientSubnet = useClientSubnet;

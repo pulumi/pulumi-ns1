@@ -245,6 +245,12 @@ public class Zone extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<ZoneSecondary>>> secondaries() {
         return Codegen.optional(this.secondaries);
     }
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
     /**
      * TSIG is documented below
      * 

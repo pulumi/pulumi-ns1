@@ -39,7 +39,8 @@ type Record struct {
 
 	// One or more NS1 answers for the records' specified type.
 	// Answers are documented below.
-	Answers RecordAnswerArrayOutput `pulumi:"answers"`
+	Answers     RecordAnswerArrayOutput  `pulumi:"answers"`
+	BlockedTags pulumi.StringArrayOutput `pulumi:"blockedTags"`
 	// The records' domain. Cannot have leading or trailing
 	// dots - see the example above and `FQDN formatting` below.
 	Domain pulumi.StringOutput `pulumi:"domain"`
@@ -58,6 +59,7 @@ type Record struct {
 	Regions RecordRegionArrayOutput `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayOutput `pulumi:"shortAnswers"`
+	Tags         pulumi.StringMapOutput   `pulumi:"tags"`
 	// The records' time to live (in seconds).
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// The records' RR type.
@@ -113,7 +115,8 @@ func GetRecord(ctx *pulumi.Context,
 type recordState struct {
 	// One or more NS1 answers for the records' specified type.
 	// Answers are documented below.
-	Answers []RecordAnswer `pulumi:"answers"`
+	Answers     []RecordAnswer `pulumi:"answers"`
+	BlockedTags []string       `pulumi:"blockedTags"`
 	// The records' domain. Cannot have leading or trailing
 	// dots - see the example above and `FQDN formatting` below.
 	Domain *string `pulumi:"domain"`
@@ -131,7 +134,8 @@ type recordState struct {
 	// documented below. Please note the ordering requirement!
 	Regions []RecordRegion `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
-	ShortAnswers []string `pulumi:"shortAnswers"`
+	ShortAnswers []string          `pulumi:"shortAnswers"`
+	Tags         map[string]string `pulumi:"tags"`
 	// The records' time to live (in seconds).
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
@@ -149,7 +153,8 @@ type recordState struct {
 type RecordState struct {
 	// One or more NS1 answers for the records' specified type.
 	// Answers are documented below.
-	Answers RecordAnswerArrayInput
+	Answers     RecordAnswerArrayInput
+	BlockedTags pulumi.StringArrayInput
 	// The records' domain. Cannot have leading or trailing
 	// dots - see the example above and `FQDN formatting` below.
 	Domain pulumi.StringPtrInput
@@ -168,6 +173,7 @@ type RecordState struct {
 	Regions RecordRegionArrayInput
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
+	Tags         pulumi.StringMapInput
 	// The records' time to live (in seconds).
 	Ttl pulumi.IntPtrInput
 	// The records' RR type.
@@ -189,7 +195,8 @@ func (RecordState) ElementType() reflect.Type {
 type recordArgs struct {
 	// One or more NS1 answers for the records' specified type.
 	// Answers are documented below.
-	Answers []RecordAnswer `pulumi:"answers"`
+	Answers     []RecordAnswer `pulumi:"answers"`
+	BlockedTags []string       `pulumi:"blockedTags"`
 	// The records' domain. Cannot have leading or trailing
 	// dots - see the example above and `FQDN formatting` below.
 	Domain string `pulumi:"domain"`
@@ -207,7 +214,8 @@ type recordArgs struct {
 	// documented below. Please note the ordering requirement!
 	Regions []RecordRegion `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
-	ShortAnswers []string `pulumi:"shortAnswers"`
+	ShortAnswers []string          `pulumi:"shortAnswers"`
+	Tags         map[string]string `pulumi:"tags"`
 	// The records' time to live (in seconds).
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
@@ -226,7 +234,8 @@ type recordArgs struct {
 type RecordArgs struct {
 	// One or more NS1 answers for the records' specified type.
 	// Answers are documented below.
-	Answers RecordAnswerArrayInput
+	Answers     RecordAnswerArrayInput
+	BlockedTags pulumi.StringArrayInput
 	// The records' domain. Cannot have leading or trailing
 	// dots - see the example above and `FQDN formatting` below.
 	Domain pulumi.StringInput
@@ -245,6 +254,7 @@ type RecordArgs struct {
 	Regions RecordRegionArrayInput
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
+	Tags         pulumi.StringMapInput
 	// The records' time to live (in seconds).
 	Ttl pulumi.IntPtrInput
 	// The records' RR type.
@@ -376,6 +386,10 @@ func (o RecordOutput) Answers() RecordAnswerArrayOutput {
 	return o.ApplyT(func(v *Record) RecordAnswerArrayOutput { return v.Answers }).(RecordAnswerArrayOutput)
 }
 
+func (o RecordOutput) BlockedTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringArrayOutput { return v.BlockedTags }).(pulumi.StringArrayOutput)
+}
+
 // The records' domain. Cannot have leading or trailing
 // dots - see the example above and `FQDN formatting` below.
 func (o RecordOutput) Domain() pulumi.StringOutput {
@@ -413,6 +427,10 @@ func (o RecordOutput) Regions() RecordRegionArrayOutput {
 // Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 func (o RecordOutput) ShortAnswers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringArrayOutput { return v.ShortAnswers }).(pulumi.StringArrayOutput)
+}
+
+func (o RecordOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The records' time to live (in seconds).
