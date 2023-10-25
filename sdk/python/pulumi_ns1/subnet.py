@@ -59,7 +59,21 @@ class SubnetArgs:
              tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              total_addresses: Optional[pulumi.Input[str]] = None,
              used_addresses: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dhcp_scoped is None and 'dhcpScoped' in kwargs:
+            dhcp_scoped = kwargs['dhcpScoped']
+        if free_addresses is None and 'freeAddresses' in kwargs:
+            free_addresses = kwargs['freeAddresses']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if parent_id is None and 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if total_addresses is None and 'totalAddresses' in kwargs:
+            total_addresses = kwargs['totalAddresses']
+        if used_addresses is None and 'usedAddresses' in kwargs:
+            used_addresses = kwargs['usedAddresses']
+
         if children is not None:
             _setter("children", children)
         if desc is not None:
@@ -242,7 +256,21 @@ class _SubnetState:
              tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              total_addresses: Optional[pulumi.Input[str]] = None,
              used_addresses: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dhcp_scoped is None and 'dhcpScoped' in kwargs:
+            dhcp_scoped = kwargs['dhcpScoped']
+        if free_addresses is None and 'freeAddresses' in kwargs:
+            free_addresses = kwargs['freeAddresses']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if parent_id is None and 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if total_addresses is None and 'totalAddresses' in kwargs:
+            total_addresses = kwargs['totalAddresses']
+        if used_addresses is None and 'usedAddresses' in kwargs:
+            used_addresses = kwargs['usedAddresses']
+
         if children is not None:
             _setter("children", children)
         if desc is not None:

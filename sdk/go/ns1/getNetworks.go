@@ -4,37 +4,17 @@
 package ns1
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about NS1 Networks. Use this if you would simply like to read
 // information from NS1 into your configurations. For read/write operations, you
 // should use a resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ns1.GetNetworks(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetNetworks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetNetworksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworksResult
@@ -52,4 +32,51 @@ type GetNetworksResult struct {
 	// A set of the available networks. Networks is
 	// documented below.
 	Networks []GetNetworksNetwork `pulumi:"networks"`
+}
+
+func GetNetworksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetNetworksResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetNetworksResult, error) {
+		r, err := GetNetworks(ctx, opts...)
+		var s GetNetworksResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetNetworksResultOutput)
+}
+
+// A collection of values returned by getNetworks.
+type GetNetworksResultOutput struct{ *pulumi.OutputState }
+
+func (GetNetworksResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworksResult)(nil)).Elem()
+}
+
+func (o GetNetworksResultOutput) ToGetNetworksResultOutput() GetNetworksResultOutput {
+	return o
+}
+
+func (o GetNetworksResultOutput) ToGetNetworksResultOutputWithContext(ctx context.Context) GetNetworksResultOutput {
+	return o
+}
+
+func (o GetNetworksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworksResult] {
+	return pulumix.Output[GetNetworksResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetNetworksResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A set of the available networks. Networks is
+// documented below.
+func (o GetNetworksResultOutput) Networks() GetNetworksNetworkArrayOutput {
+	return o.ApplyT(func(v GetNetworksResult) []GetNetworksNetwork { return v.Networks }).(GetNetworksNetworkArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetNetworksResultOutput{})
 }

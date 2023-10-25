@@ -63,15 +63,6 @@ def get_networks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNet
     Provides details about NS1 Networks. Use this if you would simply like to read
     information from NS1 into your configurations. For read/write operations, you
     should use a resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_ns1 as ns1
-
-    example = ns1.get_networks()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -88,14 +79,5 @@ def get_networks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.O
     Provides details about NS1 Networks. Use this if you would simply like to read
     information from NS1 into your configurations. For read/write operations, you
     should use a resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_ns1 as ns1
-
-    example = ns1.get_networks()
-    ```
     """
     ...

@@ -12,35 +12,6 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Ns1 = Pulumi.Ns1;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTeam = new Ns1.Team("exampleTeam");
-    /// 
-    ///     var exampleAPIKey = new Ns1.APIKey("exampleAPIKey", new()
-    ///     {
-    ///         Teams = new[]
-    ///         {
-    ///             exampleTeam.Id,
-    ///         },
-    ///         IpWhitelists = new[]
-    ///         {
-    ///             "1.1.1.1",
-    ///             "2.2.2.2",
-    ///         },
-    ///         DnsViewZones = false,
-    ///         AccountManageUsers = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Permissions
     /// 
     /// An API key will inherit permissions from the teams it is assigned to.

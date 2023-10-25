@@ -10,19 +10,6 @@ import * as utilities from "./utilities";
  * Provides details about a NS1 Record. Use this if you would simply like to read
  * information from NS1 into your configurations. For read/write operations, you
  * should use a resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * const example = ns1.getRecord({
- *     domain: "terraform.example.io",
- *     type: "A",
- *     zone: "example.io",
- * });
- * ```
  */
 export function getRecord(args: GetRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordResult> {
 
@@ -99,19 +86,6 @@ export interface GetRecordResult {
  * Provides details about a NS1 Record. Use this if you would simply like to read
  * information from NS1 into your configurations. For read/write operations, you
  * should use a resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * const example = ns1.getRecord({
- *     domain: "terraform.example.io",
- *     type: "A",
- *     zone: "example.io",
- * });
- * ```
  */
 export function getRecordOutput(args: GetRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordResult> {
     return pulumi.output(args).apply((a: any) => getRecord(a, opts))

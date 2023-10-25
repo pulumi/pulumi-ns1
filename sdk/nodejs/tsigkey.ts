@@ -7,17 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * const example = new ns1.Tsigkey("example", {
- *     algorithm: "hmac-sha256",
- *     secret: "Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==",
- * });
- * ```
  * ## NS1 Documentation
  *
  * [TSIG Keys Api Doc](https://ns1.com/api/#tsig)

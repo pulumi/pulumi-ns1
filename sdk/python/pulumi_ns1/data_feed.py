@@ -33,10 +33,16 @@ class DataFeedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_id: pulumi.Input[str],
+             source_id: Optional[pulumi.Input[str]] = None,
              config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_id is None:
+            raise TypeError("Missing 'source_id' argument")
+
         _setter("source_id", source_id)
         if config is not None:
             _setter("config", config)
@@ -106,7 +112,11 @@ class _DataFeedState:
              config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              source_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+
         if config is not None:
             _setter("config", config)
         if name is not None:
@@ -164,30 +174,6 @@ class DataFeed(pulumi.CustomResource):
         """
         Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
-        example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
-        uswest_feed = ns1.DataFeed("uswestFeed",
-            source_id=example.id,
-            config={
-                "label": "uswest",
-            })
-        useast_feed = ns1.DataFeed("useastFeed",
-            source_id=example.id,
-            config={
-                "label": "useast",
-            })
-        useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
-            source_id=example_monitoring.id,
-            config={
-                "jobid": ns1_monitoringjob["example_job"]["id"],
-            })
-        ```
         ## NS1 Documentation
 
         [Datafeed Api Doc](https://ns1.com/api#data-feeds)
@@ -214,30 +200,6 @@ class DataFeed(pulumi.CustomResource):
         """
         Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
-        example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
-        uswest_feed = ns1.DataFeed("uswestFeed",
-            source_id=example.id,
-            config={
-                "label": "uswest",
-            })
-        useast_feed = ns1.DataFeed("useastFeed",
-            source_id=example.id,
-            config={
-                "label": "useast",
-            })
-        useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
-            source_id=example_monitoring.id,
-            config={
-                "jobid": ns1_monitoringjob["example_job"]["id"],
-            })
-        ```
         ## NS1 Documentation
 
         [Datafeed Api Doc](https://ns1.com/api#data-feeds)

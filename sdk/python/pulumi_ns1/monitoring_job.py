@@ -74,10 +74,10 @@ class MonitoringJobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config: pulumi.Input[Mapping[str, Any]],
-             frequency: pulumi.Input[int],
-             job_type: pulumi.Input[str],
-             regions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             frequency: Optional[pulumi.Input[int]] = None,
+             job_type: Optional[pulumi.Input[str]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              mute: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,31 @@ class MonitoringJobArgs:
              policy: Optional[pulumi.Input[str]] = None,
              rapid_recheck: Optional[pulumi.Input[bool]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config is None:
+            raise TypeError("Missing 'config' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if job_type is None and 'jobType' in kwargs:
+            job_type = kwargs['jobType']
+        if job_type is None:
+            raise TypeError("Missing 'job_type' argument")
+        if regions is None:
+            raise TypeError("Missing 'regions' argument")
+        if notify_delay is None and 'notifyDelay' in kwargs:
+            notify_delay = kwargs['notifyDelay']
+        if notify_failback is None and 'notifyFailback' in kwargs:
+            notify_failback = kwargs['notifyFailback']
+        if notify_list is None and 'notifyList' in kwargs:
+            notify_list = kwargs['notifyList']
+        if notify_regional is None and 'notifyRegional' in kwargs:
+            notify_regional = kwargs['notifyRegional']
+        if notify_repeat is None and 'notifyRepeat' in kwargs:
+            notify_repeat = kwargs['notifyRepeat']
+        if rapid_recheck is None and 'rapidRecheck' in kwargs:
+            rapid_recheck = kwargs['rapidRecheck']
+
         _setter("config", config)
         _setter("frequency", frequency)
         _setter("job_type", job_type)
@@ -389,7 +413,23 @@ class _MonitoringJobState:
              rapid_recheck: Optional[pulumi.Input[bool]] = None,
              regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_type is None and 'jobType' in kwargs:
+            job_type = kwargs['jobType']
+        if notify_delay is None and 'notifyDelay' in kwargs:
+            notify_delay = kwargs['notifyDelay']
+        if notify_failback is None and 'notifyFailback' in kwargs:
+            notify_failback = kwargs['notifyFailback']
+        if notify_list is None and 'notifyList' in kwargs:
+            notify_list = kwargs['notifyList']
+        if notify_regional is None and 'notifyRegional' in kwargs:
+            notify_regional = kwargs['notifyRegional']
+        if notify_repeat is None and 'notifyRepeat' in kwargs:
+            notify_repeat = kwargs['notifyRepeat']
+        if rapid_recheck is None and 'rapidRecheck' in kwargs:
+            rapid_recheck = kwargs['rapidRecheck']
+
         if active is not None:
             _setter("active", active)
         if config is not None:
@@ -640,36 +680,6 @@ class MonitoringJob(pulumi.CustomResource):
         """
         Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        uswest_monitor = ns1.MonitoringJob("uswestMonitor",
-            active=True,
-            config={
-                "host": "example-elb-uswest.aws.amazon.com",
-                "port": 443,
-                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
-                "ssl": 1,
-            },
-            frequency=60,
-            job_type="tcp",
-            mute=True,
-            policy="quorum",
-            rapid_recheck=True,
-            regions=[
-                "lga",
-                "sjc",
-                "sin",
-            ],
-            rules=[ns1.MonitoringJobRuleArgs(
-                comparison="contains",
-                key="output",
-                value="200 OK",
-            )])
-        ```
         ## NS1 Documentation
 
         [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -709,36 +719,6 @@ class MonitoringJob(pulumi.CustomResource):
         """
         Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        uswest_monitor = ns1.MonitoringJob("uswestMonitor",
-            active=True,
-            config={
-                "host": "example-elb-uswest.aws.amazon.com",
-                "port": 443,
-                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
-                "ssl": 1,
-            },
-            frequency=60,
-            job_type="tcp",
-            mute=True,
-            policy="quorum",
-            rapid_recheck=True,
-            regions=[
-                "lga",
-                "sjc",
-                "sin",
-            ],
-            rules=[ns1.MonitoringJobRuleArgs(
-                comparison="contains",
-                key="output",
-                value="200 OK",
-            )])
-        ```
         ## NS1 Documentation
 
         [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)

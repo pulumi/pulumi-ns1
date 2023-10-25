@@ -32,10 +32,16 @@ class TsigkeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: pulumi.Input[str],
-             secret: pulumi.Input[str],
+             algorithm: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
+
         _setter("algorithm", algorithm)
         _setter("secret", secret)
         if name is not None:
@@ -102,7 +108,9 @@ class _TsigkeyState:
              algorithm: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if algorithm is not None:
             _setter("algorithm", algorithm)
         if name is not None:
@@ -159,16 +167,6 @@ class Tsigkey(pulumi.CustomResource):
         """
         Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.Tsigkey("example",
-            algorithm="hmac-sha256",
-            secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
-        ```
         ## NS1 Documentation
 
         [TSIG Keys Api Doc](https://ns1.com/api/#tsig)
@@ -194,16 +192,6 @@ class Tsigkey(pulumi.CustomResource):
         """
         Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.Tsigkey("example",
-            algorithm="hmac-sha256",
-            secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
-        ```
         ## NS1 Documentation
 
         [TSIG Keys Api Doc](https://ns1.com/api/#tsig)

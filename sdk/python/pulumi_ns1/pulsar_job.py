@@ -41,15 +41,27 @@ class PulsarJobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             type_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
+             type_id: Optional[pulumi.Input[str]] = None,
              active: Optional[pulumi.Input[bool]] = None,
              blend_metric_weights: Optional[pulumi.Input['PulsarJobBlendMetricWeightsArgs']] = None,
              config: Optional[pulumi.Input['PulsarJobConfigArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              shared: Optional[pulumi.Input[bool]] = None,
              weights: Optional[pulumi.Input[Sequence[pulumi.Input['PulsarJobWeightArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if type_id is None and 'typeId' in kwargs:
+            type_id = kwargs['typeId']
+        if type_id is None:
+            raise TypeError("Missing 'type_id' argument")
+        if blend_metric_weights is None and 'blendMetricWeights' in kwargs:
+            blend_metric_weights = kwargs['blendMetricWeights']
+
         _setter("app_id", app_id)
         _setter("type_id", type_id)
         if active is not None:
@@ -183,7 +195,17 @@ class _PulsarJobState:
              shared: Optional[pulumi.Input[bool]] = None,
              type_id: Optional[pulumi.Input[str]] = None,
              weights: Optional[pulumi.Input[Sequence[pulumi.Input['PulsarJobWeightArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if blend_metric_weights is None and 'blendMetricWeights' in kwargs:
+            blend_metric_weights = kwargs['blendMetricWeights']
+        if job_id is None and 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+        if type_id is None and 'typeId' in kwargs:
+            type_id = kwargs['typeId']
+
         if active is not None:
             _setter("active", active)
         if app_id is not None:
@@ -374,17 +396,9 @@ class PulsarJob(pulumi.CustomResource):
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
-            if blend_metric_weights is not None and not isinstance(blend_metric_weights, PulsarJobBlendMetricWeightsArgs):
-                blend_metric_weights = blend_metric_weights or {}
-                def _setter(key, value):
-                    blend_metric_weights[key] = value
-                PulsarJobBlendMetricWeightsArgs._configure(_setter, **blend_metric_weights)
+            blend_metric_weights = _utilities.configure(blend_metric_weights, PulsarJobBlendMetricWeightsArgs, True)
             __props__.__dict__["blend_metric_weights"] = blend_metric_weights
-            if config is not None and not isinstance(config, PulsarJobConfigArgs):
-                config = config or {}
-                def _setter(key, value):
-                    config[key] = value
-                PulsarJobConfigArgs._configure(_setter, **config)
+            config = _utilities.configure(config, PulsarJobConfigArgs, True)
             __props__.__dict__["config"] = config
             __props__.__dict__["name"] = name
             __props__.__dict__["shared"] = shared

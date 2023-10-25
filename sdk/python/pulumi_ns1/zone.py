@@ -87,7 +87,7 @@ class ZoneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             zone: pulumi.Input[str],
+             zone: Optional[pulumi.Input[str]] = None,
              additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
@@ -105,7 +105,21 @@ class ZoneArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+        if additional_ports is None and 'additionalPorts' in kwargs:
+            additional_ports = kwargs['additionalPorts']
+        if additional_primaries is None and 'additionalPrimaries' in kwargs:
+            additional_primaries = kwargs['additionalPrimaries']
+        if autogenerate_ns_record is None and 'autogenerateNsRecord' in kwargs:
+            autogenerate_ns_record = kwargs['autogenerateNsRecord']
+        if nx_ttl is None and 'nxTtl' in kwargs:
+            nx_ttl = kwargs['nxTtl']
+        if primary_port is None and 'primaryPort' in kwargs:
+            primary_port = kwargs['primaryPort']
+
         _setter("zone", zone)
         if additional_ports is not None:
             _setter("additional_ports", additional_ports)
@@ -455,7 +469,21 @@ class _ZoneState:
              tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_ports is None and 'additionalPorts' in kwargs:
+            additional_ports = kwargs['additionalPorts']
+        if additional_primaries is None and 'additionalPrimaries' in kwargs:
+            additional_primaries = kwargs['additionalPrimaries']
+        if autogenerate_ns_record is None and 'autogenerateNsRecord' in kwargs:
+            autogenerate_ns_record = kwargs['autogenerateNsRecord']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if nx_ttl is None and 'nxTtl' in kwargs:
+            nx_ttl = kwargs['nxTtl']
+        if primary_port is None and 'primaryPort' in kwargs:
+            primary_port = kwargs['primaryPort']
+
         if additional_ports is not None:
             _setter("additional_ports", additional_ports)
         if additional_primaries is not None:

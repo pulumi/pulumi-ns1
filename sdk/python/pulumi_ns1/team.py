@@ -150,7 +150,67 @@ class TeamArgs:
              name: Optional[pulumi.Input[str]] = None,
              security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
              security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_manage_account_settings is None and 'accountManageAccountSettings' in kwargs:
+            account_manage_account_settings = kwargs['accountManageAccountSettings']
+        if account_manage_apikeys is None and 'accountManageApikeys' in kwargs:
+            account_manage_apikeys = kwargs['accountManageApikeys']
+        if account_manage_ip_whitelist is None and 'accountManageIpWhitelist' in kwargs:
+            account_manage_ip_whitelist = kwargs['accountManageIpWhitelist']
+        if account_manage_payment_methods is None and 'accountManagePaymentMethods' in kwargs:
+            account_manage_payment_methods = kwargs['accountManagePaymentMethods']
+        if account_manage_plan is None and 'accountManagePlan' in kwargs:
+            account_manage_plan = kwargs['accountManagePlan']
+        if account_manage_teams is None and 'accountManageTeams' in kwargs:
+            account_manage_teams = kwargs['accountManageTeams']
+        if account_manage_users is None and 'accountManageUsers' in kwargs:
+            account_manage_users = kwargs['accountManageUsers']
+        if account_view_activity_log is None and 'accountViewActivityLog' in kwargs:
+            account_view_activity_log = kwargs['accountViewActivityLog']
+        if account_view_invoices is None and 'accountViewInvoices' in kwargs:
+            account_view_invoices = kwargs['accountViewInvoices']
+        if data_manage_datafeeds is None and 'dataManageDatafeeds' in kwargs:
+            data_manage_datafeeds = kwargs['dataManageDatafeeds']
+        if data_manage_datasources is None and 'dataManageDatasources' in kwargs:
+            data_manage_datasources = kwargs['dataManageDatasources']
+        if data_push_to_datafeeds is None and 'dataPushToDatafeeds' in kwargs:
+            data_push_to_datafeeds = kwargs['dataPushToDatafeeds']
+        if dhcp_manage_dhcp is None and 'dhcpManageDhcp' in kwargs:
+            dhcp_manage_dhcp = kwargs['dhcpManageDhcp']
+        if dhcp_view_dhcp is None and 'dhcpViewDhcp' in kwargs:
+            dhcp_view_dhcp = kwargs['dhcpViewDhcp']
+        if dns_manage_zones is None and 'dnsManageZones' in kwargs:
+            dns_manage_zones = kwargs['dnsManageZones']
+        if dns_records_allows is None and 'dnsRecordsAllows' in kwargs:
+            dns_records_allows = kwargs['dnsRecordsAllows']
+        if dns_records_denies is None and 'dnsRecordsDenies' in kwargs:
+            dns_records_denies = kwargs['dnsRecordsDenies']
+        if dns_view_zones is None and 'dnsViewZones' in kwargs:
+            dns_view_zones = kwargs['dnsViewZones']
+        if dns_zones_allow_by_default is None and 'dnsZonesAllowByDefault' in kwargs:
+            dns_zones_allow_by_default = kwargs['dnsZonesAllowByDefault']
+        if dns_zones_allows is None and 'dnsZonesAllows' in kwargs:
+            dns_zones_allows = kwargs['dnsZonesAllows']
+        if dns_zones_denies is None and 'dnsZonesDenies' in kwargs:
+            dns_zones_denies = kwargs['dnsZonesDenies']
+        if ip_whitelists is None and 'ipWhitelists' in kwargs:
+            ip_whitelists = kwargs['ipWhitelists']
+        if ipam_manage_ipam is None and 'ipamManageIpam' in kwargs:
+            ipam_manage_ipam = kwargs['ipamManageIpam']
+        if ipam_view_ipam is None and 'ipamViewIpam' in kwargs:
+            ipam_view_ipam = kwargs['ipamViewIpam']
+        if monitoring_manage_jobs is None and 'monitoringManageJobs' in kwargs:
+            monitoring_manage_jobs = kwargs['monitoringManageJobs']
+        if monitoring_manage_lists is None and 'monitoringManageLists' in kwargs:
+            monitoring_manage_lists = kwargs['monitoringManageLists']
+        if monitoring_view_jobs is None and 'monitoringViewJobs' in kwargs:
+            monitoring_view_jobs = kwargs['monitoringViewJobs']
+        if security_manage_active_directory is None and 'securityManageActiveDirectory' in kwargs:
+            security_manage_active_directory = kwargs['securityManageActiveDirectory']
+        if security_manage_global2fa is None and 'securityManageGlobal2fa' in kwargs:
+            security_manage_global2fa = kwargs['securityManageGlobal2fa']
+
         if account_manage_account_settings is not None:
             _setter("account_manage_account_settings", account_manage_account_settings)
         if account_manage_apikeys is not None:
@@ -721,7 +781,67 @@ class _TeamState:
              name: Optional[pulumi.Input[str]] = None,
              security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
              security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_manage_account_settings is None and 'accountManageAccountSettings' in kwargs:
+            account_manage_account_settings = kwargs['accountManageAccountSettings']
+        if account_manage_apikeys is None and 'accountManageApikeys' in kwargs:
+            account_manage_apikeys = kwargs['accountManageApikeys']
+        if account_manage_ip_whitelist is None and 'accountManageIpWhitelist' in kwargs:
+            account_manage_ip_whitelist = kwargs['accountManageIpWhitelist']
+        if account_manage_payment_methods is None and 'accountManagePaymentMethods' in kwargs:
+            account_manage_payment_methods = kwargs['accountManagePaymentMethods']
+        if account_manage_plan is None and 'accountManagePlan' in kwargs:
+            account_manage_plan = kwargs['accountManagePlan']
+        if account_manage_teams is None and 'accountManageTeams' in kwargs:
+            account_manage_teams = kwargs['accountManageTeams']
+        if account_manage_users is None and 'accountManageUsers' in kwargs:
+            account_manage_users = kwargs['accountManageUsers']
+        if account_view_activity_log is None and 'accountViewActivityLog' in kwargs:
+            account_view_activity_log = kwargs['accountViewActivityLog']
+        if account_view_invoices is None and 'accountViewInvoices' in kwargs:
+            account_view_invoices = kwargs['accountViewInvoices']
+        if data_manage_datafeeds is None and 'dataManageDatafeeds' in kwargs:
+            data_manage_datafeeds = kwargs['dataManageDatafeeds']
+        if data_manage_datasources is None and 'dataManageDatasources' in kwargs:
+            data_manage_datasources = kwargs['dataManageDatasources']
+        if data_push_to_datafeeds is None and 'dataPushToDatafeeds' in kwargs:
+            data_push_to_datafeeds = kwargs['dataPushToDatafeeds']
+        if dhcp_manage_dhcp is None and 'dhcpManageDhcp' in kwargs:
+            dhcp_manage_dhcp = kwargs['dhcpManageDhcp']
+        if dhcp_view_dhcp is None and 'dhcpViewDhcp' in kwargs:
+            dhcp_view_dhcp = kwargs['dhcpViewDhcp']
+        if dns_manage_zones is None and 'dnsManageZones' in kwargs:
+            dns_manage_zones = kwargs['dnsManageZones']
+        if dns_records_allows is None and 'dnsRecordsAllows' in kwargs:
+            dns_records_allows = kwargs['dnsRecordsAllows']
+        if dns_records_denies is None and 'dnsRecordsDenies' in kwargs:
+            dns_records_denies = kwargs['dnsRecordsDenies']
+        if dns_view_zones is None and 'dnsViewZones' in kwargs:
+            dns_view_zones = kwargs['dnsViewZones']
+        if dns_zones_allow_by_default is None and 'dnsZonesAllowByDefault' in kwargs:
+            dns_zones_allow_by_default = kwargs['dnsZonesAllowByDefault']
+        if dns_zones_allows is None and 'dnsZonesAllows' in kwargs:
+            dns_zones_allows = kwargs['dnsZonesAllows']
+        if dns_zones_denies is None and 'dnsZonesDenies' in kwargs:
+            dns_zones_denies = kwargs['dnsZonesDenies']
+        if ip_whitelists is None and 'ipWhitelists' in kwargs:
+            ip_whitelists = kwargs['ipWhitelists']
+        if ipam_manage_ipam is None and 'ipamManageIpam' in kwargs:
+            ipam_manage_ipam = kwargs['ipamManageIpam']
+        if ipam_view_ipam is None and 'ipamViewIpam' in kwargs:
+            ipam_view_ipam = kwargs['ipamViewIpam']
+        if monitoring_manage_jobs is None and 'monitoringManageJobs' in kwargs:
+            monitoring_manage_jobs = kwargs['monitoringManageJobs']
+        if monitoring_manage_lists is None and 'monitoringManageLists' in kwargs:
+            monitoring_manage_lists = kwargs['monitoringManageLists']
+        if monitoring_view_jobs is None and 'monitoringViewJobs' in kwargs:
+            monitoring_view_jobs = kwargs['monitoringViewJobs']
+        if security_manage_active_directory is None and 'securityManageActiveDirectory' in kwargs:
+            security_manage_active_directory = kwargs['securityManageActiveDirectory']
+        if security_manage_global2fa is None and 'securityManageGlobal2fa' in kwargs:
+            security_manage_global2fa = kwargs['securityManageGlobal2fa']
+
         if account_manage_account_settings is not None:
             _setter("account_manage_account_settings", account_manage_account_settings)
         if account_manage_apikeys is not None:
@@ -1195,46 +1315,6 @@ class Team(pulumi.CustomResource):
         Provides a NS1 Team resource. This can be used to create, modify, and delete
         teams. The credentials used must have the `manage_teams` permission set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        # Create a new NS1 Team
-        example = ns1.Team("example",
-            account_manage_users=False,
-            dns_view_zones=False,
-            ip_whitelists=[
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-1",
-                    values=[
-                        "1.1.1.1",
-                        "2.2.2.2",
-                    ],
-                ),
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-2",
-                    values=[
-                        "3.3.3.3",
-                        "4.4.4.4",
-                    ],
-                ),
-            ])
-        # Another team
-        example2 = ns1.Team("example2",
-            data_manage_datasources=True,
-            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
-                domain="terraform.example.io",
-                include_subdomains=False,
-                type="A",
-                zone="example.io",
-            )],
-            dns_view_zones=True,
-            dns_zones_allows=["mytest.zone"],
-            dns_zones_allow_by_default=True,
-            dns_zones_denies=["myother.zone"])
-        ```
         ## NS1 Documentation
 
         [Team Api Docs](https://ns1.com/api#team)
@@ -1293,46 +1373,6 @@ class Team(pulumi.CustomResource):
         Provides a NS1 Team resource. This can be used to create, modify, and delete
         teams. The credentials used must have the `manage_teams` permission set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        # Create a new NS1 Team
-        example = ns1.Team("example",
-            account_manage_users=False,
-            dns_view_zones=False,
-            ip_whitelists=[
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-1",
-                    values=[
-                        "1.1.1.1",
-                        "2.2.2.2",
-                    ],
-                ),
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-2",
-                    values=[
-                        "3.3.3.3",
-                        "4.4.4.4",
-                    ],
-                ),
-            ])
-        # Another team
-        example2 = ns1.Team("example2",
-            data_manage_datasources=True,
-            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
-                domain="terraform.example.io",
-                include_subdomains=False,
-                type="A",
-                zone="example.io",
-            )],
-            dns_view_zones=True,
-            dns_zones_allows=["mytest.zone"],
-            dns_zones_allow_by_default=True,
-            dns_zones_denies=["myother.zone"])
-        ```
         ## NS1 Documentation
 
         [Team Api Docs](https://ns1.com/api#team)

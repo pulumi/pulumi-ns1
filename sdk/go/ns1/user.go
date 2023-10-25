@@ -17,49 +17,6 @@ import (
 // user's email address. This can be used to create, modify, and delete users.
 // The credentials used must have the `manageUsers` permission set.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTeam, err := ns1.NewTeam(ctx, "exampleTeam", &ns1.TeamArgs{
-//				IpWhitelists: ns1.TeamIpWhitelistArray{
-//					"1.1.1.1",
-//					"2.2.2.2",
-//				},
-//				DnsViewZones:       pulumi.Bool(false),
-//				AccountManageUsers: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ns1.NewUser(ctx, "exampleUser", &ns1.UserArgs{
-//				Username: pulumi.String("example_user"),
-//				Email:    pulumi.String("user@example.com"),
-//				Teams: pulumi.StringArray{
-//					exampleTeam.ID(),
-//				},
-//				Notify: pulumi.AnyMap{
-//					"billing": pulumi.Any(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Permissions
 //
 // A user will inherit permissions from the teams they are assigned to.

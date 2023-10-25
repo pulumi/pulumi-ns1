@@ -131,8 +131,8 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
-             username: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              account_manage_account_settings: Optional[pulumi.Input[bool]] = None,
              account_manage_apikeys: Optional[pulumi.Input[bool]] = None,
              account_manage_ip_whitelist: Optional[pulumi.Input[bool]] = None,
@@ -166,7 +166,73 @@ class UserArgs:
              security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
              security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if account_manage_account_settings is None and 'accountManageAccountSettings' in kwargs:
+            account_manage_account_settings = kwargs['accountManageAccountSettings']
+        if account_manage_apikeys is None and 'accountManageApikeys' in kwargs:
+            account_manage_apikeys = kwargs['accountManageApikeys']
+        if account_manage_ip_whitelist is None and 'accountManageIpWhitelist' in kwargs:
+            account_manage_ip_whitelist = kwargs['accountManageIpWhitelist']
+        if account_manage_payment_methods is None and 'accountManagePaymentMethods' in kwargs:
+            account_manage_payment_methods = kwargs['accountManagePaymentMethods']
+        if account_manage_plan is None and 'accountManagePlan' in kwargs:
+            account_manage_plan = kwargs['accountManagePlan']
+        if account_manage_teams is None and 'accountManageTeams' in kwargs:
+            account_manage_teams = kwargs['accountManageTeams']
+        if account_manage_users is None and 'accountManageUsers' in kwargs:
+            account_manage_users = kwargs['accountManageUsers']
+        if account_view_activity_log is None and 'accountViewActivityLog' in kwargs:
+            account_view_activity_log = kwargs['accountViewActivityLog']
+        if account_view_invoices is None and 'accountViewInvoices' in kwargs:
+            account_view_invoices = kwargs['accountViewInvoices']
+        if data_manage_datafeeds is None and 'dataManageDatafeeds' in kwargs:
+            data_manage_datafeeds = kwargs['dataManageDatafeeds']
+        if data_manage_datasources is None and 'dataManageDatasources' in kwargs:
+            data_manage_datasources = kwargs['dataManageDatasources']
+        if data_push_to_datafeeds is None and 'dataPushToDatafeeds' in kwargs:
+            data_push_to_datafeeds = kwargs['dataPushToDatafeeds']
+        if dhcp_manage_dhcp is None and 'dhcpManageDhcp' in kwargs:
+            dhcp_manage_dhcp = kwargs['dhcpManageDhcp']
+        if dhcp_view_dhcp is None and 'dhcpViewDhcp' in kwargs:
+            dhcp_view_dhcp = kwargs['dhcpViewDhcp']
+        if dns_manage_zones is None and 'dnsManageZones' in kwargs:
+            dns_manage_zones = kwargs['dnsManageZones']
+        if dns_records_allows is None and 'dnsRecordsAllows' in kwargs:
+            dns_records_allows = kwargs['dnsRecordsAllows']
+        if dns_records_denies is None and 'dnsRecordsDenies' in kwargs:
+            dns_records_denies = kwargs['dnsRecordsDenies']
+        if dns_view_zones is None and 'dnsViewZones' in kwargs:
+            dns_view_zones = kwargs['dnsViewZones']
+        if dns_zones_allow_by_default is None and 'dnsZonesAllowByDefault' in kwargs:
+            dns_zones_allow_by_default = kwargs['dnsZonesAllowByDefault']
+        if dns_zones_allows is None and 'dnsZonesAllows' in kwargs:
+            dns_zones_allows = kwargs['dnsZonesAllows']
+        if dns_zones_denies is None and 'dnsZonesDenies' in kwargs:
+            dns_zones_denies = kwargs['dnsZonesDenies']
+        if ip_whitelist_strict is None and 'ipWhitelistStrict' in kwargs:
+            ip_whitelist_strict = kwargs['ipWhitelistStrict']
+        if ip_whitelists is None and 'ipWhitelists' in kwargs:
+            ip_whitelists = kwargs['ipWhitelists']
+        if ipam_manage_ipam is None and 'ipamManageIpam' in kwargs:
+            ipam_manage_ipam = kwargs['ipamManageIpam']
+        if ipam_view_ipam is None and 'ipamViewIpam' in kwargs:
+            ipam_view_ipam = kwargs['ipamViewIpam']
+        if monitoring_manage_jobs is None and 'monitoringManageJobs' in kwargs:
+            monitoring_manage_jobs = kwargs['monitoringManageJobs']
+        if monitoring_manage_lists is None and 'monitoringManageLists' in kwargs:
+            monitoring_manage_lists = kwargs['monitoringManageLists']
+        if monitoring_view_jobs is None and 'monitoringViewJobs' in kwargs:
+            monitoring_view_jobs = kwargs['monitoringViewJobs']
+        if security_manage_active_directory is None and 'securityManageActiveDirectory' in kwargs:
+            security_manage_active_directory = kwargs['securityManageActiveDirectory']
+        if security_manage_global2fa is None and 'securityManageGlobal2fa' in kwargs:
+            security_manage_global2fa = kwargs['securityManageGlobal2fa']
+
         _setter("email", email)
         _setter("username", username)
         if account_manage_account_settings is not None:
@@ -811,7 +877,69 @@ class _UserState:
              security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_manage_account_settings is None and 'accountManageAccountSettings' in kwargs:
+            account_manage_account_settings = kwargs['accountManageAccountSettings']
+        if account_manage_apikeys is None and 'accountManageApikeys' in kwargs:
+            account_manage_apikeys = kwargs['accountManageApikeys']
+        if account_manage_ip_whitelist is None and 'accountManageIpWhitelist' in kwargs:
+            account_manage_ip_whitelist = kwargs['accountManageIpWhitelist']
+        if account_manage_payment_methods is None and 'accountManagePaymentMethods' in kwargs:
+            account_manage_payment_methods = kwargs['accountManagePaymentMethods']
+        if account_manage_plan is None and 'accountManagePlan' in kwargs:
+            account_manage_plan = kwargs['accountManagePlan']
+        if account_manage_teams is None and 'accountManageTeams' in kwargs:
+            account_manage_teams = kwargs['accountManageTeams']
+        if account_manage_users is None and 'accountManageUsers' in kwargs:
+            account_manage_users = kwargs['accountManageUsers']
+        if account_view_activity_log is None and 'accountViewActivityLog' in kwargs:
+            account_view_activity_log = kwargs['accountViewActivityLog']
+        if account_view_invoices is None and 'accountViewInvoices' in kwargs:
+            account_view_invoices = kwargs['accountViewInvoices']
+        if data_manage_datafeeds is None and 'dataManageDatafeeds' in kwargs:
+            data_manage_datafeeds = kwargs['dataManageDatafeeds']
+        if data_manage_datasources is None and 'dataManageDatasources' in kwargs:
+            data_manage_datasources = kwargs['dataManageDatasources']
+        if data_push_to_datafeeds is None and 'dataPushToDatafeeds' in kwargs:
+            data_push_to_datafeeds = kwargs['dataPushToDatafeeds']
+        if dhcp_manage_dhcp is None and 'dhcpManageDhcp' in kwargs:
+            dhcp_manage_dhcp = kwargs['dhcpManageDhcp']
+        if dhcp_view_dhcp is None and 'dhcpViewDhcp' in kwargs:
+            dhcp_view_dhcp = kwargs['dhcpViewDhcp']
+        if dns_manage_zones is None and 'dnsManageZones' in kwargs:
+            dns_manage_zones = kwargs['dnsManageZones']
+        if dns_records_allows is None and 'dnsRecordsAllows' in kwargs:
+            dns_records_allows = kwargs['dnsRecordsAllows']
+        if dns_records_denies is None and 'dnsRecordsDenies' in kwargs:
+            dns_records_denies = kwargs['dnsRecordsDenies']
+        if dns_view_zones is None and 'dnsViewZones' in kwargs:
+            dns_view_zones = kwargs['dnsViewZones']
+        if dns_zones_allow_by_default is None and 'dnsZonesAllowByDefault' in kwargs:
+            dns_zones_allow_by_default = kwargs['dnsZonesAllowByDefault']
+        if dns_zones_allows is None and 'dnsZonesAllows' in kwargs:
+            dns_zones_allows = kwargs['dnsZonesAllows']
+        if dns_zones_denies is None and 'dnsZonesDenies' in kwargs:
+            dns_zones_denies = kwargs['dnsZonesDenies']
+        if ip_whitelist_strict is None and 'ipWhitelistStrict' in kwargs:
+            ip_whitelist_strict = kwargs['ipWhitelistStrict']
+        if ip_whitelists is None and 'ipWhitelists' in kwargs:
+            ip_whitelists = kwargs['ipWhitelists']
+        if ipam_manage_ipam is None and 'ipamManageIpam' in kwargs:
+            ipam_manage_ipam = kwargs['ipamManageIpam']
+        if ipam_view_ipam is None and 'ipamViewIpam' in kwargs:
+            ipam_view_ipam = kwargs['ipamViewIpam']
+        if monitoring_manage_jobs is None and 'monitoringManageJobs' in kwargs:
+            monitoring_manage_jobs = kwargs['monitoringManageJobs']
+        if monitoring_manage_lists is None and 'monitoringManageLists' in kwargs:
+            monitoring_manage_lists = kwargs['monitoringManageLists']
+        if monitoring_view_jobs is None and 'monitoringViewJobs' in kwargs:
+            monitoring_view_jobs = kwargs['monitoringViewJobs']
+        if security_manage_active_directory is None and 'securityManageActiveDirectory' in kwargs:
+            security_manage_active_directory = kwargs['securityManageActiveDirectory']
+        if security_manage_global2fa is None and 'securityManageGlobal2fa' in kwargs:
+            security_manage_global2fa = kwargs['securityManageGlobal2fa']
+
         if account_manage_account_settings is not None:
             _setter("account_manage_account_settings", account_manage_account_settings)
         if account_manage_apikeys is not None:
@@ -1351,27 +1479,6 @@ class User(pulumi.CustomResource):
         user's email address. This can be used to create, modify, and delete users.
         The credentials used must have the `manage_users` permission set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example_team = ns1.Team("exampleTeam",
-            ip_whitelists=[
-                "1.1.1.1",
-                "2.2.2.2",
-            ],
-            dns_view_zones=False,
-            account_manage_users=False)
-        example_user = ns1.User("exampleUser",
-            username="example_user",
-            email="user@example.com",
-            teams=[example_team.id],
-            notify={
-                "billing": False,
-            })
-        ```
         ## Permissions
 
         A user will inherit permissions from the teams they are assigned to.
@@ -1447,27 +1554,6 @@ class User(pulumi.CustomResource):
         user's email address. This can be used to create, modify, and delete users.
         The credentials used must have the `manage_users` permission set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example_team = ns1.Team("exampleTeam",
-            ip_whitelists=[
-                "1.1.1.1",
-                "2.2.2.2",
-            ],
-            dns_view_zones=False,
-            account_manage_users=False)
-        example_user = ns1.User("exampleUser",
-            username="example_user",
-            email="user@example.com",
-            teams=[example_team.id],
-            notify={
-                "billing": False,
-            })
-        ```
         ## Permissions
 
         A user will inherit permissions from the teams they are assigned to.

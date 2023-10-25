@@ -74,11 +74,23 @@ class APIKeyDnsRecordsAllow(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: str,
-             include_subdomains: bool,
-             type: str,
-             zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain: Optional[str] = None,
+             include_subdomains: Optional[bool] = None,
+             type: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+        if include_subdomains is None:
+            raise TypeError("Missing 'include_subdomains' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+
         _setter("domain", domain)
         _setter("include_subdomains", include_subdomains)
         _setter("type", type)
@@ -139,11 +151,23 @@ class APIKeyDnsRecordsDeny(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: str,
-             include_subdomains: bool,
-             type: str,
-             zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain: Optional[str] = None,
+             include_subdomains: Optional[bool] = None,
+             type: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+        if include_subdomains is None:
+            raise TypeError("Missing 'include_subdomains' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+
         _setter("domain", domain)
         _setter("include_subdomains", include_subdomains)
         _setter("type", type)
@@ -223,13 +247,25 @@ class ApplicationDefaultConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             http: bool,
+             http: Optional[bool] = None,
              https: Optional[bool] = None,
              job_timeout_millis: Optional[int] = None,
              request_timeout_millis: Optional[int] = None,
              static_values: Optional[bool] = None,
              use_xhr: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http is None:
+            raise TypeError("Missing 'http' argument")
+        if job_timeout_millis is None and 'jobTimeoutMillis' in kwargs:
+            job_timeout_millis = kwargs['jobTimeoutMillis']
+        if request_timeout_millis is None and 'requestTimeoutMillis' in kwargs:
+            request_timeout_millis = kwargs['requestTimeoutMillis']
+        if static_values is None and 'staticValues' in kwargs:
+            static_values = kwargs['staticValues']
+        if use_xhr is None and 'useXhr' in kwargs:
+            use_xhr = kwargs['useXhr']
+
         _setter("http", http)
         if https is not None:
             _setter("https", https)
@@ -307,10 +343,18 @@ class MonitoringJobRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison: str,
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison: Optional[str] = None,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison is None:
+            raise TypeError("Missing 'comparison' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("comparison", comparison)
         _setter("key", key)
         _setter("value", value)
@@ -348,9 +392,15 @@ class NotifyListNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config: Mapping[str, Any],
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             config: Optional[Mapping[str, Any]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config is None:
+            raise TypeError("Missing 'config' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("config", config)
         _setter("type", type)
 
@@ -382,8 +432,12 @@ class PulsarJobBlendMetricWeights(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timestamp: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             timestamp: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timestamp is None:
+            raise TypeError("Missing 'timestamp' argument")
+
         _setter("timestamp", timestamp)
 
     @property
@@ -450,7 +504,19 @@ class PulsarJobConfig(dict):
              static_values: Optional[bool] = None,
              url_path: Optional[str] = None,
              use_xhr: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_timeout_millis is None and 'jobTimeoutMillis' in kwargs:
+            job_timeout_millis = kwargs['jobTimeoutMillis']
+        if request_timeout_millis is None and 'requestTimeoutMillis' in kwargs:
+            request_timeout_millis = kwargs['requestTimeoutMillis']
+        if static_values is None and 'staticValues' in kwargs:
+            static_values = kwargs['staticValues']
+        if url_path is None and 'urlPath' in kwargs:
+            url_path = kwargs['urlPath']
+        if use_xhr is None and 'useXhr' in kwargs:
+            use_xhr = kwargs['useXhr']
+
         if host is not None:
             _setter("host", host)
         if http is not None:
@@ -543,11 +609,21 @@ class PulsarJobWeight(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_value: float,
-             name: str,
-             weight: int,
+             default_value: Optional[float] = None,
+             name: Optional[str] = None,
+             weight: Optional[int] = None,
              maximize: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if default_value is None:
+            raise TypeError("Missing 'default_value' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+
         _setter("default_value", default_value)
         _setter("name", name)
         _setter("weight", weight)
@@ -623,7 +699,9 @@ class RecordAnswer(dict):
              answer: Optional[str] = None,
              meta: Optional[Mapping[str, Any]] = None,
              region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if answer is not None:
             _setter("answer", answer)
         if meta is not None:
@@ -701,10 +779,14 @@ class RecordFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: str,
+             filter: Optional[str] = None,
              config: Optional[Mapping[str, Any]] = None,
              disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+
         _setter("filter", filter)
         if config is not None:
             _setter("config", config)
@@ -754,9 +836,13 @@ class RecordRegion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              meta: Optional[Mapping[str, Any]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if meta is not None:
             _setter("meta", meta)
@@ -809,11 +895,23 @@ class TeamDnsRecordsAllow(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: str,
-             include_subdomains: bool,
-             type: str,
-             zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain: Optional[str] = None,
+             include_subdomains: Optional[bool] = None,
+             type: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+        if include_subdomains is None:
+            raise TypeError("Missing 'include_subdomains' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+
         _setter("domain", domain)
         _setter("include_subdomains", include_subdomains)
         _setter("type", type)
@@ -874,11 +972,23 @@ class TeamDnsRecordsDeny(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: str,
-             include_subdomains: bool,
-             type: str,
-             zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain: Optional[str] = None,
+             include_subdomains: Optional[bool] = None,
+             type: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+        if include_subdomains is None:
+            raise TypeError("Missing 'include_subdomains' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+
         _setter("domain", domain)
         _setter("include_subdomains", include_subdomains)
         _setter("type", type)
@@ -921,9 +1031,15 @@ class TeamIpWhitelist(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("name", name)
         _setter("values", values)
 
@@ -975,11 +1091,23 @@ class UserDnsRecordsAllow(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: str,
-             include_subdomains: bool,
-             type: str,
-             zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain: Optional[str] = None,
+             include_subdomains: Optional[bool] = None,
+             type: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+        if include_subdomains is None:
+            raise TypeError("Missing 'include_subdomains' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+
         _setter("domain", domain)
         _setter("include_subdomains", include_subdomains)
         _setter("type", type)
@@ -1040,11 +1168,23 @@ class UserDnsRecordsDeny(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: str,
-             include_subdomains: bool,
-             type: str,
-             zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain: Optional[str] = None,
+             include_subdomains: Optional[bool] = None,
+             type: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+        if include_subdomains is None:
+            raise TypeError("Missing 'include_subdomains' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+
         _setter("domain", domain)
         _setter("include_subdomains", include_subdomains)
         _setter("type", type)
@@ -1097,11 +1237,15 @@ class ZoneSecondary(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: str,
+             ip: Optional[str] = None,
              networks: Optional[Sequence[int]] = None,
              notify: Optional[bool] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+
         _setter("ip", ip)
         if networks is not None:
             _setter("networks", networks)
@@ -1166,10 +1310,18 @@ class GetDNSSecDelegationResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dnskeys: Sequence['outputs.GetDNSSecDelegationDnskeyResult'],
-             ds: Sequence['outputs.GetDNSSecDelegationDResult'],
-             ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dnskeys: Optional[Sequence['outputs.GetDNSSecDelegationDnskeyResult']] = None,
+             ds: Optional[Sequence['outputs.GetDNSSecDelegationDResult']] = None,
+             ttl: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dnskeys is None:
+            raise TypeError("Missing 'dnskeys' argument")
+        if ds is None:
+            raise TypeError("Missing 'ds' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+
         _setter("dnskeys", dnskeys)
         _setter("ds", ds)
         _setter("ttl", ttl)
@@ -1222,11 +1374,23 @@ class GetDNSSecDelegationDResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: str,
-             flags: str,
-             protocol: str,
-             public_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             algorithm: Optional[str] = None,
+             flags: Optional[str] = None,
+             protocol: Optional[str] = None,
+             public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if flags is None:
+            raise TypeError("Missing 'flags' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
+
         _setter("algorithm", algorithm)
         _setter("flags", flags)
         _setter("protocol", protocol)
@@ -1288,11 +1452,23 @@ class GetDNSSecDelegationDnskeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: str,
-             flags: str,
-             protocol: str,
-             public_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             algorithm: Optional[str] = None,
+             flags: Optional[str] = None,
+             protocol: Optional[str] = None,
+             public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if flags is None:
+            raise TypeError("Missing 'flags' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
+
         _setter("algorithm", algorithm)
         _setter("flags", flags)
         _setter("protocol", protocol)
@@ -1348,9 +1524,15 @@ class GetDNSSecKeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dnskeys: Sequence['outputs.GetDNSSecKeyDnskeyResult'],
-             ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dnskeys: Optional[Sequence['outputs.GetDNSSecKeyDnskeyResult']] = None,
+             ttl: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dnskeys is None:
+            raise TypeError("Missing 'dnskeys' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+
         _setter("dnskeys", dnskeys)
         _setter("ttl", ttl)
 
@@ -1394,11 +1576,23 @@ class GetDNSSecKeyDnskeyResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: str,
-             flags: str,
-             protocol: str,
-             public_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             algorithm: Optional[str] = None,
+             flags: Optional[str] = None,
+             protocol: Optional[str] = None,
+             public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if flags is None:
+            raise TypeError("Missing 'flags' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
+
         _setter("algorithm", algorithm)
         _setter("flags", flags)
         _setter("protocol", protocol)
@@ -1457,10 +1651,20 @@ class GetNetworksNetworkResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: str,
-             name: str,
-             network_id: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             label: Optional[str] = None,
+             name: Optional[str] = None,
+             network_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_id is None:
+            raise TypeError("Missing 'network_id' argument")
+
         _setter("label", label)
         _setter("name", name)
         _setter("network_id", network_id)
@@ -1508,10 +1712,18 @@ class GetRecordAnswerResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             answer: str,
-             meta: Mapping[str, Any],
-             region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             answer: Optional[str] = None,
+             meta: Optional[Mapping[str, Any]] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if answer is None:
+            raise TypeError("Missing 'answer' argument")
+        if meta is None:
+            raise TypeError("Missing 'meta' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
         _setter("answer", answer)
         _setter("meta", meta)
         _setter("region", region)
@@ -1550,10 +1762,18 @@ class GetRecordFilterResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config: Mapping[str, Any],
-             disabled: bool,
-             filter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             config: Optional[Mapping[str, Any]] = None,
+             disabled: Optional[bool] = None,
+             filter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config is None:
+            raise TypeError("Missing 'config' argument")
+        if disabled is None:
+            raise TypeError("Missing 'disabled' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+
         _setter("config", config)
         _setter("disabled", disabled)
         _setter("filter", filter)
@@ -1590,9 +1810,15 @@ class GetRecordRegionResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             meta: Mapping[str, Any],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             meta: Optional[Mapping[str, Any]] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if meta is None:
+            raise TypeError("Missing 'meta' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("meta", meta)
         _setter("name", name)
 
@@ -1635,11 +1861,21 @@ class GetZoneSecondaryResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: str,
-             networks: Sequence[int],
-             notify: bool,
-             port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ip: Optional[str] = None,
+             networks: Optional[Sequence[int]] = None,
+             notify: Optional[bool] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+        if networks is None:
+            raise TypeError("Missing 'networks' argument")
+        if notify is None:
+            raise TypeError("Missing 'notify' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
         _setter("ip", ip)
         _setter("networks", networks)
         _setter("notify", notify)
