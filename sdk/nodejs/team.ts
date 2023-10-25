@@ -10,6 +10,48 @@ import * as utilities from "./utilities";
  * Provides a NS1 Team resource. This can be used to create, modify, and delete
  * teams. The credentials used must have the `manageTeams` permission set.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Create a new NS1 Team
+ * const example = new ns1.Team("example", {
+ *     accountManageUsers: false,
+ *     dnsViewZones: false,
+ *     ipWhitelists: [
+ *         {
+ *             name: "whitelist-1",
+ *             values: [
+ *                 "1.1.1.1",
+ *                 "2.2.2.2",
+ *             ],
+ *         },
+ *         {
+ *             name: "whitelist-2",
+ *             values: [
+ *                 "3.3.3.3",
+ *                 "4.4.4.4",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * // Another team
+ * const example2 = new ns1.Team("example2", {
+ *     dataManageDatasources: true,
+ *     dnsRecordsAllows: [{
+ *         domain: "terraform.example.io",
+ *         includeSubdomains: false,
+ *         type: "A",
+ *         zone: "example.io",
+ *     }],
+ *     dnsViewZones: true,
+ *     dnsZonesAllows: ["mytest.zone"],
+ *     dnsZonesAllowByDefault: true,
+ *     dnsZonesDenies: ["myother.zone"],
+ * });
+ * ```
  * ## NS1 Documentation
  *
  * [Team Api Docs](https://ns1.com/api#team)

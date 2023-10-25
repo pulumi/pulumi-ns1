@@ -13,6 +13,72 @@ namespace Pulumi.Ns1
     /// Provides a NS1 Team resource. This can be used to create, modify, and delete
     /// teams. The credentials used must have the `manage_teams` permission set.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new NS1 Team
+    ///     var example = new Ns1.Team("example", new()
+    ///     {
+    ///         AccountManageUsers = false,
+    ///         DnsViewZones = false,
+    ///         IpWhitelists = new[]
+    ///         {
+    ///             new Ns1.Inputs.TeamIpWhitelistArgs
+    ///             {
+    ///                 Name = "whitelist-1",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "1.1.1.1",
+    ///                     "2.2.2.2",
+    ///                 },
+    ///             },
+    ///             new Ns1.Inputs.TeamIpWhitelistArgs
+    ///             {
+    ///                 Name = "whitelist-2",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "3.3.3.3",
+    ///                     "4.4.4.4",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Another team
+    ///     var example2 = new Ns1.Team("example2", new()
+    ///     {
+    ///         DataManageDatasources = true,
+    ///         DnsRecordsAllows = new[]
+    ///         {
+    ///             new Ns1.Inputs.TeamDnsRecordsAllowArgs
+    ///             {
+    ///                 Domain = "terraform.example.io",
+    ///                 IncludeSubdomains = false,
+    ///                 Type = "A",
+    ///                 Zone = "example.io",
+    ///             },
+    ///         },
+    ///         DnsViewZones = true,
+    ///         DnsZonesAllows = new[]
+    ///         {
+    ///             "mytest.zone",
+    ///         },
+    ///         DnsZonesAllowByDefault = true,
+    ///         DnsZonesDenies = new[]
+    ///         {
+    ///             "myother.zone",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## NS1 Documentation
     /// 
     /// [Team Api Docs](https://ns1.com/api#team)

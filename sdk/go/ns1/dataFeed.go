@@ -15,6 +15,64 @@ import (
 
 // Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
+//				Sourcetype: pulumi.String("nsone_v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMonitoring, err := ns1.NewDataSource(ctx, "exampleMonitoring", &ns1.DataSourceArgs{
+//				Sourcetype: pulumi.String("nsone_monitoring"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewDataFeed(ctx, "uswestFeed", &ns1.DataFeedArgs{
+//				SourceId: example.ID(),
+//				Config: pulumi.Map{
+//					"label": pulumi.Any("uswest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewDataFeed(ctx, "useastFeed", &ns1.DataFeedArgs{
+//				SourceId: example.ID(),
+//				Config: pulumi.Map{
+//					"label": pulumi.Any("useast"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewDataFeed(ctx, "useastMonitorFeed", &ns1.DataFeedArgs{
+//				SourceId: exampleMonitoring.ID(),
+//				Config: pulumi.Map{
+//					"jobid": pulumi.Any(ns1_monitoringjob.Example_job.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## NS1 Documentation
 //
 // [Datafeed Api Doc](https://ns1.com/api#data-feeds)

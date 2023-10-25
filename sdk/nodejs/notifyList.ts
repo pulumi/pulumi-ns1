@@ -9,6 +9,27 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const nl = new ns1.NotifyList("nl", {notifications: [
+ *     {
+ *         config: {
+ *             url: "http://www.mywebhook.com",
+ *         },
+ *         type: "webhook",
+ *     },
+ *     {
+ *         config: {
+ *             email: "test@test.com",
+ *         },
+ *         type: "email",
+ *     },
+ * ]});
+ * ```
  * ## NS1 Documentation
  *
  * [NotifyList Api Doc](https://ns1.com/api#notification-lists)

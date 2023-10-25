@@ -12,6 +12,23 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Ns1.DataSource("example", new()
+    ///     {
+    ///         Sourcetype = "nsone_v1",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## NS1 Documentation
     /// 
     /// [Datasource Api Doc](https://ns1.com/api#data-sources)

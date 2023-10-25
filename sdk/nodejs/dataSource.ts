@@ -7,6 +7,14 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const example = new ns1.DataSource("example", {sourcetype: "nsone_v1"});
+ * ```
  * ## NS1 Documentation
  *
  * [Datasource Api Doc](https://ns1.com/api#data-sources)

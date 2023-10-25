@@ -14,6 +14,44 @@ import (
 
 // Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewNotifyList(ctx, "nl", &ns1.NotifyListArgs{
+//				Notifications: ns1.NotifyListNotificationArray{
+//					&ns1.NotifyListNotificationArgs{
+//						Config: pulumi.Map{
+//							"url": pulumi.Any("http://www.mywebhook.com"),
+//						},
+//						Type: pulumi.String("webhook"),
+//					},
+//					&ns1.NotifyListNotificationArgs{
+//						Config: pulumi.Map{
+//							"email": pulumi.Any("test@test.com"),
+//						},
+//						Type: pulumi.String("email"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## NS1 Documentation
 //
 // [NotifyList Api Doc](https://ns1.com/api#notification-lists)

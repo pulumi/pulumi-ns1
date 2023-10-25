@@ -15,6 +15,31 @@ import (
 
 // Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
+//				Sourcetype: pulumi.String("nsone_v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## NS1 Documentation
 //
 // [Datasource Api Doc](https://ns1.com/api#data-sources)

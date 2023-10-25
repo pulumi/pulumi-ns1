@@ -15,6 +15,30 @@ namespace Pulumi.Ns1
         /// Provides details about a NS1 Record. Use this if you would simply like to read
         /// information from NS1 into your configurations. For read/write operations, you
         /// should use a resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Ns1.GetRecord.Invoke(new()
+        ///     {
+        ///         Domain = "terraform.example.io",
+        ///         Type = "A",
+        ///         Zone = "example.io",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRecordResult> InvokeAsync(GetRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordArgs(), options.WithDefaults());
@@ -23,6 +47,30 @@ namespace Pulumi.Ns1
         /// Provides details about a NS1 Record. Use this if you would simply like to read
         /// information from NS1 into your configurations. For read/write operations, you
         /// should use a resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Ns1.GetRecord.Invoke(new()
+        ///     {
+        ///         Domain = "terraform.example.io",
+        ///         Type = "A",
+        ///         Zone = "example.io",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRecordResult> Invoke(GetRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithDefaults());

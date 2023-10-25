@@ -15,6 +15,54 @@ import (
 
 // Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewMonitoringJob(ctx, "uswestMonitor", &ns1.MonitoringJobArgs{
+//				Active: pulumi.Bool(true),
+//				Config: pulumi.Map{
+//					"host": pulumi.Any("example-elb-uswest.aws.amazon.com"),
+//					"port": pulumi.Any(443),
+//					"send": pulumi.Any("HEAD / HTTP/1.0\\r\\n\\r\\n"),
+//					"ssl":  pulumi.Any(1),
+//				},
+//				Frequency:    pulumi.Int(60),
+//				JobType:      pulumi.String("tcp"),
+//				Mute:         pulumi.Bool(true),
+//				Policy:       pulumi.String("quorum"),
+//				RapidRecheck: pulumi.Bool(true),
+//				Regions: pulumi.StringArray{
+//					pulumi.String("lga"),
+//					pulumi.String("sjc"),
+//					pulumi.String("sin"),
+//				},
+//				Rules: ns1.MonitoringJobRuleArray{
+//					&ns1.MonitoringJobRuleArgs{
+//						Comparison: pulumi.String("contains"),
+//						Key:        pulumi.String("output"),
+//						Value:      pulumi.String("200 OK"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## NS1 Documentation
 //
 // [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)

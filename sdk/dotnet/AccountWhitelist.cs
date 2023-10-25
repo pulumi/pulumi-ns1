@@ -14,6 +14,29 @@ namespace Pulumi.Ns1
     /// 
     /// This can be used to create, modify, and delete Global IP Whitelists.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Ns1.AccountWhitelist("example", new()
+    ///     {
+    ///         Values = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///             "2.2.2.2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; You current source IP must be present in one of the whitelists to prevent locking yourself out.
     /// ## NS1 Documentation
     /// 
     /// [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
