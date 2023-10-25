@@ -1479,6 +1479,27 @@ class User(pulumi.CustomResource):
         user's email address. This can be used to create, modify, and delete users.
         The credentials used must have the `manage_users` permission set.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example_team = ns1.Team("exampleTeam",
+            ip_whitelists=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
+        example_user = ns1.User("exampleUser",
+            username="example_user",
+            email="user@example.com",
+            teams=[example_team.id],
+            notify={
+                "billing": False,
+            })
+        ```
         ## Permissions
 
         A user will inherit permissions from the teams they are assigned to.
@@ -1554,6 +1575,27 @@ class User(pulumi.CustomResource):
         user's email address. This can be used to create, modify, and delete users.
         The credentials used must have the `manage_users` permission set.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example_team = ns1.Team("exampleTeam",
+            ip_whitelists=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
+        example_user = ns1.User("exampleUser",
+            username="example_user",
+            email="user@example.com",
+            teams=[example_team.id],
+            notify={
+                "billing": False,
+            })
+        ```
         ## Permissions
 
         A user will inherit permissions from the teams they are assigned to.

@@ -7,6 +7,33 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const example = new ns1.DataSource("example", {sourcetype: "nsone_v1"});
+ * const exampleMonitoring = new ns1.DataSource("exampleMonitoring", {sourcetype: "nsone_monitoring"});
+ * const uswestFeed = new ns1.DataFeed("uswestFeed", {
+ *     sourceId: example.id,
+ *     config: {
+ *         label: "uswest",
+ *     },
+ * });
+ * const useastFeed = new ns1.DataFeed("useastFeed", {
+ *     sourceId: example.id,
+ *     config: {
+ *         label: "useast",
+ *     },
+ * });
+ * const useastMonitorFeed = new ns1.DataFeed("useastMonitorFeed", {
+ *     sourceId: exampleMonitoring.id,
+ *     config: {
+ *         jobid: ns1_monitoringjob.example_job.id,
+ *     },
+ * });
+ * ```
  * ## NS1 Documentation
  *
  * [Datafeed Api Doc](https://ns1.com/api#data-feeds)

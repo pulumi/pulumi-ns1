@@ -14,6 +14,43 @@ namespace Pulumi.Ns1
     /// user's email address. This can be used to create, modify, and delete users.
     /// The credentials used must have the `manage_users` permission set.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTeam = new Ns1.Team("exampleTeam", new()
+    ///     {
+    ///         IpWhitelists = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///             "2.2.2.2",
+    ///         },
+    ///         DnsViewZones = false,
+    ///         AccountManageUsers = false,
+    ///     });
+    /// 
+    ///     var exampleUser = new Ns1.User("exampleUser", new()
+    ///     {
+    ///         Username = "example_user",
+    ///         Email = "user@example.com",
+    ///         Teams = new[]
+    ///         {
+    ///             exampleTeam.Id,
+    ///         },
+    ///         Notify = 
+    ///         {
+    ///             { "billing", false },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Permissions
     /// 
     /// A user will inherit permissions from the teams they are assigned to.

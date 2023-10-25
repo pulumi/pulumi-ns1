@@ -9,6 +9,21 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Create a new pulsar application with default config
+ * const ns1App = new ns1.Application("ns1App", {defaultConfig: {
+ *     http: true,
+ *     https: false,
+ *     jobTimeoutMillis: 100,
+ *     requestTimeoutMillis: 100,
+ *     staticValues: true,
+ * }});
+ * ```
  * ## NS1 Documentation
  *
  * [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)

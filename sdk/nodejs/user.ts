@@ -11,6 +11,29 @@ import * as utilities from "./utilities";
  * user's email address. This can be used to create, modify, and delete users.
  * The credentials used must have the `manageUsers` permission set.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const exampleTeam = new ns1.Team("exampleTeam", {
+ *     ipWhitelists: [
+ *         "1.1.1.1",
+ *         "2.2.2.2",
+ *     ],
+ *     dnsViewZones: false,
+ *     accountManageUsers: false,
+ * });
+ * const exampleUser = new ns1.User("exampleUser", {
+ *     username: "example_user",
+ *     email: "user@example.com",
+ *     teams: [exampleTeam.id],
+ *     notify: {
+ *         billing: false,
+ *     },
+ * });
+ * ```
  * ## Permissions
  *
  * A user will inherit permissions from the teams they are assigned to.

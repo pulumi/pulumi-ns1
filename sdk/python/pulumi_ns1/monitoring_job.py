@@ -680,6 +680,36 @@ class MonitoringJob(pulumi.CustomResource):
         """
         Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        uswest_monitor = ns1.MonitoringJob("uswestMonitor",
+            active=True,
+            config={
+                "host": "example-elb-uswest.aws.amazon.com",
+                "port": 443,
+                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
+                "ssl": 1,
+            },
+            frequency=60,
+            job_type="tcp",
+            mute=True,
+            policy="quorum",
+            rapid_recheck=True,
+            regions=[
+                "lga",
+                "sjc",
+                "sin",
+            ],
+            rules=[ns1.MonitoringJobRuleArgs(
+                comparison="contains",
+                key="output",
+                value="200 OK",
+            )])
+        ```
         ## NS1 Documentation
 
         [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -719,6 +749,36 @@ class MonitoringJob(pulumi.CustomResource):
         """
         Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        uswest_monitor = ns1.MonitoringJob("uswestMonitor",
+            active=True,
+            config={
+                "host": "example-elb-uswest.aws.amazon.com",
+                "port": 443,
+                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
+                "ssl": 1,
+            },
+            frequency=60,
+            job_type="tcp",
+            mute=True,
+            policy="quorum",
+            rapid_recheck=True,
+            regions=[
+                "lga",
+                "sjc",
+                "sin",
+            ],
+            rules=[ns1.MonitoringJobRuleArgs(
+                comparison="contains",
+                key="output",
+                value="200 OK",
+            )])
+        ```
         ## NS1 Documentation
 
         [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)

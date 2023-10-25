@@ -8,6 +8,22 @@ import * as utilities from "./utilities";
 
 /**
  * Provides DNSSEC details about a NS1 Zone.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Get DNSSEC details about a NS1 Zone.
+ * const exampleZone = new ns1.Zone("exampleZone", {
+ *     dnssec: true,
+ *     zone: "terraform.example.io",
+ * });
+ * const exampleDNSSec = ns1.getDNSSecOutput({
+ *     zone: exampleZone.zone,
+ * });
+ * ```
  */
 export function getDNSSec(args: GetDNSSecArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSecResult> {
 
@@ -48,6 +64,22 @@ export interface GetDNSSecResult {
 }
 /**
  * Provides DNSSEC details about a NS1 Zone.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * // Get DNSSEC details about a NS1 Zone.
+ * const exampleZone = new ns1.Zone("exampleZone", {
+ *     dnssec: true,
+ *     zone: "terraform.example.io",
+ * });
+ * const exampleDNSSec = ns1.getDNSSecOutput({
+ *     zone: exampleZone.zone,
+ * });
+ * ```
  */
 export function getDNSSecOutput(args: GetDNSSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSecResult> {
     return pulumi.output(args).apply((a: any) => getDNSSec(a, opts))

@@ -9,6 +9,19 @@ import * as utilities from "./utilities";
  *
  * This can be used to create, modify, and delete Global IP Whitelists.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const example = new ns1.AccountWhitelist("example", {values: [
+ *     "1.1.1.1",
+ *     "2.2.2.2",
+ * ]});
+ * ```
+ *
+ * > You current source IP must be present in one of the whitelists to prevent locking yourself out.
  * ## NS1 Documentation
  *
  * [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)

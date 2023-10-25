@@ -130,6 +130,27 @@ class NotifyList(pulumi.CustomResource):
         """
         Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        nl = ns1.NotifyList("nl", notifications=[
+            ns1.NotifyListNotificationArgs(
+                config={
+                    "url": "http://www.mywebhook.com",
+                },
+                type="webhook",
+            ),
+            ns1.NotifyListNotificationArgs(
+                config={
+                    "email": "test@test.com",
+                },
+                type="email",
+            ),
+        ])
+        ```
         ## NS1 Documentation
 
         [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -154,6 +175,27 @@ class NotifyList(pulumi.CustomResource):
         """
         Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        nl = ns1.NotifyList("nl", notifications=[
+            ns1.NotifyListNotificationArgs(
+                config={
+                    "url": "http://www.mywebhook.com",
+                },
+                type="webhook",
+            ),
+            ns1.NotifyListNotificationArgs(
+                config={
+                    "email": "test@test.com",
+                },
+                type="email",
+            ),
+        ])
+        ```
         ## NS1 Documentation
 
         [NotifyList Api Doc](https://ns1.com/api#notification-lists)

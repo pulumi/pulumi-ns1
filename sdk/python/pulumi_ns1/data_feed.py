@@ -174,6 +174,30 @@ class DataFeed(pulumi.CustomResource):
         """
         Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.DataSource("example", sourcetype="nsone_v1")
+        example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
+        uswest_feed = ns1.DataFeed("uswestFeed",
+            source_id=example.id,
+            config={
+                "label": "uswest",
+            })
+        useast_feed = ns1.DataFeed("useastFeed",
+            source_id=example.id,
+            config={
+                "label": "useast",
+            })
+        useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
+            source_id=example_monitoring.id,
+            config={
+                "jobid": ns1_monitoringjob["example_job"]["id"],
+            })
+        ```
         ## NS1 Documentation
 
         [Datafeed Api Doc](https://ns1.com/api#data-feeds)
@@ -200,6 +224,30 @@ class DataFeed(pulumi.CustomResource):
         """
         Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.DataSource("example", sourcetype="nsone_v1")
+        example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
+        uswest_feed = ns1.DataFeed("uswestFeed",
+            source_id=example.id,
+            config={
+                "label": "uswest",
+            })
+        useast_feed = ns1.DataFeed("useastFeed",
+            source_id=example.id,
+            config={
+                "label": "useast",
+            })
+        useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
+            source_id=example_monitoring.id,
+            config={
+                "jobid": ns1_monitoringjob["example_job"]["id"],
+            })
+        ```
         ## NS1 Documentation
 
         [Datafeed Api Doc](https://ns1.com/api#data-feeds)

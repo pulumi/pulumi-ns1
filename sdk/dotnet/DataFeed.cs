@@ -12,6 +12,55 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Ns1.DataSource("example", new()
+    ///     {
+    ///         Sourcetype = "nsone_v1",
+    ///     });
+    /// 
+    ///     var exampleMonitoring = new Ns1.DataSource("exampleMonitoring", new()
+    ///     {
+    ///         Sourcetype = "nsone_monitoring",
+    ///     });
+    /// 
+    ///     var uswestFeed = new Ns1.DataFeed("uswestFeed", new()
+    ///     {
+    ///         SourceId = example.Id,
+    ///         Config = 
+    ///         {
+    ///             { "label", "uswest" },
+    ///         },
+    ///     });
+    /// 
+    ///     var useastFeed = new Ns1.DataFeed("useastFeed", new()
+    ///     {
+    ///         SourceId = example.Id,
+    ///         Config = 
+    ///         {
+    ///             { "label", "useast" },
+    ///         },
+    ///     });
+    /// 
+    ///     var useastMonitorFeed = new Ns1.DataFeed("useastMonitorFeed", new()
+    ///     {
+    ///         SourceId = exampleMonitoring.Id,
+    ///         Config = 
+    ///         {
+    ///             { "jobid", ns1_monitoringjob.Example_job.Id },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## NS1 Documentation
     /// 
     /// [Datafeed Api Doc](https://ns1.com/api#data-feeds)

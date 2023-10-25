@@ -250,6 +250,15 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
     information from NS1 into your configurations. For read/write operations, you
     should use a resource.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_ns1 as ns1
+
+    example = ns1.get_zone(zone="terraform.example.io")
+    ```
+
 
     :param Sequence[str] additional_primaries: List of additional IPv4 addresses for the primary
            zone.
@@ -294,6 +303,15 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
     Provides details about a NS1 Zone. Use this if you would simply like to read
     information from NS1 into your configurations. For read/write operations, you
     should use a resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_ns1 as ns1
+
+    example = ns1.get_zone(zone="terraform.example.io")
+    ```
 
 
     :param Sequence[str] additional_primaries: List of additional IPv4 addresses for the primary

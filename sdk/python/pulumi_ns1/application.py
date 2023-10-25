@@ -265,6 +265,21 @@ class Application(pulumi.CustomResource):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        # Create a new pulsar application with default config
+        ns1_app = ns1.Application("ns1App", default_config=ns1.ApplicationDefaultConfigArgs(
+            http=True,
+            https=False,
+            job_timeout_millis=100,
+            request_timeout_millis=100,
+            static_values=True,
+        ))
+        ```
         ## NS1 Documentation
 
         [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -301,6 +316,21 @@ class Application(pulumi.CustomResource):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        # Create a new pulsar application with default config
+        ns1_app = ns1.Application("ns1App", default_config=ns1.ApplicationDefaultConfigArgs(
+            http=True,
+            https=False,
+            job_timeout_millis=100,
+            request_timeout_millis=100,
+            static_values=True,
+        ))
+        ```
         ## NS1 Documentation
 
         [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)

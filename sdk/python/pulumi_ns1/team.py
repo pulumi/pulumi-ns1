@@ -1315,6 +1315,46 @@ class Team(pulumi.CustomResource):
         Provides a NS1 Team resource. This can be used to create, modify, and delete
         teams. The credentials used must have the `manage_teams` permission set.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        # Create a new NS1 Team
+        example = ns1.Team("example",
+            account_manage_users=False,
+            dns_view_zones=False,
+            ip_whitelists=[
+                ns1.TeamIpWhitelistArgs(
+                    name="whitelist-1",
+                    values=[
+                        "1.1.1.1",
+                        "2.2.2.2",
+                    ],
+                ),
+                ns1.TeamIpWhitelistArgs(
+                    name="whitelist-2",
+                    values=[
+                        "3.3.3.3",
+                        "4.4.4.4",
+                    ],
+                ),
+            ])
+        # Another team
+        example2 = ns1.Team("example2",
+            data_manage_datasources=True,
+            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
+                domain="terraform.example.io",
+                include_subdomains=False,
+                type="A",
+                zone="example.io",
+            )],
+            dns_view_zones=True,
+            dns_zones_allows=["mytest.zone"],
+            dns_zones_allow_by_default=True,
+            dns_zones_denies=["myother.zone"])
+        ```
         ## NS1 Documentation
 
         [Team Api Docs](https://ns1.com/api#team)
@@ -1373,6 +1413,46 @@ class Team(pulumi.CustomResource):
         Provides a NS1 Team resource. This can be used to create, modify, and delete
         teams. The credentials used must have the `manage_teams` permission set.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        # Create a new NS1 Team
+        example = ns1.Team("example",
+            account_manage_users=False,
+            dns_view_zones=False,
+            ip_whitelists=[
+                ns1.TeamIpWhitelistArgs(
+                    name="whitelist-1",
+                    values=[
+                        "1.1.1.1",
+                        "2.2.2.2",
+                    ],
+                ),
+                ns1.TeamIpWhitelistArgs(
+                    name="whitelist-2",
+                    values=[
+                        "3.3.3.3",
+                        "4.4.4.4",
+                    ],
+                ),
+            ])
+        # Another team
+        example2 = ns1.Team("example2",
+            data_manage_datasources=True,
+            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
+                domain="terraform.example.io",
+                include_subdomains=False,
+                type="A",
+                zone="example.io",
+            )],
+            dns_view_zones=True,
+            dns_zones_allows=["mytest.zone"],
+            dns_zones_allow_by_default=True,
+            dns_zones_denies=["myother.zone"])
+        ```
         ## NS1 Documentation
 
         [Team Api Docs](https://ns1.com/api#team)

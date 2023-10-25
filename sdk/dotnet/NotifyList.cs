@@ -12,6 +12,41 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nl = new Ns1.NotifyList("nl", new()
+    ///     {
+    ///         Notifications = new[]
+    ///         {
+    ///             new Ns1.Inputs.NotifyListNotificationArgs
+    ///             {
+    ///                 Config = 
+    ///                 {
+    ///                     { "url", "http://www.mywebhook.com" },
+    ///                 },
+    ///                 Type = "webhook",
+    ///             },
+    ///             new Ns1.Inputs.NotifyListNotificationArgs
+    ///             {
+    ///                 Config = 
+    ///                 {
+    ///                     { "email", "test@test.com" },
+    ///                 },
+    ///                 Type = "email",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## NS1 Documentation
     /// 
     /// [NotifyList Api Doc](https://ns1.com/api#notification-lists)

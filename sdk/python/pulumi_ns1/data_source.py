@@ -170,6 +170,14 @@ class DataSource(pulumi.CustomResource):
         """
         Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.DataSource("example", sourcetype="nsone_v1")
+        ```
         ## NS1 Documentation
 
         [Datasource Api Doc](https://ns1.com/api#data-sources)
@@ -196,6 +204,14 @@ class DataSource(pulumi.CustomResource):
         """
         Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.DataSource("example", sourcetype="nsone_v1")
+        ```
         ## NS1 Documentation
 
         [Datasource Api Doc](https://ns1.com/api#data-sources)

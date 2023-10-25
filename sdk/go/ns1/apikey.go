@@ -14,6 +14,43 @@ import (
 
 // Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTeam, err := ns1.NewTeam(ctx, "exampleTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewAPIKey(ctx, "exampleAPIKey", &ns1.APIKeyArgs{
+//				Teams: pulumi.StringArray{
+//					exampleTeam.ID(),
+//				},
+//				IpWhitelists: pulumi.StringArray{
+//					pulumi.String("1.1.1.1"),
+//					pulumi.String("2.2.2.2"),
+//				},
+//				DnsViewZones:       pulumi.Bool(false),
+//				AccountManageUsers: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Permissions
 //
 // An API key will inherit permissions from the teams it is assigned to.

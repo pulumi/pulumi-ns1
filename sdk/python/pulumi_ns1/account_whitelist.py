@@ -131,6 +131,19 @@ class AccountWhitelist(pulumi.CustomResource):
 
         This can be used to create, modify, and delete Global IP Whitelists.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.AccountWhitelist("example", values=[
+            "1.1.1.1",
+            "2.2.2.2",
+        ])
+        ```
+
+        > You current source IP must be present in one of the whitelists to prevent locking yourself out.
         ## NS1 Documentation
 
         [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
@@ -157,6 +170,19 @@ class AccountWhitelist(pulumi.CustomResource):
 
         This can be used to create, modify, and delete Global IP Whitelists.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.AccountWhitelist("example", values=[
+            "1.1.1.1",
+            "2.2.2.2",
+        ])
+        ```
+
+        > You current source IP must be present in one of the whitelists to prevent locking yourself out.
         ## NS1 Documentation
 
         [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)

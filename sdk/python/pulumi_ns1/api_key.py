@@ -1410,6 +1410,22 @@ class APIKey(pulumi.CustomResource):
         """
         Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example_team = ns1.Team("exampleTeam")
+        example_api_key = ns1.APIKey("exampleAPIKey",
+            teams=[example_team.id],
+            ip_whitelists=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
+        ```
         ## Permissions
 
         An API key will inherit permissions from the teams it is assigned to.
@@ -1488,6 +1504,22 @@ class APIKey(pulumi.CustomResource):
         """
         Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example_team = ns1.Team("exampleTeam")
+        example_api_key = ns1.APIKey("exampleAPIKey",
+            teams=[example_team.id],
+            ip_whitelists=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
+        ```
         ## Permissions
 
         An API key will inherit permissions from the teams it is assigned to.

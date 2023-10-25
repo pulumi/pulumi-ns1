@@ -167,6 +167,16 @@ class Tsigkey(pulumi.CustomResource):
         """
         Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.Tsigkey("example",
+            algorithm="hmac-sha256",
+            secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
+        ```
         ## NS1 Documentation
 
         [TSIG Keys Api Doc](https://ns1.com/api/#tsig)
@@ -192,6 +202,16 @@ class Tsigkey(pulumi.CustomResource):
         """
         Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        example = ns1.Tsigkey("example",
+            algorithm="hmac-sha256",
+            secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
+        ```
         ## NS1 Documentation
 
         [TSIG Keys Api Doc](https://ns1.com/api/#tsig)
