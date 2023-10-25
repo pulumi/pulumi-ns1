@@ -33,10 +33,14 @@ class DataSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sourcetype: pulumi.Input[str],
+             sourcetype: Optional[pulumi.Input[str]] = None,
              config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sourcetype is None:
+            raise TypeError("Missing 'sourcetype' argument")
+
         _setter("sourcetype", sourcetype)
         if config is not None:
             _setter("config", config)
@@ -106,7 +110,9 @@ class _DataSourceState:
              config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sourcetype: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if config is not None:
             _setter("config", config)
         if name is not None:
@@ -164,14 +170,6 @@ class DataSource(pulumi.CustomResource):
         """
         Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
-        ```
         ## NS1 Documentation
 
         [Datasource Api Doc](https://ns1.com/api#data-sources)
@@ -198,14 +196,6 @@ class DataSource(pulumi.CustomResource):
         """
         Provides a NS1 Data Source resource. This can be used to create, modify, and delete data sources.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
-        ```
         ## NS1 Documentation
 
         [Datasource Api Doc](https://ns1.com/api#data-sources)

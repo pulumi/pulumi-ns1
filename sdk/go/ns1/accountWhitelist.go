@@ -17,36 +17,6 @@ import (
 //
 // This can be used to create, modify, and delete Global IP Whitelists.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ns1.NewAccountWhitelist(ctx, "example", &ns1.AccountWhitelistArgs{
-//				Values: pulumi.StringArray{
-//					pulumi.String("1.1.1.1"),
-//					pulumi.String("2.2.2.2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > You current source IP must be present in one of the whitelists to prevent locking yourself out.
 // ## NS1 Documentation
 //
 // [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)

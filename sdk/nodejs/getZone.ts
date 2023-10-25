@@ -10,17 +10,6 @@ import * as utilities from "./utilities";
  * Provides details about a NS1 Zone. Use this if you would simply like to read
  * information from NS1 into your configurations. For read/write operations, you
  * should use a resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * const example = ns1.getZone({
- *     zone: "terraform.example.io",
- * });
- * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
 
@@ -122,17 +111,6 @@ export interface GetZoneResult {
  * Provides details about a NS1 Zone. Use this if you would simply like to read
  * information from NS1 into your configurations. For read/write operations, you
  * should use a resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * const example = ns1.getZone({
- *     zone: "terraform.example.io",
- * });
- * ```
  */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
     return pulumi.output(args).apply((a: any) => getZone(a, opts))

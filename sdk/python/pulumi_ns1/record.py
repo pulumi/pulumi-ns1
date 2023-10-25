@@ -73,9 +73,9 @@ class RecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: pulumi.Input[str],
-             type: pulumi.Input[str],
-             zone: pulumi.Input[str],
+             domain: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
              answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
              blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
@@ -87,7 +87,23 @@ class RecordArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              use_client_subnet: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone is None:
+            raise TypeError("Missing 'zone' argument")
+        if blocked_tags is None and 'blockedTags' in kwargs:
+            blocked_tags = kwargs['blockedTags']
+        if override_ttl is None and 'overrideTtl' in kwargs:
+            override_ttl = kwargs['overrideTtl']
+        if short_answers is None and 'shortAnswers' in kwargs:
+            short_answers = kwargs['shortAnswers']
+        if use_client_subnet is None and 'useClientSubnet' in kwargs:
+            use_client_subnet = kwargs['useClientSubnet']
+
         _setter("domain", domain)
         _setter("type", type)
         _setter("zone", zone)
@@ -359,7 +375,17 @@ class _RecordState:
              type: Optional[pulumi.Input[str]] = None,
              use_client_subnet: Optional[pulumi.Input[bool]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blocked_tags is None and 'blockedTags' in kwargs:
+            blocked_tags = kwargs['blockedTags']
+        if override_ttl is None and 'overrideTtl' in kwargs:
+            override_ttl = kwargs['overrideTtl']
+        if short_answers is None and 'shortAnswers' in kwargs:
+            short_answers = kwargs['shortAnswers']
+        if use_client_subnet is None and 'useClientSubnet' in kwargs:
+            use_client_subnet = kwargs['useClientSubnet']
+
         if answers is not None:
             _setter("answers", answers)
         if blocked_tags is not None:

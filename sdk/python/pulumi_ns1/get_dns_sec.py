@@ -84,19 +84,6 @@ def get_dns_sec(zone: Optional[str] = None,
     """
     Provides DNSSEC details about a NS1 Zone.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_ns1 as ns1
-
-    # Get DNSSEC details about a NS1 Zone.
-    example_zone = ns1.Zone("exampleZone",
-        dnssec=True,
-        zone="terraform.example.io")
-    example_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)
-    ```
-
 
     :param str zone: The name of the zone to get DNSSEC details for.
     """
@@ -117,19 +104,6 @@ def get_dns_sec_output(zone: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDNSSecResult]:
     """
     Provides DNSSEC details about a NS1 Zone.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_ns1 as ns1
-
-    # Get DNSSEC details about a NS1 Zone.
-    example_zone = ns1.Zone("exampleZone",
-        dnssec=True,
-        zone="terraform.example.io")
-    example_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)
-    ```
 
 
     :param str zone: The name of the zone to get DNSSEC details for.

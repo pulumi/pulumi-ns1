@@ -51,7 +51,19 @@ class ProviderArgs:
              rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
              retry_max: Optional[pulumi.Input[int]] = None,
              user_agent: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_ddi is None and 'enableDdi' in kwargs:
+            enable_ddi = kwargs['enableDdi']
+        if ignore_ssl is None and 'ignoreSsl' in kwargs:
+            ignore_ssl = kwargs['ignoreSsl']
+        if rate_limit_parallelism is None and 'rateLimitParallelism' in kwargs:
+            rate_limit_parallelism = kwargs['rateLimitParallelism']
+        if retry_max is None and 'retryMax' in kwargs:
+            retry_max = kwargs['retryMax']
+        if user_agent is None and 'userAgent' in kwargs:
+            user_agent = kwargs['userAgent']
+
         if apikey is not None:
             _setter("apikey", apikey)
         if enable_ddi is not None:

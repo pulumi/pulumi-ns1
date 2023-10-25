@@ -12,50 +12,6 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Ns1 = Pulumi.Ns1;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var uswestMonitor = new Ns1.MonitoringJob("uswestMonitor", new()
-    ///     {
-    ///         Active = true,
-    ///         Config = 
-    ///         {
-    ///             { "host", "example-elb-uswest.aws.amazon.com" },
-    ///             { "port", 443 },
-    ///             { "send", "HEAD / HTTP/1.0\\r\\n\\r\\n" },
-    ///             { "ssl", 1 },
-    ///         },
-    ///         Frequency = 60,
-    ///         JobType = "tcp",
-    ///         Mute = true,
-    ///         Policy = "quorum",
-    ///         RapidRecheck = true,
-    ///         Regions = new[]
-    ///         {
-    ///             "lga",
-    ///             "sjc",
-    ///             "sin",
-    ///         },
-    ///         Rules = new[]
-    ///         {
-    ///             new Ns1.Inputs.MonitoringJobRuleArgs
-    ///             {
-    ///                 Comparison = "contains",
-    ///                 Key = "output",
-    ///                 Value = "200 OK",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## NS1 Documentation
     /// 
     /// [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)

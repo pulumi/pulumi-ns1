@@ -14,37 +14,6 @@ import (
 
 // Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ns1.NewApplication(ctx, "ns1App", &ns1.ApplicationArgs{
-//				DefaultConfig: &ns1.ApplicationDefaultConfigArgs{
-//					Http:                 pulumi.Bool(true),
-//					Https:                pulumi.Bool(false),
-//					JobTimeoutMillis:     pulumi.Int(100),
-//					RequestTimeoutMillis: pulumi.Int(100),
-//					StaticValues:         pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## NS1 Documentation
 //
 // [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)

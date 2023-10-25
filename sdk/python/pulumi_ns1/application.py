@@ -48,7 +48,15 @@ class ApplicationArgs:
              default_config: Optional[pulumi.Input['ApplicationDefaultConfigArgs']] = None,
              jobs_per_transaction: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if browser_wait_millis is None and 'browserWaitMillis' in kwargs:
+            browser_wait_millis = kwargs['browserWaitMillis']
+        if default_config is None and 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+        if jobs_per_transaction is None and 'jobsPerTransaction' in kwargs:
+            jobs_per_transaction = kwargs['jobsPerTransaction']
+
         if active is not None:
             _setter("active", active)
         if browser_wait_millis is not None:
@@ -159,7 +167,15 @@ class _ApplicationState:
              default_config: Optional[pulumi.Input['ApplicationDefaultConfigArgs']] = None,
              jobs_per_transaction: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if browser_wait_millis is None and 'browserWaitMillis' in kwargs:
+            browser_wait_millis = kwargs['browserWaitMillis']
+        if default_config is None and 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+        if jobs_per_transaction is None and 'jobsPerTransaction' in kwargs:
+            jobs_per_transaction = kwargs['jobsPerTransaction']
+
         if active is not None:
             _setter("active", active)
         if browser_wait_millis is not None:
@@ -249,21 +265,6 @@ class Application(pulumi.CustomResource):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        # Create a new pulsar application with default config
-        ns1_app = ns1.Application("ns1App", default_config=ns1.ApplicationDefaultConfigArgs(
-            http=True,
-            https=False,
-            job_timeout_millis=100,
-            request_timeout_millis=100,
-            static_values=True,
-        ))
-        ```
         ## NS1 Documentation
 
         [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -300,21 +301,6 @@ class Application(pulumi.CustomResource):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        # Create a new pulsar application with default config
-        ns1_app = ns1.Application("ns1App", default_config=ns1.ApplicationDefaultConfigArgs(
-            http=True,
-            https=False,
-            job_timeout_millis=100,
-            request_timeout_millis=100,
-            static_values=True,
-        ))
-        ```
         ## NS1 Documentation
 
         [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -366,11 +352,7 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["active"] = active
             __props__.__dict__["browser_wait_millis"] = browser_wait_millis
-            if default_config is not None and not isinstance(default_config, ApplicationDefaultConfigArgs):
-                default_config = default_config or {}
-                def _setter(key, value):
-                    default_config[key] = value
-                ApplicationDefaultConfigArgs._configure(_setter, **default_config)
+            default_config = _utilities.configure(default_config, ApplicationDefaultConfigArgs, True)
             __props__.__dict__["default_config"] = default_config
             __props__.__dict__["jobs_per_transaction"] = jobs_per_transaction
             __props__.__dict__["name"] = name

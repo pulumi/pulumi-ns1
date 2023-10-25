@@ -13,36 +13,6 @@ import (
 )
 
 // Provides DNSSEC details about a NS1 Zone.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleZone, err := ns1.NewZone(ctx, "exampleZone", &ns1.ZoneArgs{
-//				Dnssec: pulumi.Bool(true),
-//				Zone:   pulumi.String("terraform.example.io"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_ = ns1.GetDNSSecOutput(ctx, ns1.GetDNSSecOutputArgs{
-//				Zone: exampleZone.Zone,
-//			}, nil)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDNSSec(ctx *pulumi.Context, args *GetDNSSecArgs, opts ...pulumi.InvokeOption) (*GetDNSSecResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDNSSecResult

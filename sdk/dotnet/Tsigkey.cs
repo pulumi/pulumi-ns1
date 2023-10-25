@@ -12,24 +12,6 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Ns1 = Pulumi.Ns1;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Ns1.Tsigkey("example", new()
-    ///     {
-    ///         Algorithm = "hmac-sha256",
-    ///         Secret = "Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## NS1 Documentation
     /// 
     /// [TSIG Keys Api Doc](https://ns1.com/api/#tsig)

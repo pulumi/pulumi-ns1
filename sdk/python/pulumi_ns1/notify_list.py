@@ -33,7 +33,9 @@ class NotifyListArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if notifications is not None:
@@ -84,7 +86,9 @@ class _NotifyListState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if notifications is not None:
@@ -126,27 +130,6 @@ class NotifyList(pulumi.CustomResource):
         """
         Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        nl = ns1.NotifyList("nl", notifications=[
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "url": "http://www.mywebhook.com",
-                },
-                type="webhook",
-            ),
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "email": "test@test.com",
-                },
-                type="email",
-            ),
-        ])
-        ```
         ## NS1 Documentation
 
         [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -171,27 +154,6 @@ class NotifyList(pulumi.CustomResource):
         """
         Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        nl = ns1.NotifyList("nl", notifications=[
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "url": "http://www.mywebhook.com",
-                },
-                type="webhook",
-            ),
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "email": "test@test.com",
-                },
-                type="email",
-            ),
-        ])
-        ```
         ## NS1 Documentation
 
         [NotifyList Api Doc](https://ns1.com/api#notification-lists)

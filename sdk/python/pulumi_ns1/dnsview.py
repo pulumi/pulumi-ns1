@@ -41,7 +41,13 @@ class DnsviewArgs:
              read_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              update_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if read_acls is None and 'readAcls' in kwargs:
+            read_acls = kwargs['readAcls']
+        if update_acls is None and 'updateAcls' in kwargs:
+            update_acls = kwargs['updateAcls']
+
         if name is not None:
             _setter("name", name)
         if networks is not None:
@@ -146,7 +152,17 @@ class _DnsviewState:
              update_acls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              updated_at: Optional[pulumi.Input[int]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if read_acls is None and 'readAcls' in kwargs:
+            read_acls = kwargs['readAcls']
+        if update_acls is None and 'updateAcls' in kwargs:
+            update_acls = kwargs['updateAcls']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if name is not None:

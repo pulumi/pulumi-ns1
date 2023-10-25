@@ -13,70 +13,12 @@ namespace Pulumi.Ns1
     {
         /// <summary>
         /// Provides DNSSEC details about a NS1 Zone.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Ns1 = Pulumi.Ns1;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Get DNSSEC details about a NS1 Zone.
-        ///     var exampleZone = new Ns1.Zone("exampleZone", new()
-        ///     {
-        ///         Dnssec = true,
-        ///         ZoneName = "terraform.example.io",
-        ///     });
-        /// 
-        ///     var exampleDNSSec = Ns1.GetDNSSec.Invoke(new()
-        ///     {
-        ///         Zone = exampleZone.ZoneName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDNSSecResult> InvokeAsync(GetDNSSecArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides DNSSEC details about a NS1 Zone.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Ns1 = Pulumi.Ns1;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Get DNSSEC details about a NS1 Zone.
-        ///     var exampleZone = new Ns1.Zone("exampleZone", new()
-        ///     {
-        ///         Dnssec = true,
-        ///         ZoneName = "terraform.example.io",
-        ///     });
-        /// 
-        ///     var exampleDNSSec = Ns1.GetDNSSec.Invoke(new()
-        ///     {
-        ///         Zone = exampleZone.ZoneName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDNSSecResult> Invoke(GetDNSSecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecInvokeArgs(), options.WithDefaults());

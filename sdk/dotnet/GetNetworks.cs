@@ -15,25 +15,6 @@ namespace Pulumi.Ns1
         /// Provides details about NS1 Networks. Use this if you would simply like to read
         /// information from NS1 into your configurations. For read/write operations, you
         /// should use a resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Ns1 = Pulumi.Ns1;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Ns1.GetNetworks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworksResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworksResult>("ns1:index/getNetworks:getNetworks", InvokeArgs.Empty, options.WithDefaults());
@@ -42,25 +23,6 @@ namespace Pulumi.Ns1
         /// Provides details about NS1 Networks. Use this if you would simply like to read
         /// information from NS1 into your configurations. For read/write operations, you
         /// should use a resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Ns1 = Pulumi.Ns1;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Ns1.GetNetworks.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworksResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("ns1:index/getNetworks:getNetworks", InvokeArgs.Empty, options.WithDefaults());

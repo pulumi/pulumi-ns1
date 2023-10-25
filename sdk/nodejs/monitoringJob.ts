@@ -9,37 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * const uswestMonitor = new ns1.MonitoringJob("uswestMonitor", {
- *     active: true,
- *     config: {
- *         host: "example-elb-uswest.aws.amazon.com",
- *         port: 443,
- *         send: "HEAD / HTTP/1.0\\r\\n\\r\\n",
- *         ssl: 1,
- *     },
- *     frequency: 60,
- *     jobType: "tcp",
- *     mute: true,
- *     policy: "quorum",
- *     rapidRecheck: true,
- *     regions: [
- *         "lga",
- *         "sjc",
- *         "sin",
- *     ],
- *     rules: [{
- *         comparison: "contains",
- *         key: "output",
- *         value: "200 OK",
- *     }],
- * });
- * ```
  * ## NS1 Documentation
  *
  * [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)

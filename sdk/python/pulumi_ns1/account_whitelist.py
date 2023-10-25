@@ -29,9 +29,13 @@ class AccountWhitelistArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("values", values)
         if name is not None:
             _setter("name", name)
@@ -81,7 +85,9 @@ class _AccountWhitelistState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if values is not None:
@@ -125,19 +131,6 @@ class AccountWhitelist(pulumi.CustomResource):
 
         This can be used to create, modify, and delete Global IP Whitelists.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.AccountWhitelist("example", values=[
-            "1.1.1.1",
-            "2.2.2.2",
-        ])
-        ```
-
-        > You current source IP must be present in one of the whitelists to prevent locking yourself out.
         ## NS1 Documentation
 
         [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
@@ -164,19 +157,6 @@ class AccountWhitelist(pulumi.CustomResource):
 
         This can be used to create, modify, and delete Global IP Whitelists.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_ns1 as ns1
-
-        example = ns1.AccountWhitelist("example", values=[
-            "1.1.1.1",
-            "2.2.2.2",
-        ])
-        ```
-
-        > You current source IP must be present in one of the whitelists to prevent locking yourself out.
         ## NS1 Documentation
 
         [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
