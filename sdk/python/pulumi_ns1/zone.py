@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,98 +63,41 @@ class ZoneArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         """
-        ZoneArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            zone=zone,
-            additional_ports=additional_ports,
-            additional_primaries=additional_primaries,
-            autogenerate_ns_record=autogenerate_ns_record,
-            dnssec=dnssec,
-            expiry=expiry,
-            hostmaster=hostmaster,
-            link=link,
-            networks=networks,
-            nx_ttl=nx_ttl,
-            primary=primary,
-            primary_port=primary_port,
-            refresh=refresh,
-            retry=retry,
-            secondaries=secondaries,
-            tags=tags,
-            tsig=tsig,
-            ttl=ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             zone: Optional[pulumi.Input[str]] = None,
-             additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
-             dnssec: Optional[pulumi.Input[bool]] = None,
-             expiry: Optional[pulumi.Input[int]] = None,
-             hostmaster: Optional[pulumi.Input[str]] = None,
-             link: Optional[pulumi.Input[str]] = None,
-             networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             nx_ttl: Optional[pulumi.Input[int]] = None,
-             primary: Optional[pulumi.Input[str]] = None,
-             primary_port: Optional[pulumi.Input[int]] = None,
-             refresh: Optional[pulumi.Input[int]] = None,
-             retry: Optional[pulumi.Input[int]] = None,
-             secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ttl: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if zone is None:
-            raise TypeError("Missing 'zone' argument")
-        if additional_ports is None and 'additionalPorts' in kwargs:
-            additional_ports = kwargs['additionalPorts']
-        if additional_primaries is None and 'additionalPrimaries' in kwargs:
-            additional_primaries = kwargs['additionalPrimaries']
-        if autogenerate_ns_record is None and 'autogenerateNsRecord' in kwargs:
-            autogenerate_ns_record = kwargs['autogenerateNsRecord']
-        if nx_ttl is None and 'nxTtl' in kwargs:
-            nx_ttl = kwargs['nxTtl']
-        if primary_port is None and 'primaryPort' in kwargs:
-            primary_port = kwargs['primaryPort']
-
-        _setter("zone", zone)
+        pulumi.set(__self__, "zone", zone)
         if additional_ports is not None:
-            _setter("additional_ports", additional_ports)
+            pulumi.set(__self__, "additional_ports", additional_ports)
         if additional_primaries is not None:
-            _setter("additional_primaries", additional_primaries)
+            pulumi.set(__self__, "additional_primaries", additional_primaries)
         if autogenerate_ns_record is not None:
-            _setter("autogenerate_ns_record", autogenerate_ns_record)
+            pulumi.set(__self__, "autogenerate_ns_record", autogenerate_ns_record)
         if dnssec is not None:
-            _setter("dnssec", dnssec)
+            pulumi.set(__self__, "dnssec", dnssec)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if hostmaster is not None:
-            _setter("hostmaster", hostmaster)
+            pulumi.set(__self__, "hostmaster", hostmaster)
         if link is not None:
-            _setter("link", link)
+            pulumi.set(__self__, "link", link)
         if networks is not None:
-            _setter("networks", networks)
+            pulumi.set(__self__, "networks", networks)
         if nx_ttl is not None:
-            _setter("nx_ttl", nx_ttl)
+            pulumi.set(__self__, "nx_ttl", nx_ttl)
         if primary is not None:
-            _setter("primary", primary)
+            pulumi.set(__self__, "primary", primary)
         if primary_port is not None:
-            _setter("primary_port", primary_port)
+            pulumi.set(__self__, "primary_port", primary_port)
         if refresh is not None:
-            _setter("refresh", refresh)
+            pulumi.set(__self__, "refresh", refresh)
         if retry is not None:
-            _setter("retry", retry)
+            pulumi.set(__self__, "retry", retry)
         if secondaries is not None:
-            _setter("secondaries", secondaries)
+            pulumi.set(__self__, "secondaries", secondaries)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tsig is not None:
-            _setter("tsig", tsig)
+            pulumi.set(__self__, "tsig", tsig)
         if ttl is not None:
-            _setter("ttl", ttl)
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter
@@ -425,103 +368,44 @@ class _ZoneState:
         :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
         """
-        _ZoneState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_ports=additional_ports,
-            additional_primaries=additional_primaries,
-            autogenerate_ns_record=autogenerate_ns_record,
-            dns_servers=dns_servers,
-            dnssec=dnssec,
-            expiry=expiry,
-            hostmaster=hostmaster,
-            link=link,
-            networks=networks,
-            nx_ttl=nx_ttl,
-            primary=primary,
-            primary_port=primary_port,
-            refresh=refresh,
-            retry=retry,
-            secondaries=secondaries,
-            tags=tags,
-            tsig=tsig,
-            ttl=ttl,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             autogenerate_ns_record: Optional[pulumi.Input[bool]] = None,
-             dns_servers: Optional[pulumi.Input[str]] = None,
-             dnssec: Optional[pulumi.Input[bool]] = None,
-             expiry: Optional[pulumi.Input[int]] = None,
-             hostmaster: Optional[pulumi.Input[str]] = None,
-             link: Optional[pulumi.Input[str]] = None,
-             networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             nx_ttl: Optional[pulumi.Input[int]] = None,
-             primary: Optional[pulumi.Input[str]] = None,
-             primary_port: Optional[pulumi.Input[int]] = None,
-             refresh: Optional[pulumi.Input[int]] = None,
-             retry: Optional[pulumi.Input[int]] = None,
-             secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             ttl: Optional[pulumi.Input[int]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_ports is None and 'additionalPorts' in kwargs:
-            additional_ports = kwargs['additionalPorts']
-        if additional_primaries is None and 'additionalPrimaries' in kwargs:
-            additional_primaries = kwargs['additionalPrimaries']
-        if autogenerate_ns_record is None and 'autogenerateNsRecord' in kwargs:
-            autogenerate_ns_record = kwargs['autogenerateNsRecord']
-        if dns_servers is None and 'dnsServers' in kwargs:
-            dns_servers = kwargs['dnsServers']
-        if nx_ttl is None and 'nxTtl' in kwargs:
-            nx_ttl = kwargs['nxTtl']
-        if primary_port is None and 'primaryPort' in kwargs:
-            primary_port = kwargs['primaryPort']
-
         if additional_ports is not None:
-            _setter("additional_ports", additional_ports)
+            pulumi.set(__self__, "additional_ports", additional_ports)
         if additional_primaries is not None:
-            _setter("additional_primaries", additional_primaries)
+            pulumi.set(__self__, "additional_primaries", additional_primaries)
         if autogenerate_ns_record is not None:
-            _setter("autogenerate_ns_record", autogenerate_ns_record)
+            pulumi.set(__self__, "autogenerate_ns_record", autogenerate_ns_record)
         if dns_servers is not None:
-            _setter("dns_servers", dns_servers)
+            pulumi.set(__self__, "dns_servers", dns_servers)
         if dnssec is not None:
-            _setter("dnssec", dnssec)
+            pulumi.set(__self__, "dnssec", dnssec)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if hostmaster is not None:
-            _setter("hostmaster", hostmaster)
+            pulumi.set(__self__, "hostmaster", hostmaster)
         if link is not None:
-            _setter("link", link)
+            pulumi.set(__self__, "link", link)
         if networks is not None:
-            _setter("networks", networks)
+            pulumi.set(__self__, "networks", networks)
         if nx_ttl is not None:
-            _setter("nx_ttl", nx_ttl)
+            pulumi.set(__self__, "nx_ttl", nx_ttl)
         if primary is not None:
-            _setter("primary", primary)
+            pulumi.set(__self__, "primary", primary)
         if primary_port is not None:
-            _setter("primary_port", primary_port)
+            pulumi.set(__self__, "primary_port", primary_port)
         if refresh is not None:
-            _setter("refresh", refresh)
+            pulumi.set(__self__, "refresh", refresh)
         if retry is not None:
-            _setter("retry", retry)
+            pulumi.set(__self__, "retry", retry)
         if secondaries is not None:
-            _setter("secondaries", secondaries)
+            pulumi.set(__self__, "secondaries", secondaries)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tsig is not None:
-            _setter("tsig", tsig)
+            pulumi.set(__self__, "tsig", tsig)
         if ttl is not None:
-            _setter("ttl", ttl)
+            pulumi.set(__self__, "ttl", ttl)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="additionalPorts")
@@ -847,10 +731,6 @@ class Zone(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ZoneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

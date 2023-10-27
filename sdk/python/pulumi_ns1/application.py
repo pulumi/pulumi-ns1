@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,41 +32,16 @@ class ApplicationArgs:
         :param pulumi.Input[int] jobs_per_transaction: Number of jobs to measure per user impression.
         :param pulumi.Input[str] name: Descriptive name for this Pulsar app.
         """
-        ApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            browser_wait_millis=browser_wait_millis,
-            default_config=default_config,
-            jobs_per_transaction=jobs_per_transaction,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             browser_wait_millis: Optional[pulumi.Input[int]] = None,
-             default_config: Optional[pulumi.Input['ApplicationDefaultConfigArgs']] = None,
-             jobs_per_transaction: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if browser_wait_millis is None and 'browserWaitMillis' in kwargs:
-            browser_wait_millis = kwargs['browserWaitMillis']
-        if default_config is None and 'defaultConfig' in kwargs:
-            default_config = kwargs['defaultConfig']
-        if jobs_per_transaction is None and 'jobsPerTransaction' in kwargs:
-            jobs_per_transaction = kwargs['jobsPerTransaction']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if browser_wait_millis is not None:
-            _setter("browser_wait_millis", browser_wait_millis)
+            pulumi.set(__self__, "browser_wait_millis", browser_wait_millis)
         if default_config is not None:
-            _setter("default_config", default_config)
+            pulumi.set(__self__, "default_config", default_config)
         if jobs_per_transaction is not None:
-            _setter("jobs_per_transaction", jobs_per_transaction)
+            pulumi.set(__self__, "jobs_per_transaction", jobs_per_transaction)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -151,41 +126,16 @@ class _ApplicationState:
         :param pulumi.Input[int] jobs_per_transaction: Number of jobs to measure per user impression.
         :param pulumi.Input[str] name: Descriptive name for this Pulsar app.
         """
-        _ApplicationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            browser_wait_millis=browser_wait_millis,
-            default_config=default_config,
-            jobs_per_transaction=jobs_per_transaction,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             browser_wait_millis: Optional[pulumi.Input[int]] = None,
-             default_config: Optional[pulumi.Input['ApplicationDefaultConfigArgs']] = None,
-             jobs_per_transaction: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if browser_wait_millis is None and 'browserWaitMillis' in kwargs:
-            browser_wait_millis = kwargs['browserWaitMillis']
-        if default_config is None and 'defaultConfig' in kwargs:
-            default_config = kwargs['defaultConfig']
-        if jobs_per_transaction is None and 'jobsPerTransaction' in kwargs:
-            jobs_per_transaction = kwargs['jobsPerTransaction']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if browser_wait_millis is not None:
-            _setter("browser_wait_millis", browser_wait_millis)
+            pulumi.set(__self__, "browser_wait_millis", browser_wait_millis)
         if default_config is not None:
-            _setter("default_config", default_config)
+            pulumi.set(__self__, "default_config", default_config)
         if jobs_per_transaction is not None:
-            _setter("jobs_per_transaction", jobs_per_transaction)
+            pulumi.set(__self__, "jobs_per_transaction", jobs_per_transaction)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -357,10 +307,6 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -382,7 +328,6 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["active"] = active
             __props__.__dict__["browser_wait_millis"] = browser_wait_millis
-            default_config = _utilities.configure(default_config, ApplicationDefaultConfigArgs, True)
             __props__.__dict__["default_config"] = default_config
             __props__.__dict__["jobs_per_transaction"] = jobs_per_transaction
             __props__.__dict__["name"] = name
