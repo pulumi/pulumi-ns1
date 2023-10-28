@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -52,97 +52,34 @@ class MonitoringJobArgs:
         :param pulumi.Input[bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]] rules: A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
-        MonitoringJobArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            config=config,
-            frequency=frequency,
-            job_type=job_type,
-            regions=regions,
-            active=active,
-            mute=mute,
-            name=name,
-            notes=notes,
-            notify_delay=notify_delay,
-            notify_failback=notify_failback,
-            notify_list=notify_list,
-            notify_regional=notify_regional,
-            notify_repeat=notify_repeat,
-            policy=policy,
-            rapid_recheck=rapid_recheck,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             frequency: Optional[pulumi.Input[int]] = None,
-             job_type: Optional[pulumi.Input[str]] = None,
-             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             active: Optional[pulumi.Input[bool]] = None,
-             mute: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             notify_delay: Optional[pulumi.Input[int]] = None,
-             notify_failback: Optional[pulumi.Input[bool]] = None,
-             notify_list: Optional[pulumi.Input[str]] = None,
-             notify_regional: Optional[pulumi.Input[bool]] = None,
-             notify_repeat: Optional[pulumi.Input[int]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             rapid_recheck: Optional[pulumi.Input[bool]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if config is None:
-            raise TypeError("Missing 'config' argument")
-        if frequency is None:
-            raise TypeError("Missing 'frequency' argument")
-        if job_type is None and 'jobType' in kwargs:
-            job_type = kwargs['jobType']
-        if job_type is None:
-            raise TypeError("Missing 'job_type' argument")
-        if regions is None:
-            raise TypeError("Missing 'regions' argument")
-        if notify_delay is None and 'notifyDelay' in kwargs:
-            notify_delay = kwargs['notifyDelay']
-        if notify_failback is None and 'notifyFailback' in kwargs:
-            notify_failback = kwargs['notifyFailback']
-        if notify_list is None and 'notifyList' in kwargs:
-            notify_list = kwargs['notifyList']
-        if notify_regional is None and 'notifyRegional' in kwargs:
-            notify_regional = kwargs['notifyRegional']
-        if notify_repeat is None and 'notifyRepeat' in kwargs:
-            notify_repeat = kwargs['notifyRepeat']
-        if rapid_recheck is None and 'rapidRecheck' in kwargs:
-            rapid_recheck = kwargs['rapidRecheck']
-
-        _setter("config", config)
-        _setter("frequency", frequency)
-        _setter("job_type", job_type)
-        _setter("regions", regions)
+        pulumi.set(__self__, "config", config)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "job_type", job_type)
+        pulumi.set(__self__, "regions", regions)
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if mute is not None:
-            _setter("mute", mute)
+            pulumi.set(__self__, "mute", mute)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if notify_delay is not None:
-            _setter("notify_delay", notify_delay)
+            pulumi.set(__self__, "notify_delay", notify_delay)
         if notify_failback is not None:
-            _setter("notify_failback", notify_failback)
+            pulumi.set(__self__, "notify_failback", notify_failback)
         if notify_list is not None:
-            _setter("notify_list", notify_list)
+            pulumi.set(__self__, "notify_list", notify_list)
         if notify_regional is not None:
-            _setter("notify_regional", notify_regional)
+            pulumi.set(__self__, "notify_regional", notify_regional)
         if notify_repeat is not None:
-            _setter("notify_repeat", notify_repeat)
+            pulumi.set(__self__, "notify_repeat", notify_repeat)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if rapid_recheck is not None:
-            _setter("rapid_recheck", rapid_recheck)
+            pulumi.set(__self__, "rapid_recheck", rapid_recheck)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -375,93 +312,38 @@ class _MonitoringJobState:
                job. See NS1 API docs for supported values.
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]] rules: A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
-        _MonitoringJobState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            config=config,
-            frequency=frequency,
-            job_type=job_type,
-            mute=mute,
-            name=name,
-            notes=notes,
-            notify_delay=notify_delay,
-            notify_failback=notify_failback,
-            notify_list=notify_list,
-            notify_regional=notify_regional,
-            notify_repeat=notify_repeat,
-            policy=policy,
-            rapid_recheck=rapid_recheck,
-            regions=regions,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             frequency: Optional[pulumi.Input[int]] = None,
-             job_type: Optional[pulumi.Input[str]] = None,
-             mute: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             notify_delay: Optional[pulumi.Input[int]] = None,
-             notify_failback: Optional[pulumi.Input[bool]] = None,
-             notify_list: Optional[pulumi.Input[str]] = None,
-             notify_regional: Optional[pulumi.Input[bool]] = None,
-             notify_repeat: Optional[pulumi.Input[int]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             rapid_recheck: Optional[pulumi.Input[bool]] = None,
-             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if job_type is None and 'jobType' in kwargs:
-            job_type = kwargs['jobType']
-        if notify_delay is None and 'notifyDelay' in kwargs:
-            notify_delay = kwargs['notifyDelay']
-        if notify_failback is None and 'notifyFailback' in kwargs:
-            notify_failback = kwargs['notifyFailback']
-        if notify_list is None and 'notifyList' in kwargs:
-            notify_list = kwargs['notifyList']
-        if notify_regional is None and 'notifyRegional' in kwargs:
-            notify_regional = kwargs['notifyRegional']
-        if notify_repeat is None and 'notifyRepeat' in kwargs:
-            notify_repeat = kwargs['notifyRepeat']
-        if rapid_recheck is None and 'rapidRecheck' in kwargs:
-            rapid_recheck = kwargs['rapidRecheck']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if config is not None:
-            _setter("config", config)
+            pulumi.set(__self__, "config", config)
         if frequency is not None:
-            _setter("frequency", frequency)
+            pulumi.set(__self__, "frequency", frequency)
         if job_type is not None:
-            _setter("job_type", job_type)
+            pulumi.set(__self__, "job_type", job_type)
         if mute is not None:
-            _setter("mute", mute)
+            pulumi.set(__self__, "mute", mute)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if notify_delay is not None:
-            _setter("notify_delay", notify_delay)
+            pulumi.set(__self__, "notify_delay", notify_delay)
         if notify_failback is not None:
-            _setter("notify_failback", notify_failback)
+            pulumi.set(__self__, "notify_failback", notify_failback)
         if notify_list is not None:
-            _setter("notify_list", notify_list)
+            pulumi.set(__self__, "notify_list", notify_list)
         if notify_regional is not None:
-            _setter("notify_regional", notify_regional)
+            pulumi.set(__self__, "notify_regional", notify_regional)
         if notify_repeat is not None:
-            _setter("notify_repeat", notify_repeat)
+            pulumi.set(__self__, "notify_repeat", notify_repeat)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if rapid_recheck is not None:
-            _setter("rapid_recheck", rapid_recheck)
+            pulumi.set(__self__, "rapid_recheck", rapid_recheck)
         if regions is not None:
-            _setter("regions", regions)
+            pulumi.set(__self__, "regions", regions)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -799,10 +681,6 @@ class MonitoringJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MonitoringJobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
