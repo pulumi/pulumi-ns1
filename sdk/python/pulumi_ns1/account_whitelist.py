@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AccountWhitelistArgs', 'AccountWhitelist']
@@ -21,9 +21,24 @@ class AccountWhitelistArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of IP addresses/networks from which to allow access.
         :param pulumi.Input[str] name: The free form name of the whitelist.
         """
-        pulumi.set(__self__, "values", values)
+        AccountWhitelistArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            values=values,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("values", values)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -60,10 +75,23 @@ class _AccountWhitelistState:
         :param pulumi.Input[str] name: The free form name of the whitelist.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of IP addresses/networks from which to allow access.
         """
+        _AccountWhitelistState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -175,6 +203,10 @@ class AccountWhitelist(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountWhitelistArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

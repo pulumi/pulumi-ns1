@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DataFeedArgs', 'DataFeed']
@@ -24,11 +24,30 @@ class DataFeedArgs:
                `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         :param pulumi.Input[str] name: The free form name of the data feed.
         """
-        pulumi.set(__self__, "source_id", source_id)
+        DataFeedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_id=source_id,
+            config=config,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_id: Optional[pulumi.Input[str]] = None,
+             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_id is None:
+            raise TypeError("Missing 'source_id' argument")
+
+        _setter("source_id", source_id)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="sourceId")
@@ -81,12 +100,29 @@ class _DataFeedState:
         :param pulumi.Input[str] name: The free form name of the data feed.
         :param pulumi.Input[str] source_id: The data source id that this feed is connected to.
         """
+        _DataFeedState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            name=name,
+            source_id=source_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_id is not None:
-            pulumi.set(__self__, "source_id", source_id)
+            _setter("source_id", source_id)
 
     @property
     @pulumi.getter
@@ -232,6 +268,10 @@ class DataFeed(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataFeedArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
