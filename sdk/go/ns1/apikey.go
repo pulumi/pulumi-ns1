@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
@@ -522,12 +521,6 @@ func (i *APIKey) ToAPIKeyOutputWithContext(ctx context.Context) APIKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(APIKeyOutput)
 }
 
-func (i *APIKey) ToOutput(ctx context.Context) pulumix.Output[*APIKey] {
-	return pulumix.Output[*APIKey]{
-		OutputState: i.ToAPIKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // APIKeyArrayInput is an input type that accepts APIKeyArray and APIKeyArrayOutput values.
 // You can construct a concrete instance of `APIKeyArrayInput` via:
 //
@@ -551,12 +544,6 @@ func (i APIKeyArray) ToAPIKeyArrayOutput() APIKeyArrayOutput {
 
 func (i APIKeyArray) ToAPIKeyArrayOutputWithContext(ctx context.Context) APIKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(APIKeyArrayOutput)
-}
-
-func (i APIKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*APIKey] {
-	return pulumix.Output[[]*APIKey]{
-		OutputState: i.ToAPIKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // APIKeyMapInput is an input type that accepts APIKeyMap and APIKeyMapOutput values.
@@ -584,12 +571,6 @@ func (i APIKeyMap) ToAPIKeyMapOutputWithContext(ctx context.Context) APIKeyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(APIKeyMapOutput)
 }
 
-func (i APIKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*APIKey] {
-	return pulumix.Output[map[string]*APIKey]{
-		OutputState: i.ToAPIKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type APIKeyOutput struct{ *pulumi.OutputState }
 
 func (APIKeyOutput) ElementType() reflect.Type {
@@ -602,12 +583,6 @@ func (o APIKeyOutput) ToAPIKeyOutput() APIKeyOutput {
 
 func (o APIKeyOutput) ToAPIKeyOutputWithContext(ctx context.Context) APIKeyOutput {
 	return o
-}
-
-func (o APIKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*APIKey] {
-	return pulumix.Output[*APIKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the apikey can modify account settings.
@@ -796,12 +771,6 @@ func (o APIKeyArrayOutput) ToAPIKeyArrayOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o APIKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*APIKey] {
-	return pulumix.Output[[]*APIKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o APIKeyArrayOutput) Index(i pulumi.IntInput) APIKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *APIKey {
 		return vs[0].([]*APIKey)[vs[1].(int)]
@@ -820,12 +789,6 @@ func (o APIKeyMapOutput) ToAPIKeyMapOutput() APIKeyMapOutput {
 
 func (o APIKeyMapOutput) ToAPIKeyMapOutputWithContext(ctx context.Context) APIKeyMapOutput {
 	return o
-}
-
-func (o APIKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*APIKey] {
-	return pulumix.Output[map[string]*APIKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o APIKeyMapOutput) MapIndex(k pulumi.StringInput) APIKeyOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Dnsview struct {
@@ -122,12 +121,6 @@ func (i *Dnsview) ToDnsviewOutputWithContext(ctx context.Context) DnsviewOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(DnsviewOutput)
 }
 
-func (i *Dnsview) ToOutput(ctx context.Context) pulumix.Output[*Dnsview] {
-	return pulumix.Output[*Dnsview]{
-		OutputState: i.ToDnsviewOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DnsviewArrayInput is an input type that accepts DnsviewArray and DnsviewArrayOutput values.
 // You can construct a concrete instance of `DnsviewArrayInput` via:
 //
@@ -151,12 +144,6 @@ func (i DnsviewArray) ToDnsviewArrayOutput() DnsviewArrayOutput {
 
 func (i DnsviewArray) ToDnsviewArrayOutputWithContext(ctx context.Context) DnsviewArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DnsviewArrayOutput)
-}
-
-func (i DnsviewArray) ToOutput(ctx context.Context) pulumix.Output[[]*Dnsview] {
-	return pulumix.Output[[]*Dnsview]{
-		OutputState: i.ToDnsviewArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DnsviewMapInput is an input type that accepts DnsviewMap and DnsviewMapOutput values.
@@ -184,12 +171,6 @@ func (i DnsviewMap) ToDnsviewMapOutputWithContext(ctx context.Context) DnsviewMa
 	return pulumi.ToOutputWithContext(ctx, i).(DnsviewMapOutput)
 }
 
-func (i DnsviewMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Dnsview] {
-	return pulumix.Output[map[string]*Dnsview]{
-		OutputState: i.ToDnsviewMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DnsviewOutput struct{ *pulumi.OutputState }
 
 func (DnsviewOutput) ElementType() reflect.Type {
@@ -202,12 +183,6 @@ func (o DnsviewOutput) ToDnsviewOutput() DnsviewOutput {
 
 func (o DnsviewOutput) ToDnsviewOutputWithContext(ctx context.Context) DnsviewOutput {
 	return o
-}
-
-func (o DnsviewOutput) ToOutput(ctx context.Context) pulumix.Output[*Dnsview] {
-	return pulumix.Output[*Dnsview]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DnsviewOutput) CreatedAt() pulumi.IntOutput {
@@ -256,12 +231,6 @@ func (o DnsviewArrayOutput) ToDnsviewArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o DnsviewArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Dnsview] {
-	return pulumix.Output[[]*Dnsview]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DnsviewArrayOutput) Index(i pulumi.IntInput) DnsviewOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Dnsview {
 		return vs[0].([]*Dnsview)[vs[1].(int)]
@@ -280,12 +249,6 @@ func (o DnsviewMapOutput) ToDnsviewMapOutput() DnsviewMapOutput {
 
 func (o DnsviewMapOutput) ToDnsviewMapOutputWithContext(ctx context.Context) DnsviewMapOutput {
 	return o
-}
-
-func (o DnsviewMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Dnsview] {
-	return pulumix.Output[map[string]*Dnsview]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DnsviewMapOutput) MapIndex(k pulumi.StringInput) DnsviewOutput {

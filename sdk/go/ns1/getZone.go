@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a NS1 Zone. Use this if you would simply like to read
@@ -142,12 +141,6 @@ func (o LookupZoneResultOutput) ToLookupZoneResultOutput() LookupZoneResultOutpu
 
 func (o LookupZoneResultOutput) ToLookupZoneResultOutputWithContext(ctx context.Context) LookupZoneResultOutput {
 	return o
-}
-
-func (o LookupZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupZoneResult] {
-	return pulumix.Output[LookupZoneResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupZoneResultOutput) AdditionalPorts() pulumi.IntArrayOutput {

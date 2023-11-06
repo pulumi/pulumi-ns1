@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PulsarJob struct {
@@ -142,12 +141,6 @@ func (i *PulsarJob) ToPulsarJobOutputWithContext(ctx context.Context) PulsarJobO
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobOutput)
 }
 
-func (i *PulsarJob) ToOutput(ctx context.Context) pulumix.Output[*PulsarJob] {
-	return pulumix.Output[*PulsarJob]{
-		OutputState: i.ToPulsarJobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PulsarJobArrayInput is an input type that accepts PulsarJobArray and PulsarJobArrayOutput values.
 // You can construct a concrete instance of `PulsarJobArrayInput` via:
 //
@@ -171,12 +164,6 @@ func (i PulsarJobArray) ToPulsarJobArrayOutput() PulsarJobArrayOutput {
 
 func (i PulsarJobArray) ToPulsarJobArrayOutputWithContext(ctx context.Context) PulsarJobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobArrayOutput)
-}
-
-func (i PulsarJobArray) ToOutput(ctx context.Context) pulumix.Output[[]*PulsarJob] {
-	return pulumix.Output[[]*PulsarJob]{
-		OutputState: i.ToPulsarJobArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PulsarJobMapInput is an input type that accepts PulsarJobMap and PulsarJobMapOutput values.
@@ -204,12 +191,6 @@ func (i PulsarJobMap) ToPulsarJobMapOutputWithContext(ctx context.Context) Pulsa
 	return pulumi.ToOutputWithContext(ctx, i).(PulsarJobMapOutput)
 }
 
-func (i PulsarJobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PulsarJob] {
-	return pulumix.Output[map[string]*PulsarJob]{
-		OutputState: i.ToPulsarJobMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PulsarJobOutput struct{ *pulumi.OutputState }
 
 func (PulsarJobOutput) ElementType() reflect.Type {
@@ -222,12 +203,6 @@ func (o PulsarJobOutput) ToPulsarJobOutput() PulsarJobOutput {
 
 func (o PulsarJobOutput) ToPulsarJobOutputWithContext(ctx context.Context) PulsarJobOutput {
 	return o
-}
-
-func (o PulsarJobOutput) ToOutput(ctx context.Context) pulumix.Output[*PulsarJob] {
-	return pulumix.Output[*PulsarJob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PulsarJobOutput) Active() pulumi.BoolPtrOutput {
@@ -288,12 +263,6 @@ func (o PulsarJobArrayOutput) ToPulsarJobArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PulsarJobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PulsarJob] {
-	return pulumix.Output[[]*PulsarJob]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PulsarJobArrayOutput) Index(i pulumi.IntInput) PulsarJobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PulsarJob {
 		return vs[0].([]*PulsarJob)[vs[1].(int)]
@@ -312,12 +281,6 @@ func (o PulsarJobMapOutput) ToPulsarJobMapOutput() PulsarJobMapOutput {
 
 func (o PulsarJobMapOutput) ToPulsarJobMapOutputWithContext(ctx context.Context) PulsarJobMapOutput {
 	return o
-}
-
-func (o PulsarJobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PulsarJob] {
-	return pulumix.Output[map[string]*PulsarJob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PulsarJobMapOutput) MapIndex(k pulumi.StringInput) PulsarJobOutput {

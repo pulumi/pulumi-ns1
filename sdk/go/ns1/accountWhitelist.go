@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 Global IP Whitelist resource.
@@ -155,12 +154,6 @@ func (i *AccountWhitelist) ToAccountWhitelistOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountWhitelistOutput)
 }
 
-func (i *AccountWhitelist) ToOutput(ctx context.Context) pulumix.Output[*AccountWhitelist] {
-	return pulumix.Output[*AccountWhitelist]{
-		OutputState: i.ToAccountWhitelistOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountWhitelistArrayInput is an input type that accepts AccountWhitelistArray and AccountWhitelistArrayOutput values.
 // You can construct a concrete instance of `AccountWhitelistArrayInput` via:
 //
@@ -184,12 +177,6 @@ func (i AccountWhitelistArray) ToAccountWhitelistArrayOutput() AccountWhitelistA
 
 func (i AccountWhitelistArray) ToAccountWhitelistArrayOutputWithContext(ctx context.Context) AccountWhitelistArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountWhitelistArrayOutput)
-}
-
-func (i AccountWhitelistArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountWhitelist] {
-	return pulumix.Output[[]*AccountWhitelist]{
-		OutputState: i.ToAccountWhitelistArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountWhitelistMapInput is an input type that accepts AccountWhitelistMap and AccountWhitelistMapOutput values.
@@ -217,12 +204,6 @@ func (i AccountWhitelistMap) ToAccountWhitelistMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccountWhitelistMapOutput)
 }
 
-func (i AccountWhitelistMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountWhitelist] {
-	return pulumix.Output[map[string]*AccountWhitelist]{
-		OutputState: i.ToAccountWhitelistMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountWhitelistOutput struct{ *pulumi.OutputState }
 
 func (AccountWhitelistOutput) ElementType() reflect.Type {
@@ -235,12 +216,6 @@ func (o AccountWhitelistOutput) ToAccountWhitelistOutput() AccountWhitelistOutpu
 
 func (o AccountWhitelistOutput) ToAccountWhitelistOutputWithContext(ctx context.Context) AccountWhitelistOutput {
 	return o
-}
-
-func (o AccountWhitelistOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountWhitelist] {
-	return pulumix.Output[*AccountWhitelist]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The free form name of the whitelist.
@@ -267,12 +242,6 @@ func (o AccountWhitelistArrayOutput) ToAccountWhitelistArrayOutputWithContext(ct
 	return o
 }
 
-func (o AccountWhitelistArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountWhitelist] {
-	return pulumix.Output[[]*AccountWhitelist]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountWhitelistArrayOutput) Index(i pulumi.IntInput) AccountWhitelistOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountWhitelist {
 		return vs[0].([]*AccountWhitelist)[vs[1].(int)]
@@ -291,12 +260,6 @@ func (o AccountWhitelistMapOutput) ToAccountWhitelistMapOutput() AccountWhitelis
 
 func (o AccountWhitelistMapOutput) ToAccountWhitelistMapOutputWithContext(ctx context.Context) AccountWhitelistMapOutput {
 	return o
-}
-
-func (o AccountWhitelistMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountWhitelist] {
-	return pulumix.Output[map[string]*AccountWhitelist]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountWhitelistMapOutput) MapIndex(k pulumi.StringInput) AccountWhitelistOutput {
