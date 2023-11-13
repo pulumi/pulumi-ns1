@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
@@ -157,12 +156,6 @@ func (i *NotifyList) ToNotifyListOutputWithContext(ctx context.Context) NotifyLi
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListOutput)
 }
 
-func (i *NotifyList) ToOutput(ctx context.Context) pulumix.Output[*NotifyList] {
-	return pulumix.Output[*NotifyList]{
-		OutputState: i.ToNotifyListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotifyListArrayInput is an input type that accepts NotifyListArray and NotifyListArrayOutput values.
 // You can construct a concrete instance of `NotifyListArrayInput` via:
 //
@@ -186,12 +179,6 @@ func (i NotifyListArray) ToNotifyListArrayOutput() NotifyListArrayOutput {
 
 func (i NotifyListArray) ToNotifyListArrayOutputWithContext(ctx context.Context) NotifyListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListArrayOutput)
-}
-
-func (i NotifyListArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotifyList] {
-	return pulumix.Output[[]*NotifyList]{
-		OutputState: i.ToNotifyListArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NotifyListMapInput is an input type that accepts NotifyListMap and NotifyListMapOutput values.
@@ -219,12 +206,6 @@ func (i NotifyListMap) ToNotifyListMapOutputWithContext(ctx context.Context) Not
 	return pulumi.ToOutputWithContext(ctx, i).(NotifyListMapOutput)
 }
 
-func (i NotifyListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotifyList] {
-	return pulumix.Output[map[string]*NotifyList]{
-		OutputState: i.ToNotifyListMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotifyListOutput struct{ *pulumi.OutputState }
 
 func (NotifyListOutput) ElementType() reflect.Type {
@@ -237,12 +218,6 @@ func (o NotifyListOutput) ToNotifyListOutput() NotifyListOutput {
 
 func (o NotifyListOutput) ToNotifyListOutputWithContext(ctx context.Context) NotifyListOutput {
 	return o
-}
-
-func (o NotifyListOutput) ToOutput(ctx context.Context) pulumix.Output[*NotifyList] {
-	return pulumix.Output[*NotifyList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The free-form display name for the notify list.
@@ -269,12 +244,6 @@ func (o NotifyListArrayOutput) ToNotifyListArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o NotifyListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotifyList] {
-	return pulumix.Output[[]*NotifyList]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotifyListArrayOutput) Index(i pulumi.IntInput) NotifyListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotifyList {
 		return vs[0].([]*NotifyList)[vs[1].(int)]
@@ -293,12 +262,6 @@ func (o NotifyListMapOutput) ToNotifyListMapOutput() NotifyListMapOutput {
 
 func (o NotifyListMapOutput) ToNotifyListMapOutputWithContext(ctx context.Context) NotifyListMapOutput {
 	return o
-}
-
-func (o NotifyListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotifyList] {
-	return pulumix.Output[map[string]*NotifyList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotifyListMapOutput) MapIndex(k pulumi.StringInput) NotifyListOutput {

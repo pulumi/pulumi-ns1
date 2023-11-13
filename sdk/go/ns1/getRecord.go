@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a NS1 Record. Use this if you would simply like to read
@@ -129,12 +128,6 @@ func (o LookupRecordResultOutput) ToLookupRecordResultOutput() LookupRecordResul
 
 func (o LookupRecordResultOutput) ToLookupRecordResultOutputWithContext(ctx context.Context) LookupRecordResultOutput {
 	return o
-}
-
-func (o LookupRecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRecordResult] {
-	return pulumix.Output[LookupRecordResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of NS1 answers.
