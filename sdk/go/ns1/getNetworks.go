@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about NS1 Networks. Use this if you would simply like to read
@@ -82,12 +81,6 @@ func (o GetNetworksResultOutput) ToGetNetworksResultOutput() GetNetworksResultOu
 
 func (o GetNetworksResultOutput) ToGetNetworksResultOutputWithContext(ctx context.Context) GetNetworksResultOutput {
 	return o
-}
-
-func (o GetNetworksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworksResult] {
-	return pulumix.Output[GetNetworksResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

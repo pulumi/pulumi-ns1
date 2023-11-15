@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
@@ -196,12 +195,6 @@ func (i *DataFeed) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataFeedOutput)
 }
 
-func (i *DataFeed) ToOutput(ctx context.Context) pulumix.Output[*DataFeed] {
-	return pulumix.Output[*DataFeed]{
-		OutputState: i.ToDataFeedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataFeedArrayInput is an input type that accepts DataFeedArray and DataFeedArrayOutput values.
 // You can construct a concrete instance of `DataFeedArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i DataFeedArray) ToDataFeedArrayOutput() DataFeedArrayOutput {
 
 func (i DataFeedArray) ToDataFeedArrayOutputWithContext(ctx context.Context) DataFeedArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataFeedArrayOutput)
-}
-
-func (i DataFeedArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataFeed] {
-	return pulumix.Output[[]*DataFeed]{
-		OutputState: i.ToDataFeedArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataFeedMapInput is an input type that accepts DataFeedMap and DataFeedMapOutput values.
@@ -258,12 +245,6 @@ func (i DataFeedMap) ToDataFeedMapOutputWithContext(ctx context.Context) DataFee
 	return pulumi.ToOutputWithContext(ctx, i).(DataFeedMapOutput)
 }
 
-func (i DataFeedMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataFeed] {
-	return pulumix.Output[map[string]*DataFeed]{
-		OutputState: i.ToDataFeedMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataFeedOutput struct{ *pulumi.OutputState }
 
 func (DataFeedOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o DataFeedOutput) ToDataFeedOutput() DataFeedOutput {
 
 func (o DataFeedOutput) ToDataFeedOutputWithContext(ctx context.Context) DataFeedOutput {
 	return o
-}
-
-func (o DataFeedOutput) ToOutput(ctx context.Context) pulumix.Output[*DataFeed] {
-	return pulumix.Output[*DataFeed]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The feeds configuration matching the specification in
@@ -314,12 +289,6 @@ func (o DataFeedArrayOutput) ToDataFeedArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DataFeedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataFeed] {
-	return pulumix.Output[[]*DataFeed]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataFeedArrayOutput) Index(i pulumi.IntInput) DataFeedOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataFeed {
 		return vs[0].([]*DataFeed)[vs[1].(int)]
@@ -338,12 +307,6 @@ func (o DataFeedMapOutput) ToDataFeedMapOutput() DataFeedMapOutput {
 
 func (o DataFeedMapOutput) ToDataFeedMapOutputWithContext(ctx context.Context) DataFeedMapOutput {
 	return o
-}
-
-func (o DataFeedMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataFeed] {
-	return pulumix.Output[map[string]*DataFeed]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataFeedMapOutput) MapIndex(k pulumi.StringInput) DataFeedOutput {
