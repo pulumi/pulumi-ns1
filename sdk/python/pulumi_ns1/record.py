@@ -50,8 +50,6 @@ class RecordArgs:
         :param pulumi.Input[int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "type", type)
@@ -240,8 +238,6 @@ class RecordArgs:
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
-        * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        is documented below.
         """
         return pulumi.get(self, "use_client_subnet")
 
@@ -285,8 +281,6 @@ class _RecordState:
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
         :param pulumi.Input[str] zone: The zone the record belongs to. Cannot have leading or
                trailing dots (".") - see the example above and `FQDN formatting` below.
         """
@@ -467,8 +461,6 @@ class _RecordState:
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
-        * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        is documented below.
         """
         return pulumi.get(self, "use_client_subnet")
 
@@ -547,8 +539,6 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
         :param pulumi.Input[str] zone: The zone the record belongs to. Cannot have leading or
                trailing dots (".") - see the example above and `FQDN formatting` below.
         """
@@ -682,8 +672,6 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
         :param pulumi.Input[str] zone: The zone the record belongs to. Cannot have leading or
                trailing dots (".") - see the example above and `FQDN formatting` below.
         """
@@ -804,8 +792,6 @@ class Record(pulumi.CustomResource):
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
-        * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        is documented below.
         """
         return pulumi.get(self, "use_client_subnet")
 

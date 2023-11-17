@@ -93,7 +93,7 @@ type APIKey struct {
 	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
@@ -202,7 +202,7 @@ type apikeyState struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -278,7 +278,7 @@ type APIKeyState struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -358,7 +358,7 @@ type apikeyArgs struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -433,7 +433,7 @@ type APIKeyArgs struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the apikey can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -605,7 +605,7 @@ func (o APIKeyOutput) AccountManagePaymentMethods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountManagePaymentMethods }).(pulumi.BoolPtrOutput)
 }
 
-// No longer in use.
+// (Deprecated) No longer in use.
 //
 // Deprecated: obsolete, should no longer be used
 func (o APIKeyOutput) AccountManagePlan() pulumi.BoolPtrOutput {

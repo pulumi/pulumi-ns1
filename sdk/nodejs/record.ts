@@ -99,8 +99,6 @@ export class Record extends pulumi.CustomResource {
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * ` meta` - (Optional) meta is supported at the `record` level. Meta
-     * is documented below.
      */
     public readonly useClientSubnet!: pulumi.Output<boolean | undefined>;
     /**
@@ -217,8 +215,6 @@ export interface RecordState {
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * ` meta` - (Optional) meta is supported at the `record` level. Meta
-     * is documented below.
      */
     useClientSubnet?: pulumi.Input<boolean>;
     /**
@@ -278,8 +274,6 @@ export interface RecordArgs {
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * ` meta` - (Optional) meta is supported at the `record` level. Meta
-     * is documented below.
      */
     useClientSubnet?: pulumi.Input<boolean>;
     /**

@@ -466,30 +466,18 @@ class RecordAnswer(dict):
                
                A:
                
-               answer = "1.2.3.4"
-               
                CNAME:
-               
-               answer = "www.example.com"
                
                MX:
                
-               answer = "5 mail.example.com"
-               
                SRV:
                
-               answer = "10 0 2380 node-1.example.com"
-               
                SPF:
-               
-               answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
         :param str region: The region (Answer Group really) that this answer
                belongs to. This should be one of the names specified in `regions`. Only a
                single `region` per answer is currently supported. If you want an answer in
                multiple regions, duplicating the answer (including metadata) is the correct
                approach.
-               * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-               is documented below.
         """
         if answer is not None:
             pulumi.set(__self__, "answer", answer)
@@ -506,23 +494,13 @@ class RecordAnswer(dict):
 
         A:
 
-        answer = "1.2.3.4"
-
         CNAME:
-
-        answer = "www.example.com"
 
         MX:
 
-        answer = "5 mail.example.com"
-
         SRV:
 
-        answer = "10 0 2380 node-1.example.com"
-
         SPF:
-
-        answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
         """
         return pulumi.get(self, "answer")
 
@@ -540,8 +518,6 @@ class RecordAnswer(dict):
         single `region` per answer is currently supported. If you want an answer in
         multiple regions, duplicating the answer (including metadata) is the correct
         approach.
-        * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-        is documented below.
         """
         return pulumi.get(self, "region")
 

@@ -192,8 +192,6 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-     *   is documented below.
      * 
      */
     @Import(name="useClientSubnet")
@@ -202,8 +200,6 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-     *   is documented below.
      * 
      */
     public Optional<Output<Boolean>> useClientSubnet() {
@@ -540,8 +536,6 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param useClientSubnet Whether to use EDNS client subnet data when
          * available(in filter chain).
-         * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-         *   is documented below.
          * 
          * @return builder
          * 
@@ -554,8 +548,6 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param useClientSubnet Whether to use EDNS client subnet data when
          * available(in filter chain).
-         * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-         *   is documented below.
          * 
          * @return builder
          * 

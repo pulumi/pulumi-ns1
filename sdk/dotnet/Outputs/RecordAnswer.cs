@@ -18,23 +18,13 @@ namespace Pulumi.Ns1.Outputs
         /// 
         /// A:
         /// 
-        /// answer = "1.2.3.4"
-        /// 
         /// CNAME:
-        /// 
-        /// answer = "www.example.com"
         /// 
         /// MX:
         /// 
-        /// answer = "5 mail.example.com"
-        /// 
         /// SRV:
         /// 
-        /// answer = "10 0 2380 node-1.example.com"
-        /// 
         /// SPF:
-        /// 
-        /// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
         /// </summary>
         public readonly string? Answer;
         public readonly ImmutableDictionary<string, object>? Meta;
@@ -44,8 +34,6 @@ namespace Pulumi.Ns1.Outputs
         /// single `region` per answer is currently supported. If you want an answer in
         /// multiple regions, duplicating the answer (including metadata) is the correct
         /// approach.
-        /// * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-        /// is documented below.
         /// </summary>
         public readonly string? Region;
 

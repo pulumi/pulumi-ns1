@@ -52,7 +52,7 @@ class TeamArgs:
         :param pulumi.Input[bool] account_manage_apikeys: Whether the team can modify account apikeys.
         :param pulumi.Input[bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the team can modify account payment methods.
-        :param pulumi.Input[bool] account_manage_plan: No longer in use.
+        :param pulumi.Input[bool] account_manage_plan: (Deprecated) No longer in use.
         :param pulumi.Input[bool] account_manage_teams: Whether the team can modify other teams in the account.
         :param pulumi.Input[bool] account_manage_users: Whether the team can modify account users.
         :param pulumi.Input[bool] account_view_activity_log: Whether the team can view activity logs.
@@ -200,7 +200,7 @@ class TeamArgs:
     @pulumi.getter(name="accountManagePlan")
     def account_manage_plan(self) -> Optional[pulumi.Input[bool]]:
         """
-        No longer in use.
+        (Deprecated) No longer in use.
         """
         warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
         pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
@@ -556,7 +556,7 @@ class _TeamState:
         :param pulumi.Input[bool] account_manage_apikeys: Whether the team can modify account apikeys.
         :param pulumi.Input[bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the team can modify account payment methods.
-        :param pulumi.Input[bool] account_manage_plan: No longer in use.
+        :param pulumi.Input[bool] account_manage_plan: (Deprecated) No longer in use.
         :param pulumi.Input[bool] account_manage_teams: Whether the team can modify other teams in the account.
         :param pulumi.Input[bool] account_manage_users: Whether the team can modify account users.
         :param pulumi.Input[bool] account_view_activity_log: Whether the team can view activity logs.
@@ -704,7 +704,7 @@ class _TeamState:
     @pulumi.getter(name="accountManagePlan")
     def account_manage_plan(self) -> Optional[pulumi.Input[bool]]:
         """
-        No longer in use.
+        (Deprecated) No longer in use.
         """
         warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
         pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
@@ -1117,7 +1117,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] account_manage_apikeys: Whether the team can modify account apikeys.
         :param pulumi.Input[bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the team can modify account payment methods.
-        :param pulumi.Input[bool] account_manage_plan: No longer in use.
+        :param pulumi.Input[bool] account_manage_plan: (Deprecated) No longer in use.
         :param pulumi.Input[bool] account_manage_teams: Whether the team can modify other teams in the account.
         :param pulumi.Input[bool] account_manage_users: Whether the team can modify account users.
         :param pulumi.Input[bool] account_view_activity_log: Whether the team can view activity logs.
@@ -1344,7 +1344,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] account_manage_apikeys: Whether the team can modify account apikeys.
         :param pulumi.Input[bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
         :param pulumi.Input[bool] account_manage_payment_methods: Whether the team can modify account payment methods.
-        :param pulumi.Input[bool] account_manage_plan: No longer in use.
+        :param pulumi.Input[bool] account_manage_plan: (Deprecated) No longer in use.
         :param pulumi.Input[bool] account_manage_teams: Whether the team can modify other teams in the account.
         :param pulumi.Input[bool] account_manage_users: Whether the team can modify account users.
         :param pulumi.Input[bool] account_view_activity_log: Whether the team can view activity logs.
@@ -1448,7 +1448,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="accountManagePlan")
     def account_manage_plan(self) -> pulumi.Output[Optional[bool]]:
         """
-        No longer in use.
+        (Deprecated) No longer in use.
         """
         warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
         pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")

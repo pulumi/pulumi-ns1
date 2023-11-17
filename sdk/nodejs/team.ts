@@ -107,7 +107,7 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
     /**
-     * No longer in use.
+     * (Deprecated) No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -320,7 +320,7 @@ export interface TeamState {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * No longer in use.
+     * (Deprecated) No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
@@ -453,7 +453,7 @@ export interface TeamArgs {
      */
     accountManagePaymentMethods?: pulumi.Input<boolean>;
     /**
-     * No longer in use.
+     * (Deprecated) No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */

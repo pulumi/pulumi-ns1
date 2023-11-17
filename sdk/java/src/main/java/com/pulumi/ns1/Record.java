@@ -195,8 +195,6 @@ public class Record extends com.pulumi.resources.CustomResource {
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-     *   is documented below.
      * 
      */
     @Export(name="useClientSubnet", refs={Boolean.class}, tree="[0]")
@@ -205,8 +203,6 @@ public class Record extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-     *   is documented below.
      * 
      */
     public Output<Optional<Boolean>> useClientSubnet() {

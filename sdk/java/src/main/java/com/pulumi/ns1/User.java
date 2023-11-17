@@ -152,7 +152,7 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountManagePaymentMethods);
     }
     /**
-     * No longer in use.
+     * (Deprecated) No longer in use.
      * 
      * @deprecated
      * obsolete, should no longer be used
@@ -163,7 +163,7 @@ public class User extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> accountManagePlan;
 
     /**
-     * @return No longer in use.
+     * @return (Deprecated) No longer in use.
      * 
      */
     public Output<Optional<Boolean>> accountManagePlan() {

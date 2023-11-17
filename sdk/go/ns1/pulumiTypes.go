@@ -1173,23 +1173,13 @@ type RecordAnswer struct {
 	//
 	// A:
 	//
-	// answer = "1.2.3.4"
-	//
 	// CNAME:
-	//
-	// answer = "www.example.com"
 	//
 	// MX:
 	//
-	// answer = "5 mail.example.com"
-	//
 	// SRV:
 	//
-	// answer = "10 0 2380 node-1.example.com"
-	//
 	// SPF:
-	//
-	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 	Answer *string                `pulumi:"answer"`
 	Meta   map[string]interface{} `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
@@ -1197,8 +1187,6 @@ type RecordAnswer struct {
 	// single `region` per answer is currently supported. If you want an answer in
 	// multiple regions, duplicating the answer (including metadata) is the correct
 	// approach.
-	// * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-	//   is documented below.
 	Region *string `pulumi:"region"`
 }
 
@@ -1218,23 +1206,13 @@ type RecordAnswerArgs struct {
 	//
 	// A:
 	//
-	// answer = "1.2.3.4"
-	//
 	// CNAME:
-	//
-	// answer = "www.example.com"
 	//
 	// MX:
 	//
-	// answer = "5 mail.example.com"
-	//
 	// SRV:
 	//
-	// answer = "10 0 2380 node-1.example.com"
-	//
 	// SPF:
-	//
-	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 	Answer pulumi.StringPtrInput `pulumi:"answer"`
 	Meta   pulumi.MapInput       `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
@@ -1242,8 +1220,6 @@ type RecordAnswerArgs struct {
 	// single `region` per answer is currently supported. If you want an answer in
 	// multiple regions, duplicating the answer (including metadata) is the correct
 	// approach.
-	// * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-	//   is documented below.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -1302,23 +1278,13 @@ func (o RecordAnswerOutput) ToRecordAnswerOutputWithContext(ctx context.Context)
 //
 // A:
 //
-// answer = "1.2.3.4"
-//
 // CNAME:
-//
-// answer = "www.example.com"
 //
 // MX:
 //
-// answer = "5 mail.example.com"
-//
 // SRV:
 //
-// answer = "10 0 2380 node-1.example.com"
-//
 // SPF:
-//
-// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 func (o RecordAnswerOutput) Answer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordAnswer) *string { return v.Answer }).(pulumi.StringPtrOutput)
 }
@@ -1332,8 +1298,6 @@ func (o RecordAnswerOutput) Meta() pulumi.MapOutput {
 // single `region` per answer is currently supported. If you want an answer in
 // multiple regions, duplicating the answer (including metadata) is the correct
 // approach.
-//   - `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-//     is documented below.
 func (o RecordAnswerOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordAnswer) *string { return v.Region }).(pulumi.StringPtrOutput)
 }

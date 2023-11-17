@@ -117,7 +117,7 @@ namespace Pulumi.Ns1
         public Output<bool?> AccountManagePaymentMethods { get; private set; } = null!;
 
         /// <summary>
-        /// No longer in use.
+        /// (Deprecated) No longer in use.
         /// </summary>
         [Output("accountManagePlan")]
         public Output<bool?> AccountManagePlan { get; private set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// No longer in use.
+        /// (Deprecated) No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }
@@ -571,7 +571,7 @@ namespace Pulumi.Ns1
         public Input<bool>? AccountManagePaymentMethods { get; set; }
 
         /// <summary>
-        /// No longer in use.
+        /// (Deprecated) No longer in use.
         /// </summary>
         [Input("accountManagePlan")]
         public Input<bool>? AccountManagePlan { get; set; }

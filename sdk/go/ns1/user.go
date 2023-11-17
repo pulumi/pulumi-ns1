@@ -96,7 +96,7 @@ type User struct {
 	AccountManageIpWhitelist pulumi.BoolPtrOutput `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrOutput `pulumi:"accountManagePaymentMethods"`
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrOutput `pulumi:"accountManagePlan"`
@@ -207,7 +207,7 @@ type userState struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -283,7 +283,7 @@ type UserState struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -363,7 +363,7 @@ type userArgs struct {
 	AccountManageIpWhitelist *bool `pulumi:"accountManageIpWhitelist"`
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods *bool `pulumi:"accountManagePaymentMethods"`
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan *bool `pulumi:"accountManagePlan"`
@@ -440,7 +440,7 @@ type UserArgs struct {
 	AccountManageIpWhitelist pulumi.BoolPtrInput
 	// Whether the user can modify account payment methods.
 	AccountManagePaymentMethods pulumi.BoolPtrInput
-	// No longer in use.
+	// (Deprecated) No longer in use.
 	//
 	// Deprecated: obsolete, should no longer be used
 	AccountManagePlan pulumi.BoolPtrInput
@@ -614,7 +614,7 @@ func (o UserOutput) AccountManagePaymentMethods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.AccountManagePaymentMethods }).(pulumi.BoolPtrOutput)
 }
 
-// No longer in use.
+// (Deprecated) No longer in use.
 //
 // Deprecated: obsolete, should no longer be used
 func (o UserOutput) AccountManagePlan() pulumi.BoolPtrOutput {

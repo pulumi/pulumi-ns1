@@ -98,8 +98,6 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        /// is documented below.
         /// </summary>
         [Output("useClientSubnet")]
         public Output<bool?> UseClientSubnet { get; private set; } = null!;
@@ -263,8 +261,6 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        /// is documented below.
         /// </summary>
         [Input("useClientSubnet")]
         public Input<bool>? UseClientSubnet { get; set; }
@@ -390,8 +386,6 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        /// is documented below.
         /// </summary>
         [Input("useClientSubnet")]
         public Input<bool>? UseClientSubnet { get; set; }

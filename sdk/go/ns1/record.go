@@ -65,8 +65,6 @@ type Record struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-	//   is documented below.
 	UseClientSubnet pulumi.BoolPtrOutput `pulumi:"useClientSubnet"`
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -141,8 +139,6 @@ type recordState struct {
 	Type *string `pulumi:"type"`
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-	//   is documented below.
 	UseClientSubnet *bool `pulumi:"useClientSubnet"`
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -179,8 +175,6 @@ type RecordState struct {
 	Type pulumi.StringPtrInput
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-	//   is documented below.
 	UseClientSubnet pulumi.BoolPtrInput
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -221,8 +215,6 @@ type recordArgs struct {
 	Type string `pulumi:"type"`
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-	//   is documented below.
 	UseClientSubnet *bool `pulumi:"useClientSubnet"`
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -260,8 +252,6 @@ type RecordArgs struct {
 	Type pulumi.StringInput
 	// Whether to use EDNS client subnet data when
 	// available(in filter chain).
-	// * `  meta ` - (Optional) meta is supported at the `record` level. Meta
-	//   is documented below.
 	UseClientSubnet pulumi.BoolPtrInput
 	// The zone the record belongs to. Cannot have leading or
 	// trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -420,8 +410,6 @@ func (o RecordOutput) Type() pulumi.StringOutput {
 
 // Whether to use EDNS client subnet data when
 // available(in filter chain).
-//   - `  meta ` - (Optional) meta is supported at the `record` level. Meta
-//     is documented below.
 func (o RecordOutput) UseClientSubnet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Record) pulumi.BoolPtrOutput { return v.UseClientSubnet }).(pulumi.BoolPtrOutput)
 }

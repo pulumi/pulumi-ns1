@@ -22,23 +22,13 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * A:
      * 
-     * answer = &#34;1.2.3.4&#34;
-     * 
      * CNAME:
-     * 
-     * answer = &#34;www.example.com&#34;
      * 
      * MX:
      * 
-     * answer = &#34;5 mail.example.com&#34;
-     * 
      * SRV:
      * 
-     * answer = &#34;10 0 2380 node-1.example.com&#34;
-     * 
      * SPF:
-     * 
-     * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
      */
     @Import(name="answer")
@@ -49,23 +39,13 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * A:
      * 
-     * answer = &#34;1.2.3.4&#34;
-     * 
      * CNAME:
-     * 
-     * answer = &#34;www.example.com&#34;
      * 
      * MX:
      * 
-     * answer = &#34;5 mail.example.com&#34;
-     * 
      * SRV:
      * 
-     * answer = &#34;10 0 2380 node-1.example.com&#34;
-     * 
      * SPF:
-     * 
-     * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
      */
     public Optional<Output<String>> answer() {
@@ -85,8 +65,6 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
      * single `region` per answer is currently supported. If you want an answer in
      * multiple regions, duplicating the answer (including metadata) is the correct
      * approach.
-     * * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-     *   is documented below.
      * 
      */
     @Import(name="region")
@@ -98,8 +76,6 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
      * single `region` per answer is currently supported. If you want an answer in
      * multiple regions, duplicating the answer (including metadata) is the correct
      * approach.
-     * * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-     *   is documented below.
      * 
      */
     public Optional<Output<String>> region() {
@@ -137,23 +113,13 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * A:
          * 
-         * answer = &#34;1.2.3.4&#34;
-         * 
          * CNAME:
-         * 
-         * answer = &#34;www.example.com&#34;
          * 
          * MX:
          * 
-         * answer = &#34;5 mail.example.com&#34;
-         * 
          * SRV:
          * 
-         * answer = &#34;10 0 2380 node-1.example.com&#34;
-         * 
          * SPF:
-         * 
-         * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
          * 
          * @return builder
          * 
@@ -168,23 +134,13 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * A:
          * 
-         * answer = &#34;1.2.3.4&#34;
-         * 
          * CNAME:
-         * 
-         * answer = &#34;www.example.com&#34;
          * 
          * MX:
          * 
-         * answer = &#34;5 mail.example.com&#34;
-         * 
          * SRV:
          * 
-         * answer = &#34;10 0 2380 node-1.example.com&#34;
-         * 
          * SPF:
-         * 
-         * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
          * 
          * @return builder
          * 
@@ -208,8 +164,6 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
          * single `region` per answer is currently supported. If you want an answer in
          * multiple regions, duplicating the answer (including metadata) is the correct
          * approach.
-         * * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-         *   is documented below.
          * 
          * @return builder
          * 
@@ -225,8 +179,6 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
          * single `region` per answer is currently supported. If you want an answer in
          * multiple regions, duplicating the answer (including metadata) is the correct
          * approach.
-         * * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
-         *   is documented below.
          * 
          * @return builder
          * 
