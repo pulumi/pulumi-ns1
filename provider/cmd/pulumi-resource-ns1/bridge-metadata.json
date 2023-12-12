@@ -296,6 +296,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "ns1:index/aPIKey:APIKey": "ns1_apikey",
