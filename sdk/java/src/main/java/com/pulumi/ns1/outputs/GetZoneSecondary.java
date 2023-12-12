@@ -113,12 +113,12 @@ public final class GetZoneSecondary {
             return this;
         }
         public GetZoneSecondary build() {
-            final var o = new GetZoneSecondary();
-            o.ip = ip;
-            o.networks = networks;
-            o.notify = notify;
-            o.port = port;
-            return o;
+            final var _resultValue = new GetZoneSecondary();
+            _resultValue.ip = ip;
+            _resultValue.networks = networks;
+            _resultValue.notify = notify;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

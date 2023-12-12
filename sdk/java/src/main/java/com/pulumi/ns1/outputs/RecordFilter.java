@@ -93,11 +93,11 @@ public final class RecordFilter {
             return this;
         }
         public RecordFilter build() {
-            final var o = new RecordFilter();
-            o.config = config;
-            o.disabled = disabled;
-            o.filter = filter;
-            return o;
+            final var _resultValue = new RecordFilter();
+            _resultValue.config = config;
+            _resultValue.disabled = disabled;
+            _resultValue.filter = filter;
+            return _resultValue;
         }
     }
 }

@@ -265,22 +265,22 @@ public final class GetRecordResult {
             return this;
         }
         public GetRecordResult build() {
-            final var o = new GetRecordResult();
-            o.answers = answers;
-            o.domain = domain;
-            o.filters = filters;
-            o.id = id;
-            o.link = link;
-            o.meta = meta;
-            o.overrideTtl = overrideTtl;
-            o.regions = regions;
-            o.shortAnswers = shortAnswers;
-            o.tags = tags;
-            o.ttl = ttl;
-            o.type = type;
-            o.useClientSubnet = useClientSubnet;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetRecordResult();
+            _resultValue.answers = answers;
+            _resultValue.domain = domain;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.link = link;
+            _resultValue.meta = meta;
+            _resultValue.overrideTtl = overrideTtl;
+            _resultValue.regions = regions;
+            _resultValue.shortAnswers = shortAnswers;
+            _resultValue.tags = tags;
+            _resultValue.ttl = ttl;
+            _resultValue.type = type;
+            _resultValue.useClientSubnet = useClientSubnet;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

@@ -72,12 +72,12 @@ public final class APIKeyDnsRecordsAllow {
             return this;
         }
         public APIKeyDnsRecordsAllow build() {
-            final var o = new APIKeyDnsRecordsAllow();
-            o.domain = domain;
-            o.includeSubdomains = includeSubdomains;
-            o.type = type;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new APIKeyDnsRecordsAllow();
+            _resultValue.domain = domain;
+            _resultValue.includeSubdomains = includeSubdomains;
+            _resultValue.type = type;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

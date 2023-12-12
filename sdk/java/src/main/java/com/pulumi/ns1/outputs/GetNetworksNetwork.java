@@ -85,11 +85,11 @@ public final class GetNetworksNetwork {
             return this;
         }
         public GetNetworksNetwork build() {
-            final var o = new GetNetworksNetwork();
-            o.label = label;
-            o.name = name;
-            o.networkId = networkId;
-            return o;
+            final var _resultValue = new GetNetworksNetwork();
+            _resultValue.label = label;
+            _resultValue.name = name;
+            _resultValue.networkId = networkId;
+            return _resultValue;
         }
     }
 }

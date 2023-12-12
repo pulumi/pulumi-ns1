@@ -72,12 +72,12 @@ public final class UserDnsRecordsDeny {
             return this;
         }
         public UserDnsRecordsDeny build() {
-            final var o = new UserDnsRecordsDeny();
-            o.domain = domain;
-            o.includeSubdomains = includeSubdomains;
-            o.type = type;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new UserDnsRecordsDeny();
+            _resultValue.domain = domain;
+            _resultValue.includeSubdomains = includeSubdomains;
+            _resultValue.type = type;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

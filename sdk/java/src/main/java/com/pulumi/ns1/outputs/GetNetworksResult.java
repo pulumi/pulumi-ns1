@@ -72,10 +72,10 @@ public final class GetNetworksResult {
             return networks(List.of(networks));
         }
         public GetNetworksResult build() {
-            final var o = new GetNetworksResult();
-            o.id = id;
-            o.networks = networks;
-            return o;
+            final var _resultValue = new GetNetworksResult();
+            _resultValue.id = id;
+            _resultValue.networks = networks;
+            return _resultValue;
         }
     }
 }

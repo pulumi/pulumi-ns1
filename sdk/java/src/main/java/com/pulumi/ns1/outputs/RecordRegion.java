@@ -60,10 +60,10 @@ public final class RecordRegion {
             return this;
         }
         public RecordRegion build() {
-            final var o = new RecordRegion();
-            o.meta = meta;
-            o.name = name;
-            return o;
+            final var _resultValue = new RecordRegion();
+            _resultValue.meta = meta;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -363,26 +363,26 @@ public final class GetZoneResult {
             return this;
         }
         public GetZoneResult build() {
-            final var o = new GetZoneResult();
-            o.additionalPorts = additionalPorts;
-            o.additionalPrimaries = additionalPrimaries;
-            o.dnsServers = dnsServers;
-            o.dnssec = dnssec;
-            o.expiry = expiry;
-            o.hostmaster = hostmaster;
-            o.id = id;
-            o.link = link;
-            o.networks = networks;
-            o.nxTtl = nxTtl;
-            o.primary = primary;
-            o.primaryPort = primaryPort;
-            o.refresh = refresh;
-            o.retry = retry;
-            o.secondaries = secondaries;
-            o.tags = tags;
-            o.ttl = ttl;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetZoneResult();
+            _resultValue.additionalPorts = additionalPorts;
+            _resultValue.additionalPrimaries = additionalPrimaries;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.dnssec = dnssec;
+            _resultValue.expiry = expiry;
+            _resultValue.hostmaster = hostmaster;
+            _resultValue.id = id;
+            _resultValue.link = link;
+            _resultValue.networks = networks;
+            _resultValue.nxTtl = nxTtl;
+            _resultValue.primary = primary;
+            _resultValue.primaryPort = primaryPort;
+            _resultValue.refresh = refresh;
+            _resultValue.retry = retry;
+            _resultValue.secondaries = secondaries;
+            _resultValue.tags = tags;
+            _resultValue.ttl = ttl;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

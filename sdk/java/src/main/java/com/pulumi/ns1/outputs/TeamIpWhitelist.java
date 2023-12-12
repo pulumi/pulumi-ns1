@@ -61,10 +61,10 @@ public final class TeamIpWhitelist {
             return values(List.of(values));
         }
         public TeamIpWhitelist build() {
-            final var o = new TeamIpWhitelist();
-            o.name = name;
-            o.values = values;
-            return o;
+            final var _resultValue = new TeamIpWhitelist();
+            _resultValue.name = name;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

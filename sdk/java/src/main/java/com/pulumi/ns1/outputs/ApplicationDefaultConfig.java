@@ -146,14 +146,14 @@ public final class ApplicationDefaultConfig {
             return this;
         }
         public ApplicationDefaultConfig build() {
-            final var o = new ApplicationDefaultConfig();
-            o.http = http;
-            o.https = https;
-            o.jobTimeoutMillis = jobTimeoutMillis;
-            o.requestTimeoutMillis = requestTimeoutMillis;
-            o.staticValues = staticValues;
-            o.useXhr = useXhr;
-            return o;
+            final var _resultValue = new ApplicationDefaultConfig();
+            _resultValue.http = http;
+            _resultValue.https = https;
+            _resultValue.jobTimeoutMillis = jobTimeoutMillis;
+            _resultValue.requestTimeoutMillis = requestTimeoutMillis;
+            _resultValue.staticValues = staticValues;
+            _resultValue.useXhr = useXhr;
+            return _resultValue;
         }
     }
 }

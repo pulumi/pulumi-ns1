@@ -119,16 +119,16 @@ public final class PulsarJobConfig {
             return this;
         }
         public PulsarJobConfig build() {
-            final var o = new PulsarJobConfig();
-            o.host = host;
-            o.http = http;
-            o.https = https;
-            o.jobTimeoutMillis = jobTimeoutMillis;
-            o.requestTimeoutMillis = requestTimeoutMillis;
-            o.staticValues = staticValues;
-            o.urlPath = urlPath;
-            o.useXhr = useXhr;
-            return o;
+            final var _resultValue = new PulsarJobConfig();
+            _resultValue.host = host;
+            _resultValue.http = http;
+            _resultValue.https = https;
+            _resultValue.jobTimeoutMillis = jobTimeoutMillis;
+            _resultValue.requestTimeoutMillis = requestTimeoutMillis;
+            _resultValue.staticValues = staticValues;
+            _resultValue.urlPath = urlPath;
+            _resultValue.useXhr = useXhr;
+            return _resultValue;
         }
     }
 }
