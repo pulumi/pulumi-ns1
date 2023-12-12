@@ -72,12 +72,12 @@ public final class TeamDnsRecordsAllow {
             return this;
         }
         public TeamDnsRecordsAllow build() {
-            final var o = new TeamDnsRecordsAllow();
-            o.domain = domain;
-            o.includeSubdomains = includeSubdomains;
-            o.type = type;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new TeamDnsRecordsAllow();
+            _resultValue.domain = domain;
+            _resultValue.includeSubdomains = includeSubdomains;
+            _resultValue.type = type;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

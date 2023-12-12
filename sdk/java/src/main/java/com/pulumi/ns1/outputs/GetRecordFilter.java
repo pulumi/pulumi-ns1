@@ -63,11 +63,11 @@ public final class GetRecordFilter {
             return this;
         }
         public GetRecordFilter build() {
-            final var o = new GetRecordFilter();
-            o.config = config;
-            o.disabled = disabled;
-            o.filter = filter;
-            return o;
+            final var _resultValue = new GetRecordFilter();
+            _resultValue.config = config;
+            _resultValue.disabled = disabled;
+            _resultValue.filter = filter;
+            return _resultValue;
         }
     }
 }

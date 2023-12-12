@@ -76,12 +76,12 @@ public final class PulsarJobWeight {
             return this;
         }
         public PulsarJobWeight build() {
-            final var o = new PulsarJobWeight();
-            o.defaultValue = defaultValue;
-            o.maximize = maximize;
-            o.name = name;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new PulsarJobWeight();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.maximize = maximize;
+            _resultValue.name = name;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

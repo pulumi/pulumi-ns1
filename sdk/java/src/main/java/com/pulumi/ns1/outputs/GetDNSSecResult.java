@@ -106,12 +106,12 @@ public final class GetDNSSecResult {
             return this;
         }
         public GetDNSSecResult build() {
-            final var o = new GetDNSSecResult();
-            o.delegations = delegations;
-            o.id = id;
-            o.keys = keys;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetDNSSecResult();
+            _resultValue.delegations = delegations;
+            _resultValue.id = id;
+            _resultValue.keys = keys;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

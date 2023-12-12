@@ -59,10 +59,10 @@ public final class GetRecordRegion {
             return this;
         }
         public GetRecordRegion build() {
-            final var o = new GetRecordRegion();
-            o.meta = meta;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetRecordRegion();
+            _resultValue.meta = meta;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

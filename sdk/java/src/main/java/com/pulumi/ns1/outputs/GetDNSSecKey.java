@@ -70,10 +70,10 @@ public final class GetDNSSecKey {
             return this;
         }
         public GetDNSSecKey build() {
-            final var o = new GetDNSSecKey();
-            o.dnskeys = dnskeys;
-            o.ttl = ttl;
-            return o;
+            final var _resultValue = new GetDNSSecKey();
+            _resultValue.dnskeys = dnskeys;
+            _resultValue.ttl = ttl;
+            return _resultValue;
         }
     }
 }

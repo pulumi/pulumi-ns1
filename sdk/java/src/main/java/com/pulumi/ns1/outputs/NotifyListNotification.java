@@ -67,10 +67,10 @@ public final class NotifyListNotification {
             return this;
         }
         public NotifyListNotification build() {
-            final var o = new NotifyListNotification();
-            o.config = config;
-            o.type = type;
-            return o;
+            final var _resultValue = new NotifyListNotification();
+            _resultValue.config = config;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

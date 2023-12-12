@@ -72,12 +72,12 @@ public final class UserDnsRecordsAllow {
             return this;
         }
         public UserDnsRecordsAllow build() {
-            final var o = new UserDnsRecordsAllow();
-            o.domain = domain;
-            o.includeSubdomains = includeSubdomains;
-            o.type = type;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new UserDnsRecordsAllow();
+            _resultValue.domain = domain;
+            _resultValue.includeSubdomains = includeSubdomains;
+            _resultValue.type = type;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

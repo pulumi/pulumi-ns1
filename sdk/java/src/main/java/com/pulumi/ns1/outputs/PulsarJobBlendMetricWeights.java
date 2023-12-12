@@ -38,9 +38,9 @@ public final class PulsarJobBlendMetricWeights {
             return this;
         }
         public PulsarJobBlendMetricWeights build() {
-            final var o = new PulsarJobBlendMetricWeights();
-            o.timestamp = timestamp;
-            return o;
+            final var _resultValue = new PulsarJobBlendMetricWeights();
+            _resultValue.timestamp = timestamp;
+            return _resultValue;
         }
     }
 }

@@ -103,12 +103,12 @@ public final class GetDNSSecKeyDnskey {
             return this;
         }
         public GetDNSSecKeyDnskey build() {
-            final var o = new GetDNSSecKeyDnskey();
-            o.algorithm = algorithm;
-            o.flags = flags;
-            o.protocol = protocol;
-            o.publicKey = publicKey;
-            return o;
+            final var _resultValue = new GetDNSSecKeyDnskey();
+            _resultValue.algorithm = algorithm;
+            _resultValue.flags = flags;
+            _resultValue.protocol = protocol;
+            _resultValue.publicKey = publicKey;
+            return _resultValue;
         }
     }
 }

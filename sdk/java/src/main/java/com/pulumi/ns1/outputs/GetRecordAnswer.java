@@ -70,11 +70,11 @@ public final class GetRecordAnswer {
             return this;
         }
         public GetRecordAnswer build() {
-            final var o = new GetRecordAnswer();
-            o.answer = answer;
-            o.meta = meta;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetRecordAnswer();
+            _resultValue.answer = answer;
+            _resultValue.meta = meta;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

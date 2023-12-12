@@ -132,11 +132,11 @@ public final class RecordAnswer {
             return this;
         }
         public RecordAnswer build() {
-            final var o = new RecordAnswer();
-            o.answer = answer;
-            o.meta = meta;
-            o.region = region;
-            return o;
+            final var _resultValue = new RecordAnswer();
+            _resultValue.answer = answer;
+            _resultValue.meta = meta;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

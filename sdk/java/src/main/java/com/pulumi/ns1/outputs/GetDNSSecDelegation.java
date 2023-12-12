@@ -93,11 +93,11 @@ public final class GetDNSSecDelegation {
             return this;
         }
         public GetDNSSecDelegation build() {
-            final var o = new GetDNSSecDelegation();
-            o.dnskeys = dnskeys;
-            o.ds = ds;
-            o.ttl = ttl;
-            return o;
+            final var _resultValue = new GetDNSSecDelegation();
+            _resultValue.dnskeys = dnskeys;
+            _resultValue.ds = ds;
+            _resultValue.ttl = ttl;
+            return _resultValue;
         }
     }
 }

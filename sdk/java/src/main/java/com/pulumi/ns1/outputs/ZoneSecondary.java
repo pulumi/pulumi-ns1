@@ -117,12 +117,12 @@ public final class ZoneSecondary {
             return this;
         }
         public ZoneSecondary build() {
-            final var o = new ZoneSecondary();
-            o.ip = ip;
-            o.networks = networks;
-            o.notify = notify;
-            o.port = port;
-            return o;
+            final var _resultValue = new ZoneSecondary();
+            _resultValue.ip = ip;
+            _resultValue.networks = networks;
+            _resultValue.notify = notify;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }
