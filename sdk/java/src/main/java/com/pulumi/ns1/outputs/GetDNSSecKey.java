@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.outputs.GetDNSSecKeyDnskey;
 import java.lang.Integer;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class GetDNSSecKey {
 
         @CustomType.Setter
         public Builder dnskeys(List<GetDNSSecKeyDnskey> dnskeys) {
-            this.dnskeys = Objects.requireNonNull(dnskeys);
+            if (dnskeys == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecKey", "dnskeys");
+            }
+            this.dnskeys = dnskeys;
             return this;
         }
         public Builder dnskeys(GetDNSSecKeyDnskey... dnskeys) {
@@ -66,7 +70,10 @@ public final class GetDNSSecKey {
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecKey", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         public GetDNSSecKey build() {

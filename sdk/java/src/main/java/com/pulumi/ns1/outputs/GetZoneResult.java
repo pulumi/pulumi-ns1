@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.outputs.GetZoneSecondary;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -262,6 +263,7 @@ public final class GetZoneResult {
 
         @CustomType.Setter
         public Builder additionalPorts(@Nullable List<Integer> additionalPorts) {
+
             this.additionalPorts = additionalPorts;
             return this;
         }
@@ -270,6 +272,7 @@ public final class GetZoneResult {
         }
         @CustomType.Setter
         public Builder additionalPrimaries(@Nullable List<String> additionalPrimaries) {
+
             this.additionalPrimaries = additionalPrimaries;
             return this;
         }
@@ -278,37 +281,58 @@ public final class GetZoneResult {
         }
         @CustomType.Setter
         public Builder dnsServers(String dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         @CustomType.Setter
         public Builder dnssec(Boolean dnssec) {
-            this.dnssec = Objects.requireNonNull(dnssec);
+            if (dnssec == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "dnssec");
+            }
+            this.dnssec = dnssec;
             return this;
         }
         @CustomType.Setter
         public Builder expiry(Integer expiry) {
-            this.expiry = Objects.requireNonNull(expiry);
+            if (expiry == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "expiry");
+            }
+            this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder hostmaster(String hostmaster) {
-            this.hostmaster = Objects.requireNonNull(hostmaster);
+            if (hostmaster == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "hostmaster");
+            }
+            this.hostmaster = hostmaster;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder link(String link) {
-            this.link = Objects.requireNonNull(link);
+            if (link == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "link");
+            }
+            this.link = link;
             return this;
         }
         @CustomType.Setter
         public Builder networks(List<Integer> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(Integer... networks) {
@@ -316,32 +340,48 @@ public final class GetZoneResult {
         }
         @CustomType.Setter
         public Builder nxTtl(Integer nxTtl) {
-            this.nxTtl = Objects.requireNonNull(nxTtl);
+            if (nxTtl == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "nxTtl");
+            }
+            this.nxTtl = nxTtl;
             return this;
         }
         @CustomType.Setter
         public Builder primary(String primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder primaryPort(@Nullable Integer primaryPort) {
+
             this.primaryPort = primaryPort;
             return this;
         }
         @CustomType.Setter
         public Builder refresh(Integer refresh) {
-            this.refresh = Objects.requireNonNull(refresh);
+            if (refresh == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "refresh");
+            }
+            this.refresh = refresh;
             return this;
         }
         @CustomType.Setter
         public Builder retry(Integer retry) {
-            this.retry = Objects.requireNonNull(retry);
+            if (retry == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "retry");
+            }
+            this.retry = retry;
             return this;
         }
         @CustomType.Setter
         public Builder secondaries(List<GetZoneSecondary> secondaries) {
-            this.secondaries = Objects.requireNonNull(secondaries);
+            if (secondaries == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "secondaries");
+            }
+            this.secondaries = secondaries;
             return this;
         }
         public Builder secondaries(GetZoneSecondary... secondaries) {
@@ -349,17 +389,26 @@ public final class GetZoneResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,Object> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetZoneResult build() {

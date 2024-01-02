@@ -5,6 +5,7 @@ package com.pulumi.ns1;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.inputs.RecordAnswerArgs;
 import com.pulumi.ns1.inputs.RecordFilterArgs;
 import com.pulumi.ns1.inputs.RecordRegionArgs;
@@ -588,9 +589,15 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RecordArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.zone = Objects.requireNonNull($.zone, "expected parameter 'zone' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("RecordArgs", "domain");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("RecordArgs", "type");
+            }
+            if ($.zone == null) {
+                throw new MissingRequiredPropertyException("RecordArgs", "zone");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -53,22 +54,34 @@ public final class UserDnsRecordsAllow {
 
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("UserDnsRecordsAllow", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder includeSubdomains(Boolean includeSubdomains) {
-            this.includeSubdomains = Objects.requireNonNull(includeSubdomains);
+            if (includeSubdomains == null) {
+              throw new MissingRequiredPropertyException("UserDnsRecordsAllow", "includeSubdomains");
+            }
+            this.includeSubdomains = includeSubdomains;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("UserDnsRecordsAllow", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("UserDnsRecordsAllow", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public UserDnsRecordsAllow build() {

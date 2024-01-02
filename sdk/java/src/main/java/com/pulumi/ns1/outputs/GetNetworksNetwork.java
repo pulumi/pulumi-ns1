@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetNetworksNetwork {
 
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("GetNetworksNetwork", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworksNetwork", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkId(Integer networkId) {
-            this.networkId = Objects.requireNonNull(networkId);
+            if (networkId == null) {
+              throw new MissingRequiredPropertyException("GetNetworksNetwork", "networkId");
+            }
+            this.networkId = networkId;
             return this;
         }
         public GetNetworksNetwork build() {

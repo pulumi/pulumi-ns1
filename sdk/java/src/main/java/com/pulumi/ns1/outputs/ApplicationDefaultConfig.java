@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -117,31 +118,39 @@ public final class ApplicationDefaultConfig {
 
         @CustomType.Setter
         public Builder http(Boolean http) {
-            this.http = Objects.requireNonNull(http);
+            if (http == null) {
+              throw new MissingRequiredPropertyException("ApplicationDefaultConfig", "http");
+            }
+            this.http = http;
             return this;
         }
         @CustomType.Setter
         public Builder https(@Nullable Boolean https) {
+
             this.https = https;
             return this;
         }
         @CustomType.Setter
         public Builder jobTimeoutMillis(@Nullable Integer jobTimeoutMillis) {
+
             this.jobTimeoutMillis = jobTimeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder requestTimeoutMillis(@Nullable Integer requestTimeoutMillis) {
+
             this.requestTimeoutMillis = requestTimeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder staticValues(@Nullable Boolean staticValues) {
+
             this.staticValues = staticValues;
             return this;
         }
         @CustomType.Setter
         public Builder useXhr(@Nullable Boolean useXhr) {
+
             this.useXhr = useXhr;
             return this;
         }

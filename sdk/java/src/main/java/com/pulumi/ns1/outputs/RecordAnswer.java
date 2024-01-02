@@ -118,16 +118,19 @@ public final class RecordAnswer {
 
         @CustomType.Setter
         public Builder answer(@Nullable String answer) {
+
             this.answer = answer;
             return this;
         }
         @CustomType.Setter
         public Builder meta(@Nullable Map<String,Object> meta) {
+
             this.meta = meta;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }

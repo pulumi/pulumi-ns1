@@ -5,6 +5,7 @@ package com.pulumi.ns1;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class AccountWhitelistArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AccountWhitelistArgs build() {
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("AccountWhitelistArgs", "values");
+            }
             return $;
         }
     }

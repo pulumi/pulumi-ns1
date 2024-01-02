@@ -5,6 +5,7 @@ package com.pulumi.ns1;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.inputs.ZoneSecondaryArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -717,7 +718,9 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ZoneArgs build() {
-            $.zone = Objects.requireNonNull($.zone, "expected parameter 'zone' to be non-null");
+            if ($.zone == null) {
+                throw new MissingRequiredPropertyException("ZoneArgs", "zone");
+            }
             return $;
         }
     }

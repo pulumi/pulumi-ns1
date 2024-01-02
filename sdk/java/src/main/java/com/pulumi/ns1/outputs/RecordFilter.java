@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
@@ -79,17 +80,22 @@ public final class RecordFilter {
 
         @CustomType.Setter
         public Builder config(@Nullable Map<String,Object> config) {
+
             this.config = config;
             return this;
         }
         @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
+
             this.disabled = disabled;
             return this;
         }
         @CustomType.Setter
         public Builder filter(String filter) {
-            this.filter = Objects.requireNonNull(filter);
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("RecordFilter", "filter");
+            }
+            this.filter = filter;
             return this;
         }
         public RecordFilter build() {

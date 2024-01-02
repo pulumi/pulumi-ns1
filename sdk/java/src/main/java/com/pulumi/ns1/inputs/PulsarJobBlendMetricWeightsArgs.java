@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class PulsarJobBlendMetricWeightsArgs extends com.pulumi.resources.
         }
 
         public PulsarJobBlendMetricWeightsArgs build() {
-            $.timestamp = Objects.requireNonNull($.timestamp, "expected parameter 'timestamp' to be non-null");
+            if ($.timestamp == null) {
+                throw new MissingRequiredPropertyException("PulsarJobBlendMetricWeightsArgs", "timestamp");
+            }
             return $;
         }
     }

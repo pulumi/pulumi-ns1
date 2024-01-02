@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.outputs.GetRecordAnswer;
 import com.pulumi.ns1.outputs.GetRecordFilter;
 import com.pulumi.ns1.outputs.GetRecordRegion;
@@ -184,7 +185,10 @@ public final class GetRecordResult {
 
         @CustomType.Setter
         public Builder answers(List<GetRecordAnswer> answers) {
-            this.answers = Objects.requireNonNull(answers);
+            if (answers == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "answers");
+            }
+            this.answers = answers;
             return this;
         }
         public Builder answers(GetRecordAnswer... answers) {
@@ -192,12 +196,18 @@ public final class GetRecordResult {
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder filters(List<GetRecordFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetRecordFilter... filters) {
@@ -205,27 +215,42 @@ public final class GetRecordResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder link(String link) {
-            this.link = Objects.requireNonNull(link);
+            if (link == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "link");
+            }
+            this.link = link;
             return this;
         }
         @CustomType.Setter
         public Builder meta(Map<String,Object> meta) {
-            this.meta = Objects.requireNonNull(meta);
+            if (meta == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "meta");
+            }
+            this.meta = meta;
             return this;
         }
         @CustomType.Setter
         public Builder overrideTtl(Boolean overrideTtl) {
-            this.overrideTtl = Objects.requireNonNull(overrideTtl);
+            if (overrideTtl == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "overrideTtl");
+            }
+            this.overrideTtl = overrideTtl;
             return this;
         }
         @CustomType.Setter
         public Builder regions(List<GetRecordRegion> regions) {
-            this.regions = Objects.requireNonNull(regions);
+            if (regions == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "regions");
+            }
+            this.regions = regions;
             return this;
         }
         public Builder regions(GetRecordRegion... regions) {
@@ -233,7 +258,10 @@ public final class GetRecordResult {
         }
         @CustomType.Setter
         public Builder shortAnswers(List<String> shortAnswers) {
-            this.shortAnswers = Objects.requireNonNull(shortAnswers);
+            if (shortAnswers == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "shortAnswers");
+            }
+            this.shortAnswers = shortAnswers;
             return this;
         }
         public Builder shortAnswers(String... shortAnswers) {
@@ -241,27 +269,42 @@ public final class GetRecordResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,Object> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder useClientSubnet(Boolean useClientSubnet) {
-            this.useClientSubnet = Objects.requireNonNull(useClientSubnet);
+            if (useClientSubnet == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "useClientSubnet");
+            }
+            this.useClientSubnet = useClientSubnet;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetRecordResult build() {
