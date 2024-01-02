@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.outputs.GetDNSSecDelegation;
 import com.pulumi.ns1.outputs.GetDNSSecKey;
 import java.lang.String;
@@ -81,7 +82,10 @@ public final class GetDNSSecResult {
 
         @CustomType.Setter
         public Builder delegations(List<GetDNSSecDelegation> delegations) {
-            this.delegations = Objects.requireNonNull(delegations);
+            if (delegations == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecResult", "delegations");
+            }
+            this.delegations = delegations;
             return this;
         }
         public Builder delegations(GetDNSSecDelegation... delegations) {
@@ -89,12 +93,18 @@ public final class GetDNSSecResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keys(List<GetDNSSecKey> keys) {
-            this.keys = Objects.requireNonNull(keys);
+            if (keys == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecResult", "keys");
+            }
+            this.keys = keys;
             return this;
         }
         public Builder keys(GetDNSSecKey... keys) {
@@ -102,7 +112,10 @@ public final class GetDNSSecResult {
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecResult", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetDNSSecResult build() {

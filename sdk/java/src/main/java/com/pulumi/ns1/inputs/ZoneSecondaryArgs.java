@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -214,7 +215,9 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ZoneSecondaryArgs build() {
-            $.ip = Objects.requireNonNull($.ip, "expected parameter 'ip' to be non-null");
+            if ($.ip == null) {
+                throw new MissingRequiredPropertyException("ZoneSecondaryArgs", "ip");
+            }
             return $;
         }
     }

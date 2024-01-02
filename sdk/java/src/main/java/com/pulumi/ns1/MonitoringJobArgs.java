@@ -5,6 +5,7 @@ package com.pulumi.ns1;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.inputs.MonitoringJobRuleArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -646,10 +647,18 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitoringJobArgs build() {
-            $.config = Objects.requireNonNull($.config, "expected parameter 'config' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.jobType = Objects.requireNonNull($.jobType, "expected parameter 'jobType' to be non-null");
-            $.regions = Objects.requireNonNull($.regions, "expected parameter 'regions' to be non-null");
+            if ($.config == null) {
+                throw new MissingRequiredPropertyException("MonitoringJobArgs", "config");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("MonitoringJobArgs", "frequency");
+            }
+            if ($.jobType == null) {
+                throw new MissingRequiredPropertyException("MonitoringJobArgs", "jobType");
+            }
+            if ($.regions == null) {
+                throw new MissingRequiredPropertyException("MonitoringJobArgs", "regions");
+            }
             return $;
         }
     }

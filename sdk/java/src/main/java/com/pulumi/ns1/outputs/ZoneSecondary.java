@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -95,11 +96,15 @@ public final class ZoneSecondary {
 
         @CustomType.Setter
         public Builder ip(String ip) {
-            this.ip = Objects.requireNonNull(ip);
+            if (ip == null) {
+              throw new MissingRequiredPropertyException("ZoneSecondary", "ip");
+            }
+            this.ip = ip;
             return this;
         }
         @CustomType.Setter
         public Builder networks(@Nullable List<Integer> networks) {
+
             this.networks = networks;
             return this;
         }
@@ -108,11 +113,13 @@ public final class ZoneSecondary {
         }
         @CustomType.Setter("notify")
         public Builder notify_(@Nullable Boolean notify) {
+
             this.notify = notify;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }

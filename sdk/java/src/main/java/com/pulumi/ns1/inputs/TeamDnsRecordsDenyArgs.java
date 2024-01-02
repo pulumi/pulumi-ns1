@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -106,10 +107,18 @@ public final class TeamDnsRecordsDenyArgs extends com.pulumi.resources.ResourceA
         }
 
         public TeamDnsRecordsDenyArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.includeSubdomains = Objects.requireNonNull($.includeSubdomains, "expected parameter 'includeSubdomains' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.zone = Objects.requireNonNull($.zone, "expected parameter 'zone' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("TeamDnsRecordsDenyArgs", "domain");
+            }
+            if ($.includeSubdomains == null) {
+                throw new MissingRequiredPropertyException("TeamDnsRecordsDenyArgs", "includeSubdomains");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TeamDnsRecordsDenyArgs", "type");
+            }
+            if ($.zone == null) {
+                throw new MissingRequiredPropertyException("TeamDnsRecordsDenyArgs", "zone");
+            }
             return $;
         }
     }

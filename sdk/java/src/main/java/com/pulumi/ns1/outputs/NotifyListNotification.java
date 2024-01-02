@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
@@ -58,12 +59,18 @@ public final class NotifyListNotification {
 
         @CustomType.Setter
         public Builder config(Map<String,Object> config) {
-            this.config = Objects.requireNonNull(config);
+            if (config == null) {
+              throw new MissingRequiredPropertyException("NotifyListNotification", "config");
+            }
+            this.config = config;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("NotifyListNotification", "type");
+            }
+            this.type = type;
             return this;
         }
         public NotifyListNotification build() {

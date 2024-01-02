@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.outputs.GetDNSSecDelegationD;
 import com.pulumi.ns1.outputs.GetDNSSecDelegationDnskey;
 import java.lang.Integer;
@@ -73,7 +74,10 @@ public final class GetDNSSecDelegation {
 
         @CustomType.Setter
         public Builder dnskeys(List<GetDNSSecDelegationDnskey> dnskeys) {
-            this.dnskeys = Objects.requireNonNull(dnskeys);
+            if (dnskeys == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecDelegation", "dnskeys");
+            }
+            this.dnskeys = dnskeys;
             return this;
         }
         public Builder dnskeys(GetDNSSecDelegationDnskey... dnskeys) {
@@ -81,7 +85,10 @@ public final class GetDNSSecDelegation {
         }
         @CustomType.Setter
         public Builder ds(List<GetDNSSecDelegationD> ds) {
-            this.ds = Objects.requireNonNull(ds);
+            if (ds == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecDelegation", "ds");
+            }
+            this.ds = ds;
             return this;
         }
         public Builder ds(GetDNSSecDelegationD... ds) {
@@ -89,7 +96,10 @@ public final class GetDNSSecDelegation {
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecDelegation", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         public GetDNSSecDelegation build() {
