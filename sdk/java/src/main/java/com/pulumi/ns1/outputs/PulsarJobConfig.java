@@ -80,41 +80,49 @@ public final class PulsarJobConfig {
 
         @CustomType.Setter
         public Builder host(@Nullable String host) {
+
             this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder http(@Nullable Boolean http) {
+
             this.http = http;
             return this;
         }
         @CustomType.Setter
         public Builder https(@Nullable Boolean https) {
+
             this.https = https;
             return this;
         }
         @CustomType.Setter
         public Builder jobTimeoutMillis(@Nullable Integer jobTimeoutMillis) {
+
             this.jobTimeoutMillis = jobTimeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder requestTimeoutMillis(@Nullable Integer requestTimeoutMillis) {
+
             this.requestTimeoutMillis = requestTimeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder staticValues(@Nullable Boolean staticValues) {
+
             this.staticValues = staticValues;
             return this;
         }
         @CustomType.Setter
         public Builder urlPath(@Nullable String urlPath) {
+
             this.urlPath = urlPath;
             return this;
         }
         @CustomType.Setter
         public Builder useXhr(@Nullable Boolean useXhr) {
+
             this.useXhr = useXhr;
             return this;
         }

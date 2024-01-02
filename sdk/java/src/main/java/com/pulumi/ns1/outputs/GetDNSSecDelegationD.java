@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetDNSSecDelegationD {
 
         @CustomType.Setter
         public Builder algorithm(String algorithm) {
-            this.algorithm = Objects.requireNonNull(algorithm);
+            if (algorithm == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecDelegationD", "algorithm");
+            }
+            this.algorithm = algorithm;
             return this;
         }
         @CustomType.Setter
         public Builder flags(String flags) {
-            this.flags = Objects.requireNonNull(flags);
+            if (flags == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecDelegationD", "flags");
+            }
+            this.flags = flags;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecDelegationD", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder publicKey(String publicKey) {
-            this.publicKey = Objects.requireNonNull(publicKey);
+            if (publicKey == null) {
+              throw new MissingRequiredPropertyException("GetDNSSecDelegationD", "publicKey");
+            }
+            this.publicKey = publicKey;
             return this;
         }
         public GetDNSSecDelegationD build() {

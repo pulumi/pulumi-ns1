@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
@@ -161,7 +162,9 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RecordFilterArgs build() {
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("RecordFilterArgs", "filter");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -168,7 +169,9 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetZoneArgs build() {
-            $.zone = Objects.requireNonNull($.zone, "expected parameter 'zone' to be non-null");
+            if ($.zone == null) {
+                throw new MissingRequiredPropertyException("GetZoneArgs", "zone");
+            }
             return $;
         }
     }

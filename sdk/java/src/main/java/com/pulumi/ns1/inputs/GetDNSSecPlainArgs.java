@@ -4,6 +4,7 @@
 package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetDNSSecPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetDNSSecPlainArgs build() {
-            $.zone = Objects.requireNonNull($.zone, "expected parameter 'zone' to be non-null");
+            if ($.zone == null) {
+                throw new MissingRequiredPropertyException("GetDNSSecPlainArgs", "zone");
+            }
             return $;
         }
     }

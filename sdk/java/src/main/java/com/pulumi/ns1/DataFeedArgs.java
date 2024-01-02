@@ -5,6 +5,7 @@ package com.pulumi.ns1;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
@@ -156,7 +157,9 @@ public final class DataFeedArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataFeedArgs build() {
-            $.sourceId = Objects.requireNonNull($.sourceId, "expected parameter 'sourceId' to be non-null");
+            if ($.sourceId == null) {
+                throw new MissingRequiredPropertyException("DataFeedArgs", "sourceId");
+            }
             return $;
         }
     }

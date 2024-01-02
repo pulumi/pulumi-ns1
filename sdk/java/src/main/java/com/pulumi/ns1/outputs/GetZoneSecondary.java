@@ -4,6 +4,7 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -91,12 +92,18 @@ public final class GetZoneSecondary {
 
         @CustomType.Setter
         public Builder ip(String ip) {
-            this.ip = Objects.requireNonNull(ip);
+            if (ip == null) {
+              throw new MissingRequiredPropertyException("GetZoneSecondary", "ip");
+            }
+            this.ip = ip;
             return this;
         }
         @CustomType.Setter
         public Builder networks(List<Integer> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetZoneSecondary", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(Integer... networks) {
@@ -104,12 +111,18 @@ public final class GetZoneSecondary {
         }
         @CustomType.Setter("notify")
         public Builder notify_(Boolean notify) {
-            this.notify = Objects.requireNonNull(notify);
+            if (notify == null) {
+              throw new MissingRequiredPropertyException("GetZoneSecondary", "notify");
+            }
+            this.notify = notify;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetZoneSecondary", "port");
+            }
+            this.port = port;
             return this;
         }
         public GetZoneSecondary build() {

@@ -5,6 +5,7 @@ package com.pulumi.ns1;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.inputs.PulsarJobBlendMetricWeightsArgs;
 import com.pulumi.ns1.inputs.PulsarJobConfigArgs;
 import com.pulumi.ns1.inputs.PulsarJobWeightArgs;
@@ -184,8 +185,12 @@ public final class PulsarJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PulsarJobArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.typeId = Objects.requireNonNull($.typeId, "expected parameter 'typeId' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("PulsarJobArgs", "appId");
+            }
+            if ($.typeId == null) {
+                throw new MissingRequiredPropertyException("PulsarJobArgs", "typeId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -110,9 +111,15 @@ public final class PulsarJobWeightArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public PulsarJobWeightArgs build() {
-            $.defaultValue = Objects.requireNonNull($.defaultValue, "expected parameter 'defaultValue' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.weight = Objects.requireNonNull($.weight, "expected parameter 'weight' to be non-null");
+            if ($.defaultValue == null) {
+                throw new MissingRequiredPropertyException("PulsarJobWeightArgs", "defaultValue");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PulsarJobWeightArgs", "name");
+            }
+            if ($.weight == null) {
+                throw new MissingRequiredPropertyException("PulsarJobWeightArgs", "weight");
+            }
             return $;
         }
     }
