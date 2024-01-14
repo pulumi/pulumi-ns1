@@ -15,18 +15,21 @@
 package ns1
 
 import (
-	// Allow metadata embedding
-	_ "embed"
 	"fmt"
 	"path/filepath"
 	"unicode"
 
+	// Allow metadata embedding
+	_ "embed"
+
 	"github.com/ns1-terraform/terraform-provider-ns1/ns1"
-	"github.com/pulumi/pulumi-ns1/provider/v3/pkg/version"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-ns1/provider/v3/pkg/version"
 )
 
 // all of the token components used below.
