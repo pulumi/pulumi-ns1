@@ -49,10 +49,10 @@ import * as utilities from "./utilities";
  *  $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
  * ```
  *
- *  So for the example above
+ *  So for the example above:
  *
  * ```sh
- *  $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
+ * $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
  * ```
  */
 export class APIKey extends pulumi.CustomResource {

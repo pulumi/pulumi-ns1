@@ -26,12 +26,10 @@ import (
 //
 // ```
 //
-//	So for the example above
+//	So for the example above:
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
-//
+// $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
 // ```
 type Record struct {
 	pulumi.CustomResourceState
