@@ -81,10 +81,10 @@ import javax.annotation.Nullable;
  *  $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
  * ```
  * 
- *  So for the example above
+ *  So for the example above:
  * 
  * ```sh
- *  $ pulumi import ns1:index/aPIKey:APIKey example &lt;ID&gt;`
+ * $ pulumi import ns1:index/aPIKey:APIKey example &lt;ID&gt;`
  * ```
  * 
  */

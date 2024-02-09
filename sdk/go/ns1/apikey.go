@@ -75,12 +75,10 @@ import (
 //
 // ```
 //
-//	So for the example above
+//	So for the example above:
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/aPIKey:APIKey example <ID>`
-//
+// $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
 // ```
 type APIKey struct {
 	pulumi.CustomResourceState

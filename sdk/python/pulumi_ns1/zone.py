@@ -667,10 +667,10 @@ class Zone(pulumi.CustomResource):
          $ pulumi import ns1:index/zone:Zone <name> <zone>`
         ```
 
-         So for the example above
+         So for the example above:
 
         ```sh
-         $ pulumi import ns1:index/zone:Zone example terraform.example.io`
+        $ pulumi import ns1:index/zone:Zone example terraform.example.io`
         ```
 
         :param str resource_name: The name of the resource.
@@ -715,10 +715,10 @@ class Zone(pulumi.CustomResource):
          $ pulumi import ns1:index/zone:Zone <name> <zone>`
         ```
 
-         So for the example above
+         So for the example above:
 
         ```sh
-         $ pulumi import ns1:index/zone:Zone example terraform.example.io`
+        $ pulumi import ns1:index/zone:Zone example terraform.example.io`
         ```
 
         :param str resource_name: The name of the resource.

@@ -56,12 +56,10 @@ import (
 //
 // ```
 //
-//	So for the example above
+//	So for the example above:
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/application:Application example terraform.example.io`
-//
+// $ pulumi import ns1:index/application:Application example terraform.example.io`
 // ```
 type Application struct {
 	pulumi.CustomResourceState
