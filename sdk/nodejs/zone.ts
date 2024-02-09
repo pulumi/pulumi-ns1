@@ -13,10 +13,10 @@ import * as utilities from "./utilities";
  *  $ pulumi import ns1:index/zone:Zone <name> <zone>`
  * ```
  *
- *  So for the example above
+ *  So for the example above:
  *
  * ```sh
- *  $ pulumi import ns1:index/zone:Zone example terraform.example.io`
+ * $ pulumi import ns1:index/zone:Zone example terraform.example.io`
  * ```
  */
 export class Zone extends pulumi.CustomResource {

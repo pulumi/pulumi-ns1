@@ -1181,10 +1181,10 @@ class APIKey(pulumi.CustomResource):
          $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
         ```
 
-         So for the example above
+         So for the example above:
 
         ```sh
-         $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
+        $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -1275,10 +1275,10 @@ class APIKey(pulumi.CustomResource):
          $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
         ```
 
-         So for the example above
+         So for the example above:
 
         ```sh
-         $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
+        $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
         ```
 
         :param str resource_name: The name of the resource.

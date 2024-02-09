@@ -35,10 +35,10 @@ import javax.annotation.Nullable;
  *  $ pulumi import ns1:index/record:Record &lt;name&gt; &lt;zone&gt;/&lt;domain&gt;/&lt;type&gt;`
  * ```
  * 
- *  So for the example above
+ *  So for the example above:
  * 
  * ```sh
- *  $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+ * $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
  * ```
  * 
  */

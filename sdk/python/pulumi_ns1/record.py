@@ -523,10 +523,10 @@ class Record(pulumi.CustomResource):
          $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
         ```
 
-         So for the example above
+         So for the example above:
 
         ```sh
-         $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+        $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
         ```
 
         :param str resource_name: The name of the resource.
@@ -571,10 +571,10 @@ class Record(pulumi.CustomResource):
          $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
         ```
 
-         So for the example above
+         So for the example above:
 
         ```sh
-         $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
+        $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
         ```
 
         :param str resource_name: The name of the resource.
