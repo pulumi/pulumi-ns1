@@ -27,6 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new pulsar application with default config
 //			_, err := ns1.NewApplication(ctx, "ns1App", &ns1.ApplicationArgs{
 //				DefaultConfig: &ns1.ApplicationDefaultConfigArgs{
 //					Http:                 pulumi.Bool(true),
