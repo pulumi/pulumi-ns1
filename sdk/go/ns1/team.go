@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new NS1 Team
 //			_, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
 //				AccountManageUsers: pulumi.Bool(false),
 //				DnsViewZones:       pulumi.Bool(false),
@@ -51,6 +52,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Another team
 //			_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
 //				DataManageDatasources: pulumi.Bool(true),
 //				DnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{
