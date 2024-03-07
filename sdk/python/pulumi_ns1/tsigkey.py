@@ -135,6 +135,7 @@ class Tsigkey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -143,6 +144,7 @@ class Tsigkey(pulumi.CustomResource):
             algorithm="hmac-sha256",
             secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
         ```
+        <!--End PulumiCodeChooser -->
         ## NS1 Documentation
 
         [TSIG Keys Api Doc](https://ns1.com/api/#tsig)
@@ -150,7 +152,7 @@ class Tsigkey(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
+        $ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -170,6 +172,7 @@ class Tsigkey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -178,6 +181,7 @@ class Tsigkey(pulumi.CustomResource):
             algorithm="hmac-sha256",
             secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
         ```
+        <!--End PulumiCodeChooser -->
         ## NS1 Documentation
 
         [TSIG Keys Api Doc](https://ns1.com/api/#tsig)
@@ -185,7 +189,7 @@ class Tsigkey(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
+        $ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
         ```
 
         :param str resource_name: The name of the resource.

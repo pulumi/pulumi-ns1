@@ -217,6 +217,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -230,6 +231,8 @@ class Application(pulumi.CustomResource):
             static_values=True,
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -237,10 +240,10 @@ class Application(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/application:Application `ns1_application`
+        $ pulumi import ns1:index/application:Application `ns1_application`
         ```
 
-         So for the example above:
+        So for the example above:
 
         ```sh
         $ pulumi import ns1:index/application:Application example terraform.example.io`
@@ -268,6 +271,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -281,6 +285,8 @@ class Application(pulumi.CustomResource):
             static_values=True,
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -288,10 +294,10 @@ class Application(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/application:Application `ns1_application`
+        $ pulumi import ns1:index/application:Application `ns1_application`
         ```
 
-         So for the example above:
+        So for the example above:
 
         ```sh
         $ pulumi import ns1:index/application:Application example terraform.example.io`

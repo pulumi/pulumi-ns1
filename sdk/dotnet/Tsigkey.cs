@@ -14,6 +14,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +31,7 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ## NS1 Documentation
     /// 
     /// [TSIG Keys Api Doc](https://ns1.com/api/#tsig)
@@ -37,7 +39,7 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import ns1:index/tsigkey:Tsigkey importTest &lt;name&gt;`
+    /// $ pulumi import ns1:index/tsigkey:Tsigkey importTest &lt;name&gt;`
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/tsigkey:Tsigkey")]

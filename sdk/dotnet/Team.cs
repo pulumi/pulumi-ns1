@@ -15,6 +15,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +80,8 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## NS1 Documentation
     /// 
     /// [Team Api Docs](https://ns1.com/api#team)
@@ -86,7 +89,7 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import ns1:index/team:Team &lt;name&gt; &lt;team_id&gt;`
+    /// $ pulumi import ns1:index/team:Team &lt;name&gt; &lt;team_id&gt;`
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/team:Team")]

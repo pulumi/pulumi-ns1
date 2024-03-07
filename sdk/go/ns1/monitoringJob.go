@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,6 +63,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## NS1 Documentation
 //
 // [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -69,9 +72,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
-//
+// $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
 // ```
 type MonitoringJob struct {
 	pulumi.CustomResourceState

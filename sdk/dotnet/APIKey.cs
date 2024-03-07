@@ -14,6 +14,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,6 +42,8 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Permissions
     /// 
     /// An API key will inherit permissions from the teams it is assigned to.
@@ -61,10 +64,10 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+    /// $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
     /// ```
     /// 
-    ///  So for the example above:
+    /// So for the example above:
     /// 
     /// ```sh
     /// $ pulumi import ns1:index/aPIKey:APIKey example &lt;ID&gt;`

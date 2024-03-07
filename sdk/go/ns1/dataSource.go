@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## NS1 Documentation
 //
 // [Datasource Api Doc](https://ns1.com/api#data-sources)
@@ -46,9 +49,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
-//
+// $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
 // ```
 type DataSource struct {
 	pulumi.CustomResourceState

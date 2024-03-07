@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -24,6 +25,8 @@ import * as utilities from "./utilities";
  *     staticValues: true,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## NS1 Documentation
  *
  * [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -31,10 +34,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import ns1:index/application:Application `ns1_application`
+ * $ pulumi import ns1:index/application:Application `ns1_application`
  * ```
  *
- *  So for the example above:
+ * So for the example above:
  *
  * ```sh
  * $ pulumi import ns1:index/application:Application example terraform.example.io`

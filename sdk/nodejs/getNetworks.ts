@@ -13,12 +13,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
  * const example = ns1.getNetworks({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworks(opts?: pulumi.InvokeOptions): Promise<GetNetworksResult> {
 
@@ -48,12 +50,14 @@ export interface GetNetworksResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
  * const example = ns1.getNetworks({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
     return pulumi.output(getNetworks(opts))

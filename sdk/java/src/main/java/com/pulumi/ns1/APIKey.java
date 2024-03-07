@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +60,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Permissions
  * 
  * An API key will inherit permissions from the teams it is assigned to.
@@ -78,10 +82,10 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+ * $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
  * ```
  * 
- *  So for the example above:
+ * So for the example above:
  * 
  * ```sh
  * $ pulumi import ns1:index/aPIKey:APIKey example &lt;ID&gt;`

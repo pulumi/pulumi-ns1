@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -52,6 +53,8 @@ import * as utilities from "./utilities";
  *     dnsZonesDenies: ["myother.zone"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## NS1 Documentation
  *
  * [Team Api Docs](https://ns1.com/api#team)
@@ -59,7 +62,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import ns1:index/team:Team <name> <team_id>`
+ * $ pulumi import ns1:index/team:Team <name> <team_id>`
  * ```
  */
 export class Team extends pulumi.CustomResource {

@@ -26,6 +26,8 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -61,6 +63,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDNSSecResult> getDNSSec(GetDNSSecArgs args) {
@@ -70,6 +73,8 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -105,6 +110,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDNSSecResult> getDNSSecPlain(GetDNSSecPlainArgs args) {
@@ -114,6 +120,8 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -149,6 +157,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDNSSecResult> getDNSSec(GetDNSSecArgs args, InvokeOptions options) {
@@ -158,6 +167,8 @@ public final class Ns1Functions {
      * Provides DNSSEC details about a NS1 Zone.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -193,6 +204,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDNSSecResult> getDNSSecPlain(GetDNSSecPlainArgs args, InvokeOptions options) {
@@ -204,6 +216,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -229,6 +243,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworksResult> getNetworks() {
@@ -240,6 +255,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -265,6 +282,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain() {
@@ -276,6 +294,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -301,6 +321,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworksResult> getNetworks(InvokeArgs args) {
@@ -312,6 +333,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -337,6 +360,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain(InvokeArgs args) {
@@ -348,6 +372,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -373,6 +399,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNetworksResult> getNetworks(InvokeArgs args, InvokeOptions options) {
@@ -384,6 +411,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -409,6 +438,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain(InvokeArgs args, InvokeOptions options) {
@@ -420,6 +450,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -450,6 +482,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRecordResult> getRecord(GetRecordArgs args) {
@@ -461,6 +494,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -491,6 +526,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args) {
@@ -502,6 +538,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -532,6 +570,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRecordResult> getRecord(GetRecordArgs args, InvokeOptions options) {
@@ -543,6 +582,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -573,6 +614,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args, InvokeOptions options) {
@@ -584,6 +626,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -612,6 +656,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
@@ -623,6 +668,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -651,6 +698,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
@@ -662,6 +710,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -690,6 +740,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
@@ -701,6 +752,8 @@ public final class Ns1Functions {
      * should use a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -729,6 +782,7 @@ public final class Ns1Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {

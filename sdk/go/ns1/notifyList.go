@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,6 +52,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## NS1 Documentation
 //
 // [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -58,9 +61,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
-//
+// $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
 // ```
 type NotifyList struct {
 	pulumi.CustomResourceState
