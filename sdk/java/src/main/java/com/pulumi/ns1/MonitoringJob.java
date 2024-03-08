@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,6 +75,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## NS1 Documentation
  * 
  * [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -80,7 +84,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/monitoringJob:MonitoringJob &lt;name&gt; &lt;monitoringjob_id&gt;`
+ * $ pulumi import ns1:index/monitoringJob:MonitoringJob &lt;name&gt; &lt;monitoringjob_id&gt;`
  * ```
  * 
  */

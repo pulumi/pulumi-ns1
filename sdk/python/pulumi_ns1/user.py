@@ -1199,6 +1199,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1218,6 +1219,8 @@ class User(pulumi.CustomResource):
                 "billing": False,
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Permissions
 
         A user will inherit permissions from the teams they are assigned to.
@@ -1240,7 +1243,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/user:User <name> <username>`
+        $ pulumi import ns1:index/user:User <name> <username>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -1295,6 +1298,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1314,6 +1318,8 @@ class User(pulumi.CustomResource):
                 "billing": False,
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Permissions
 
         A user will inherit permissions from the teams they are assigned to.
@@ -1336,7 +1342,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/user:User <name> <username>`
+        $ pulumi import ns1:index/user:User <name> <username>`
         ```
 
         :param str resource_name: The name of the resource.

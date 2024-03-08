@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * ## NS1 Documentation
  * 
  * [TSIG Keys Api Doc](https://ns1.com/api/#tsig)
@@ -53,7 +56,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/tsigkey:Tsigkey importTest &lt;name&gt;`
+ * $ pulumi import ns1:index/tsigkey:Tsigkey importTest &lt;name&gt;`
  * ```
  * 
  */

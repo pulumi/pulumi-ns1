@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * This can be used to create, modify, and delete Global IP Whitelists.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,8 +52,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; You current source IP must be present in one of the whitelists to prevent locking yourself out.
+ * 
  * ## NS1 Documentation
  * 
  * [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
@@ -59,7 +63,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example &lt;ID&gt;`
+ * $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example &lt;ID&gt;`
  * ```
  * 
  */

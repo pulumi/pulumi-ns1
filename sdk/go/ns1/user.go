@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,6 +60,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Permissions
 //
 // A user will inherit permissions from the teams they are assigned to.
@@ -81,9 +84,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/user:User <name> <username>`
-//
+// $ pulumi import ns1:index/user:User <name> <username>`
 // ```
 type User struct {
 	pulumi.CustomResourceState

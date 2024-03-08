@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -34,6 +35,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## NS1 Documentation
  *
  * [Datafeed Api Doc](https://ns1.com/api#data-feeds)
@@ -41,7 +44,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
+ * $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
  * ```
  */
 export class DataFeed extends pulumi.CustomResource {

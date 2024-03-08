@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,6 +59,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## NS1 Documentation
  * 
  * [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -64,7 +68,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/notifyList:NotifyList &lt;name&gt; &lt;notifylist_id&gt;`
+ * $ pulumi import ns1:index/notifyList:NotifyList &lt;name&gt; &lt;notifylist_id&gt;`
  * ```
  * 
  */

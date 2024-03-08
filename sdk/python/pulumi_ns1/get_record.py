@@ -194,6 +194,7 @@ def get_record(domain: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -202,6 +203,7 @@ def get_record(domain: Optional[str] = None,
         type="A",
         zone="example.io")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain: The records' domain.
@@ -244,6 +246,7 @@ def get_record_output(domain: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -252,6 +255,7 @@ def get_record_output(domain: Optional[pulumi.Input[str]] = None,
         type="A",
         zone="example.io")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain: The records' domain.

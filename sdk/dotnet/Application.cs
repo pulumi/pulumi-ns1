@@ -14,6 +14,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,6 +38,8 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## NS1 Documentation
     /// 
     /// [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -44,10 +47,10 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import ns1:index/application:Application `ns1_application`
+    /// $ pulumi import ns1:index/application:Application `ns1_application`
     /// ```
     /// 
-    ///  So for the example above:
+    /// So for the example above:
     /// 
     /// ```sh
     /// $ pulumi import ns1:index/application:Application example terraform.example.io`

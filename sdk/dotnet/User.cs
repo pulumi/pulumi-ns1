@@ -16,6 +16,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,6 +52,8 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Permissions
     /// 
     /// A user will inherit permissions from the teams they are assigned to.
@@ -73,7 +76,7 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import ns1:index/user:User &lt;name&gt; &lt;username&gt;`
+    /// $ pulumi import ns1:index/user:User &lt;name&gt; &lt;username&gt;`
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/user:User")]

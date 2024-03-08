@@ -140,6 +140,7 @@ class DataFeed(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -162,6 +163,8 @@ class DataFeed(pulumi.CustomResource):
                 "jobid": ns1_monitoringjob["example_job"]["id"],
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Datafeed Api Doc](https://ns1.com/api#data-feeds)
@@ -169,7 +172,7 @@ class DataFeed(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
+        $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -190,6 +193,7 @@ class DataFeed(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -212,6 +216,8 @@ class DataFeed(pulumi.CustomResource):
                 "jobid": ns1_monitoringjob["example_job"]["id"],
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Datafeed Api Doc](https://ns1.com/api#data-feeds)
@@ -219,7 +225,7 @@ class DataFeed(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
+        $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
         ```
 
         :param str resource_name: The name of the resource.

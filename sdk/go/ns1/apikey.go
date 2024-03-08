@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,6 +51,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Permissions
 //
 // An API key will inherit permissions from the teams it is assigned to.
@@ -70,12 +73,10 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
-//
+// $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
 // ```
 //
-//	So for the example above:
+// So for the example above:
 //
 // ```sh
 // $ pulumi import ns1:index/aPIKey:APIKey example <ID>`

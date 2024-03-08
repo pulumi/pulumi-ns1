@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,6 +81,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## NS1 Documentation
 //
 // [Team Api Docs](https://ns1.com/api#team)
@@ -87,9 +90,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/team:Team <name> <team_id>`
-//
+// $ pulumi import ns1:index/team:Team <name> <team_id>`
 // ```
 type Team struct {
 	pulumi.CustomResourceState

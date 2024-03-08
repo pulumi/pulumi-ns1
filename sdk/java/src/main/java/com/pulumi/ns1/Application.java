@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,6 +58,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## NS1 Documentation
  * 
  * [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -63,10 +67,10 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/application:Application `ns1_application`
+ * $ pulumi import ns1:index/application:Application `ns1_application`
  * ```
  * 
- *  So for the example above:
+ * So for the example above:
  * 
  * ```sh
  * $ pulumi import ns1:index/application:Application example terraform.example.io`

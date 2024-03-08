@@ -513,17 +513,13 @@ class Record(pulumi.CustomResource):
         """
         Provides a NS1 Record resource. This can be used to create, modify, and delete records.
 
-        ## NS1 Documentation
-
-        [Record Api Doc](https://ns1.com/api#records)
-
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
+        $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
         ```
 
-         So for the example above:
+        So for the example above:
 
         ```sh
         $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
@@ -561,17 +557,13 @@ class Record(pulumi.CustomResource):
         """
         Provides a NS1 Record resource. This can be used to create, modify, and delete records.
 
-        ## NS1 Documentation
-
-        [Record Api Doc](https://ns1.com/api#records)
-
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
+        $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
         ```
 
-         So for the example above:
+        So for the example above:
 
         ```sh
         $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`

@@ -1063,6 +1063,7 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1101,6 +1102,8 @@ class Team(pulumi.CustomResource):
             dns_zones_allow_by_default=True,
             dns_zones_denies=["myother.zone"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Team Api Docs](https://ns1.com/api#team)
@@ -1108,7 +1111,7 @@ class Team(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/team:Team <name> <team_id>`
+        $ pulumi import ns1:index/team:Team <name> <team_id>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -1161,6 +1164,7 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1199,6 +1203,8 @@ class Team(pulumi.CustomResource):
             dns_zones_allow_by_default=True,
             dns_zones_denies=["myother.zone"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Team Api Docs](https://ns1.com/api#team)
@@ -1206,7 +1212,7 @@ class Team(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/team:Team <name> <team_id>`
+        $ pulumi import ns1:index/team:Team <name> <team_id>`
         ```
 
         :param str resource_name: The name of the resource.
