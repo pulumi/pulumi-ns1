@@ -25,17 +25,13 @@ import javax.annotation.Nullable;
 /**
  * Provides a NS1 Record resource. This can be used to create, modify, and delete records.
  * 
- * ## NS1 Documentation
- * 
- * [Record Api Doc](https://ns1.com/api#records)
- * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/record:Record &lt;name&gt; &lt;zone&gt;/&lt;domain&gt;/&lt;type&gt;`
+ * $ pulumi import ns1:index/record:Record &lt;name&gt; &lt;zone&gt;/&lt;domain&gt;/&lt;type&gt;`
  * ```
  * 
- *  So for the example above:
+ * So for the example above:
  * 
  * ```sh
  * $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`

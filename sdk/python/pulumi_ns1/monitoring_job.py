@@ -564,6 +564,7 @@ class MonitoringJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -592,6 +593,8 @@ class MonitoringJob(pulumi.CustomResource):
                 value="200 OK",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -599,7 +602,7 @@ class MonitoringJob(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
+        $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -633,6 +636,7 @@ class MonitoringJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -661,6 +665,8 @@ class MonitoringJob(pulumi.CustomResource):
                 value="200 OK",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -668,7 +674,7 @@ class MonitoringJob(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
+        $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
         ```
 
         :param str resource_name: The name of the resource.

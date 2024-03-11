@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -34,6 +35,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Permissions
  *
  * A user will inherit permissions from the teams they are assigned to.
@@ -56,7 +59,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import ns1:index/user:User <name> <username>`
+ * $ pulumi import ns1:index/user:User <name> <username>`
  * ```
  */
 export class User extends pulumi.CustomResource {

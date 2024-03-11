@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -20,8 +21,10 @@ import * as utilities from "./utilities";
  *     "2.2.2.2",
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > You current source IP must be present in one of the whitelists to prevent locking yourself out.
+ *
  * ## NS1 Documentation
  *
  * [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
@@ -29,7 +32,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
+ * $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
  * ```
  */
 export class AccountWhitelist extends pulumi.CustomResource {

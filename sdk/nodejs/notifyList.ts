@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -30,6 +31,8 @@ import * as utilities from "./utilities";
  *     },
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## NS1 Documentation
  *
  * [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -37,7 +40,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
+ * $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
  * ```
  */
 export class NotifyList extends pulumi.CustomResource {

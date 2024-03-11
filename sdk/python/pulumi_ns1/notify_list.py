@@ -106,6 +106,7 @@ class NotifyList(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -125,6 +126,8 @@ class NotifyList(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -132,7 +135,7 @@ class NotifyList(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
+        $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -151,6 +154,7 @@ class NotifyList(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -170,6 +174,8 @@ class NotifyList(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -177,7 +183,7 @@ class NotifyList(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
+        $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
         ```
 
         :param str resource_name: The name of the resource.

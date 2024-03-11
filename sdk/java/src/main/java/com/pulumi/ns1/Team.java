@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * teams. The credentials used must have the `manage_teams` permission set.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,6 +84,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## NS1 Documentation
  * 
  * [Team Api Docs](https://ns1.com/api#team)
@@ -89,7 +93,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/team:Team &lt;name&gt; &lt;team_id&gt;`
+ * $ pulumi import ns1:index/team:Team &lt;name&gt; &lt;team_id&gt;`
  * ```
  * 
  */

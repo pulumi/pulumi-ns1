@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * The credentials used must have the `manage_users` permission set.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,6 +69,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Permissions
  * 
  * A user will inherit permissions from the teams they are assigned to.
@@ -89,7 +93,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/user:User &lt;name&gt; &lt;username&gt;`
+ * $ pulumi import ns1:index/user:User &lt;name&gt; &lt;username&gt;`
  * ```
  * 
  */

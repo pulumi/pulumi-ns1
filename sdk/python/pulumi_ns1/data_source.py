@@ -140,12 +140,15 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
 
         example = ns1.DataSource("example", sourcetype="nsone_v1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Datasource Api Doc](https://ns1.com/api#data-sources)
@@ -153,7 +156,7 @@ class DataSource(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
+        $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -174,12 +177,15 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
 
         example = ns1.DataSource("example", sourcetype="nsone_v1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## NS1 Documentation
 
         [Datasource Api Doc](https://ns1.com/api#data-sources)
@@ -187,7 +193,7 @@ class DataSource(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
+        $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
         ```
 
         :param str resource_name: The name of the resource.

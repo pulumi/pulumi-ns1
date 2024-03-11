@@ -1144,6 +1144,7 @@ class APIKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1158,6 +1159,8 @@ class APIKey(pulumi.CustomResource):
             dns_view_zones=False,
             account_manage_users=False)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Permissions
 
         An API key will inherit permissions from the teams it is assigned to.
@@ -1178,10 +1181,10 @@ class APIKey(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+        $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
         ```
 
-         So for the example above:
+        So for the example above:
 
         ```sh
         $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
@@ -1238,6 +1241,7 @@ class APIKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1252,6 +1256,8 @@ class APIKey(pulumi.CustomResource):
             dns_view_zones=False,
             account_manage_users=False)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Permissions
 
         An API key will inherit permissions from the teams it is assigned to.
@@ -1272,10 +1278,10 @@ class APIKey(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
+        $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
         ```
 
-         So for the example above:
+        So for the example above:
 
         ```sh
         $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
