@@ -105,6 +105,7 @@ class AccountWhitelist(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -114,8 +115,10 @@ class AccountWhitelist(pulumi.CustomResource):
             "2.2.2.2",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > You current source IP must be present in one of the whitelists to prevent locking yourself out.
+
         ## NS1 Documentation
 
         [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
@@ -123,7 +126,7 @@ class AccountWhitelist(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
+        $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
         ```
 
         :param str resource_name: The name of the resource.
@@ -144,6 +147,7 @@ class AccountWhitelist(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -153,8 +157,10 @@ class AccountWhitelist(pulumi.CustomResource):
             "2.2.2.2",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > You current source IP must be present in one of the whitelists to prevent locking yourself out.
+
         ## NS1 Documentation
 
         [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
@@ -162,7 +168,7 @@ class AccountWhitelist(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
+        $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
         ```
 
         :param str resource_name: The name of the resource.

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +45,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > You current source IP must be present in one of the whitelists to prevent locking yourself out.
+//
 // ## NS1 Documentation
 //
 // [Global IP Whitelist Doc](https://ns1.com/api?docId=2282)
@@ -53,9 +56,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
-//
+// $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
 // ```
 type AccountWhitelist struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,8 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## NS1 Documentation
     /// 
     /// [NotifyList Api Doc](https://ns1.com/api#notification-lists)
@@ -54,7 +57,7 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import ns1:index/notifyList:NotifyList &lt;name&gt; &lt;notifylist_id&gt;`
+    /// $ pulumi import ns1:index/notifyList:NotifyList &lt;name&gt; &lt;notifylist_id&gt;`
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/notifyList:NotifyList")]

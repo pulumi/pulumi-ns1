@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a NS1 Data Feed resource. This can be used to create, modify, and delete data feeds.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,6 +71,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## NS1 Documentation
  * 
  * [Datafeed Api Doc](https://ns1.com/api#data-feeds)
@@ -76,7 +80,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- *  $ pulumi import ns1:index/dataFeed:DataFeed &lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
+ * $ pulumi import ns1:index/dataFeed:DataFeed &lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
  * ```
  * 
  */

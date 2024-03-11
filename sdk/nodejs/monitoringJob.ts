@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -40,6 +41,8 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## NS1 Documentation
  *
  * [MonitoringJob Api Doc](https://ns1.com/api#monitoring-jobs)
@@ -47,7 +50,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
+ * $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
  * ```
  */
 export class MonitoringJob extends pulumi.CustomResource {

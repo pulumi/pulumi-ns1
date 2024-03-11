@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## NS1 Documentation
 //
 // [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
@@ -52,12 +55,10 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import ns1:index/application:Application `ns1_application`
-//
+// $ pulumi import ns1:index/application:Application `ns1_application`
 // ```
 //
-//	So for the example above:
+// So for the example above:
 //
 // ```sh
 // $ pulumi import ns1:index/application:Application example terraform.example.io`

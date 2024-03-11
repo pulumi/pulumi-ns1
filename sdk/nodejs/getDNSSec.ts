@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -24,6 +25,7 @@ import * as utilities from "./utilities";
  *     zone: exampleZone.zone,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDNSSec(args: GetDNSSecArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSecResult> {
 
@@ -67,6 +69,7 @@ export interface GetDNSSecResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -80,6 +83,7 @@ export interface GetDNSSecResult {
  *     zone: exampleZone.zone,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDNSSecOutput(args: GetDNSSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSecResult> {
     return pulumi.output(args).apply((a: any) => getDNSSec(a, opts))

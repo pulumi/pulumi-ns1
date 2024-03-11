@@ -14,6 +14,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,6 +30,8 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## NS1 Documentation
     /// 
     /// [Datasource Api Doc](https://ns1.com/api#data-sources)
@@ -36,7 +39,7 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import ns1:index/dataSource:DataSource &lt;name&gt; &lt;datasource_id&gt;`
+    /// $ pulumi import ns1:index/dataSource:DataSource &lt;name&gt; &lt;datasource_id&gt;`
     /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/dataSource:DataSource")]
