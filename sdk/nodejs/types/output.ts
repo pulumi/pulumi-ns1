@@ -47,6 +47,33 @@ export interface ApplicationDefaultConfig {
     useXhr?: boolean;
 }
 
+export interface DatasetDatatype {
+    data: {[key: string]: any};
+    scope: string;
+    type: string;
+}
+
+export interface DatasetRepeat {
+    endAfterN: number;
+    repeatsEvery: string;
+    start: number;
+}
+
+export interface DatasetReport {
+    createdAt: number;
+    end: number;
+    id: string;
+    start: number;
+    status: string;
+}
+
+export interface DatasetTimeframe {
+    aggregation: string;
+    cycles?: number;
+    from?: number;
+    to?: number;
+}
+
 export interface GetDNSSecDelegation {
     /**
      * (Computed) List of Keys. Key is documented below.
@@ -128,6 +155,21 @@ export interface GetDNSSecKeyDnskey {
      * (Computed) Public key for the key.
      */
     publicKey: string;
+}
+
+export interface GetMonitoringRegionsRegion {
+    /**
+     * 3-letter city code identifying the location of the monitor.
+     */
+    code?: string;
+    /**
+     * City name identifying the location of the monitor.
+     */
+    name?: string;
+    /**
+     * A list of IPv4 and IPv6 subnets the monitor sources requests from.
+     */
+    subnets?: string[];
 }
 
 export interface GetNetworksNetwork {

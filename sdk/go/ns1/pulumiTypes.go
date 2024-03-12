@@ -473,6 +473,628 @@ func (o ApplicationDefaultConfigPtrOutput) UseXhr() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DatasetDatatype struct {
+	Data  map[string]interface{} `pulumi:"data"`
+	Scope string                 `pulumi:"scope"`
+	Type  string                 `pulumi:"type"`
+}
+
+// DatasetDatatypeInput is an input type that accepts DatasetDatatypeArgs and DatasetDatatypeOutput values.
+// You can construct a concrete instance of `DatasetDatatypeInput` via:
+//
+//	DatasetDatatypeArgs{...}
+type DatasetDatatypeInput interface {
+	pulumi.Input
+
+	ToDatasetDatatypeOutput() DatasetDatatypeOutput
+	ToDatasetDatatypeOutputWithContext(context.Context) DatasetDatatypeOutput
+}
+
+type DatasetDatatypeArgs struct {
+	Data  pulumi.MapInput    `pulumi:"data"`
+	Scope pulumi.StringInput `pulumi:"scope"`
+	Type  pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatasetDatatypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatatype)(nil)).Elem()
+}
+
+func (i DatasetDatatypeArgs) ToDatasetDatatypeOutput() DatasetDatatypeOutput {
+	return i.ToDatasetDatatypeOutputWithContext(context.Background())
+}
+
+func (i DatasetDatatypeArgs) ToDatasetDatatypeOutputWithContext(ctx context.Context) DatasetDatatypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatatypeOutput)
+}
+
+func (i DatasetDatatypeArgs) ToDatasetDatatypePtrOutput() DatasetDatatypePtrOutput {
+	return i.ToDatasetDatatypePtrOutputWithContext(context.Background())
+}
+
+func (i DatasetDatatypeArgs) ToDatasetDatatypePtrOutputWithContext(ctx context.Context) DatasetDatatypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatatypeOutput).ToDatasetDatatypePtrOutputWithContext(ctx)
+}
+
+// DatasetDatatypePtrInput is an input type that accepts DatasetDatatypeArgs, DatasetDatatypePtr and DatasetDatatypePtrOutput values.
+// You can construct a concrete instance of `DatasetDatatypePtrInput` via:
+//
+//	        DatasetDatatypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetDatatypePtrInput interface {
+	pulumi.Input
+
+	ToDatasetDatatypePtrOutput() DatasetDatatypePtrOutput
+	ToDatasetDatatypePtrOutputWithContext(context.Context) DatasetDatatypePtrOutput
+}
+
+type datasetDatatypePtrType DatasetDatatypeArgs
+
+func DatasetDatatypePtr(v *DatasetDatatypeArgs) DatasetDatatypePtrInput {
+	return (*datasetDatatypePtrType)(v)
+}
+
+func (*datasetDatatypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDatatype)(nil)).Elem()
+}
+
+func (i *datasetDatatypePtrType) ToDatasetDatatypePtrOutput() DatasetDatatypePtrOutput {
+	return i.ToDatasetDatatypePtrOutputWithContext(context.Background())
+}
+
+func (i *datasetDatatypePtrType) ToDatasetDatatypePtrOutputWithContext(ctx context.Context) DatasetDatatypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatatypePtrOutput)
+}
+
+type DatasetDatatypeOutput struct{ *pulumi.OutputState }
+
+func (DatasetDatatypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDatatype)(nil)).Elem()
+}
+
+func (o DatasetDatatypeOutput) ToDatasetDatatypeOutput() DatasetDatatypeOutput {
+	return o
+}
+
+func (o DatasetDatatypeOutput) ToDatasetDatatypeOutputWithContext(ctx context.Context) DatasetDatatypeOutput {
+	return o
+}
+
+func (o DatasetDatatypeOutput) ToDatasetDatatypePtrOutput() DatasetDatatypePtrOutput {
+	return o.ToDatasetDatatypePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetDatatypeOutput) ToDatasetDatatypePtrOutputWithContext(ctx context.Context) DatasetDatatypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDatatype) *DatasetDatatype {
+		return &v
+	}).(DatasetDatatypePtrOutput)
+}
+
+func (o DatasetDatatypeOutput) Data() pulumi.MapOutput {
+	return o.ApplyT(func(v DatasetDatatype) map[string]interface{} { return v.Data }).(pulumi.MapOutput)
+}
+
+func (o DatasetDatatypeOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDatatype) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+func (o DatasetDatatypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDatatype) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DatasetDatatypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetDatatypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDatatype)(nil)).Elem()
+}
+
+func (o DatasetDatatypePtrOutput) ToDatasetDatatypePtrOutput() DatasetDatatypePtrOutput {
+	return o
+}
+
+func (o DatasetDatatypePtrOutput) ToDatasetDatatypePtrOutputWithContext(ctx context.Context) DatasetDatatypePtrOutput {
+	return o
+}
+
+func (o DatasetDatatypePtrOutput) Elem() DatasetDatatypeOutput {
+	return o.ApplyT(func(v *DatasetDatatype) DatasetDatatype {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetDatatype
+		return ret
+	}).(DatasetDatatypeOutput)
+}
+
+func (o DatasetDatatypePtrOutput) Data() pulumi.MapOutput {
+	return o.ApplyT(func(v *DatasetDatatype) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(pulumi.MapOutput)
+}
+
+func (o DatasetDatatypePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatatype) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasetDatatypePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDatatype) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetRepeat struct {
+	EndAfterN    int    `pulumi:"endAfterN"`
+	RepeatsEvery string `pulumi:"repeatsEvery"`
+	Start        int    `pulumi:"start"`
+}
+
+// DatasetRepeatInput is an input type that accepts DatasetRepeatArgs and DatasetRepeatOutput values.
+// You can construct a concrete instance of `DatasetRepeatInput` via:
+//
+//	DatasetRepeatArgs{...}
+type DatasetRepeatInput interface {
+	pulumi.Input
+
+	ToDatasetRepeatOutput() DatasetRepeatOutput
+	ToDatasetRepeatOutputWithContext(context.Context) DatasetRepeatOutput
+}
+
+type DatasetRepeatArgs struct {
+	EndAfterN    pulumi.IntInput    `pulumi:"endAfterN"`
+	RepeatsEvery pulumi.StringInput `pulumi:"repeatsEvery"`
+	Start        pulumi.IntInput    `pulumi:"start"`
+}
+
+func (DatasetRepeatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetRepeat)(nil)).Elem()
+}
+
+func (i DatasetRepeatArgs) ToDatasetRepeatOutput() DatasetRepeatOutput {
+	return i.ToDatasetRepeatOutputWithContext(context.Background())
+}
+
+func (i DatasetRepeatArgs) ToDatasetRepeatOutputWithContext(ctx context.Context) DatasetRepeatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetRepeatOutput)
+}
+
+func (i DatasetRepeatArgs) ToDatasetRepeatPtrOutput() DatasetRepeatPtrOutput {
+	return i.ToDatasetRepeatPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetRepeatArgs) ToDatasetRepeatPtrOutputWithContext(ctx context.Context) DatasetRepeatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetRepeatOutput).ToDatasetRepeatPtrOutputWithContext(ctx)
+}
+
+// DatasetRepeatPtrInput is an input type that accepts DatasetRepeatArgs, DatasetRepeatPtr and DatasetRepeatPtrOutput values.
+// You can construct a concrete instance of `DatasetRepeatPtrInput` via:
+//
+//	        DatasetRepeatArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetRepeatPtrInput interface {
+	pulumi.Input
+
+	ToDatasetRepeatPtrOutput() DatasetRepeatPtrOutput
+	ToDatasetRepeatPtrOutputWithContext(context.Context) DatasetRepeatPtrOutput
+}
+
+type datasetRepeatPtrType DatasetRepeatArgs
+
+func DatasetRepeatPtr(v *DatasetRepeatArgs) DatasetRepeatPtrInput {
+	return (*datasetRepeatPtrType)(v)
+}
+
+func (*datasetRepeatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetRepeat)(nil)).Elem()
+}
+
+func (i *datasetRepeatPtrType) ToDatasetRepeatPtrOutput() DatasetRepeatPtrOutput {
+	return i.ToDatasetRepeatPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetRepeatPtrType) ToDatasetRepeatPtrOutputWithContext(ctx context.Context) DatasetRepeatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetRepeatPtrOutput)
+}
+
+type DatasetRepeatOutput struct{ *pulumi.OutputState }
+
+func (DatasetRepeatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetRepeat)(nil)).Elem()
+}
+
+func (o DatasetRepeatOutput) ToDatasetRepeatOutput() DatasetRepeatOutput {
+	return o
+}
+
+func (o DatasetRepeatOutput) ToDatasetRepeatOutputWithContext(ctx context.Context) DatasetRepeatOutput {
+	return o
+}
+
+func (o DatasetRepeatOutput) ToDatasetRepeatPtrOutput() DatasetRepeatPtrOutput {
+	return o.ToDatasetRepeatPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetRepeatOutput) ToDatasetRepeatPtrOutputWithContext(ctx context.Context) DatasetRepeatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetRepeat) *DatasetRepeat {
+		return &v
+	}).(DatasetRepeatPtrOutput)
+}
+
+func (o DatasetRepeatOutput) EndAfterN() pulumi.IntOutput {
+	return o.ApplyT(func(v DatasetRepeat) int { return v.EndAfterN }).(pulumi.IntOutput)
+}
+
+func (o DatasetRepeatOutput) RepeatsEvery() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetRepeat) string { return v.RepeatsEvery }).(pulumi.StringOutput)
+}
+
+func (o DatasetRepeatOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v DatasetRepeat) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type DatasetRepeatPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetRepeatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetRepeat)(nil)).Elem()
+}
+
+func (o DatasetRepeatPtrOutput) ToDatasetRepeatPtrOutput() DatasetRepeatPtrOutput {
+	return o
+}
+
+func (o DatasetRepeatPtrOutput) ToDatasetRepeatPtrOutputWithContext(ctx context.Context) DatasetRepeatPtrOutput {
+	return o
+}
+
+func (o DatasetRepeatPtrOutput) Elem() DatasetRepeatOutput {
+	return o.ApplyT(func(v *DatasetRepeat) DatasetRepeat {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetRepeat
+		return ret
+	}).(DatasetRepeatOutput)
+}
+
+func (o DatasetRepeatPtrOutput) EndAfterN() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatasetRepeat) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EndAfterN
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetRepeatPtrOutput) RepeatsEvery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetRepeat) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepeatsEvery
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasetRepeatPtrOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatasetRepeat) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.IntPtrOutput)
+}
+
+type DatasetReport struct {
+	CreatedAt *int    `pulumi:"createdAt"`
+	End       *int    `pulumi:"end"`
+	Id        *string `pulumi:"id"`
+	Start     *int    `pulumi:"start"`
+	Status    *string `pulumi:"status"`
+}
+
+// DatasetReportInput is an input type that accepts DatasetReportArgs and DatasetReportOutput values.
+// You can construct a concrete instance of `DatasetReportInput` via:
+//
+//	DatasetReportArgs{...}
+type DatasetReportInput interface {
+	pulumi.Input
+
+	ToDatasetReportOutput() DatasetReportOutput
+	ToDatasetReportOutputWithContext(context.Context) DatasetReportOutput
+}
+
+type DatasetReportArgs struct {
+	CreatedAt pulumi.IntPtrInput    `pulumi:"createdAt"`
+	End       pulumi.IntPtrInput    `pulumi:"end"`
+	Id        pulumi.StringPtrInput `pulumi:"id"`
+	Start     pulumi.IntPtrInput    `pulumi:"start"`
+	Status    pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DatasetReportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetReport)(nil)).Elem()
+}
+
+func (i DatasetReportArgs) ToDatasetReportOutput() DatasetReportOutput {
+	return i.ToDatasetReportOutputWithContext(context.Background())
+}
+
+func (i DatasetReportArgs) ToDatasetReportOutputWithContext(ctx context.Context) DatasetReportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetReportOutput)
+}
+
+// DatasetReportArrayInput is an input type that accepts DatasetReportArray and DatasetReportArrayOutput values.
+// You can construct a concrete instance of `DatasetReportArrayInput` via:
+//
+//	DatasetReportArray{ DatasetReportArgs{...} }
+type DatasetReportArrayInput interface {
+	pulumi.Input
+
+	ToDatasetReportArrayOutput() DatasetReportArrayOutput
+	ToDatasetReportArrayOutputWithContext(context.Context) DatasetReportArrayOutput
+}
+
+type DatasetReportArray []DatasetReportInput
+
+func (DatasetReportArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetReport)(nil)).Elem()
+}
+
+func (i DatasetReportArray) ToDatasetReportArrayOutput() DatasetReportArrayOutput {
+	return i.ToDatasetReportArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetReportArray) ToDatasetReportArrayOutputWithContext(ctx context.Context) DatasetReportArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetReportArrayOutput)
+}
+
+type DatasetReportOutput struct{ *pulumi.OutputState }
+
+func (DatasetReportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetReport)(nil)).Elem()
+}
+
+func (o DatasetReportOutput) ToDatasetReportOutput() DatasetReportOutput {
+	return o
+}
+
+func (o DatasetReportOutput) ToDatasetReportOutputWithContext(ctx context.Context) DatasetReportOutput {
+	return o
+}
+
+func (o DatasetReportOutput) CreatedAt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetReport) *int { return v.CreatedAt }).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetReportOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetReport) *int { return v.End }).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetReportOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetReport) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasetReportOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetReport) *int { return v.Start }).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetReportOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetReport) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DatasetReportArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetReportArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetReport)(nil)).Elem()
+}
+
+func (o DatasetReportArrayOutput) ToDatasetReportArrayOutput() DatasetReportArrayOutput {
+	return o
+}
+
+func (o DatasetReportArrayOutput) ToDatasetReportArrayOutputWithContext(ctx context.Context) DatasetReportArrayOutput {
+	return o
+}
+
+func (o DatasetReportArrayOutput) Index(i pulumi.IntInput) DatasetReportOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetReport {
+		return vs[0].([]DatasetReport)[vs[1].(int)]
+	}).(DatasetReportOutput)
+}
+
+type DatasetTimeframe struct {
+	Aggregation string `pulumi:"aggregation"`
+	Cycles      *int   `pulumi:"cycles"`
+	From        *int   `pulumi:"from"`
+	To          *int   `pulumi:"to"`
+}
+
+// DatasetTimeframeInput is an input type that accepts DatasetTimeframeArgs and DatasetTimeframeOutput values.
+// You can construct a concrete instance of `DatasetTimeframeInput` via:
+//
+//	DatasetTimeframeArgs{...}
+type DatasetTimeframeInput interface {
+	pulumi.Input
+
+	ToDatasetTimeframeOutput() DatasetTimeframeOutput
+	ToDatasetTimeframeOutputWithContext(context.Context) DatasetTimeframeOutput
+}
+
+type DatasetTimeframeArgs struct {
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	Cycles      pulumi.IntPtrInput `pulumi:"cycles"`
+	From        pulumi.IntPtrInput `pulumi:"from"`
+	To          pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (DatasetTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetTimeframe)(nil)).Elem()
+}
+
+func (i DatasetTimeframeArgs) ToDatasetTimeframeOutput() DatasetTimeframeOutput {
+	return i.ToDatasetTimeframeOutputWithContext(context.Background())
+}
+
+func (i DatasetTimeframeArgs) ToDatasetTimeframeOutputWithContext(ctx context.Context) DatasetTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetTimeframeOutput)
+}
+
+func (i DatasetTimeframeArgs) ToDatasetTimeframePtrOutput() DatasetTimeframePtrOutput {
+	return i.ToDatasetTimeframePtrOutputWithContext(context.Background())
+}
+
+func (i DatasetTimeframeArgs) ToDatasetTimeframePtrOutputWithContext(ctx context.Context) DatasetTimeframePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetTimeframeOutput).ToDatasetTimeframePtrOutputWithContext(ctx)
+}
+
+// DatasetTimeframePtrInput is an input type that accepts DatasetTimeframeArgs, DatasetTimeframePtr and DatasetTimeframePtrOutput values.
+// You can construct a concrete instance of `DatasetTimeframePtrInput` via:
+//
+//	        DatasetTimeframeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetTimeframePtrInput interface {
+	pulumi.Input
+
+	ToDatasetTimeframePtrOutput() DatasetTimeframePtrOutput
+	ToDatasetTimeframePtrOutputWithContext(context.Context) DatasetTimeframePtrOutput
+}
+
+type datasetTimeframePtrType DatasetTimeframeArgs
+
+func DatasetTimeframePtr(v *DatasetTimeframeArgs) DatasetTimeframePtrInput {
+	return (*datasetTimeframePtrType)(v)
+}
+
+func (*datasetTimeframePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetTimeframe)(nil)).Elem()
+}
+
+func (i *datasetTimeframePtrType) ToDatasetTimeframePtrOutput() DatasetTimeframePtrOutput {
+	return i.ToDatasetTimeframePtrOutputWithContext(context.Background())
+}
+
+func (i *datasetTimeframePtrType) ToDatasetTimeframePtrOutputWithContext(ctx context.Context) DatasetTimeframePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetTimeframePtrOutput)
+}
+
+type DatasetTimeframeOutput struct{ *pulumi.OutputState }
+
+func (DatasetTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetTimeframe)(nil)).Elem()
+}
+
+func (o DatasetTimeframeOutput) ToDatasetTimeframeOutput() DatasetTimeframeOutput {
+	return o
+}
+
+func (o DatasetTimeframeOutput) ToDatasetTimeframeOutputWithContext(ctx context.Context) DatasetTimeframeOutput {
+	return o
+}
+
+func (o DatasetTimeframeOutput) ToDatasetTimeframePtrOutput() DatasetTimeframePtrOutput {
+	return o.ToDatasetTimeframePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetTimeframeOutput) ToDatasetTimeframePtrOutputWithContext(ctx context.Context) DatasetTimeframePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetTimeframe) *DatasetTimeframe {
+		return &v
+	}).(DatasetTimeframePtrOutput)
+}
+
+func (o DatasetTimeframeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetTimeframe) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+func (o DatasetTimeframeOutput) Cycles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetTimeframe) *int { return v.Cycles }).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetTimeframeOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetTimeframe) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetTimeframeOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatasetTimeframe) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type DatasetTimeframePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetTimeframePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetTimeframe)(nil)).Elem()
+}
+
+func (o DatasetTimeframePtrOutput) ToDatasetTimeframePtrOutput() DatasetTimeframePtrOutput {
+	return o
+}
+
+func (o DatasetTimeframePtrOutput) ToDatasetTimeframePtrOutputWithContext(ctx context.Context) DatasetTimeframePtrOutput {
+	return o
+}
+
+func (o DatasetTimeframePtrOutput) Elem() DatasetTimeframeOutput {
+	return o.ApplyT(func(v *DatasetTimeframe) DatasetTimeframe {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetTimeframe
+		return ret
+	}).(DatasetTimeframeOutput)
+}
+
+func (o DatasetTimeframePtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetTimeframe) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasetTimeframePtrOutput) Cycles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatasetTimeframe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Cycles
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetTimeframePtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatasetTimeframe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DatasetTimeframePtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatasetTimeframe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.IntPtrOutput)
+}
+
 type MonitoringJobRule struct {
 	Comparison string `pulumi:"comparison"`
 	Key        string `pulumi:"key"`
@@ -2859,6 +3481,121 @@ func (o GetDNSSecKeyDnskeyArrayOutput) Index(i pulumi.IntInput) GetDNSSecKeyDnsk
 	}).(GetDNSSecKeyDnskeyOutput)
 }
 
+type GetMonitoringRegionsRegion struct {
+	// 3-letter city code identifying the location of the monitor.
+	Code *string `pulumi:"code"`
+	// City name identifying the location of the monitor.
+	Name *string `pulumi:"name"`
+	// A list of IPv4 and IPv6 subnets the monitor sources requests from.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// GetMonitoringRegionsRegionInput is an input type that accepts GetMonitoringRegionsRegionArgs and GetMonitoringRegionsRegionOutput values.
+// You can construct a concrete instance of `GetMonitoringRegionsRegionInput` via:
+//
+//	GetMonitoringRegionsRegionArgs{...}
+type GetMonitoringRegionsRegionInput interface {
+	pulumi.Input
+
+	ToGetMonitoringRegionsRegionOutput() GetMonitoringRegionsRegionOutput
+	ToGetMonitoringRegionsRegionOutputWithContext(context.Context) GetMonitoringRegionsRegionOutput
+}
+
+type GetMonitoringRegionsRegionArgs struct {
+	// 3-letter city code identifying the location of the monitor.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// City name identifying the location of the monitor.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A list of IPv4 and IPv6 subnets the monitor sources requests from.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (GetMonitoringRegionsRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitoringRegionsRegion)(nil)).Elem()
+}
+
+func (i GetMonitoringRegionsRegionArgs) ToGetMonitoringRegionsRegionOutput() GetMonitoringRegionsRegionOutput {
+	return i.ToGetMonitoringRegionsRegionOutputWithContext(context.Background())
+}
+
+func (i GetMonitoringRegionsRegionArgs) ToGetMonitoringRegionsRegionOutputWithContext(ctx context.Context) GetMonitoringRegionsRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitoringRegionsRegionOutput)
+}
+
+// GetMonitoringRegionsRegionArrayInput is an input type that accepts GetMonitoringRegionsRegionArray and GetMonitoringRegionsRegionArrayOutput values.
+// You can construct a concrete instance of `GetMonitoringRegionsRegionArrayInput` via:
+//
+//	GetMonitoringRegionsRegionArray{ GetMonitoringRegionsRegionArgs{...} }
+type GetMonitoringRegionsRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetMonitoringRegionsRegionArrayOutput() GetMonitoringRegionsRegionArrayOutput
+	ToGetMonitoringRegionsRegionArrayOutputWithContext(context.Context) GetMonitoringRegionsRegionArrayOutput
+}
+
+type GetMonitoringRegionsRegionArray []GetMonitoringRegionsRegionInput
+
+func (GetMonitoringRegionsRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitoringRegionsRegion)(nil)).Elem()
+}
+
+func (i GetMonitoringRegionsRegionArray) ToGetMonitoringRegionsRegionArrayOutput() GetMonitoringRegionsRegionArrayOutput {
+	return i.ToGetMonitoringRegionsRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetMonitoringRegionsRegionArray) ToGetMonitoringRegionsRegionArrayOutputWithContext(ctx context.Context) GetMonitoringRegionsRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitoringRegionsRegionArrayOutput)
+}
+
+type GetMonitoringRegionsRegionOutput struct{ *pulumi.OutputState }
+
+func (GetMonitoringRegionsRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitoringRegionsRegion)(nil)).Elem()
+}
+
+func (o GetMonitoringRegionsRegionOutput) ToGetMonitoringRegionsRegionOutput() GetMonitoringRegionsRegionOutput {
+	return o
+}
+
+func (o GetMonitoringRegionsRegionOutput) ToGetMonitoringRegionsRegionOutputWithContext(ctx context.Context) GetMonitoringRegionsRegionOutput {
+	return o
+}
+
+// 3-letter city code identifying the location of the monitor.
+func (o GetMonitoringRegionsRegionOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMonitoringRegionsRegion) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// City name identifying the location of the monitor.
+func (o GetMonitoringRegionsRegionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMonitoringRegionsRegion) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of IPv4 and IPv6 subnets the monitor sources requests from.
+func (o GetMonitoringRegionsRegionOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetMonitoringRegionsRegion) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type GetMonitoringRegionsRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMonitoringRegionsRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitoringRegionsRegion)(nil)).Elem()
+}
+
+func (o GetMonitoringRegionsRegionArrayOutput) ToGetMonitoringRegionsRegionArrayOutput() GetMonitoringRegionsRegionArrayOutput {
+	return o
+}
+
+func (o GetMonitoringRegionsRegionArrayOutput) ToGetMonitoringRegionsRegionArrayOutputWithContext(ctx context.Context) GetMonitoringRegionsRegionArrayOutput {
+	return o
+}
+
+func (o GetMonitoringRegionsRegionArrayOutput) Index(i pulumi.IntInput) GetMonitoringRegionsRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMonitoringRegionsRegion {
+		return vs[0].([]GetMonitoringRegionsRegion)[vs[1].(int)]
+	}).(GetMonitoringRegionsRegionOutput)
+}
+
 type GetNetworksNetwork struct {
 	// Label associated with the network.
 	Label string `pulumi:"label"`
@@ -3429,6 +4166,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsDenyArrayInput)(nil)).Elem(), APIKeyDnsRecordsDenyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefaultConfigInput)(nil)).Elem(), ApplicationDefaultConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefaultConfigPtrInput)(nil)).Elem(), ApplicationDefaultConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDatatypeInput)(nil)).Elem(), DatasetDatatypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDatatypePtrInput)(nil)).Elem(), DatasetDatatypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetRepeatInput)(nil)).Elem(), DatasetRepeatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetRepeatPtrInput)(nil)).Elem(), DatasetRepeatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetReportInput)(nil)).Elem(), DatasetReportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetReportArrayInput)(nil)).Elem(), DatasetReportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTimeframeInput)(nil)).Elem(), DatasetTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetTimeframePtrInput)(nil)).Elem(), DatasetTimeframeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobRuleInput)(nil)).Elem(), MonitoringJobRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringJobRuleArrayInput)(nil)).Elem(), MonitoringJobRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotifyListNotificationInput)(nil)).Elem(), NotifyListNotificationArgs{})
@@ -3467,6 +4212,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeyArrayInput)(nil)).Elem(), GetDNSSecKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeyDnskeyInput)(nil)).Elem(), GetDNSSecKeyDnskeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecKeyDnskeyArrayInput)(nil)).Elem(), GetDNSSecKeyDnskeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitoringRegionsRegionInput)(nil)).Elem(), GetMonitoringRegionsRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitoringRegionsRegionArrayInput)(nil)).Elem(), GetMonitoringRegionsRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkInput)(nil)).Elem(), GetNetworksNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkArrayInput)(nil)).Elem(), GetNetworksNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordAnswerInput)(nil)).Elem(), GetRecordAnswerArgs{})
@@ -3483,6 +4230,14 @@ func init() {
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDefaultConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationDefaultConfigPtrOutput{})
+	pulumi.RegisterOutputType(DatasetDatatypeOutput{})
+	pulumi.RegisterOutputType(DatasetDatatypePtrOutput{})
+	pulumi.RegisterOutputType(DatasetRepeatOutput{})
+	pulumi.RegisterOutputType(DatasetRepeatPtrOutput{})
+	pulumi.RegisterOutputType(DatasetReportOutput{})
+	pulumi.RegisterOutputType(DatasetReportArrayOutput{})
+	pulumi.RegisterOutputType(DatasetTimeframeOutput{})
+	pulumi.RegisterOutputType(DatasetTimeframePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringJobRuleOutput{})
 	pulumi.RegisterOutputType(MonitoringJobRuleArrayOutput{})
 	pulumi.RegisterOutputType(NotifyListNotificationOutput{})
@@ -3521,6 +4276,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDNSSecKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetDNSSecKeyDnskeyOutput{})
 	pulumi.RegisterOutputType(GetDNSSecKeyDnskeyArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitoringRegionsRegionOutput{})
+	pulumi.RegisterOutputType(GetMonitoringRegionsRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworksNetworkOutput{})
 	pulumi.RegisterOutputType(GetNetworksNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetRecordAnswerOutput{})

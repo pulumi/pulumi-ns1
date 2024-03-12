@@ -14,6 +14,10 @@ __all__ = [
     'APIKeyDnsRecordsAllow',
     'APIKeyDnsRecordsDeny',
     'ApplicationDefaultConfig',
+    'DatasetDatatype',
+    'DatasetRepeat',
+    'DatasetReport',
+    'DatasetTimeframe',
     'MonitoringJobRule',
     'NotifyListNotification',
     'PulsarJobBlendMetricWeights',
@@ -33,6 +37,7 @@ __all__ = [
     'GetDNSSecDelegationDnskeyResult',
     'GetDNSSecKeyResult',
     'GetDNSSecKeyDnskeyResult',
+    'GetMonitoringRegionsRegionResult',
     'GetNetworksNetworkResult',
     'GetRecordAnswerResult',
     'GetRecordFilterResult',
@@ -241,6 +246,192 @@ class ApplicationDefaultConfig(dict):
         Whether to use XMLHttpRequest (XHR) when taking measurements.
         """
         return pulumi.get(self, "use_xhr")
+
+
+@pulumi.output_type
+class DatasetDatatype(dict):
+    def __init__(__self__, *,
+                 data: Mapping[str, Any],
+                 scope: str,
+                 type: str):
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Mapping[str, Any]:
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DatasetRepeat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endAfterN":
+            suggest = "end_after_n"
+        elif key == "repeatsEvery":
+            suggest = "repeats_every"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetRepeat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetRepeat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetRepeat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_after_n: int,
+                 repeats_every: str,
+                 start: int):
+        pulumi.set(__self__, "end_after_n", end_after_n)
+        pulumi.set(__self__, "repeats_every", repeats_every)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="endAfterN")
+    def end_after_n(self) -> int:
+        return pulumi.get(self, "end_after_n")
+
+    @property
+    @pulumi.getter(name="repeatsEvery")
+    def repeats_every(self) -> str:
+        return pulumi.get(self, "repeats_every")
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class DatasetReport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetReport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetReport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetReport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[int] = None,
+                 end: Optional[int] = None,
+                 id: Optional[str] = None,
+                 start: Optional[int] = None,
+                 status: Optional[str] = None):
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[int]:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[int]:
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[int]:
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DatasetTimeframe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetTimeframe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetTimeframe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetTimeframe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregation: str,
+                 cycles: Optional[int] = None,
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if cycles is not None:
+            pulumi.set(__self__, "cycles", cycles)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def cycles(self) -> Optional[int]:
+        return pulumi.get(self, "cycles")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[int]:
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[int]:
+        return pulumi.get(self, "to")
 
 
 @pulumi.output_type
@@ -1123,6 +1314,49 @@ class GetDNSSecKeyDnskeyResult(dict):
         (Computed) Public key for the key.
         """
         return pulumi.get(self, "public_key")
+
+
+@pulumi.output_type
+class GetMonitoringRegionsRegionResult(dict):
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 name: Optional[str] = None,
+                 subnets: Optional[Sequence[str]] = None):
+        """
+        :param str code: 3-letter city code identifying the location of the monitor.
+        :param str name: City name identifying the location of the monitor.
+        :param Sequence[str] subnets: A list of IPv4 and IPv6 subnets the monitor sources requests from.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        3-letter city code identifying the location of the monitor.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        City name identifying the location of the monitor.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[Sequence[str]]:
+        """
+        A list of IPv4 and IPv6 subnets the monitor sources requests from.
+        """
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type

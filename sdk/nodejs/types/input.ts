@@ -47,6 +47,63 @@ export interface ApplicationDefaultConfig {
     useXhr?: pulumi.Input<boolean>;
 }
 
+export interface DatasetDatatype {
+    data: pulumi.Input<{[key: string]: any}>;
+    scope: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
+export interface DatasetRepeat {
+    endAfterN: pulumi.Input<number>;
+    repeatsEvery: pulumi.Input<string>;
+    start: pulumi.Input<number>;
+}
+
+export interface DatasetReport {
+    createdAt?: pulumi.Input<number>;
+    end?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    start?: pulumi.Input<number>;
+    status?: pulumi.Input<string>;
+}
+
+export interface DatasetTimeframe {
+    aggregation: pulumi.Input<string>;
+    cycles?: pulumi.Input<number>;
+    from?: pulumi.Input<number>;
+    to?: pulumi.Input<number>;
+}
+
+export interface GetMonitoringRegionsRegion {
+    /**
+     * 3-letter city code identifying the location of the monitor.
+     */
+    code?: string;
+    /**
+     * City name identifying the location of the monitor.
+     */
+    name?: string;
+    /**
+     * A list of IPv4 and IPv6 subnets the monitor sources requests from.
+     */
+    subnets?: string[];
+}
+
+export interface GetMonitoringRegionsRegionArgs {
+    /**
+     * 3-letter city code identifying the location of the monitor.
+     */
+    code?: pulumi.Input<string>;
+    /**
+     * City name identifying the location of the monitor.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A list of IPv4 and IPv6 subnets the monitor sources requests from.
+     */
+    subnets?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface MonitoringJobRule {
     comparison: pulumi.Input<string>;
     key: pulumi.Input<string>;
