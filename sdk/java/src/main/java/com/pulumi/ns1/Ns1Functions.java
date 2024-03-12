@@ -10,11 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.ns1.Utilities;
 import com.pulumi.ns1.inputs.GetDNSSecArgs;
 import com.pulumi.ns1.inputs.GetDNSSecPlainArgs;
+import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+import com.pulumi.ns1.inputs.GetMonitoringRegionsPlainArgs;
 import com.pulumi.ns1.inputs.GetRecordArgs;
 import com.pulumi.ns1.inputs.GetRecordPlainArgs;
 import com.pulumi.ns1.inputs.GetZoneArgs;
 import com.pulumi.ns1.inputs.GetZonePlainArgs;
 import com.pulumi.ns1.outputs.GetDNSSecResult;
+import com.pulumi.ns1.outputs.GetMonitoringRegionsResult;
 import com.pulumi.ns1.outputs.GetNetworksResult;
 import com.pulumi.ns1.outputs.GetRecordResult;
 import com.pulumi.ns1.outputs.GetZoneResult;
@@ -209,6 +212,234 @@ public final class Ns1Functions {
      */
     public static CompletableFuture<GetDNSSecResult> getDNSSecPlain(GetDNSSecPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("ns1:index/getDNSSec:getDNSSec", TypeShape.of(GetDNSSecResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details of all available monitoring regions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getMonitoringRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMonitoringRegionsResult> getMonitoringRegions() {
+        return getMonitoringRegions(GetMonitoringRegionsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details of all available monitoring regions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getMonitoringRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetMonitoringRegionsResult> getMonitoringRegionsPlain() {
+        return getMonitoringRegionsPlain(GetMonitoringRegionsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details of all available monitoring regions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getMonitoringRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMonitoringRegionsResult> getMonitoringRegions(GetMonitoringRegionsArgs args) {
+        return getMonitoringRegions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details of all available monitoring regions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getMonitoringRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetMonitoringRegionsResult> getMonitoringRegionsPlain(GetMonitoringRegionsPlainArgs args) {
+        return getMonitoringRegionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details of all available monitoring regions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getMonitoringRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMonitoringRegionsResult> getMonitoringRegions(GetMonitoringRegionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getMonitoringRegions:getMonitoringRegions", TypeShape.of(GetMonitoringRegionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details of all available monitoring regions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ns1Functions.getMonitoringRegions();
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetMonitoringRegionsResult> getMonitoringRegionsPlain(GetMonitoringRegionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("ns1:index/getMonitoringRegions:getMonitoringRegions", TypeShape.of(GetMonitoringRegionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about NS1 Networks. Use this if you would simply like to read

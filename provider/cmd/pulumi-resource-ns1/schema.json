@@ -159,6 +159,98 @@
                 "http"
             ]
         },
+        "ns1:index/DatasetDatatype:DatasetDatatype": {
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "data",
+                "scope",
+                "type"
+            ]
+        },
+        "ns1:index/DatasetRepeat:DatasetRepeat": {
+            "properties": {
+                "endAfterN": {
+                    "type": "integer"
+                },
+                "repeatsEvery": {
+                    "type": "string"
+                },
+                "start": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "endAfterN",
+                "repeatsEvery",
+                "start"
+            ]
+        },
+        "ns1:index/DatasetReport:DatasetReport": {
+            "properties": {
+                "createdAt": {
+                    "type": "integer"
+                },
+                "end": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "start": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "createdAt",
+                        "end",
+                        "id",
+                        "start",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "ns1:index/DatasetTimeframe:DatasetTimeframe": {
+            "properties": {
+                "aggregation": {
+                    "type": "string"
+                },
+                "cycles": {
+                    "type": "integer"
+                },
+                "from": {
+                    "type": "integer"
+                },
+                "to": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
         "ns1:index/MonitoringJobRule:MonitoringJobRule": {
             "properties": {
                 "comparison": {
@@ -621,6 +713,26 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "ns1:index/getMonitoringRegionsRegion:getMonitoringRegionsRegion": {
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "3-letter city code identifying the location of the monitor.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "City name identifying the location of the monitor.\n"
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of IPv4 and IPv6 subnets the monitor sources requests from.\n"
+                }
+            },
+            "type": "object"
         },
         "ns1:index/getNetworksNetwork:getNetworksNetwork": {
             "properties": {
@@ -1555,6 +1667,105 @@
                         "type": "string",
                         "description": "The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "ns1:index/dataset:Dataset": {
+            "properties": {
+                "datatype": {
+                    "$ref": "#/types/ns1:index/DatasetDatatype:DatasetDatatype"
+                },
+                "exportType": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "recipientEmails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "repeat": {
+                    "$ref": "#/types/ns1:index/DatasetRepeat:DatasetRepeat"
+                },
+                "reports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/DatasetReport:DatasetReport"
+                    }
+                },
+                "timeframe": {
+                    "$ref": "#/types/ns1:index/DatasetTimeframe:DatasetTimeframe"
+                }
+            },
+            "required": [
+                "datatype",
+                "exportType",
+                "name",
+                "reports",
+                "timeframe"
+            ],
+            "inputProperties": {
+                "datatype": {
+                    "$ref": "#/types/ns1:index/DatasetDatatype:DatasetDatatype"
+                },
+                "exportType": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "recipientEmails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "repeat": {
+                    "$ref": "#/types/ns1:index/DatasetRepeat:DatasetRepeat"
+                },
+                "timeframe": {
+                    "$ref": "#/types/ns1:index/DatasetTimeframe:DatasetTimeframe"
+                }
+            },
+            "requiredInputs": [
+                "datatype",
+                "exportType",
+                "timeframe"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Dataset resources.\n",
+                "properties": {
+                    "datatype": {
+                        "$ref": "#/types/ns1:index/DatasetDatatype:DatasetDatatype"
+                    },
+                    "exportType": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "recipientEmails": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repeat": {
+                        "$ref": "#/types/ns1:index/DatasetRepeat:DatasetRepeat"
+                    },
+                    "reports": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/DatasetReport:DatasetReport"
+                        }
+                    },
+                    "timeframe": {
+                        "$ref": "#/types/ns1:index/DatasetTimeframe:DatasetTimeframe"
                     }
                 },
                 "type": "object"
@@ -3830,6 +4041,42 @@
                     "delegations",
                     "keys",
                     "zone",
+                    "id"
+                ]
+            }
+        },
+        "ns1:index/getMonitoringRegions:getMonitoringRegions": {
+            "description": "Provides details of all available monitoring regions.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = ns1.getMonitoringRegions({});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.get_monitoring_regions()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Ns1.GetMonitoringRegions.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.GetMonitoringRegions(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = Ns1Functions.getMonitoringRegions();\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: ns1:getMonitoringRegions\n      Arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getMonitoringRegions.\n",
+                "properties": {
+                    "regions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/getMonitoringRegionsRegion:getMonitoringRegionsRegion"
+                        },
+                        "description": "A set of the available monitoring regions. Regions is\ndocumented below.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMonitoringRegions.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "regions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/getMonitoringRegionsRegion:getMonitoringRegionsRegion"
+                        },
+                        "description": "A set of the available monitoring regions. Regions is\ndocumented below.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
                     "id"
                 ]
             }

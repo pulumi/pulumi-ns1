@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataFeed{}
 	case "ns1:index/dataSource:DataSource":
 		r = &DataSource{}
+	case "ns1:index/dataset:Dataset":
+		r = &Dataset{}
 	case "ns1:index/dnsview:Dnsview":
 		r = &Dnsview{}
 	case "ns1:index/monitoringJob:MonitoringJob":
@@ -105,6 +107,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"ns1",
 		"index/dataSource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
+		"index/dataset",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

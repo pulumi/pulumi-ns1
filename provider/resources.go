@@ -17,7 +17,6 @@ package ns1
 import (
 	"fmt"
 	"path/filepath"
-	"unicode"
 
 	// Allow metadata embedding
 	_ "embed"
@@ -40,30 +39,12 @@ const (
 	mainMod = "index" // the y module
 )
 
-// makeMember manufactures a type token for the package and the given module and type.
-func makeMember(mod string, mem string) tokens.ModuleMember {
-	return tokens.ModuleMember(mainPkg + ":" + mod + ":" + mem)
-}
-
-// makeType manufactures a type token for the package and the given module and type.
-func makeType(mod string, typ string) tokens.Type {
-	return tokens.Type(makeMember(mod, typ))
-}
-
-// makeDataSource manufactures a standard resource token given a module and resource name.  It
-// automatically uses the main package and names the file by simply lower casing the data source's
-// first character.
 func makeDataSource(mod string, res string) tokens.ModuleMember {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeMember(mod+"/"+fn, res)
+	return tfbridge.MakeDataSource(mainPkg, mod, res)
 }
 
-// makeResource manufactures a standard resource token given a module and resource name.  It
-// automatically uses the main package and names the file by simply lower casing the resource's
-// first character.
 func makeResource(mod string, res string) tokens.Type {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeType(mod+"/"+fn, res)
+	return tfbridge.MakeResource(mainPkg, mod, res)
 }
 
 //go:embed cmd/pulumi-resource-ns1/bridge-metadata.json
@@ -101,24 +82,13 @@ func Provider() tfbridge.ProviderInfo {
 			"ns1_datafeed":      {Tok: makeResource(mainMod, "DataFeed")},
 			"ns1_apikey":        {Tok: makeResource(mainMod, "APIKey")},
 			"ns1_pulsarjob": {
-				Tok: makeResource(mainMod, "PulsarJob"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
-			},
-			"ns1_subnet": {
-				Tok: makeResource(mainMod, "Subnet"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  makeResource(mainMod, "PulsarJob"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"ns1_tsigkey": {Tok: makeResource(mainMod, "Tsigkey")},
-			"ns1_dnsview": {
-				Tok: makeResource(mainMod, "Dnsview"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
-			},
+			"ns1_subnet":  {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"ns1_dnsview": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"ns1_dataset": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"ns1_dnssec": {Tok: makeDataSource(mainMod, "getDNSSec")},
@@ -158,9 +128,8 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	prov.MustComputeTokens(tfbridgetokens.SingleModule("ns1_", mainMod, tfbridgetokens.MakeStandard(mainPkg)))
-	prov.MustApplyAutoAliases()
-
 	prov.SetAutonaming(255, "-")
+	prov.MustApplyAutoAliases()
 
 	return prov
 }

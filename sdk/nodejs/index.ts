@@ -30,6 +30,11 @@ export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
+export { DatasetArgs, DatasetState } from "./dataset";
+export type Dataset = import("./dataset").Dataset;
+export const Dataset: typeof import("./dataset").Dataset = null as any;
+utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
+
 export { DnsviewArgs, DnsviewState } from "./dnsview";
 export type Dnsview = import("./dnsview").Dnsview;
 export const Dnsview: typeof import("./dnsview").Dnsview = null as any;
@@ -39,6 +44,11 @@ export { GetDNSSecArgs, GetDNSSecResult, GetDNSSecOutputArgs } from "./getDNSSec
 export const getDNSSec: typeof import("./getDNSSec").getDNSSec = null as any;
 export const getDNSSecOutput: typeof import("./getDNSSec").getDNSSecOutput = null as any;
 utilities.lazyLoad(exports, ["getDNSSec","getDNSSecOutput"], () => require("./getDNSSec"));
+
+export { GetMonitoringRegionsArgs, GetMonitoringRegionsResult, GetMonitoringRegionsOutputArgs } from "./getMonitoringRegions";
+export const getMonitoringRegions: typeof import("./getMonitoringRegions").getMonitoringRegions = null as any;
+export const getMonitoringRegionsOutput: typeof import("./getMonitoringRegions").getMonitoringRegionsOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringRegions","getMonitoringRegionsOutput"], () => require("./getMonitoringRegions"));
 
 export { GetNetworksResult } from "./getNetworks";
 export const getNetworks: typeof import("./getNetworks").getNetworks = null as any;
@@ -129,6 +139,8 @@ const _module = {
                 return new DataFeed(name, <any>undefined, { urn })
             case "ns1:index/dataSource:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "ns1:index/dataset:Dataset":
+                return new Dataset(name, <any>undefined, { urn })
             case "ns1:index/dnsview:Dnsview":
                 return new Dnsview(name, <any>undefined, { urn })
             case "ns1:index/monitoringJob:MonitoringJob":
@@ -159,6 +171,7 @@ pulumi.runtime.registerResourceModule("ns1", "index/accountWhitelist", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/application", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataFeed", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataSource", _module)
+pulumi.runtime.registerResourceModule("ns1", "index/dataset", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dnsview", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/monitoringJob", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/notifyList", _module)

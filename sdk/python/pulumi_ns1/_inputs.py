@@ -13,6 +13,10 @@ __all__ = [
     'APIKeyDnsRecordsAllowArgs',
     'APIKeyDnsRecordsDenyArgs',
     'ApplicationDefaultConfigArgs',
+    'DatasetDatatypeArgs',
+    'DatasetRepeatArgs',
+    'DatasetReportArgs',
+    'DatasetTimeframeArgs',
     'MonitoringJobRuleArgs',
     'NotifyListNotificationArgs',
     'PulsarJobBlendMetricWeightsArgs',
@@ -27,6 +31,7 @@ __all__ = [
     'UserDnsRecordsAllowArgs',
     'UserDnsRecordsDenyArgs',
     'ZoneSecondaryArgs',
+    'GetMonitoringRegionsRegionArgs',
 ]
 
 @pulumi.input_type
@@ -229,6 +234,199 @@ class ApplicationDefaultConfigArgs:
     @use_xhr.setter
     def use_xhr(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_xhr", value)
+
+
+@pulumi.input_type
+class DatasetDatatypeArgs:
+    def __init__(__self__, *,
+                 data: pulumi.Input[Mapping[str, Any]],
+                 scope: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def data(self) -> pulumi.Input[Mapping[str, Any]]:
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DatasetRepeatArgs:
+    def __init__(__self__, *,
+                 end_after_n: pulumi.Input[int],
+                 repeats_every: pulumi.Input[str],
+                 start: pulumi.Input[int]):
+        pulumi.set(__self__, "end_after_n", end_after_n)
+        pulumi.set(__self__, "repeats_every", repeats_every)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="endAfterN")
+    def end_after_n(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "end_after_n")
+
+    @end_after_n.setter
+    def end_after_n(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_after_n", value)
+
+    @property
+    @pulumi.getter(name="repeatsEvery")
+    def repeats_every(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "repeats_every")
+
+    @repeats_every.setter
+    def repeats_every(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repeats_every", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class DatasetReportArgs:
+    def __init__(__self__, *,
+                 created_at: Optional[pulumi.Input[int]] = None,
+                 end: Optional[pulumi.Input[int]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 start: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "end", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DatasetTimeframeArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 cycles: Optional[pulumi.Input[int]] = None,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "aggregation", aggregation)
+        if cycles is not None:
+            pulumi.set(__self__, "cycles", cycles)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def cycles(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "cycles")
+
+    @cycles.setter
+    def cycles(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cycles", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
 
 
 @pulumi.input_type
@@ -971,5 +1169,60 @@ class ZoneSecondaryArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class GetMonitoringRegionsRegionArgs:
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 name: Optional[str] = None,
+                 subnets: Optional[Sequence[str]] = None):
+        """
+        :param str code: 3-letter city code identifying the location of the monitor.
+        :param str name: City name identifying the location of the monitor.
+        :param Sequence[str] subnets: A list of IPv4 and IPv6 subnets the monitor sources requests from.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        3-letter city code identifying the location of the monitor.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[str]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        City name identifying the location of the monitor.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[Sequence[str]]:
+        """
+        A list of IPv4 and IPv6 subnets the monitor sources requests from.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "subnets", value)
 
 

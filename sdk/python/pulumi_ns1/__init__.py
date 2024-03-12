@@ -10,8 +10,10 @@ from .api_key import *
 from .application import *
 from .data_feed import *
 from .data_source import *
+from .dataset import *
 from .dnsview import *
 from .get_dns_sec import *
+from .get_monitoring_regions import *
 from .get_networks import *
 from .get_record import *
 from .get_zone import *
@@ -76,6 +78,14 @@ _utilities.register(
   "fqn": "pulumi_ns1",
   "classes": {
    "ns1:index/dataSource:DataSource": "DataSource"
+  }
+ },
+ {
+  "pkg": "ns1",
+  "mod": "index/dataset",
+  "fqn": "pulumi_ns1",
+  "classes": {
+   "ns1:index/dataset:Dataset": "Dataset"
   }
  },
  {

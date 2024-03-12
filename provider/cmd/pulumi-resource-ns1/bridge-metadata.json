@@ -47,6 +47,27 @@
                 "current": "ns1:index/dataFeed:DataFeed",
                 "majorVersion": 3
             },
+            "ns1_dataset": {
+                "current": "ns1:index/dataset:Dataset",
+                "majorVersion": 3,
+                "fields": {
+                    "datatype": {
+                        "maxItemsOne": true
+                    },
+                    "recipient_emails": {
+                        "maxItemsOne": false
+                    },
+                    "repeat": {
+                        "maxItemsOne": true
+                    },
+                    "reports": {
+                        "maxItemsOne": false
+                    },
+                    "timeframe": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "ns1_datasource": {
                 "current": "ns1:index/dataSource:DataSource",
                 "majorVersion": 3
@@ -235,6 +256,22 @@
                         "elem": {
                             "fields": {
                                 "dnskey": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "ns1_monitoring_regions": {
+                "current": "ns1:index/getMonitoringRegions:getMonitoringRegions",
+                "majorVersion": 3,
+                "fields": {
+                    "regions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "subnets": {
                                     "maxItemsOne": false
                                 }
                             }
