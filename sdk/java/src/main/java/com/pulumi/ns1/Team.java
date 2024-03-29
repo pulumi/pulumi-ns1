@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new NS1 Team
  *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
  *             .accountManageUsers(false)
  *             .dnsViewZones(false)
@@ -67,6 +68,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
+ *         // Another team
  *         var example2 = new Team(&#34;example2&#34;, TeamArgs.builder()        
  *             .dataManageDatasources(true)
  *             .dnsRecordsAllows(TeamDnsRecordsAllowArgs.builder()
