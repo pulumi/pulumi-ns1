@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new pulsar application with default config
  *         var ns1App = new Application(&#34;ns1App&#34;, ApplicationArgs.builder()        
  *             .defaultConfig(ApplicationDefaultConfigArgs.builder()
  *                 .http(true)
