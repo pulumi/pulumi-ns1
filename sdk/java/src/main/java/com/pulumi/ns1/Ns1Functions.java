@@ -54,6 +54,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
      *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
@@ -101,6 +102,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
      *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
@@ -148,6 +150,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
      *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
@@ -195,6 +198,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
      *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
