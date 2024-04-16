@@ -26,13 +26,13 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get DNSSEC details about a NS1 Zone.
-        ///     var exampleZone = new Ns1.Zone("exampleZone", new()
+        ///     var exampleZone = new Ns1.Zone("example", new()
         ///     {
-        ///         Dnssec = true,
         ///         ZoneName = "terraform.example.io",
+        ///         Dnssec = true,
         ///     });
         /// 
-        ///     var exampleDNSSec = Ns1.GetDNSSec.Invoke(new()
+        ///     var example = Ns1.GetDNSSec.Invoke(new()
         ///     {
         ///         Zone = exampleZone.ZoneName,
         ///     });
@@ -59,13 +59,13 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get DNSSEC details about a NS1 Zone.
-        ///     var exampleZone = new Ns1.Zone("exampleZone", new()
+        ///     var exampleZone = new Ns1.Zone("example", new()
         ///     {
-        ///         Dnssec = true,
         ///         ZoneName = "terraform.example.io",
+        ///         Dnssec = true,
         ///     });
         /// 
-        ///     var exampleDNSSec = Ns1.GetDNSSec.Invoke(new()
+        ///     var example = Ns1.GetDNSSec.Invoke(new()
         ///     {
         ///         Zone = exampleZone.ZoneName,
         ///     });

@@ -30,6 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get details about NS1 Networks.
 //			_, err := ns1.GetNetworks(ctx, nil, nil)
 //			if err != nil {
 //				return err

@@ -1149,9 +1149,10 @@ class APIKey(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example_team = ns1.Team("exampleTeam")
-        example_api_key = ns1.APIKey("exampleAPIKey",
-            teams=[example_team.id],
+        example = ns1.Team("example", name="Example team")
+        example_api_key = ns1.APIKey("example",
+            name="Example key",
+            teams=[example.id],
             ip_whitelists=[
                 "1.1.1.1",
                 "2.2.2.2",
@@ -1246,9 +1247,10 @@ class APIKey(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example_team = ns1.Team("exampleTeam")
-        example_api_key = ns1.APIKey("exampleAPIKey",
-            teams=[example_team.id],
+        example = ns1.Team("example", name="Example team")
+        example_api_key = ns1.APIKey("example",
+            name="Example key",
+            teams=[example.id],
             ip_whitelists=[
                 "1.1.1.1",
                 "2.2.2.2",

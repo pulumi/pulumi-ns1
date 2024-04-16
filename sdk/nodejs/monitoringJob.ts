@@ -16,28 +16,29 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const uswestMonitor = new ns1.MonitoringJob("uswestMonitor", {
+ * const uswestMonitor = new ns1.MonitoringJob("uswest_monitor", {
+ *     name: "uswest",
  *     active: true,
- *     config: {
- *         host: "example-elb-uswest.aws.amazon.com",
- *         port: 443,
- *         send: "HEAD / HTTP/1.0\\r\\n\\r\\n",
- *         ssl: 1,
- *     },
- *     frequency: 60,
- *     jobType: "tcp",
- *     mute: true,
- *     policy: "quorum",
- *     rapidRecheck: true,
  *     regions: [
  *         "lga",
  *         "sjc",
  *         "sin",
  *     ],
+ *     jobType: "tcp",
+ *     frequency: 60,
+ *     rapidRecheck: true,
+ *     policy: "quorum",
+ *     mute: true,
+ *     config: {
+ *         ssl: 1,
+ *         send: "HEAD / HTTP/1.0\\r\\n\\r\\n",
+ *         port: 443,
+ *         host: "example-elb-uswest.aws.amazon.com",
+ *     },
  *     rules: [{
+ *         value: "200 OK",
  *         comparison: "contains",
  *         key: "output",
- *         value: "200 OK",
  *     }],
  * });
  * ```

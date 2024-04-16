@@ -28,13 +28,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTeam, err := ns1.NewTeam(ctx, "exampleTeam", nil)
+//			example, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
+//				Name: pulumi.String("Example team"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ns1.NewAPIKey(ctx, "exampleAPIKey", &ns1.APIKeyArgs{
+//			_, err = ns1.NewAPIKey(ctx, "example", &ns1.APIKeyArgs{
+//				Name: pulumi.String("Example key"),
 //				Teams: pulumi.StringArray{
-//					exampleTeam.ID(),
+//					example.ID(),
 //				},
 //				IpWhitelists: pulumi.StringArray{
 //					pulumi.String("1.1.1.1"),

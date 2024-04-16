@@ -51,8 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new NS1 Team
  *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
- *             .accountManageUsers(false)
- *             .dnsViewZones(false)
+ *             .name(&#34;Example team&#34;)
  *             .ipWhitelists(            
  *                 TeamIpWhitelistArgs.builder()
  *                     .name(&#34;whitelist-1&#34;)
@@ -66,21 +65,24 @@ import javax.annotation.Nullable;
  *                         &#34;3.3.3.3&#34;,
  *                         &#34;4.4.4.4&#34;)
  *                     .build())
+ *             .dnsViewZones(false)
+ *             .accountManageUsers(false)
  *             .build());
  * 
  *         // Another team
  *         var example2 = new Team(&#34;example2&#34;, TeamArgs.builder()        
- *             .dataManageDatasources(true)
+ *             .name(&#34;another team&#34;)
+ *             .dnsViewZones(true)
+ *             .dnsZonesAllowByDefault(true)
+ *             .dnsZonesAllows(&#34;mytest.zone&#34;)
+ *             .dnsZonesDenies(&#34;myother.zone&#34;)
  *             .dnsRecordsAllows(TeamDnsRecordsAllowArgs.builder()
  *                 .domain(&#34;terraform.example.io&#34;)
  *                 .includeSubdomains(false)
- *                 .type(&#34;A&#34;)
  *                 .zone(&#34;example.io&#34;)
+ *                 .type(&#34;A&#34;)
  *                 .build())
- *             .dnsViewZones(true)
- *             .dnsZonesAllows(&#34;mytest.zone&#34;)
- *             .dnsZonesAllowByDefault(true)
- *             .dnsZonesDenies(&#34;myother.zone&#34;)
+ *             .dataManageDatasources(true)
  *             .build());
  * 
  *     }

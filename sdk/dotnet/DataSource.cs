@@ -25,6 +25,7 @@ namespace Pulumi.Ns1
     /// {
     ///     var example = new Ns1.DataSource("example", new()
     ///     {
+    ///         Name = "example",
     ///         Sourcetype = "nsone_v1",
     ///     });
     /// 

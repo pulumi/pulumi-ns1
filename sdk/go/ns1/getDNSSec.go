@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get DNSSEC details about a NS1 Zone.
-//			exampleZone, err := ns1.NewZone(ctx, "exampleZone", &ns1.ZoneArgs{
-//				Dnssec: pulumi.Bool(true),
+//			exampleZone, err := ns1.NewZone(ctx, "example", &ns1.ZoneArgs{
 //				Zone:   pulumi.String("terraform.example.io"),
+//				Dnssec: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

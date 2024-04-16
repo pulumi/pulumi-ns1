@@ -71,6 +71,7 @@ def get_networks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNet
     import pulumi
     import pulumi_ns1 as ns1
 
+    # Get details about NS1 Networks.
     example = ns1.get_networks()
     ```
     <!--End PulumiCodeChooser -->
@@ -98,6 +99,7 @@ def get_networks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.O
     import pulumi
     import pulumi_ns1 as ns1
 
+    # Get details about NS1 Networks.
     example = ns1.get_networks()
     ```
     <!--End PulumiCodeChooser -->

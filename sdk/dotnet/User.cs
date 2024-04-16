@@ -25,8 +25,9 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTeam = new Ns1.Team("exampleTeam", new()
+    ///     var example = new Ns1.Team("example", new()
     ///     {
+    ///         Name = "Example team",
     ///         IpWhitelists = new[]
     ///         {
     ///             "1.1.1.1",
@@ -36,13 +37,14 @@ namespace Pulumi.Ns1
     ///         AccountManageUsers = false,
     ///     });
     /// 
-    ///     var exampleUser = new Ns1.User("exampleUser", new()
+    ///     var exampleUser = new Ns1.User("example", new()
     ///     {
+    ///         Name = "Example User",
     ///         Username = "example_user",
     ///         Email = "user@example.com",
     ///         Teams = new[]
     ///         {
-    ///             exampleTeam.Id,
+    ///             example.Id,
     ///         },
     ///         Notify = 
     ///         {

@@ -45,14 +45,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var nl = new NotifyList(&#34;nl&#34;, NotifyListArgs.builder()        
+ *             .name(&#34;my notify list&#34;)
  *             .notifications(            
  *                 NotifyListNotificationArgs.builder()
- *                     .config(Map.of(&#34;url&#34;, &#34;http://www.mywebhook.com&#34;))
  *                     .type(&#34;webhook&#34;)
+ *                     .config(Map.of(&#34;url&#34;, &#34;http://www.mywebhook.com&#34;))
  *                     .build(),
  *                 NotifyListNotificationArgs.builder()
- *                     .config(Map.of(&#34;email&#34;, &#34;test@test.com&#34;))
  *                     .type(&#34;email&#34;)
+ *                     .config(Map.of(&#34;email&#34;, &#34;test@test.com&#34;))
  *                     .build())
  *             .build());
  * 

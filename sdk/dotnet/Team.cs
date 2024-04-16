@@ -27,8 +27,7 @@ namespace Pulumi.Ns1
     ///     // Create a new NS1 Team
     ///     var example = new Ns1.Team("example", new()
     ///     {
-    ///         AccountManageUsers = false,
-    ///         DnsViewZones = false,
+    ///         Name = "Example team",
     ///         IpWhitelists = new[]
     ///         {
     ///             new Ns1.Inputs.TeamIpWhitelistArgs
@@ -50,32 +49,35 @@ namespace Pulumi.Ns1
     ///                 },
     ///             },
     ///         },
+    ///         DnsViewZones = false,
+    ///         AccountManageUsers = false,
     ///     });
     /// 
     ///     // Another team
     ///     var example2 = new Ns1.Team("example2", new()
     ///     {
-    ///         DataManageDatasources = true,
+    ///         Name = "another team",
+    ///         DnsViewZones = true,
+    ///         DnsZonesAllowByDefault = true,
+    ///         DnsZonesAllows = new[]
+    ///         {
+    ///             "mytest.zone",
+    ///         },
+    ///         DnsZonesDenies = new[]
+    ///         {
+    ///             "myother.zone",
+    ///         },
     ///         DnsRecordsAllows = new[]
     ///         {
     ///             new Ns1.Inputs.TeamDnsRecordsAllowArgs
     ///             {
     ///                 Domain = "terraform.example.io",
     ///                 IncludeSubdomains = false,
-    ///                 Type = "A",
     ///                 Zone = "example.io",
+    ///                 Type = "A",
     ///             },
     ///         },
-    ///         DnsViewZones = true,
-    ///         DnsZonesAllows = new[]
-    ///         {
-    ///             "mytest.zone",
-    ///         },
-    ///         DnsZonesAllowByDefault = true,
-    ///         DnsZonesDenies = new[]
-    ///         {
-    ///             "myother.zone",
-    ///         },
+    ///         DataManageDatasources = true,
     ///     });
     /// 
     /// });

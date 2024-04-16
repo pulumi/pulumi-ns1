@@ -111,20 +111,22 @@ class NotifyList(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        nl = ns1.NotifyList("nl", notifications=[
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "url": "http://www.mywebhook.com",
-                },
-                type="webhook",
-            ),
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "email": "test@test.com",
-                },
-                type="email",
-            ),
-        ])
+        nl = ns1.NotifyList("nl",
+            name="my notify list",
+            notifications=[
+                ns1.NotifyListNotificationArgs(
+                    type="webhook",
+                    config={
+                        "url": "http://www.mywebhook.com",
+                    },
+                ),
+                ns1.NotifyListNotificationArgs(
+                    type="email",
+                    config={
+                        "email": "test@test.com",
+                    },
+                ),
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -159,20 +161,22 @@ class NotifyList(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        nl = ns1.NotifyList("nl", notifications=[
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "url": "http://www.mywebhook.com",
-                },
-                type="webhook",
-            ),
-            ns1.NotifyListNotificationArgs(
-                config={
-                    "email": "test@test.com",
-                },
-                type="email",
-            ),
-        ])
+        nl = ns1.NotifyList("nl",
+            name="my notify list",
+            notifications=[
+                ns1.NotifyListNotificationArgs(
+                    type="webhook",
+                    config={
+                        "url": "http://www.mywebhook.com",
+                    },
+                ),
+                ns1.NotifyListNotificationArgs(
+                    type="email",
+                    config={
+                        "email": "test@test.com",
+                    },
+                ),
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

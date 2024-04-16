@@ -30,6 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get details about a NS1 Zone.
 //			_, err := ns1.LookupZone(ctx, &ns1.LookupZoneArgs{
 //				Zone: "terraform.example.io",
 //			}, nil)

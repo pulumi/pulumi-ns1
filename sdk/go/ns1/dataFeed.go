@@ -30,18 +30,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
+//				Name:       pulumi.String("example"),
 //				Sourcetype: pulumi.String("nsone_v1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMonitoring, err := ns1.NewDataSource(ctx, "exampleMonitoring", &ns1.DataSourceArgs{
+//			exampleMonitoring, err := ns1.NewDataSource(ctx, "example_monitoring", &ns1.DataSourceArgs{
+//				Name:       pulumi.String("example_monitoring"),
 //				Sourcetype: pulumi.String("nsone_monitoring"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ns1.NewDataFeed(ctx, "uswestFeed", &ns1.DataFeedArgs{
+//			_, err = ns1.NewDataFeed(ctx, "uswest_feed", &ns1.DataFeedArgs{
+//				Name:     pulumi.String("uswest_feed"),
 //				SourceId: example.ID(),
 //				Config: pulumi.Map{
 //					"label": pulumi.Any("uswest"),
@@ -50,7 +53,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ns1.NewDataFeed(ctx, "useastFeed", &ns1.DataFeedArgs{
+//			_, err = ns1.NewDataFeed(ctx, "useast_feed", &ns1.DataFeedArgs{
+//				Name:     pulumi.String("useast_feed"),
 //				SourceId: example.ID(),
 //				Config: pulumi.Map{
 //					"label": pulumi.Any("useast"),
@@ -59,10 +63,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ns1.NewDataFeed(ctx, "useastMonitorFeed", &ns1.DataFeedArgs{
+//			_, err = ns1.NewDataFeed(ctx, "useast_monitor_feed", &ns1.DataFeedArgs{
+//				Name:     pulumi.String("useast_monitor_feed"),
 //				SourceId: exampleMonitoring.ID(),
 //				Config: pulumi.Map{
-//					"jobid": pulumi.Any(ns1_monitoringjob.Example_job.Id),
+//					"jobid": pulumi.Any(exampleJob.Id),
 //				},
 //			})
 //			if err != nil {

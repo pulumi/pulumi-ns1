@@ -18,10 +18,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details about a NS1 Record.
  * const example = ns1.getRecord({
+ *     zone: "example.io",
  *     domain: "terraform.example.io",
  *     type: "A",
- *     zone: "example.io",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -109,10 +110,11 @@ export interface GetRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details about a NS1 Record.
  * const example = ns1.getRecord({
+ *     zone: "example.io",
  *     domain: "terraform.example.io",
  *     type: "A",
- *     zone: "example.io",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

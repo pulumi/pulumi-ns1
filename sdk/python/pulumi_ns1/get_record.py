@@ -199,9 +199,10 @@ def get_record(domain: Optional[str] = None,
     import pulumi
     import pulumi_ns1 as ns1
 
-    example = ns1.get_record(domain="terraform.example.io",
-        type="A",
-        zone="example.io")
+    # Get details about a NS1 Record.
+    example = ns1.get_record(zone="example.io",
+        domain="terraform.example.io",
+        type="A")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -251,9 +252,10 @@ def get_record_output(domain: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_ns1 as ns1
 
-    example = ns1.get_record(domain="terraform.example.io",
-        type="A",
-        zone="example.io")
+    # Get details about a NS1 Record.
+    example = ns1.get_record(zone="example.io",
+        domain="terraform.example.io",
+        type="A")
     ```
     <!--End PulumiCodeChooser -->
 

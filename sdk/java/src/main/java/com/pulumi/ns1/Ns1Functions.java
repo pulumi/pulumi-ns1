@@ -56,11 +56,11 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
+     *             .dnssec(true)
      *             .build());
      * 
-     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *         final var example = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
      *             .zone(exampleZone.zone())
      *             .build());
      * 
@@ -104,11 +104,11 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
+     *             .dnssec(true)
      *             .build());
      * 
-     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *         final var example = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
      *             .zone(exampleZone.zone())
      *             .build());
      * 
@@ -152,11 +152,11 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
+     *             .dnssec(true)
      *             .build());
      * 
-     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *         final var example = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
      *             .zone(exampleZone.zone())
      *             .build());
      * 
@@ -200,11 +200,11 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .dnssec(true)
      *             .zone(&#34;terraform.example.io&#34;)
+     *             .dnssec(true)
      *             .build());
      * 
-     *         final var exampleDNSSec = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *         final var example = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
      *             .zone(exampleZone.zone())
      *             .build());
      * 
@@ -244,6 +244,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details of all available monitoring regions.
      *         final var example = Ns1Functions.getMonitoringRegions();
      * 
      *     }
@@ -282,6 +283,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details of all available monitoring regions.
      *         final var example = Ns1Functions.getMonitoringRegions();
      * 
      *     }
@@ -320,6 +322,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details of all available monitoring regions.
      *         final var example = Ns1Functions.getMonitoringRegions();
      * 
      *     }
@@ -358,6 +361,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details of all available monitoring regions.
      *         final var example = Ns1Functions.getMonitoringRegions();
      * 
      *     }
@@ -396,6 +400,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details of all available monitoring regions.
      *         final var example = Ns1Functions.getMonitoringRegions();
      * 
      *     }
@@ -434,6 +439,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details of all available monitoring regions.
      *         final var example = Ns1Functions.getMonitoringRegions();
      * 
      *     }
@@ -473,6 +479,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about NS1 Networks.
      *         final var example = Ns1Functions.getNetworks();
      * 
      *     }
@@ -512,6 +519,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about NS1 Networks.
      *         final var example = Ns1Functions.getNetworks();
      * 
      *     }
@@ -551,6 +559,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about NS1 Networks.
      *         final var example = Ns1Functions.getNetworks();
      * 
      *     }
@@ -590,6 +599,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about NS1 Networks.
      *         final var example = Ns1Functions.getNetworks();
      * 
      *     }
@@ -629,6 +639,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about NS1 Networks.
      *         final var example = Ns1Functions.getNetworks();
      * 
      *     }
@@ -668,6 +679,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about NS1 Networks.
      *         final var example = Ns1Functions.getNetworks();
      * 
      *     }
@@ -708,10 +720,11 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .zone(&#34;example.io&#34;)
      *             .domain(&#34;terraform.example.io&#34;)
      *             .type(&#34;A&#34;)
-     *             .zone(&#34;example.io&#34;)
      *             .build());
      * 
      *     }
@@ -752,10 +765,11 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .zone(&#34;example.io&#34;)
      *             .domain(&#34;terraform.example.io&#34;)
      *             .type(&#34;A&#34;)
-     *             .zone(&#34;example.io&#34;)
      *             .build());
      * 
      *     }
@@ -796,10 +810,11 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .zone(&#34;example.io&#34;)
      *             .domain(&#34;terraform.example.io&#34;)
      *             .type(&#34;A&#34;)
-     *             .zone(&#34;example.io&#34;)
      *             .build());
      * 
      *     }
@@ -840,10 +855,11 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .zone(&#34;example.io&#34;)
      *             .domain(&#34;terraform.example.io&#34;)
      *             .type(&#34;A&#34;)
-     *             .zone(&#34;example.io&#34;)
      *             .build());
      * 
      *     }
@@ -884,6 +900,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
      *             .zone(&#34;terraform.example.io&#34;)
      *             .build());
@@ -926,6 +943,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
      *             .zone(&#34;terraform.example.io&#34;)
      *             .build());
@@ -968,6 +986,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
      *             .zone(&#34;terraform.example.io&#34;)
      *             .build());
@@ -1010,6 +1029,7 @@ public final class Ns1Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
      *             .zone(&#34;terraform.example.io&#34;)
      *             .build());

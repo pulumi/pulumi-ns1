@@ -25,6 +25,7 @@ namespace Pulumi.Ns1
     /// {
     ///     var example = new Ns1.Tsigkey("example", new()
     ///     {
+    ///         Name = "ExampleTsigKey",
     ///         Algorithm = "hmac-sha256",
     ///         Secret = "Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==",
     ///     });

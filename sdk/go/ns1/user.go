@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTeam, err := ns1.NewTeam(ctx, "exampleTeam", &ns1.TeamArgs{
+//			example, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
+//				Name: pulumi.String("Example team"),
 //				IpWhitelists: ns1.TeamIpWhitelistArray{
 //					"1.1.1.1",
 //					"2.2.2.2",
@@ -42,11 +43,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ns1.NewUser(ctx, "exampleUser", &ns1.UserArgs{
+//			_, err = ns1.NewUser(ctx, "example", &ns1.UserArgs{
+//				Name:     pulumi.String("Example User"),
 //				Username: pulumi.String("example_user"),
 //				Email:    pulumi.String("user@example.com"),
 //				Teams: pulumi.StringArray{
-//					exampleTeam.ID(),
+//					example.ID(),
 //				},
 //				Notify: pulumi.Map{
 //					"billing": pulumi.Any(false),

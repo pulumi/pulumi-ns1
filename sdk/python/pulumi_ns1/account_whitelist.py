@@ -110,10 +110,12 @@ class AccountWhitelist(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.AccountWhitelist("example", values=[
-            "1.1.1.1",
-            "2.2.2.2",
-        ])
+        example = ns1.AccountWhitelist("example",
+            name="Example Whitelist",
+            values=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -152,10 +154,12 @@ class AccountWhitelist(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.AccountWhitelist("example", values=[
-            "1.1.1.1",
-            "2.2.2.2",
-        ])
+        example = ns1.AccountWhitelist("example",
+            name="Example Whitelist",
+            values=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

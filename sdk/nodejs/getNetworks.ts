@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details about NS1 Networks.
  * const example = ns1.getNetworks({});
  * ```
  * <!--End PulumiCodeChooser -->
@@ -55,6 +56,7 @@ export interface GetNetworksResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details about NS1 Networks.
  * const example = ns1.getNetworks({});
  * ```
  * <!--End PulumiCodeChooser -->

@@ -25,23 +25,24 @@ namespace Pulumi.Ns1
     /// {
     ///     var nl = new Ns1.NotifyList("nl", new()
     ///     {
+    ///         Name = "my notify list",
     ///         Notifications = new[]
     ///         {
     ///             new Ns1.Inputs.NotifyListNotificationArgs
     ///             {
+    ///                 Type = "webhook",
     ///                 Config = 
     ///                 {
     ///                     { "url", "http://www.mywebhook.com" },
     ///                 },
-    ///                 Type = "webhook",
     ///             },
     ///             new Ns1.Inputs.NotifyListNotificationArgs
     ///             {
+    ///                 Type = "email",
     ///                 Config = 
     ///                 {
     ///                     { "email", "test@test.com" },
     ///                 },
-    ///                 Type = "email",
     ///             },
     ///         },
     ///     });

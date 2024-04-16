@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Tsigkey(&#34;example&#34;, TsigkeyArgs.builder()        
+ *             .name(&#34;ExampleTsigKey&#34;)
  *             .algorithm(&#34;hmac-sha256&#34;)
  *             .secret(&#34;Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==&#34;)
  *             .build());

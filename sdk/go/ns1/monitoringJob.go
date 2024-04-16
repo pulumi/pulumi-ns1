@@ -29,29 +29,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ns1.NewMonitoringJob(ctx, "uswestMonitor", &ns1.MonitoringJobArgs{
+//			_, err := ns1.NewMonitoringJob(ctx, "uswest_monitor", &ns1.MonitoringJobArgs{
+//				Name:   pulumi.String("uswest"),
 //				Active: pulumi.Bool(true),
-//				Config: pulumi.Map{
-//					"host": pulumi.Any("example-elb-uswest.aws.amazon.com"),
-//					"port": pulumi.Any(443),
-//					"send": pulumi.Any("HEAD / HTTP/1.0\\r\\n\\r\\n"),
-//					"ssl":  pulumi.Any(1),
-//				},
-//				Frequency:    pulumi.Int(60),
-//				JobType:      pulumi.String("tcp"),
-//				Mute:         pulumi.Bool(true),
-//				Policy:       pulumi.String("quorum"),
-//				RapidRecheck: pulumi.Bool(true),
 //				Regions: pulumi.StringArray{
 //					pulumi.String("lga"),
 //					pulumi.String("sjc"),
 //					pulumi.String("sin"),
 //				},
+//				JobType:      pulumi.String("tcp"),
+//				Frequency:    pulumi.Int(60),
+//				RapidRecheck: pulumi.Bool(true),
+//				Policy:       pulumi.String("quorum"),
+//				Mute:         pulumi.Bool(true),
+//				Config: pulumi.Map{
+//					"ssl":  pulumi.Any(1),
+//					"send": pulumi.Any("HEAD / HTTP/1.0\\r\\n\\r\\n"),
+//					"port": pulumi.Any(443),
+//					"host": pulumi.Any("example-elb-uswest.aws.amazon.com"),
+//				},
 //				Rules: ns1.MonitoringJobRuleArray{
 //					&ns1.MonitoringJobRuleArgs{
+//						Value:      pulumi.String("200 OK"),
 //						Comparison: pulumi.String("contains"),
 //						Key:        pulumi.String("output"),
-//						Value:      pulumi.String("200 OK"),
 //					},
 //				},
 //			})

@@ -569,28 +569,29 @@ class MonitoringJob(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        uswest_monitor = ns1.MonitoringJob("uswestMonitor",
+        uswest_monitor = ns1.MonitoringJob("uswest_monitor",
+            name="uswest",
             active=True,
-            config={
-                "host": "example-elb-uswest.aws.amazon.com",
-                "port": 443,
-                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
-                "ssl": 1,
-            },
-            frequency=60,
-            job_type="tcp",
-            mute=True,
-            policy="quorum",
-            rapid_recheck=True,
             regions=[
                 "lga",
                 "sjc",
                 "sin",
             ],
+            job_type="tcp",
+            frequency=60,
+            rapid_recheck=True,
+            policy="quorum",
+            mute=True,
+            config={
+                "ssl": 1,
+                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
+                "port": 443,
+                "host": "example-elb-uswest.aws.amazon.com",
+            },
             rules=[ns1.MonitoringJobRuleArgs(
+                value="200 OK",
                 comparison="contains",
                 key="output",
-                value="200 OK",
             )])
         ```
         <!--End PulumiCodeChooser -->
@@ -641,28 +642,29 @@ class MonitoringJob(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        uswest_monitor = ns1.MonitoringJob("uswestMonitor",
+        uswest_monitor = ns1.MonitoringJob("uswest_monitor",
+            name="uswest",
             active=True,
-            config={
-                "host": "example-elb-uswest.aws.amazon.com",
-                "port": 443,
-                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
-                "ssl": 1,
-            },
-            frequency=60,
-            job_type="tcp",
-            mute=True,
-            policy="quorum",
-            rapid_recheck=True,
             regions=[
                 "lga",
                 "sjc",
                 "sin",
             ],
+            job_type="tcp",
+            frequency=60,
+            rapid_recheck=True,
+            policy="quorum",
+            mute=True,
+            config={
+                "ssl": 1,
+                "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
+                "port": 443,
+                "host": "example-elb-uswest.aws.amazon.com",
+            },
             rules=[ns1.MonitoringJobRuleArgs(
+                value="200 OK",
                 comparison="contains",
                 key="output",
-                value="200 OK",
             )])
         ```
         <!--End PulumiCodeChooser -->

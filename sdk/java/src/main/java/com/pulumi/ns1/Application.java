@@ -20,51 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.ns1.Application;
- * import com.pulumi.ns1.ApplicationArgs;
- * import com.pulumi.ns1.inputs.ApplicationDefaultConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create a new pulsar application with default config
- *         var ns1App = new Application(&#34;ns1App&#34;, ApplicationArgs.builder()        
- *             .defaultConfig(ApplicationDefaultConfigArgs.builder()
- *                 .http(true)
- *                 .https(false)
- *                 .jobTimeoutMillis(100)
- *                 .requestTimeoutMillis(100)
- *                 .staticValues(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## NS1 Documentation
- * 
- * [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
- * 
  * ## Import
  * 
  * ```sh

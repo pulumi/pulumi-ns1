@@ -141,6 +141,7 @@ class Tsigkey(pulumi.CustomResource):
         import pulumi_ns1 as ns1
 
         example = ns1.Tsigkey("example",
+            name="ExampleTsigKey",
             algorithm="hmac-sha256",
             secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
         ```
@@ -178,6 +179,7 @@ class Tsigkey(pulumi.CustomResource):
         import pulumi_ns1 as ns1
 
         example = ns1.Tsigkey("example",
+            name="ExampleTsigKey",
             algorithm="hmac-sha256",
             secret="Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
         ```

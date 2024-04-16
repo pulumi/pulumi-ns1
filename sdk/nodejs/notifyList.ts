@@ -16,20 +16,23 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const nl = new ns1.NotifyList("nl", {notifications: [
- *     {
- *         config: {
- *             url: "http://www.mywebhook.com",
+ * const nl = new ns1.NotifyList("nl", {
+ *     name: "my notify list",
+ *     notifications: [
+ *         {
+ *             type: "webhook",
+ *             config: {
+ *                 url: "http://www.mywebhook.com",
+ *             },
  *         },
- *         type: "webhook",
- *     },
- *     {
- *         config: {
- *             email: "test@test.com",
+ *         {
+ *             type: "email",
+ *             config: {
+ *                 email: "test@test.com",
+ *             },
  *         },
- *         type: "email",
- *     },
- * ]});
+ *     ],
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

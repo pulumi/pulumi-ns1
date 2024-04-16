@@ -145,22 +145,29 @@ class DataFeed(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
-        example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
-        uswest_feed = ns1.DataFeed("uswestFeed",
+        example = ns1.DataSource("example",
+            name="example",
+            sourcetype="nsone_v1")
+        example_monitoring = ns1.DataSource("example_monitoring",
+            name="example_monitoring",
+            sourcetype="nsone_monitoring")
+        uswest_feed = ns1.DataFeed("uswest_feed",
+            name="uswest_feed",
             source_id=example.id,
             config={
                 "label": "uswest",
             })
-        useast_feed = ns1.DataFeed("useastFeed",
+        useast_feed = ns1.DataFeed("useast_feed",
+            name="useast_feed",
             source_id=example.id,
             config={
                 "label": "useast",
             })
-        useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
+        useast_monitor_feed = ns1.DataFeed("useast_monitor_feed",
+            name="useast_monitor_feed",
             source_id=example_monitoring.id,
             config={
-                "jobid": ns1_monitoringjob["example_job"]["id"],
+                "jobid": example_job["id"],
             })
         ```
         <!--End PulumiCodeChooser -->
@@ -198,22 +205,29 @@ class DataFeed(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
-        example_monitoring = ns1.DataSource("exampleMonitoring", sourcetype="nsone_monitoring")
-        uswest_feed = ns1.DataFeed("uswestFeed",
+        example = ns1.DataSource("example",
+            name="example",
+            sourcetype="nsone_v1")
+        example_monitoring = ns1.DataSource("example_monitoring",
+            name="example_monitoring",
+            sourcetype="nsone_monitoring")
+        uswest_feed = ns1.DataFeed("uswest_feed",
+            name="uswest_feed",
             source_id=example.id,
             config={
                 "label": "uswest",
             })
-        useast_feed = ns1.DataFeed("useastFeed",
+        useast_feed = ns1.DataFeed("useast_feed",
+            name="useast_feed",
             source_id=example.id,
             config={
                 "label": "useast",
             })
-        useast_monitor_feed = ns1.DataFeed("useastMonitorFeed",
+        useast_monitor_feed = ns1.DataFeed("useast_monitor_feed",
+            name="useast_monitor_feed",
             source_id=example_monitoring.id,
             config={
-                "jobid": ns1_monitoringjob["example_job"]["id"],
+                "jobid": example_job["id"],
             })
         ```
         <!--End PulumiCodeChooser -->

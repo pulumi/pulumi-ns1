@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ns1.NewAccountWhitelist(ctx, "example", &ns1.AccountWhitelistArgs{
+//				Name: pulumi.String("Example Whitelist"),
 //				Values: pulumi.StringArray{
 //					pulumi.String("1.1.1.1"),
 //					pulumi.String("2.2.2.2"),

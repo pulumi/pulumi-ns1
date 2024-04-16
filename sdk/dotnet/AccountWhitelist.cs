@@ -27,6 +27,7 @@ namespace Pulumi.Ns1
     /// {
     ///     var example = new Ns1.AccountWhitelist("example", new()
     ///     {
+    ///         Name = "Example Whitelist",
     ///         Values = new[]
     ///         {
     ///             "1.1.1.1",

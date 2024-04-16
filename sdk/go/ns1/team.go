@@ -31,8 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new NS1 Team
 //			_, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
-//				AccountManageUsers: pulumi.Bool(false),
-//				DnsViewZones:       pulumi.Bool(false),
+//				Name: pulumi.String("Example team"),
 //				IpWhitelists: ns1.TeamIpWhitelistArray{
 //					&ns1.TeamIpWhitelistArgs{
 //						Name: pulumi.String("whitelist-1"),
@@ -49,29 +48,32 @@ import (
 //						},
 //					},
 //				},
+//				DnsViewZones:       pulumi.Bool(false),
+//				AccountManageUsers: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Another team
 //			_, err = ns1.NewTeam(ctx, "example2", &ns1.TeamArgs{
-//				DataManageDatasources: pulumi.Bool(true),
+//				Name:                   pulumi.String("another team"),
+//				DnsViewZones:           pulumi.Bool(true),
+//				DnsZonesAllowByDefault: pulumi.Bool(true),
+//				DnsZonesAllows: pulumi.StringArray{
+//					pulumi.String("mytest.zone"),
+//				},
+//				DnsZonesDenies: pulumi.StringArray{
+//					pulumi.String("myother.zone"),
+//				},
 //				DnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{
 //					&ns1.TeamDnsRecordsAllowArgs{
 //						Domain:            pulumi.String("terraform.example.io"),
 //						IncludeSubdomains: pulumi.Bool(false),
-//						Type:              pulumi.String("A"),
 //						Zone:              pulumi.String("example.io"),
+//						Type:              pulumi.String("A"),
 //					},
 //				},
-//				DnsViewZones: pulumi.Bool(true),
-//				DnsZonesAllows: pulumi.StringArray{
-//					pulumi.String("mytest.zone"),
-//				},
-//				DnsZonesAllowByDefault: pulumi.Bool(true),
-//				DnsZonesDenies: pulumi.StringArray{
-//					pulumi.String("myother.zone"),
-//				},
+//				DataManageDatasources: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

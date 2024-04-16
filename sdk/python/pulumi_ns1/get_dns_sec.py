@@ -92,10 +92,10 @@ def get_dns_sec(zone: Optional[str] = None,
     import pulumi_ns1 as ns1
 
     # Get DNSSEC details about a NS1 Zone.
-    example_zone = ns1.Zone("exampleZone",
-        dnssec=True,
-        zone="terraform.example.io")
-    example_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)
+    example_zone = ns1.Zone("example",
+        zone="terraform.example.io",
+        dnssec=True)
+    example = ns1.get_dns_sec_output(zone=example_zone.zone)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -128,10 +128,10 @@ def get_dns_sec_output(zone: Optional[pulumi.Input[str]] = None,
     import pulumi_ns1 as ns1
 
     # Get DNSSEC details about a NS1 Zone.
-    example_zone = ns1.Zone("exampleZone",
-        dnssec=True,
-        zone="terraform.example.io")
-    example_dns_sec = ns1.get_dns_sec_output(zone=example_zone.zone)
+    example_zone = ns1.Zone("example",
+        zone="terraform.example.io",
+        dnssec=True)
+    example = ns1.get_dns_sec_output(zone=example_zone.zone)
     ```
     <!--End PulumiCodeChooser -->
 
