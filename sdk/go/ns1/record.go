@@ -14,6 +14,195 @@ import (
 
 // Provides a NS1 Record resource. This can be used to create, modify, and delete records.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-external/sdk/v1/go/external"
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ns1.NewZone(ctx, "example", &ns1.ZoneArgs{
+//				Zone: pulumi.String("terraform.example.io"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ns1, err := ns1.NewDataSource(ctx, "ns1", &ns1.DataSourceArgs{
+//				Name:       pulumi.String("ns1_source"),
+//				Sourcetype: pulumi.String("nsone_v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := ns1.NewDataFeed(ctx, "foo", &ns1.DataFeedArgs{
+//				Name:     pulumi.String("foo_feed"),
+//				SourceId: ns1.ID(),
+//				Config: pulumi.Map{
+//					"label": pulumi.Any("foo"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			bar, err := ns1.NewDataFeed(ctx, "bar", &ns1.DataFeedArgs{
+//				Name:     pulumi.String("bar_feed"),
+//				SourceId: ns1.ID(),
+//				Config: pulumi.Map{
+//					"label": pulumi.Any("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
+//				map[string]interface{}{
+//					"job_id":     "abcdef",
+//					"bias":       "*0.55",
+//					"a5m_cutoff": 0.9,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"BR": []string{
+//					"SP",
+//					"SC",
+//				},
+//				"DZ": []string{
+//					"01",
+//					"02",
+//					"03",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = ns1.NewRecord(ctx, "www", &ns1.RecordArgs{
+//				Zone:   pulumi.Any(tld.Zone),
+//				Domain: pulumi.String(fmt.Sprintf("www.%v", tld.Zone)),
+//				Type:   pulumi.String("CNAME"),
+//				Ttl:    pulumi.Int(60),
+//				Meta: pulumi.Map{
+//					"up": pulumi.Any(true),
+//				},
+//				Regions: ns1.RecordRegionArray{
+//					&ns1.RecordRegionArgs{
+//						Name: pulumi.String("east"),
+//						Meta: pulumi.Map{
+//							"georegion": pulumi.Any("US-EAST"),
+//						},
+//					},
+//					&ns1.RecordRegionArgs{
+//						Name: pulumi.String("usa"),
+//						Meta: pulumi.Map{
+//							"country": pulumi.Any("US"),
+//						},
+//					},
+//				},
+//				Answers: ns1.RecordAnswerArray{
+//					&ns1.RecordAnswerArgs{
+//						Answer: pulumi.String(fmt.Sprintf("sub1.%v", tld.Zone)),
+//						Region: pulumi.String("east"),
+//						Meta: pulumi.Map{
+//							"up": foo.ID().ApplyT(func(id string) (string, error) {
+//								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//					&ns1.RecordAnswerArgs{
+//						Answer: pulumi.String(fmt.Sprintf("sub2.%v", tld.Zone)),
+//						Meta: pulumi.Map{
+//							"up": bar.ID().ApplyT(func(id string) (string, error) {
+//								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
+//							}).(pulumi.StringOutput),
+//							"connections": pulumi.Any(3),
+//						},
+//					},
+//					&ns1.RecordAnswerArgs{
+//						Answer: pulumi.String(fmt.Sprintf("sub3.%v", tld.Zone)),
+//						Meta: pulumi.Map{
+//							"pulsar":       pulumi.String(json0),
+//							"subdivisions": pulumi.String(json1),
+//						},
+//					},
+//				},
+//				Filters: ns1.RecordFilterArray{
+//					&ns1.RecordFilterArgs{
+//						Filter: pulumi.String("select_first_n"),
+//						Config: pulumi.Map{
+//							"N": pulumi.Any(1),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
+//			_, err = index.NewSource(ctx, "baz", &index.SourceArgs{
+//				Zone:   "terraform.example.io.",
+//				Domain: ".www.terraform.example.io",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
+//				Text:    zone,
+//				Search:  "/(^\\.)|(\\.$)/",
+//				Replace: "",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeReplace1, err := std.Replace(ctx, &std.ReplaceArgs{
+//				Text:    domain,
+//				Search:  "/(^\\.)|(\\.$)/",
+//				Replace: "",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Basic record showing how to clean a zone or domain field that comes from
+//			// another non-NS1 resource. DNS names often end in '.' characters to signify
+//			// the root of the DNS tree, but the NS1 provider does not support this.
+//			//
+//			// In other cases, a domain or zone may be passed in with a preceding dot ('.')
+//			// character which would likewise lead the system to fail.
+//			_, err = ns1.NewRecord(ctx, "external", &ns1.RecordArgs{
+//				Zone:   invokeReplace.Result,
+//				Domain: invokeReplace1.Result,
+//				Type:   pulumi.String("CNAME"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## NS1 Documentation
+//
+// [Record Api Doc](https://ns1.com/api#records)
+//
 // ## Import
 //
 // ```sh

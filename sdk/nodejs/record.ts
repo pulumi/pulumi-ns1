@@ -9,6 +9,131 @@ import * as utilities from "./utilities";
 /**
  * Provides a NS1 Record resource. This can be used to create, modify, and delete records.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as external from "@pulumi/external";
+ * import * as ns1 from "@pulumi/ns1";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new ns1.Zone("example", {zone: "terraform.example.io"});
+ * const ns1 = new ns1.DataSource("ns1", {
+ *     name: "ns1_source",
+ *     sourcetype: "nsone_v1",
+ * });
+ * const foo = new ns1.DataFeed("foo", {
+ *     name: "foo_feed",
+ *     sourceId: ns1.id,
+ *     config: {
+ *         label: "foo",
+ *     },
+ * });
+ * const bar = new ns1.DataFeed("bar", {
+ *     name: "bar_feed",
+ *     sourceId: ns1.id,
+ *     config: {
+ *         label: "bar",
+ *     },
+ * });
+ * const www = new ns1.Record("www", {
+ *     zone: tld.zone,
+ *     domain: `www.${tld.zone}`,
+ *     type: "CNAME",
+ *     ttl: 60,
+ *     meta: {
+ *         up: true,
+ *     },
+ *     regions: [
+ *         {
+ *             name: "east",
+ *             meta: {
+ *                 georegion: "US-EAST",
+ *             },
+ *         },
+ *         {
+ *             name: "usa",
+ *             meta: {
+ *                 country: "US",
+ *             },
+ *         },
+ *     ],
+ *     answers: [
+ *         {
+ *             answer: `sub1.${tld.zone}`,
+ *             region: "east",
+ *             meta: {
+ *                 up: pulumi.interpolate`{"feed":"${foo.id}"}`,
+ *             },
+ *         },
+ *         {
+ *             answer: `sub2.${tld.zone}`,
+ *             meta: {
+ *                 up: pulumi.interpolate`{"feed":"${bar.id}"}`,
+ *                 connections: 3,
+ *             },
+ *         },
+ *         {
+ *             answer: `sub3.${tld.zone}`,
+ *             meta: {
+ *                 pulsar: JSON.stringify([{
+ *                     job_id: "abcdef",
+ *                     bias: "*0.55",
+ *                     a5m_cutoff: 0.9,
+ *                 }]),
+ *                 subdivisions: JSON.stringify({
+ *                     BR: [
+ *                         "SP",
+ *                         "SC",
+ *                     ],
+ *                     DZ: [
+ *                         "01",
+ *                         "02",
+ *                         "03",
+ *                     ],
+ *                 }),
+ *             },
+ *         },
+ *     ],
+ *     filters: [{
+ *         filter: "select_first_n",
+ *         config: {
+ *             N: 1,
+ *         },
+ *     }],
+ * });
+ * // Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
+ * const baz = new external.index.Source("baz", {
+ *     zone: "terraform.example.io.",
+ *     domain: ".www.terraform.example.io",
+ * });
+ * // Basic record showing how to clean a zone or domain field that comes from
+ * // another non-NS1 resource. DNS names often end in '.' characters to signify
+ * // the root of the DNS tree, but the NS1 provider does not support this.
+ * //
+ * // In other cases, a domain or zone may be passed in with a preceding dot ('.')
+ * // character which would likewise lead the system to fail.
+ * const external = new ns1.Record("external", {
+ *     zone: std.replace({
+ *         text: zone,
+ *         search: "/(^\\.)|(\\.$)/",
+ *         replace: "",
+ *     }).then(invoke => invoke.result),
+ *     domain: std.replace({
+ *         text: domain,
+ *         search: "/(^\\.)|(\\.$)/",
+ *         replace: "",
+ *     }).then(invoke => invoke.result),
+ *     type: "CNAME",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## NS1 Documentation
+ *
+ * [Record Api Doc](https://ns1.com/api#records)
+ *
  * ## Import
  *
  * ```sh

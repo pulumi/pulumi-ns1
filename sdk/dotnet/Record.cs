@@ -12,6 +12,182 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Record resource. This can be used to create, modify, and delete records.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using External = Pulumi.External;
+    /// using Ns1 = Pulumi.Ns1;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Ns1.Zone("example", new()
+    ///     {
+    ///         ZoneName = "terraform.example.io",
+    ///     });
+    /// 
+    ///     var ns1 = new Ns1.DataSource("ns1", new()
+    ///     {
+    ///         Name = "ns1_source",
+    ///         Sourcetype = "nsone_v1",
+    ///     });
+    /// 
+    ///     var foo = new Ns1.DataFeed("foo", new()
+    ///     {
+    ///         Name = "foo_feed",
+    ///         SourceId = ns1.Id,
+    ///         Config = 
+    ///         {
+    ///             { "label", "foo" },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Ns1.DataFeed("bar", new()
+    ///     {
+    ///         Name = "bar_feed",
+    ///         SourceId = ns1.Id,
+    ///         Config = 
+    ///         {
+    ///             { "label", "bar" },
+    ///         },
+    ///     });
+    /// 
+    ///     var www = new Ns1.Record("www", new()
+    ///     {
+    ///         Zone = tld.Zone,
+    ///         Domain = $"www.{tld.Zone}",
+    ///         Type = "CNAME",
+    ///         Ttl = 60,
+    ///         Meta = 
+    ///         {
+    ///             { "up", true },
+    ///         },
+    ///         Regions = new[]
+    ///         {
+    ///             new Ns1.Inputs.RecordRegionArgs
+    ///             {
+    ///                 Name = "east",
+    ///                 Meta = 
+    ///                 {
+    ///                     { "georegion", "US-EAST" },
+    ///                 },
+    ///             },
+    ///             new Ns1.Inputs.RecordRegionArgs
+    ///             {
+    ///                 Name = "usa",
+    ///                 Meta = 
+    ///                 {
+    ///                     { "country", "US" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Answers = new[]
+    ///         {
+    ///             new Ns1.Inputs.RecordAnswerArgs
+    ///             {
+    ///                 Answer = $"sub1.{tld.Zone}",
+    ///                 Region = "east",
+    ///                 Meta = 
+    ///                 {
+    ///                     { "up", foo.Id.Apply(id =&gt; $"{{\"feed\":\"{id}\"}}") },
+    ///                 },
+    ///             },
+    ///             new Ns1.Inputs.RecordAnswerArgs
+    ///             {
+    ///                 Answer = $"sub2.{tld.Zone}",
+    ///                 Meta = 
+    ///                 {
+    ///                     { "up", bar.Id.Apply(id =&gt; $"{{\"feed\":\"{id}\"}}") },
+    ///                     { "connections", 3 },
+    ///                 },
+    ///             },
+    ///             new Ns1.Inputs.RecordAnswerArgs
+    ///             {
+    ///                 Answer = $"sub3.{tld.Zone}",
+    ///                 Meta = 
+    ///                 {
+    ///                     { "pulsar", JsonSerializer.Serialize(new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["job_id"] = "abcdef",
+    ///                             ["bias"] = "*0.55",
+    ///                             ["a5m_cutoff"] = 0.9,
+    ///                         },
+    ///                     }) },
+    ///                     { "subdivisions", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["BR"] = new[]
+    ///                         {
+    ///                             "SP",
+    ///                             "SC",
+    ///                         },
+    ///                         ["DZ"] = new[]
+    ///                         {
+    ///                             "01",
+    ///                             "02",
+    ///                             "03",
+    ///                         },
+    ///                     }) },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Ns1.Inputs.RecordFilterArgs
+    ///             {
+    ///                 Filter = "select_first_n",
+    ///                 Config = 
+    ///                 {
+    ///                     { "N", 1 },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
+    ///     var baz = new External.Index.Source("baz", new()
+    ///     {
+    ///         Zone = "terraform.example.io.",
+    ///         Domain = ".www.terraform.example.io",
+    ///     });
+    /// 
+    ///     // Basic record showing how to clean a zone or domain field that comes from
+    ///     // another non-NS1 resource. DNS names often end in '.' characters to signify
+    ///     // the root of the DNS tree, but the NS1 provider does not support this.
+    ///     //
+    ///     // In other cases, a domain or zone may be passed in with a preceding dot ('.')
+    ///     // character which would likewise lead the system to fail.
+    ///     var external = new Ns1.Record("external", new()
+    ///     {
+    ///         Zone = Std.Replace.Invoke(new()
+    ///         {
+    ///             Text = zone,
+    ///             Search = "/(^\\.)|(\\.$)/",
+    ///             Replace = "",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Domain = Std.Replace.Invoke(new()
+    ///         {
+    ///             Text = domain,
+    ///             Search = "/(^\\.)|(\\.$)/",
+    ///             Replace = "",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Type = "CNAME",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## NS1 Documentation
+    /// 
+    /// [Record Api Doc](https://ns1.com/api#records)
+    /// 
     /// ## Import
     /// 
     /// ```sh
