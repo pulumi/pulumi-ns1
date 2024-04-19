@@ -27,6 +27,7 @@ namespace Pulumi.Ns1
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Get details about a NS1 Zone.
         ///     var example = Ns1.GetZone.Invoke(new()
         ///     {
         ///         Zone = "terraform.example.io",
@@ -55,6 +56,7 @@ namespace Pulumi.Ns1
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Get details about a NS1 Zone.
         ///     var example = Ns1.GetZone.Invoke(new()
         ///     {
         ///         Zone = "terraform.example.io",

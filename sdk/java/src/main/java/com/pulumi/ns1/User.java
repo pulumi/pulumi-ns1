@@ -51,7 +51,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTeam = new Team(&#34;exampleTeam&#34;, TeamArgs.builder()        
+ *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
+ *             .name(&#34;Example team&#34;)
  *             .ipWhitelists(            
  *                 &#34;1.1.1.1&#34;,
  *                 &#34;2.2.2.2&#34;)
@@ -60,9 +61,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *             .name(&#34;Example User&#34;)
  *             .username(&#34;example_user&#34;)
  *             .email(&#34;user@example.com&#34;)
- *             .teams(exampleTeam.id())
+ *             .teams(example.id())
  *             .notify(Map.of(&#34;billing&#34;, false))
  *             .build());
  * 

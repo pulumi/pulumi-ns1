@@ -12,38 +12,6 @@ namespace Pulumi.Ns1
     /// <summary>
     /// Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Ns1 = Pulumi.Ns1;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new pulsar application with default config
-    ///     var ns1App = new Ns1.Application("ns1App", new()
-    ///     {
-    ///         DefaultConfig = new Ns1.Inputs.ApplicationDefaultConfigArgs
-    ///         {
-    ///             Http = true,
-    ///             Https = false,
-    ///             JobTimeoutMillis = 100,
-    ///             RequestTimeoutMillis = 100,
-    ///             StaticValues = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
-    /// ## NS1 Documentation
-    /// 
-    /// [Application Api Docs](https://ns1.com/api#get-list-pulsar-applications)
-    /// 
     /// ## Import
     /// 
     /// ```sh

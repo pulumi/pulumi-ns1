@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ns1.NewTsigkey(ctx, "example", &ns1.TsigkeyArgs{
+//				Name:      pulumi.String("ExampleTsigKey"),
 //				Algorithm: pulumi.String("hmac-sha256"),
 //				Secret:    pulumi.String("Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA=="),
 //			})

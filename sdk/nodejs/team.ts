@@ -19,8 +19,7 @@ import * as utilities from "./utilities";
  *
  * // Create a new NS1 Team
  * const example = new ns1.Team("example", {
- *     accountManageUsers: false,
- *     dnsViewZones: false,
+ *     name: "Example team",
  *     ipWhitelists: [
  *         {
  *             name: "whitelist-1",
@@ -37,20 +36,23 @@ import * as utilities from "./utilities";
  *             ],
  *         },
  *     ],
+ *     dnsViewZones: false,
+ *     accountManageUsers: false,
  * });
  * // Another team
  * const example2 = new ns1.Team("example2", {
- *     dataManageDatasources: true,
+ *     name: "another team",
+ *     dnsViewZones: true,
+ *     dnsZonesAllowByDefault: true,
+ *     dnsZonesAllows: ["mytest.zone"],
+ *     dnsZonesDenies: ["myother.zone"],
  *     dnsRecordsAllows: [{
  *         domain: "terraform.example.io",
  *         includeSubdomains: false,
- *         type: "A",
  *         zone: "example.io",
+ *         type: "A",
  *     }],
- *     dnsViewZones: true,
- *     dnsZonesAllows: ["mytest.zone"],
- *     dnsZonesAllowByDefault: true,
- *     dnsZonesDenies: ["myother.zone"],
+ *     dataManageDatasources: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

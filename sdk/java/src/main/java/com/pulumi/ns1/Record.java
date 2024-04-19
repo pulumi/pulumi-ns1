@@ -25,6 +25,155 @@ import javax.annotation.Nullable;
 /**
  * Provides a NS1 Record resource. This can be used to create, modify, and delete records.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.Zone;
+ * import com.pulumi.ns1.ZoneArgs;
+ * import com.pulumi.ns1.DataSource;
+ * import com.pulumi.ns1.DataSourceArgs;
+ * import com.pulumi.ns1.DataFeed;
+ * import com.pulumi.ns1.DataFeedArgs;
+ * import com.pulumi.ns1.Record;
+ * import com.pulumi.ns1.RecordArgs;
+ * import com.pulumi.ns1.inputs.RecordRegionArgs;
+ * import com.pulumi.ns1.inputs.RecordAnswerArgs;
+ * import com.pulumi.ns1.inputs.RecordFilterArgs;
+ * import com.pulumi.external.source;
+ * import com.pulumi.external.SourceArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
+ *             .zone(&#34;terraform.example.io&#34;)
+ *             .build());
+ * 
+ *         var ns1 = new DataSource(&#34;ns1&#34;, DataSourceArgs.builder()        
+ *             .name(&#34;ns1_source&#34;)
+ *             .sourcetype(&#34;nsone_v1&#34;)
+ *             .build());
+ * 
+ *         var foo = new DataFeed(&#34;foo&#34;, DataFeedArgs.builder()        
+ *             .name(&#34;foo_feed&#34;)
+ *             .sourceId(ns1.id())
+ *             .config(Map.of(&#34;label&#34;, &#34;foo&#34;))
+ *             .build());
+ * 
+ *         var bar = new DataFeed(&#34;bar&#34;, DataFeedArgs.builder()        
+ *             .name(&#34;bar_feed&#34;)
+ *             .sourceId(ns1.id())
+ *             .config(Map.of(&#34;label&#34;, &#34;bar&#34;))
+ *             .build());
+ * 
+ *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+ *             .zone(tld.zone())
+ *             .domain(String.format(&#34;www.%s&#34;, tld.zone()))
+ *             .type(&#34;CNAME&#34;)
+ *             .ttl(60)
+ *             .meta(Map.of(&#34;up&#34;, true))
+ *             .regions(            
+ *                 RecordRegionArgs.builder()
+ *                     .name(&#34;east&#34;)
+ *                     .meta(Map.of(&#34;georegion&#34;, &#34;US-EAST&#34;))
+ *                     .build(),
+ *                 RecordRegionArgs.builder()
+ *                     .name(&#34;usa&#34;)
+ *                     .meta(Map.of(&#34;country&#34;, &#34;US&#34;))
+ *                     .build())
+ *             .answers(            
+ *                 RecordAnswerArgs.builder()
+ *                     .answer(String.format(&#34;sub1.%s&#34;, tld.zone()))
+ *                     .region(&#34;east&#34;)
+ *                     .meta(Map.of(&#34;up&#34;, foo.id().applyValue(id -&gt; String.format(&#34;{{\&#34;feed\&#34;:\&#34;%s\&#34;}}&#34;, id))))
+ *                     .build(),
+ *                 RecordAnswerArgs.builder()
+ *                     .answer(String.format(&#34;sub2.%s&#34;, tld.zone()))
+ *                     .meta(Map.ofEntries(
+ *                         Map.entry(&#34;up&#34;, bar.id().applyValue(id -&gt; String.format(&#34;{{\&#34;feed\&#34;:\&#34;%s\&#34;}}&#34;, id))),
+ *                         Map.entry(&#34;connections&#34;, 3)
+ *                     ))
+ *                     .build(),
+ *                 RecordAnswerArgs.builder()
+ *                     .answer(String.format(&#34;sub3.%s&#34;, tld.zone()))
+ *                     .meta(Map.ofEntries(
+ *                         Map.entry(&#34;pulsar&#34;, serializeJson(
+ *                             jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;job_id&#34;, &#34;abcdef&#34;),
+ *                                 jsonProperty(&#34;bias&#34;, &#34;*0.55&#34;),
+ *                                 jsonProperty(&#34;a5m_cutoff&#34;, 0.9)
+ *                             )))),
+ *                         Map.entry(&#34;subdivisions&#34;, serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty(&#34;BR&#34;, jsonArray(
+ *                                     &#34;SP&#34;, 
+ *                                     &#34;SC&#34;
+ *                                 )),
+ *                                 jsonProperty(&#34;DZ&#34;, jsonArray(
+ *                                     &#34;01&#34;, 
+ *                                     &#34;02&#34;, 
+ *                                     &#34;03&#34;
+ *                                 ))
+ *                             )))
+ *                     ))
+ *                     .build())
+ *             .filters(RecordFilterArgs.builder()
+ *                 .filter(&#34;select_first_n&#34;)
+ *                 .config(Map.of(&#34;N&#34;, 1))
+ *                 .build())
+ *             .build());
+ * 
+ *         // Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
+ *         var baz = new Source(&#34;baz&#34;, SourceArgs.builder()        
+ *             .zone(&#34;terraform.example.io.&#34;)
+ *             .domain(&#34;.www.terraform.example.io&#34;)
+ *             .build());
+ * 
+ *         // Basic record showing how to clean a zone or domain field that comes from
+ *         // another non-NS1 resource. DNS names often end in &#39;.&#39; characters to signify
+ *         // the root of the DNS tree, but the NS1 provider does not support this.
+ *         //
+ *         // In other cases, a domain or zone may be passed in with a preceding dot (&#39;.&#39;)
+ *         // character which would likewise lead the system to fail.
+ *         var external = new Record(&#34;external&#34;, RecordArgs.builder()        
+ *             .zone(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(zone)
+ *                 .search(&#34;/(^\\.)|(\\.$)/&#34;)
+ *                 .replace(&#34;&#34;)
+ *                 .build()).result())
+ *             .domain(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(domain)
+ *                 .search(&#34;/(^\\.)|(\\.$)/&#34;)
+ *                 .replace(&#34;&#34;)
+ *                 .build()).result())
+ *             .type(&#34;CNAME&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## NS1 Documentation
+ * 
+ * [Record Api Doc](https://ns1.com/api#records)
+ * 
  * ## Import
  * 
  * ```sh

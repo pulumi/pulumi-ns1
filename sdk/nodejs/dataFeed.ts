@@ -14,24 +14,33 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const example = new ns1.DataSource("example", {sourcetype: "nsone_v1"});
- * const exampleMonitoring = new ns1.DataSource("exampleMonitoring", {sourcetype: "nsone_monitoring"});
- * const uswestFeed = new ns1.DataFeed("uswestFeed", {
+ * const example = new ns1.DataSource("example", {
+ *     name: "example",
+ *     sourcetype: "nsone_v1",
+ * });
+ * const exampleMonitoring = new ns1.DataSource("example_monitoring", {
+ *     name: "example_monitoring",
+ *     sourcetype: "nsone_monitoring",
+ * });
+ * const uswestFeed = new ns1.DataFeed("uswest_feed", {
+ *     name: "uswest_feed",
  *     sourceId: example.id,
  *     config: {
  *         label: "uswest",
  *     },
  * });
- * const useastFeed = new ns1.DataFeed("useastFeed", {
+ * const useastFeed = new ns1.DataFeed("useast_feed", {
+ *     name: "useast_feed",
  *     sourceId: example.id,
  *     config: {
  *         label: "useast",
  *     },
  * });
- * const useastMonitorFeed = new ns1.DataFeed("useastMonitorFeed", {
+ * const useastMonitorFeed = new ns1.DataFeed("useast_monitor_feed", {
+ *     name: "useast_monitor_feed",
  *     sourceId: exampleMonitoring.id,
  *     config: {
- *         jobid: ns1_monitoringjob.example_job.id,
+ *         jobid: exampleJob.id,
  *     },
  * });
  * ```

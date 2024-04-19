@@ -46,26 +46,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .sourcetype(&#34;nsone_v1&#34;)
  *             .build());
  * 
  *         var exampleMonitoring = new DataSource(&#34;exampleMonitoring&#34;, DataSourceArgs.builder()        
+ *             .name(&#34;example_monitoring&#34;)
  *             .sourcetype(&#34;nsone_monitoring&#34;)
  *             .build());
  * 
  *         var uswestFeed = new DataFeed(&#34;uswestFeed&#34;, DataFeedArgs.builder()        
+ *             .name(&#34;uswest_feed&#34;)
  *             .sourceId(example.id())
  *             .config(Map.of(&#34;label&#34;, &#34;uswest&#34;))
  *             .build());
  * 
  *         var useastFeed = new DataFeed(&#34;useastFeed&#34;, DataFeedArgs.builder()        
+ *             .name(&#34;useast_feed&#34;)
  *             .sourceId(example.id())
  *             .config(Map.of(&#34;label&#34;, &#34;useast&#34;))
  *             .build());
  * 
  *         var useastMonitorFeed = new DataFeed(&#34;useastMonitorFeed&#34;, DataFeedArgs.builder()        
+ *             .name(&#34;useast_monitor_feed&#34;)
  *             .sourceId(exampleMonitoring.id())
- *             .config(Map.of(&#34;jobid&#34;, ns1_monitoringjob.example_job().id()))
+ *             .config(Map.of(&#34;jobid&#34;, exampleJob.id()))
  *             .build());
  * 
  *     }

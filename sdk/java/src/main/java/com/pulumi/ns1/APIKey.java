@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.ns1.Team;
+ * import com.pulumi.ns1.TeamArgs;
  * import com.pulumi.ns1.APIKey;
  * import com.pulumi.ns1.APIKeyArgs;
  * import java.util.List;
@@ -46,10 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTeam = new Team(&#34;exampleTeam&#34;);
+ *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
+ *             .name(&#34;Example team&#34;)
+ *             .build());
  * 
  *         var exampleAPIKey = new APIKey(&#34;exampleAPIKey&#34;, APIKeyArgs.builder()        
- *             .teams(exampleTeam.id())
+ *             .name(&#34;Example key&#34;)
+ *             .teams(example.id())
  *             .ipWhitelists(            
  *                 &#34;1.1.1.1&#34;,
  *                 &#34;2.2.2.2&#34;)

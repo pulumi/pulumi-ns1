@@ -25,16 +25,19 @@ namespace Pulumi.Ns1
     /// {
     ///     var example = new Ns1.DataSource("example", new()
     ///     {
+    ///         Name = "example",
     ///         Sourcetype = "nsone_v1",
     ///     });
     /// 
-    ///     var exampleMonitoring = new Ns1.DataSource("exampleMonitoring", new()
+    ///     var exampleMonitoring = new Ns1.DataSource("example_monitoring", new()
     ///     {
+    ///         Name = "example_monitoring",
     ///         Sourcetype = "nsone_monitoring",
     ///     });
     /// 
-    ///     var uswestFeed = new Ns1.DataFeed("uswestFeed", new()
+    ///     var uswestFeed = new Ns1.DataFeed("uswest_feed", new()
     ///     {
+    ///         Name = "uswest_feed",
     ///         SourceId = example.Id,
     ///         Config = 
     ///         {
@@ -42,8 +45,9 @@ namespace Pulumi.Ns1
     ///         },
     ///     });
     /// 
-    ///     var useastFeed = new Ns1.DataFeed("useastFeed", new()
+    ///     var useastFeed = new Ns1.DataFeed("useast_feed", new()
     ///     {
+    ///         Name = "useast_feed",
     ///         SourceId = example.Id,
     ///         Config = 
     ///         {
@@ -51,12 +55,13 @@ namespace Pulumi.Ns1
     ///         },
     ///     });
     /// 
-    ///     var useastMonitorFeed = new Ns1.DataFeed("useastMonitorFeed", new()
+    ///     var useastMonitorFeed = new Ns1.DataFeed("useast_monitor_feed", new()
     ///     {
+    ///         Name = "useast_monitor_feed",
     ///         SourceId = exampleMonitoring.Id,
     ///         Config = 
     ///         {
-    ///             { "jobid", ns1_monitoringjob.Example_job.Id },
+    ///             { "jobid", exampleJob.Id },
     ///         },
     ///     });
     /// 

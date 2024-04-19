@@ -17,11 +17,11 @@ import * as utilities from "./utilities";
  * import * as ns1 from "@pulumi/ns1";
  *
  * // Get DNSSEC details about a NS1 Zone.
- * const exampleZone = new ns1.Zone("exampleZone", {
- *     dnssec: true,
+ * const exampleZone = new ns1.Zone("example", {
  *     zone: "terraform.example.io",
+ *     dnssec: true,
  * });
- * const exampleDNSSec = ns1.getDNSSecOutput({
+ * const example = ns1.getDNSSecOutput({
  *     zone: exampleZone.zone,
  * });
  * ```
@@ -75,11 +75,11 @@ export interface GetDNSSecResult {
  * import * as ns1 from "@pulumi/ns1";
  *
  * // Get DNSSEC details about a NS1 Zone.
- * const exampleZone = new ns1.Zone("exampleZone", {
- *     dnssec: true,
+ * const exampleZone = new ns1.Zone("example", {
  *     zone: "terraform.example.io",
+ *     dnssec: true,
  * });
- * const exampleDNSSec = ns1.getDNSSecOutput({
+ * const example = ns1.getDNSSecOutput({
  *     zone: exampleZone.zone,
  * });
  * ```

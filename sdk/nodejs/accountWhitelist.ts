@@ -16,10 +16,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const example = new ns1.AccountWhitelist("example", {values: [
- *     "1.1.1.1",
- *     "2.2.2.2",
- * ]});
+ * const example = new ns1.AccountWhitelist("example", {
+ *     name: "Example Whitelist",
+ *     values: [
+ *         "1.1.1.1",
+ *         "2.2.2.2",
+ *     ],
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

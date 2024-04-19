@@ -30,10 +30,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get details about a NS1 Record.
 //			_, err := ns1.LookupRecord(ctx, &ns1.LookupRecordArgs{
+//				Zone:   "example.io",
 //				Domain: "terraform.example.io",
 //				Type:   "A",
-//				Zone:   "example.io",
 //			}, nil)
 //			if err != nil {
 //				return err

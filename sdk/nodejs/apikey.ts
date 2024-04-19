@@ -16,9 +16,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const exampleTeam = new ns1.Team("exampleTeam", {});
- * const exampleAPIKey = new ns1.APIKey("exampleAPIKey", {
- *     teams: [exampleTeam.id],
+ * const example = new ns1.Team("example", {name: "Example team"});
+ * const exampleAPIKey = new ns1.APIKey("example", {
+ *     name: "Example key",
+ *     teams: [example.id],
  *     ipWhitelists: [
  *         "1.1.1.1",
  *         "2.2.2.2",

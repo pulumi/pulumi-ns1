@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details of all available monitoring regions.
  * const example = ns1.getMonitoringRegions({});
  * ```
  * <!--End PulumiCodeChooser -->
@@ -64,6 +65,7 @@ export interface GetMonitoringRegionsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details of all available monitoring regions.
  * const example = ns1.getMonitoringRegions({});
  * ```
  * <!--End PulumiCodeChooser -->

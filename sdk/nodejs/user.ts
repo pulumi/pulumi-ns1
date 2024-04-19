@@ -18,7 +18,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const exampleTeam = new ns1.Team("exampleTeam", {
+ * const example = new ns1.Team("example", {
+ *     name: "Example team",
  *     ipWhitelists: [
  *         "1.1.1.1",
  *         "2.2.2.2",
@@ -26,10 +27,11 @@ import * as utilities from "./utilities";
  *     dnsViewZones: false,
  *     accountManageUsers: false,
  * });
- * const exampleUser = new ns1.User("exampleUser", {
+ * const exampleUser = new ns1.User("example", {
+ *     name: "Example User",
  *     username: "example_user",
  *     email: "user@example.com",
- *     teams: [exampleTeam.id],
+ *     teams: [example.id],
  *     notify: {
  *         billing: false,
  *     },

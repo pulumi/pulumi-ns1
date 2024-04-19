@@ -23,13 +23,17 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTeam = new Ns1.Team("exampleTeam");
-    /// 
-    ///     var exampleAPIKey = new Ns1.APIKey("exampleAPIKey", new()
+    ///     var example = new Ns1.Team("example", new()
     ///     {
+    ///         Name = "Example team",
+    ///     });
+    /// 
+    ///     var exampleAPIKey = new Ns1.APIKey("example", new()
+    ///     {
+    ///         Name = "Example key",
     ///         Teams = new[]
     ///         {
-    ///             exampleTeam.Id,
+    ///             example.Id,
     ///         },
     ///         IpWhitelists = new[]
     ///         {

@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ns1.NewDataSource(ctx, "example", &ns1.DataSourceArgs{
+//				Name:       pulumi.String("example"),
 //				Sourcetype: pulumi.String("nsone_v1"),
 //			})
 //			if err != nil {

@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details about a NS1 Zone.
  * const example = ns1.getZone({
  *     zone: "terraform.example.io",
  * });
@@ -132,6 +133,7 @@ export interface GetZoneResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
+ * // Get details about a NS1 Zone.
  * const example = ns1.getZone({
  *     zone: "terraform.example.io",
  * });

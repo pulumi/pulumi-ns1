@@ -513,6 +513,122 @@ class Record(pulumi.CustomResource):
         """
         Provides a NS1 Record resource. This can be used to create, modify, and delete records.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_external as external
+        import pulumi_ns1 as ns1
+        import pulumi_std as std
+
+        example = ns1.Zone("example", zone="terraform.example.io")
+        ns1 = ns1.DataSource("ns1",
+            name="ns1_source",
+            sourcetype="nsone_v1")
+        foo = ns1.DataFeed("foo",
+            name="foo_feed",
+            source_id=ns1.id,
+            config={
+                "label": "foo",
+            })
+        bar = ns1.DataFeed("bar",
+            name="bar_feed",
+            source_id=ns1.id,
+            config={
+                "label": "bar",
+            })
+        www = ns1.Record("www",
+            zone=tld["zone"],
+            domain=f"www.{tld['zone']}",
+            type="CNAME",
+            ttl=60,
+            meta={
+                "up": True,
+            },
+            regions=[
+                ns1.RecordRegionArgs(
+                    name="east",
+                    meta={
+                        "georegion": "US-EAST",
+                    },
+                ),
+                ns1.RecordRegionArgs(
+                    name="usa",
+                    meta={
+                        "country": "US",
+                    },
+                ),
+            ],
+            answers=[
+                ns1.RecordAnswerArgs(
+                    answer=f"sub1.{tld['zone']}",
+                    region="east",
+                    meta={
+                        "up": foo.id.apply(lambda id: f"{{\\"feed\\":\\"{id}\\"}}"),
+                    },
+                ),
+                ns1.RecordAnswerArgs(
+                    answer=f"sub2.{tld['zone']}",
+                    meta={
+                        "up": bar.id.apply(lambda id: f"{{\\"feed\\":\\"{id}\\"}}"),
+                        "connections": 3,
+                    },
+                ),
+                ns1.RecordAnswerArgs(
+                    answer=f"sub3.{tld['zone']}",
+                    meta={
+                        "pulsar": json.dumps([{
+                            "job_id": "abcdef",
+                            "bias": "*0.55",
+                            "a5m_cutoff": 0.9,
+                        }]),
+                        "subdivisions": json.dumps({
+                            "BR": [
+                                "SP",
+                                "SC",
+                            ],
+                            "DZ": [
+                                "01",
+                                "02",
+                                "03",
+                            ],
+                        }),
+                    },
+                ),
+            ],
+            filters=[ns1.RecordFilterArgs(
+                filter="select_first_n",
+                config={
+                    "N": 1,
+                },
+            )])
+        # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
+        baz = external.index.Source("baz",
+            zone=terraform.example.io.,
+            domain=.www.terraform.example.io)
+        # Basic record showing how to clean a zone or domain field that comes from
+        # another non-NS1 resource. DNS names often end in '.' characters to signify
+        # the root of the DNS tree, but the NS1 provider does not support this.
+        #
+        # In other cases, a domain or zone may be passed in with a preceding dot ('.')
+        # character which would likewise lead the system to fail.
+        external = ns1.Record("external",
+            zone=std.replace(text=zone,
+                search="/(^\\\\.)|(\\\\.$)/",
+                replace="").result,
+            domain=std.replace(text=domain,
+                search="/(^\\\\.)|(\\\\.$)/",
+                replace="").result,
+            type="CNAME")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## NS1 Documentation
+
+        [Record Api Doc](https://ns1.com/api#records)
+
         ## Import
 
         ```sh
@@ -556,6 +672,122 @@ class Record(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a NS1 Record resource. This can be used to create, modify, and delete records.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_external as external
+        import pulumi_ns1 as ns1
+        import pulumi_std as std
+
+        example = ns1.Zone("example", zone="terraform.example.io")
+        ns1 = ns1.DataSource("ns1",
+            name="ns1_source",
+            sourcetype="nsone_v1")
+        foo = ns1.DataFeed("foo",
+            name="foo_feed",
+            source_id=ns1.id,
+            config={
+                "label": "foo",
+            })
+        bar = ns1.DataFeed("bar",
+            name="bar_feed",
+            source_id=ns1.id,
+            config={
+                "label": "bar",
+            })
+        www = ns1.Record("www",
+            zone=tld["zone"],
+            domain=f"www.{tld['zone']}",
+            type="CNAME",
+            ttl=60,
+            meta={
+                "up": True,
+            },
+            regions=[
+                ns1.RecordRegionArgs(
+                    name="east",
+                    meta={
+                        "georegion": "US-EAST",
+                    },
+                ),
+                ns1.RecordRegionArgs(
+                    name="usa",
+                    meta={
+                        "country": "US",
+                    },
+                ),
+            ],
+            answers=[
+                ns1.RecordAnswerArgs(
+                    answer=f"sub1.{tld['zone']}",
+                    region="east",
+                    meta={
+                        "up": foo.id.apply(lambda id: f"{{\\"feed\\":\\"{id}\\"}}"),
+                    },
+                ),
+                ns1.RecordAnswerArgs(
+                    answer=f"sub2.{tld['zone']}",
+                    meta={
+                        "up": bar.id.apply(lambda id: f"{{\\"feed\\":\\"{id}\\"}}"),
+                        "connections": 3,
+                    },
+                ),
+                ns1.RecordAnswerArgs(
+                    answer=f"sub3.{tld['zone']}",
+                    meta={
+                        "pulsar": json.dumps([{
+                            "job_id": "abcdef",
+                            "bias": "*0.55",
+                            "a5m_cutoff": 0.9,
+                        }]),
+                        "subdivisions": json.dumps({
+                            "BR": [
+                                "SP",
+                                "SC",
+                            ],
+                            "DZ": [
+                                "01",
+                                "02",
+                                "03",
+                            ],
+                        }),
+                    },
+                ),
+            ],
+            filters=[ns1.RecordFilterArgs(
+                filter="select_first_n",
+                config={
+                    "N": 1,
+                },
+            )])
+        # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
+        baz = external.index.Source("baz",
+            zone=terraform.example.io.,
+            domain=.www.terraform.example.io)
+        # Basic record showing how to clean a zone or domain field that comes from
+        # another non-NS1 resource. DNS names often end in '.' characters to signify
+        # the root of the DNS tree, but the NS1 provider does not support this.
+        #
+        # In other cases, a domain or zone may be passed in with a preceding dot ('.')
+        # character which would likewise lead the system to fail.
+        external = ns1.Record("external",
+            zone=std.replace(text=zone,
+                search="/(^\\\\.)|(\\\\.$)/",
+                replace="").result,
+            domain=std.replace(text=domain,
+                search="/(^\\\\.)|(\\\\.$)/",
+                replace="").result,
+            type="CNAME")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## NS1 Documentation
+
+        [Record Api Doc](https://ns1.com/api#records)
 
         ## Import
 

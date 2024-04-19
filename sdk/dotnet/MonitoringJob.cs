@@ -23,34 +23,35 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var uswestMonitor = new Ns1.MonitoringJob("uswestMonitor", new()
+    ///     var uswestMonitor = new Ns1.MonitoringJob("uswest_monitor", new()
     ///     {
+    ///         Name = "uswest",
     ///         Active = true,
-    ///         Config = 
-    ///         {
-    ///             { "host", "example-elb-uswest.aws.amazon.com" },
-    ///             { "port", 443 },
-    ///             { "send", "HEAD / HTTP/1.0\\r\\n\\r\\n" },
-    ///             { "ssl", 1 },
-    ///         },
-    ///         Frequency = 60,
-    ///         JobType = "tcp",
-    ///         Mute = true,
-    ///         Policy = "quorum",
-    ///         RapidRecheck = true,
     ///         Regions = new[]
     ///         {
     ///             "lga",
     ///             "sjc",
     ///             "sin",
     ///         },
+    ///         JobType = "tcp",
+    ///         Frequency = 60,
+    ///         RapidRecheck = true,
+    ///         Policy = "quorum",
+    ///         Mute = true,
+    ///         Config = 
+    ///         {
+    ///             { "ssl", 1 },
+    ///             { "send", "HEAD / HTTP/1.0\\r\\n\\r\\n" },
+    ///             { "port", 443 },
+    ///             { "host", "example-elb-uswest.aws.amazon.com" },
+    ///         },
     ///         Rules = new[]
     ///         {
     ///             new Ns1.Inputs.MonitoringJobRuleArgs
     ///             {
+    ///                 Value = "200 OK",
     ///                 Comparison = "contains",
     ///                 Key = "output",
-    ///                 Value = "200 OK",
     ///             },
     ///         },
     ///     });

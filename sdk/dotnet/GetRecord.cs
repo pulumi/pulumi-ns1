@@ -27,11 +27,12 @@ namespace Pulumi.Ns1
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Get details about a NS1 Record.
         ///     var example = Ns1.GetRecord.Invoke(new()
         ///     {
+        ///         Zone = "example.io",
         ///         Domain = "terraform.example.io",
         ///         Type = "A",
-        ///         Zone = "example.io",
         ///     });
         /// 
         /// });
@@ -57,11 +58,12 @@ namespace Pulumi.Ns1
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Get details about a NS1 Record.
         ///     var example = Ns1.GetRecord.Invoke(new()
         ///     {
+        ///         Zone = "example.io",
         ///         Domain = "terraform.example.io",
         ///         Type = "A",
-        ///         Zone = "example.io",
         ///     });
         /// 
         /// });

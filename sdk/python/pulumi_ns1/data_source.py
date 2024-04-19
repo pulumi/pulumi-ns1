@@ -145,7 +145,9 @@ class DataSource(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
+        example = ns1.DataSource("example",
+            name="example",
+            sourcetype="nsone_v1")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -182,7 +184,9 @@ class DataSource(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.DataSource("example", sourcetype="nsone_v1")
+        example = ns1.DataSource("example",
+            name="example",
+            sourcetype="nsone_v1")
         ```
         <!--End PulumiCodeChooser -->
 

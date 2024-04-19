@@ -29,18 +29,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ns1.NewNotifyList(ctx, "nl", &ns1.NotifyListArgs{
+//				Name: pulumi.String("my notify list"),
 //				Notifications: ns1.NotifyListNotificationArray{
 //					&ns1.NotifyListNotificationArgs{
+//						Type: pulumi.String("webhook"),
 //						Config: pulumi.Map{
 //							"url": pulumi.Any("http://www.mywebhook.com"),
 //						},
-//						Type: pulumi.String("webhook"),
 //					},
 //					&ns1.NotifyListNotificationArgs{
+//						Type: pulumi.String("email"),
 //						Config: pulumi.Map{
 //							"email": pulumi.Any("test@test.com"),
 //						},
-//						Type: pulumi.String("email"),
 //					},
 //				},
 //			})

@@ -257,6 +257,7 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
     import pulumi
     import pulumi_ns1 as ns1
 
+    # Get details about a NS1 Zone.
     example = ns1.get_zone(zone="terraform.example.io")
     ```
     <!--End PulumiCodeChooser -->
@@ -313,6 +314,7 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
     import pulumi
     import pulumi_ns1 as ns1
 
+    # Get details about a NS1 Zone.
     example = ns1.get_zone(zone="terraform.example.io")
     ```
     <!--End PulumiCodeChooser -->

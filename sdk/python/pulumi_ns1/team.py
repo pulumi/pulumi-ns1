@@ -1070,8 +1070,7 @@ class Team(pulumi.CustomResource):
 
         # Create a new NS1 Team
         example = ns1.Team("example",
-            account_manage_users=False,
-            dns_view_zones=False,
+            name="Example team",
             ip_whitelists=[
                 ns1.TeamIpWhitelistArgs(
                     name="whitelist-1",
@@ -1087,20 +1086,23 @@ class Team(pulumi.CustomResource):
                         "4.4.4.4",
                     ],
                 ),
-            ])
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
         # Another team
         example2 = ns1.Team("example2",
-            data_manage_datasources=True,
+            name="another team",
+            dns_view_zones=True,
+            dns_zones_allow_by_default=True,
+            dns_zones_allows=["mytest.zone"],
+            dns_zones_denies=["myother.zone"],
             dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
                 domain="terraform.example.io",
                 include_subdomains=False,
-                type="A",
                 zone="example.io",
+                type="A",
             )],
-            dns_view_zones=True,
-            dns_zones_allows=["mytest.zone"],
-            dns_zones_allow_by_default=True,
-            dns_zones_denies=["myother.zone"])
+            data_manage_datasources=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1171,8 +1173,7 @@ class Team(pulumi.CustomResource):
 
         # Create a new NS1 Team
         example = ns1.Team("example",
-            account_manage_users=False,
-            dns_view_zones=False,
+            name="Example team",
             ip_whitelists=[
                 ns1.TeamIpWhitelistArgs(
                     name="whitelist-1",
@@ -1188,20 +1189,23 @@ class Team(pulumi.CustomResource):
                         "4.4.4.4",
                     ],
                 ),
-            ])
+            ],
+            dns_view_zones=False,
+            account_manage_users=False)
         # Another team
         example2 = ns1.Team("example2",
-            data_manage_datasources=True,
+            name="another team",
+            dns_view_zones=True,
+            dns_zones_allow_by_default=True,
+            dns_zones_allows=["mytest.zone"],
+            dns_zones_denies=["myother.zone"],
             dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
                 domain="terraform.example.io",
                 include_subdomains=False,
-                type="A",
                 zone="example.io",
+                type="A",
             )],
-            dns_view_zones=True,
-            dns_zones_allows=["mytest.zone"],
-            dns_zones_allow_by_default=True,
-            dns_zones_denies=["myother.zone"])
+            data_manage_datasources=True)
         ```
         <!--End PulumiCodeChooser -->
 
