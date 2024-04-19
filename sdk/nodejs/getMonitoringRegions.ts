@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
  * const example = ns1.getMonitoringRegions({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMonitoringRegions(args?: GetMonitoringRegionsArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringRegionsResult> {
     args = args || {};
@@ -59,14 +57,12 @@ export interface GetMonitoringRegionsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
  * const example = ns1.getMonitoringRegions({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMonitoringRegionsOutput(args?: GetMonitoringRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringRegionsResult> {
     return pulumi.output(args).apply((a: any) => getMonitoringRegions(a, opts))

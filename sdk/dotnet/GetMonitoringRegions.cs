@@ -16,7 +16,6 @@ namespace Pulumi.Ns1
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,7 +28,6 @@ namespace Pulumi.Ns1
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMonitoringRegionsResult> InvokeAsync(GetMonitoringRegionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringRegionsResult>("ns1:index/getMonitoringRegions:getMonitoringRegions", args ?? new GetMonitoringRegionsArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace Pulumi.Ns1
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +49,6 @@ namespace Pulumi.Ns1
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMonitoringRegionsResult> Invoke(GetMonitoringRegionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringRegionsResult>("ns1:index/getMonitoringRegions:getMonitoringRegions", args ?? new GetMonitoringRegionsInvokeArgs(), options.WithDefaults());

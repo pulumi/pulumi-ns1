@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     secret: "Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ## NS1 Documentation
  *
  * [TSIG Keys Api Doc](https://ns1.com/api/#tsig)

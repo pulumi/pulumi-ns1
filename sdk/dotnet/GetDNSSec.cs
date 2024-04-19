@@ -16,7 +16,6 @@ namespace Pulumi.Ns1
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Ns1
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDNSSecResult> InvokeAsync(GetDNSSecArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.Ns1
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Ns1
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDNSSecResult> Invoke(GetDNSSecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecInvokeArgs(), options.WithDefaults());

@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
  * const example = new ns1.DataSource("example", {sourcetype: "nsone_v1"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## NS1 Documentation
  *

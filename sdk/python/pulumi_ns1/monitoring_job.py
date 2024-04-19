@@ -564,7 +564,6 @@ class MonitoringJob(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -593,7 +592,6 @@ class MonitoringJob(pulumi.CustomResource):
                 value="200 OK",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 
@@ -636,7 +634,6 @@ class MonitoringJob(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -665,7 +662,6 @@ class MonitoringJob(pulumi.CustomResource):
                 value="200 OK",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 

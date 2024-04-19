@@ -105,7 +105,6 @@ class AccountWhitelist(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -115,7 +114,6 @@ class AccountWhitelist(pulumi.CustomResource):
             "2.2.2.2",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         > You current source IP must be present in one of the whitelists to prevent locking yourself out.
 
@@ -147,7 +145,6 @@ class AccountWhitelist(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -157,7 +154,6 @@ class AccountWhitelist(pulumi.CustomResource):
             "2.2.2.2",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         > You current source IP must be present in one of the whitelists to prevent locking yourself out.
 

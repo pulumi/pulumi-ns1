@@ -217,7 +217,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -231,7 +230,6 @@ class Application(pulumi.CustomResource):
             static_values=True,
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 
@@ -271,7 +269,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -285,7 +282,6 @@ class Application(pulumi.CustomResource):
             static_values=True,
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 
