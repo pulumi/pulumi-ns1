@@ -1144,7 +1144,6 @@ class APIKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1160,7 +1159,6 @@ class APIKey(pulumi.CustomResource):
             dns_view_zones=False,
             account_manage_users=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Permissions
 
@@ -1242,7 +1240,6 @@ class APIKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1258,7 +1255,6 @@ class APIKey(pulumi.CustomResource):
             dns_view_zones=False,
             account_manage_users=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Permissions
 

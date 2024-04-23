@@ -1063,7 +1063,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1104,7 +1103,6 @@ class Team(pulumi.CustomResource):
             )],
             data_manage_datasources=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 
@@ -1166,7 +1164,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1207,7 +1204,6 @@ class Team(pulumi.CustomResource):
             )],
             data_manage_datasources=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 

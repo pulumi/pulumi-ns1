@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetMonitoringRegions(ctx *pulumi.Context, args *GetMonitoringRegionsArgs, opts ...pulumi.InvokeOption) (*GetMonitoringRegionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMonitoringRegionsResult

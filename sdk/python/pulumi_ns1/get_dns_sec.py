@@ -86,7 +86,6 @@ def get_dns_sec(zone: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -97,7 +96,6 @@ def get_dns_sec(zone: Optional[str] = None,
         dnssec=True)
     example = ns1.get_dns_sec_output(zone=example_zone.zone)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str zone: The name of the zone to get DNSSEC details for.
@@ -122,7 +120,6 @@ def get_dns_sec_output(zone: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -133,7 +130,6 @@ def get_dns_sec_output(zone: Optional[pulumi.Input[str]] = None,
         dnssec=True)
     example = ns1.get_dns_sec_output(zone=example_zone.zone)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str zone: The name of the zone to get DNSSEC details for.

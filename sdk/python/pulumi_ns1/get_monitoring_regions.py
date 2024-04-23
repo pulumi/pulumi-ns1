@@ -66,7 +66,6 @@ def get_monitoring_regions(regions: Optional[Sequence[pulumi.InputType['GetMonit
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -74,7 +73,6 @@ def get_monitoring_regions(regions: Optional[Sequence[pulumi.InputType['GetMonit
     # Get details of all available monitoring regions.
     example = ns1.get_monitoring_regions()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetMonitoringRegionsRegionArgs']] regions: A set of the available monitoring regions. Regions is
@@ -98,7 +96,6 @@ def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequen
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -106,7 +103,6 @@ def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequen
     # Get details of all available monitoring regions.
     example = ns1.get_monitoring_regions()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetMonitoringRegionsRegionArgs']] regions: A set of the available monitoring regions. Regions is
