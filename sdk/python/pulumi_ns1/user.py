@@ -1199,7 +1199,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1221,7 +1220,6 @@ class User(pulumi.CustomResource):
                 "billing": False,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Permissions
 
@@ -1300,7 +1298,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_ns1 as ns1
@@ -1322,7 +1319,6 @@ class User(pulumi.CustomResource):
                 "billing": False,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Permissions
 
