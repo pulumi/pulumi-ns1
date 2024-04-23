@@ -66,7 +66,6 @@ def get_networks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNet
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -74,7 +73,6 @@ def get_networks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNet
     # Get details about NS1 Networks.
     example = ns1.get_networks()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -94,7 +92,6 @@ def get_networks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.O
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -102,6 +99,5 @@ def get_networks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.O
     # Get details about NS1 Networks.
     example = ns1.get_networks()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

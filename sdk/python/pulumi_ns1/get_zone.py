@@ -252,7 +252,6 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -260,7 +259,6 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
     # Get details about a NS1 Zone.
     example = ns1.get_zone(zone="terraform.example.io")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] additional_primaries: List of additional IPv4 addresses for the primary
@@ -309,7 +307,6 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_ns1 as ns1
@@ -317,7 +314,6 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
     # Get details about a NS1 Zone.
     example = ns1.get_zone(zone="terraform.example.io")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] additional_primaries: List of additional IPv4 addresses for the primary

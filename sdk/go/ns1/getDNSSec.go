@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetDNSSec(ctx *pulumi.Context, args *GetDNSSecArgs, opts ...pulumi.InvokeOption) (*GetDNSSecResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDNSSecResult

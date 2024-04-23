@@ -515,7 +515,6 @@ class Record(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -623,7 +622,6 @@ class Record(pulumi.CustomResource):
                 replace="").result,
             type="CNAME")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 
@@ -675,7 +673,6 @@ class Record(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -783,7 +780,6 @@ class Record(pulumi.CustomResource):
                 replace="").result,
             type="CNAME")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## NS1 Documentation
 

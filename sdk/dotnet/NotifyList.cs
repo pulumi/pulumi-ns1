@@ -14,7 +14,6 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## NS1 Documentation
     /// 
