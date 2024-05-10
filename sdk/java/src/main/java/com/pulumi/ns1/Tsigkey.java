@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,15 +41,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Tsigkey(&#34;example&#34;, TsigkeyArgs.builder()        
- *             .name(&#34;ExampleTsigKey&#34;)
- *             .algorithm(&#34;hmac-sha256&#34;)
- *             .secret(&#34;Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==&#34;)
+ *         var example = new Tsigkey("example", TsigkeyArgs.builder()        
+ *             .name("ExampleTsigKey")
+ *             .algorithm("hmac-sha256")
+ *             .secret("Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ## NS1 Documentation
  * 

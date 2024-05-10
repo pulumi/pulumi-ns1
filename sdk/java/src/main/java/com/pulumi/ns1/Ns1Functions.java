@@ -31,7 +31,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -55,8 +56,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
-     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .zone(&#34;terraform.example.io&#34;)
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+     *             .zone("terraform.example.io")
      *             .dnssec(true)
      *             .build());
      * 
@@ -66,7 +67,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -79,7 +81,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -103,8 +106,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
-     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .zone(&#34;terraform.example.io&#34;)
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+     *             .zone("terraform.example.io")
      *             .dnssec(true)
      *             .build());
      * 
@@ -114,7 +117,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -127,7 +131,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -151,8 +156,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
-     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .zone(&#34;terraform.example.io&#34;)
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+     *             .zone("terraform.example.io")
      *             .dnssec(true)
      *             .build());
      * 
@@ -162,7 +167,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -175,7 +181,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -199,8 +206,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get DNSSEC details about a NS1 Zone.
-     *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .zone(&#34;terraform.example.io&#34;)
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+     *             .zone("terraform.example.io")
      *             .dnssec(true)
      *             .build());
      * 
@@ -210,7 +217,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -223,7 +231,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -249,7 +258,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -262,7 +272,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -288,7 +299,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -301,7 +313,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -327,7 +340,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -340,7 +354,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -366,7 +381,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -379,7 +395,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -405,7 +422,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -418,7 +436,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -444,7 +463,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -459,7 +479,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -484,7 +505,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -499,7 +521,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -524,7 +547,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -539,7 +563,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -564,7 +589,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -579,7 +605,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -604,7 +631,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -619,7 +647,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -644,7 +673,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -659,7 +689,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -684,7 +715,8 @@ public final class Ns1Functions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -699,7 +731,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -722,14 +755,15 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
-     *             .zone(&#34;example.io&#34;)
-     *             .domain(&#34;terraform.example.io&#34;)
-     *             .type(&#34;A&#34;)
+     *             .zone("example.io")
+     *             .domain("terraform.example.io")
+     *             .type("A")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -744,7 +778,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -767,14 +802,15 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
-     *             .zone(&#34;example.io&#34;)
-     *             .domain(&#34;terraform.example.io&#34;)
-     *             .type(&#34;A&#34;)
+     *             .zone("example.io")
+     *             .domain("terraform.example.io")
+     *             .type("A")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -789,7 +825,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -812,14 +849,15 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
-     *             .zone(&#34;example.io&#34;)
-     *             .domain(&#34;terraform.example.io&#34;)
-     *             .type(&#34;A&#34;)
+     *             .zone("example.io")
+     *             .domain("terraform.example.io")
+     *             .type("A")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -834,7 +872,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -857,14 +896,15 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Record.
      *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
-     *             .zone(&#34;example.io&#34;)
-     *             .domain(&#34;terraform.example.io&#34;)
-     *             .type(&#34;A&#34;)
+     *             .zone("example.io")
+     *             .domain("terraform.example.io")
+     *             .type("A")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -879,7 +919,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -902,12 +943,13 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
-     *             .zone(&#34;terraform.example.io&#34;)
+     *             .zone("terraform.example.io")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -922,7 +964,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -945,12 +988,13 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
-     *             .zone(&#34;terraform.example.io&#34;)
+     *             .zone("terraform.example.io")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -965,7 +1009,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -988,12 +1033,13 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
-     *             .zone(&#34;terraform.example.io&#34;)
+     *             .zone("terraform.example.io")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1008,7 +1054,8 @@ public final class Ns1Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1031,12 +1078,13 @@ public final class Ns1Functions {
      *     public static void stack(Context ctx) {
      *         // Get details about a NS1 Zone.
      *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
-     *             .zone(&#34;terraform.example.io&#34;)
+     *             .zone("terraform.example.io")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

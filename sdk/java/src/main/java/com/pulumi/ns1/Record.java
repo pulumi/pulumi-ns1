@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,113 +62,114 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .zone(&#34;terraform.example.io&#34;)
+ *         var example = new Zone("example", ZoneArgs.builder()        
+ *             .zone("terraform.example.io")
  *             .build());
  * 
- *         var ns1 = new DataSource(&#34;ns1&#34;, DataSourceArgs.builder()        
- *             .name(&#34;ns1_source&#34;)
- *             .sourcetype(&#34;nsone_v1&#34;)
+ *         var ns1 = new DataSource("ns1", DataSourceArgs.builder()        
+ *             .name("ns1_source")
+ *             .sourcetype("nsone_v1")
  *             .build());
  * 
- *         var foo = new DataFeed(&#34;foo&#34;, DataFeedArgs.builder()        
- *             .name(&#34;foo_feed&#34;)
+ *         var foo = new DataFeed("foo", DataFeedArgs.builder()        
+ *             .name("foo_feed")
  *             .sourceId(ns1.id())
- *             .config(Map.of(&#34;label&#34;, &#34;foo&#34;))
+ *             .config(Map.of("label", "foo"))
  *             .build());
  * 
- *         var bar = new DataFeed(&#34;bar&#34;, DataFeedArgs.builder()        
- *             .name(&#34;bar_feed&#34;)
+ *         var bar = new DataFeed("bar", DataFeedArgs.builder()        
+ *             .name("bar_feed")
  *             .sourceId(ns1.id())
- *             .config(Map.of(&#34;label&#34;, &#34;bar&#34;))
+ *             .config(Map.of("label", "bar"))
  *             .build());
  * 
- *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()        
  *             .zone(tld.zone())
- *             .domain(String.format(&#34;www.%s&#34;, tld.zone()))
- *             .type(&#34;CNAME&#34;)
+ *             .domain(String.format("www.%s", tld.zone()))
+ *             .type("CNAME")
  *             .ttl(60)
- *             .meta(Map.of(&#34;up&#34;, true))
+ *             .meta(Map.of("up", true))
  *             .regions(            
  *                 RecordRegionArgs.builder()
- *                     .name(&#34;east&#34;)
- *                     .meta(Map.of(&#34;georegion&#34;, &#34;US-EAST&#34;))
+ *                     .name("east")
+ *                     .meta(Map.of("georegion", "US-EAST"))
  *                     .build(),
  *                 RecordRegionArgs.builder()
- *                     .name(&#34;usa&#34;)
- *                     .meta(Map.of(&#34;country&#34;, &#34;US&#34;))
+ *                     .name("usa")
+ *                     .meta(Map.of("country", "US"))
  *                     .build())
  *             .answers(            
  *                 RecordAnswerArgs.builder()
- *                     .answer(String.format(&#34;sub1.%s&#34;, tld.zone()))
- *                     .region(&#34;east&#34;)
- *                     .meta(Map.of(&#34;up&#34;, foo.id().applyValue(id -&gt; String.format(&#34;{{\&#34;feed\&#34;:\&#34;%s\&#34;}}&#34;, id))))
+ *                     .answer(String.format("sub1.%s", tld.zone()))
+ *                     .region("east")
+ *                     .meta(Map.of("up", foo.id().applyValue(id -> String.format("{{\"feed\":\"%s\"}}", id))))
  *                     .build(),
  *                 RecordAnswerArgs.builder()
- *                     .answer(String.format(&#34;sub2.%s&#34;, tld.zone()))
+ *                     .answer(String.format("sub2.%s", tld.zone()))
  *                     .meta(Map.ofEntries(
- *                         Map.entry(&#34;up&#34;, bar.id().applyValue(id -&gt; String.format(&#34;{{\&#34;feed\&#34;:\&#34;%s\&#34;}}&#34;, id))),
- *                         Map.entry(&#34;connections&#34;, 3)
+ *                         Map.entry("up", bar.id().applyValue(id -> String.format("{{\"feed\":\"%s\"}}", id))),
+ *                         Map.entry("connections", 3)
  *                     ))
  *                     .build(),
  *                 RecordAnswerArgs.builder()
- *                     .answer(String.format(&#34;sub3.%s&#34;, tld.zone()))
+ *                     .answer(String.format("sub3.%s", tld.zone()))
  *                     .meta(Map.ofEntries(
- *                         Map.entry(&#34;pulsar&#34;, serializeJson(
+ *                         Map.entry("pulsar", serializeJson(
  *                             jsonArray(jsonObject(
- *                                 jsonProperty(&#34;job_id&#34;, &#34;abcdef&#34;),
- *                                 jsonProperty(&#34;bias&#34;, &#34;*0.55&#34;),
- *                                 jsonProperty(&#34;a5m_cutoff&#34;, 0.9)
+ *                                 jsonProperty("job_id", "abcdef"),
+ *                                 jsonProperty("bias", "*0.55"),
+ *                                 jsonProperty("a5m_cutoff", 0.9)
  *                             )))),
- *                         Map.entry(&#34;subdivisions&#34;, serializeJson(
+ *                         Map.entry("subdivisions", serializeJson(
  *                             jsonObject(
- *                                 jsonProperty(&#34;BR&#34;, jsonArray(
- *                                     &#34;SP&#34;, 
- *                                     &#34;SC&#34;
+ *                                 jsonProperty("BR", jsonArray(
+ *                                     "SP", 
+ *                                     "SC"
  *                                 )),
- *                                 jsonProperty(&#34;DZ&#34;, jsonArray(
- *                                     &#34;01&#34;, 
- *                                     &#34;02&#34;, 
- *                                     &#34;03&#34;
+ *                                 jsonProperty("DZ", jsonArray(
+ *                                     "01", 
+ *                                     "02", 
+ *                                     "03"
  *                                 ))
  *                             )))
  *                     ))
  *                     .build())
  *             .filters(RecordFilterArgs.builder()
- *                 .filter(&#34;select_first_n&#34;)
- *                 .config(Map.of(&#34;N&#34;, 1))
+ *                 .filter("select_first_n")
+ *                 .config(Map.of("N", 1))
  *                 .build())
  *             .build());
  * 
  *         // Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
- *         var baz = new Source(&#34;baz&#34;, SourceArgs.builder()        
- *             .zone(&#34;terraform.example.io.&#34;)
- *             .domain(&#34;.www.terraform.example.io&#34;)
+ *         var baz = new Source("baz", SourceArgs.builder()        
+ *             .zone("terraform.example.io.")
+ *             .domain(".www.terraform.example.io")
  *             .build());
  * 
  *         // Basic record showing how to clean a zone or domain field that comes from
- *         // another non-NS1 resource. DNS names often end in &#39;.&#39; characters to signify
+ *         // another non-NS1 resource. DNS names often end in '.' characters to signify
  *         // the root of the DNS tree, but the NS1 provider does not support this.
  *         //
- *         // In other cases, a domain or zone may be passed in with a preceding dot (&#39;.&#39;)
+ *         // In other cases, a domain or zone may be passed in with a preceding dot ('.')
  *         // character which would likewise lead the system to fail.
- *         var external = new Record(&#34;external&#34;, RecordArgs.builder()        
+ *         var external = new Record("external", RecordArgs.builder()        
  *             .zone(StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(zone)
- *                 .search(&#34;/(^\\.)|(\\.$)/&#34;)
- *                 .replace(&#34;&#34;)
+ *                 .search("/(^\\.)|(\\.$)/")
+ *                 .replace("")
  *                 .build()).result())
  *             .domain(StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(domain)
- *                 .search(&#34;/(^\\.)|(\\.$)/&#34;)
- *                 .replace(&#34;&#34;)
+ *                 .search("/(^\\.)|(\\.$)/")
+ *                 .replace("")
  *                 .build()).result())
- *             .type(&#34;CNAME&#34;)
+ *             .type("CNAME")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## NS1 Documentation

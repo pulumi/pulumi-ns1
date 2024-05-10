@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,34 +49,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var uswestMonitor = new MonitoringJob(&#34;uswestMonitor&#34;, MonitoringJobArgs.builder()        
- *             .name(&#34;uswest&#34;)
+ *         var uswestMonitor = new MonitoringJob("uswestMonitor", MonitoringJobArgs.builder()        
+ *             .name("uswest")
  *             .active(true)
  *             .regions(            
- *                 &#34;lga&#34;,
- *                 &#34;sjc&#34;,
- *                 &#34;sin&#34;)
- *             .jobType(&#34;tcp&#34;)
+ *                 "lga",
+ *                 "sjc",
+ *                 "sin")
+ *             .jobType("tcp")
  *             .frequency(60)
  *             .rapidRecheck(true)
- *             .policy(&#34;quorum&#34;)
+ *             .policy("quorum")
  *             .mute(true)
  *             .config(Map.ofEntries(
- *                 Map.entry(&#34;ssl&#34;, 1),
- *                 Map.entry(&#34;send&#34;, &#34;HEAD / HTTP/1.0\\r\\n\\r\\n&#34;),
- *                 Map.entry(&#34;port&#34;, 443),
- *                 Map.entry(&#34;host&#34;, &#34;example-elb-uswest.aws.amazon.com&#34;)
+ *                 Map.entry("ssl", 1),
+ *                 Map.entry("send", "HEAD / HTTP/1.0\\r\\n\\r\\n"),
+ *                 Map.entry("port", 443),
+ *                 Map.entry("host", "example-elb-uswest.aws.amazon.com")
  *             ))
  *             .rules(MonitoringJobRuleArgs.builder()
- *                 .value(&#34;200 OK&#34;)
- *                 .comparison(&#34;contains&#34;)
- *                 .key(&#34;output&#34;)
+ *                 .value("200 OK")
+ *                 .comparison("contains")
+ *                 .key("output")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## NS1 Documentation

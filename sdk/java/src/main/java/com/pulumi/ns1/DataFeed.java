@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,37 +46,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .sourcetype(&#34;nsone_v1&#34;)
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *             .name("example")
+ *             .sourcetype("nsone_v1")
  *             .build());
  * 
- *         var exampleMonitoring = new DataSource(&#34;exampleMonitoring&#34;, DataSourceArgs.builder()        
- *             .name(&#34;example_monitoring&#34;)
- *             .sourcetype(&#34;nsone_monitoring&#34;)
+ *         var exampleMonitoring = new DataSource("exampleMonitoring", DataSourceArgs.builder()        
+ *             .name("example_monitoring")
+ *             .sourcetype("nsone_monitoring")
  *             .build());
  * 
- *         var uswestFeed = new DataFeed(&#34;uswestFeed&#34;, DataFeedArgs.builder()        
- *             .name(&#34;uswest_feed&#34;)
+ *         var uswestFeed = new DataFeed("uswestFeed", DataFeedArgs.builder()        
+ *             .name("uswest_feed")
  *             .sourceId(example.id())
- *             .config(Map.of(&#34;label&#34;, &#34;uswest&#34;))
+ *             .config(Map.of("label", "uswest"))
  *             .build());
  * 
- *         var useastFeed = new DataFeed(&#34;useastFeed&#34;, DataFeedArgs.builder()        
- *             .name(&#34;useast_feed&#34;)
+ *         var useastFeed = new DataFeed("useastFeed", DataFeedArgs.builder()        
+ *             .name("useast_feed")
  *             .sourceId(example.id())
- *             .config(Map.of(&#34;label&#34;, &#34;useast&#34;))
+ *             .config(Map.of("label", "useast"))
  *             .build());
  * 
- *         var useastMonitorFeed = new DataFeed(&#34;useastMonitorFeed&#34;, DataFeedArgs.builder()        
- *             .name(&#34;useast_monitor_feed&#34;)
+ *         var useastMonitorFeed = new DataFeed("useastMonitorFeed", DataFeedArgs.builder()        
+ *             .name("useast_monitor_feed")
  *             .sourceId(exampleMonitoring.id())
- *             .config(Map.of(&#34;jobid&#34;, exampleJob.id()))
+ *             .config(Map.of("jobid", exampleJob.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## NS1 Documentation

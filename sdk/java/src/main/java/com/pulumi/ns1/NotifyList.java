@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,22 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nl = new NotifyList(&#34;nl&#34;, NotifyListArgs.builder()        
- *             .name(&#34;my notify list&#34;)
+ *         var nl = new NotifyList("nl", NotifyListArgs.builder()        
+ *             .name("my notify list")
  *             .notifications(            
  *                 NotifyListNotificationArgs.builder()
- *                     .type(&#34;webhook&#34;)
- *                     .config(Map.of(&#34;url&#34;, &#34;http://www.mywebhook.com&#34;))
+ *                     .type("webhook")
+ *                     .config(Map.of("url", "http://www.mywebhook.com"))
  *                     .build(),
  *                 NotifyListNotificationArgs.builder()
- *                     .type(&#34;email&#34;)
- *                     .config(Map.of(&#34;email&#34;, &#34;test@test.com&#34;))
+ *                     .type("email")
+ *                     .config(Map.of("email", "test{@literal @}test.com"))
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## NS1 Documentation
