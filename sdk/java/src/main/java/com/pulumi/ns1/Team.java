@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,44 +51,45 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new NS1 Team
- *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
- *             .name(&#34;Example team&#34;)
+ *         var example = new Team("example", TeamArgs.builder()        
+ *             .name("Example team")
  *             .ipWhitelists(            
  *                 TeamIpWhitelistArgs.builder()
- *                     .name(&#34;whitelist-1&#34;)
+ *                     .name("whitelist-1")
  *                     .values(                    
- *                         &#34;1.1.1.1&#34;,
- *                         &#34;2.2.2.2&#34;)
+ *                         "1.1.1.1",
+ *                         "2.2.2.2")
  *                     .build(),
  *                 TeamIpWhitelistArgs.builder()
- *                     .name(&#34;whitelist-2&#34;)
+ *                     .name("whitelist-2")
  *                     .values(                    
- *                         &#34;3.3.3.3&#34;,
- *                         &#34;4.4.4.4&#34;)
+ *                         "3.3.3.3",
+ *                         "4.4.4.4")
  *                     .build())
  *             .dnsViewZones(false)
  *             .accountManageUsers(false)
  *             .build());
  * 
  *         // Another team
- *         var example2 = new Team(&#34;example2&#34;, TeamArgs.builder()        
- *             .name(&#34;another team&#34;)
+ *         var example2 = new Team("example2", TeamArgs.builder()        
+ *             .name("another team")
  *             .dnsViewZones(true)
  *             .dnsZonesAllowByDefault(true)
- *             .dnsZonesAllows(&#34;mytest.zone&#34;)
- *             .dnsZonesDenies(&#34;myother.zone&#34;)
+ *             .dnsZonesAllows("mytest.zone")
+ *             .dnsZonesDenies("myother.zone")
  *             .dnsRecordsAllows(TeamDnsRecordsAllowArgs.builder()
- *                 .domain(&#34;terraform.example.io&#34;)
+ *                 .domain("terraform.example.io")
  *                 .includeSubdomains(false)
- *                 .zone(&#34;example.io&#34;)
- *                 .type(&#34;A&#34;)
+ *                 .zone("example.io")
+ *                 .type("A")
  *                 .build())
  *             .dataManageDatasources(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## NS1 Documentation

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccountWhitelist(&#34;example&#34;, AccountWhitelistArgs.builder()        
- *             .name(&#34;Example Whitelist&#34;)
+ *         var example = new AccountWhitelist("example", AccountWhitelistArgs.builder()        
+ *             .name("Example Whitelist")
  *             .values(            
- *                 &#34;1.1.1.1&#34;,
- *                 &#34;2.2.2.2&#34;)
+ *                 "1.1.1.1",
+ *                 "2.2.2.2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; You current source IP must be present in one of the whitelists to prevent locking yourself out.

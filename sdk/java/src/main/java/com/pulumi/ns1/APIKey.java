@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
- *             .name(&#34;Example team&#34;)
+ *         var example = new Team("example", TeamArgs.builder()        
+ *             .name("Example team")
  *             .build());
  * 
- *         var exampleAPIKey = new APIKey(&#34;exampleAPIKey&#34;, APIKeyArgs.builder()        
- *             .name(&#34;Example key&#34;)
+ *         var exampleAPIKey = new APIKey("exampleAPIKey", APIKeyArgs.builder()        
+ *             .name("Example key")
  *             .teams(example.id())
  *             .ipWhitelists(            
- *                 &#34;1.1.1.1&#34;,
- *                 &#34;2.2.2.2&#34;)
+ *                 "1.1.1.1",
+ *                 "2.2.2.2")
  *             .dnsViewZones(false)
  *             .accountManageUsers(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Permissions

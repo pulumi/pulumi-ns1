@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .sourcetype(&#34;nsone_v1&#34;)
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *             .name("example")
+ *             .sourcetype("nsone_v1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## NS1 Documentation
