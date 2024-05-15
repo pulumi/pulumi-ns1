@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/ns1",
-    "version": "${VERSION}",
+    "version": "3.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing ns1 cloud resources.",
     "keywords": [
         "pulumi",
@@ -22,6 +22,7 @@
     },
     "pulumi": {
         "resource": true,
-        "name": "ns1"
+        "name": "ns1",
+        "version": "3.0.0-alpha.0+dev"
     }
 }
