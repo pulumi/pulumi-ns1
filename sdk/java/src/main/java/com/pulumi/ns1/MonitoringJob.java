@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var uswestMonitor = new MonitoringJob("uswestMonitor", MonitoringJobArgs.builder()        
+ *         var uswestMonitor = new MonitoringJob("uswestMonitor", MonitoringJobArgs.builder()
  *             .name("uswest")
  *             .active(true)
  *             .regions(            

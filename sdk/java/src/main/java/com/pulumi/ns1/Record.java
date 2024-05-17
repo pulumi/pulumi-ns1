@@ -62,28 +62,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone("example", ZoneArgs.builder()        
+ *         var example = new Zone("example", ZoneArgs.builder()
  *             .zone("terraform.example.io")
  *             .build());
  * 
- *         var ns1 = new DataSource("ns1", DataSourceArgs.builder()        
+ *         var ns1 = new DataSource("ns1", DataSourceArgs.builder()
  *             .name("ns1_source")
  *             .sourcetype("nsone_v1")
  *             .build());
  * 
- *         var foo = new DataFeed("foo", DataFeedArgs.builder()        
+ *         var foo = new DataFeed("foo", DataFeedArgs.builder()
  *             .name("foo_feed")
  *             .sourceId(ns1.id())
  *             .config(Map.of("label", "foo"))
  *             .build());
  * 
- *         var bar = new DataFeed("bar", DataFeedArgs.builder()        
+ *         var bar = new DataFeed("bar", DataFeedArgs.builder()
  *             .name("bar_feed")
  *             .sourceId(ns1.id())
  *             .config(Map.of("label", "bar"))
  *             .build());
  * 
- *         var www = new Record("www", RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()
  *             .zone(tld.zone())
  *             .domain(String.format("www.%s", tld.zone()))
  *             .type("CNAME")
@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
- *         var baz = new Source("baz", SourceArgs.builder()        
+ *         var baz = new Source("baz", SourceArgs.builder()
  *             .zone("terraform.example.io.")
  *             .domain(".www.terraform.example.io")
  *             .build());
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *         //
  *         // In other cases, a domain or zone may be passed in with a preceding dot ('.')
  *         // character which would likewise lead the system to fail.
- *         var external = new Record("external", RecordArgs.builder()        
+ *         var external = new Record("external", RecordArgs.builder()
  *             .zone(StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(zone)
  *                 .search("/(^\\.)|(\\.$)/")
