@@ -60,6 +60,7 @@ class ZoneArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         """
@@ -285,6 +286,9 @@ class ZoneArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        map of tags in the form of `"key" = "value"` where both key and value are strings
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -364,6 +368,7 @@ class _ZoneState:
         :param pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
@@ -593,6 +598,9 @@ class _ZoneState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        map of tags in the form of `"key" = "value"` where both key and value are strings
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -698,6 +706,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
@@ -844,6 +853,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ZoneSecondaryArgs']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tsig: TSIG is documented below
         :param pulumi.Input[int] ttl: The SOA TTL.
         :param pulumi.Input[str] zone: The domain name of the zone.
@@ -999,6 +1009,9 @@ class Zone(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        map of tags in the form of `"key" = "value"` where both key and value are strings
+        """
         return pulumi.get(self, "tags")
 
     @property

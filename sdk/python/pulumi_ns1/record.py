@@ -47,6 +47,7 @@ class RecordArgs:
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
@@ -216,6 +217,9 @@ class RecordArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        map of tags in the form of `"key" = "value"` where both key and value are strings
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -281,6 +285,7 @@ class _RecordState:
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
@@ -431,6 +436,9 @@ class _RecordState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        map of tags in the form of `"key" = "value"` where both key and value are strings
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -653,6 +661,7 @@ class Record(pulumi.CustomResource):
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
@@ -898,6 +907,7 @@ class Record(pulumi.CustomResource):
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
         :param pulumi.Input[int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[str] type: The records' RR type.
         :param pulumi.Input[bool] use_client_subnet: Whether to use EDNS client subnet data when
@@ -1000,6 +1010,9 @@ class Record(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        map of tags in the form of `"key" = "value"` where both key and value are strings
+        """
         return pulumi.get(self, "tags")
 
     @property

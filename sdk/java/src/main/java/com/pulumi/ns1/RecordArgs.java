@@ -153,9 +153,17 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.shortAnswers);
     }
 
+    /**
+     * map of tags in the form of `&#34;key&#34; = &#34;value&#34;` where both key and value are strings
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return map of tags in the form of `&#34;key&#34; = &#34;value&#34;` where both key and value are strings
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -487,11 +495,23 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
             return shortAnswers(List.of(shortAnswers));
         }
 
+        /**
+         * @param tags map of tags in the form of `&#34;key&#34; = &#34;value&#34;` where both key and value are strings
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags map of tags in the form of `&#34;key&#34; = &#34;value&#34;` where both key and value are strings
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

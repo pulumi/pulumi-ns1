@@ -237,7 +237,8 @@ type Record struct {
 	Regions RecordRegionArrayOutput `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayOutput `pulumi:"shortAnswers"`
-	Tags         pulumi.StringMapOutput   `pulumi:"tags"`
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The records' time to live (in seconds).
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// The records' RR type.
@@ -312,8 +313,9 @@ type recordState struct {
 	// documented below. Please note the ordering requirement!
 	Regions []RecordRegion `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
-	ShortAnswers []string          `pulumi:"shortAnswers"`
-	Tags         map[string]string `pulumi:"tags"`
+	ShortAnswers []string `pulumi:"shortAnswers"`
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags map[string]string `pulumi:"tags"`
 	// The records' time to live (in seconds).
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
@@ -351,7 +353,8 @@ type RecordState struct {
 	Regions RecordRegionArrayInput
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
-	Tags         pulumi.StringMapInput
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags pulumi.StringMapInput
 	// The records' time to live (in seconds).
 	Ttl pulumi.IntPtrInput
 	// The records' RR type.
@@ -392,8 +395,9 @@ type recordArgs struct {
 	// documented below. Please note the ordering requirement!
 	Regions []RecordRegion `pulumi:"regions"`
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
-	ShortAnswers []string          `pulumi:"shortAnswers"`
-	Tags         map[string]string `pulumi:"tags"`
+	ShortAnswers []string `pulumi:"shortAnswers"`
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags map[string]string `pulumi:"tags"`
 	// The records' time to live (in seconds).
 	Ttl *int `pulumi:"ttl"`
 	// The records' RR type.
@@ -432,7 +436,8 @@ type RecordArgs struct {
 	Regions RecordRegionArrayInput
 	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
 	ShortAnswers pulumi.StringArrayInput
-	Tags         pulumi.StringMapInput
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags pulumi.StringMapInput
 	// The records' time to live (in seconds).
 	Ttl pulumi.IntPtrInput
 	// The records' RR type.
@@ -583,6 +588,7 @@ func (o RecordOutput) ShortAnswers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringArrayOutput { return v.ShortAnswers }).(pulumi.StringArrayOutput)
 }
 
+// map of tags in the form of `"key" = "value"` where both key and value are strings
 func (o RecordOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

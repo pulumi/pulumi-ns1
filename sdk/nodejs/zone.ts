@@ -110,6 +110,9 @@ export class Zone extends pulumi.CustomResource {
      * Secondaries is documented below.
      */
     public readonly secondaries!: pulumi.Output<outputs.ZoneSecondary[] | undefined>;
+    /**
+     * map of tags in the form of `"key" = "value"` where both key and value are strings
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * TSIG is documented below
@@ -253,6 +256,9 @@ export interface ZoneState {
      * Secondaries is documented below.
      */
     secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
+    /**
+     * map of tags in the form of `"key" = "value"` where both key and value are strings
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * TSIG is documented below
@@ -331,6 +337,9 @@ export interface ZoneArgs {
      * Secondaries is documented below.
      */
     secondaries?: pulumi.Input<pulumi.Input<inputs.ZoneSecondary>[]>;
+    /**
+     * map of tags in the form of `"key" = "value"` where both key and value are strings
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * TSIG is documented below

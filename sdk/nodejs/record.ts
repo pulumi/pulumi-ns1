@@ -206,6 +206,9 @@ export class Record extends pulumi.CustomResource {
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
     public readonly shortAnswers!: pulumi.Output<string[] | undefined>;
+    /**
+     * map of tags in the form of `"key" = "value"` where both key and value are strings
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The records' time to live (in seconds).
@@ -324,6 +327,9 @@ export interface RecordState {
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
     shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * map of tags in the form of `"key" = "value"` where both key and value are strings
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The records' time to live (in seconds).
@@ -385,6 +391,9 @@ export interface RecordArgs {
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
     shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * map of tags in the form of `"key" = "value"` where both key and value are strings
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The records' time to live (in seconds).

@@ -2370,7 +2370,8 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "map of tags in the form of `\"key\" = \"value\"` where both key and value are strings\n"
                 },
                 "ttl": {
                     "type": "integer",
@@ -2452,7 +2453,8 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "map of tags in the form of `\"key\" = \"value\"` where both key and value are strings\n"
                 },
                 "ttl": {
                     "type": "integer",
@@ -2537,7 +2539,8 @@
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
-                        }
+                        },
+                        "description": "map of tags in the form of `\"key\" = \"value\"` where both key and value are strings\n"
                     },
                     "ttl": {
                         "type": "integer",
@@ -3760,7 +3763,8 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "map of tags in the form of `\"key\" = \"value\"` where both key and value are strings\n"
                 },
                 "tsig": {
                     "type": "object",
@@ -3867,7 +3871,8 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "map of tags in the form of `\"key\" = \"value\"` where both key and value are strings\n"
                 },
                 "tsig": {
                     "type": "object",
@@ -3971,7 +3976,8 @@
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
-                        }
+                        },
+                        "description": "map of tags in the form of `\"key\" = \"value\"` where both key and value are strings\n"
                     },
                     "tsig": {
                         "type": "object",
