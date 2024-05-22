@@ -118,6 +118,9 @@ namespace Pulumi.Ns1
         [Output("secondaries")]
         public Output<ImmutableArray<Outputs.ZoneSecondary>> Secondaries { get; private set; } = null!;
 
+        /// <summary>
+        /// map of tags in the form of `"key" = "value"` where both key and value are strings
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -297,6 +300,10 @@ namespace Pulumi.Ns1
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// map of tags in the form of `"key" = "value"` where both key and value are strings
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -453,6 +460,10 @@ namespace Pulumi.Ns1
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// map of tags in the form of `"key" = "value"` where both key and value are strings
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

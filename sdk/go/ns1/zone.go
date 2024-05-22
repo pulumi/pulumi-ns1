@@ -65,7 +65,8 @@ type Zone struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries ZoneSecondaryArrayOutput `pulumi:"secondaries"`
-	Tags        pulumi.StringMapOutput   `pulumi:"tags"`
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// TSIG is documented below
 	Tsig pulumi.StringMapOutput `pulumi:"tsig"`
 	// The SOA TTL.
@@ -145,8 +146,9 @@ type zoneState struct {
 	// List of secondary servers. This makes the zone a
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
-	Secondaries []ZoneSecondary   `pulumi:"secondaries"`
-	Tags        map[string]string `pulumi:"tags"`
+	Secondaries []ZoneSecondary `pulumi:"secondaries"`
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags map[string]string `pulumi:"tags"`
 	// TSIG is documented below
 	Tsig map[string]string `pulumi:"tsig"`
 	// The SOA TTL.
@@ -195,7 +197,8 @@ type ZoneState struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries ZoneSecondaryArrayInput
-	Tags        pulumi.StringMapInput
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags pulumi.StringMapInput
 	// TSIG is documented below
 	Tsig pulumi.StringMapInput
 	// The SOA TTL.
@@ -245,8 +248,9 @@ type zoneArgs struct {
 	// List of secondary servers. This makes the zone a
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
-	Secondaries []ZoneSecondary   `pulumi:"secondaries"`
-	Tags        map[string]string `pulumi:"tags"`
+	Secondaries []ZoneSecondary `pulumi:"secondaries"`
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags map[string]string `pulumi:"tags"`
 	// TSIG is documented below
 	Tsig map[string]string `pulumi:"tsig"`
 	// The SOA TTL.
@@ -294,7 +298,8 @@ type ZoneArgs struct {
 	// primary. Conflicts with `primary` and `additionalPrimaries`.
 	// Secondaries is documented below.
 	Secondaries ZoneSecondaryArrayInput
-	Tags        pulumi.StringMapInput
+	// map of tags in the form of `"key" = "value"` where both key and value are strings
+	Tags pulumi.StringMapInput
 	// TSIG is documented below
 	Tsig pulumi.StringMapInput
 	// The SOA TTL.
@@ -474,6 +479,7 @@ func (o ZoneOutput) Secondaries() ZoneSecondaryArrayOutput {
 	return o.ApplyT(func(v *Zone) ZoneSecondaryArrayOutput { return v.Secondaries }).(ZoneSecondaryArrayOutput)
 }
 
+// map of tags in the form of `"key" = "value"` where both key and value are strings
 func (o ZoneOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

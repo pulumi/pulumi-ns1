@@ -305,9 +305,17 @@ public class Record extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> shortAnswers() {
         return Codegen.optional(this.shortAnswers);
     }
+    /**
+     * map of tags in the form of `&#34;key&#34; = &#34;value&#34;` where both key and value are strings
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return map of tags in the form of `&#34;key&#34; = &#34;value&#34;` where both key and value are strings
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
