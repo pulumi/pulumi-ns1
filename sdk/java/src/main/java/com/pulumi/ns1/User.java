@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Team("example", TeamArgs.builder()        
+ *         var example = new Team("example", TeamArgs.builder()
  *             .name("Example team")
  *             .ipWhitelists(            
  *                 "1.1.1.1",
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .accountManageUsers(false)
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .name("Example User")
  *             .username("example_user")
  *             .email("user{@literal @}example.com")
