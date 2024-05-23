@@ -46,29 +46,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .name("example")
  *             .sourcetype("nsone_v1")
  *             .build());
  * 
- *         var exampleMonitoring = new DataSource("exampleMonitoring", DataSourceArgs.builder()        
+ *         var exampleMonitoring = new DataSource("exampleMonitoring", DataSourceArgs.builder()
  *             .name("example_monitoring")
  *             .sourcetype("nsone_monitoring")
  *             .build());
  * 
- *         var uswestFeed = new DataFeed("uswestFeed", DataFeedArgs.builder()        
+ *         var uswestFeed = new DataFeed("uswestFeed", DataFeedArgs.builder()
  *             .name("uswest_feed")
  *             .sourceId(example.id())
  *             .config(Map.of("label", "uswest"))
  *             .build());
  * 
- *         var useastFeed = new DataFeed("useastFeed", DataFeedArgs.builder()        
+ *         var useastFeed = new DataFeed("useastFeed", DataFeedArgs.builder()
  *             .name("useast_feed")
  *             .sourceId(example.id())
  *             .config(Map.of("label", "useast"))
  *             .build());
  * 
- *         var useastMonitorFeed = new DataFeed("useastMonitorFeed", DataFeedArgs.builder()        
+ *         var useastMonitorFeed = new DataFeed("useastMonitorFeed", DataFeedArgs.builder()
  *             .name("useast_monitor_feed")
  *             .sourceId(exampleMonitoring.id())
  *             .config(Map.of("jobid", exampleJob.id()))

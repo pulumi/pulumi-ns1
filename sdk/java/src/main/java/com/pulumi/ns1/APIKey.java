@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Team("example", TeamArgs.builder()        
+ *         var example = new Team("example", TeamArgs.builder()
  *             .name("Example team")
  *             .build());
  * 
- *         var exampleAPIKey = new APIKey("exampleAPIKey", APIKeyArgs.builder()        
+ *         var exampleAPIKey = new APIKey("exampleAPIKey", APIKeyArgs.builder()
  *             .name("Example key")
  *             .teams(example.id())
  *             .ipWhitelists(            
