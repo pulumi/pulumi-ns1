@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccountWhitelist("example", AccountWhitelistArgs.builder()        
+ *         var example = new AccountWhitelist("example", AccountWhitelistArgs.builder()
  *             .name("Example Whitelist")
  *             .values(            
  *                 "1.1.1.1",

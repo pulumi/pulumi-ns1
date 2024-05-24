@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new NS1 Team
- *         var example = new Team("example", TeamArgs.builder()        
+ *         var example = new Team("example", TeamArgs.builder()
  *             .name("Example team")
  *             .ipWhitelists(            
  *                 TeamIpWhitelistArgs.builder()
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Another team
- *         var example2 = new Team("example2", TeamArgs.builder()        
+ *         var example2 = new Team("example2", TeamArgs.builder()
  *             .name("another team")
  *             .dnsViewZones(true)
  *             .dnsZonesAllowByDefault(true)
