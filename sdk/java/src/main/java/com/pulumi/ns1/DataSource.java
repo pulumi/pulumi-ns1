@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .name("example")
  *             .sourcetype("nsone_v1")
  *             .build());

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nl = new NotifyList("nl", NotifyListArgs.builder()        
+ *         var nl = new NotifyList("nl", NotifyListArgs.builder()
  *             .name("my notify list")
  *             .notifications(            
  *                 NotifyListNotificationArgs.builder()
