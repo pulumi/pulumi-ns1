@@ -206,13 +206,11 @@ class APIKeyArgs:
 
     @property
     @pulumi.getter(name="accountManagePlan")
+    @_utilities.deprecated("""obsolete, should no longer be used""")
     def account_manage_plan(self) -> Optional[pulumi.Input[bool]]:
         """
         No longer in use.
         """
-        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
-        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
-
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
@@ -746,13 +744,11 @@ class _APIKeyState:
 
     @property
     @pulumi.getter(name="accountManagePlan")
+    @_utilities.deprecated("""obsolete, should no longer be used""")
     def account_manage_plan(self) -> Optional[pulumi.Input[bool]]:
         """
         No longer in use.
         """
-        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
-        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
-
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
@@ -1538,13 +1534,11 @@ class APIKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountManagePlan")
+    @_utilities.deprecated("""obsolete, should no longer be used""")
     def account_manage_plan(self) -> pulumi.Output[Optional[bool]]:
         """
         No longer in use.
         """
-        warnings.warn("""obsolete, should no longer be used""", DeprecationWarning)
-        pulumi.log.warn("""account_manage_plan is deprecated: obsolete, should no longer be used""")
-
         return pulumi.get(self, "account_manage_plan")
 
     @property
