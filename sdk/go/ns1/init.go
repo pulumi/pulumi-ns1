@@ -43,6 +43,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PulsarJob{}
 	case "ns1:index/record:Record":
 		r = &Record{}
+	case "ns1:index/redirect:Redirect":
+		r = &Redirect{}
+	case "ns1:index/redirectCertificate:RedirectCertificate":
+		r = &RedirectCertificate{}
 	case "ns1:index/subnet:Subnet":
 		r = &Subnet{}
 	case "ns1:index/team:Team":
@@ -137,6 +141,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"ns1",
 		"index/record",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
+		"index/redirect",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
+		"index/redirectCertificate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

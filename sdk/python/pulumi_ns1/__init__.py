@@ -22,6 +22,8 @@ from .notify_list import *
 from .provider import *
 from .pulsar_job import *
 from .record import *
+from .redirect import *
+from .redirect_certificate import *
 from .subnet import *
 from .team import *
 from .tsigkey import *
@@ -126,6 +128,22 @@ _utilities.register(
   "fqn": "pulumi_ns1",
   "classes": {
    "ns1:index/record:Record": "Record"
+  }
+ },
+ {
+  "pkg": "ns1",
+  "mod": "index/redirect",
+  "fqn": "pulumi_ns1",
+  "classes": {
+   "ns1:index/redirect:Redirect": "Redirect"
+  }
+ },
+ {
+  "pkg": "ns1",
+  "mod": "index/redirectCertificate",
+  "fqn": "pulumi_ns1",
+  "classes": {
+   "ns1:index/redirectCertificate:RedirectCertificate": "RedirectCertificate"
   }
  },
  {

@@ -24,7 +24,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-external/sdk/v1/go/external"
+//	"github.com/pulumi/pulumi-external/sdk/go/external"
 //	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -154,7 +154,7 @@ import (
 //				return err
 //			}
 //			// Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
-//			_, err = index.NewSource(ctx, "baz", &index.SourceArgs{
+//			_, err = external.NewSource(ctx, "baz", &external.SourceArgs{
 //				Zone:   "terraform.example.io.",
 //				Domain: ".www.terraform.example.io",
 //			})
