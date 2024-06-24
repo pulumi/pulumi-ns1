@@ -16,7 +16,7 @@ package ns1
 
 import (
 	"fmt"
-	"path/filepath"
+	"path"
 
 	// Allow metadata embedding
 	_ "embed"
@@ -71,9 +71,7 @@ func Provider() tfbridge.ProviderInfo {
 			"ns1_zone": {
 				Tok: makeResource(mainMod, "Zone"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"zone": {
-						CSharpName: "ZoneName",
-					},
+					"zone": {CSharpName: "ZoneName"},
 				},
 			},
 			"ns1_monitoringjob": {Tok: makeResource(mainMod, "MonitoringJob")},
@@ -85,10 +83,11 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:  makeResource(mainMod, "PulsarJob"),
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
-			"ns1_tsigkey": {Tok: makeResource(mainMod, "Tsigkey")},
-			"ns1_subnet":  {Docs: &tfbridge.DocInfo{AllowMissing: true}},
-			"ns1_dnsview": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
-			"ns1_dataset": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"ns1_tsigkey":              {Tok: makeResource(mainMod, "Tsigkey")},
+			"ns1_subnet":               {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"ns1_dnsview":              {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"ns1_dataset":              {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"ns1_redirect_certificate": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"ns1_dnssec": {Tok: makeDataSource(mainMod, "getDNSSec")},
@@ -104,7 +103,7 @@ func Provider() tfbridge.ProviderInfo {
 			RespectSchemaVersion: true,
 		},
 		Golang: &tfbridge.GolangInfo{
-			ImportBasePath: filepath.Join(
+			ImportBasePath: path.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",

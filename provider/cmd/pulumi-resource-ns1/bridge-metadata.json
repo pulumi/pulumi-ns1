@@ -147,6 +147,19 @@
                     }
                 }
             },
+            "ns1_redirect": {
+                "current": "ns1:index/redirect:Redirect",
+                "majorVersion": 3,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "ns1_redirect_certificate": {
+                "current": "ns1:index/redirectCertificate:RedirectCertificate",
+                "majorVersion": 3
+            },
             "ns1_subnet": {
                 "current": "ns1:index/subnet:Subnet",
                 "majorVersion": 3
