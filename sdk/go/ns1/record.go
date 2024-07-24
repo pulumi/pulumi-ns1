@@ -119,17 +119,17 @@ import (
 //						Answer: pulumi.String(fmt.Sprintf("sub1.%v", tld.Zone)),
 //						Region: pulumi.String("east"),
 //						Meta: pulumi.Map{
-//							"up": foo.ID().ApplyT(func(id string) (string, error) {
+//							"up": interface{}(foo.ID().ApplyT(func(id string) (string, error) {
 //								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
-//							}).(pulumi.StringOutput),
+//							}).(pulumi.StringOutput)),
 //						},
 //					},
 //					&ns1.RecordAnswerArgs{
 //						Answer: pulumi.String(fmt.Sprintf("sub2.%v", tld.Zone)),
 //						Meta: pulumi.Map{
-//							"up": bar.ID().ApplyT(func(id string) (string, error) {
+//							"up": interface{}(bar.ID().ApplyT(func(id string) (string, error) {
 //								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
-//							}).(pulumi.StringOutput),
+//							}).(pulumi.StringOutput)),
 //							"connections": pulumi.Any(3),
 //						},
 //					},
@@ -184,8 +184,8 @@ import (
 //			// In other cases, a domain or zone may be passed in with a preceding dot ('.')
 //			// character which would likewise lead the system to fail.
 //			_, err = ns1.NewRecord(ctx, "external", &ns1.RecordArgs{
-//				Zone:   invokeReplace.Result,
-//				Domain: invokeReplace1.Result,
+//				Zone:   pulumi.String(invokeReplace.Result),
+//				Domain: pulumi.String(invokeReplace1.Result),
 //				Type:   pulumi.String("CNAME"),
 //			})
 //			if err != nil {
