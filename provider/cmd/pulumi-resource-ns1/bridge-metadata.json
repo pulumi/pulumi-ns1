@@ -160,10 +160,6 @@
                 "current": "ns1:index/redirectCertificate:RedirectCertificate",
                 "majorVersion": 3
             },
-            "ns1_subnet": {
-                "current": "ns1:index/subnet:Subnet",
-                "majorVersion": 3
-            },
             "ns1_team": {
                 "current": "ns1:index/team:Team",
                 "majorVersion": 3,

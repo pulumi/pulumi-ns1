@@ -1,16 +1,11 @@
-From 9571e4ac60532da4f30cb30ebbd6a35de580a010 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Thu, 16 Mar 2023 16:54:28 +0100
 Subject: [PATCH] fork
 
----
- go.mod                 | 2 +-
- main.go                | 2 +-
- ns1/resource_record.go | 9 +--------
- 3 files changed, 3 insertions(+), 10 deletions(-)
 
 diff --git a/go.mod b/go.mod
-index 5565b62..d34e1ef 100644
+index 2698820..e679b92 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
@@ -33,10 +28,10 @@ index 97093e2..dd93b8b 100644
  
  func main() {
 diff --git a/ns1/resource_record.go b/ns1/resource_record.go
-index df6c695..1d5476c 100644
+index 042bb51..43059ce 100644
 --- a/ns1/resource_record.go
 +++ b/ns1/resource_record.go
-@@ -92,14 +92,7 @@ func recordResource() *schema.Resource {
+@@ -98,14 +98,7 @@ func recordResource() *schema.Resource {
  				Type:     schema.TypeList,
  				Optional: true,
  				Elem:     &schema.Schema{Type: schema.TypeString},
@@ -52,6 +47,3 @@ index df6c695..1d5476c 100644
  			},
  			"answers": {
  				Type:     schema.TypeList,
--- 
-2.39.1
-
