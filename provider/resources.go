@@ -84,7 +84,6 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"ns1_tsigkey":              {Tok: makeResource(mainMod, "Tsigkey")},
-			"ns1_subnet":               {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"ns1_dnsview":              {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"ns1_dataset":              {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 			"ns1_redirect_certificate": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
