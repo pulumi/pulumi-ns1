@@ -89,11 +89,18 @@ public class Dnsview extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Dnsview(String name, @Nullable DnsviewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/dnsview:Dnsview", name, args == null ? DnsviewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("ns1:index/dnsview:Dnsview", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Dnsview(String name, Output<String> id, @Nullable DnsviewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("ns1:index/dnsview:Dnsview", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DnsviewArgs makeArgs(@Nullable DnsviewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DnsviewArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

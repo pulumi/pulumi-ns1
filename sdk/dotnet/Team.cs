@@ -168,20 +168,6 @@ namespace Pulumi.Ns1
         public Output<bool?> DataPushToDatafeeds { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the team can manage DHCP.
-        /// Only relevant for the DDI product.
-        /// </summary>
-        [Output("dhcpManageDhcp")]
-        public Output<bool?> DhcpManageDhcp { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether the team can view DHCP.
-        /// Only relevant for the DDI product.
-        /// </summary>
-        [Output("dhcpViewDhcp")]
-        public Output<bool?> DhcpViewDhcp { get; private set; } = null!;
-
-        /// <summary>
         /// Whether the team can modify the accounts zones.
         /// </summary>
         [Output("dnsManageZones")]
@@ -230,21 +216,19 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<Outputs.TeamIpWhitelist>> IpWhitelists { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the team can manage IPAM.
-        /// Only relevant for the DDI product.
+        /// Whether the user can create monitoring jobs when manage_jobs is not set to true.
         /// </summary>
-        [Output("ipamManageIpam")]
-        public Output<bool?> IpamManageIpam { get; private set; } = null!;
+        [Output("monitoringCreateJobs")]
+        public Output<bool?> MonitoringCreateJobs { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the team can view IPAM.
-        /// Only relevant for the DDI product.
+        /// Whether the user can delete monitoring jobs when manage_jobs is not set to true.
         /// </summary>
-        [Output("ipamViewIpam")]
-        public Output<bool?> IpamViewIpam { get; private set; } = null!;
+        [Output("monitoringDeleteJobs")]
+        public Output<bool?> MonitoringDeleteJobs { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the team can modify monitoring jobs.
+        /// Whether the user can create, update, and delete monitoring jobs.
         /// </summary>
         [Output("monitoringManageJobs")]
         public Output<bool?> MonitoringManageJobs { get; private set; } = null!;
@@ -254,6 +238,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Output("monitoringManageLists")]
         public Output<bool?> MonitoringManageLists { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        /// </summary>
+        [Output("monitoringUpdateJobs")]
+        public Output<bool?> MonitoringUpdateJobs { get; private set; } = null!;
 
         /// <summary>
         /// Whether the team can view monitoring jobs.
@@ -399,20 +389,6 @@ namespace Pulumi.Ns1
         public Input<bool>? DataPushToDatafeeds { get; set; }
 
         /// <summary>
-        /// Whether the team can manage DHCP.
-        /// Only relevant for the DDI product.
-        /// </summary>
-        [Input("dhcpManageDhcp")]
-        public Input<bool>? DhcpManageDhcp { get; set; }
-
-        /// <summary>
-        /// Whether the team can view DHCP.
-        /// Only relevant for the DDI product.
-        /// </summary>
-        [Input("dhcpViewDhcp")]
-        public Input<bool>? DhcpViewDhcp { get; set; }
-
-        /// <summary>
         /// Whether the team can modify the accounts zones.
         /// </summary>
         [Input("dnsManageZones")]
@@ -491,21 +467,19 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// Whether the team can manage IPAM.
-        /// Only relevant for the DDI product.
+        /// Whether the user can create monitoring jobs when manage_jobs is not set to true.
         /// </summary>
-        [Input("ipamManageIpam")]
-        public Input<bool>? IpamManageIpam { get; set; }
+        [Input("monitoringCreateJobs")]
+        public Input<bool>? MonitoringCreateJobs { get; set; }
 
         /// <summary>
-        /// Whether the team can view IPAM.
-        /// Only relevant for the DDI product.
+        /// Whether the user can delete monitoring jobs when manage_jobs is not set to true.
         /// </summary>
-        [Input("ipamViewIpam")]
-        public Input<bool>? IpamViewIpam { get; set; }
+        [Input("monitoringDeleteJobs")]
+        public Input<bool>? MonitoringDeleteJobs { get; set; }
 
         /// <summary>
-        /// Whether the team can modify monitoring jobs.
+        /// Whether the user can create, update, and delete monitoring jobs.
         /// </summary>
         [Input("monitoringManageJobs")]
         public Input<bool>? MonitoringManageJobs { get; set; }
@@ -515,6 +489,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("monitoringManageLists")]
         public Input<bool>? MonitoringManageLists { get; set; }
+
+        /// <summary>
+        /// Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        /// </summary>
+        [Input("monitoringUpdateJobs")]
+        public Input<bool>? MonitoringUpdateJobs { get; set; }
 
         /// <summary>
         /// Whether the team can view monitoring jobs.
@@ -622,20 +602,6 @@ namespace Pulumi.Ns1
         public Input<bool>? DataPushToDatafeeds { get; set; }
 
         /// <summary>
-        /// Whether the team can manage DHCP.
-        /// Only relevant for the DDI product.
-        /// </summary>
-        [Input("dhcpManageDhcp")]
-        public Input<bool>? DhcpManageDhcp { get; set; }
-
-        /// <summary>
-        /// Whether the team can view DHCP.
-        /// Only relevant for the DDI product.
-        /// </summary>
-        [Input("dhcpViewDhcp")]
-        public Input<bool>? DhcpViewDhcp { get; set; }
-
-        /// <summary>
         /// Whether the team can modify the accounts zones.
         /// </summary>
         [Input("dnsManageZones")]
@@ -714,21 +680,19 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// Whether the team can manage IPAM.
-        /// Only relevant for the DDI product.
+        /// Whether the user can create monitoring jobs when manage_jobs is not set to true.
         /// </summary>
-        [Input("ipamManageIpam")]
-        public Input<bool>? IpamManageIpam { get; set; }
+        [Input("monitoringCreateJobs")]
+        public Input<bool>? MonitoringCreateJobs { get; set; }
 
         /// <summary>
-        /// Whether the team can view IPAM.
-        /// Only relevant for the DDI product.
+        /// Whether the user can delete monitoring jobs when manage_jobs is not set to true.
         /// </summary>
-        [Input("ipamViewIpam")]
-        public Input<bool>? IpamViewIpam { get; set; }
+        [Input("monitoringDeleteJobs")]
+        public Input<bool>? MonitoringDeleteJobs { get; set; }
 
         /// <summary>
-        /// Whether the team can modify monitoring jobs.
+        /// Whether the user can create, update, and delete monitoring jobs.
         /// </summary>
         [Input("monitoringManageJobs")]
         public Input<bool>? MonitoringManageJobs { get; set; }
@@ -738,6 +702,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("monitoringManageLists")]
         public Input<bool>? MonitoringManageLists { get; set; }
+
+        /// <summary>
+        /// Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        /// </summary>
+        [Input("monitoringUpdateJobs")]
+        public Input<bool>? MonitoringUpdateJobs { get; set; }
 
         /// <summary>
         /// Whether the team can view monitoring jobs.

@@ -75,11 +75,18 @@ public class RedirectCertificate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RedirectCertificate(String name, RedirectCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/redirectCertificate:RedirectCertificate", name, args == null ? RedirectCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("ns1:index/redirectCertificate:RedirectCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RedirectCertificate(String name, Output<String> id, @Nullable RedirectCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("ns1:index/redirectCertificate:RedirectCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RedirectCertificateArgs makeArgs(RedirectCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RedirectCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

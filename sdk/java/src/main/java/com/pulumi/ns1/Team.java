@@ -278,38 +278,6 @@ public class Team extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataPushToDatafeeds);
     }
     /**
-     * Whether the team can manage DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Export(name="dhcpManageDhcp", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> dhcpManageDhcp;
-
-    /**
-     * @return Whether the team can manage DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Output<Optional<Boolean>> dhcpManageDhcp() {
-        return Codegen.optional(this.dhcpManageDhcp);
-    }
-    /**
-     * Whether the team can view DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Export(name="dhcpViewDhcp", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> dhcpViewDhcp;
-
-    /**
-     * @return Whether the team can view DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Output<Optional<Boolean>> dhcpViewDhcp() {
-        return Codegen.optional(this.dhcpViewDhcp);
-    }
-    /**
      * Whether the team can modify the accounts zones.
      * 
      */
@@ -422,46 +390,42 @@ public class Team extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipWhitelists);
     }
     /**
-     * Whether the team can manage IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can create monitoring jobs when manage_jobs is not set to true.
      * 
      */
-    @Export(name="ipamManageIpam", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> ipamManageIpam;
+    @Export(name="monitoringCreateJobs", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> monitoringCreateJobs;
 
     /**
-     * @return Whether the team can manage IPAM.
-     * Only relevant for the DDI product.
+     * @return Whether the user can create monitoring jobs when manage_jobs is not set to true.
      * 
      */
-    public Output<Optional<Boolean>> ipamManageIpam() {
-        return Codegen.optional(this.ipamManageIpam);
+    public Output<Optional<Boolean>> monitoringCreateJobs() {
+        return Codegen.optional(this.monitoringCreateJobs);
     }
     /**
-     * Whether the team can view IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can delete monitoring jobs when manage_jobs is not set to true.
      * 
      */
-    @Export(name="ipamViewIpam", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> ipamViewIpam;
+    @Export(name="monitoringDeleteJobs", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> monitoringDeleteJobs;
 
     /**
-     * @return Whether the team can view IPAM.
-     * Only relevant for the DDI product.
+     * @return Whether the user can delete monitoring jobs when manage_jobs is not set to true.
      * 
      */
-    public Output<Optional<Boolean>> ipamViewIpam() {
-        return Codegen.optional(this.ipamViewIpam);
+    public Output<Optional<Boolean>> monitoringDeleteJobs() {
+        return Codegen.optional(this.monitoringDeleteJobs);
     }
     /**
-     * Whether the team can modify monitoring jobs.
+     * Whether the user can create, update, and delete monitoring jobs.
      * 
      */
     @Export(name="monitoringManageJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageJobs;
 
     /**
-     * @return Whether the team can modify monitoring jobs.
+     * @return Whether the user can create, update, and delete monitoring jobs.
      * 
      */
     public Output<Optional<Boolean>> monitoringManageJobs() {
@@ -480,6 +444,20 @@ public class Team extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> monitoringManageLists() {
         return Codegen.optional(this.monitoringManageLists);
+    }
+    /**
+     * Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    @Export(name="monitoringUpdateJobs", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> monitoringUpdateJobs;
+
+    /**
+     * @return Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    public Output<Optional<Boolean>> monitoringUpdateJobs() {
+        return Codegen.optional(this.monitoringUpdateJobs);
     }
     /**
      * Whether the team can view monitoring jobs.
@@ -562,11 +540,18 @@ public class Team extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Team(String name, @Nullable TeamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/team:Team", name, args == null ? TeamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("ns1:index/team:Team", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Team(String name, Output<String> id, @Nullable TeamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("ns1:index/team:Team", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TeamArgs makeArgs(@Nullable TeamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TeamArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

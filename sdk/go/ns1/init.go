@@ -47,8 +47,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Redirect{}
 	case "ns1:index/redirectCertificate:RedirectCertificate":
 		r = &RedirectCertificate{}
-	case "ns1:index/subnet:Subnet":
-		r = &Subnet{}
 	case "ns1:index/team:Team":
 		r = &Team{}
 	case "ns1:index/tsigkey:Tsigkey":
@@ -151,11 +149,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"ns1",
 		"index/redirectCertificate",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"ns1",
-		"index/subnet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

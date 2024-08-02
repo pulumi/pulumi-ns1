@@ -15,7 +15,6 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  apikey: Optional[pulumi.Input[str]] = None,
-                 enable_ddi: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  ignore_ssl: Optional[pulumi.Input[bool]] = None,
                  rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
@@ -24,7 +23,6 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] apikey: The ns1 API key (required)
-        :param pulumi.Input[bool] enable_ddi: Deprecated, no longer in use
         :param pulumi.Input[str] endpoint: URL prefix (including version) for API calls
         :param pulumi.Input[bool] ignore_ssl: Don't validate server SSL/TLS certificate
         :param pulumi.Input[int] rate_limit_parallelism: Tune response to rate limits, see docs
@@ -33,8 +31,6 @@ class ProviderArgs:
         """
         if apikey is not None:
             pulumi.set(__self__, "apikey", apikey)
-        if enable_ddi is not None:
-            pulumi.set(__self__, "enable_ddi", enable_ddi)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if ignore_ssl is not None:
@@ -57,18 +53,6 @@ class ProviderArgs:
     @apikey.setter
     def apikey(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "apikey", value)
-
-    @property
-    @pulumi.getter(name="enableDdi")
-    def enable_ddi(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Deprecated, no longer in use
-        """
-        return pulumi.get(self, "enable_ddi")
-
-    @enable_ddi.setter
-    def enable_ddi(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_ddi", value)
 
     @property
     @pulumi.getter
@@ -137,7 +121,6 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apikey: Optional[pulumi.Input[str]] = None,
-                 enable_ddi: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  ignore_ssl: Optional[pulumi.Input[bool]] = None,
                  rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
@@ -153,7 +136,6 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] apikey: The ns1 API key (required)
-        :param pulumi.Input[bool] enable_ddi: Deprecated, no longer in use
         :param pulumi.Input[str] endpoint: URL prefix (including version) for API calls
         :param pulumi.Input[bool] ignore_ssl: Don't validate server SSL/TLS certificate
         :param pulumi.Input[int] rate_limit_parallelism: Tune response to rate limits, see docs
@@ -188,7 +170,6 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apikey: Optional[pulumi.Input[str]] = None,
-                 enable_ddi: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  ignore_ssl: Optional[pulumi.Input[bool]] = None,
                  rate_limit_parallelism: Optional[pulumi.Input[int]] = None,
@@ -204,7 +185,6 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["apikey"] = apikey
-            __props__.__dict__["enable_ddi"] = pulumi.Output.from_input(enable_ddi).apply(pulumi.runtime.to_json) if enable_ddi is not None else None
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["ignore_ssl"] = pulumi.Output.from_input(ignore_ssl).apply(pulumi.runtime.to_json) if ignore_ssl is not None else None
             __props__.__dict__["rate_limit_parallelism"] = pulumi.Output.from_input(rate_limit_parallelism).apply(pulumi.runtime.to_json) if rate_limit_parallelism is not None else None

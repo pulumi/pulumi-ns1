@@ -144,16 +144,6 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly dataPushToDatafeeds!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the team can manage DHCP.
-     * Only relevant for the DDI product.
-     */
-    public readonly dhcpManageDhcp!: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether the team can view DHCP.
-     * Only relevant for the DDI product.
-     */
-    public readonly dhcpViewDhcp!: pulumi.Output<boolean | undefined>;
-    /**
      * Whether the team can modify the accounts zones.
      */
     public readonly dnsManageZones!: pulumi.Output<boolean | undefined>;
@@ -186,23 +176,25 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly ipWhitelists!: pulumi.Output<outputs.TeamIpWhitelist[] | undefined>;
     /**
-     * Whether the team can manage IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can create monitoring jobs when manageJobs is not set to true.
      */
-    public readonly ipamManageIpam!: pulumi.Output<boolean | undefined>;
+    public readonly monitoringCreateJobs!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the team can view IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      */
-    public readonly ipamViewIpam!: pulumi.Output<boolean | undefined>;
+    public readonly monitoringDeleteJobs!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the team can modify monitoring jobs.
+     * Whether the user can create, update, and delete monitoring jobs.
      */
     public readonly monitoringManageJobs!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the team can modify notification lists.
      */
     public readonly monitoringManageLists!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     */
+    public readonly monitoringUpdateJobs!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the team can view monitoring jobs.
      */
@@ -246,8 +238,6 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["dataManageDatafeeds"] = state ? state.dataManageDatafeeds : undefined;
             resourceInputs["dataManageDatasources"] = state ? state.dataManageDatasources : undefined;
             resourceInputs["dataPushToDatafeeds"] = state ? state.dataPushToDatafeeds : undefined;
-            resourceInputs["dhcpManageDhcp"] = state ? state.dhcpManageDhcp : undefined;
-            resourceInputs["dhcpViewDhcp"] = state ? state.dhcpViewDhcp : undefined;
             resourceInputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
             resourceInputs["dnsRecordsAllows"] = state ? state.dnsRecordsAllows : undefined;
             resourceInputs["dnsRecordsDenies"] = state ? state.dnsRecordsDenies : undefined;
@@ -256,10 +246,11 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
             resourceInputs["dnsZonesDenies"] = state ? state.dnsZonesDenies : undefined;
             resourceInputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
-            resourceInputs["ipamManageIpam"] = state ? state.ipamManageIpam : undefined;
-            resourceInputs["ipamViewIpam"] = state ? state.ipamViewIpam : undefined;
+            resourceInputs["monitoringCreateJobs"] = state ? state.monitoringCreateJobs : undefined;
+            resourceInputs["monitoringDeleteJobs"] = state ? state.monitoringDeleteJobs : undefined;
             resourceInputs["monitoringManageJobs"] = state ? state.monitoringManageJobs : undefined;
             resourceInputs["monitoringManageLists"] = state ? state.monitoringManageLists : undefined;
+            resourceInputs["monitoringUpdateJobs"] = state ? state.monitoringUpdateJobs : undefined;
             resourceInputs["monitoringViewJobs"] = state ? state.monitoringViewJobs : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["securityManageActiveDirectory"] = state ? state.securityManageActiveDirectory : undefined;
@@ -278,8 +269,6 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["dataManageDatafeeds"] = args ? args.dataManageDatafeeds : undefined;
             resourceInputs["dataManageDatasources"] = args ? args.dataManageDatasources : undefined;
             resourceInputs["dataPushToDatafeeds"] = args ? args.dataPushToDatafeeds : undefined;
-            resourceInputs["dhcpManageDhcp"] = args ? args.dhcpManageDhcp : undefined;
-            resourceInputs["dhcpViewDhcp"] = args ? args.dhcpViewDhcp : undefined;
             resourceInputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
             resourceInputs["dnsRecordsAllows"] = args ? args.dnsRecordsAllows : undefined;
             resourceInputs["dnsRecordsDenies"] = args ? args.dnsRecordsDenies : undefined;
@@ -288,10 +277,11 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
             resourceInputs["dnsZonesDenies"] = args ? args.dnsZonesDenies : undefined;
             resourceInputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
-            resourceInputs["ipamManageIpam"] = args ? args.ipamManageIpam : undefined;
-            resourceInputs["ipamViewIpam"] = args ? args.ipamViewIpam : undefined;
+            resourceInputs["monitoringCreateJobs"] = args ? args.monitoringCreateJobs : undefined;
+            resourceInputs["monitoringDeleteJobs"] = args ? args.monitoringDeleteJobs : undefined;
             resourceInputs["monitoringManageJobs"] = args ? args.monitoringManageJobs : undefined;
             resourceInputs["monitoringManageLists"] = args ? args.monitoringManageLists : undefined;
+            resourceInputs["monitoringUpdateJobs"] = args ? args.monitoringUpdateJobs : undefined;
             resourceInputs["monitoringViewJobs"] = args ? args.monitoringViewJobs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["securityManageActiveDirectory"] = args ? args.securityManageActiveDirectory : undefined;
@@ -357,16 +347,6 @@ export interface TeamState {
      */
     dataPushToDatafeeds?: pulumi.Input<boolean>;
     /**
-     * Whether the team can manage DHCP.
-     * Only relevant for the DDI product.
-     */
-    dhcpManageDhcp?: pulumi.Input<boolean>;
-    /**
-     * Whether the team can view DHCP.
-     * Only relevant for the DDI product.
-     */
-    dhcpViewDhcp?: pulumi.Input<boolean>;
-    /**
      * Whether the team can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
@@ -399,23 +379,25 @@ export interface TeamState {
      */
     ipWhitelists?: pulumi.Input<pulumi.Input<inputs.TeamIpWhitelist>[]>;
     /**
-     * Whether the team can manage IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can create monitoring jobs when manageJobs is not set to true.
      */
-    ipamManageIpam?: pulumi.Input<boolean>;
+    monitoringCreateJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the team can view IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      */
-    ipamViewIpam?: pulumi.Input<boolean>;
+    monitoringDeleteJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the team can modify monitoring jobs.
+     * Whether the user can create, update, and delete monitoring jobs.
      */
     monitoringManageJobs?: pulumi.Input<boolean>;
     /**
      * Whether the team can modify notification lists.
      */
     monitoringManageLists?: pulumi.Input<boolean>;
+    /**
+     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     */
+    monitoringUpdateJobs?: pulumi.Input<boolean>;
     /**
      * Whether the team can view monitoring jobs.
      */
@@ -490,16 +472,6 @@ export interface TeamArgs {
      */
     dataPushToDatafeeds?: pulumi.Input<boolean>;
     /**
-     * Whether the team can manage DHCP.
-     * Only relevant for the DDI product.
-     */
-    dhcpManageDhcp?: pulumi.Input<boolean>;
-    /**
-     * Whether the team can view DHCP.
-     * Only relevant for the DDI product.
-     */
-    dhcpViewDhcp?: pulumi.Input<boolean>;
-    /**
      * Whether the team can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
@@ -532,23 +504,25 @@ export interface TeamArgs {
      */
     ipWhitelists?: pulumi.Input<pulumi.Input<inputs.TeamIpWhitelist>[]>;
     /**
-     * Whether the team can manage IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can create monitoring jobs when manageJobs is not set to true.
      */
-    ipamManageIpam?: pulumi.Input<boolean>;
+    monitoringCreateJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the team can view IPAM.
-     * Only relevant for the DDI product.
+     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      */
-    ipamViewIpam?: pulumi.Input<boolean>;
+    monitoringDeleteJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the team can modify monitoring jobs.
+     * Whether the user can create, update, and delete monitoring jobs.
      */
     monitoringManageJobs?: pulumi.Input<boolean>;
     /**
      * Whether the team can modify notification lists.
      */
     monitoringManageLists?: pulumi.Input<boolean>;
+    /**
+     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     */
+    monitoringUpdateJobs?: pulumi.Input<boolean>;
     /**
      * Whether the team can view monitoring jobs.
      */

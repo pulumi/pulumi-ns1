@@ -115,12 +115,6 @@ type User struct {
 	DataManageDatasources pulumi.BoolPtrOutput `pulumi:"dataManageDatasources"`
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrOutput `pulumi:"dataPushToDatafeeds"`
-	// Whether the user can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp pulumi.BoolPtrOutput `pulumi:"dhcpManageDhcp"`
-	// Whether the user can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp pulumi.BoolPtrOutput `pulumi:"dhcpViewDhcp"`
 	// Whether the user can modify the accounts zones.
 	DnsManageZones   pulumi.BoolPtrOutput           `pulumi:"dnsManageZones"`
 	DnsRecordsAllows UserDnsRecordsAllowArrayOutput `pulumi:"dnsRecordsAllows"`
@@ -139,14 +133,16 @@ type User struct {
 	IpWhitelistStrict pulumi.BoolPtrOutput `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists pulumi.StringArrayOutput `pulumi:"ipWhitelists"`
-	// Whether the user can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam pulumi.BoolPtrOutput `pulumi:"ipamManageIpam"`
-	IpamViewIpam   pulumi.BoolPtrOutput `pulumi:"ipamViewIpam"`
-	// Whether the user can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs pulumi.BoolPtrOutput `pulumi:"monitoringCreateJobs"`
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs pulumi.BoolPtrOutput `pulumi:"monitoringDeleteJobs"`
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrOutput `pulumi:"monitoringManageJobs"`
 	// Whether the user can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrOutput `pulumi:"monitoringManageLists"`
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs pulumi.BoolPtrOutput `pulumi:"monitoringUpdateJobs"`
 	// Whether the user can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrOutput `pulumi:"monitoringViewJobs"`
 	// The free form name of the user.
@@ -226,12 +222,6 @@ type userState struct {
 	DataManageDatasources *bool `pulumi:"dataManageDatasources"`
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds *bool `pulumi:"dataPushToDatafeeds"`
-	// Whether the user can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp *bool `pulumi:"dhcpManageDhcp"`
-	// Whether the user can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the user can modify the accounts zones.
 	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
 	DnsRecordsAllows []UserDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
@@ -250,14 +240,16 @@ type userState struct {
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
-	// Whether the user can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam *bool `pulumi:"ipamManageIpam"`
-	IpamViewIpam   *bool `pulumi:"ipamViewIpam"`
-	// Whether the user can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the user can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the user can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the user.
@@ -302,12 +294,6 @@ type UserState struct {
 	DataManageDatasources pulumi.BoolPtrInput
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrInput
-	// Whether the user can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp pulumi.BoolPtrInput
-	// Whether the user can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the user can modify the accounts zones.
 	DnsManageZones   pulumi.BoolPtrInput
 	DnsRecordsAllows UserDnsRecordsAllowArrayInput
@@ -326,14 +312,16 @@ type UserState struct {
 	IpWhitelistStrict pulumi.BoolPtrInput
 	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists pulumi.StringArrayInput
-	// Whether the user can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam pulumi.BoolPtrInput
-	IpamViewIpam   pulumi.BoolPtrInput
-	// Whether the user can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs pulumi.BoolPtrInput
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs pulumi.BoolPtrInput
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the user can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the user can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the user.
@@ -382,12 +370,6 @@ type userArgs struct {
 	DataManageDatasources *bool `pulumi:"dataManageDatasources"`
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds *bool `pulumi:"dataPushToDatafeeds"`
-	// Whether the user can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp *bool `pulumi:"dhcpManageDhcp"`
-	// Whether the user can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the user can modify the accounts zones.
 	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
 	DnsRecordsAllows []UserDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
@@ -406,14 +388,16 @@ type userArgs struct {
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
-	// Whether the user can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam *bool `pulumi:"ipamManageIpam"`
-	IpamViewIpam   *bool `pulumi:"ipamViewIpam"`
-	// Whether the user can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the user can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the user can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the user.
@@ -459,12 +443,6 @@ type UserArgs struct {
 	DataManageDatasources pulumi.BoolPtrInput
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrInput
-	// Whether the user can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp pulumi.BoolPtrInput
-	// Whether the user can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the user can modify the accounts zones.
 	DnsManageZones   pulumi.BoolPtrInput
 	DnsRecordsAllows UserDnsRecordsAllowArrayInput
@@ -483,14 +461,16 @@ type UserArgs struct {
 	IpWhitelistStrict pulumi.BoolPtrInput
 	// Array of IP addresses/networks to which to grant the user access.
 	IpWhitelists pulumi.StringArrayInput
-	// Whether the user can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam pulumi.BoolPtrInput
-	IpamViewIpam   pulumi.BoolPtrInput
-	// Whether the user can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs pulumi.BoolPtrInput
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs pulumi.BoolPtrInput
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the user can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the user can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the user.
@@ -657,18 +637,6 @@ func (o UserOutput) DataPushToDatafeeds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DataPushToDatafeeds }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can manage DHCP.
-// Only relevant for the DDI product.
-func (o UserOutput) DhcpManageDhcp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DhcpManageDhcp }).(pulumi.BoolPtrOutput)
-}
-
-// Whether the user can view DHCP.
-// Only relevant for the DDI product.
-func (o UserOutput) DhcpViewDhcp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DhcpViewDhcp }).(pulumi.BoolPtrOutput)
-}
-
 // Whether the user can modify the accounts zones.
 func (o UserOutput) DnsManageZones() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DnsManageZones }).(pulumi.BoolPtrOutput)
@@ -717,17 +685,17 @@ func (o UserOutput) IpWhitelists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.IpWhitelists }).(pulumi.StringArrayOutput)
 }
 
-// Whether the user can manage IPAM.
-// Only relevant for the DDI product.
-func (o UserOutput) IpamManageIpam() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.IpamManageIpam }).(pulumi.BoolPtrOutput)
+// Whether the user can create monitoring jobs when manageJobs is not set to true.
+func (o UserOutput) MonitoringCreateJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringCreateJobs }).(pulumi.BoolPtrOutput)
 }
 
-func (o UserOutput) IpamViewIpam() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.IpamViewIpam }).(pulumi.BoolPtrOutput)
+// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+func (o UserOutput) MonitoringDeleteJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringDeleteJobs }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can modify monitoring jobs.
+// Whether the user can create, update, and delete monitoring jobs.
 func (o UserOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringManageJobs }).(pulumi.BoolPtrOutput)
 }
@@ -735,6 +703,11 @@ func (o UserOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
 // Whether the user can modify notification lists.
 func (o UserOutput) MonitoringManageLists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringManageLists }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can update monitoring jobs when manageJobs is not set to true.
+func (o UserOutput) MonitoringUpdateJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.MonitoringUpdateJobs }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the user can view monitoring jobs.

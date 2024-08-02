@@ -128,11 +128,18 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NotifyList(String name, @Nullable NotifyListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/notifyList:NotifyList", name, args == null ? NotifyListArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("ns1:index/notifyList:NotifyList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotifyList(String name, Output<String> id, @Nullable NotifyListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("ns1:index/notifyList:NotifyList", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotifyListArgs makeArgs(@Nullable NotifyListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotifyListArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

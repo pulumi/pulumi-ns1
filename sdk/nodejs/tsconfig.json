@@ -35,7 +35,6 @@
         "record.ts",
         "redirect.ts",
         "redirectCertificate.ts",
-        "subnet.ts",
         "team.ts",
         "tsigkey.ts",
         "types/index.ts",

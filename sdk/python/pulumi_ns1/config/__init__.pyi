@@ -14,11 +14,6 @@ apikey: Optional[str]
 The ns1 API key (required)
 """
 
-enableDdi: Optional[bool]
-"""
-Deprecated, no longer in use
-"""
-
 endpoint: Optional[str]
 """
 URL prefix (including version) for API calls

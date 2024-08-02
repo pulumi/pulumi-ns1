@@ -19,17 +19,6 @@ Object.defineProperty(exports, "apikey", {
 });
 
 /**
- * Deprecated, no longer in use
- */
-export declare const enableDdi: boolean | undefined;
-Object.defineProperty(exports, "enableDdi", {
-    get() {
-        return __config.getObject<boolean>("enableDdi");
-    },
-    enumerable: true,
-});
-
-/**
  * URL prefix (including version) for API calls
  */
 export declare const endpoint: string | undefined;

@@ -42,16 +42,6 @@ namespace Pulumi.Ns1
             set => _apikey.Set(value);
         }
 
-        private static readonly __Value<bool?> _enableDdi = new __Value<bool?>(() => __config.GetBoolean("enableDdi"));
-        /// <summary>
-        /// Deprecated, no longer in use
-        /// </summary>
-        public static bool? EnableDdi
-        {
-            get => _enableDdi.Get();
-            set => _enableDdi.Set(value);
-        }
-
         private static readonly __Value<string?> _endpoint = new __Value<string?>(() => __config.Get("endpoint"));
         /// <summary>
         /// URL prefix (including version) for API calls

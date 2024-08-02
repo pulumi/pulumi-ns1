@@ -45,8 +45,6 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// The ns1 API key (required)
 	Apikey *string `pulumi:"apikey"`
-	// Deprecated, no longer in use
-	EnableDdi *bool `pulumi:"enableDdi"`
 	// URL prefix (including version) for API calls
 	Endpoint *string `pulumi:"endpoint"`
 	// Don't validate server SSL/TLS certificate
@@ -63,8 +61,6 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// The ns1 API key (required)
 	Apikey pulumi.StringPtrInput
-	// Deprecated, no longer in use
-	EnableDdi pulumi.BoolPtrInput
 	// URL prefix (including version) for API calls
 	Endpoint pulumi.StringPtrInput
 	// Don't validate server SSL/TLS certificate
