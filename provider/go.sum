@@ -2970,8 +2970,8 @@ gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c/go.mod h1:JHkPIbrfpd72SG/EV
 gopkg.in/cheggaaa/pb.v1 v1.0.27/go.mod h1:V/YB90LKu/1FcN3WVnfiiE5oMCibMjukxqG/qStrOgw=
 gopkg.in/errgo.v2 v2.1.0/go.mod h1:hNsd1EY+bozCKY1Ytp96fpM3vjJbqLJn88ws8XvfDNI=
 gopkg.in/fsnotify.v1 v1.4.7/go.mod h1:Tz8NjZHkW78fSQdbUxIjBTcgA1z1m8ZHf0WmKUhAMys=
-gopkg.in/ns1/ns1-go.v2 v2.11.0 h1:T+rMHhQsQ58bSgGZwX8INxU0sjDO7cWieX9xPr/UEY4=
-gopkg.in/ns1/ns1-go.v2 v2.11.0/go.mod h1:pfaU0vECVP7DIOr453z03HXS6dFJpXdNRwOyRzwmPSc=
+gopkg.in/ns1/ns1-go.v2 v2.12.0 h1:cqdqQoTx17JmTusfxh5m3e2b36jfUzFAZedv89pFX18=
+gopkg.in/ns1/ns1-go.v2 v2.12.0/go.mod h1:pfaU0vECVP7DIOr453z03HXS6dFJpXdNRwOyRzwmPSc=
 gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7/go.mod h1:dt/ZhP58zS4L8KSrWDmTeBkI65Dw0HsyUHuEVlX15mw=
 gopkg.in/warnings.v0 v0.1.2 h1:wFXVbFY8DY5/xOe1ECiWdKCzZlxgshcYVNkBHstARME=
 gopkg.in/warnings.v0 v0.1.2/go.mod h1:jksf8JmL6Qr/oQM2OXTHunEvvTAsrWBLb6OOjuVWRNI=

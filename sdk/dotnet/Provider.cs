@@ -71,12 +71,6 @@ namespace Pulumi.Ns1
         public Input<string>? Apikey { get; set; }
 
         /// <summary>
-        /// Deprecated, no longer in use
-        /// </summary>
-        [Input("enableDdi", json: true)]
-        public Input<bool>? EnableDdi { get; set; }
-
-        /// <summary>
         /// URL prefix (including version) for API calls
         /// </summary>
         [Input("endpoint")]

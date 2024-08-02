@@ -33,21 +33,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Deprecated, no longer in use
-     * 
-     */
-    @Import(name="enableDdi", json=true)
-    private @Nullable Output<Boolean> enableDdi;
-
-    /**
-     * @return Deprecated, no longer in use
-     * 
-     */
-    public Optional<Output<Boolean>> enableDdi() {
-        return Optional.ofNullable(this.enableDdi);
-    }
-
-    /**
      * URL prefix (including version) for API calls
      * 
      */
@@ -126,7 +111,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.apikey = $.apikey;
-        this.enableDdi = $.enableDdi;
         this.endpoint = $.endpoint;
         this.ignoreSsl = $.ignoreSsl;
         this.rateLimitParallelism = $.rateLimitParallelism;
@@ -171,27 +155,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder apikey(String apikey) {
             return apikey(Output.of(apikey));
-        }
-
-        /**
-         * @param enableDdi Deprecated, no longer in use
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableDdi(@Nullable Output<Boolean> enableDdi) {
-            $.enableDdi = enableDdi;
-            return this;
-        }
-
-        /**
-         * @param enableDdi Deprecated, no longer in use
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableDdi(Boolean enableDdi) {
-            return enableDdi(Output.of(enableDdi));
         }
 
         /**

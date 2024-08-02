@@ -24,7 +24,6 @@ from .pulsar_job import *
 from .record import *
 from .redirect import *
 from .redirect_certificate import *
-from .subnet import *
 from .team import *
 from .tsigkey import *
 from .user import *
@@ -144,14 +143,6 @@ _utilities.register(
   "fqn": "pulumi_ns1",
   "classes": {
    "ns1:index/redirectCertificate:RedirectCertificate": "RedirectCertificate"
-  }
- },
- {
-  "pkg": "ns1",
-  "mod": "index/subnet",
-  "fqn": "pulumi_ns1",
-  "classes": {
-   "ns1:index/subnet:Subnet": "Subnet"
   }
  },
  {

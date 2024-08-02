@@ -16,11 +16,6 @@ func GetApikey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "ns1:apikey")
 }
 
-// Deprecated, no longer in use
-func GetEnableDdi(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "ns1:enableDdi")
-}
-
 // URL prefix (including version) for API calls
 func GetEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "ns1:endpoint")

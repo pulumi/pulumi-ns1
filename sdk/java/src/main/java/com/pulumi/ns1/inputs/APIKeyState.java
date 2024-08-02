@@ -208,40 +208,6 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the apikey can manage DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Import(name="dhcpManageDhcp")
-    private @Nullable Output<Boolean> dhcpManageDhcp;
-
-    /**
-     * @return Whether the apikey can manage DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Optional<Output<Boolean>> dhcpManageDhcp() {
-        return Optional.ofNullable(this.dhcpManageDhcp);
-    }
-
-    /**
-     * Whether the apikey can view DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Import(name="dhcpViewDhcp")
-    private @Nullable Output<Boolean> dhcpViewDhcp;
-
-    /**
-     * @return Whether the apikey can view DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Optional<Output<Boolean>> dhcpViewDhcp() {
-        return Optional.ofNullable(this.dhcpViewDhcp);
-    }
-
-    /**
      * Whether the apikey can modify the accounts zones.
      * 
      */
@@ -377,40 +343,6 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the apikey can manage IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Import(name="ipamManageIpam")
-    private @Nullable Output<Boolean> ipamManageIpam;
-
-    /**
-     * @return Whether the apikey can manage IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Optional<Output<Boolean>> ipamManageIpam() {
-        return Optional.ofNullable(this.ipamManageIpam);
-    }
-
-    /**
-     * Whether the apikey can view IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Import(name="ipamViewIpam")
-    private @Nullable Output<Boolean> ipamViewIpam;
-
-    /**
-     * @return Whether the apikey can view IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Optional<Output<Boolean>> ipamViewIpam() {
-        return Optional.ofNullable(this.ipamViewIpam);
-    }
-
-    /**
      * (Computed) The apikeys authentication token.
      * 
      */
@@ -426,14 +358,44 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the apikey can modify monitoring jobs.
+     * Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    @Import(name="monitoringCreateJobs")
+    private @Nullable Output<Boolean> monitoringCreateJobs;
+
+    /**
+     * @return Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> monitoringCreateJobs() {
+        return Optional.ofNullable(this.monitoringCreateJobs);
+    }
+
+    /**
+     * Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    @Import(name="monitoringDeleteJobs")
+    private @Nullable Output<Boolean> monitoringDeleteJobs;
+
+    /**
+     * @return Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> monitoringDeleteJobs() {
+        return Optional.ofNullable(this.monitoringDeleteJobs);
+    }
+
+    /**
+     * Whether the user can create, update, and delete monitoring jobs.
      * 
      */
     @Import(name="monitoringManageJobs")
     private @Nullable Output<Boolean> monitoringManageJobs;
 
     /**
-     * @return Whether the apikey can modify monitoring jobs.
+     * @return Whether the user can create, update, and delete monitoring jobs.
      * 
      */
     public Optional<Output<Boolean>> monitoringManageJobs() {
@@ -453,6 +415,21 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> monitoringManageLists() {
         return Optional.ofNullable(this.monitoringManageLists);
+    }
+
+    /**
+     * Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    @Import(name="monitoringUpdateJobs")
+    private @Nullable Output<Boolean> monitoringUpdateJobs;
+
+    /**
+     * @return Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> monitoringUpdateJobs() {
+        return Optional.ofNullable(this.monitoringUpdateJobs);
     }
 
     /**
@@ -547,8 +524,6 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         this.dataManageDatafeeds = $.dataManageDatafeeds;
         this.dataManageDatasources = $.dataManageDatasources;
         this.dataPushToDatafeeds = $.dataPushToDatafeeds;
-        this.dhcpManageDhcp = $.dhcpManageDhcp;
-        this.dhcpViewDhcp = $.dhcpViewDhcp;
         this.dnsManageZones = $.dnsManageZones;
         this.dnsRecordsAllows = $.dnsRecordsAllows;
         this.dnsRecordsDenies = $.dnsRecordsDenies;
@@ -558,11 +533,12 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         this.dnsZonesDenies = $.dnsZonesDenies;
         this.ipWhitelistStrict = $.ipWhitelistStrict;
         this.ipWhitelists = $.ipWhitelists;
-        this.ipamManageIpam = $.ipamManageIpam;
-        this.ipamViewIpam = $.ipamViewIpam;
         this.key = $.key;
+        this.monitoringCreateJobs = $.monitoringCreateJobs;
+        this.monitoringDeleteJobs = $.monitoringDeleteJobs;
         this.monitoringManageJobs = $.monitoringManageJobs;
         this.monitoringManageLists = $.monitoringManageLists;
+        this.monitoringUpdateJobs = $.monitoringUpdateJobs;
         this.monitoringViewJobs = $.monitoringViewJobs;
         this.name = $.name;
         this.securityManageActiveDirectory = $.securityManageActiveDirectory;
@@ -849,52 +825,6 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dhcpManageDhcp Whether the apikey can manage DHCP.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dhcpManageDhcp(@Nullable Output<Boolean> dhcpManageDhcp) {
-            $.dhcpManageDhcp = dhcpManageDhcp;
-            return this;
-        }
-
-        /**
-         * @param dhcpManageDhcp Whether the apikey can manage DHCP.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dhcpManageDhcp(Boolean dhcpManageDhcp) {
-            return dhcpManageDhcp(Output.of(dhcpManageDhcp));
-        }
-
-        /**
-         * @param dhcpViewDhcp Whether the apikey can view DHCP.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dhcpViewDhcp(@Nullable Output<Boolean> dhcpViewDhcp) {
-            $.dhcpViewDhcp = dhcpViewDhcp;
-            return this;
-        }
-
-        /**
-         * @param dhcpViewDhcp Whether the apikey can view DHCP.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dhcpViewDhcp(Boolean dhcpViewDhcp) {
-            return dhcpViewDhcp(Output.of(dhcpViewDhcp));
-        }
-
-        /**
          * @param dnsManageZones Whether the apikey can modify the accounts zones.
          * 
          * @return builder
@@ -1134,52 +1064,6 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipamManageIpam Whether the apikey can manage IPAM.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ipamManageIpam(@Nullable Output<Boolean> ipamManageIpam) {
-            $.ipamManageIpam = ipamManageIpam;
-            return this;
-        }
-
-        /**
-         * @param ipamManageIpam Whether the apikey can manage IPAM.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ipamManageIpam(Boolean ipamManageIpam) {
-            return ipamManageIpam(Output.of(ipamManageIpam));
-        }
-
-        /**
-         * @param ipamViewIpam Whether the apikey can view IPAM.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ipamViewIpam(@Nullable Output<Boolean> ipamViewIpam) {
-            $.ipamViewIpam = ipamViewIpam;
-            return this;
-        }
-
-        /**
-         * @param ipamViewIpam Whether the apikey can view IPAM.
-         * Only relevant for the DDI product.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ipamViewIpam(Boolean ipamViewIpam) {
-            return ipamViewIpam(Output.of(ipamViewIpam));
-        }
-
-        /**
          * @param key (Computed) The apikeys authentication token.
          * 
          * @return builder
@@ -1201,7 +1085,49 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringManageJobs Whether the apikey can modify monitoring jobs.
+         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manage_jobs is not set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringCreateJobs(@Nullable Output<Boolean> monitoringCreateJobs) {
+            $.monitoringCreateJobs = monitoringCreateJobs;
+            return this;
+        }
+
+        /**
+         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manage_jobs is not set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringCreateJobs(Boolean monitoringCreateJobs) {
+            return monitoringCreateJobs(Output.of(monitoringCreateJobs));
+        }
+
+        /**
+         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringDeleteJobs(@Nullable Output<Boolean> monitoringDeleteJobs) {
+            $.monitoringDeleteJobs = monitoringDeleteJobs;
+            return this;
+        }
+
+        /**
+         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringDeleteJobs(Boolean monitoringDeleteJobs) {
+            return monitoringDeleteJobs(Output.of(monitoringDeleteJobs));
+        }
+
+        /**
+         * @param monitoringManageJobs Whether the user can create, update, and delete monitoring jobs.
          * 
          * @return builder
          * 
@@ -1212,7 +1138,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringManageJobs Whether the apikey can modify monitoring jobs.
+         * @param monitoringManageJobs Whether the user can create, update, and delete monitoring jobs.
          * 
          * @return builder
          * 
@@ -1240,6 +1166,27 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder monitoringManageLists(Boolean monitoringManageLists) {
             return monitoringManageLists(Output.of(monitoringManageLists));
+        }
+
+        /**
+         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manage_jobs is not set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringUpdateJobs(@Nullable Output<Boolean> monitoringUpdateJobs) {
+            $.monitoringUpdateJobs = monitoringUpdateJobs;
+            return this;
+        }
+
+        /**
+         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manage_jobs is not set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringUpdateJobs(Boolean monitoringUpdateJobs) {
+            return monitoringUpdateJobs(Output.of(monitoringUpdateJobs));
         }
 
         /**

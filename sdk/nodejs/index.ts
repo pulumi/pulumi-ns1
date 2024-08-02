@@ -100,11 +100,6 @@ export type RedirectCertificate = import("./redirectCertificate").RedirectCertif
 export const RedirectCertificate: typeof import("./redirectCertificate").RedirectCertificate = null as any;
 utilities.lazyLoad(exports, ["RedirectCertificate"], () => require("./redirectCertificate"));
 
-export { SubnetArgs, SubnetState } from "./subnet";
-export type Subnet = import("./subnet").Subnet;
-export const Subnet: typeof import("./subnet").Subnet = null as any;
-utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
-
 export { TeamArgs, TeamState } from "./team";
 export type Team = import("./team").Team;
 export const Team: typeof import("./team").Team = null as any;
@@ -165,8 +160,6 @@ const _module = {
                 return new Redirect(name, <any>undefined, { urn })
             case "ns1:index/redirectCertificate:RedirectCertificate":
                 return new RedirectCertificate(name, <any>undefined, { urn })
-            case "ns1:index/subnet:Subnet":
-                return new Subnet(name, <any>undefined, { urn })
             case "ns1:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
             case "ns1:index/tsigkey:Tsigkey":
@@ -193,7 +186,6 @@ pulumi.runtime.registerResourceModule("ns1", "index/pulsarJob", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/record", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/redirect", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/redirectCertificate", _module)
-pulumi.runtime.registerResourceModule("ns1", "index/subnet", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/team", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/tsigkey", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/user", _module)

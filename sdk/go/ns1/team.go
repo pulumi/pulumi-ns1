@@ -121,12 +121,6 @@ type Team struct {
 	DataManageDatasources pulumi.BoolPtrOutput `pulumi:"dataManageDatasources"`
 	// Whether the team can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrOutput `pulumi:"dataPushToDatafeeds"`
-	// Whether the team can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp pulumi.BoolPtrOutput `pulumi:"dhcpManageDhcp"`
-	// Whether the team can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp pulumi.BoolPtrOutput `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
 	DnsManageZones pulumi.BoolPtrOutput `pulumi:"dnsManageZones"`
 	// List of records that the team may access.
@@ -143,16 +137,16 @@ type Team struct {
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayOutput `pulumi:"ipWhitelists"`
-	// Whether the team can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam pulumi.BoolPtrOutput `pulumi:"ipamManageIpam"`
-	// Whether the team can view IPAM.
-	// Only relevant for the DDI product.
-	IpamViewIpam pulumi.BoolPtrOutput `pulumi:"ipamViewIpam"`
-	// Whether the team can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs pulumi.BoolPtrOutput `pulumi:"monitoringCreateJobs"`
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs pulumi.BoolPtrOutput `pulumi:"monitoringDeleteJobs"`
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrOutput `pulumi:"monitoringManageJobs"`
 	// Whether the team can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrOutput `pulumi:"monitoringManageLists"`
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs pulumi.BoolPtrOutput `pulumi:"monitoringUpdateJobs"`
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrOutput `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
@@ -220,12 +214,6 @@ type teamState struct {
 	DataManageDatasources *bool `pulumi:"dataManageDatasources"`
 	// Whether the team can publish to data feeds.
 	DataPushToDatafeeds *bool `pulumi:"dataPushToDatafeeds"`
-	// Whether the team can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp *bool `pulumi:"dhcpManageDhcp"`
-	// Whether the team can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
 	DnsManageZones *bool `pulumi:"dnsManageZones"`
 	// List of records that the team may access.
@@ -242,16 +230,16 @@ type teamState struct {
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists []TeamIpWhitelist `pulumi:"ipWhitelists"`
-	// Whether the team can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam *bool `pulumi:"ipamManageIpam"`
-	// Whether the team can view IPAM.
-	// Only relevant for the DDI product.
-	IpamViewIpam *bool `pulumi:"ipamViewIpam"`
-	// Whether the team can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the team can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
@@ -290,12 +278,6 @@ type TeamState struct {
 	DataManageDatasources pulumi.BoolPtrInput
 	// Whether the team can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrInput
-	// Whether the team can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp pulumi.BoolPtrInput
-	// Whether the team can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the team can modify the accounts zones.
 	DnsManageZones pulumi.BoolPtrInput
 	// List of records that the team may access.
@@ -312,16 +294,16 @@ type TeamState struct {
 	DnsZonesDenies pulumi.StringArrayInput
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayInput
-	// Whether the team can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam pulumi.BoolPtrInput
-	// Whether the team can view IPAM.
-	// Only relevant for the DDI product.
-	IpamViewIpam pulumi.BoolPtrInput
-	// Whether the team can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs pulumi.BoolPtrInput
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs pulumi.BoolPtrInput
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the team can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the team.
@@ -364,12 +346,6 @@ type teamArgs struct {
 	DataManageDatasources *bool `pulumi:"dataManageDatasources"`
 	// Whether the team can publish to data feeds.
 	DataPushToDatafeeds *bool `pulumi:"dataPushToDatafeeds"`
-	// Whether the team can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp *bool `pulumi:"dhcpManageDhcp"`
-	// Whether the team can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp *bool `pulumi:"dhcpViewDhcp"`
 	// Whether the team can modify the accounts zones.
 	DnsManageZones *bool `pulumi:"dnsManageZones"`
 	// List of records that the team may access.
@@ -386,16 +362,16 @@ type teamArgs struct {
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists []TeamIpWhitelist `pulumi:"ipWhitelists"`
-	// Whether the team can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam *bool `pulumi:"ipamManageIpam"`
-	// Whether the team can view IPAM.
-	// Only relevant for the DDI product.
-	IpamViewIpam *bool `pulumi:"ipamViewIpam"`
-	// Whether the team can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the team can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
@@ -435,12 +411,6 @@ type TeamArgs struct {
 	DataManageDatasources pulumi.BoolPtrInput
 	// Whether the team can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrInput
-	// Whether the team can manage DHCP.
-	// Only relevant for the DDI product.
-	DhcpManageDhcp pulumi.BoolPtrInput
-	// Whether the team can view DHCP.
-	// Only relevant for the DDI product.
-	DhcpViewDhcp pulumi.BoolPtrInput
 	// Whether the team can modify the accounts zones.
 	DnsManageZones pulumi.BoolPtrInput
 	// List of records that the team may access.
@@ -457,16 +427,16 @@ type TeamArgs struct {
 	DnsZonesDenies pulumi.StringArrayInput
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayInput
-	// Whether the team can manage IPAM.
-	// Only relevant for the DDI product.
-	IpamManageIpam pulumi.BoolPtrInput
-	// Whether the team can view IPAM.
-	// Only relevant for the DDI product.
-	IpamViewIpam pulumi.BoolPtrInput
-	// Whether the team can modify monitoring jobs.
+	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	MonitoringCreateJobs pulumi.BoolPtrInput
+	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	MonitoringDeleteJobs pulumi.BoolPtrInput
+	// Whether the user can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the team can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
+	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the team.
@@ -627,18 +597,6 @@ func (o TeamOutput) DataPushToDatafeeds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DataPushToDatafeeds }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the team can manage DHCP.
-// Only relevant for the DDI product.
-func (o TeamOutput) DhcpManageDhcp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DhcpManageDhcp }).(pulumi.BoolPtrOutput)
-}
-
-// Whether the team can view DHCP.
-// Only relevant for the DDI product.
-func (o TeamOutput) DhcpViewDhcp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DhcpViewDhcp }).(pulumi.BoolPtrOutput)
-}
-
 // Whether the team can modify the accounts zones.
 func (o TeamOutput) DnsManageZones() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.DnsManageZones }).(pulumi.BoolPtrOutput)
@@ -679,19 +637,17 @@ func (o TeamOutput) IpWhitelists() TeamIpWhitelistArrayOutput {
 	return o.ApplyT(func(v *Team) TeamIpWhitelistArrayOutput { return v.IpWhitelists }).(TeamIpWhitelistArrayOutput)
 }
 
-// Whether the team can manage IPAM.
-// Only relevant for the DDI product.
-func (o TeamOutput) IpamManageIpam() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.IpamManageIpam }).(pulumi.BoolPtrOutput)
+// Whether the user can create monitoring jobs when manageJobs is not set to true.
+func (o TeamOutput) MonitoringCreateJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringCreateJobs }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the team can view IPAM.
-// Only relevant for the DDI product.
-func (o TeamOutput) IpamViewIpam() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.IpamViewIpam }).(pulumi.BoolPtrOutput)
+// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+func (o TeamOutput) MonitoringDeleteJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringDeleteJobs }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the team can modify monitoring jobs.
+// Whether the user can create, update, and delete monitoring jobs.
 func (o TeamOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringManageJobs }).(pulumi.BoolPtrOutput)
 }
@@ -699,6 +655,11 @@ func (o TeamOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
 // Whether the team can modify notification lists.
 func (o TeamOutput) MonitoringManageLists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringManageLists }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can update monitoring jobs when manageJobs is not set to true.
+func (o TeamOutput) MonitoringUpdateJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringUpdateJobs }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the team can view monitoring jobs.

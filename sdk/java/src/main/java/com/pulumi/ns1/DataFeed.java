@@ -160,11 +160,18 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DataFeed(String name, DataFeedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/dataFeed:DataFeed", name, args == null ? DataFeedArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("ns1:index/dataFeed:DataFeed", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataFeed(String name, Output<String> id, @Nullable DataFeedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("ns1:index/dataFeed:DataFeed", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataFeedArgs makeArgs(DataFeedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataFeedArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

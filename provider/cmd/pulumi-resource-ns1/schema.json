@@ -58,10 +58,6 @@
                 "type": "string",
                 "description": "The ns1 API key (required)\n"
             },
-            "enableDdi": {
-                "type": "boolean",
-                "description": "Deprecated, no longer in use\n"
-            },
             "endpoint": {
                 "type": "string",
                 "description": "URL prefix (including version) for API calls\n"
@@ -887,10 +883,6 @@
                 "type": "string",
                 "description": "The ns1 API key (required)\n"
             },
-            "enableDdi": {
-                "type": "boolean",
-                "description": "Deprecated, no longer in use\n"
-            },
             "endpoint": {
                 "type": "string",
                 "description": "URL prefix (including version) for API calls\n"
@@ -916,10 +908,6 @@
             "apikey": {
                 "type": "string",
                 "description": "The ns1 API key (required)\n"
-            },
-            "enableDdi": {
-                "type": "boolean",
-                "description": "Deprecated, no longer in use\n"
             },
             "endpoint": {
                 "type": "string",
@@ -996,14 +984,6 @@
                     "type": "boolean",
                     "description": "Whether the apikey can publish to data feeds.\n"
                 },
-                "dhcpManageDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the apikey can manage DHCP.\nOnly relevant for the DDI product.\n"
-                },
-                "dhcpViewDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the apikey can view DHCP.\nOnly relevant for the DDI product.\n"
-                },
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the apikey can modify the accounts zones.\n"
@@ -1055,26 +1035,30 @@
                     },
                     "description": "Array of IP addresses/networks to which to grant the API key access.\n"
                 },
-                "ipamManageIpam": {
-                    "type": "boolean",
-                    "description": "Whether the apikey can manage IPAM.\nOnly relevant for the DDI product.\n"
-                },
-                "ipamViewIpam": {
-                    "type": "boolean",
-                    "description": "Whether the apikey can view IPAM.\nOnly relevant for the DDI product.\n"
-                },
                 "key": {
                     "type": "string",
                     "description": "(Computed) The apikeys authentication token.\n",
                     "secret": true
                 },
+                "monitoringCreateJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
+                },
+                "monitoringDeleteJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
+                },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the apikey can modify monitoring jobs.\n"
+                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
                     "description": "Whether the apikey can modify notification lists.\n"
+                },
+                "monitoringUpdateJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -1154,14 +1138,6 @@
                     "type": "boolean",
                     "description": "Whether the apikey can publish to data feeds.\n"
                 },
-                "dhcpManageDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the apikey can manage DHCP.\nOnly relevant for the DDI product.\n"
-                },
-                "dhcpViewDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the apikey can view DHCP.\nOnly relevant for the DDI product.\n"
-                },
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the apikey can modify the accounts zones.\n"
@@ -1213,21 +1189,25 @@
                     },
                     "description": "Array of IP addresses/networks to which to grant the API key access.\n"
                 },
-                "ipamManageIpam": {
+                "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the apikey can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
                 },
-                "ipamViewIpam": {
+                "monitoringDeleteJobs": {
                     "type": "boolean",
-                    "description": "Whether the apikey can view IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the apikey can modify monitoring jobs.\n"
+                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
                     "description": "Whether the apikey can modify notification lists.\n"
+                },
+                "monitoringUpdateJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -1305,14 +1285,6 @@
                         "type": "boolean",
                         "description": "Whether the apikey can publish to data feeds.\n"
                     },
-                    "dhcpManageDhcp": {
-                        "type": "boolean",
-                        "description": "Whether the apikey can manage DHCP.\nOnly relevant for the DDI product.\n"
-                    },
-                    "dhcpViewDhcp": {
-                        "type": "boolean",
-                        "description": "Whether the apikey can view DHCP.\nOnly relevant for the DDI product.\n"
-                    },
                     "dnsManageZones": {
                         "type": "boolean",
                         "description": "Whether the apikey can modify the accounts zones.\n"
@@ -1364,26 +1336,30 @@
                         },
                         "description": "Array of IP addresses/networks to which to grant the API key access.\n"
                     },
-                    "ipamManageIpam": {
-                        "type": "boolean",
-                        "description": "Whether the apikey can manage IPAM.\nOnly relevant for the DDI product.\n"
-                    },
-                    "ipamViewIpam": {
-                        "type": "boolean",
-                        "description": "Whether the apikey can view IPAM.\nOnly relevant for the DDI product.\n"
-                    },
                     "key": {
                         "type": "string",
                         "description": "(Computed) The apikeys authentication token.\n",
                         "secret": true
                     },
+                    "monitoringCreateJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
+                    },
+                    "monitoringDeleteJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
+                    },
                     "monitoringManageJobs": {
                         "type": "boolean",
-                        "description": "Whether the apikey can modify monitoring jobs.\n"
+                        "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                     },
                     "monitoringManageLists": {
                         "type": "boolean",
                         "description": "Whether the apikey can modify notification lists.\n"
+                    },
+                    "monitoringUpdateJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                     },
                     "monitoringViewJobs": {
                         "type": "boolean",
@@ -2790,146 +2766,6 @@
                 "type": "object"
             }
         },
-        "ns1:index/subnet:Subnet": {
-            "properties": {
-                "children": {
-                    "type": "integer"
-                },
-                "desc": {
-                    "type": "string"
-                },
-                "dhcpScoped": {
-                    "type": "boolean"
-                },
-                "freeAddresses": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "networkId": {
-                    "type": "integer"
-                },
-                "parentId": {
-                    "type": "integer"
-                },
-                "prefix": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
-                    }
-                },
-                "totalAddresses": {
-                    "type": "string"
-                },
-                "usedAddresses": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "children",
-                "dhcpScoped",
-                "freeAddresses",
-                "name",
-                "parentId",
-                "status",
-                "tags",
-                "totalAddresses",
-                "usedAddresses"
-            ],
-            "inputProperties": {
-                "children": {
-                    "type": "integer"
-                },
-                "desc": {
-                    "type": "string"
-                },
-                "dhcpScoped": {
-                    "type": "boolean"
-                },
-                "freeAddresses": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "networkId": {
-                    "type": "integer"
-                },
-                "parentId": {
-                    "type": "integer"
-                },
-                "prefix": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
-                    }
-                },
-                "totalAddresses": {
-                    "type": "string"
-                },
-                "usedAddresses": {
-                    "type": "string"
-                }
-            },
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering Subnet resources.\n",
-                "properties": {
-                    "children": {
-                        "type": "integer"
-                    },
-                    "desc": {
-                        "type": "string"
-                    },
-                    "dhcpScoped": {
-                        "type": "boolean"
-                    },
-                    "freeAddresses": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "networkId": {
-                        "type": "integer"
-                    },
-                    "parentId": {
-                        "type": "integer"
-                    },
-                    "prefix": {
-                        "type": "string"
-                    },
-                    "status": {
-                        "type": "string"
-                    },
-                    "tags": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "$ref": "pulumi.json#/Any"
-                        }
-                    },
-                    "totalAddresses": {
-                        "type": "string"
-                    },
-                    "usedAddresses": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            }
-        },
         "ns1:index/team:Team": {
             "description": "Provides a NS1 Team resource. This can be used to create, modify, and delete\nteams. The credentials used must have the `manage_teams` permission set.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Create a new NS1 Team\nconst example = new ns1.Team(\"example\", {\n    name: \"Example team\",\n    ipWhitelists: [\n        {\n            name: \"whitelist-1\",\n            values: [\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        },\n        {\n            name: \"whitelist-2\",\n            values: [\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        },\n    ],\n    dnsViewZones: false,\n    accountManageUsers: false,\n});\n// Another team\nconst example2 = new ns1.Team(\"example2\", {\n    name: \"another team\",\n    dnsViewZones: true,\n    dnsZonesAllowByDefault: true,\n    dnsZonesAllows: [\"mytest.zone\"],\n    dnsZonesDenies: [\"myother.zone\"],\n    dnsRecordsAllows: [{\n        domain: \"terraform.example.io\",\n        includeSubdomains: false,\n        zone: \"example.io\",\n        type: \"A\",\n    }],\n    dataManageDatasources: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Create a new NS1 Team\nexample = ns1.Team(\"example\",\n    name=\"Example team\",\n    ip_whitelists=[\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-1\",\n            values=[\n                \"1.1.1.1\",\n                \"2.2.2.2\",\n            ],\n        ),\n        ns1.TeamIpWhitelistArgs(\n            name=\"whitelist-2\",\n            values=[\n                \"3.3.3.3\",\n                \"4.4.4.4\",\n            ],\n        ),\n    ],\n    dns_view_zones=False,\n    account_manage_users=False)\n# Another team\nexample2 = ns1.Team(\"example2\",\n    name=\"another team\",\n    dns_view_zones=True,\n    dns_zones_allow_by_default=True,\n    dns_zones_allows=[\"mytest.zone\"],\n    dns_zones_denies=[\"myother.zone\"],\n    dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(\n        domain=\"terraform.example.io\",\n        include_subdomains=False,\n        zone=\"example.io\",\n        type=\"A\",\n    )],\n    data_manage_datasources=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new NS1 Team\n    var example = new Ns1.Team(\"example\", new()\n    {\n        Name = \"Example team\",\n        IpWhitelists = new[]\n        {\n            new Ns1.Inputs.TeamIpWhitelistArgs\n            {\n                Name = \"whitelist-1\",\n                Values = new[]\n                {\n                    \"1.1.1.1\",\n                    \"2.2.2.2\",\n                },\n            },\n            new Ns1.Inputs.TeamIpWhitelistArgs\n            {\n                Name = \"whitelist-2\",\n                Values = new[]\n                {\n                    \"3.3.3.3\",\n                    \"4.4.4.4\",\n                },\n            },\n        },\n        DnsViewZones = false,\n        AccountManageUsers = false,\n    });\n\n    // Another team\n    var example2 = new Ns1.Team(\"example2\", new()\n    {\n        Name = \"another team\",\n        DnsViewZones = true,\n        DnsZonesAllowByDefault = true,\n        DnsZonesAllows = new[]\n        {\n            \"mytest.zone\",\n        },\n        DnsZonesDenies = new[]\n        {\n            \"myother.zone\",\n        },\n        DnsRecordsAllows = new[]\n        {\n            new Ns1.Inputs.TeamDnsRecordsAllowArgs\n            {\n                Domain = \"terraform.example.io\",\n                IncludeSubdomains = false,\n                Zone = \"example.io\",\n                Type = \"A\",\n            },\n        },\n        DataManageDatasources = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a new NS1 Team\n\t\t_, err := ns1.NewTeam(ctx, \"example\", \u0026ns1.TeamArgs{\n\t\t\tName: pulumi.String(\"Example team\"),\n\t\t\tIpWhitelists: ns1.TeamIpWhitelistArray{\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-1\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026ns1.TeamIpWhitelistArgs{\n\t\t\t\t\tName: pulumi.String(\"whitelist-2\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"3.3.3.3\"),\n\t\t\t\t\t\tpulumi.String(\"4.4.4.4\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Another team\n\t\t_, err = ns1.NewTeam(ctx, \"example2\", \u0026ns1.TeamArgs{\n\t\t\tName:                   pulumi.String(\"another team\"),\n\t\t\tDnsViewZones:           pulumi.Bool(true),\n\t\t\tDnsZonesAllowByDefault: pulumi.Bool(true),\n\t\t\tDnsZonesAllows: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"mytest.zone\"),\n\t\t\t},\n\t\t\tDnsZonesDenies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"myother.zone\"),\n\t\t\t},\n\t\t\tDnsRecordsAllows: ns1.TeamDnsRecordsAllowArray{\n\t\t\t\t\u0026ns1.TeamDnsRecordsAllowArgs{\n\t\t\t\t\tDomain:            pulumi.String(\"terraform.example.io\"),\n\t\t\t\t\tIncludeSubdomains: pulumi.Bool(false),\n\t\t\t\t\tZone:              pulumi.String(\"example.io\"),\n\t\t\t\t\tType:              pulumi.String(\"A\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDataManageDatasources: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Team;\nimport com.pulumi.ns1.TeamArgs;\nimport com.pulumi.ns1.inputs.TeamIpWhitelistArgs;\nimport com.pulumi.ns1.inputs.TeamDnsRecordsAllowArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a new NS1 Team\n        var example = new Team(\"example\", TeamArgs.builder()\n            .name(\"Example team\")\n            .ipWhitelists(            \n                TeamIpWhitelistArgs.builder()\n                    .name(\"whitelist-1\")\n                    .values(                    \n                        \"1.1.1.1\",\n                        \"2.2.2.2\")\n                    .build(),\n                TeamIpWhitelistArgs.builder()\n                    .name(\"whitelist-2\")\n                    .values(                    \n                        \"3.3.3.3\",\n                        \"4.4.4.4\")\n                    .build())\n            .dnsViewZones(false)\n            .accountManageUsers(false)\n            .build());\n\n        // Another team\n        var example2 = new Team(\"example2\", TeamArgs.builder()\n            .name(\"another team\")\n            .dnsViewZones(true)\n            .dnsZonesAllowByDefault(true)\n            .dnsZonesAllows(\"mytest.zone\")\n            .dnsZonesDenies(\"myother.zone\")\n            .dnsRecordsAllows(TeamDnsRecordsAllowArgs.builder()\n                .domain(\"terraform.example.io\")\n                .includeSubdomains(false)\n                .zone(\"example.io\")\n                .type(\"A\")\n                .build())\n            .dataManageDatasources(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new NS1 Team\n  example:\n    type: ns1:Team\n    properties:\n      name: Example team\n      ipWhitelists:\n        - name: whitelist-1\n          values:\n            - 1.1.1.1\n            - 2.2.2.2\n        - name: whitelist-2\n          values:\n            - 3.3.3.3\n            - 4.4.4.4\n      dnsViewZones: false\n      accountManageUsers: false\n  # Another team\n  example2:\n    type: ns1:Team\n    properties:\n      name: another team\n      dnsViewZones: true\n      dnsZonesAllowByDefault: true\n      dnsZonesAllows:\n        - mytest.zone\n      dnsZonesDenies:\n        - myother.zone\n      dnsRecordsAllows:\n        - domain: terraform.example.io\n          includeSubdomains: false\n          zone: example.io\n          type: A\n      dataManageDatasources: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Team Api Docs](https://ns1.com/api#team)\n\n## Import\n\n```sh\n$ pulumi import ns1:index/team:Team \u003cname\u003e \u003cteam_id\u003e`\n```\n\n",
             "properties": {
@@ -2982,14 +2818,6 @@
                     "type": "boolean",
                     "description": "Whether the team can publish to data feeds.\n"
                 },
-                "dhcpManageDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the team can manage DHCP.\nOnly relevant for the DDI product.\n"
-                },
-                "dhcpViewDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the team can view DHCP.\nOnly relevant for the DDI product.\n"
-                },
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the team can modify the accounts zones.\n"
@@ -3037,21 +2865,25 @@
                     },
                     "description": "Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each \"allow\" list.\n"
                 },
-                "ipamManageIpam": {
+                "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the team can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
                 },
-                "ipamViewIpam": {
+                "monitoringDeleteJobs": {
                     "type": "boolean",
-                    "description": "Whether the team can view IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the team can modify monitoring jobs.\n"
+                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
                     "description": "Whether the team can modify notification lists.\n"
+                },
+                "monitoringUpdateJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -3123,14 +2955,6 @@
                     "type": "boolean",
                     "description": "Whether the team can publish to data feeds.\n"
                 },
-                "dhcpManageDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the team can manage DHCP.\nOnly relevant for the DDI product.\n"
-                },
-                "dhcpViewDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the team can view DHCP.\nOnly relevant for the DDI product.\n"
-                },
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the team can modify the accounts zones.\n"
@@ -3178,21 +3002,25 @@
                     },
                     "description": "Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each \"allow\" list.\n"
                 },
-                "ipamManageIpam": {
+                "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the team can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
                 },
-                "ipamViewIpam": {
+                "monitoringDeleteJobs": {
                     "type": "boolean",
-                    "description": "Whether the team can view IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the team can modify monitoring jobs.\n"
+                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
                     "description": "Whether the team can modify notification lists.\n"
+                },
+                "monitoringUpdateJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -3263,14 +3091,6 @@
                         "type": "boolean",
                         "description": "Whether the team can publish to data feeds.\n"
                     },
-                    "dhcpManageDhcp": {
-                        "type": "boolean",
-                        "description": "Whether the team can manage DHCP.\nOnly relevant for the DDI product.\n"
-                    },
-                    "dhcpViewDhcp": {
-                        "type": "boolean",
-                        "description": "Whether the team can view DHCP.\nOnly relevant for the DDI product.\n"
-                    },
                     "dnsManageZones": {
                         "type": "boolean",
                         "description": "Whether the team can modify the accounts zones.\n"
@@ -3318,21 +3138,25 @@
                         },
                         "description": "Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each \"allow\" list.\n"
                     },
-                    "ipamManageIpam": {
+                    "monitoringCreateJobs": {
                         "type": "boolean",
-                        "description": "Whether the team can manage IPAM.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
                     },
-                    "ipamViewIpam": {
+                    "monitoringDeleteJobs": {
                         "type": "boolean",
-                        "description": "Whether the team can view IPAM.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
                     },
                     "monitoringManageJobs": {
                         "type": "boolean",
-                        "description": "Whether the team can modify monitoring jobs.\n"
+                        "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                     },
                     "monitoringManageLists": {
                         "type": "boolean",
                         "description": "Whether the team can modify notification lists.\n"
+                    },
+                    "monitoringUpdateJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                     },
                     "monitoringViewJobs": {
                         "type": "boolean",
@@ -3464,14 +3288,6 @@
                     "type": "boolean",
                     "description": "Whether the user can publish to data feeds.\n"
                 },
-                "dhcpManageDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the user can manage DHCP.\nOnly relevant for the DDI product.\n"
-                },
-                "dhcpViewDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the user can view DHCP.\nOnly relevant for the DDI product.\n"
-                },
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the user can modify the accounts zones.\n"
@@ -3525,20 +3341,25 @@
                     },
                     "description": "Array of IP addresses/networks to which to grant the user access.\n"
                 },
-                "ipamManageIpam": {
+                "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
                 },
-                "ipamViewIpam": {
-                    "type": "boolean"
+                "monitoringDeleteJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can modify monitoring jobs.\n"
+                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
                     "description": "Whether the user can modify notification lists.\n"
+                },
+                "monitoringUpdateJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -3630,14 +3451,6 @@
                     "type": "boolean",
                     "description": "Whether the user can publish to data feeds.\n"
                 },
-                "dhcpManageDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the user can manage DHCP.\nOnly relevant for the DDI product.\n"
-                },
-                "dhcpViewDhcp": {
-                    "type": "boolean",
-                    "description": "Whether the user can view DHCP.\nOnly relevant for the DDI product.\n"
-                },
                 "dnsManageZones": {
                     "type": "boolean",
                     "description": "Whether the user can modify the accounts zones.\n"
@@ -3691,20 +3504,25 @@
                     },
                     "description": "Array of IP addresses/networks to which to grant the user access.\n"
                 },
-                "ipamManageIpam": {
+                "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can manage IPAM.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
                 },
-                "ipamViewIpam": {
-                    "type": "boolean"
+                "monitoringDeleteJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can modify monitoring jobs.\n"
+                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
                     "description": "Whether the user can modify notification lists.\n"
+                },
+                "monitoringUpdateJobs": {
+                    "type": "boolean",
+                    "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -3798,14 +3616,6 @@
                         "type": "boolean",
                         "description": "Whether the user can publish to data feeds.\n"
                     },
-                    "dhcpManageDhcp": {
-                        "type": "boolean",
-                        "description": "Whether the user can manage DHCP.\nOnly relevant for the DDI product.\n"
-                    },
-                    "dhcpViewDhcp": {
-                        "type": "boolean",
-                        "description": "Whether the user can view DHCP.\nOnly relevant for the DDI product.\n"
-                    },
                     "dnsManageZones": {
                         "type": "boolean",
                         "description": "Whether the user can modify the accounts zones.\n"
@@ -3859,20 +3669,25 @@
                         },
                         "description": "Array of IP addresses/networks to which to grant the user access.\n"
                     },
-                    "ipamManageIpam": {
+                    "monitoringCreateJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can manage IPAM.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the user can create monitoring jobs when manage_jobs is not set to true.\n"
                     },
-                    "ipamViewIpam": {
-                        "type": "boolean"
+                    "monitoringDeleteJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can delete monitoring jobs when manage_jobs is not set to true.\n"
                     },
                     "monitoringManageJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can modify monitoring jobs.\n"
+                        "description": "Whether the user can create, update, and delete monitoring jobs.\n"
                     },
                     "monitoringManageLists": {
                         "type": "boolean",
                         "description": "Whether the user can modify notification lists.\n"
+                    },
+                    "monitoringUpdateJobs": {
+                        "type": "boolean",
+                        "description": "Whether the user can update monitoring jobs when manage_jobs is not set to true.\n"
                     },
                     "monitoringViewJobs": {
                         "type": "boolean",

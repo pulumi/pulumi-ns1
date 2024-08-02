@@ -50,7 +50,6 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["apikey"] = args ? args.apikey : undefined;
-            resourceInputs["enableDdi"] = pulumi.output(args ? args.enableDdi : undefined).apply(JSON.stringify);
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["ignoreSsl"] = pulumi.output(args ? args.ignoreSsl : undefined).apply(JSON.stringify);
             resourceInputs["rateLimitParallelism"] = pulumi.output(args ? args.rateLimitParallelism : undefined).apply(JSON.stringify);
@@ -70,10 +69,6 @@ export interface ProviderArgs {
      * The ns1 API key (required)
      */
     apikey?: pulumi.Input<string>;
-    /**
-     * Deprecated, no longer in use
-     */
-    enableDdi?: pulumi.Input<boolean>;
     /**
      * URL prefix (including version) for API calls
      */

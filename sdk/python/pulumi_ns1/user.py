@@ -30,8 +30,6 @@ class UserArgs:
                  data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
-                 dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
-                 dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
                  dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsAllowArgs']]]] = None,
                  dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsDenyArgs']]]] = None,
@@ -41,10 +39,11 @@ class UserArgs:
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
-                 ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+                 monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
+                 monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+                 monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -67,10 +66,6 @@ class UserArgs:
         :param pulumi.Input[bool] data_manage_datafeeds: Whether the user can modify data feeds.
         :param pulumi.Input[bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
-        :param pulumi.Input[bool] dhcp_manage_dhcp: Whether the user can manage DHCP.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] dhcp_view_dhcp: Whether the user can view DHCP.
-               Only relevant for the DDI product.
         :param pulumi.Input[bool] dns_manage_zones: Whether the user can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
@@ -78,10 +73,11 @@ class UserArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the user may not access.
         :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
-        :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
+        :param pulumi.Input[bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
         :param pulumi.Input[bool] monitoring_manage_lists: Whether the user can modify notification lists.
+        :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
@@ -119,10 +115,6 @@ class UserArgs:
             pulumi.set(__self__, "data_manage_datasources", data_manage_datasources)
         if data_push_to_datafeeds is not None:
             pulumi.set(__self__, "data_push_to_datafeeds", data_push_to_datafeeds)
-        if dhcp_manage_dhcp is not None:
-            pulumi.set(__self__, "dhcp_manage_dhcp", dhcp_manage_dhcp)
-        if dhcp_view_dhcp is not None:
-            pulumi.set(__self__, "dhcp_view_dhcp", dhcp_view_dhcp)
         if dns_manage_zones is not None:
             pulumi.set(__self__, "dns_manage_zones", dns_manage_zones)
         if dns_records_allows is not None:
@@ -141,14 +133,16 @@ class UserArgs:
             pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
             pulumi.set(__self__, "ip_whitelists", ip_whitelists)
-        if ipam_manage_ipam is not None:
-            pulumi.set(__self__, "ipam_manage_ipam", ipam_manage_ipam)
-        if ipam_view_ipam is not None:
-            pulumi.set(__self__, "ipam_view_ipam", ipam_view_ipam)
+        if monitoring_create_jobs is not None:
+            pulumi.set(__self__, "monitoring_create_jobs", monitoring_create_jobs)
+        if monitoring_delete_jobs is not None:
+            pulumi.set(__self__, "monitoring_delete_jobs", monitoring_delete_jobs)
         if monitoring_manage_jobs is not None:
             pulumi.set(__self__, "monitoring_manage_jobs", monitoring_manage_jobs)
         if monitoring_manage_lists is not None:
             pulumi.set(__self__, "monitoring_manage_lists", monitoring_manage_lists)
+        if monitoring_update_jobs is not None:
+            pulumi.set(__self__, "monitoring_update_jobs", monitoring_update_jobs)
         if monitoring_view_jobs is not None:
             pulumi.set(__self__, "monitoring_view_jobs", monitoring_view_jobs)
         if name is not None:
@@ -332,32 +326,6 @@ class UserArgs:
         pulumi.set(self, "data_push_to_datafeeds", value)
 
     @property
-    @pulumi.getter(name="dhcpManageDhcp")
-    def dhcp_manage_dhcp(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the user can manage DHCP.
-        Only relevant for the DDI product.
-        """
-        return pulumi.get(self, "dhcp_manage_dhcp")
-
-    @dhcp_manage_dhcp.setter
-    def dhcp_manage_dhcp(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "dhcp_manage_dhcp", value)
-
-    @property
-    @pulumi.getter(name="dhcpViewDhcp")
-    def dhcp_view_dhcp(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the user can view DHCP.
-        Only relevant for the DDI product.
-        """
-        return pulumi.get(self, "dhcp_view_dhcp")
-
-    @dhcp_view_dhcp.setter
-    def dhcp_view_dhcp(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "dhcp_view_dhcp", value)
-
-    @property
     @pulumi.getter(name="dnsManageZones")
     def dns_manage_zones(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -460,32 +428,34 @@ class UserArgs:
         pulumi.set(self, "ip_whitelists", value)
 
     @property
-    @pulumi.getter(name="ipamManageIpam")
-    def ipam_manage_ipam(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="monitoringCreateJobs")
+    def monitoring_create_jobs(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the user can manage IPAM.
-        Only relevant for the DDI product.
+        Whether the user can create monitoring jobs when manage_jobs is not set to true.
         """
-        return pulumi.get(self, "ipam_manage_ipam")
+        return pulumi.get(self, "monitoring_create_jobs")
 
-    @ipam_manage_ipam.setter
-    def ipam_manage_ipam(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ipam_manage_ipam", value)
+    @monitoring_create_jobs.setter
+    def monitoring_create_jobs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring_create_jobs", value)
 
     @property
-    @pulumi.getter(name="ipamViewIpam")
-    def ipam_view_ipam(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "ipam_view_ipam")
+    @pulumi.getter(name="monitoringDeleteJobs")
+    def monitoring_delete_jobs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        """
+        return pulumi.get(self, "monitoring_delete_jobs")
 
-    @ipam_view_ipam.setter
-    def ipam_view_ipam(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ipam_view_ipam", value)
+    @monitoring_delete_jobs.setter
+    def monitoring_delete_jobs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring_delete_jobs", value)
 
     @property
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the user can modify monitoring jobs.
+        Whether the user can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -504,6 +474,18 @@ class UserArgs:
     @monitoring_manage_lists.setter
     def monitoring_manage_lists(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "monitoring_manage_lists", value)
+
+    @property
+    @pulumi.getter(name="monitoringUpdateJobs")
+    def monitoring_update_jobs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        """
+        return pulumi.get(self, "monitoring_update_jobs")
+
+    @monitoring_update_jobs.setter
+    def monitoring_update_jobs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring_update_jobs", value)
 
     @property
     @pulumi.getter(name="monitoringViewJobs")
@@ -594,8 +576,6 @@ class _UserState:
                  data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
-                 dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
-                 dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
                  dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsAllowArgs']]]] = None,
                  dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsDenyArgs']]]] = None,
@@ -606,10 +586,11 @@ class _UserState:
                  email: Optional[pulumi.Input[str]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
-                 ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+                 monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
+                 monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+                 monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -631,10 +612,6 @@ class _UserState:
         :param pulumi.Input[bool] data_manage_datafeeds: Whether the user can modify data feeds.
         :param pulumi.Input[bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
-        :param pulumi.Input[bool] dhcp_manage_dhcp: Whether the user can manage DHCP.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] dhcp_view_dhcp: Whether the user can view DHCP.
-               Only relevant for the DDI product.
         :param pulumi.Input[bool] dns_manage_zones: Whether the user can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
@@ -643,10 +620,11 @@ class _UserState:
         :param pulumi.Input[str] email: The email address of the user.
         :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
-        :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
+        :param pulumi.Input[bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
         :param pulumi.Input[bool] monitoring_manage_lists: Whether the user can modify notification lists.
+        :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
@@ -683,10 +661,6 @@ class _UserState:
             pulumi.set(__self__, "data_manage_datasources", data_manage_datasources)
         if data_push_to_datafeeds is not None:
             pulumi.set(__self__, "data_push_to_datafeeds", data_push_to_datafeeds)
-        if dhcp_manage_dhcp is not None:
-            pulumi.set(__self__, "dhcp_manage_dhcp", dhcp_manage_dhcp)
-        if dhcp_view_dhcp is not None:
-            pulumi.set(__self__, "dhcp_view_dhcp", dhcp_view_dhcp)
         if dns_manage_zones is not None:
             pulumi.set(__self__, "dns_manage_zones", dns_manage_zones)
         if dns_records_allows is not None:
@@ -707,14 +681,16 @@ class _UserState:
             pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
             pulumi.set(__self__, "ip_whitelists", ip_whitelists)
-        if ipam_manage_ipam is not None:
-            pulumi.set(__self__, "ipam_manage_ipam", ipam_manage_ipam)
-        if ipam_view_ipam is not None:
-            pulumi.set(__self__, "ipam_view_ipam", ipam_view_ipam)
+        if monitoring_create_jobs is not None:
+            pulumi.set(__self__, "monitoring_create_jobs", monitoring_create_jobs)
+        if monitoring_delete_jobs is not None:
+            pulumi.set(__self__, "monitoring_delete_jobs", monitoring_delete_jobs)
         if monitoring_manage_jobs is not None:
             pulumi.set(__self__, "monitoring_manage_jobs", monitoring_manage_jobs)
         if monitoring_manage_lists is not None:
             pulumi.set(__self__, "monitoring_manage_lists", monitoring_manage_lists)
+        if monitoring_update_jobs is not None:
+            pulumi.set(__self__, "monitoring_update_jobs", monitoring_update_jobs)
         if monitoring_view_jobs is not None:
             pulumi.set(__self__, "monitoring_view_jobs", monitoring_view_jobs)
         if name is not None:
@@ -876,32 +852,6 @@ class _UserState:
         pulumi.set(self, "data_push_to_datafeeds", value)
 
     @property
-    @pulumi.getter(name="dhcpManageDhcp")
-    def dhcp_manage_dhcp(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the user can manage DHCP.
-        Only relevant for the DDI product.
-        """
-        return pulumi.get(self, "dhcp_manage_dhcp")
-
-    @dhcp_manage_dhcp.setter
-    def dhcp_manage_dhcp(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "dhcp_manage_dhcp", value)
-
-    @property
-    @pulumi.getter(name="dhcpViewDhcp")
-    def dhcp_view_dhcp(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the user can view DHCP.
-        Only relevant for the DDI product.
-        """
-        return pulumi.get(self, "dhcp_view_dhcp")
-
-    @dhcp_view_dhcp.setter
-    def dhcp_view_dhcp(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "dhcp_view_dhcp", value)
-
-    @property
     @pulumi.getter(name="dnsManageZones")
     def dns_manage_zones(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1016,32 +966,34 @@ class _UserState:
         pulumi.set(self, "ip_whitelists", value)
 
     @property
-    @pulumi.getter(name="ipamManageIpam")
-    def ipam_manage_ipam(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="monitoringCreateJobs")
+    def monitoring_create_jobs(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the user can manage IPAM.
-        Only relevant for the DDI product.
+        Whether the user can create monitoring jobs when manage_jobs is not set to true.
         """
-        return pulumi.get(self, "ipam_manage_ipam")
+        return pulumi.get(self, "monitoring_create_jobs")
 
-    @ipam_manage_ipam.setter
-    def ipam_manage_ipam(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ipam_manage_ipam", value)
+    @monitoring_create_jobs.setter
+    def monitoring_create_jobs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring_create_jobs", value)
 
     @property
-    @pulumi.getter(name="ipamViewIpam")
-    def ipam_view_ipam(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "ipam_view_ipam")
+    @pulumi.getter(name="monitoringDeleteJobs")
+    def monitoring_delete_jobs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        """
+        return pulumi.get(self, "monitoring_delete_jobs")
 
-    @ipam_view_ipam.setter
-    def ipam_view_ipam(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ipam_view_ipam", value)
+    @monitoring_delete_jobs.setter
+    def monitoring_delete_jobs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring_delete_jobs", value)
 
     @property
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the user can modify monitoring jobs.
+        Whether the user can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -1060,6 +1012,18 @@ class _UserState:
     @monitoring_manage_lists.setter
     def monitoring_manage_lists(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "monitoring_manage_lists", value)
+
+    @property
+    @pulumi.getter(name="monitoringUpdateJobs")
+    def monitoring_update_jobs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        """
+        return pulumi.get(self, "monitoring_update_jobs")
+
+    @monitoring_update_jobs.setter
+    def monitoring_update_jobs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring_update_jobs", value)
 
     @property
     @pulumi.getter(name="monitoringViewJobs")
@@ -1164,8 +1128,6 @@ class User(pulumi.CustomResource):
                  data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
-                 dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
-                 dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
                  dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDnsRecordsAllowArgs']]]]] = None,
                  dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDnsRecordsDenyArgs']]]]] = None,
@@ -1176,10 +1138,11 @@ class User(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
-                 ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+                 monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
+                 monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+                 monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -1256,10 +1219,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] data_manage_datafeeds: Whether the user can modify data feeds.
         :param pulumi.Input[bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
-        :param pulumi.Input[bool] dhcp_manage_dhcp: Whether the user can manage DHCP.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] dhcp_view_dhcp: Whether the user can view DHCP.
-               Only relevant for the DDI product.
         :param pulumi.Input[bool] dns_manage_zones: Whether the user can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
@@ -1268,10 +1227,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] email: The email address of the user.
         :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
-        :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
+        :param pulumi.Input[bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
         :param pulumi.Input[bool] monitoring_manage_lists: Whether the user can modify notification lists.
+        :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
@@ -1368,8 +1328,6 @@ class User(pulumi.CustomResource):
                  data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
-                 dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
-                 dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
                  dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDnsRecordsAllowArgs']]]]] = None,
                  dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDnsRecordsDenyArgs']]]]] = None,
@@ -1380,10 +1338,11 @@ class User(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
-                 ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+                 monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
+                 monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+                 monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -1412,8 +1371,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["data_manage_datafeeds"] = data_manage_datafeeds
             __props__.__dict__["data_manage_datasources"] = data_manage_datasources
             __props__.__dict__["data_push_to_datafeeds"] = data_push_to_datafeeds
-            __props__.__dict__["dhcp_manage_dhcp"] = dhcp_manage_dhcp
-            __props__.__dict__["dhcp_view_dhcp"] = dhcp_view_dhcp
             __props__.__dict__["dns_manage_zones"] = dns_manage_zones
             __props__.__dict__["dns_records_allows"] = dns_records_allows
             __props__.__dict__["dns_records_denies"] = dns_records_denies
@@ -1426,10 +1383,11 @@ class User(pulumi.CustomResource):
             __props__.__dict__["email"] = email
             __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
             __props__.__dict__["ip_whitelists"] = ip_whitelists
-            __props__.__dict__["ipam_manage_ipam"] = ipam_manage_ipam
-            __props__.__dict__["ipam_view_ipam"] = ipam_view_ipam
+            __props__.__dict__["monitoring_create_jobs"] = monitoring_create_jobs
+            __props__.__dict__["monitoring_delete_jobs"] = monitoring_delete_jobs
             __props__.__dict__["monitoring_manage_jobs"] = monitoring_manage_jobs
             __props__.__dict__["monitoring_manage_lists"] = monitoring_manage_lists
+            __props__.__dict__["monitoring_update_jobs"] = monitoring_update_jobs
             __props__.__dict__["monitoring_view_jobs"] = monitoring_view_jobs
             __props__.__dict__["name"] = name
             __props__.__dict__["notify"] = notify
@@ -1461,8 +1419,6 @@ class User(pulumi.CustomResource):
             data_manage_datafeeds: Optional[pulumi.Input[bool]] = None,
             data_manage_datasources: Optional[pulumi.Input[bool]] = None,
             data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
-            dhcp_manage_dhcp: Optional[pulumi.Input[bool]] = None,
-            dhcp_view_dhcp: Optional[pulumi.Input[bool]] = None,
             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
             dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDnsRecordsAllowArgs']]]]] = None,
             dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDnsRecordsDenyArgs']]]]] = None,
@@ -1473,10 +1429,11 @@ class User(pulumi.CustomResource):
             email: Optional[pulumi.Input[str]] = None,
             ip_whitelist_strict: Optional[pulumi.Input[bool]] = None,
             ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            ipam_manage_ipam: Optional[pulumi.Input[bool]] = None,
-            ipam_view_ipam: Optional[pulumi.Input[bool]] = None,
+            monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
+            monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
             monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
             monitoring_manage_lists: Optional[pulumi.Input[bool]] = None,
+            monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
             monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -1503,10 +1460,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] data_manage_datafeeds: Whether the user can modify data feeds.
         :param pulumi.Input[bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
-        :param pulumi.Input[bool] dhcp_manage_dhcp: Whether the user can manage DHCP.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] dhcp_view_dhcp: Whether the user can view DHCP.
-               Only relevant for the DDI product.
         :param pulumi.Input[bool] dns_manage_zones: Whether the user can modify the accounts zones.
         :param pulumi.Input[bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
@@ -1515,10 +1468,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] email: The email address of the user.
         :param pulumi.Input[bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
-        :param pulumi.Input[bool] ipam_manage_ipam: Whether the user can manage IPAM.
-               Only relevant for the DDI product.
-        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can modify monitoring jobs.
+        :param pulumi.Input[bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
         :param pulumi.Input[bool] monitoring_manage_lists: Whether the user can modify notification lists.
+        :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
@@ -1544,8 +1498,6 @@ class User(pulumi.CustomResource):
         __props__.__dict__["data_manage_datafeeds"] = data_manage_datafeeds
         __props__.__dict__["data_manage_datasources"] = data_manage_datasources
         __props__.__dict__["data_push_to_datafeeds"] = data_push_to_datafeeds
-        __props__.__dict__["dhcp_manage_dhcp"] = dhcp_manage_dhcp
-        __props__.__dict__["dhcp_view_dhcp"] = dhcp_view_dhcp
         __props__.__dict__["dns_manage_zones"] = dns_manage_zones
         __props__.__dict__["dns_records_allows"] = dns_records_allows
         __props__.__dict__["dns_records_denies"] = dns_records_denies
@@ -1556,10 +1508,11 @@ class User(pulumi.CustomResource):
         __props__.__dict__["email"] = email
         __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
         __props__.__dict__["ip_whitelists"] = ip_whitelists
-        __props__.__dict__["ipam_manage_ipam"] = ipam_manage_ipam
-        __props__.__dict__["ipam_view_ipam"] = ipam_view_ipam
+        __props__.__dict__["monitoring_create_jobs"] = monitoring_create_jobs
+        __props__.__dict__["monitoring_delete_jobs"] = monitoring_delete_jobs
         __props__.__dict__["monitoring_manage_jobs"] = monitoring_manage_jobs
         __props__.__dict__["monitoring_manage_lists"] = monitoring_manage_lists
+        __props__.__dict__["monitoring_update_jobs"] = monitoring_update_jobs
         __props__.__dict__["monitoring_view_jobs"] = monitoring_view_jobs
         __props__.__dict__["name"] = name
         __props__.__dict__["notify"] = notify
@@ -1667,24 +1620,6 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "data_push_to_datafeeds")
 
     @property
-    @pulumi.getter(name="dhcpManageDhcp")
-    def dhcp_manage_dhcp(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether the user can manage DHCP.
-        Only relevant for the DDI product.
-        """
-        return pulumi.get(self, "dhcp_manage_dhcp")
-
-    @property
-    @pulumi.getter(name="dhcpViewDhcp")
-    def dhcp_view_dhcp(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether the user can view DHCP.
-        Only relevant for the DDI product.
-        """
-        return pulumi.get(self, "dhcp_view_dhcp")
-
-    @property
     @pulumi.getter(name="dnsManageZones")
     def dns_manage_zones(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1759,24 +1694,26 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "ip_whitelists")
 
     @property
-    @pulumi.getter(name="ipamManageIpam")
-    def ipam_manage_ipam(self) -> pulumi.Output[Optional[bool]]:
+    @pulumi.getter(name="monitoringCreateJobs")
+    def monitoring_create_jobs(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the user can manage IPAM.
-        Only relevant for the DDI product.
+        Whether the user can create monitoring jobs when manage_jobs is not set to true.
         """
-        return pulumi.get(self, "ipam_manage_ipam")
+        return pulumi.get(self, "monitoring_create_jobs")
 
     @property
-    @pulumi.getter(name="ipamViewIpam")
-    def ipam_view_ipam(self) -> pulumi.Output[Optional[bool]]:
-        return pulumi.get(self, "ipam_view_ipam")
+    @pulumi.getter(name="monitoringDeleteJobs")
+    def monitoring_delete_jobs(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        """
+        return pulumi.get(self, "monitoring_delete_jobs")
 
     @property
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the user can modify monitoring jobs.
+        Whether the user can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -1787,6 +1724,14 @@ class User(pulumi.CustomResource):
         Whether the user can modify notification lists.
         """
         return pulumi.get(self, "monitoring_manage_lists")
+
+    @property
+    @pulumi.getter(name="monitoringUpdateJobs")
+    def monitoring_update_jobs(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        """
+        return pulumi.get(self, "monitoring_update_jobs")
 
     @property
     @pulumi.getter(name="monitoringViewJobs")

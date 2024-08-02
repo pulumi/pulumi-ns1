@@ -273,38 +273,6 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataPushToDatafeeds);
     }
     /**
-     * Whether the apikey can manage DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Export(name="dhcpManageDhcp", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> dhcpManageDhcp;
-
-    /**
-     * @return Whether the apikey can manage DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Output<Optional<Boolean>> dhcpManageDhcp() {
-        return Codegen.optional(this.dhcpManageDhcp);
-    }
-    /**
-     * Whether the apikey can view DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Export(name="dhcpViewDhcp", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> dhcpViewDhcp;
-
-    /**
-     * @return Whether the apikey can view DHCP.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Output<Optional<Boolean>> dhcpViewDhcp() {
-        return Codegen.optional(this.dhcpViewDhcp);
-    }
-    /**
      * Whether the apikey can modify the accounts zones.
      * 
      */
@@ -431,38 +399,6 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipWhitelists);
     }
     /**
-     * Whether the apikey can manage IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Export(name="ipamManageIpam", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> ipamManageIpam;
-
-    /**
-     * @return Whether the apikey can manage IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Output<Optional<Boolean>> ipamManageIpam() {
-        return Codegen.optional(this.ipamManageIpam);
-    }
-    /**
-     * Whether the apikey can view IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    @Export(name="ipamViewIpam", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> ipamViewIpam;
-
-    /**
-     * @return Whether the apikey can view IPAM.
-     * Only relevant for the DDI product.
-     * 
-     */
-    public Output<Optional<Boolean>> ipamViewIpam() {
-        return Codegen.optional(this.ipamViewIpam);
-    }
-    /**
      * (Computed) The apikeys authentication token.
      * 
      */
@@ -477,14 +413,42 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * Whether the apikey can modify monitoring jobs.
+     * Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    @Export(name="monitoringCreateJobs", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> monitoringCreateJobs;
+
+    /**
+     * @return Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    public Output<Optional<Boolean>> monitoringCreateJobs() {
+        return Codegen.optional(this.monitoringCreateJobs);
+    }
+    /**
+     * Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    @Export(name="monitoringDeleteJobs", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> monitoringDeleteJobs;
+
+    /**
+     * @return Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    public Output<Optional<Boolean>> monitoringDeleteJobs() {
+        return Codegen.optional(this.monitoringDeleteJobs);
+    }
+    /**
+     * Whether the user can create, update, and delete monitoring jobs.
      * 
      */
     @Export(name="monitoringManageJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageJobs;
 
     /**
-     * @return Whether the apikey can modify monitoring jobs.
+     * @return Whether the user can create, update, and delete monitoring jobs.
      * 
      */
     public Output<Optional<Boolean>> monitoringManageJobs() {
@@ -503,6 +467,20 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> monitoringManageLists() {
         return Codegen.optional(this.monitoringManageLists);
+    }
+    /**
+     * Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    @Export(name="monitoringUpdateJobs", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> monitoringUpdateJobs;
+
+    /**
+     * @return Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * 
+     */
+    public Output<Optional<Boolean>> monitoringUpdateJobs() {
+        return Codegen.optional(this.monitoringUpdateJobs);
     }
     /**
      * Whether the apikey can view monitoring jobs.
@@ -599,11 +577,18 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public APIKey(String name, @Nullable APIKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/aPIKey:APIKey", name, args == null ? APIKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("ns1:index/aPIKey:APIKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private APIKey(String name, Output<String> id, @Nullable APIKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("ns1:index/aPIKey:APIKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static APIKeyArgs makeArgs(@Nullable APIKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? APIKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

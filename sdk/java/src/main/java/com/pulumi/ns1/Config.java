@@ -20,13 +20,6 @@ public final class Config {
         return Codegen.stringProp("apikey").config(config).get();
     }
 /**
- * Deprecated, no longer in use
- * 
- */
-    public Optional<Boolean> enableDdi() {
-        return Codegen.booleanProp("enableDdi").config(config).get();
-    }
-/**
  * URL prefix (including version) for API calls
  * 
  */

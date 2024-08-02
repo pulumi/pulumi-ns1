@@ -23,13 +23,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('apikey')
 
     @property
-    def enable_ddi(self) -> Optional[bool]:
-        """
-        Deprecated, no longer in use
-        """
-        return __config__.get_bool('enableDdi')
-
-    @property
     def endpoint(self) -> Optional[str]:
         """
         URL prefix (including version) for API calls
