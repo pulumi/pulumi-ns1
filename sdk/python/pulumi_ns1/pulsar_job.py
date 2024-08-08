@@ -262,12 +262,12 @@ class PulsarJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 blend_metric_weights: Optional[pulumi.Input[pulumi.InputType['PulsarJobBlendMetricWeightsArgs']]] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['PulsarJobConfigArgs']]] = None,
+                 blend_metric_weights: Optional[pulumi.Input[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict']]] = None,
+                 config: Optional[pulumi.Input[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  shared: Optional[pulumi.Input[bool]] = None,
                  type_id: Optional[pulumi.Input[str]] = None,
-                 weights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PulsarJobWeightArgs']]]]] = None,
+                 weights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict']]]]] = None,
                  __props__=None):
         """
         Create a PulsarJob resource with the given unique name, props, and options.
@@ -299,12 +299,12 @@ class PulsarJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 blend_metric_weights: Optional[pulumi.Input[pulumi.InputType['PulsarJobBlendMetricWeightsArgs']]] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['PulsarJobConfigArgs']]] = None,
+                 blend_metric_weights: Optional[pulumi.Input[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict']]] = None,
+                 config: Optional[pulumi.Input[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  shared: Optional[pulumi.Input[bool]] = None,
                  type_id: Optional[pulumi.Input[str]] = None,
-                 weights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PulsarJobWeightArgs']]]]] = None,
+                 weights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,15 +341,15 @@ class PulsarJob(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
             app_id: Optional[pulumi.Input[str]] = None,
-            blend_metric_weights: Optional[pulumi.Input[pulumi.InputType['PulsarJobBlendMetricWeightsArgs']]] = None,
+            blend_metric_weights: Optional[pulumi.Input[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict']]] = None,
             community: Optional[pulumi.Input[bool]] = None,
-            config: Optional[pulumi.Input[pulumi.InputType['PulsarJobConfigArgs']]] = None,
+            config: Optional[pulumi.Input[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict']]] = None,
             customer: Optional[pulumi.Input[int]] = None,
             job_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             shared: Optional[pulumi.Input[bool]] = None,
             type_id: Optional[pulumi.Input[str]] = None,
-            weights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PulsarJobWeightArgs']]]]] = None) -> 'PulsarJob':
+            weights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict']]]]] = None) -> 'PulsarJob':
         """
         Get an existing PulsarJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
