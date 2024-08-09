@@ -1067,8 +1067,8 @@ class APIKey(pulumi.CustomResource):
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsAllowArgs']]]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsDenyArgs']]]]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1151,8 +1151,8 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[bool] data_manage_datasources: Whether the apikey can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the apikey can publish to data feeds.
         :param pulumi.Input[bool] dns_manage_zones: Whether the apikey can modify the accounts zones.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsAllowArgs']]]] dns_records_allows: List of records that the apikey may access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsDenyArgs']]]] dns_records_denies: List of records that the apikey may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the apikey may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the apikey may not access.
         :param pulumi.Input[bool] dns_view_zones: Whether the apikey can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the apikey may access.
@@ -1255,8 +1255,8 @@ class APIKey(pulumi.CustomResource):
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsAllowArgs']]]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsDenyArgs']]]]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1339,8 +1339,8 @@ class APIKey(pulumi.CustomResource):
             data_manage_datasources: Optional[pulumi.Input[bool]] = None,
             data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
-            dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsAllowArgs']]]]] = None,
-            dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsDenyArgs']]]]] = None,
+            dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
+            dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
             dns_view_zones: Optional[pulumi.Input[bool]] = None,
             dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1378,8 +1378,8 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[bool] data_manage_datasources: Whether the apikey can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the apikey can publish to data feeds.
         :param pulumi.Input[bool] dns_manage_zones: Whether the apikey can modify the accounts zones.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsAllowArgs']]]] dns_records_allows: List of records that the apikey may access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['APIKeyDnsRecordsDenyArgs']]]] dns_records_denies: List of records that the apikey may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the apikey may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the apikey may not access.
         :param pulumi.Input[bool] dns_view_zones: Whether the apikey can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the apikey may access.
