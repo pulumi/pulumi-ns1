@@ -288,7 +288,7 @@ public class Redirect extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Redirect(String name) {
+    public Redirect(java.lang.String name) {
         this(name, RedirectArgs.Empty);
     }
     /**
@@ -296,7 +296,7 @@ public class Redirect extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Redirect(String name, RedirectArgs args) {
+    public Redirect(java.lang.String name, RedirectArgs args) {
         this(name, args, null);
     }
     /**
@@ -305,12 +305,12 @@ public class Redirect extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Redirect(String name, RedirectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/redirect:Redirect", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Redirect(java.lang.String name, RedirectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/redirect:Redirect", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Redirect(String name, Output<String> id, @Nullable RedirectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/redirect:Redirect", name, state, makeResourceOptions(options, id));
+    private Redirect(java.lang.String name, Output<java.lang.String> id, @Nullable RedirectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/redirect:Redirect", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RedirectArgs makeArgs(RedirectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -320,7 +320,7 @@ public class Redirect extends com.pulumi.resources.CustomResource {
         return args == null ? RedirectArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -336,7 +336,7 @@ public class Redirect extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Redirect get(String name, Output<String> id, @Nullable RedirectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Redirect get(java.lang.String name, Output<java.lang.String> id, @Nullable RedirectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Redirect(name, id, state, options);
     }
 }

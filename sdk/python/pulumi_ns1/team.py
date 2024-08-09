@@ -987,13 +987,13 @@ class Team(pulumi.CustomResource):
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsAllowArgs', 'TeamDnsRecordsAllowArgsDict']]]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsDenyArgs', 'TeamDnsRecordsDenyArgsDict']]]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
+                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
@@ -1018,20 +1018,20 @@ class Team(pulumi.CustomResource):
         example = ns1.Team("example",
             name="Example team",
             ip_whitelists=[
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-1",
-                    values=[
+                {
+                    "name": "whitelist-1",
+                    "values": [
                         "1.1.1.1",
                         "2.2.2.2",
                     ],
-                ),
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-2",
-                    values=[
+                },
+                {
+                    "name": "whitelist-2",
+                    "values": [
                         "3.3.3.3",
                         "4.4.4.4",
                     ],
-                ),
+                },
             ],
             dns_view_zones=False,
             account_manage_users=False)
@@ -1042,12 +1042,12 @@ class Team(pulumi.CustomResource):
             dns_zones_allow_by_default=True,
             dns_zones_allows=["mytest.zone"],
             dns_zones_denies=["myother.zone"],
-            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
-                domain="terraform.example.io",
-                include_subdomains=False,
-                zone="example.io",
-                type="A",
-            )],
+            dns_records_allows=[{
+                "domain": "terraform.example.io",
+                "include_subdomains": False,
+                "zone": "example.io",
+                "type": "A",
+            }],
             data_manage_datasources=True)
         ```
 
@@ -1076,13 +1076,13 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] data_manage_datasources: Whether the team can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the team can publish to data feeds.
         :param pulumi.Input[bool] dns_manage_zones: Whether the team can modify the accounts zones.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]] dns_records_allows: List of records that the team may access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]] dns_records_denies: List of records that the team may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsAllowArgs', 'TeamDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the team may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsDenyArgs', 'TeamDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the team may not access.
         :param pulumi.Input[bool] dns_view_zones: Whether the team can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
         :param pulumi.Input[bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
@@ -1114,20 +1114,20 @@ class Team(pulumi.CustomResource):
         example = ns1.Team("example",
             name="Example team",
             ip_whitelists=[
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-1",
-                    values=[
+                {
+                    "name": "whitelist-1",
+                    "values": [
                         "1.1.1.1",
                         "2.2.2.2",
                     ],
-                ),
-                ns1.TeamIpWhitelistArgs(
-                    name="whitelist-2",
-                    values=[
+                },
+                {
+                    "name": "whitelist-2",
+                    "values": [
                         "3.3.3.3",
                         "4.4.4.4",
                     ],
-                ),
+                },
             ],
             dns_view_zones=False,
             account_manage_users=False)
@@ -1138,12 +1138,12 @@ class Team(pulumi.CustomResource):
             dns_zones_allow_by_default=True,
             dns_zones_allows=["mytest.zone"],
             dns_zones_denies=["myother.zone"],
-            dns_records_allows=[ns1.TeamDnsRecordsAllowArgs(
-                domain="terraform.example.io",
-                include_subdomains=False,
-                zone="example.io",
-                type="A",
-            )],
+            dns_records_allows=[{
+                "domain": "terraform.example.io",
+                "include_subdomains": False,
+                "zone": "example.io",
+                "type": "A",
+            }],
             data_manage_datasources=True)
         ```
 
@@ -1185,13 +1185,13 @@ class Team(pulumi.CustomResource):
                  data_manage_datasources: Optional[pulumi.Input[bool]] = None,
                  data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
                  dns_manage_zones: Optional[pulumi.Input[bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]]] = None,
+                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsAllowArgs', 'TeamDnsRecordsAllowArgsDict']]]]] = None,
+                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsDenyArgs', 'TeamDnsRecordsDenyArgsDict']]]]] = None,
                  dns_view_zones: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
+                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
@@ -1262,13 +1262,13 @@ class Team(pulumi.CustomResource):
             data_manage_datasources: Optional[pulumi.Input[bool]] = None,
             data_push_to_datafeeds: Optional[pulumi.Input[bool]] = None,
             dns_manage_zones: Optional[pulumi.Input[bool]] = None,
-            dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]]] = None,
-            dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]]] = None,
+            dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsAllowArgs', 'TeamDnsRecordsAllowArgsDict']]]]] = None,
+            dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsDenyArgs', 'TeamDnsRecordsDenyArgsDict']]]]] = None,
             dns_view_zones: Optional[pulumi.Input[bool]] = None,
             dns_zones_allow_by_default: Optional[pulumi.Input[bool]] = None,
             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]]] = None,
+            ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]]] = None,
             monitoring_create_jobs: Optional[pulumi.Input[bool]] = None,
             monitoring_delete_jobs: Optional[pulumi.Input[bool]] = None,
             monitoring_manage_jobs: Optional[pulumi.Input[bool]] = None,
@@ -1298,13 +1298,13 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[bool] data_manage_datasources: Whether the team can modify data sources.
         :param pulumi.Input[bool] data_push_to_datafeeds: Whether the team can publish to data feeds.
         :param pulumi.Input[bool] dns_manage_zones: Whether the team can modify the accounts zones.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsAllowArgs']]]] dns_records_allows: List of records that the team may access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamDnsRecordsDenyArgs']]]] dns_records_denies: List of records that the team may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsAllowArgs', 'TeamDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the team may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamDnsRecordsDenyArgs', 'TeamDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the team may not access.
         :param pulumi.Input[bool] dns_view_zones: Whether the team can view the accounts zones.
         :param pulumi.Input[bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_allows: List of zones that the team may access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zones_denies: List of zones that the team may not access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamIpWhitelistArgs']]]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
         :param pulumi.Input[bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.

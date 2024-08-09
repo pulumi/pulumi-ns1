@@ -94,7 +94,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = ns1.NewRecord(ctx, "www", &ns1.RecordArgs{
 //				Zone:   pulumi.Any(tld.Zone),
-//				Domain: pulumi.String(fmt.Sprintf("www.%v", tld.Zone)),
+//				Domain: pulumi.Sprintf("www.%v", tld.Zone),
 //				Type:   pulumi.String("CNAME"),
 //				Ttl:    pulumi.Int(60),
 //				Meta: pulumi.Map{
@@ -116,7 +116,7 @@ import (
 //				},
 //				Answers: ns1.RecordAnswerArray{
 //					&ns1.RecordAnswerArgs{
-//						Answer: pulumi.String(fmt.Sprintf("sub1.%v", tld.Zone)),
+//						Answer: pulumi.Sprintf("sub1.%v", tld.Zone),
 //						Region: pulumi.String("east"),
 //						Meta: pulumi.Map{
 //							"up": interface{}(foo.ID().ApplyT(func(id string) (string, error) {
@@ -125,7 +125,7 @@ import (
 //						},
 //					},
 //					&ns1.RecordAnswerArgs{
-//						Answer: pulumi.String(fmt.Sprintf("sub2.%v", tld.Zone)),
+//						Answer: pulumi.Sprintf("sub2.%v", tld.Zone),
 //						Meta: pulumi.Map{
 //							"up": interface{}(bar.ID().ApplyT(func(id string) (string, error) {
 //								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
@@ -134,7 +134,7 @@ import (
 //						},
 //					},
 //					&ns1.RecordAnswerArgs{
-//						Answer: pulumi.String(fmt.Sprintf("sub3.%v", tld.Zone)),
+//						Answer: pulumi.Sprintf("sub3.%v", tld.Zone),
 //						Meta: pulumi.Map{
 //							"pulsar":       pulumi.String(json0),
 //							"subdivisions": pulumi.String(json1),

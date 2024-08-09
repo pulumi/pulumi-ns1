@@ -187,12 +187,12 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datatype: Optional[pulumi.Input[pulumi.InputType['DatasetDatatypeArgs']]] = None,
+                 datatype: Optional[pulumi.Input[Union['DatasetDatatypeArgs', 'DatasetDatatypeArgsDict']]] = None,
                  export_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recipient_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 repeat: Optional[pulumi.Input[pulumi.InputType['DatasetRepeatArgs']]] = None,
-                 timeframe: Optional[pulumi.Input[pulumi.InputType['DatasetTimeframeArgs']]] = None,
+                 repeat: Optional[pulumi.Input[Union['DatasetRepeatArgs', 'DatasetRepeatArgsDict']]] = None,
+                 timeframe: Optional[pulumi.Input[Union['DatasetTimeframeArgs', 'DatasetTimeframeArgsDict']]] = None,
                  __props__=None):
         """
         Create a Dataset resource with the given unique name, props, and options.
@@ -222,12 +222,12 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datatype: Optional[pulumi.Input[pulumi.InputType['DatasetDatatypeArgs']]] = None,
+                 datatype: Optional[pulumi.Input[Union['DatasetDatatypeArgs', 'DatasetDatatypeArgsDict']]] = None,
                  export_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recipient_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 repeat: Optional[pulumi.Input[pulumi.InputType['DatasetRepeatArgs']]] = None,
-                 timeframe: Optional[pulumi.Input[pulumi.InputType['DatasetTimeframeArgs']]] = None,
+                 repeat: Optional[pulumi.Input[Union['DatasetRepeatArgs', 'DatasetRepeatArgsDict']]] = None,
+                 timeframe: Optional[pulumi.Input[Union['DatasetTimeframeArgs', 'DatasetTimeframeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,13 +260,13 @@ class Dataset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            datatype: Optional[pulumi.Input[pulumi.InputType['DatasetDatatypeArgs']]] = None,
+            datatype: Optional[pulumi.Input[Union['DatasetDatatypeArgs', 'DatasetDatatypeArgsDict']]] = None,
             export_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recipient_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            repeat: Optional[pulumi.Input[pulumi.InputType['DatasetRepeatArgs']]] = None,
-            reports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetReportArgs']]]]] = None,
-            timeframe: Optional[pulumi.Input[pulumi.InputType['DatasetTimeframeArgs']]] = None) -> 'Dataset':
+            repeat: Optional[pulumi.Input[Union['DatasetRepeatArgs', 'DatasetRepeatArgsDict']]] = None,
+            reports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetReportArgs', 'DatasetReportArgsDict']]]]] = None,
+            timeframe: Optional[pulumi.Input[Union['DatasetTimeframeArgs', 'DatasetTimeframeArgsDict']]] = None) -> 'Dataset':
         """
         Get an existing Dataset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

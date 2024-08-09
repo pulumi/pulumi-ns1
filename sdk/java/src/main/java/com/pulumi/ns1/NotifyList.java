@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var nl = new NotifyList("nl", NotifyListArgs.builder()
  *             .name("my notify list")
  *             .notifications(            
@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 NotifyListNotificationArgs.builder()
  *                     .type("email")
- *                     .config(Map.of("email", "test{@literal @}test.com"))
+ *                     .config(Map.of("email", "test}{@literal @}{@code test.com"))
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -110,7 +110,7 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NotifyList(String name) {
+    public NotifyList(java.lang.String name) {
         this(name, NotifyListArgs.Empty);
     }
     /**
@@ -118,7 +118,7 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotifyList(String name, @Nullable NotifyListArgs args) {
+    public NotifyList(java.lang.String name, @Nullable NotifyListArgs args) {
         this(name, args, null);
     }
     /**
@@ -127,12 +127,12 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotifyList(String name, @Nullable NotifyListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/notifyList:NotifyList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NotifyList(java.lang.String name, @Nullable NotifyListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/notifyList:NotifyList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NotifyList(String name, Output<String> id, @Nullable NotifyListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/notifyList:NotifyList", name, state, makeResourceOptions(options, id));
+    private NotifyList(java.lang.String name, Output<java.lang.String> id, @Nullable NotifyListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/notifyList:NotifyList", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NotifyListArgs makeArgs(@Nullable NotifyListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -142,7 +142,7 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
         return args == null ? NotifyListArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -158,7 +158,7 @@ public class NotifyList extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NotifyList get(String name, Output<String> id, @Nullable NotifyListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NotifyList get(java.lang.String name, Output<java.lang.String> id, @Nullable NotifyListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NotifyList(name, id, state, options);
     }
 }

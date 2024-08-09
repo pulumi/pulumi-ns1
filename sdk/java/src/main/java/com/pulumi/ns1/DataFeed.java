@@ -142,7 +142,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataFeed(String name) {
+    public DataFeed(java.lang.String name) {
         this(name, DataFeedArgs.Empty);
     }
     /**
@@ -150,7 +150,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataFeed(String name, DataFeedArgs args) {
+    public DataFeed(java.lang.String name, DataFeedArgs args) {
         this(name, args, null);
     }
     /**
@@ -159,12 +159,12 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataFeed(String name, DataFeedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/dataFeed:DataFeed", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataFeed(java.lang.String name, DataFeedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/dataFeed:DataFeed", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataFeed(String name, Output<String> id, @Nullable DataFeedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/dataFeed:DataFeed", name, state, makeResourceOptions(options, id));
+    private DataFeed(java.lang.String name, Output<java.lang.String> id, @Nullable DataFeedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/dataFeed:DataFeed", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataFeedArgs makeArgs(DataFeedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -174,7 +174,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
         return args == null ? DataFeedArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +190,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataFeed get(String name, Output<String> id, @Nullable DataFeedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataFeed get(java.lang.String name, Output<java.lang.String> id, @Nullable DataFeedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataFeed(name, id, state, options);
     }
 }
