@@ -112,7 +112,7 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Tsigkey(String name) {
+    public Tsigkey(java.lang.String name) {
         this(name, TsigkeyArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Tsigkey(String name, TsigkeyArgs args) {
+    public Tsigkey(java.lang.String name, TsigkeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,12 +129,12 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Tsigkey(String name, TsigkeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/tsigkey:Tsigkey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Tsigkey(java.lang.String name, TsigkeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/tsigkey:Tsigkey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Tsigkey(String name, Output<String> id, @Nullable TsigkeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/tsigkey:Tsigkey", name, state, makeResourceOptions(options, id));
+    private Tsigkey(java.lang.String name, Output<java.lang.String> id, @Nullable TsigkeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/tsigkey:Tsigkey", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TsigkeyArgs makeArgs(TsigkeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -144,7 +144,7 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
         return args == null ? TsigkeyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -160,7 +160,7 @@ public class Tsigkey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Tsigkey get(String name, Output<String> id, @Nullable TsigkeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Tsigkey get(java.lang.String name, Output<java.lang.String> id, @Nullable TsigkeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Tsigkey(name, id, state, options);
     }
 }
