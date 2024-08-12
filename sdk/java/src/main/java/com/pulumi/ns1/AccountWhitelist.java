@@ -105,7 +105,7 @@ public class AccountWhitelist extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccountWhitelist(String name) {
+    public AccountWhitelist(java.lang.String name) {
         this(name, AccountWhitelistArgs.Empty);
     }
     /**
@@ -113,7 +113,7 @@ public class AccountWhitelist extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountWhitelist(String name, AccountWhitelistArgs args) {
+    public AccountWhitelist(java.lang.String name, AccountWhitelistArgs args) {
         this(name, args, null);
     }
     /**
@@ -122,12 +122,12 @@ public class AccountWhitelist extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountWhitelist(String name, AccountWhitelistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/accountWhitelist:AccountWhitelist", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AccountWhitelist(java.lang.String name, AccountWhitelistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/accountWhitelist:AccountWhitelist", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccountWhitelist(String name, Output<String> id, @Nullable AccountWhitelistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("ns1:index/accountWhitelist:AccountWhitelist", name, state, makeResourceOptions(options, id));
+    private AccountWhitelist(java.lang.String name, Output<java.lang.String> id, @Nullable AccountWhitelistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("ns1:index/accountWhitelist:AccountWhitelist", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AccountWhitelistArgs makeArgs(AccountWhitelistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -137,7 +137,7 @@ public class AccountWhitelist extends com.pulumi.resources.CustomResource {
         return args == null ? AccountWhitelistArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -153,7 +153,7 @@ public class AccountWhitelist extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccountWhitelist get(String name, Output<String> id, @Nullable AccountWhitelistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccountWhitelist get(java.lang.String name, Output<java.lang.String> id, @Nullable AccountWhitelistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccountWhitelist(name, id, state, options);
     }
 }

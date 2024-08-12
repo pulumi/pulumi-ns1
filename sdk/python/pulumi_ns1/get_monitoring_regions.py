@@ -59,7 +59,7 @@ class AwaitableGetMonitoringRegionsResult(GetMonitoringRegionsResult):
             regions=self.regions)
 
 
-def get_monitoring_regions(regions: Optional[Sequence[pulumi.InputType['GetMonitoringRegionsRegionArgs']]] = None,
+def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringRegionsResult:
     """
     Provides details of all available monitoring regions.
@@ -75,7 +75,7 @@ def get_monitoring_regions(regions: Optional[Sequence[pulumi.InputType['GetMonit
     ```
 
 
-    :param Sequence[pulumi.InputType['GetMonitoringRegionsRegionArgs']] regions: A set of the available monitoring regions. Regions is
+    :param Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']] regions: A set of the available monitoring regions. Regions is
            documented below.
     """
     __args__ = dict()
@@ -89,7 +89,7 @@ def get_monitoring_regions(regions: Optional[Sequence[pulumi.InputType['GetMonit
 
 
 @_utilities.lift_output_func(get_monitoring_regions)
-def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetMonitoringRegionsRegionArgs']]]]] = None,
+def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringRegionsResult]:
     """
     Provides details of all available monitoring regions.
@@ -105,7 +105,7 @@ def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequen
     ```
 
 
-    :param Sequence[pulumi.InputType['GetMonitoringRegionsRegionArgs']] regions: A set of the available monitoring regions. Regions is
+    :param Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']] regions: A set of the available monitoring regions. Regions is
            documented below.
     """
     ...

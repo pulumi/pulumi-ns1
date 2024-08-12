@@ -99,7 +99,7 @@ class NotifyList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
@@ -113,18 +113,18 @@ class NotifyList(pulumi.CustomResource):
         nl = ns1.NotifyList("nl",
             name="my notify list",
             notifications=[
-                ns1.NotifyListNotificationArgs(
-                    type="webhook",
-                    config={
+                {
+                    "type": "webhook",
+                    "config": {
                         "url": "http://www.mywebhook.com",
                     },
-                ),
-                ns1.NotifyListNotificationArgs(
-                    type="email",
-                    config={
+                },
+                {
+                    "type": "email",
+                    "config": {
                         "email": "test@test.com",
                     },
-                ),
+                },
             ])
         ```
 
@@ -141,7 +141,7 @@ class NotifyList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The free-form display name for the notify list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
         ...
     @overload
@@ -161,18 +161,18 @@ class NotifyList(pulumi.CustomResource):
         nl = ns1.NotifyList("nl",
             name="my notify list",
             notifications=[
-                ns1.NotifyListNotificationArgs(
-                    type="webhook",
-                    config={
+                {
+                    "type": "webhook",
+                    "config": {
                         "url": "http://www.mywebhook.com",
                     },
-                ),
-                ns1.NotifyListNotificationArgs(
-                    type="email",
-                    config={
+                },
+                {
+                    "type": "email",
+                    "config": {
                         "email": "test@test.com",
                     },
-                ),
+                },
             ])
         ```
 
@@ -202,7 +202,7 @@ class NotifyList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,7 +225,7 @@ class NotifyList(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]]] = None) -> 'NotifyList':
+            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None) -> 'NotifyList':
         """
         Get an existing NotifyList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -234,7 +234,7 @@ class NotifyList(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The free-form display name for the notify list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotifyListNotificationArgs']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
