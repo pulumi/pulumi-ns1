@@ -32,14 +32,14 @@ import (
 //				Notifications: ns1.NotifyListNotificationArray{
 //					&ns1.NotifyListNotificationArgs{
 //						Type: pulumi.String("webhook"),
-//						Config: pulumi.Map{
-//							"url": pulumi.Any("http://www.mywebhook.com"),
+//						Config: pulumi.StringMap{
+//							"url": pulumi.String("http://www.mywebhook.com"),
 //						},
 //					},
 //					&ns1.NotifyListNotificationArgs{
 //						Type: pulumi.String("email"),
-//						Config: pulumi.Map{
-//							"email": pulumi.Any("test@test.com"),
+//						Config: pulumi.StringMap{
+//							"email": pulumi.String("test@test.com"),
 //						},
 //					},
 //				},

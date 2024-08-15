@@ -55,7 +55,7 @@ type DataSource struct {
 
 	// The data source configuration, determined by its type,
 	// matching the specification in `config` from /data/sourcetypes.
-	Config pulumi.MapOutput `pulumi:"config"`
+	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The free form name of the data source.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -97,7 +97,7 @@ func GetDataSource(ctx *pulumi.Context,
 type dataSourceState struct {
 	// The data source configuration, determined by its type,
 	// matching the specification in `config` from /data/sourcetypes.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// The free form name of the data source.
 	Name *string `pulumi:"name"`
 	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -107,7 +107,7 @@ type dataSourceState struct {
 type DataSourceState struct {
 	// The data source configuration, determined by its type,
 	// matching the specification in `config` from /data/sourcetypes.
-	Config pulumi.MapInput
+	Config pulumi.StringMapInput
 	// The free form name of the data source.
 	Name pulumi.StringPtrInput
 	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -121,7 +121,7 @@ func (DataSourceState) ElementType() reflect.Type {
 type dataSourceArgs struct {
 	// The data source configuration, determined by its type,
 	// matching the specification in `config` from /data/sourcetypes.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// The free form name of the data source.
 	Name *string `pulumi:"name"`
 	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -132,7 +132,7 @@ type dataSourceArgs struct {
 type DataSourceArgs struct {
 	// The data source configuration, determined by its type,
 	// matching the specification in `config` from /data/sourcetypes.
-	Config pulumi.MapInput
+	Config pulumi.StringMapInput
 	// The free form name of the data source.
 	Name pulumi.StringPtrInput
 	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -228,8 +228,8 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 
 // The data source configuration, determined by its type,
 // matching the specification in `config` from /data/sourcetypes.
-func (o DataSourceOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.MapOutput { return v.Config }).(pulumi.MapOutput)
+func (o DataSourceOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringMapOutput { return v.Config }).(pulumi.StringMapOutput)
 }
 
 // The free form name of the data source.

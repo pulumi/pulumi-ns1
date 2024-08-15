@@ -49,8 +49,8 @@ import (
 //				Teams: pulumi.StringArray{
 //					example.ID(),
 //				},
-//				Notify: pulumi.Map{
-//					"billing": pulumi.Any(false),
+//				Notify: pulumi.StringMap{
+//					"billing": pulumi.String("false"),
 //				},
 //			})
 //			if err != nil {
@@ -148,7 +148,7 @@ type User struct {
 	// The free form name of the user.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
-	Notify pulumi.MapOutput `pulumi:"notify"`
+	Notify pulumi.StringMapOutput `pulumi:"notify"`
 	// Whether the user can manage global active directory.
 	// Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
@@ -255,7 +255,7 @@ type userState struct {
 	// The free form name of the user.
 	Name *string `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
-	Notify map[string]interface{} `pulumi:"notify"`
+	Notify map[string]string `pulumi:"notify"`
 	// Whether the user can manage global active directory.
 	// Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
@@ -327,7 +327,7 @@ type UserState struct {
 	// The free form name of the user.
 	Name pulumi.StringPtrInput
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
-	Notify pulumi.MapInput
+	Notify pulumi.StringMapInput
 	// Whether the user can manage global active directory.
 	// Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
@@ -403,7 +403,7 @@ type userArgs struct {
 	// The free form name of the user.
 	Name *string `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
-	Notify map[string]interface{} `pulumi:"notify"`
+	Notify map[string]string `pulumi:"notify"`
 	// Whether the user can manage global active directory.
 	// Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
@@ -476,7 +476,7 @@ type UserArgs struct {
 	// The free form name of the user.
 	Name pulumi.StringPtrInput
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
-	Notify pulumi.MapInput
+	Notify pulumi.StringMapInput
 	// Whether the user can manage global active directory.
 	// Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
@@ -721,8 +721,8 @@ func (o UserOutput) Name() pulumi.StringOutput {
 }
 
 // Whether or not to notify the user of specified events. Only `billing` is available currently.
-func (o UserOutput) Notify() pulumi.MapOutput {
-	return o.ApplyT(func(v *User) pulumi.MapOutput { return v.Notify }).(pulumi.MapOutput)
+func (o UserOutput) Notify() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Notify }).(pulumi.StringMapOutput)
 }
 
 // Whether the user can manage global active directory.

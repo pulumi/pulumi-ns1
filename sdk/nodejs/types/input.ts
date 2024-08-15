@@ -48,7 +48,7 @@ export interface ApplicationDefaultConfig {
 }
 
 export interface DatasetDatatype {
-    data: pulumi.Input<{[key: string]: any}>;
+    data: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     scope: pulumi.Input<string>;
     type: pulumi.Input<string>;
 }
@@ -114,7 +114,7 @@ export interface NotifyListNotification {
     /**
      * Configuration details for the given notifier type.
      */
-    config: pulumi.Input<{[key: string]: any}>;
+    config: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
      */
@@ -168,7 +168,7 @@ export interface RecordAnswer {
      * answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
      */
     answer?: pulumi.Input<string>;
-    meta?: pulumi.Input<{[key: string]: any}>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The region (Answer Group really) that this answer
      * belongs to. This should be one of the names specified in `regions`. Only a
@@ -186,7 +186,7 @@ export interface RecordFilter {
      * The filters' configuration. Simple key/value pairs
      * determined by the filter type.
      */
-    config?: pulumi.Input<{[key: string]: any}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Determines whether the filter is applied in the
      * filter chain.
@@ -199,7 +199,7 @@ export interface RecordFilter {
 }
 
 export interface RecordRegion {
-    meta?: pulumi.Input<{[key: string]: any}>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the region (or Answer Group).
      */

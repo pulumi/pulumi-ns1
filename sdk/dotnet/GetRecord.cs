@@ -147,14 +147,14 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Map of metadata
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Meta;
+        public readonly ImmutableDictionary<string, string> Meta;
         public readonly bool OverrideTtl;
         /// <summary>
         /// List of regions.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRecordRegionResult> Regions;
         public readonly ImmutableArray<string> ShortAnswers;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The records' time to live (in seconds).
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.Ns1
 
             string link,
 
-            ImmutableDictionary<string, object> meta,
+            ImmutableDictionary<string, string> meta,
 
             bool overrideTtl,
 
@@ -186,7 +186,7 @@ namespace Pulumi.Ns1
 
             ImmutableArray<string> shortAnswers,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             int ttl,
 

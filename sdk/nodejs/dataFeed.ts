@@ -86,7 +86,7 @@ export class DataFeed extends pulumi.CustomResource {
      * The feeds configuration matching the specification in
      * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
-    public readonly config!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly config!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The free form name of the data feed.
      */
@@ -134,7 +134,7 @@ export interface DataFeedState {
      * The feeds configuration matching the specification in
      * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
-    config?: pulumi.Input<{[key: string]: any}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The free form name of the data feed.
      */
@@ -153,7 +153,7 @@ export interface DataFeedArgs {
      * The feeds configuration matching the specification in
      * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
-    config?: pulumi.Input<{[key: string]: any}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The free form name of the data feed.
      */

@@ -13,15 +13,15 @@ namespace Pulumi.Ns1.Inputs
     public sealed class RecordFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("config")]
-        private InputMap<object>? _config;
+        private InputMap<string>? _config;
 
         /// <summary>
         /// The filters' configuration. Simple key/value pairs
         /// determined by the filter type.
         /// </summary>
-        public InputMap<object> Config
+        public InputMap<string> Config
         {
-            get => _config ?? (_config = new InputMap<object>());
+            get => _config ?? (_config = new InputMap<string>());
             set => _config = value;
         }
 

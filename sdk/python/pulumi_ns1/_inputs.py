@@ -239,7 +239,7 @@ class ApplicationDefaultConfigArgs:
 @pulumi.input_type
 class DatasetDatatypeArgs:
     def __init__(__self__, *,
-                 data: pulumi.Input[Mapping[str, Any]],
+                 data: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  scope: pulumi.Input[str],
                  type: pulumi.Input[str]):
         pulumi.set(__self__, "data", data)
@@ -248,11 +248,11 @@ class DatasetDatatypeArgs:
 
     @property
     @pulumi.getter
-    def data(self) -> pulumi.Input[Mapping[str, Any]]:
+    def data(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: pulumi.Input[Mapping[str, Any]]):
+    def data(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "data", value)
 
     @property
@@ -470,10 +470,10 @@ class MonitoringJobRuleArgs:
 @pulumi.input_type
 class NotifyListNotificationArgs:
     def __init__(__self__, *,
-                 config: pulumi.Input[Mapping[str, Any]],
+                 config: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Mapping[str, Any]] config: Configuration details for the given notifier type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: Configuration details for the given notifier type.
         :param pulumi.Input[str] type: The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
         """
         pulumi.set(__self__, "config", config)
@@ -481,14 +481,14 @@ class NotifyListNotificationArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Input[Mapping[str, Any]]:
+    def config(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         Configuration details for the given notifier type.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: pulumi.Input[Mapping[str, Any]]):
+    def config(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -675,7 +675,7 @@ class PulsarJobWeightArgs:
 class RecordAnswerArgs:
     def __init__(__self__, *,
                  answer: Optional[pulumi.Input[str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] answer: Space delimited string of RDATA fields dependent on the record type.
@@ -748,11 +748,11 @@ class RecordAnswerArgs:
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "meta", value)
 
     @property
@@ -778,11 +778,11 @@ class RecordAnswerArgs:
 class RecordFilterArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[str],
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] filter: The type of filter.
-        :param pulumi.Input[Mapping[str, Any]] config: The filters' configuration. Simple key/value pairs
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The filters' configuration. Simple key/value pairs
                determined by the filter type.
         :param pulumi.Input[bool] disabled: Determines whether the filter is applied in the
                filter chain.
@@ -807,7 +807,7 @@ class RecordFilterArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The filters' configuration. Simple key/value pairs
         determined by the filter type.
@@ -815,7 +815,7 @@ class RecordFilterArgs:
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -836,7 +836,7 @@ class RecordFilterArgs:
 class RecordRegionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 meta: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: Name of the region (or Answer Group).
         """
@@ -858,11 +858,11 @@ class RecordRegionArgs:
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "meta", value)
 
 

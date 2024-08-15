@@ -13,14 +13,14 @@ namespace Pulumi.Ns1.Inputs
     public sealed class NotifyListNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("config", required: true)]
-        private InputMap<object>? _config;
+        private InputMap<string>? _config;
 
         /// <summary>
         /// Configuration details for the given notifier type.
         /// </summary>
-        public InputMap<object> Config
+        public InputMap<string> Config
         {
-            get => _config ?? (_config = new InputMap<object>());
+            get => _config ?? (_config = new InputMap<string>());
             set => _config = value;
         }
 

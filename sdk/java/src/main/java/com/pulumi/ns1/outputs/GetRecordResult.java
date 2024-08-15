@@ -10,7 +10,6 @@ import com.pulumi.ns1.outputs.GetRecordFilter;
 import com.pulumi.ns1.outputs.GetRecordRegion;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +42,7 @@ public final class GetRecordResult {
      * @return Map of metadata
      * 
      */
-    private Map<String,Object> meta;
+    private Map<String,String> meta;
     private Boolean overrideTtl;
     /**
      * @return List of regions.
@@ -51,7 +50,7 @@ public final class GetRecordResult {
      */
     private List<GetRecordRegion> regions;
     private List<String> shortAnswers;
-    private Map<String,Object> tags;
+    private Map<String,String> tags;
     /**
      * @return The records&#39; time to live (in seconds).
      * 
@@ -101,7 +100,7 @@ public final class GetRecordResult {
      * @return Map of metadata
      * 
      */
-    public Map<String,Object> meta() {
+    public Map<String,String> meta() {
         return this.meta;
     }
     public Boolean overrideTtl() {
@@ -117,7 +116,7 @@ public final class GetRecordResult {
     public List<String> shortAnswers() {
         return this.shortAnswers;
     }
-    public Map<String,Object> tags() {
+    public Map<String,String> tags() {
         return this.tags;
     }
     /**
@@ -155,11 +154,11 @@ public final class GetRecordResult {
         private List<GetRecordFilter> filters;
         private String id;
         private String link;
-        private Map<String,Object> meta;
+        private Map<String,String> meta;
         private Boolean overrideTtl;
         private List<GetRecordRegion> regions;
         private List<String> shortAnswers;
-        private Map<String,Object> tags;
+        private Map<String,String> tags;
         private Integer ttl;
         private String type;
         private Boolean useClientSubnet;
@@ -230,7 +229,7 @@ public final class GetRecordResult {
             return this;
         }
         @CustomType.Setter
-        public Builder meta(Map<String,Object> meta) {
+        public Builder meta(Map<String,String> meta) {
             if (meta == null) {
               throw new MissingRequiredPropertyException("GetRecordResult", "meta");
             }
@@ -268,7 +267,7 @@ public final class GetRecordResult {
             return shortAnswers(List.of(shortAnswers));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,Object> tags) {
+        public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetRecordResult", "tags");
             }

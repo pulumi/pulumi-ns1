@@ -5,7 +5,6 @@ package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -13,7 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecordRegion {
-    private @Nullable Map<String,Object> meta;
+    private @Nullable Map<String,String> meta;
     /**
      * @return Name of the region (or Answer Group).
      * 
@@ -21,7 +20,7 @@ public final class RecordRegion {
     private String name;
 
     private RecordRegion() {}
-    public Map<String,Object> meta() {
+    public Map<String,String> meta() {
         return this.meta == null ? Map.of() : this.meta;
     }
     /**
@@ -41,7 +40,7 @@ public final class RecordRegion {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Map<String,Object> meta;
+        private @Nullable Map<String,String> meta;
         private String name;
         public Builder() {}
         public Builder(RecordRegion defaults) {
@@ -51,7 +50,7 @@ public final class RecordRegion {
         }
 
         @CustomType.Setter
-        public Builder meta(@Nullable Map<String,Object> meta) {
+        public Builder meta(@Nullable Map<String,String> meta) {
 
             this.meta = meta;
             return this;

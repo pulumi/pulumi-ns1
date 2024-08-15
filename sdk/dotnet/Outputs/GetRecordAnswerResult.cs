@@ -17,14 +17,14 @@ namespace Pulumi.Ns1.Outputs
         /// <summary>
         /// Map of metadata
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Meta;
+        public readonly ImmutableDictionary<string, string> Meta;
         public readonly string Region;
 
         [OutputConstructor]
         private GetRecordAnswerResult(
             string answer,
 
-            ImmutableDictionary<string, object> meta,
+            ImmutableDictionary<string, string> meta,
 
             string region)
         {

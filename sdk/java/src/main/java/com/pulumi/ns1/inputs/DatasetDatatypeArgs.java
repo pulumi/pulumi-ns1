@@ -6,7 +6,6 @@ package com.pulumi.ns1.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -17,9 +16,9 @@ public final class DatasetDatatypeArgs extends com.pulumi.resources.ResourceArgs
     public static final DatasetDatatypeArgs Empty = new DatasetDatatypeArgs();
 
     @Import(name="data", required=true)
-    private Output<Map<String,Object>> data;
+    private Output<Map<String,String>> data;
 
-    public Output<Map<String,Object>> data() {
+    public Output<Map<String,String>> data() {
         return this.data;
     }
 
@@ -63,12 +62,12 @@ public final class DatasetDatatypeArgs extends com.pulumi.resources.ResourceArgs
             $ = new DatasetDatatypeArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder data(Output<Map<String,Object>> data) {
+        public Builder data(Output<Map<String,String>> data) {
             $.data = data;
             return this;
         }
 
-        public Builder data(Map<String,Object> data) {
+        public Builder data(Map<String,String> data) {
             return data(Output.of(data));
         }
 

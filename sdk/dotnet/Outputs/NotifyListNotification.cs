@@ -16,7 +16,7 @@ namespace Pulumi.Ns1.Outputs
         /// <summary>
         /// Configuration details for the given notifier type.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Config;
+        public readonly ImmutableDictionary<string, string> Config;
         /// <summary>
         /// The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Ns1.Outputs
 
         [OutputConstructor]
         private NotifyListNotification(
-            ImmutableDictionary<string, object> config,
+            ImmutableDictionary<string, string> config,
 
             string type)
         {

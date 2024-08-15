@@ -204,7 +204,7 @@ namespace Pulumi.Ns1
         /// documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetZoneSecondaryResult> Secondaries;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The SOA TTL.
         /// </summary>
@@ -243,7 +243,7 @@ namespace Pulumi.Ns1
 
             ImmutableArray<Outputs.GetZoneSecondaryResult> secondaries,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             int ttl,
 

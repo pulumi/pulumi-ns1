@@ -46,7 +46,7 @@ class UserArgs:
                  monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -80,7 +80,7 @@ class UserArgs:
         :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
-        :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[bool] security_manage_active_directory: Whether the user can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
@@ -513,14 +513,14 @@ class UserArgs:
 
     @property
     @pulumi.getter
-    def notify(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def notify(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Whether or not to notify the user of specified events. Only `billing` is available currently.
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def notify(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "notify", value)
 
     @property
@@ -593,7 +593,7 @@ class _UserState:
                  monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -627,7 +627,7 @@ class _UserState:
         :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
-        :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[bool] security_manage_active_directory: Whether the user can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
@@ -1051,14 +1051,14 @@ class _UserState:
 
     @property
     @pulumi.getter
-    def notify(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def notify(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Whether or not to notify the user of specified events. Only `billing` is available currently.
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def notify(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "notify", value)
 
     @property
@@ -1145,7 +1145,7 @@ class User(pulumi.CustomResource):
                  monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1176,7 +1176,7 @@ class User(pulumi.CustomResource):
             email="user@example.com",
             teams=[example.id],
             notify={
-                "billing": False,
+                "billing": "false",
             })
         ```
 
@@ -1234,7 +1234,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
-        :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[bool] security_manage_active_directory: Whether the user can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
@@ -1272,7 +1272,7 @@ class User(pulumi.CustomResource):
             email="user@example.com",
             teams=[example.id],
             notify={
-                "billing": False,
+                "billing": "false",
             })
         ```
 
@@ -1345,7 +1345,7 @@ class User(pulumi.CustomResource):
                  monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1436,7 +1436,7 @@ class User(pulumi.CustomResource):
             monitoring_update_jobs: Optional[pulumi.Input[bool]] = None,
             monitoring_view_jobs: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notify: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             security_manage_active_directory: Optional[pulumi.Input[bool]] = None,
             security_manage_global2fa: Optional[pulumi.Input[bool]] = None,
             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1475,7 +1475,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[str] name: The free form name of the user.
-        :param pulumi.Input[Mapping[str, Any]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[bool] security_manage_active_directory: Whether the user can manage global active directory.
                Only relevant for the DDI product.
         :param pulumi.Input[bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
@@ -1751,7 +1751,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notify(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def notify(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Whether or not to notify the user of specified events. Only `billing` is available currently.
         """

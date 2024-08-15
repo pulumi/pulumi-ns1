@@ -6,7 +6,6 @@ package com.pulumi.ns1.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public final class RecordFilter {
      * determined by the filter type.
      * 
      */
-    private @Nullable Map<String,Object> config;
+    private @Nullable Map<String,String> config;
     /**
      * @return Determines whether the filter is applied in the
      * filter chain.
@@ -39,7 +38,7 @@ public final class RecordFilter {
      * determined by the filter type.
      * 
      */
-    public Map<String,Object> config() {
+    public Map<String,String> config() {
         return this.config == null ? Map.of() : this.config;
     }
     /**
@@ -67,7 +66,7 @@ public final class RecordFilter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Map<String,Object> config;
+        private @Nullable Map<String,String> config;
         private @Nullable Boolean disabled;
         private String filter;
         public Builder() {}
@@ -79,7 +78,7 @@ public final class RecordFilter {
         }
 
         @CustomType.Setter
-        public Builder config(@Nullable Map<String,Object> config) {
+        public Builder config(@Nullable Map<String,String> config) {
 
             this.config = config;
             return this;

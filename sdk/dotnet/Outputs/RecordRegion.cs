@@ -13,7 +13,7 @@ namespace Pulumi.Ns1.Outputs
     [OutputType]
     public sealed class RecordRegion
     {
-        public readonly ImmutableDictionary<string, object>? Meta;
+        public readonly ImmutableDictionary<string, string>? Meta;
         /// <summary>
         /// Name of the region (or Answer Group).
         /// </summary>
@@ -21,7 +21,7 @@ namespace Pulumi.Ns1.Outputs
 
         [OutputConstructor]
         private RecordRegion(
-            ImmutableDictionary<string, object>? meta,
+            ImmutableDictionary<string, string>? meta,
 
             string name)
         {
