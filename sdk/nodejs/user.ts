@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *     email: "user@example.com",
  *     teams: [example.id],
  *     notify: {
- *         billing: false,
+ *         billing: "false",
  *     },
  * });
  * ```
@@ -205,7 +205,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      */
-    public readonly notify!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly notify!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether the user can manage global active directory.
      * Only relevant for the DDI product.
@@ -438,7 +438,7 @@ export interface UserState {
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      */
-    notify?: pulumi.Input<{[key: string]: any}>;
+    notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether the user can manage global active directory.
      * Only relevant for the DDI product.
@@ -577,7 +577,7 @@ export interface UserArgs {
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      */
-    notify?: pulumi.Input<{[key: string]: any}>;
+    notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether the user can manage global active directory.
      * Only relevant for the DDI product.

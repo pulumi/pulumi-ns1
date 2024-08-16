@@ -13,13 +13,13 @@ namespace Pulumi.Ns1.Outputs
     [OutputType]
     public sealed class DatasetDatatype
     {
-        public readonly ImmutableDictionary<string, object> Data;
+        public readonly ImmutableDictionary<string, string> Data;
         public readonly string Scope;
         public readonly string Type;
 
         [OutputConstructor]
         private DatasetDatatype(
-            ImmutableDictionary<string, object> data,
+            ImmutableDictionary<string, string> data,
 
             string scope,
 

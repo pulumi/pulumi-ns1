@@ -39,9 +39,9 @@ namespace Pulumi.Ns1
     ///         Mute = true,
     ///         Config = 
     ///         {
-    ///             { "ssl", 1 },
+    ///             { "ssl", "1" },
     ///             { "send", "HEAD / HTTP/1.0\\r\\n\\r\\n" },
-    ///             { "port", 443 },
+    ///             { "port", "443" },
     ///             { "host", "example-elb-uswest.aws.amazon.com" },
     ///         },
     ///         Rules = new[]
@@ -81,7 +81,7 @@ namespace Pulumi.Ns1
         /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         [Output("config")]
-        public Output<ImmutableDictionary<string, object>> Config { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Config { get; private set; } = null!;
 
         /// <summary>
         /// The frequency, in seconds, at which to run the monitoring job in each region.
@@ -219,14 +219,14 @@ namespace Pulumi.Ns1
         public Input<bool>? Active { get; set; }
 
         [Input("config", required: true)]
-        private InputMap<object>? _config;
+        private InputMap<string>? _config;
 
         /// <summary>
         /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
-        public InputMap<object> Config
+        public InputMap<string> Config
         {
-            get => _config ?? (_config = new InputMap<object>());
+            get => _config ?? (_config = new InputMap<string>());
             set => _config = value;
         }
 
@@ -340,14 +340,14 @@ namespace Pulumi.Ns1
         public Input<bool>? Active { get; set; }
 
         [Input("config")]
-        private InputMap<object>? _config;
+        private InputMap<string>? _config;
 
         /// <summary>
         /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
-        public InputMap<object> Config
+        public InputMap<string> Config
         {
-            get => _config ?? (_config = new InputMap<object>());
+            get => _config ?? (_config = new InputMap<string>());
             set => _config = value;
         }
 

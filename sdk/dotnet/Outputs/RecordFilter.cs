@@ -17,7 +17,7 @@ namespace Pulumi.Ns1.Outputs
         /// The filters' configuration. Simple key/value pairs
         /// determined by the filter type.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Config;
+        public readonly ImmutableDictionary<string, string>? Config;
         /// <summary>
         /// Determines whether the filter is applied in the
         /// filter chain.
@@ -30,7 +30,7 @@ namespace Pulumi.Ns1.Outputs
 
         [OutputConstructor]
         private RecordFilter(
-            ImmutableDictionary<string, object>? config,
+            ImmutableDictionary<string, string>? config,
 
             bool? disabled,
 

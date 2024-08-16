@@ -49,7 +49,7 @@ namespace Pulumi.Ns1
         /// matching the specification in `config` from /data/sourcetypes.
         /// </summary>
         [Output("config")]
-        public Output<ImmutableDictionary<string, object>?> Config { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Config { get; private set; } = null!;
 
         /// <summary>
         /// The free form name of the data source.
@@ -110,15 +110,15 @@ namespace Pulumi.Ns1
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("config")]
-        private InputMap<object>? _config;
+        private InputMap<string>? _config;
 
         /// <summary>
         /// The data source configuration, determined by its type,
         /// matching the specification in `config` from /data/sourcetypes.
         /// </summary>
-        public InputMap<object> Config
+        public InputMap<string> Config
         {
-            get => _config ?? (_config = new InputMap<object>());
+            get => _config ?? (_config = new InputMap<string>());
             set => _config = value;
         }
 
@@ -143,15 +143,15 @@ namespace Pulumi.Ns1
     public sealed class DataSourceState : global::Pulumi.ResourceArgs
     {
         [Input("config")]
-        private InputMap<object>? _config;
+        private InputMap<string>? _config;
 
         /// <summary>
         /// The data source configuration, determined by its type,
         /// matching the specification in `config` from /data/sourcetypes.
         /// </summary>
-        public InputMap<object> Config
+        public InputMap<string> Config
         {
-            get => _config ?? (_config = new InputMap<object>());
+            get => _config ?? (_config = new InputMap<string>());
             set => _config = value;
         }
 

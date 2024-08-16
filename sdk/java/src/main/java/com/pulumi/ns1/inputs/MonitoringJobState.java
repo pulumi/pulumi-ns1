@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.ns1.inputs.MonitoringJobRuleArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -41,13 +40,13 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="config")
-    private @Nullable Output<Map<String,Object>> config;
+    private @Nullable Output<Map<String,String>> config;
 
     /**
      * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
-    public Optional<Output<Map<String,Object>>> config() {
+    public Optional<Output<Map<String,String>>> config() {
         return Optional.ofNullable(this.config);
     }
 
@@ -323,7 +322,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder config(@Nullable Output<Map<String,Object>> config) {
+        public Builder config(@Nullable Output<Map<String,String>> config) {
             $.config = config;
             return this;
         }
@@ -334,7 +333,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder config(Map<String,Object> config) {
+        public Builder config(Map<String,String> config) {
             return config(Output.of(config));
         }
 

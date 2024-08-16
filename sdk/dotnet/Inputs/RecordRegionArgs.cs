@@ -13,10 +13,10 @@ namespace Pulumi.Ns1.Inputs
     public sealed class RecordRegionArgs : global::Pulumi.ResourceArgs
     {
         [Input("meta")]
-        private InputMap<object>? _meta;
-        public InputMap<object> Meta
+        private InputMap<string>? _meta;
+        public InputMap<string> Meta
         {
-            get => _meta ?? (_meta = new InputMap<object>());
+            get => _meta ?? (_meta = new InputMap<string>());
             set => _meta = value;
         }
 

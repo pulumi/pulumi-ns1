@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.ns1.DataSourceArgs;
 import com.pulumi.ns1.Utilities;
 import com.pulumi.ns1.inputs.DataSourceState;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -73,15 +72,15 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * matching the specification in `config` from /data/sourcetypes.
      * 
      */
-    @Export(name="config", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> config;
+    @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> config;
 
     /**
      * @return The data source configuration, determined by its type,
      * matching the specification in `config` from /data/sourcetypes.
      * 
      */
-    public Output<Optional<Map<String,Object>>> config() {
+    public Output<Optional<Map<String,String>>> config() {
         return Codegen.optional(this.config);
     }
     /**

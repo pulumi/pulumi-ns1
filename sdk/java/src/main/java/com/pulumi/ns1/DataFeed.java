@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.ns1.DataFeedArgs;
 import com.pulumi.ns1.Utilities;
 import com.pulumi.ns1.inputs.DataFeedState;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -98,15 +97,15 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
      * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      * 
      */
-    @Export(name="config", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> config;
+    @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> config;
 
     /**
      * @return The feeds configuration matching the specification in
      * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      * 
      */
-    public Output<Optional<Map<String,Object>>> config() {
+    public Output<Optional<Map<String,String>>> config() {
         return Codegen.optional(this.config);
     }
     /**

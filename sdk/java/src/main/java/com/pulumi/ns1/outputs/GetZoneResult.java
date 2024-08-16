@@ -8,7 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.outputs.GetZoneSecondary;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -88,7 +87,7 @@ public final class GetZoneResult {
      * 
      */
     private List<GetZoneSecondary> secondaries;
-    private Map<String,Object> tags;
+    private Map<String,String> tags;
     /**
      * @return The SOA TTL.
      * 
@@ -197,7 +196,7 @@ public final class GetZoneResult {
     public List<GetZoneSecondary> secondaries() {
         return this.secondaries;
     }
-    public Map<String,Object> tags() {
+    public Map<String,String> tags() {
         return this.tags;
     }
     /**
@@ -235,7 +234,7 @@ public final class GetZoneResult {
         private Integer refresh;
         private Integer retry;
         private List<GetZoneSecondary> secondaries;
-        private Map<String,Object> tags;
+        private Map<String,String> tags;
         private Integer ttl;
         private String zone;
         public Builder() {}
@@ -388,7 +387,7 @@ public final class GetZoneResult {
             return secondaries(List.of(secondaries));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,Object> tags) {
+        public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetZoneResult", "tags");
             }

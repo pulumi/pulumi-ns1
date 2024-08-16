@@ -16,12 +16,12 @@ namespace Pulumi.Ns1.Outputs
         /// <summary>
         /// Map of metadata
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Meta;
+        public readonly ImmutableDictionary<string, string> Meta;
         public readonly string Name;
 
         [OutputConstructor]
         private GetRecordRegionResult(
-            ImmutableDictionary<string, object> meta,
+            ImmutableDictionary<string, string> meta,
 
             string name)
         {

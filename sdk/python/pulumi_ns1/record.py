@@ -23,7 +23,7 @@ class RecordArgs:
                  blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -171,11 +171,11 @@ class RecordArgs:
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "meta", value)
 
     @property
@@ -260,7 +260,7 @@ class _RecordState:
                  domain: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -388,11 +388,11 @@ class _RecordState:
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "meta", value)
 
     @property
@@ -504,7 +504,7 @@ class Record(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -548,7 +548,7 @@ class Record(pulumi.CustomResource):
             type="CNAME",
             ttl=60,
             meta={
-                "up": True,
+                "up": "true",
             },
             regions=[
                 {
@@ -576,7 +576,7 @@ class Record(pulumi.CustomResource):
                     "answer": f"sub2.{tld['zone']}",
                     "meta": {
                         "up": bar.id.apply(lambda id: f"{{\\"feed\\":\\"{id}\\"}}"),
-                        "connections": 3,
+                        "connections": "3",
                     },
                 },
                 {
@@ -604,7 +604,7 @@ class Record(pulumi.CustomResource):
             filters=[{
                 "filter": "select_first_n",
                 "config": {
-                    "n": 1,
+                    "n": "1",
                 },
             }])
         # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
@@ -707,7 +707,7 @@ class Record(pulumi.CustomResource):
             type="CNAME",
             ttl=60,
             meta={
-                "up": True,
+                "up": "true",
             },
             regions=[
                 {
@@ -735,7 +735,7 @@ class Record(pulumi.CustomResource):
                     "answer": f"sub2.{tld['zone']}",
                     "meta": {
                         "up": bar.id.apply(lambda id: f"{{\\"feed\\":\\"{id}\\"}}"),
-                        "connections": 3,
+                        "connections": "3",
                     },
                 },
                 {
@@ -763,7 +763,7 @@ class Record(pulumi.CustomResource):
             filters=[{
                 "filter": "select_first_n",
                 "config": {
-                    "n": 1,
+                    "n": "1",
                 },
             }])
         # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
@@ -822,7 +822,7 @@ class Record(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -875,7 +875,7 @@ class Record(pulumi.CustomResource):
             domain: Optional[pulumi.Input[str]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
             link: Optional[pulumi.Input[str]] = None,
-            meta: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             override_ttl: Optional[pulumi.Input[bool]] = None,
             regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
             short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -976,7 +976,7 @@ class Record(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def meta(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def meta(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "meta")
 
     @property

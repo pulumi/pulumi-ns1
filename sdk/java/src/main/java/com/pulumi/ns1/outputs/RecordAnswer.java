@@ -4,7 +4,6 @@
 package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +37,7 @@ public final class RecordAnswer {
      * 
      */
     private @Nullable String answer;
-    private @Nullable Map<String,Object> meta;
+    private @Nullable Map<String,String> meta;
     /**
      * @return The region (Answer Group really) that this answer
      * belongs to. This should be one of the names specified in `regions`. Only a
@@ -79,7 +78,7 @@ public final class RecordAnswer {
     public Optional<String> answer() {
         return Optional.ofNullable(this.answer);
     }
-    public Map<String,Object> meta() {
+    public Map<String,String> meta() {
         return this.meta == null ? Map.of() : this.meta;
     }
     /**
@@ -106,7 +105,7 @@ public final class RecordAnswer {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String answer;
-        private @Nullable Map<String,Object> meta;
+        private @Nullable Map<String,String> meta;
         private @Nullable String region;
         public Builder() {}
         public Builder(RecordAnswer defaults) {
@@ -123,7 +122,7 @@ public final class RecordAnswer {
             return this;
         }
         @CustomType.Setter
-        public Builder meta(@Nullable Map<String,Object> meta) {
+        public Builder meta(@Nullable Map<String,String> meta) {
 
             this.meta = meta;
             return this;

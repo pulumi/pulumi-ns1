@@ -13,13 +13,13 @@ namespace Pulumi.Ns1.Outputs
     [OutputType]
     public sealed class GetRecordFilterResult
     {
-        public readonly ImmutableDictionary<string, object> Config;
+        public readonly ImmutableDictionary<string, string> Config;
         public readonly bool Disabled;
         public readonly string Filter;
 
         [OutputConstructor]
         private GetRecordFilterResult(
-            ImmutableDictionary<string, object> config,
+            ImmutableDictionary<string, string> config,
 
             bool disabled,
 

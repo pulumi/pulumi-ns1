@@ -41,11 +41,11 @@ import (
 //				RapidRecheck: pulumi.Bool(true),
 //				Policy:       pulumi.String("quorum"),
 //				Mute:         pulumi.Bool(true),
-//				Config: pulumi.Map{
-//					"ssl":  pulumi.Any(1),
-//					"send": pulumi.Any("HEAD / HTTP/1.0\\r\\n\\r\\n"),
-//					"port": pulumi.Any(443),
-//					"host": pulumi.Any("example-elb-uswest.aws.amazon.com"),
+//				Config: pulumi.StringMap{
+//					"ssl":  pulumi.String("1"),
+//					"send": pulumi.String("HEAD / HTTP/1.0\\r\\n\\r\\n"),
+//					"port": pulumi.String("443"),
+//					"host": pulumi.String("example-elb-uswest.aws.amazon.com"),
 //				},
 //				Rules: ns1.MonitoringJobRuleArray{
 //					&ns1.MonitoringJobRuleArgs{
@@ -79,7 +79,7 @@ type MonitoringJob struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
-	Config pulumi.MapOutput `pulumi:"config"`
+	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency pulumi.IntOutput `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
@@ -156,7 +156,7 @@ type monitoringJobState struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active *bool `pulumi:"active"`
 	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency *int `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
@@ -192,7 +192,7 @@ type MonitoringJobState struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active pulumi.BoolPtrInput
 	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
-	Config pulumi.MapInput
+	Config pulumi.StringMapInput
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency pulumi.IntPtrInput
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
@@ -232,7 +232,7 @@ type monitoringJobArgs struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active *bool `pulumi:"active"`
 	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency int `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
@@ -269,7 +269,7 @@ type MonitoringJobArgs struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active pulumi.BoolPtrInput
 	// A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
-	Config pulumi.MapInput
+	Config pulumi.StringMapInput
 	// The frequency, in seconds, at which to run the monitoring job in each region.
 	Frequency pulumi.IntInput
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
@@ -394,8 +394,8 @@ func (o MonitoringJobOutput) Active() pulumi.BoolPtrOutput {
 }
 
 // A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
-func (o MonitoringJobOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v *MonitoringJob) pulumi.MapOutput { return v.Config }).(pulumi.MapOutput)
+func (o MonitoringJobOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MonitoringJob) pulumi.StringMapOutput { return v.Config }).(pulumi.StringMapOutput)
 }
 
 // The frequency, in seconds, at which to run the monitoring job in each region.

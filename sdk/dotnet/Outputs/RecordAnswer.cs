@@ -37,7 +37,7 @@ namespace Pulumi.Ns1.Outputs
         /// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
         /// </summary>
         public readonly string? Answer;
-        public readonly ImmutableDictionary<string, object>? Meta;
+        public readonly ImmutableDictionary<string, string>? Meta;
         /// <summary>
         /// The region (Answer Group really) that this answer
         /// belongs to. This should be one of the names specified in `regions`. Only a
@@ -53,7 +53,7 @@ namespace Pulumi.Ns1.Outputs
         private RecordAnswer(
             string? answer,
 
-            ImmutableDictionary<string, object>? meta,
+            ImmutableDictionary<string, string>? meta,
 
             string? region)
         {

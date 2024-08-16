@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.ns1.inputs.MonitoringJobRuleArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -42,13 +41,13 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="config", required=true)
-    private Output<Map<String,Object>> config;
+    private Output<Map<String,String>> config;
 
     /**
      * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
-    public Output<Map<String,Object>> config() {
+    public Output<Map<String,String>> config() {
         return this.config;
     }
 
@@ -324,7 +323,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder config(Output<Map<String,Object>> config) {
+        public Builder config(Output<Map<String,String>> config) {
             $.config = config;
             return this;
         }
@@ -335,7 +334,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder config(Map<String,Object> config) {
+        public Builder config(Map<String,String> config) {
             return config(Output.of(config));
         }
 

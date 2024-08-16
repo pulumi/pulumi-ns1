@@ -45,8 +45,8 @@ import (
 //			_, err = ns1.NewDataFeed(ctx, "uswest_feed", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("uswest_feed"),
 //				SourceId: example.ID(),
-//				Config: pulumi.Map{
-//					"label": pulumi.Any("uswest"),
+//				Config: pulumi.StringMap{
+//					"label": pulumi.String("uswest"),
 //				},
 //			})
 //			if err != nil {
@@ -55,8 +55,8 @@ import (
 //			_, err = ns1.NewDataFeed(ctx, "useast_feed", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("useast_feed"),
 //				SourceId: example.ID(),
-//				Config: pulumi.Map{
-//					"label": pulumi.Any("useast"),
+//				Config: pulumi.StringMap{
+//					"label": pulumi.String("useast"),
 //				},
 //			})
 //			if err != nil {
@@ -65,7 +65,7 @@ import (
 //			_, err = ns1.NewDataFeed(ctx, "useast_monitor_feed", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("useast_monitor_feed"),
 //				SourceId: exampleMonitoring.ID(),
-//				Config: pulumi.Map{
+//				Config: pulumi.StringMap{
 //					"jobid": pulumi.Any(exampleJob.Id),
 //				},
 //			})
@@ -92,7 +92,7 @@ type DataFeed struct {
 
 	// The feeds configuration matching the specification in
 	// `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
-	Config pulumi.MapOutput `pulumi:"config"`
+	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The free form name of the data feed.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The data source id that this feed is connected to.
@@ -134,7 +134,7 @@ func GetDataFeed(ctx *pulumi.Context,
 type dataFeedState struct {
 	// The feeds configuration matching the specification in
 	// `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// The free form name of the data feed.
 	Name *string `pulumi:"name"`
 	// The data source id that this feed is connected to.
@@ -144,7 +144,7 @@ type dataFeedState struct {
 type DataFeedState struct {
 	// The feeds configuration matching the specification in
 	// `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
-	Config pulumi.MapInput
+	Config pulumi.StringMapInput
 	// The free form name of the data feed.
 	Name pulumi.StringPtrInput
 	// The data source id that this feed is connected to.
@@ -158,7 +158,7 @@ func (DataFeedState) ElementType() reflect.Type {
 type dataFeedArgs struct {
 	// The feeds configuration matching the specification in
 	// `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// The free form name of the data feed.
 	Name *string `pulumi:"name"`
 	// The data source id that this feed is connected to.
@@ -169,7 +169,7 @@ type dataFeedArgs struct {
 type DataFeedArgs struct {
 	// The feeds configuration matching the specification in
 	// `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
-	Config pulumi.MapInput
+	Config pulumi.StringMapInput
 	// The free form name of the data feed.
 	Name pulumi.StringPtrInput
 	// The data source id that this feed is connected to.
@@ -265,8 +265,8 @@ func (o DataFeedOutput) ToDataFeedOutputWithContext(ctx context.Context) DataFee
 
 // The feeds configuration matching the specification in
 // `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
-func (o DataFeedOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v *DataFeed) pulumi.MapOutput { return v.Config }).(pulumi.MapOutput)
+func (o DataFeedOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFeed) pulumi.StringMapOutput { return v.Config }).(pulumi.StringMapOutput)
 }
 
 // The free form name of the data feed.

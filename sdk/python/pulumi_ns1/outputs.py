@@ -251,7 +251,7 @@ class ApplicationDefaultConfig(dict):
 @pulumi.output_type
 class DatasetDatatype(dict):
     def __init__(__self__, *,
-                 data: Mapping[str, Any],
+                 data: Mapping[str, str],
                  scope: str,
                  type: str):
         pulumi.set(__self__, "data", data)
@@ -260,7 +260,7 @@ class DatasetDatatype(dict):
 
     @property
     @pulumi.getter
-    def data(self) -> Mapping[str, Any]:
+    def data(self) -> Mapping[str, str]:
         return pulumi.get(self, "data")
 
     @property
@@ -463,10 +463,10 @@ class MonitoringJobRule(dict):
 @pulumi.output_type
 class NotifyListNotification(dict):
     def __init__(__self__, *,
-                 config: Mapping[str, Any],
+                 config: Mapping[str, str],
                  type: str):
         """
-        :param Mapping[str, Any] config: Configuration details for the given notifier type.
+        :param Mapping[str, str] config: Configuration details for the given notifier type.
         :param str type: The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
         """
         pulumi.set(__self__, "config", config)
@@ -474,7 +474,7 @@ class NotifyListNotification(dict):
 
     @property
     @pulumi.getter
-    def config(self) -> Mapping[str, Any]:
+    def config(self) -> Mapping[str, str]:
         """
         Configuration details for the given notifier type.
         """
@@ -650,7 +650,7 @@ class PulsarJobWeight(dict):
 class RecordAnswer(dict):
     def __init__(__self__, *,
                  answer: Optional[str] = None,
-                 meta: Optional[Mapping[str, Any]] = None,
+                 meta: Optional[Mapping[str, str]] = None,
                  region: Optional[str] = None):
         """
         :param str answer: Space delimited string of RDATA fields dependent on the record type.
@@ -719,7 +719,7 @@ class RecordAnswer(dict):
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional[Mapping[str, Any]]:
+    def meta(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "meta")
 
     @property
@@ -741,11 +741,11 @@ class RecordAnswer(dict):
 class RecordFilter(dict):
     def __init__(__self__, *,
                  filter: str,
-                 config: Optional[Mapping[str, Any]] = None,
+                 config: Optional[Mapping[str, str]] = None,
                  disabled: Optional[bool] = None):
         """
         :param str filter: The type of filter.
-        :param Mapping[str, Any] config: The filters' configuration. Simple key/value pairs
+        :param Mapping[str, str] config: The filters' configuration. Simple key/value pairs
                determined by the filter type.
         :param bool disabled: Determines whether the filter is applied in the
                filter chain.
@@ -766,7 +766,7 @@ class RecordFilter(dict):
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[Mapping[str, Any]]:
+    def config(self) -> Optional[Mapping[str, str]]:
         """
         The filters' configuration. Simple key/value pairs
         determined by the filter type.
@@ -787,7 +787,7 @@ class RecordFilter(dict):
 class RecordRegion(dict):
     def __init__(__self__, *,
                  name: str,
-                 meta: Optional[Mapping[str, Any]] = None):
+                 meta: Optional[Mapping[str, str]] = None):
         """
         :param str name: Name of the region (or Answer Group).
         """
@@ -805,7 +805,7 @@ class RecordRegion(dict):
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional[Mapping[str, Any]]:
+    def meta(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "meta")
 
 
@@ -1403,10 +1403,10 @@ class GetNetworksNetworkResult(dict):
 class GetRecordAnswerResult(dict):
     def __init__(__self__, *,
                  answer: str,
-                 meta: Mapping[str, Any],
+                 meta: Mapping[str, str],
                  region: str):
         """
-        :param Mapping[str, Any] meta: Map of metadata
+        :param Mapping[str, str] meta: Map of metadata
         """
         pulumi.set(__self__, "answer", answer)
         pulumi.set(__self__, "meta", meta)
@@ -1419,7 +1419,7 @@ class GetRecordAnswerResult(dict):
 
     @property
     @pulumi.getter
-    def meta(self) -> Mapping[str, Any]:
+    def meta(self) -> Mapping[str, str]:
         """
         Map of metadata
         """
@@ -1434,7 +1434,7 @@ class GetRecordAnswerResult(dict):
 @pulumi.output_type
 class GetRecordFilterResult(dict):
     def __init__(__self__, *,
-                 config: Mapping[str, Any],
+                 config: Mapping[str, str],
                  disabled: bool,
                  filter: str):
         pulumi.set(__self__, "config", config)
@@ -1443,7 +1443,7 @@ class GetRecordFilterResult(dict):
 
     @property
     @pulumi.getter
-    def config(self) -> Mapping[str, Any]:
+    def config(self) -> Mapping[str, str]:
         return pulumi.get(self, "config")
 
     @property
@@ -1460,17 +1460,17 @@ class GetRecordFilterResult(dict):
 @pulumi.output_type
 class GetRecordRegionResult(dict):
     def __init__(__self__, *,
-                 meta: Mapping[str, Any],
+                 meta: Mapping[str, str],
                  name: str):
         """
-        :param Mapping[str, Any] meta: Map of metadata
+        :param Mapping[str, str] meta: Map of metadata
         """
         pulumi.set(__self__, "meta", meta)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def meta(self) -> Mapping[str, Any]:
+    def meta(self) -> Mapping[str, str]:
         """
         Map of metadata
         """

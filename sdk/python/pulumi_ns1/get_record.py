@@ -105,7 +105,7 @@ class GetRecordResult:
 
     @property
     @pulumi.getter
-    def meta(self) -> Mapping[str, Any]:
+    def meta(self) -> Mapping[str, str]:
         """
         Map of metadata
         """
@@ -131,7 +131,7 @@ class GetRecordResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, Any]:
+    def tags(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags")
 
     @property
