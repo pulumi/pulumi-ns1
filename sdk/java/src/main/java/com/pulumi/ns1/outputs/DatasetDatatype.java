@@ -5,19 +5,18 @@ package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
 
 @CustomType
 public final class DatasetDatatype {
-    private Map<String,Object> data;
+    private Map<String,String> data;
     private String scope;
     private String type;
 
     private DatasetDatatype() {}
-    public Map<String,Object> data() {
+    public Map<String,String> data() {
         return this.data;
     }
     public String scope() {
@@ -36,7 +35,7 @@ public final class DatasetDatatype {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,Object> data;
+        private Map<String,String> data;
         private String scope;
         private String type;
         public Builder() {}
@@ -48,7 +47,7 @@ public final class DatasetDatatype {
         }
 
         @CustomType.Setter
-        public Builder data(Map<String,Object> data) {
+        public Builder data(Map<String,String> data) {
             if (data == null) {
               throw new MissingRequiredPropertyException("DatasetDatatype", "data");
             }

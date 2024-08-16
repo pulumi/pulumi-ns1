@@ -13,10 +13,10 @@ namespace Pulumi.Ns1.Inputs
     public sealed class DatasetDatatypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("data", required: true)]
-        private InputMap<object>? _data;
-        public InputMap<object> Data
+        private InputMap<string>? _data;
+        public InputMap<string> Data
         {
-            get => _data ?? (_data = new InputMap<object>());
+            get => _data ?? (_data = new InputMap<string>());
             set => _data = value;
         }
 

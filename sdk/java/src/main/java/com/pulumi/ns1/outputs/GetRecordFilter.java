@@ -6,19 +6,18 @@ package com.pulumi.ns1.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
 
 @CustomType
 public final class GetRecordFilter {
-    private Map<String,Object> config;
+    private Map<String,String> config;
     private Boolean disabled;
     private String filter;
 
     private GetRecordFilter() {}
-    public Map<String,Object> config() {
+    public Map<String,String> config() {
         return this.config;
     }
     public Boolean disabled() {
@@ -37,7 +36,7 @@ public final class GetRecordFilter {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,Object> config;
+        private Map<String,String> config;
         private Boolean disabled;
         private String filter;
         public Builder() {}
@@ -49,7 +48,7 @@ public final class GetRecordFilter {
         }
 
         @CustomType.Setter
-        public Builder config(Map<String,Object> config) {
+        public Builder config(Map<String,String> config) {
             if (config == null) {
               throw new MissingRequiredPropertyException("GetRecordFilter", "config");
             }

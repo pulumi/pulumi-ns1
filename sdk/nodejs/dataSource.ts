@@ -61,7 +61,7 @@ export class DataSource extends pulumi.CustomResource {
      * The data source configuration, determined by its type,
      * matching the specification in `config` from /data/sourcetypes.
      */
-    public readonly config!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly config!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The free form name of the data source.
      */
@@ -109,7 +109,7 @@ export interface DataSourceState {
      * The data source configuration, determined by its type,
      * matching the specification in `config` from /data/sourcetypes.
      */
-    config?: pulumi.Input<{[key: string]: any}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The free form name of the data source.
      */
@@ -128,7 +128,7 @@ export interface DataSourceArgs {
      * The data source configuration, determined by its type,
      * matching the specification in `config` from /data/sourcetypes.
      */
-    config?: pulumi.Input<{[key: string]: any}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The free form name of the data source.
      */

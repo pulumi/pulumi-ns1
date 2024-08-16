@@ -94,8 +94,8 @@ type LookupZoneResult struct {
 	Retry int `pulumi:"retry"`
 	// List of secondary servers. Secondaries is
 	// documented below.
-	Secondaries []GetZoneSecondary     `pulumi:"secondaries"`
-	Tags        map[string]interface{} `pulumi:"tags"`
+	Secondaries []GetZoneSecondary `pulumi:"secondaries"`
+	Tags        map[string]string  `pulumi:"tags"`
 	// The SOA TTL.
 	Ttl  int    `pulumi:"ttl"`
 	Zone string `pulumi:"zone"`
@@ -220,8 +220,8 @@ func (o LookupZoneResultOutput) Secondaries() GetZoneSecondaryArrayOutput {
 	return o.ApplyT(func(v LookupZoneResult) []GetZoneSecondary { return v.Secondaries }).(GetZoneSecondaryArrayOutput)
 }
 
-func (o LookupZoneResultOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupZoneResult) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o LookupZoneResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The SOA TTL.

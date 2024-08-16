@@ -29,9 +29,9 @@ import * as utilities from "./utilities";
  *     policy: "quorum",
  *     mute: true,
  *     config: {
- *         ssl: 1,
+ *         ssl: "1",
  *         send: "HEAD / HTTP/1.0\\r\\n\\r\\n",
- *         port: 443,
+ *         port: "443",
  *         host: "example-elb-uswest.aws.amazon.com",
  *     },
  *     rules: [{
@@ -87,7 +87,7 @@ export class MonitoringJob extends pulumi.CustomResource {
     /**
      * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
-    public readonly config!: pulumi.Output<{[key: string]: any}>;
+    public readonly config!: pulumi.Output<{[key: string]: string}>;
     /**
      * The frequency, in seconds, at which to run the monitoring job in each region.
      */
@@ -220,7 +220,7 @@ export interface MonitoringJobState {
     /**
      * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
-    config?: pulumi.Input<{[key: string]: any}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The frequency, in seconds, at which to run the monitoring job in each region.
      */
@@ -289,7 +289,7 @@ export interface MonitoringJobArgs {
     /**
      * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
-    config: pulumi.Input<{[key: string]: any}>;
+    config: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The frequency, in seconds, at which to run the monitoring job in each region.
      */

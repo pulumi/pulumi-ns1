@@ -5,7 +5,6 @@ package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -17,7 +16,7 @@ public final class GetRecordAnswer {
      * @return Map of metadata
      * 
      */
-    private Map<String,Object> meta;
+    private Map<String,String> meta;
     private String region;
 
     private GetRecordAnswer() {}
@@ -28,7 +27,7 @@ public final class GetRecordAnswer {
      * @return Map of metadata
      * 
      */
-    public Map<String,Object> meta() {
+    public Map<String,String> meta() {
         return this.meta;
     }
     public String region() {
@@ -45,7 +44,7 @@ public final class GetRecordAnswer {
     @CustomType.Builder
     public static final class Builder {
         private String answer;
-        private Map<String,Object> meta;
+        private Map<String,String> meta;
         private String region;
         public Builder() {}
         public Builder(GetRecordAnswer defaults) {
@@ -64,7 +63,7 @@ public final class GetRecordAnswer {
             return this;
         }
         @CustomType.Setter
-        public Builder meta(Map<String,Object> meta) {
+        public Builder meta(Map<String,String> meta) {
             if (meta == null) {
               throw new MissingRequiredPropertyException("GetRecordAnswer", "meta");
             }

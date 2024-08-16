@@ -6,7 +6,6 @@ package com.pulumi.ns1.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -19,9 +18,9 @@ public final class RecordRegionArgs extends com.pulumi.resources.ResourceArgs {
     public static final RecordRegionArgs Empty = new RecordRegionArgs();
 
     @Import(name="meta")
-    private @Nullable Output<Map<String,Object>> meta;
+    private @Nullable Output<Map<String,String>> meta;
 
-    public Optional<Output<Map<String,Object>>> meta() {
+    public Optional<Output<Map<String,String>>> meta() {
         return Optional.ofNullable(this.meta);
     }
 
@@ -65,12 +64,12 @@ public final class RecordRegionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RecordRegionArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder meta(@Nullable Output<Map<String,Object>> meta) {
+        public Builder meta(@Nullable Output<Map<String,String>> meta) {
             $.meta = meta;
             return this;
         }
 
-        public Builder meta(Map<String,Object> meta) {
+        public Builder meta(Map<String,String> meta) {
             return meta(Output.of(meta));
         }
 

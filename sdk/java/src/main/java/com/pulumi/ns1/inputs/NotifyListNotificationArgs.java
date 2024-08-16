@@ -6,7 +6,6 @@ package com.pulumi.ns1.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -21,13 +20,13 @@ public final class NotifyListNotificationArgs extends com.pulumi.resources.Resou
      * 
      */
     @Import(name="config", required=true)
-    private Output<Map<String,Object>> config;
+    private Output<Map<String,String>> config;
 
     /**
      * @return Configuration details for the given notifier type.
      * 
      */
-    public Output<Map<String,Object>> config() {
+    public Output<Map<String,String>> config() {
         return this.config;
     }
 
@@ -77,7 +76,7 @@ public final class NotifyListNotificationArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder config(Output<Map<String,Object>> config) {
+        public Builder config(Output<Map<String,String>> config) {
             $.config = config;
             return this;
         }
@@ -88,7 +87,7 @@ public final class NotifyListNotificationArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder config(Map<String,Object> config) {
+        public Builder config(Map<String,String> config) {
             return config(Output.of(config));
         }
 

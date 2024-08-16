@@ -77,14 +77,14 @@ export interface GetRecordResult {
     /**
      * Map of metadata
      */
-    readonly meta: {[key: string]: any};
+    readonly meta: {[key: string]: string};
     readonly overrideTtl: boolean;
     /**
      * List of regions.
      */
     readonly regions: outputs.GetRecordRegion[];
     readonly shortAnswers: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The records' time to live (in seconds).
      */

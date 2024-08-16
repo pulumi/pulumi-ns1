@@ -48,7 +48,7 @@ export interface ApplicationDefaultConfig {
 }
 
 export interface DatasetDatatype {
-    data: {[key: string]: any};
+    data: {[key: string]: string};
     scope: string;
     type: string;
 }
@@ -192,12 +192,12 @@ export interface GetRecordAnswer {
     /**
      * Map of metadata
      */
-    meta: {[key: string]: any};
+    meta: {[key: string]: string};
     region: string;
 }
 
 export interface GetRecordFilter {
-    config: {[key: string]: any};
+    config: {[key: string]: string};
     disabled: boolean;
     filter: string;
 }
@@ -206,7 +206,7 @@ export interface GetRecordRegion {
     /**
      * Map of metadata
      */
-    meta: {[key: string]: any};
+    meta: {[key: string]: string};
     name: string;
 }
 
@@ -241,7 +241,7 @@ export interface NotifyListNotification {
     /**
      * Configuration details for the given notifier type.
      */
-    config: {[key: string]: any};
+    config: {[key: string]: string};
     /**
      * The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
      */
@@ -295,7 +295,7 @@ export interface RecordAnswer {
      * answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
      */
     answer?: string;
-    meta?: {[key: string]: any};
+    meta?: {[key: string]: string};
     /**
      * The region (Answer Group really) that this answer
      * belongs to. This should be one of the names specified in `regions`. Only a
@@ -313,7 +313,7 @@ export interface RecordFilter {
      * The filters' configuration. Simple key/value pairs
      * determined by the filter type.
      */
-    config?: {[key: string]: any};
+    config?: {[key: string]: string};
     /**
      * Determines whether the filter is applied in the
      * filter chain.
@@ -326,7 +326,7 @@ export interface RecordFilter {
 }
 
 export interface RecordRegion {
-    meta?: {[key: string]: any};
+    meta?: {[key: string]: string};
     /**
      * Name of the region (or Answer Group).
      */

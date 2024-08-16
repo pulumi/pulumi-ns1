@@ -49,8 +49,8 @@ import (
 //			foo, err := ns1.NewDataFeed(ctx, "foo", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("foo_feed"),
 //				SourceId: ns1.ID(),
-//				Config: pulumi.Map{
-//					"label": pulumi.Any("foo"),
+//				Config: pulumi.StringMap{
+//					"label": pulumi.String("foo"),
 //				},
 //			})
 //			if err != nil {
@@ -59,8 +59,8 @@ import (
 //			bar, err := ns1.NewDataFeed(ctx, "bar", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("bar_feed"),
 //				SourceId: ns1.ID(),
-//				Config: pulumi.Map{
-//					"label": pulumi.Any("bar"),
+//				Config: pulumi.StringMap{
+//					"label": pulumi.String("bar"),
 //				},
 //			})
 //			if err != nil {
@@ -97,20 +97,20 @@ import (
 //				Domain: pulumi.Sprintf("www.%v", tld.Zone),
 //				Type:   pulumi.String("CNAME"),
 //				Ttl:    pulumi.Int(60),
-//				Meta: pulumi.Map{
-//					"up": pulumi.Any(true),
+//				Meta: pulumi.StringMap{
+//					"up": pulumi.String("true"),
 //				},
 //				Regions: ns1.RecordRegionArray{
 //					&ns1.RecordRegionArgs{
 //						Name: pulumi.String("east"),
-//						Meta: pulumi.Map{
-//							"georegion": pulumi.Any("US-EAST"),
+//						Meta: pulumi.StringMap{
+//							"georegion": pulumi.String("US-EAST"),
 //						},
 //					},
 //					&ns1.RecordRegionArgs{
 //						Name: pulumi.String("usa"),
-//						Meta: pulumi.Map{
-//							"country": pulumi.Any("US"),
+//						Meta: pulumi.StringMap{
+//							"country": pulumi.String("US"),
 //						},
 //					},
 //				},
@@ -118,24 +118,24 @@ import (
 //					&ns1.RecordAnswerArgs{
 //						Answer: pulumi.Sprintf("sub1.%v", tld.Zone),
 //						Region: pulumi.String("east"),
-//						Meta: pulumi.Map{
-//							"up": interface{}(foo.ID().ApplyT(func(id string) (string, error) {
+//						Meta: pulumi.StringMap{
+//							"up": foo.ID().ApplyT(func(id string) (string, error) {
 //								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
-//							}).(pulumi.StringOutput)),
+//							}).(pulumi.StringOutput),
 //						},
 //					},
 //					&ns1.RecordAnswerArgs{
 //						Answer: pulumi.Sprintf("sub2.%v", tld.Zone),
-//						Meta: pulumi.Map{
-//							"up": interface{}(bar.ID().ApplyT(func(id string) (string, error) {
+//						Meta: pulumi.StringMap{
+//							"up": bar.ID().ApplyT(func(id string) (string, error) {
 //								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
-//							}).(pulumi.StringOutput)),
-//							"connections": pulumi.Any(3),
+//							}).(pulumi.StringOutput),
+//							"connections": pulumi.String("3"),
 //						},
 //					},
 //					&ns1.RecordAnswerArgs{
 //						Answer: pulumi.Sprintf("sub3.%v", tld.Zone),
-//						Meta: pulumi.Map{
+//						Meta: pulumi.StringMap{
 //							"pulsar":       pulumi.String(json0),
 //							"subdivisions": pulumi.String(json1),
 //						},
@@ -144,8 +144,8 @@ import (
 //				Filters: ns1.RecordFilterArray{
 //					&ns1.RecordFilterArgs{
 //						Filter: pulumi.String("select_first_n"),
-//						Config: pulumi.Map{
-//							"N": pulumi.Any(1),
+//						Config: pulumi.StringMap{
+//							"N": pulumi.String("1"),
 //						},
 //					},
 //				},
@@ -228,7 +228,7 @@ type Record struct {
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
 	Link        pulumi.StringPtrOutput `pulumi:"link"`
-	Meta        pulumi.MapOutput       `pulumi:"meta"`
+	Meta        pulumi.StringMapOutput `pulumi:"meta"`
 	OverrideTtl pulumi.BoolPtrOutput   `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
@@ -304,9 +304,9 @@ type recordState struct {
 	Filters []RecordFilter `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link        *string                `pulumi:"link"`
-	Meta        map[string]interface{} `pulumi:"meta"`
-	OverrideTtl *bool                  `pulumi:"overrideTtl"`
+	Link        *string           `pulumi:"link"`
+	Meta        map[string]string `pulumi:"meta"`
+	OverrideTtl *bool             `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -344,7 +344,7 @@ type RecordState struct {
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
 	Link        pulumi.StringPtrInput
-	Meta        pulumi.MapInput
+	Meta        pulumi.StringMapInput
 	OverrideTtl pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
@@ -386,9 +386,9 @@ type recordArgs struct {
 	Filters []RecordFilter `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link        *string                `pulumi:"link"`
-	Meta        map[string]interface{} `pulumi:"meta"`
-	OverrideTtl *bool                  `pulumi:"overrideTtl"`
+	Link        *string           `pulumi:"link"`
+	Meta        map[string]string `pulumi:"meta"`
+	OverrideTtl *bool             `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -427,7 +427,7 @@ type RecordArgs struct {
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
 	Link        pulumi.StringPtrInput
-	Meta        pulumi.MapInput
+	Meta        pulumi.StringMapInput
 	OverrideTtl pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
@@ -567,8 +567,8 @@ func (o RecordOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringPtrOutput { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-func (o RecordOutput) Meta() pulumi.MapOutput {
-	return o.ApplyT(func(v *Record) pulumi.MapOutput { return v.Meta }).(pulumi.MapOutput)
+func (o RecordOutput) Meta() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Record) pulumi.StringMapOutput { return v.Meta }).(pulumi.StringMapOutput)
 }
 
 func (o RecordOutput) OverrideTtl() pulumi.BoolPtrOutput {

@@ -47,7 +47,7 @@ namespace Pulumi.Ns1
     ///         },
     ///         Notify = 
     ///         {
-    ///             { "billing", false },
+    ///             { "billing", "false" },
     ///         },
     ///     });
     /// 
@@ -254,7 +254,7 @@ namespace Pulumi.Ns1
         /// Whether or not to notify the user of specified events. Only `billing` is available currently.
         /// </summary>
         [Output("notify")]
-        public Output<ImmutableDictionary<string, object>?> Notify { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Notify { get; private set; } = null!;
 
         /// <summary>
         /// Whether the user can manage global active directory.
@@ -524,14 +524,14 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         [Input("notify")]
-        private InputMap<object>? _notify;
+        private InputMap<string>? _notify;
 
         /// <summary>
         /// Whether or not to notify the user of specified events. Only `billing` is available currently.
         /// </summary>
-        public InputMap<object> Notify
+        public InputMap<string> Notify
         {
-            get => _notify ?? (_notify = new InputMap<object>());
+            get => _notify ?? (_notify = new InputMap<string>());
             set => _notify = value;
         }
 
@@ -771,14 +771,14 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         [Input("notify")]
-        private InputMap<object>? _notify;
+        private InputMap<string>? _notify;
 
         /// <summary>
         /// Whether or not to notify the user of specified events. Only `billing` is available currently.
         /// </summary>
-        public InputMap<object> Notify
+        public InputMap<string> Notify
         {
-            get => _notify ?? (_notify = new InputMap<object>());
+            get => _notify ?? (_notify = new InputMap<string>());
             set => _notify = value;
         }
 

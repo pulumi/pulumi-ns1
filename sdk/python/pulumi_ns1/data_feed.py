@@ -15,12 +15,12 @@ __all__ = ['DataFeedArgs', 'DataFeed']
 class DataFeedArgs:
     def __init__(__self__, *,
                  source_id: pulumi.Input[str],
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataFeed resource.
         :param pulumi.Input[str] source_id: The data source id that this feed is connected to.
-        :param pulumi.Input[Mapping[str, Any]] config: The feeds configuration matching the specification in
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The feeds configuration matching the specification in
                `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         :param pulumi.Input[str] name: The free form name of the data feed.
         """
@@ -44,7 +44,7 @@ class DataFeedArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The feeds configuration matching the specification in
         `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
@@ -52,7 +52,7 @@ class DataFeedArgs:
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -71,12 +71,12 @@ class DataFeedArgs:
 @pulumi.input_type
 class _DataFeedState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DataFeed resources.
-        :param pulumi.Input[Mapping[str, Any]] config: The feeds configuration matching the specification in
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The feeds configuration matching the specification in
                `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         :param pulumi.Input[str] name: The free form name of the data feed.
         :param pulumi.Input[str] source_id: The data source id that this feed is connected to.
@@ -90,7 +90,7 @@ class _DataFeedState:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The feeds configuration matching the specification in
         `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
@@ -98,7 +98,7 @@ class _DataFeedState:
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -131,7 +131,7 @@ class DataFeed(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -182,7 +182,7 @@ class DataFeed(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] config: The feeds configuration matching the specification in
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The feeds configuration matching the specification in
                `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         :param pulumi.Input[str] name: The free form name of the data feed.
         :param pulumi.Input[str] source_id: The data source id that this feed is connected to.
@@ -253,7 +253,7 @@ class DataFeed(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -280,7 +280,7 @@ class DataFeed(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             source_id: Optional[pulumi.Input[str]] = None) -> 'DataFeed':
         """
@@ -290,7 +290,7 @@ class DataFeed(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] config: The feeds configuration matching the specification in
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The feeds configuration matching the specification in
                `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         :param pulumi.Input[str] name: The free form name of the data feed.
         :param pulumi.Input[str] source_id: The data source id that this feed is connected to.
@@ -306,7 +306,7 @@ class DataFeed(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def config(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The feeds configuration matching the specification in
         `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.

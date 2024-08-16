@@ -15,12 +15,12 @@ __all__ = ['DataSourceArgs', 'DataSource']
 class DataSourceArgs:
     def __init__(__self__, *,
                  sourcetype: pulumi.Input[str],
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataSource resource.
         :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
-        :param pulumi.Input[Mapping[str, Any]] config: The data source configuration, determined by its type,
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
         """
@@ -44,7 +44,7 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The data source configuration, determined by its type,
         matching the specification in `config` from /data/sourcetypes.
@@ -52,7 +52,7 @@ class DataSourceArgs:
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -71,12 +71,12 @@ class DataSourceArgs:
 @pulumi.input_type
 class _DataSourceState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sourcetype: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
-        :param pulumi.Input[Mapping[str, Any]] config: The data source configuration, determined by its type,
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
         :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -90,7 +90,7 @@ class _DataSourceState:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The data source configuration, determined by its type,
         matching the specification in `config` from /data/sourcetypes.
@@ -98,7 +98,7 @@ class _DataSourceState:
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -131,7 +131,7 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sourcetype: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -161,7 +161,7 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] config: The data source configuration, determined by its type,
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
         :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -211,7 +211,7 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sourcetype: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -238,7 +238,7 @@ class DataSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sourcetype: Optional[pulumi.Input[str]] = None) -> 'DataSource':
         """
@@ -248,7 +248,7 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] config: The data source configuration, determined by its type,
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
         :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
@@ -264,7 +264,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def config(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The data source configuration, determined by its type,
         matching the specification in `config` from /data/sourcetypes.

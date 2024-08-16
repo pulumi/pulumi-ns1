@@ -8,7 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.ns1.inputs.UserDnsRecordsAllowArgs;
 import com.pulumi.ns1.inputs.UserDnsRecordsDenyArgs;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -453,13 +452,13 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="notify")
-    private @Nullable Output<Map<String,Object>> notify;
+    private @Nullable Output<Map<String,String>> notify;
 
     /**
      * @return Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
      */
-    public Optional<Output<Map<String,Object>>> notify_() {
+    public Optional<Output<Map<String,String>>> notify_() {
         return Optional.ofNullable(this.notify);
     }
 
@@ -1219,7 +1218,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notify_(@Nullable Output<Map<String,Object>> notify) {
+        public Builder notify_(@Nullable Output<Map<String,String>> notify) {
             $.notify = notify;
             return this;
         }
@@ -1230,7 +1229,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notify_(Map<String,Object> notify) {
+        public Builder notify_(Map<String,String> notify) {
             return notify_(Output.of(notify));
         }
 

@@ -15,7 +15,6 @@ import com.pulumi.ns1.outputs.RecordFilter;
 import com.pulumi.ns1.outputs.RecordRegion;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -261,10 +260,10 @@ public class Record extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> link() {
         return Codegen.optional(this.link);
     }
-    @Export(name="meta", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> meta;
+    @Export(name="meta", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> meta;
 
-    public Output<Optional<Map<String,Object>>> meta() {
+    public Output<Optional<Map<String,String>>> meta() {
         return Codegen.optional(this.meta);
     }
     @Export(name="overrideTtl", refs={Boolean.class}, tree="[0]")

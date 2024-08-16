@@ -474,9 +474,9 @@ func (o ApplicationDefaultConfigPtrOutput) UseXhr() pulumi.BoolPtrOutput {
 }
 
 type DatasetDatatype struct {
-	Data  map[string]interface{} `pulumi:"data"`
-	Scope string                 `pulumi:"scope"`
-	Type  string                 `pulumi:"type"`
+	Data  map[string]string `pulumi:"data"`
+	Scope string            `pulumi:"scope"`
+	Type  string            `pulumi:"type"`
 }
 
 // DatasetDatatypeInput is an input type that accepts DatasetDatatypeArgs and DatasetDatatypeOutput values.
@@ -491,9 +491,9 @@ type DatasetDatatypeInput interface {
 }
 
 type DatasetDatatypeArgs struct {
-	Data  pulumi.MapInput    `pulumi:"data"`
-	Scope pulumi.StringInput `pulumi:"scope"`
-	Type  pulumi.StringInput `pulumi:"type"`
+	Data  pulumi.StringMapInput `pulumi:"data"`
+	Scope pulumi.StringInput    `pulumi:"scope"`
+	Type  pulumi.StringInput    `pulumi:"type"`
 }
 
 func (DatasetDatatypeArgs) ElementType() reflect.Type {
@@ -573,8 +573,8 @@ func (o DatasetDatatypeOutput) ToDatasetDatatypePtrOutputWithContext(ctx context
 	}).(DatasetDatatypePtrOutput)
 }
 
-func (o DatasetDatatypeOutput) Data() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetDatatype) map[string]interface{} { return v.Data }).(pulumi.MapOutput)
+func (o DatasetDatatypeOutput) Data() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatasetDatatype) map[string]string { return v.Data }).(pulumi.StringMapOutput)
 }
 
 func (o DatasetDatatypeOutput) Scope() pulumi.StringOutput {
@@ -609,13 +609,13 @@ func (o DatasetDatatypePtrOutput) Elem() DatasetDatatypeOutput {
 	}).(DatasetDatatypeOutput)
 }
 
-func (o DatasetDatatypePtrOutput) Data() pulumi.MapOutput {
-	return o.ApplyT(func(v *DatasetDatatype) map[string]interface{} {
+func (o DatasetDatatypePtrOutput) Data() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatasetDatatype) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Data
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o DatasetDatatypePtrOutput) Scope() pulumi.StringPtrOutput {
@@ -1203,7 +1203,7 @@ func (o MonitoringJobRuleArrayOutput) Index(i pulumi.IntInput) MonitoringJobRule
 
 type NotifyListNotification struct {
 	// Configuration details for the given notifier type.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
 	Type string `pulumi:"type"`
 }
@@ -1221,7 +1221,7 @@ type NotifyListNotificationInput interface {
 
 type NotifyListNotificationArgs struct {
 	// Configuration details for the given notifier type.
-	Config pulumi.MapInput `pulumi:"config"`
+	Config pulumi.StringMapInput `pulumi:"config"`
 	// The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1278,8 +1278,8 @@ func (o NotifyListNotificationOutput) ToNotifyListNotificationOutputWithContext(
 }
 
 // Configuration details for the given notifier type.
-func (o NotifyListNotificationOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v NotifyListNotification) map[string]interface{} { return v.Config }).(pulumi.MapOutput)
+func (o NotifyListNotificationOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v NotifyListNotification) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
 // The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
@@ -1812,8 +1812,8 @@ type RecordAnswer struct {
 	// SPF:
 	//
 	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
-	Answer *string                `pulumi:"answer"`
-	Meta   map[string]interface{} `pulumi:"meta"`
+	Answer *string           `pulumi:"answer"`
+	Meta   map[string]string `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
 	// belongs to. This should be one of the names specified in `regions`. Only a
 	// single `region` per answer is currently supported. If you want an answer in
@@ -1858,7 +1858,7 @@ type RecordAnswerArgs struct {
 	//
 	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 	Answer pulumi.StringPtrInput `pulumi:"answer"`
-	Meta   pulumi.MapInput       `pulumi:"meta"`
+	Meta   pulumi.StringMapInput `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
 	// belongs to. This should be one of the names specified in `regions`. Only a
 	// single `region` per answer is currently supported. If you want an answer in
@@ -1945,8 +1945,8 @@ func (o RecordAnswerOutput) Answer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordAnswer) *string { return v.Answer }).(pulumi.StringPtrOutput)
 }
 
-func (o RecordAnswerOutput) Meta() pulumi.MapOutput {
-	return o.ApplyT(func(v RecordAnswer) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+func (o RecordAnswerOutput) Meta() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RecordAnswer) map[string]string { return v.Meta }).(pulumi.StringMapOutput)
 }
 
 // The region (Answer Group really) that this answer
@@ -1983,7 +1983,7 @@ func (o RecordAnswerArrayOutput) Index(i pulumi.IntInput) RecordAnswerOutput {
 type RecordFilter struct {
 	// The filters' configuration. Simple key/value pairs
 	// determined by the filter type.
-	Config map[string]interface{} `pulumi:"config"`
+	Config map[string]string `pulumi:"config"`
 	// Determines whether the filter is applied in the
 	// filter chain.
 	Disabled *bool `pulumi:"disabled"`
@@ -2005,7 +2005,7 @@ type RecordFilterInput interface {
 type RecordFilterArgs struct {
 	// The filters' configuration. Simple key/value pairs
 	// determined by the filter type.
-	Config pulumi.MapInput `pulumi:"config"`
+	Config pulumi.StringMapInput `pulumi:"config"`
 	// Determines whether the filter is applied in the
 	// filter chain.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
@@ -2066,8 +2066,8 @@ func (o RecordFilterOutput) ToRecordFilterOutputWithContext(ctx context.Context)
 
 // The filters' configuration. Simple key/value pairs
 // determined by the filter type.
-func (o RecordFilterOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v RecordFilter) map[string]interface{} { return v.Config }).(pulumi.MapOutput)
+func (o RecordFilterOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RecordFilter) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
 // Determines whether the filter is applied in the
@@ -2102,7 +2102,7 @@ func (o RecordFilterArrayOutput) Index(i pulumi.IntInput) RecordFilterOutput {
 }
 
 type RecordRegion struct {
-	Meta map[string]interface{} `pulumi:"meta"`
+	Meta map[string]string `pulumi:"meta"`
 	// Name of the region (or Answer Group).
 	Name string `pulumi:"name"`
 }
@@ -2119,7 +2119,7 @@ type RecordRegionInput interface {
 }
 
 type RecordRegionArgs struct {
-	Meta pulumi.MapInput `pulumi:"meta"`
+	Meta pulumi.StringMapInput `pulumi:"meta"`
 	// Name of the region (or Answer Group).
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -2175,8 +2175,8 @@ func (o RecordRegionOutput) ToRecordRegionOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o RecordRegionOutput) Meta() pulumi.MapOutput {
-	return o.ApplyT(func(v RecordRegion) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+func (o RecordRegionOutput) Meta() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RecordRegion) map[string]string { return v.Meta }).(pulumi.StringMapOutput)
 }
 
 // Name of the region (or Answer Group).
@@ -3714,8 +3714,8 @@ func (o GetNetworksNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworksNetwo
 type GetRecordAnswer struct {
 	Answer string `pulumi:"answer"`
 	// Map of metadata
-	Meta   map[string]interface{} `pulumi:"meta"`
-	Region string                 `pulumi:"region"`
+	Meta   map[string]string `pulumi:"meta"`
+	Region string            `pulumi:"region"`
 }
 
 // GetRecordAnswerInput is an input type that accepts GetRecordAnswerArgs and GetRecordAnswerOutput values.
@@ -3732,8 +3732,8 @@ type GetRecordAnswerInput interface {
 type GetRecordAnswerArgs struct {
 	Answer pulumi.StringInput `pulumi:"answer"`
 	// Map of metadata
-	Meta   pulumi.MapInput    `pulumi:"meta"`
-	Region pulumi.StringInput `pulumi:"region"`
+	Meta   pulumi.StringMapInput `pulumi:"meta"`
+	Region pulumi.StringInput    `pulumi:"region"`
 }
 
 func (GetRecordAnswerArgs) ElementType() reflect.Type {
@@ -3792,8 +3792,8 @@ func (o GetRecordAnswerOutput) Answer() pulumi.StringOutput {
 }
 
 // Map of metadata
-func (o GetRecordAnswerOutput) Meta() pulumi.MapOutput {
-	return o.ApplyT(func(v GetRecordAnswer) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+func (o GetRecordAnswerOutput) Meta() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRecordAnswer) map[string]string { return v.Meta }).(pulumi.StringMapOutput)
 }
 
 func (o GetRecordAnswerOutput) Region() pulumi.StringOutput {
@@ -3821,9 +3821,9 @@ func (o GetRecordAnswerArrayOutput) Index(i pulumi.IntInput) GetRecordAnswerOutp
 }
 
 type GetRecordFilter struct {
-	Config   map[string]interface{} `pulumi:"config"`
-	Disabled bool                   `pulumi:"disabled"`
-	Filter   string                 `pulumi:"filter"`
+	Config   map[string]string `pulumi:"config"`
+	Disabled bool              `pulumi:"disabled"`
+	Filter   string            `pulumi:"filter"`
 }
 
 // GetRecordFilterInput is an input type that accepts GetRecordFilterArgs and GetRecordFilterOutput values.
@@ -3838,9 +3838,9 @@ type GetRecordFilterInput interface {
 }
 
 type GetRecordFilterArgs struct {
-	Config   pulumi.MapInput    `pulumi:"config"`
-	Disabled pulumi.BoolInput   `pulumi:"disabled"`
-	Filter   pulumi.StringInput `pulumi:"filter"`
+	Config   pulumi.StringMapInput `pulumi:"config"`
+	Disabled pulumi.BoolInput      `pulumi:"disabled"`
+	Filter   pulumi.StringInput    `pulumi:"filter"`
 }
 
 func (GetRecordFilterArgs) ElementType() reflect.Type {
@@ -3894,8 +3894,8 @@ func (o GetRecordFilterOutput) ToGetRecordFilterOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GetRecordFilterOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v GetRecordFilter) map[string]interface{} { return v.Config }).(pulumi.MapOutput)
+func (o GetRecordFilterOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRecordFilter) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
 func (o GetRecordFilterOutput) Disabled() pulumi.BoolOutput {
@@ -3928,8 +3928,8 @@ func (o GetRecordFilterArrayOutput) Index(i pulumi.IntInput) GetRecordFilterOutp
 
 type GetRecordRegion struct {
 	// Map of metadata
-	Meta map[string]interface{} `pulumi:"meta"`
-	Name string                 `pulumi:"name"`
+	Meta map[string]string `pulumi:"meta"`
+	Name string            `pulumi:"name"`
 }
 
 // GetRecordRegionInput is an input type that accepts GetRecordRegionArgs and GetRecordRegionOutput values.
@@ -3945,8 +3945,8 @@ type GetRecordRegionInput interface {
 
 type GetRecordRegionArgs struct {
 	// Map of metadata
-	Meta pulumi.MapInput    `pulumi:"meta"`
-	Name pulumi.StringInput `pulumi:"name"`
+	Meta pulumi.StringMapInput `pulumi:"meta"`
+	Name pulumi.StringInput    `pulumi:"name"`
 }
 
 func (GetRecordRegionArgs) ElementType() reflect.Type {
@@ -4001,8 +4001,8 @@ func (o GetRecordRegionOutput) ToGetRecordRegionOutputWithContext(ctx context.Co
 }
 
 // Map of metadata
-func (o GetRecordRegionOutput) Meta() pulumi.MapOutput {
-	return o.ApplyT(func(v GetRecordRegion) map[string]interface{} { return v.Meta }).(pulumi.MapOutput)
+func (o GetRecordRegionOutput) Meta() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRecordRegion) map[string]string { return v.Meta }).(pulumi.StringMapOutput)
 }
 
 func (o GetRecordRegionOutput) Name() pulumi.StringOutput {

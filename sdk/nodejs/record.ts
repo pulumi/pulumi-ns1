@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  *     type: "CNAME",
  *     ttl: 60,
  *     meta: {
- *         up: true,
+ *         up: "true",
  *     },
  *     regions: [
  *         {
@@ -70,7 +70,7 @@ import * as utilities from "./utilities";
  *             answer: `sub2.${tld.zone}`,
  *             meta: {
  *                 up: pulumi.interpolate`{"feed":"${bar.id}"}`,
- *                 connections: 3,
+ *                 connections: "3",
  *             },
  *         },
  *         {
@@ -98,7 +98,7 @@ import * as utilities from "./utilities";
  *     filters: [{
  *         filter: "select_first_n",
  *         config: {
- *             N: 1,
+ *             N: "1",
  *         },
  *     }],
  * });
@@ -193,7 +193,7 @@ export class Record extends pulumi.CustomResource {
      * 'linked' record, and it inherits all properties from its target.
      */
     public readonly link!: pulumi.Output<string | undefined>;
-    public readonly meta!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly meta!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly overrideTtl!: pulumi.Output<boolean | undefined>;
     /**
      * One or more "regions" for the record. These are really
@@ -314,7 +314,7 @@ export interface RecordState {
      * 'linked' record, and it inherits all properties from its target.
      */
     link?: pulumi.Input<string>;
-    meta?: pulumi.Input<{[key: string]: any}>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     overrideTtl?: pulumi.Input<boolean>;
     /**
      * One or more "regions" for the record. These are really
@@ -378,7 +378,7 @@ export interface RecordArgs {
      * 'linked' record, and it inherits all properties from its target.
      */
     link?: pulumi.Input<string>;
-    meta?: pulumi.Input<{[key: string]: any}>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     overrideTtl?: pulumi.Input<boolean>;
     /**
      * One or more "regions" for the record. These are really

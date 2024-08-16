@@ -13,7 +13,6 @@ import com.pulumi.ns1.inputs.UserState;
 import com.pulumi.ns1.outputs.UserDnsRecordsAllow;
 import com.pulumi.ns1.outputs.UserDnsRecordsDeny;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -501,14 +500,14 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
      */
-    @Export(name="notify", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> notify;
+    @Export(name="notify", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> notify;
 
     /**
      * @return Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
      */
-    public Output<Optional<Map<String,Object>>> notify_() {
+    public Output<Optional<Map<String,String>>> notify_() {
         return Codegen.optional(this.notify);
     }
     /**

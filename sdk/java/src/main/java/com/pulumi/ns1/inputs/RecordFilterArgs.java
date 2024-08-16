@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -25,14 +24,14 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="config")
-    private @Nullable Output<Map<String,Object>> config;
+    private @Nullable Output<Map<String,String>> config;
 
     /**
      * @return The filters&#39; configuration. Simple key/value pairs
      * determined by the filter type.
      * 
      */
-    public Optional<Output<Map<String,Object>>> config() {
+    public Optional<Output<Map<String,String>>> config() {
         return Optional.ofNullable(this.config);
     }
 
@@ -101,7 +100,7 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder config(@Nullable Output<Map<String,Object>> config) {
+        public Builder config(@Nullable Output<Map<String,String>> config) {
             $.config = config;
             return this;
         }
@@ -113,7 +112,7 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder config(Map<String,Object> config) {
+        public Builder config(Map<String,String> config) {
             return config(Output.of(config));
         }
 

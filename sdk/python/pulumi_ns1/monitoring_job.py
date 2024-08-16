@@ -16,7 +16,7 @@ __all__ = ['MonitoringJobArgs', 'MonitoringJob']
 @pulumi.input_type
 class MonitoringJobArgs:
     def __init__(__self__, *,
-                 config: pulumi.Input[Mapping[str, Any]],
+                 config: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  frequency: pulumi.Input[int],
                  job_type: pulumi.Input[str],
                  regions: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -34,7 +34,7 @@ class MonitoringJobArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringJob resource.
-        :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The list of region codes in which to run the monitoring
@@ -83,14 +83,14 @@ class MonitoringJobArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Input[Mapping[str, Any]]:
+    def config(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: pulumi.Input[Mapping[str, Any]]):
+    def config(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -277,7 +277,7 @@ class MonitoringJobArgs:
 class _MonitoringJobState:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
                  mute: Optional[pulumi.Input[bool]] = None,
@@ -295,7 +295,7 @@ class _MonitoringJobState:
         """
         Input properties used for looking up and filtering MonitoringJob resources.
         :param pulumi.Input[bool] active: Indicates if the job is active or temporarily disabled.
-        :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         :param pulumi.Input[bool] mute: turn off the notifications for the monitoring job.
@@ -359,14 +359,14 @@ class _MonitoringJobState:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "config", value)
 
     @property
@@ -543,7 +543,7 @@ class MonitoringJob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
                  mute: Optional[pulumi.Input[bool]] = None,
@@ -582,9 +582,9 @@ class MonitoringJob(pulumi.CustomResource):
             policy="quorum",
             mute=True,
             config={
-                "ssl": 1,
+                "ssl": "1",
                 "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
-                "port": 443,
+                "port": "443",
                 "host": "example-elb-uswest.aws.amazon.com",
             },
             rules=[{
@@ -607,7 +607,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicates if the job is active or temporarily disabled.
-        :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         :param pulumi.Input[bool] mute: turn off the notifications for the monitoring job.
@@ -653,9 +653,9 @@ class MonitoringJob(pulumi.CustomResource):
             policy="quorum",
             mute=True,
             config={
-                "ssl": 1,
+                "ssl": "1",
                 "send": "HEAD / HTTP/1.0\\\\r\\\\n\\\\r\\\\n",
-                "port": 443,
+                "port": "443",
                 "host": "example-elb-uswest.aws.amazon.com",
             },
             rules=[{
@@ -691,7 +691,7 @@ class MonitoringJob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
                  mute: Optional[pulumi.Input[bool]] = None,
@@ -750,7 +750,7 @@ class MonitoringJob(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
-            config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             frequency: Optional[pulumi.Input[int]] = None,
             job_type: Optional[pulumi.Input[str]] = None,
             mute: Optional[pulumi.Input[bool]] = None,
@@ -773,7 +773,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Indicates if the job is active or temporarily disabled.
-        :param pulumi.Input[Mapping[str, Any]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         :param pulumi.Input[bool] mute: turn off the notifications for the monitoring job.
@@ -822,7 +822,7 @@ class MonitoringJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Output[Mapping[str, Any]]:
+    def config(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """

@@ -13,7 +13,6 @@ import com.pulumi.ns1.inputs.MonitoringJobState;
 import com.pulumi.ns1.outputs.MonitoringJobRule;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -111,14 +110,14 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
      * A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
-    @Export(name="config", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output<Map<String,Object>> config;
+    @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> config;
 
     /**
      * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
-    public Output<Map<String,Object>> config() {
+    public Output<Map<String,String>> config() {
         return this.config;
     }
     /**

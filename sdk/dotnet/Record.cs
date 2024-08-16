@@ -64,7 +64,7 @@ namespace Pulumi.Ns1
     ///         Ttl = 60,
     ///         Meta = 
     ///         {
-    ///             { "up", true },
+    ///             { "up", "true" },
     ///         },
     ///         Regions = new[]
     ///         {
@@ -102,7 +102,7 @@ namespace Pulumi.Ns1
     ///                 Meta = 
     ///                 {
     ///                     { "up", bar.Id.Apply(id =&gt; $"{{\"feed\":\"{id}\"}}") },
-    ///                     { "connections", 3 },
+    ///                     { "connections", "3" },
     ///                 },
     ///             },
     ///             new Ns1.Inputs.RecordAnswerArgs
@@ -143,7 +143,7 @@ namespace Pulumi.Ns1
     ///                 Filter = "select_first_n",
     ///                 Config = 
     ///                 {
-    ///                     { "N", 1 },
+    ///                     { "N", "1" },
     ///                 },
     ///             },
     ///         },
@@ -233,7 +233,7 @@ namespace Pulumi.Ns1
         public Output<string?> Link { get; private set; } = null!;
 
         [Output("meta")]
-        public Output<ImmutableDictionary<string, object>?> Meta { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Meta { get; private set; } = null!;
 
         [Output("overrideTtl")]
         public Output<bool?> OverrideTtl { get; private set; } = null!;
@@ -379,10 +379,10 @@ namespace Pulumi.Ns1
         public Input<string>? Link { get; set; }
 
         [Input("meta")]
-        private InputMap<object>? _meta;
-        public InputMap<object> Meta
+        private InputMap<string>? _meta;
+        public InputMap<string> Meta
         {
-            get => _meta ?? (_meta = new InputMap<object>());
+            get => _meta ?? (_meta = new InputMap<string>());
             set => _meta = value;
         }
 
@@ -510,10 +510,10 @@ namespace Pulumi.Ns1
         public Input<string>? Link { get; set; }
 
         [Input("meta")]
-        private InputMap<object>? _meta;
-        public InputMap<object> Meta
+        private InputMap<string>? _meta;
+        public InputMap<string> Meta
         {
-            get => _meta ?? (_meta = new InputMap<object>());
+            get => _meta ?? (_meta = new InputMap<string>());
             set => _meta = value;
         }
 
