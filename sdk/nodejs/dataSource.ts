@@ -67,7 +67,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+     * The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
      */
     public readonly sourcetype!: pulumi.Output<string>;
 
@@ -115,7 +115,7 @@ export interface DataSourceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+     * The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
      */
     sourcetype?: pulumi.Input<string>;
 }
@@ -134,7 +134,7 @@ export interface DataSourceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+     * The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
      */
     sourcetype: pulumi.Input<string>;
 }

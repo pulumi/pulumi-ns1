@@ -19,7 +19,7 @@ class DataSourceArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataSource resource.
-        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
@@ -34,7 +34,7 @@ class DataSourceArgs:
     @pulumi.getter
     def sourcetype(self) -> pulumi.Input[str]:
         """
-        The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
         """
         return pulumi.get(self, "sourcetype")
 
@@ -79,7 +79,7 @@ class _DataSourceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
-        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
         """
         if config is not None:
             pulumi.set(__self__, "config", config)
@@ -117,7 +117,7 @@ class _DataSourceState:
     @pulumi.getter
     def sourcetype(self) -> Optional[pulumi.Input[str]]:
         """
-        The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
         """
         return pulumi.get(self, "sourcetype")
 
@@ -164,7 +164,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
-        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
         """
         ...
     @overload
@@ -251,7 +251,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[str] name: The free form name of the data source.
-        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        :param pulumi.Input[str] sourcetype: The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,7 +283,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def sourcetype(self) -> pulumi.Output[str]:
         """
-        The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
         """
         return pulumi.get(self, "sourcetype")
 

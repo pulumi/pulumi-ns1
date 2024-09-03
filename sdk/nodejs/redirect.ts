@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### Additional Examples
+ * ### Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -79,20 +79,20 @@ export class Redirect extends pulumi.CustomResource {
     public readonly domain!: pulumi.Output<string>;
     /**
      * How the target is interpreted:
-     * * __all__       appends the entire incoming path to the target destination;
-     * * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-     * * __none__      does not append any part of the incoming path.
+     * * **all**       appends the entire incoming path to the target destination;
+     * * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+     * * **none**      does not append any part of the incoming path.
      */
     public readonly forwardingMode!: pulumi.Output<string | undefined>;
     /**
      * How the redirect is executed:
-     * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+     * * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
      * their database and replace it with the new target page (this is recommended for SEO);
-     * * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+     * * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
      * page indexed as the redirect is only temporary (while both pages might appear in the
      * search results, a temporary redirect suggests to the search engine that it should
      * prefer the new target page);
-     * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+     * * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
      * address they entered, even though the displayed content comes from a different web page).
      */
     public readonly forwardingType!: pulumi.Output<string | undefined>;
@@ -191,20 +191,20 @@ export interface RedirectState {
     domain?: pulumi.Input<string>;
     /**
      * How the target is interpreted:
-     * * __all__       appends the entire incoming path to the target destination;
-     * * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-     * * __none__      does not append any part of the incoming path.
+     * * **all**       appends the entire incoming path to the target destination;
+     * * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+     * * **none**      does not append any part of the incoming path.
      */
     forwardingMode?: pulumi.Input<string>;
     /**
      * How the redirect is executed:
-     * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+     * * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
      * their database and replace it with the new target page (this is recommended for SEO);
-     * * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+     * * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
      * page indexed as the redirect is only temporary (while both pages might appear in the
      * search results, a temporary redirect suggests to the search engine that it should
      * prefer the new target page);
-     * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+     * * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
      * address they entered, even though the displayed content comes from a different web page).
      */
     forwardingType?: pulumi.Input<string>;
@@ -252,20 +252,20 @@ export interface RedirectArgs {
     domain: pulumi.Input<string>;
     /**
      * How the target is interpreted:
-     * * __all__       appends the entire incoming path to the target destination;
-     * * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-     * * __none__      does not append any part of the incoming path.
+     * * **all**       appends the entire incoming path to the target destination;
+     * * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+     * * **none**      does not append any part of the incoming path.
      */
     forwardingMode?: pulumi.Input<string>;
     /**
      * How the redirect is executed:
-     * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+     * * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
      * their database and replace it with the new target page (this is recommended for SEO);
-     * * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+     * * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
      * page indexed as the redirect is only temporary (while both pages might appear in the
      * search results, a temporary redirect suggests to the search engine that it should
      * prefer the new target page);
-     * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+     * * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
      * address they entered, even though the displayed content comes from a different web page).
      */
     forwardingType?: pulumi.Input<string>;

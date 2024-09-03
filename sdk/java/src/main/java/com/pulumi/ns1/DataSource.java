@@ -98,14 +98,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+     * The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
      * 
      */
     @Export(name="sourcetype", refs={String.class}, tree="[0]")
     private Output<String> sourcetype;
 
     /**
-     * @return The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+     * @return The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
      * 
      */
     public Output<String> sourcetype() {

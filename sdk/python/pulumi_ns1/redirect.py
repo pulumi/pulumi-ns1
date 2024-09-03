@@ -30,17 +30,17 @@ class RedirectArgs:
         :param pulumi.Input[str] target: The URL to redirect to.
         :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
-               * __all__       appends the entire incoming path to the target destination;
-               * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-               * __none__      does not append any part of the incoming path.
+               * **all**       appends the entire incoming path to the target destination;
+               * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+               * **none**      does not append any part of the incoming path.
         :param pulumi.Input[str] forwarding_type: How the redirect is executed:
-               * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+               * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
                their database and replace it with the new target page (this is recommended for SEO);
-               * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+               * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
                page indexed as the redirect is only temporary (while both pages might appear in the
                search results, a temporary redirect suggests to the search engine that it should
                prefer the new target page);
-               * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+               * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
                address they entered, even though the displayed content comes from a different web page).
         :param pulumi.Input[bool] https_forced: Forces redirect for users that try to visit HTTP domain to HTTPS instead.
         :param pulumi.Input[bool] query_forwarding: Enables the query string of a URL to be applied directly to the new target URL.
@@ -115,9 +115,9 @@ class RedirectArgs:
     def forwarding_mode(self) -> Optional[pulumi.Input[str]]:
         """
         How the target is interpreted:
-        * __all__       appends the entire incoming path to the target destination;
-        * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-        * __none__      does not append any part of the incoming path.
+        * **all**       appends the entire incoming path to the target destination;
+        * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+        * **none**      does not append any part of the incoming path.
         """
         return pulumi.get(self, "forwarding_mode")
 
@@ -130,13 +130,13 @@ class RedirectArgs:
     def forwarding_type(self) -> Optional[pulumi.Input[str]]:
         """
         How the redirect is executed:
-        * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+        * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
         their database and replace it with the new target page (this is recommended for SEO);
-        * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+        * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
         page indexed as the redirect is only temporary (while both pages might appear in the
         search results, a temporary redirect suggests to the search engine that it should
         prefer the new target page);
-        * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+        * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
         address they entered, even though the displayed content comes from a different web page).
         """
         return pulumi.get(self, "forwarding_type")
@@ -201,17 +201,17 @@ class _RedirectState:
         :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] domain: The domain the redirect refers to.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
-               * __all__       appends the entire incoming path to the target destination;
-               * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-               * __none__      does not append any part of the incoming path.
+               * **all**       appends the entire incoming path to the target destination;
+               * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+               * **none**      does not append any part of the incoming path.
         :param pulumi.Input[str] forwarding_type: How the redirect is executed:
-               * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+               * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
                their database and replace it with the new target page (this is recommended for SEO);
-               * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+               * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
                page indexed as the redirect is only temporary (while both pages might appear in the
                search results, a temporary redirect suggests to the search engine that it should
                prefer the new target page);
-               * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+               * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
                address they entered, even though the displayed content comes from a different web page).
         :param pulumi.Input[bool] https_enabled: True if HTTPS is supported on the source domain by using Let's Encrypt certificates.
         :param pulumi.Input[bool] https_forced: Forces redirect for users that try to visit HTTP domain to HTTPS instead.
@@ -273,9 +273,9 @@ class _RedirectState:
     def forwarding_mode(self) -> Optional[pulumi.Input[str]]:
         """
         How the target is interpreted:
-        * __all__       appends the entire incoming path to the target destination;
-        * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-        * __none__      does not append any part of the incoming path.
+        * **all**       appends the entire incoming path to the target destination;
+        * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+        * **none**      does not append any part of the incoming path.
         """
         return pulumi.get(self, "forwarding_mode")
 
@@ -288,13 +288,13 @@ class _RedirectState:
     def forwarding_type(self) -> Optional[pulumi.Input[str]]:
         """
         How the redirect is executed:
-        * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+        * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
         their database and replace it with the new target page (this is recommended for SEO);
-        * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+        * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
         page indexed as the redirect is only temporary (while both pages might appear in the
         search results, a temporary redirect suggests to the search engine that it should
         prefer the new target page);
-        * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+        * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
         address they entered, even though the displayed content comes from a different web page).
         """
         return pulumi.get(self, "forwarding_type")
@@ -418,7 +418,7 @@ class Redirect(pulumi.CustomResource):
             target="https://url.com/target/path")
         ```
 
-        ### Additional Examples
+        ### Example Usage
 
         ```python
         import pulumi
@@ -444,17 +444,17 @@ class Redirect(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] domain: The domain the redirect refers to.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
-               * __all__       appends the entire incoming path to the target destination;
-               * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-               * __none__      does not append any part of the incoming path.
+               * **all**       appends the entire incoming path to the target destination;
+               * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+               * **none**      does not append any part of the incoming path.
         :param pulumi.Input[str] forwarding_type: How the redirect is executed:
-               * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+               * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
                their database and replace it with the new target page (this is recommended for SEO);
-               * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+               * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
                page indexed as the redirect is only temporary (while both pages might appear in the
                search results, a temporary redirect suggests to the search engine that it should
                prefer the new target page);
-               * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+               * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
                address they entered, even though the displayed content comes from a different web page).
         :param pulumi.Input[bool] https_forced: Forces redirect for users that try to visit HTTP domain to HTTPS instead.
         :param pulumi.Input[str] path: The path on the domain to redirect from.
@@ -483,7 +483,7 @@ class Redirect(pulumi.CustomResource):
             target="https://url.com/target/path")
         ```
 
-        ### Additional Examples
+        ### Example Usage
 
         ```python
         import pulumi
@@ -585,17 +585,17 @@ class Redirect(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] domain: The domain the redirect refers to.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
-               * __all__       appends the entire incoming path to the target destination;
-               * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-               * __none__      does not append any part of the incoming path.
+               * **all**       appends the entire incoming path to the target destination;
+               * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+               * **none**      does not append any part of the incoming path.
         :param pulumi.Input[str] forwarding_type: How the redirect is executed:
-               * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+               * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
                their database and replace it with the new target page (this is recommended for SEO);
-               * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+               * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
                page indexed as the redirect is only temporary (while both pages might appear in the
                search results, a temporary redirect suggests to the search engine that it should
                prefer the new target page);
-               * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+               * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
                address they entered, even though the displayed content comes from a different web page).
         :param pulumi.Input[bool] https_enabled: True if HTTPS is supported on the source domain by using Let's Encrypt certificates.
         :param pulumi.Input[bool] https_forced: Forces redirect for users that try to visit HTTP domain to HTTPS instead.
@@ -643,9 +643,9 @@ class Redirect(pulumi.CustomResource):
     def forwarding_mode(self) -> pulumi.Output[Optional[str]]:
         """
         How the target is interpreted:
-        * __all__       appends the entire incoming path to the target destination;
-        * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
-        * __none__      does not append any part of the incoming path.
+        * **all**       appends the entire incoming path to the target destination;
+        * **capture**   appends only the part of the incoming path corresponding to the wildcard (*);
+        * **none**      does not append any part of the incoming path.
         """
         return pulumi.get(self, "forwarding_mode")
 
@@ -654,13 +654,13 @@ class Redirect(pulumi.CustomResource):
     def forwarding_type(self) -> pulumi.Output[Optional[str]]:
         """
         How the redirect is executed:
-        * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
+        * **permanent** (HTTP 301) indicates to search engines that they should remove the old page from
         their database and replace it with the new target page (this is recommended for SEO);
-        * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
+        * **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or
         page indexed as the redirect is only temporary (while both pages might appear in the
         search results, a temporary redirect suggests to the search engine that it should
         prefer the new target page);
-        * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
+        * **masking**   preserves the redirected domain in the browser's address bar (this lets users see the
         address they entered, even though the displayed content comes from a different web page).
         """
         return pulumi.get(self, "forwarding_type")

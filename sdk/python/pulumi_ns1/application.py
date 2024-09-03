@@ -213,6 +213,14 @@ class Application(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "ns1"
+        page_title: "NS1: Application"
+        sidebar_current: "docs-ns1-resource-application"
+        description: |- Provides a NS1 Pulsar Application resource.
+        <!-- yaml: line 4: did not find expected comment or line break -->
+
+        # Application
+
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
         ## Import
@@ -245,6 +253,14 @@ class Application(pulumi.CustomResource):
                  args: Optional[ApplicationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "ns1"
+        page_title: "NS1: Application"
+        sidebar_current: "docs-ns1-resource-application"
+        description: |- Provides a NS1 Pulsar Application resource.
+        <!-- yaml: line 4: did not find expected comment or line break -->
+
+        # Application
+
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
         ## Import

@@ -58,7 +58,7 @@ type DataSource struct {
 	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The free form name of the data source.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+	// The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
 	Sourcetype pulumi.StringOutput `pulumi:"sourcetype"`
 }
 
@@ -100,7 +100,7 @@ type dataSourceState struct {
 	Config map[string]string `pulumi:"config"`
 	// The free form name of the data source.
 	Name *string `pulumi:"name"`
-	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+	// The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
 	Sourcetype *string `pulumi:"sourcetype"`
 }
 
@@ -110,7 +110,7 @@ type DataSourceState struct {
 	Config pulumi.StringMapInput
 	// The free form name of the data source.
 	Name pulumi.StringPtrInput
-	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+	// The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
 	Sourcetype pulumi.StringPtrInput
 }
 
@@ -124,7 +124,7 @@ type dataSourceArgs struct {
 	Config map[string]string `pulumi:"config"`
 	// The free form name of the data source.
 	Name *string `pulumi:"name"`
-	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+	// The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
 	Sourcetype string `pulumi:"sourcetype"`
 }
 
@@ -135,7 +135,7 @@ type DataSourceArgs struct {
 	Config pulumi.StringMapInput
 	// The free form name of the data source.
 	Name pulumi.StringPtrInput
-	// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+	// The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
 	Sourcetype pulumi.StringInput
 }
 
@@ -237,7 +237,7 @@ func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+// The data sources type, listed in API endpoint <https://api.nsone.net/v1/data/sourcetypes>.
 func (o DataSourceOutput) Sourcetype() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Sourcetype }).(pulumi.StringOutput)
 }
