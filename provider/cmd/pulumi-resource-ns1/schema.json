@@ -1442,7 +1442,7 @@
             }
         },
         "ns1:index/application:Application": {
-            "description": "Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.\n\n## Import\n\n```sh\n$ pulumi import ns1:index/application:Application `ns1_application`\n```\n\nSo for the example above:\n\n```sh\n$ pulumi import ns1:index/application:Application example terraform.example.io`\n```\n\n",
+            "description": "layout: \"ns1\"\npage_title: \"NS1: ns1.Application\"\nsidebar_current: \"docs-ns1-resource-application\"\ndescription: |- Provides a NS1 Pulsar Application resource.\n\u003c!-- yaml: line 4: did not find expected comment or line break --\u003e\n\n# ns1.Application\n\nProvides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.\n\n## Import\n\n```sh\n$ pulumi import ns1:index/application:Application `ns1_application`\n```\n\nSo for the example above:\n\n```sh\n$ pulumi import ns1:index/application:Application example terraform.example.io`\n```\n\n",
             "properties": {
                 "active": {
                     "type": "boolean",
@@ -1601,7 +1601,7 @@
                 },
                 "sourcetype": {
                     "type": "string",
-                    "description": "The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.\n"
+                    "description": "The data sources type, listed in API endpoint \u003chttps://api.nsone.net/v1/data/sourcetypes\u003e.\n"
                 }
             },
             "required": [
@@ -1622,7 +1622,7 @@
                 },
                 "sourcetype": {
                     "type": "string",
-                    "description": "The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.\n",
+                    "description": "The data sources type, listed in API endpoint \u003chttps://api.nsone.net/v1/data/sourcetypes\u003e.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1645,7 +1645,7 @@
                     },
                     "sourcetype": {
                         "type": "string",
-                        "description": "The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.\n",
+                        "description": "The data sources type, listed in API endpoint \u003chttps://api.nsone.net/v1/data/sourcetypes\u003e.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -1883,7 +1883,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
+                    "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to \u003chttps://api.nsone.net/v1/monitoring/jobtypes\u003e.\n"
                 },
                 "frequency": {
                     "type": "integer",
@@ -1891,7 +1891,7 @@
                 },
                 "jobType": {
                     "type": "string",
-                    "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n"
+                    "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (\u003chttps://ns1.com/api#monitoring-jobs\u003e) for supported values which include ping, tcp, dns, http.\n"
                 },
                 "mute": {
                     "type": "boolean",
@@ -1944,7 +1944,7 @@
                     "items": {
                         "$ref": "#/types/ns1:index/MonitoringJobRule:MonitoringJobRule"
                     },
-                    "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
+                    "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to \u003chttps://api.nsone.net/v1/monitoring/jobtypes\u003e.\n"
                 }
             },
             "required": [
@@ -1964,7 +1964,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
+                    "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to \u003chttps://api.nsone.net/v1/monitoring/jobtypes\u003e.\n"
                 },
                 "frequency": {
                     "type": "integer",
@@ -1972,7 +1972,7 @@
                 },
                 "jobType": {
                     "type": "string",
-                    "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n",
+                    "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (\u003chttps://ns1.com/api#monitoring-jobs\u003e) for supported values which include ping, tcp, dns, http.\n",
                     "willReplaceOnChanges": true
                 },
                 "mute": {
@@ -2026,7 +2026,7 @@
                     "items": {
                         "$ref": "#/types/ns1:index/MonitoringJobRule:MonitoringJobRule"
                     },
-                    "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
+                    "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to \u003chttps://api.nsone.net/v1/monitoring/jobtypes\u003e.\n"
                 }
             },
             "requiredInputs": [
@@ -2047,7 +2047,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
+                        "description": "A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to \u003chttps://api.nsone.net/v1/monitoring/jobtypes\u003e.\n"
                     },
                     "frequency": {
                         "type": "integer",
@@ -2055,7 +2055,7 @@
                     },
                     "jobType": {
                         "type": "string",
-                        "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.\n",
+                        "description": "The type of monitoring job to be run. Refer to the NS1 API documentation (\u003chttps://ns1.com/api#monitoring-jobs\u003e) for supported values which include ping, tcp, dns, http.\n",
                         "willReplaceOnChanges": true
                     },
                     "mute": {
@@ -2109,7 +2109,7 @@
                         "items": {
                             "$ref": "#/types/ns1:index/MonitoringJobRule:MonitoringJobRule"
                         },
-                        "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.\n"
+                        "description": "A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {\"key\":\"rtt\", \"comparison\":\"\u003c\", \"value\":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to \u003chttps://api.nsone.net/v1/monitoring/jobtypes\u003e.\n"
                     }
                 },
                 "type": "object"
@@ -2541,7 +2541,7 @@
             }
         },
         "ns1:index/redirect:Redirect": {
-            "description": "Provides a NS1 Redirect resource. This can be used to create, modify, and delete redirects.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Redirect(\"example\", {\n    domain: \"www.example.com\",\n    path: \"/from/path\",\n    target: \"https://url.com/target/path\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Redirect(\"example\",\n    domain=\"www.example.com\",\n    path=\"/from/path\",\n    target=\"https://url.com/target/path\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Redirect(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n        Path = \"/from/path\",\n        Target = \"https://url.com/target/path\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirect(ctx, \"example\", \u0026ns1.RedirectArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t\tPath:   pulumi.String(\"/from/path\"),\n\t\t\tTarget: pulumi.String(\"https://url.com/target/path\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Redirect;\nimport com.pulumi.ns1.RedirectArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Redirect(\"example\", RedirectArgs.builder()\n            .domain(\"www.example.com\")\n            .path(\"/from/path\")\n            .target(\"https://url.com/target/path\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Redirect\n    properties:\n      domain: www.example.com\n      path: /from/path\n      target: https://url.com/target/path\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n### Additional Examples\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.RedirectCertificate(\"example\", {domain: \"www.example.com\"});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.RedirectCertificate(\"example\", domain=\"www.example.com\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.RedirectCertificate(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirectCertificate(ctx, \"example\", \u0026ns1.RedirectCertificateArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.RedirectCertificate;\nimport com.pulumi.ns1.RedirectCertificateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RedirectCertificate(\"example\", RedirectCertificateArgs.builder()\n            .domain(\"www.example.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:RedirectCertificate\n    properties:\n      domain: www.example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n\n\n# ns1\\_redirect\\_certificate\n\nProvides a NS1 Redirect Certificate resource. This can be used to create, modify, and delete redirect certificates.\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n",
+            "description": "Provides a NS1 Redirect resource. This can be used to create, modify, and delete redirects.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Redirect(\"example\", {\n    domain: \"www.example.com\",\n    path: \"/from/path\",\n    target: \"https://url.com/target/path\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Redirect(\"example\",\n    domain=\"www.example.com\",\n    path=\"/from/path\",\n    target=\"https://url.com/target/path\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Redirect(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n        Path = \"/from/path\",\n        Target = \"https://url.com/target/path\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirect(ctx, \"example\", \u0026ns1.RedirectArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t\tPath:   pulumi.String(\"/from/path\"),\n\t\t\tTarget: pulumi.String(\"https://url.com/target/path\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Redirect;\nimport com.pulumi.ns1.RedirectArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Redirect(\"example\", RedirectArgs.builder()\n            .domain(\"www.example.com\")\n            .path(\"/from/path\")\n            .target(\"https://url.com/target/path\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Redirect\n    properties:\n      domain: www.example.com\n      path: /from/path\n      target: https://url.com/target/path\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.RedirectCertificate(\"example\", {domain: \"www.example.com\"});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.RedirectCertificate(\"example\", domain=\"www.example.com\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.RedirectCertificate(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirectCertificate(ctx, \"example\", \u0026ns1.RedirectCertificateArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.RedirectCertificate;\nimport com.pulumi.ns1.RedirectCertificateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RedirectCertificate(\"example\", RedirectCertificateArgs.builder()\n            .domain(\"www.example.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:RedirectCertificate\n    properties:\n      domain: www.example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n\n# ns1\\_redirect\\_certificate\n\nProvides a NS1 Redirect Certificate resource. This can be used to create, modify, and delete redirect certificates.\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n",
             "properties": {
                 "certificateId": {
                     "type": "string",
@@ -2553,11 +2553,11 @@
                 },
                 "forwardingMode": {
                     "type": "string",
-                    "description": "How the target is interpreted:\n* __all__       appends the entire incoming path to the target destination;\n* __capture__   appends only the part of the incoming path corresponding to the wildcard (*);\n* __none__      does not append any part of the incoming path.\n"
+                    "description": "How the target is interpreted:\n* **all**       appends the entire incoming path to the target destination;\n* **capture**   appends only the part of the incoming path corresponding to the wildcard (*);\n* **none**      does not append any part of the incoming path.\n"
                 },
                 "forwardingType": {
                     "type": "string",
-                    "description": "How the redirect is executed:\n* __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from\ntheir database and replace it with the new target page (this is recommended for SEO);\n* __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or\npage indexed as the redirect is only temporary (while both pages might appear in the\nsearch results, a temporary redirect suggests to the search engine that it should\nprefer the new target page);\n* __masking__   preserves the redirected domain in the browser's address bar (this lets users see the\naddress they entered, even though the displayed content comes from a different web page).\n"
+                    "description": "How the redirect is executed:\n* **permanent** (HTTP 301) indicates to search engines that they should remove the old page from\ntheir database and replace it with the new target page (this is recommended for SEO);\n* **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or\npage indexed as the redirect is only temporary (while both pages might appear in the\nsearch results, a temporary redirect suggests to the search engine that it should\nprefer the new target page);\n* **masking**   preserves the redirected domain in the browser's address bar (this lets users see the\naddress they entered, even though the displayed content comes from a different web page).\n"
                 },
                 "httpsEnabled": {
                     "type": "boolean",
@@ -2612,11 +2612,11 @@
                 },
                 "forwardingMode": {
                     "type": "string",
-                    "description": "How the target is interpreted:\n* __all__       appends the entire incoming path to the target destination;\n* __capture__   appends only the part of the incoming path corresponding to the wildcard (*);\n* __none__      does not append any part of the incoming path.\n"
+                    "description": "How the target is interpreted:\n* **all**       appends the entire incoming path to the target destination;\n* **capture**   appends only the part of the incoming path corresponding to the wildcard (*);\n* **none**      does not append any part of the incoming path.\n"
                 },
                 "forwardingType": {
                     "type": "string",
-                    "description": "How the redirect is executed:\n* __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from\ntheir database and replace it with the new target page (this is recommended for SEO);\n* __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or\npage indexed as the redirect is only temporary (while both pages might appear in the\nsearch results, a temporary redirect suggests to the search engine that it should\nprefer the new target page);\n* __masking__   preserves the redirected domain in the browser's address bar (this lets users see the\naddress they entered, even though the displayed content comes from a different web page).\n"
+                    "description": "How the redirect is executed:\n* **permanent** (HTTP 301) indicates to search engines that they should remove the old page from\ntheir database and replace it with the new target page (this is recommended for SEO);\n* **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or\npage indexed as the redirect is only temporary (while both pages might appear in the\nsearch results, a temporary redirect suggests to the search engine that it should\nprefer the new target page);\n* **masking**   preserves the redirected domain in the browser's address bar (this lets users see the\naddress they entered, even though the displayed content comes from a different web page).\n"
                 },
                 "httpsForced": {
                     "type": "boolean",
@@ -2661,11 +2661,11 @@
                     },
                     "forwardingMode": {
                         "type": "string",
-                        "description": "How the target is interpreted:\n* __all__       appends the entire incoming path to the target destination;\n* __capture__   appends only the part of the incoming path corresponding to the wildcard (*);\n* __none__      does not append any part of the incoming path.\n"
+                        "description": "How the target is interpreted:\n* **all**       appends the entire incoming path to the target destination;\n* **capture**   appends only the part of the incoming path corresponding to the wildcard (*);\n* **none**      does not append any part of the incoming path.\n"
                     },
                     "forwardingType": {
                         "type": "string",
-                        "description": "How the redirect is executed:\n* __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from\ntheir database and replace it with the new target page (this is recommended for SEO);\n* __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or\npage indexed as the redirect is only temporary (while both pages might appear in the\nsearch results, a temporary redirect suggests to the search engine that it should\nprefer the new target page);\n* __masking__   preserves the redirected domain in the browser's address bar (this lets users see the\naddress they entered, even though the displayed content comes from a different web page).\n"
+                        "description": "How the redirect is executed:\n* **permanent** (HTTP 301) indicates to search engines that they should remove the old page from\ntheir database and replace it with the new target page (this is recommended for SEO);\n* **temporary** (HTTP 302) less common, indicates that search engines should keep the old domain or\npage indexed as the redirect is only temporary (while both pages might appear in the\nsearch results, a temporary redirect suggests to the search engine that it should\nprefer the new target page);\n* **masking**   preserves the redirected domain in the browser's address bar (this lets users see the\naddress they entered, even though the displayed content comes from a different web page).\n"
                     },
                     "httpsEnabled": {
                         "type": "boolean",
@@ -3179,7 +3179,7 @@
             }
         },
         "ns1:index/tsigkey:Tsigkey": {
-            "description": "Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Tsigkey(\"example\", {\n    name: \"ExampleTsigKey\",\n    algorithm: \"hmac-sha256\",\n    secret: \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Tsigkey(\"example\",\n    name=\"ExampleTsigKey\",\n    algorithm=\"hmac-sha256\",\n    secret=\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Tsigkey(\"example\", new()\n    {\n        Name = \"ExampleTsigKey\",\n        Algorithm = \"hmac-sha256\",\n        Secret = \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTsigkey(ctx, \"example\", \u0026ns1.TsigkeyArgs{\n\t\t\tName:      pulumi.String(\"ExampleTsigKey\"),\n\t\t\tAlgorithm: pulumi.String(\"hmac-sha256\"),\n\t\t\tSecret:    pulumi.String(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Tsigkey;\nimport com.pulumi.ns1.TsigkeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Tsigkey(\"example\", TsigkeyArgs.builder()\n            .name(\"ExampleTsigKey\")\n            .algorithm(\"hmac-sha256\")\n            .secret(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Tsigkey\n    properties:\n      name: ExampleTsigKey\n      algorithm: hmac-sha256\n      secret: Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\n```\n\u003c!--End PulumiCodeChooser --\u003e\n## NS1 Documentation\n\n[TSIG Keys Api Doc](https://ns1.com/api/#tsig)\n\n## Import\n\n```sh\n$ pulumi import ns1:index/tsigkey:Tsigkey importTest \u003cname\u003e`\n```\n\n",
+            "description": "Provides a NS1 TSIG Key resource. This can be used to create, modify, and delete TSIG keys.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Tsigkey(\"example\", {\n    name: \"ExampleTsigKey\",\n    algorithm: \"hmac-sha256\",\n    secret: \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Tsigkey(\"example\",\n    name=\"ExampleTsigKey\",\n    algorithm=\"hmac-sha256\",\n    secret=\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Tsigkey(\"example\", new()\n    {\n        Name = \"ExampleTsigKey\",\n        Algorithm = \"hmac-sha256\",\n        Secret = \"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewTsigkey(ctx, \"example\", \u0026ns1.TsigkeyArgs{\n\t\t\tName:      pulumi.String(\"ExampleTsigKey\"),\n\t\t\tAlgorithm: pulumi.String(\"hmac-sha256\"),\n\t\t\tSecret:    pulumi.String(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Tsigkey;\nimport com.pulumi.ns1.TsigkeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Tsigkey(\"example\", TsigkeyArgs.builder()\n            .name(\"ExampleTsigKey\")\n            .algorithm(\"hmac-sha256\")\n            .secret(\"Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Tsigkey\n    properties:\n      name: ExampleTsigKey\n      algorithm: hmac-sha256\n      secret: Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[TSIG Keys Api Doc](https://ns1.com/api/#tsig)\n\n## Import\n\n```sh\n$ pulumi import ns1:index/tsigkey:Tsigkey importTest \u003cname\u003e`\n```\n\n",
             "properties": {
                 "algorithm": {
                     "type": "string",
