@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * layout: "ns1"
+ * page_title: "NS1: ns1.Application"
+ * sidebar_current: "docs-ns1-resource-application"
+ * description: |- Provides a NS1 Pulsar Application resource.
+ * <!-- yaml: line 4: did not find expected comment or line break -->
+ *
+ * # ns1.Application
+ *
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  *
  * ## Import

@@ -18,6 +18,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;ns1&#34;
+ * page_title: &#34;NS1: ns1.Application&#34;
+ * sidebar_current: &#34;docs-ns1-resource-application&#34;
+ * description: |- Provides a NS1 Pulsar Application resource.
+ * &lt;!-- yaml: line 4: did not find expected comment or line break --&gt;
+ * 
+ * # ns1.Application
+ * 
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
  * 
  * ## Import

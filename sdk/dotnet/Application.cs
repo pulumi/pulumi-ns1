@@ -10,6 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Ns1
 {
     /// <summary>
+    /// layout: "ns1"
+    /// page_title: "NS1: ns1.Application"
+    /// sidebar_current: "docs-ns1-resource-application"
+    /// description: |- Provides a NS1 Pulsar Application resource.
+    /// &lt;!-- yaml: line 4: did not find expected comment or line break --&gt;
+    /// 
+    /// # ns1.Application
+    /// 
     /// Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
     /// 
     /// ## Import

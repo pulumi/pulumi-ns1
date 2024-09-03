@@ -58,7 +58,7 @@ namespace Pulumi.Ns1
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        /// The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
         /// </summary>
         [Output("sourcetype")]
         public Output<string> Sourcetype { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        /// The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
         /// </summary>
         [Input("sourcetype", required: true)]
         public Input<string> Sourcetype { get; set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+        /// The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
         /// </summary>
         [Input("sourcetype")]
         public Input<string>? Sourcetype { get; set; }

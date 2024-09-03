@@ -49,14 +49,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+     * The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
      * 
      */
     @Import(name="sourcetype")
     private @Nullable Output<String> sourcetype;
 
     /**
-     * @return The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+     * @return The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
      * 
      */
     public Optional<Output<String>> sourcetype() {
@@ -134,7 +134,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourcetype The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+         * @param sourcetype The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourcetype The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
+         * @param sourcetype The data sources type, listed in API endpoint &lt;https://api.nsone.net/v1/data/sourcetypes&gt;.
          * 
          * @return builder
          * 

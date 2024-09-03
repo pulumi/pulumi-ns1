@@ -31,6 +31,7 @@ namespace Pulumi.Ns1
     /// 
     /// });
     /// ```
+    /// 
     /// ## NS1 Documentation
     /// 
     /// [TSIG Keys Api Doc](https://ns1.com/api/#tsig)

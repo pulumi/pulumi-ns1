@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  *     secret: "Ok1qR5IW1ajVka5cHPEJQIXfLyx5V3PSkFBROAzOn21JumDq6nIpoj6H8rfj5Uo+Ok55ZWQ0Wgrf302fDscHLA==",
  * });
  * ```
+ *
  * ## NS1 Documentation
  *
  * [TSIG Keys Api Doc](https://ns1.com/api/#tsig)

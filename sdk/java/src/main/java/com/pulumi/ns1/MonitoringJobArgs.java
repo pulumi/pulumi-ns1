@@ -37,14 +37,14 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
      * 
      */
     @Import(name="config", required=true)
     private Output<Map<String,String>> config;
 
     /**
-     * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
      * 
      */
     public Output<Map<String,String>> config() {
@@ -67,14 +67,14 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
+     * The type of monitoring job to be run. Refer to the NS1 API documentation (&lt;https://ns1.com/api#monitoring-jobs&gt;) for supported values which include ping, tcp, dns, http.
      * 
      */
     @Import(name="jobType", required=true)
     private Output<String> jobType;
 
     /**
-     * @return The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
+     * @return The type of monitoring job to be run. Refer to the NS1 API documentation (&lt;https://ns1.com/api#monitoring-jobs&gt;) for supported values which include ping, tcp, dns, http.
      * 
      */
     public Output<String> jobType() {
@@ -243,14 +243,14 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<MonitoringJobRuleArgs>> rules;
 
     /**
-     * @return A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * @return A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
      * 
      */
     public Optional<Output<List<MonitoringJobRuleArgs>>> rules() {
@@ -318,7 +318,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobType The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
+         * @param jobType The type of monitoring job to be run. Refer to the NS1 API documentation (&lt;https://ns1.com/api#monitoring-jobs&gt;) for supported values which include ping, tcp, dns, http.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobType The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
+         * @param jobType The type of monitoring job to be run. Refer to the NS1 API documentation (&lt;https://ns1.com/api#monitoring-jobs&gt;) for supported values which include ping, tcp, dns, http.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+         * @param rules A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+         * @param rules A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+         * @param rules A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {&#34;key&#34;:&#34;rtt&#34;, &#34;comparison&#34;:&#34;&lt;&#34;, &#34;value&#34;:100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to &lt;https://api.nsone.net/v1/monitoring/jobtypes&gt;.
          * 
          * @return builder
          * 
