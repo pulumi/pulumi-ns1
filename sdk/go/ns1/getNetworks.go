@@ -59,13 +59,19 @@ type GetNetworksResult struct {
 }
 
 func GetNetworksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetNetworksResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetNetworksResult, error) {
-		r, err := GetNetworks(ctx, opts...)
-		var s GetNetworksResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetNetworksResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetNetworksResult
+		secret, err := ctx.InvokePackageRaw("ns1:index/getNetworks:getNetworks", nil, &rv, "", opts...)
+		if err != nil {
+			return GetNetworksResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetNetworksResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetNetworksResultOutput), nil
+		}
+		return output, nil
 	}).(GetNetworksResultOutput)
 }
 

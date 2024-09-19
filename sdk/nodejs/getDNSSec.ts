@@ -26,7 +26,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDNSSec(args: GetDNSSecArgs, opts?: pulumi.InvokeOptions): Promise<GetDNSSecResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getDNSSec:getDNSSec", {
         "zone": args.zone,
@@ -82,7 +81,10 @@ export interface GetDNSSecResult {
  * ```
  */
 export function getDNSSecOutput(args: GetDNSSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSecResult> {
-    return pulumi.output(args).apply((a: any) => getDNSSec(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("ns1:index/getDNSSec:getDNSSec", {
+        "zone": args.zone,
+    }, opts);
 }
 
 /**
