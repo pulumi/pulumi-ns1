@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getZone:getZone", {
         "additionalPorts": args.additionalPorts,
@@ -137,7 +136,13 @@ export interface GetZoneResult {
  * ```
  */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
-    return pulumi.output(args).apply((a: any) => getZone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("ns1:index/getZone:getZone", {
+        "additionalPorts": args.additionalPorts,
+        "additionalPrimaries": args.additionalPrimaries,
+        "primaryPort": args.primaryPort,
+        "zone": args.zone,
+    }, opts);
 }
 
 /**

@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getNetworks(opts?: pulumi.InvokeOptions): Promise<GetNetworksResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getNetworks:getNetworks", {
     }, opts);
@@ -58,5 +57,7 @@ export interface GetNetworksResult {
  * ```
  */
 export function getNetworksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
-    return pulumi.output(getNetworks(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("ns1:index/getNetworks:getNetworks", {
+    }, opts);
 }
