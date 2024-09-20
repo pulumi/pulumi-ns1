@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  */
 export function getMonitoringRegions(args?: GetMonitoringRegionsArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringRegionsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getMonitoringRegions:getMonitoringRegions", {
         "regions": args.regions,
@@ -67,7 +66,11 @@ export interface GetMonitoringRegionsResult {
  * ```
  */
 export function getMonitoringRegionsOutput(args?: GetMonitoringRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringRegionsResult> {
-    return pulumi.output(args).apply((a: any) => getMonitoringRegions(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("ns1:index/getMonitoringRegions:getMonitoringRegions", {
+        "regions": args.regions,
+    }, opts);
 }
 
 /**
