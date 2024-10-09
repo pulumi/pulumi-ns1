@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -86,9 +91,6 @@ def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegion
     return AwaitableGetMonitoringRegionsResult(
         id=pulumi.get(__ret__, 'id'),
         regions=pulumi.get(__ret__, 'regions'))
-
-
-@_utilities.lift_output_func(get_monitoring_regions)
 def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringRegionsResult]:
     """
@@ -108,4 +110,10 @@ def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequen
     :param Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']] regions: A set of the available monitoring regions. Regions is
            documented below.
     """
-    ...
+    __args__ = dict()
+    __args__['regions'] = regions
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('ns1:index/getMonitoringRegions:getMonitoringRegions', __args__, opts=opts, typ=GetMonitoringRegionsResult)
+    return __ret__.apply(lambda __response__: GetMonitoringRegionsResult(
+        id=pulumi.get(__response__, 'id'),
+        regions=pulumi.get(__response__, 'regions')))
