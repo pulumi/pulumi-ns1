@@ -4,35 +4,73 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'APIKeyDnsRecordsAllowArgs',
+    'APIKeyDnsRecordsAllowArgsDict',
     'APIKeyDnsRecordsDenyArgs',
+    'APIKeyDnsRecordsDenyArgsDict',
     'ApplicationDefaultConfigArgs',
+    'ApplicationDefaultConfigArgsDict',
     'DatasetDatatypeArgs',
+    'DatasetDatatypeArgsDict',
     'DatasetRepeatArgs',
+    'DatasetRepeatArgsDict',
     'DatasetReportArgs',
+    'DatasetReportArgsDict',
     'DatasetTimeframeArgs',
+    'DatasetTimeframeArgsDict',
     'MonitoringJobRuleArgs',
+    'MonitoringJobRuleArgsDict',
     'NotifyListNotificationArgs',
+    'NotifyListNotificationArgsDict',
     'PulsarJobBlendMetricWeightsArgs',
+    'PulsarJobBlendMetricWeightsArgsDict',
     'PulsarJobConfigArgs',
+    'PulsarJobConfigArgsDict',
     'PulsarJobWeightArgs',
+    'PulsarJobWeightArgsDict',
     'RecordAnswerArgs',
+    'RecordAnswerArgsDict',
     'RecordFilterArgs',
+    'RecordFilterArgsDict',
     'RecordRegionArgs',
+    'RecordRegionArgsDict',
     'TeamDnsRecordsAllowArgs',
+    'TeamDnsRecordsAllowArgsDict',
     'TeamDnsRecordsDenyArgs',
+    'TeamDnsRecordsDenyArgsDict',
     'TeamIpWhitelistArgs',
+    'TeamIpWhitelistArgsDict',
     'UserDnsRecordsAllowArgs',
+    'UserDnsRecordsAllowArgsDict',
     'UserDnsRecordsDenyArgs',
+    'UserDnsRecordsDenyArgsDict',
     'ZoneSecondaryArgs',
+    'ZoneSecondaryArgsDict',
     'GetMonitoringRegionsRegionArgs',
+    'GetMonitoringRegionsRegionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class APIKeyDnsRecordsAllowArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        include_subdomains: pulumi.Input[bool]
+        type: pulumi.Input[str]
+        zone: pulumi.Input[str]
+elif False:
+    APIKeyDnsRecordsAllowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class APIKeyDnsRecordsAllowArgs:
@@ -83,6 +121,15 @@ class APIKeyDnsRecordsAllowArgs:
         pulumi.set(self, "zone", value)
 
 
+if not MYPY:
+    class APIKeyDnsRecordsDenyArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        include_subdomains: pulumi.Input[bool]
+        type: pulumi.Input[str]
+        zone: pulumi.Input[str]
+elif False:
+    APIKeyDnsRecordsDenyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class APIKeyDnsRecordsDenyArgs:
     def __init__(__self__, *,
@@ -131,6 +178,36 @@ class APIKeyDnsRecordsDenyArgs:
     def zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "zone", value)
 
+
+if not MYPY:
+    class ApplicationDefaultConfigArgsDict(TypedDict):
+        http: pulumi.Input[bool]
+        """
+        Indicates whether or not to use HTTP in measurements.
+        """
+        https: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not to use HTTPS in measurements.
+        """
+        job_timeout_millis: NotRequired[pulumi.Input[int]]
+        """
+        Maximum timeout per job
+        0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+        """
+        request_timeout_millis: NotRequired[pulumi.Input[int]]
+        """
+        Maximum timeout per request.
+        """
+        static_values: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not to skip aggregation for this job's measurements
+        """
+        use_xhr: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use XMLHttpRequest (XHR) when taking measurements.
+        """
+elif False:
+    ApplicationDefaultConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationDefaultConfigArgs:
@@ -236,6 +313,14 @@ class ApplicationDefaultConfigArgs:
         pulumi.set(self, "use_xhr", value)
 
 
+if not MYPY:
+    class DatasetDatatypeArgsDict(TypedDict):
+        data: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        scope: pulumi.Input[str]
+        type: pulumi.Input[str]
+elif False:
+    DatasetDatatypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetDatatypeArgs:
     def __init__(__self__, *,
@@ -274,6 +359,14 @@ class DatasetDatatypeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DatasetRepeatArgsDict(TypedDict):
+        end_after_n: pulumi.Input[int]
+        repeats_every: pulumi.Input[str]
+        start: pulumi.Input[int]
+elif False:
+    DatasetRepeatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetRepeatArgs:
     def __init__(__self__, *,
@@ -311,6 +404,16 @@ class DatasetRepeatArgs:
     def start(self, value: pulumi.Input[int]):
         pulumi.set(self, "start", value)
 
+
+if not MYPY:
+    class DatasetReportArgsDict(TypedDict):
+        created_at: NotRequired[pulumi.Input[int]]
+        end: NotRequired[pulumi.Input[int]]
+        id: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[int]]
+        status: NotRequired[pulumi.Input[str]]
+elif False:
+    DatasetReportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetReportArgs:
@@ -377,6 +480,15 @@ class DatasetReportArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class DatasetTimeframeArgsDict(TypedDict):
+        aggregation: pulumi.Input[str]
+        cycles: NotRequired[pulumi.Input[int]]
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    DatasetTimeframeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetTimeframeArgs:
     def __init__(__self__, *,
@@ -429,6 +541,14 @@ class DatasetTimeframeArgs:
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class MonitoringJobRuleArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    MonitoringJobRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringJobRuleArgs:
     def __init__(__self__, *,
@@ -467,6 +587,19 @@ class MonitoringJobRuleArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class NotifyListNotificationArgsDict(TypedDict):
+        config: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        Configuration details for the given notifier type.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
+        """
+elif False:
+    NotifyListNotificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotifyListNotificationArgs:
     def __init__(__self__, *,
@@ -504,6 +637,12 @@ class NotifyListNotificationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PulsarJobBlendMetricWeightsArgsDict(TypedDict):
+        timestamp: pulumi.Input[int]
+elif False:
+    PulsarJobBlendMetricWeightsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PulsarJobBlendMetricWeightsArgs:
     def __init__(__self__, *,
@@ -519,6 +658,19 @@ class PulsarJobBlendMetricWeightsArgs:
     def timestamp(self, value: pulumi.Input[int]):
         pulumi.set(self, "timestamp", value)
 
+
+if not MYPY:
+    class PulsarJobConfigArgsDict(TypedDict):
+        host: NotRequired[pulumi.Input[str]]
+        http: NotRequired[pulumi.Input[bool]]
+        https: NotRequired[pulumi.Input[bool]]
+        job_timeout_millis: NotRequired[pulumi.Input[int]]
+        request_timeout_millis: NotRequired[pulumi.Input[int]]
+        static_values: NotRequired[pulumi.Input[bool]]
+        url_path: NotRequired[pulumi.Input[str]]
+        use_xhr: NotRequired[pulumi.Input[bool]]
+elif False:
+    PulsarJobConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PulsarJobConfigArgs:
@@ -621,6 +773,15 @@ class PulsarJobConfigArgs:
         pulumi.set(self, "use_xhr", value)
 
 
+if not MYPY:
+    class PulsarJobWeightArgsDict(TypedDict):
+        default_value: pulumi.Input[float]
+        name: pulumi.Input[str]
+        weight: pulumi.Input[int]
+        maximize: NotRequired[pulumi.Input[bool]]
+elif False:
+    PulsarJobWeightArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PulsarJobWeightArgs:
     def __init__(__self__, *,
@@ -670,6 +831,46 @@ class PulsarJobWeightArgs:
     def maximize(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "maximize", value)
 
+
+if not MYPY:
+    class RecordAnswerArgsDict(TypedDict):
+        answer: NotRequired[pulumi.Input[str]]
+        """
+        Space delimited string of RDATA fields dependent on the record type.
+
+        A:
+
+        answer = "1.2.3.4"
+
+        CNAME:
+
+        answer = "www.example.com"
+
+        MX:
+
+        answer = "5 mail.example.com"
+
+        SRV:
+
+        answer = "10 0 2380 node-1.example.com"
+
+        SPF:
+
+        answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+        """
+        meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The region (Answer Group really) that this answer
+        belongs to. This should be one of the names specified in `regions`. Only a
+        single `region` per answer is currently supported. If you want an answer in
+        multiple regions, duplicating the answer (including metadata) is the correct
+        approach.
+        * ` meta` - (Optional) meta is supported at the `answer` level. Meta
+        is documented below.
+        """
+elif False:
+    RecordAnswerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordAnswerArgs:
@@ -774,6 +975,25 @@ class RecordAnswerArgs:
         pulumi.set(self, "region", value)
 
 
+if not MYPY:
+    class RecordFilterArgsDict(TypedDict):
+        filter: pulumi.Input[str]
+        """
+        The type of filter.
+        """
+        config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The filters' configuration. Simple key/value pairs
+        determined by the filter type.
+        """
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether the filter is applied in the
+        filter chain.
+        """
+elif False:
+    RecordFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordFilterArgs:
     def __init__(__self__, *,
@@ -832,6 +1052,16 @@ class RecordFilterArgs:
         pulumi.set(self, "disabled", value)
 
 
+if not MYPY:
+    class RecordRegionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the region (or Answer Group).
+        """
+        meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    RecordRegionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordRegionArgs:
     def __init__(__self__, *,
@@ -865,6 +1095,15 @@ class RecordRegionArgs:
     def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "meta", value)
 
+
+if not MYPY:
+    class TeamDnsRecordsAllowArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        include_subdomains: pulumi.Input[bool]
+        type: pulumi.Input[str]
+        zone: pulumi.Input[str]
+elif False:
+    TeamDnsRecordsAllowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TeamDnsRecordsAllowArgs:
@@ -915,6 +1154,15 @@ class TeamDnsRecordsAllowArgs:
         pulumi.set(self, "zone", value)
 
 
+if not MYPY:
+    class TeamDnsRecordsDenyArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        include_subdomains: pulumi.Input[bool]
+        type: pulumi.Input[str]
+        zone: pulumi.Input[str]
+elif False:
+    TeamDnsRecordsDenyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TeamDnsRecordsDenyArgs:
     def __init__(__self__, *,
@@ -964,6 +1212,16 @@ class TeamDnsRecordsDenyArgs:
         pulumi.set(self, "zone", value)
 
 
+if not MYPY:
+    class TeamIpWhitelistArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The free form name of the team.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    TeamIpWhitelistArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TeamIpWhitelistArgs:
     def __init__(__self__, *,
@@ -996,6 +1254,15 @@ class TeamIpWhitelistArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class UserDnsRecordsAllowArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        include_subdomains: pulumi.Input[bool]
+        type: pulumi.Input[str]
+        zone: pulumi.Input[str]
+elif False:
+    UserDnsRecordsAllowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserDnsRecordsAllowArgs:
@@ -1046,6 +1313,15 @@ class UserDnsRecordsAllowArgs:
         pulumi.set(self, "zone", value)
 
 
+if not MYPY:
+    class UserDnsRecordsDenyArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        include_subdomains: pulumi.Input[bool]
+        type: pulumi.Input[str]
+        zone: pulumi.Input[str]
+elif False:
+    UserDnsRecordsDenyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserDnsRecordsDenyArgs:
     def __init__(__self__, *,
@@ -1094,6 +1370,30 @@ class UserDnsRecordsDenyArgs:
     def zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "zone", value)
 
+
+if not MYPY:
+    class ZoneSecondaryArgsDict(TypedDict):
+        ip: pulumi.Input[str]
+        """
+        IPv4 address of the secondary server.
+        """
+        networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        List of network IDs (`int`) for which the zone
+        should be made available. Default is network 0, the primary NSONE Global
+        Network. Normally, you should not have to worry about this.
+        """
+        notify: NotRequired[pulumi.Input[bool]]
+        """
+        Whether we send `NOTIFY` messages to the secondary host
+        when the zone changes. Default `false`.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port of the the secondary server. Default `53`.
+        """
+elif False:
+    ZoneSecondaryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ZoneSecondaryArgs:
@@ -1170,6 +1470,23 @@ class ZoneSecondaryArgs:
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class GetMonitoringRegionsRegionArgsDict(TypedDict):
+        code: NotRequired[str]
+        """
+        3-letter city code identifying the location of the monitor.
+        """
+        name: NotRequired[str]
+        """
+        City name identifying the location of the monitor.
+        """
+        subnets: NotRequired[Sequence[str]]
+        """
+        A list of IPv4 and IPv6 subnets the monitor sources requests from.
+        """
+elif False:
+    GetMonitoringRegionsRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetMonitoringRegionsRegionArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -292,9 +297,6 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
         tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone=pulumi.get(__ret__, 'zone'))
-
-
-@_utilities.lift_output_func(get_zone)
 def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[int]]]] = None,
                     additional_primaries: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                     primary_port: Optional[pulumi.Input[Optional[int]]] = None,
@@ -320,4 +322,29 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
            zone.
     :param str zone: The domain name of the zone.
     """
-    ...
+    __args__ = dict()
+    __args__['additionalPorts'] = additional_ports
+    __args__['additionalPrimaries'] = additional_primaries
+    __args__['primaryPort'] = primary_port
+    __args__['zone'] = zone
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('ns1:index/getZone:getZone', __args__, opts=opts, typ=GetZoneResult)
+    return __ret__.apply(lambda __response__: GetZoneResult(
+        additional_ports=pulumi.get(__response__, 'additional_ports'),
+        additional_primaries=pulumi.get(__response__, 'additional_primaries'),
+        dns_servers=pulumi.get(__response__, 'dns_servers'),
+        dnssec=pulumi.get(__response__, 'dnssec'),
+        expiry=pulumi.get(__response__, 'expiry'),
+        hostmaster=pulumi.get(__response__, 'hostmaster'),
+        id=pulumi.get(__response__, 'id'),
+        link=pulumi.get(__response__, 'link'),
+        networks=pulumi.get(__response__, 'networks'),
+        nx_ttl=pulumi.get(__response__, 'nx_ttl'),
+        primary=pulumi.get(__response__, 'primary'),
+        primary_port=pulumi.get(__response__, 'primary_port'),
+        refresh=pulumi.get(__response__, 'refresh'),
+        retry=pulumi.get(__response__, 'retry'),
+        secondaries=pulumi.get(__response__, 'secondaries'),
+        tags=pulumi.get(__response__, 'tags'),
+        ttl=pulumi.get(__response__, 'ttl'),
+        zone=pulumi.get(__response__, 'zone')))

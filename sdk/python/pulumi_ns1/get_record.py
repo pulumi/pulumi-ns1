@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -231,9 +236,6 @@ def get_record(domain: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_client_subnet=pulumi.get(__ret__, 'use_client_subnet'),
         zone=pulumi.get(__ret__, 'zone'))
-
-
-@_utilities.lift_output_func(get_record)
 def get_record_output(domain: Optional[pulumi.Input[str]] = None,
                       type: Optional[pulumi.Input[str]] = None,
                       zone: Optional[pulumi.Input[str]] = None,
@@ -260,4 +262,24 @@ def get_record_output(domain: Optional[pulumi.Input[str]] = None,
     :param str type: The records' RR type.
     :param str zone: The zone the record belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['domain'] = domain
+    __args__['type'] = type
+    __args__['zone'] = zone
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('ns1:index/getRecord:getRecord', __args__, opts=opts, typ=GetRecordResult)
+    return __ret__.apply(lambda __response__: GetRecordResult(
+        answers=pulumi.get(__response__, 'answers'),
+        domain=pulumi.get(__response__, 'domain'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        link=pulumi.get(__response__, 'link'),
+        meta=pulumi.get(__response__, 'meta'),
+        override_ttl=pulumi.get(__response__, 'override_ttl'),
+        regions=pulumi.get(__response__, 'regions'),
+        short_answers=pulumi.get(__response__, 'short_answers'),
+        tags=pulumi.get(__response__, 'tags'),
+        ttl=pulumi.get(__response__, 'ttl'),
+        type=pulumi.get(__response__, 'type'),
+        use_client_subnet=pulumi.get(__response__, 'use_client_subnet'),
+        zone=pulumi.get(__response__, 'zone')))

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get details of all available monitoring regions.
-//			_, err := ns1.GetMonitoringRegions(ctx, nil, nil)
+//			_, err := ns1.GetMonitoringRegions(ctx, &ns1.GetMonitoringRegionsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
