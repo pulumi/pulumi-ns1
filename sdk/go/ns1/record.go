@@ -227,9 +227,10 @@ type Record struct {
 	Filters RecordFilterArrayOutput `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link        pulumi.StringPtrOutput `pulumi:"link"`
-	Meta        pulumi.StringMapOutput `pulumi:"meta"`
-	OverrideTtl pulumi.BoolPtrOutput   `pulumi:"overrideTtl"`
+	Link                   pulumi.StringPtrOutput `pulumi:"link"`
+	Meta                   pulumi.StringMapOutput `pulumi:"meta"`
+	OverrideAddressRecords pulumi.BoolPtrOutput   `pulumi:"overrideAddressRecords"`
+	OverrideTtl            pulumi.BoolPtrOutput   `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -304,9 +305,10 @@ type recordState struct {
 	Filters []RecordFilter `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link        *string           `pulumi:"link"`
-	Meta        map[string]string `pulumi:"meta"`
-	OverrideTtl *bool             `pulumi:"overrideTtl"`
+	Link                   *string           `pulumi:"link"`
+	Meta                   map[string]string `pulumi:"meta"`
+	OverrideAddressRecords *bool             `pulumi:"overrideAddressRecords"`
+	OverrideTtl            *bool             `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -343,9 +345,10 @@ type RecordState struct {
 	Filters RecordFilterArrayInput
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link        pulumi.StringPtrInput
-	Meta        pulumi.StringMapInput
-	OverrideTtl pulumi.BoolPtrInput
+	Link                   pulumi.StringPtrInput
+	Meta                   pulumi.StringMapInput
+	OverrideAddressRecords pulumi.BoolPtrInput
+	OverrideTtl            pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -386,9 +389,10 @@ type recordArgs struct {
 	Filters []RecordFilter `pulumi:"filters"`
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link        *string           `pulumi:"link"`
-	Meta        map[string]string `pulumi:"meta"`
-	OverrideTtl *bool             `pulumi:"overrideTtl"`
+	Link                   *string           `pulumi:"link"`
+	Meta                   map[string]string `pulumi:"meta"`
+	OverrideAddressRecords *bool             `pulumi:"overrideAddressRecords"`
+	OverrideTtl            *bool             `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -426,9 +430,10 @@ type RecordArgs struct {
 	Filters RecordFilterArrayInput
 	// The target record to link to. This means this record is a
 	// 'linked' record, and it inherits all properties from its target.
-	Link        pulumi.StringPtrInput
-	Meta        pulumi.StringMapInput
-	OverrideTtl pulumi.BoolPtrInput
+	Link                   pulumi.StringPtrInput
+	Meta                   pulumi.StringMapInput
+	OverrideAddressRecords pulumi.BoolPtrInput
+	OverrideTtl            pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -569,6 +574,10 @@ func (o RecordOutput) Link() pulumi.StringPtrOutput {
 
 func (o RecordOutput) Meta() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringMapOutput { return v.Meta }).(pulumi.StringMapOutput)
+}
+
+func (o RecordOutput) OverrideAddressRecords() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Record) pulumi.BoolPtrOutput { return v.OverrideAddressRecords }).(pulumi.BoolPtrOutput)
 }
 
 func (o RecordOutput) OverrideTtl() pulumi.BoolPtrOutput {

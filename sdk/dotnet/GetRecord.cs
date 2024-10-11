@@ -148,6 +148,7 @@ namespace Pulumi.Ns1
         /// Map of metadata
         /// </summary>
         public readonly ImmutableDictionary<string, string> Meta;
+        public readonly bool OverrideAddressRecords;
         public readonly bool OverrideTtl;
         /// <summary>
         /// List of regions.
@@ -180,6 +181,8 @@ namespace Pulumi.Ns1
 
             ImmutableDictionary<string, string> meta,
 
+            bool overrideAddressRecords,
+
             bool overrideTtl,
 
             ImmutableArray<Outputs.GetRecordRegionResult> regions,
@@ -202,6 +205,7 @@ namespace Pulumi.Ns1
             Id = id;
             Link = link;
             Meta = meta;
+            OverrideAddressRecords = overrideAddressRecords;
             OverrideTtl = overrideTtl;
             Regions = regions;
             ShortAnswers = shortAnswers;

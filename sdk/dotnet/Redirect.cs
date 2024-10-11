@@ -65,9 +65,6 @@ namespace Pulumi.Ns1
     [Ns1ResourceType("ns1:index/redirect:Redirect")]
     public partial class Redirect : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The certificate redirect id.
-        /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
 
@@ -188,9 +185,6 @@ namespace Pulumi.Ns1
 
     public sealed class RedirectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The certificate redirect id.
-        /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 
@@ -267,9 +261,6 @@ namespace Pulumi.Ns1
 
     public sealed class RedirectState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The certificate redirect id.
-        /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 

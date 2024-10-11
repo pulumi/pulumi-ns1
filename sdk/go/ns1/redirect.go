@@ -82,7 +82,6 @@ import (
 type Redirect struct {
 	pulumi.CustomResourceState
 
-	// The certificate redirect id.
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
 	// The domain the redirect refers to.
 	Domain pulumi.StringOutput `pulumi:"domain"`
@@ -156,7 +155,6 @@ func GetRedirect(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Redirect resources.
 type redirectState struct {
-	// The certificate redirect id.
 	CertificateId *string `pulumi:"certificateId"`
 	// The domain the redirect refers to.
 	Domain *string `pulumi:"domain"`
@@ -192,7 +190,6 @@ type redirectState struct {
 }
 
 type RedirectState struct {
-	// The certificate redirect id.
 	CertificateId pulumi.StringPtrInput
 	// The domain the redirect refers to.
 	Domain pulumi.StringPtrInput
@@ -232,7 +229,6 @@ func (RedirectState) ElementType() reflect.Type {
 }
 
 type redirectArgs struct {
-	// The certificate redirect id.
 	CertificateId *string `pulumi:"certificateId"`
 	// The domain the redirect refers to.
 	Domain string `pulumi:"domain"`
@@ -265,7 +261,6 @@ type redirectArgs struct {
 
 // The set of arguments for constructing a Redirect resource.
 type RedirectArgs struct {
-	// The certificate redirect id.
 	CertificateId pulumi.StringPtrInput
 	// The domain the redirect refers to.
 	Domain pulumi.StringInput
@@ -383,7 +378,6 @@ func (o RedirectOutput) ToRedirectOutputWithContext(ctx context.Context) Redirec
 	return o
 }
 
-// The certificate redirect id.
 func (o RedirectOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Redirect) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
 }

@@ -27,7 +27,7 @@ class GetRecordResult:
     """
     A collection of values returned by getRecord.
     """
-    def __init__(__self__, answers=None, domain=None, filters=None, id=None, link=None, meta=None, override_ttl=None, regions=None, short_answers=None, tags=None, ttl=None, type=None, use_client_subnet=None, zone=None):
+    def __init__(__self__, answers=None, domain=None, filters=None, id=None, link=None, meta=None, override_address_records=None, override_ttl=None, regions=None, short_answers=None, tags=None, ttl=None, type=None, use_client_subnet=None, zone=None):
         if answers and not isinstance(answers, list):
             raise TypeError("Expected argument 'answers' to be a list")
         pulumi.set(__self__, "answers", answers)
@@ -46,6 +46,9 @@ class GetRecordResult:
         if meta and not isinstance(meta, dict):
             raise TypeError("Expected argument 'meta' to be a dict")
         pulumi.set(__self__, "meta", meta)
+        if override_address_records and not isinstance(override_address_records, bool):
+            raise TypeError("Expected argument 'override_address_records' to be a bool")
+        pulumi.set(__self__, "override_address_records", override_address_records)
         if override_ttl and not isinstance(override_ttl, bool):
             raise TypeError("Expected argument 'override_ttl' to be a bool")
         pulumi.set(__self__, "override_ttl", override_ttl)
@@ -117,6 +120,11 @@ class GetRecordResult:
         return pulumi.get(self, "meta")
 
     @property
+    @pulumi.getter(name="overrideAddressRecords")
+    def override_address_records(self) -> bool:
+        return pulumi.get(self, "override_address_records")
+
+    @property
     @pulumi.getter(name="overrideTtl")
     def override_ttl(self) -> bool:
         return pulumi.get(self, "override_ttl")
@@ -178,6 +186,7 @@ class AwaitableGetRecordResult(GetRecordResult):
             id=self.id,
             link=self.link,
             meta=self.meta,
+            override_address_records=self.override_address_records,
             override_ttl=self.override_ttl,
             regions=self.regions,
             short_answers=self.short_answers,
@@ -228,6 +237,7 @@ def get_record(domain: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         link=pulumi.get(__ret__, 'link'),
         meta=pulumi.get(__ret__, 'meta'),
+        override_address_records=pulumi.get(__ret__, 'override_address_records'),
         override_ttl=pulumi.get(__ret__, 'override_ttl'),
         regions=pulumi.get(__ret__, 'regions'),
         short_answers=pulumi.get(__ret__, 'short_answers'),
@@ -275,6 +285,7 @@ def get_record_output(domain: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         link=pulumi.get(__response__, 'link'),
         meta=pulumi.get(__response__, 'meta'),
+        override_address_records=pulumi.get(__response__, 'override_address_records'),
         override_ttl=pulumi.get(__response__, 'override_ttl'),
         regions=pulumi.get(__response__, 'regions'),
         short_answers=pulumi.get(__response__, 'short_answers'),

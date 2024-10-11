@@ -105,6 +105,13 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.meta);
     }
 
+    @Import(name="overrideAddressRecords")
+    private @Nullable Output<Boolean> overrideAddressRecords;
+
+    public Optional<Output<Boolean>> overrideAddressRecords() {
+        return Optional.ofNullable(this.overrideAddressRecords);
+    }
+
     @Import(name="overrideTtl")
     private @Nullable Output<Boolean> overrideTtl;
 
@@ -244,6 +251,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         this.filters = $.filters;
         this.link = $.link;
         this.meta = $.meta;
+        this.overrideAddressRecords = $.overrideAddressRecords;
         this.overrideTtl = $.overrideTtl;
         this.regions = $.regions;
         this.shortAnswers = $.shortAnswers;
@@ -406,6 +414,15 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder meta(Map<String,String> meta) {
             return meta(Output.of(meta));
+        }
+
+        public Builder overrideAddressRecords(@Nullable Output<Boolean> overrideAddressRecords) {
+            $.overrideAddressRecords = overrideAddressRecords;
+            return this;
+        }
+
+        public Builder overrideAddressRecords(Boolean overrideAddressRecords) {
+            return overrideAddressRecords(Output.of(overrideAddressRecords));
         }
 
         public Builder overrideTtl(@Nullable Output<Boolean> overrideTtl) {

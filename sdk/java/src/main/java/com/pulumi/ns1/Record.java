@@ -266,6 +266,12 @@ public class Record extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> meta() {
         return Codegen.optional(this.meta);
     }
+    @Export(name="overrideAddressRecords", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> overrideAddressRecords;
+
+    public Output<Optional<Boolean>> overrideAddressRecords() {
+        return Codegen.optional(this.overrideAddressRecords);
+    }
     @Export(name="overrideTtl", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overrideTtl;
 
