@@ -2319,6 +2319,9 @@
                         "type": "string"
                     }
                 },
+                "overrideAddressRecords": {
+                    "type": "boolean"
+                },
                 "overrideTtl": {
                     "type": "boolean"
                 },
@@ -2401,6 +2404,9 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "overrideAddressRecords": {
+                    "type": "boolean"
                 },
                 "overrideTtl": {
                     "type": "boolean"
@@ -2488,6 +2494,9 @@
                             "type": "string"
                         }
                     },
+                    "overrideAddressRecords": {
+                        "type": "boolean"
+                    },
                     "overrideTtl": {
                         "type": "boolean"
                     },
@@ -2538,8 +2547,7 @@
             "description": "Provides a NS1 Redirect resource. This can be used to create, modify, and delete redirects.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Redirect(\"example\", {\n    domain: \"www.example.com\",\n    path: \"/from/path\",\n    target: \"https://url.com/target/path\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Redirect(\"example\",\n    domain=\"www.example.com\",\n    path=\"/from/path\",\n    target=\"https://url.com/target/path\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Redirect(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n        Path = \"/from/path\",\n        Target = \"https://url.com/target/path\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirect(ctx, \"example\", \u0026ns1.RedirectArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t\tPath:   pulumi.String(\"/from/path\"),\n\t\t\tTarget: pulumi.String(\"https://url.com/target/path\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Redirect;\nimport com.pulumi.ns1.RedirectArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Redirect(\"example\", RedirectArgs.builder()\n            .domain(\"www.example.com\")\n            .path(\"/from/path\")\n            .target(\"https://url.com/target/path\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Redirect\n    properties:\n      domain: www.example.com\n      path: /from/path\n      target: https://url.com/target/path\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n### Additional Examples\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.RedirectCertificate(\"example\", {domain: \"www.example.com\"});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.RedirectCertificate(\"example\", domain=\"www.example.com\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.RedirectCertificate(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirectCertificate(ctx, \"example\", \u0026ns1.RedirectCertificateArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.RedirectCertificate;\nimport com.pulumi.ns1.RedirectCertificateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RedirectCertificate(\"example\", RedirectCertificateArgs.builder()\n            .domain(\"www.example.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:RedirectCertificate\n    properties:\n      domain: www.example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n\n\n# ns1\\_redirect\\_certificate\n\nProvides a NS1 Redirect Certificate resource. This can be used to create, modify, and delete redirect certificates.\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n",
             "properties": {
                 "certificateId": {
-                    "type": "string",
-                    "description": "The certificate redirect id.\n"
+                    "type": "string"
                 },
                 "domain": {
                     "type": "string",
@@ -2596,8 +2604,7 @@
             ],
             "inputProperties": {
                 "certificateId": {
-                    "type": "string",
-                    "description": "The certificate redirect id.\n"
+                    "type": "string"
                 },
                 "domain": {
                     "type": "string",
@@ -2645,8 +2652,7 @@
                 "description": "Input properties used for looking up and filtering Redirect resources.\n",
                 "properties": {
                     "certificateId": {
-                        "type": "string",
-                        "description": "The certificate redirect id.\n"
+                        "type": "string"
                     },
                     "domain": {
                         "type": "string",
@@ -4210,6 +4216,9 @@
                         "description": "Map of metadata\n",
                         "type": "object"
                     },
+                    "overrideAddressRecords": {
+                        "type": "boolean"
+                    },
                     "overrideTtl": {
                         "type": "boolean"
                     },
@@ -4253,6 +4262,7 @@
                     "filters",
                     "link",
                     "meta",
+                    "overrideAddressRecords",
                     "overrideTtl",
                     "regions",
                     "shortAnswers",
