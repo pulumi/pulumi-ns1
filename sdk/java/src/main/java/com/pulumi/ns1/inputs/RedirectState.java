@@ -18,17 +18,9 @@ public final class RedirectState extends com.pulumi.resources.ResourceArgs {
 
     public static final RedirectState Empty = new RedirectState();
 
-    /**
-     * The certificate redirect id.
-     * 
-     */
     @Import(name="certificateId")
     private @Nullable Output<String> certificateId;
 
-    /**
-     * @return The certificate redirect id.
-     * 
-     */
     public Optional<Output<String>> certificateId() {
         return Optional.ofNullable(this.certificateId);
     }
@@ -239,23 +231,11 @@ public final class RedirectState extends com.pulumi.resources.ResourceArgs {
             $ = new RedirectState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateId The certificate redirect id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateId(@Nullable Output<String> certificateId) {
             $.certificateId = certificateId;
             return this;
         }
 
-        /**
-         * @param certificateId The certificate redirect id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateId(String certificateId) {
             return certificateId(Output.of(certificateId));
         }

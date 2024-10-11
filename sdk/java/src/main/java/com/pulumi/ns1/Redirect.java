@@ -107,17 +107,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="ns1:index/redirect:Redirect")
 public class Redirect extends com.pulumi.resources.CustomResource {
-    /**
-     * The certificate redirect id.
-     * 
-     */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
-    /**
-     * @return The certificate redirect id.
-     * 
-     */
     public Output<String> certificateId() {
         return this.certificateId;
     }

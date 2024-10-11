@@ -194,6 +194,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly link!: pulumi.Output<string | undefined>;
     public readonly meta!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly overrideAddressRecords!: pulumi.Output<boolean | undefined>;
     public readonly overrideTtl!: pulumi.Output<boolean | undefined>;
     /**
      * One or more "regions" for the record. These are really
@@ -250,6 +251,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["filters"] = state ? state.filters : undefined;
             resourceInputs["link"] = state ? state.link : undefined;
             resourceInputs["meta"] = state ? state.meta : undefined;
+            resourceInputs["overrideAddressRecords"] = state ? state.overrideAddressRecords : undefined;
             resourceInputs["overrideTtl"] = state ? state.overrideTtl : undefined;
             resourceInputs["regions"] = state ? state.regions : undefined;
             resourceInputs["shortAnswers"] = state ? state.shortAnswers : undefined;
@@ -275,6 +277,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["link"] = args ? args.link : undefined;
             resourceInputs["meta"] = args ? args.meta : undefined;
+            resourceInputs["overrideAddressRecords"] = args ? args.overrideAddressRecords : undefined;
             resourceInputs["overrideTtl"] = args ? args.overrideTtl : undefined;
             resourceInputs["regions"] = args ? args.regions : undefined;
             resourceInputs["shortAnswers"] = args ? args.shortAnswers : undefined;
@@ -315,6 +318,7 @@ export interface RecordState {
      */
     link?: pulumi.Input<string>;
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    overrideAddressRecords?: pulumi.Input<boolean>;
     overrideTtl?: pulumi.Input<boolean>;
     /**
      * One or more "regions" for the record. These are really
@@ -379,6 +383,7 @@ export interface RecordArgs {
      */
     link?: pulumi.Input<string>;
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    overrideAddressRecords?: pulumi.Input<boolean>;
     overrideTtl?: pulumi.Input<boolean>;
     /**
      * One or more "regions" for the record. These are really

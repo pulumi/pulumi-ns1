@@ -33,7 +33,6 @@ class RedirectArgs:
         :param pulumi.Input[str] domain: The domain the redirect refers to.
         :param pulumi.Input[str] path: The path on the domain to redirect from.
         :param pulumi.Input[str] target: The URL to redirect to.
-        :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
                * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
@@ -106,9 +105,6 @@ class RedirectArgs:
     @property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The certificate redirect id.
-        """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
@@ -203,7 +199,6 @@ class _RedirectState:
                  target: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Redirect resources.
-        :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] domain: The domain the redirect refers to.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
@@ -252,9 +247,6 @@ class _RedirectState:
     @property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The certificate redirect id.
-        """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
@@ -446,7 +438,6 @@ class Redirect(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] domain: The domain the redirect refers to.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
@@ -587,7 +578,6 @@ class Redirect(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_id: The certificate redirect id.
         :param pulumi.Input[str] domain: The domain the redirect refers to.
         :param pulumi.Input[str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
@@ -630,9 +620,6 @@ class Redirect(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Output[str]:
-        """
-        The certificate redirect id.
-        """
         return pulumi.get(self, "certificate_id")
 
     @property

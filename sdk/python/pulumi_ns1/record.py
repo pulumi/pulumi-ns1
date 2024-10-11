@@ -29,6 +29,7 @@ class RecordArgs:
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 override_address_records: Optional[pulumi.Input[bool]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -72,6 +73,8 @@ class RecordArgs:
             pulumi.set(__self__, "link", link)
         if meta is not None:
             pulumi.set(__self__, "meta", meta)
+        if override_address_records is not None:
+            pulumi.set(__self__, "override_address_records", override_address_records)
         if override_ttl is not None:
             pulumi.set(__self__, "override_ttl", override_ttl)
         if regions is not None:
@@ -184,6 +187,15 @@ class RecordArgs:
         pulumi.set(self, "meta", value)
 
     @property
+    @pulumi.getter(name="overrideAddressRecords")
+    def override_address_records(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "override_address_records")
+
+    @override_address_records.setter
+    def override_address_records(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "override_address_records", value)
+
+    @property
     @pulumi.getter(name="overrideTtl")
     def override_ttl(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "override_ttl")
@@ -266,6 +278,7 @@ class _RecordState:
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 override_address_records: Optional[pulumi.Input[bool]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -310,6 +323,8 @@ class _RecordState:
             pulumi.set(__self__, "link", link)
         if meta is not None:
             pulumi.set(__self__, "meta", meta)
+        if override_address_records is not None:
+            pulumi.set(__self__, "override_address_records", override_address_records)
         if override_ttl is not None:
             pulumi.set(__self__, "override_ttl", override_ttl)
         if regions is not None:
@@ -399,6 +414,15 @@ class _RecordState:
     @meta.setter
     def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "meta", value)
+
+    @property
+    @pulumi.getter(name="overrideAddressRecords")
+    def override_address_records(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "override_address_records")
+
+    @override_address_records.setter
+    def override_address_records(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "override_address_records", value)
 
     @property
     @pulumi.getter(name="overrideTtl")
@@ -510,6 +534,7 @@ class Record(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 override_address_records: Optional[pulumi.Input[bool]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -828,6 +853,7 @@ class Record(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 override_address_records: Optional[pulumi.Input[bool]] = None,
                  override_ttl: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
                  short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -853,6 +879,7 @@ class Record(pulumi.CustomResource):
             __props__.__dict__["filters"] = filters
             __props__.__dict__["link"] = link
             __props__.__dict__["meta"] = meta
+            __props__.__dict__["override_address_records"] = override_address_records
             __props__.__dict__["override_ttl"] = override_ttl
             __props__.__dict__["regions"] = regions
             __props__.__dict__["short_answers"] = short_answers
@@ -881,6 +908,7 @@ class Record(pulumi.CustomResource):
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
             link: Optional[pulumi.Input[str]] = None,
             meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            override_address_records: Optional[pulumi.Input[bool]] = None,
             override_ttl: Optional[pulumi.Input[bool]] = None,
             regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
             short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -928,6 +956,7 @@ class Record(pulumi.CustomResource):
         __props__.__dict__["filters"] = filters
         __props__.__dict__["link"] = link
         __props__.__dict__["meta"] = meta
+        __props__.__dict__["override_address_records"] = override_address_records
         __props__.__dict__["override_ttl"] = override_ttl
         __props__.__dict__["regions"] = regions
         __props__.__dict__["short_answers"] = short_answers
@@ -983,6 +1012,11 @@ class Record(pulumi.CustomResource):
     @pulumi.getter
     def meta(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter(name="overrideAddressRecords")
+    def override_address_records(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "override_address_records")
 
     @property
     @pulumi.getter(name="overrideTtl")

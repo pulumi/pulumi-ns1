@@ -69,9 +69,6 @@ export class Redirect extends pulumi.CustomResource {
         return obj['__pulumiType'] === Redirect.__pulumiType;
     }
 
-    /**
-     * The certificate redirect id.
-     */
     public readonly certificateId!: pulumi.Output<string>;
     /**
      * The domain the redirect refers to.
@@ -181,9 +178,6 @@ export class Redirect extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Redirect resources.
  */
 export interface RedirectState {
-    /**
-     * The certificate redirect id.
-     */
     certificateId?: pulumi.Input<string>;
     /**
      * The domain the redirect refers to.
@@ -242,9 +236,6 @@ export interface RedirectState {
  * The set of arguments for constructing a Redirect resource.
  */
 export interface RedirectArgs {
-    /**
-     * The certificate redirect id.
-     */
     certificateId?: pulumi.Input<string>;
     /**
      * The domain the redirect refers to.

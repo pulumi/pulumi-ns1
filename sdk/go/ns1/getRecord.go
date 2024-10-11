@@ -75,8 +75,9 @@ type LookupRecordResult struct {
 	// The target record this links to.
 	Link string `pulumi:"link"`
 	// Map of metadata
-	Meta        map[string]string `pulumi:"meta"`
-	OverrideTtl bool              `pulumi:"overrideTtl"`
+	Meta                   map[string]string `pulumi:"meta"`
+	OverrideAddressRecords bool              `pulumi:"overrideAddressRecords"`
+	OverrideTtl            bool              `pulumi:"overrideTtl"`
 	// List of regions.
 	Regions      []GetRecordRegion `pulumi:"regions"`
 	ShortAnswers []string          `pulumi:"shortAnswers"`
@@ -164,6 +165,10 @@ func (o LookupRecordResultOutput) Link() pulumi.StringOutput {
 // Map of metadata
 func (o LookupRecordResultOutput) Meta() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRecordResult) map[string]string { return v.Meta }).(pulumi.StringMapOutput)
+}
+
+func (o LookupRecordResultOutput) OverrideAddressRecords() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupRecordResult) bool { return v.OverrideAddressRecords }).(pulumi.BoolOutput)
 }
 
 func (o LookupRecordResultOutput) OverrideTtl() pulumi.BoolOutput {

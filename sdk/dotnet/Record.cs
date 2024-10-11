@@ -235,6 +235,9 @@ namespace Pulumi.Ns1
         [Output("meta")]
         public Output<ImmutableDictionary<string, string>?> Meta { get; private set; } = null!;
 
+        [Output("overrideAddressRecords")]
+        public Output<bool?> OverrideAddressRecords { get; private set; } = null!;
+
         [Output("overrideTtl")]
         public Output<bool?> OverrideTtl { get; private set; } = null!;
 
@@ -386,6 +389,9 @@ namespace Pulumi.Ns1
             set => _meta = value;
         }
 
+        [Input("overrideAddressRecords")]
+        public Input<bool>? OverrideAddressRecords { get; set; }
+
         [Input("overrideTtl")]
         public Input<bool>? OverrideTtl { get; set; }
 
@@ -516,6 +522,9 @@ namespace Pulumi.Ns1
             get => _meta ?? (_meta = new InputMap<string>());
             set => _meta = value;
         }
+
+        [Input("overrideAddressRecords")]
+        public Input<bool>? OverrideAddressRecords { get; set; }
 
         [Input("overrideTtl")]
         public Input<bool>? OverrideTtl { get; set; }

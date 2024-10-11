@@ -77,6 +77,7 @@ export interface GetRecordResult {
      * Map of metadata
      */
     readonly meta: {[key: string]: string};
+    readonly overrideAddressRecords: boolean;
     readonly overrideTtl: boolean;
     /**
      * List of regions.

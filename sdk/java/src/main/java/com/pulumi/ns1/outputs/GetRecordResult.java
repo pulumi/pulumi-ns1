@@ -43,6 +43,7 @@ public final class GetRecordResult {
      * 
      */
     private Map<String,String> meta;
+    private Boolean overrideAddressRecords;
     private Boolean overrideTtl;
     /**
      * @return List of regions.
@@ -103,6 +104,9 @@ public final class GetRecordResult {
     public Map<String,String> meta() {
         return this.meta;
     }
+    public Boolean overrideAddressRecords() {
+        return this.overrideAddressRecords;
+    }
     public Boolean overrideTtl() {
         return this.overrideTtl;
     }
@@ -155,6 +159,7 @@ public final class GetRecordResult {
         private String id;
         private String link;
         private Map<String,String> meta;
+        private Boolean overrideAddressRecords;
         private Boolean overrideTtl;
         private List<GetRecordRegion> regions;
         private List<String> shortAnswers;
@@ -172,6 +177,7 @@ public final class GetRecordResult {
     	      this.id = defaults.id;
     	      this.link = defaults.link;
     	      this.meta = defaults.meta;
+    	      this.overrideAddressRecords = defaults.overrideAddressRecords;
     	      this.overrideTtl = defaults.overrideTtl;
     	      this.regions = defaults.regions;
     	      this.shortAnswers = defaults.shortAnswers;
@@ -234,6 +240,14 @@ public final class GetRecordResult {
               throw new MissingRequiredPropertyException("GetRecordResult", "meta");
             }
             this.meta = meta;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder overrideAddressRecords(Boolean overrideAddressRecords) {
+            if (overrideAddressRecords == null) {
+              throw new MissingRequiredPropertyException("GetRecordResult", "overrideAddressRecords");
+            }
+            this.overrideAddressRecords = overrideAddressRecords;
             return this;
         }
         @CustomType.Setter
@@ -314,6 +328,7 @@ public final class GetRecordResult {
             _resultValue.id = id;
             _resultValue.link = link;
             _resultValue.meta = meta;
+            _resultValue.overrideAddressRecords = overrideAddressRecords;
             _resultValue.overrideTtl = overrideTtl;
             _resultValue.regions = regions;
             _resultValue.shortAnswers = shortAnswers;

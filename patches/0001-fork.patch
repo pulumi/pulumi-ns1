@@ -28,10 +28,10 @@ index 97093e2..dd93b8b 100644
  
  func main() {
 diff --git a/ns1/resource_record.go b/ns1/resource_record.go
-index 042bb51..43059ce 100644
+index 2376c78..0fb522a 100644
 --- a/ns1/resource_record.go
 +++ b/ns1/resource_record.go
-@@ -98,14 +98,7 @@ func recordResource() *schema.Resource {
+@@ -102,14 +102,7 @@ func recordResource() *schema.Resource {
  				Type:     schema.TypeList,
  				Optional: true,
  				Elem:     &schema.Schema{Type: schema.TypeString},
