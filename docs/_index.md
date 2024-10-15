@@ -22,7 +22,7 @@ have the corresponding permissions set.
 Use the navigation to the left to read about the available resources.
 ## Example Usage
 
-Additional usage examples can be found in <https://github.com/ns1-pulumi/pulumi-provider-ns1/tree/master/examples>
+Additional usage examples can be found in <https://github.com/pulumi/pulumi-ns1/tree/master/examples>
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
