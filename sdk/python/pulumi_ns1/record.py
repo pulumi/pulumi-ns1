@@ -618,11 +618,11 @@ class Record(pulumi.CustomResource):
                             "a5m_cutoff": 0.9,
                         }]),
                         "subdivisions": json.dumps({
-                            "br": [
+                            "BR": [
                                 "SP",
                                 "SC",
                             ],
-                            "dz": [
+                            "DZ": [
                                 "01",
                                 "02",
                                 "03",
@@ -634,7 +634,7 @@ class Record(pulumi.CustomResource):
             filters=[{
                 "filter": "select_first_n",
                 "config": {
-                    "n": "1",
+                    "N": "1",
                 },
             }])
         # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
@@ -777,11 +777,11 @@ class Record(pulumi.CustomResource):
                             "a5m_cutoff": 0.9,
                         }]),
                         "subdivisions": json.dumps({
-                            "br": [
+                            "BR": [
                                 "SP",
                                 "SC",
                             ],
-                            "dz": [
+                            "DZ": [
                                 "01",
                                 "02",
                                 "03",
@@ -793,7 +793,7 @@ class Record(pulumi.CustomResource):
             filters=[{
                 "filter": "select_first_n",
                 "config": {
-                    "n": "1",
+                    "N": "1",
                 },
             }])
         # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
