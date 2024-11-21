@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The ns1 provider is available as a package in all Pulumi languages:
+The Ns1 provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/ns1`](https://www.npmjs.com/package/@pulumi/ns1)
 * Python: [`pulumi-ns1`](https://pypi.org/project/pulumi-ns1/)
