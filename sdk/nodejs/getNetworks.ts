@@ -56,7 +56,7 @@ export interface GetNetworksResult {
  * const example = ns1.getNetworks({});
  * ```
  */
-export function getNetworksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworksResult> {
+export function getNetworksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("ns1:index/getNetworks:getNetworks", {
     }, opts);
