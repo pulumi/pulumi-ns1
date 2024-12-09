@@ -135,7 +135,7 @@ export interface GetZoneResult {
  * });
  * ```
  */
-export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("ns1:index/getZone:getZone", {
         "additionalPorts": args.additionalPorts,

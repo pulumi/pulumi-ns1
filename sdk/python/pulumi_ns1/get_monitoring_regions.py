@@ -92,7 +92,7 @@ def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegion
         id=pulumi.get(__ret__, 'id'),
         regions=pulumi.get(__ret__, 'regions'))
 def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringRegionsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoringRegionsResult]:
     """
     Provides details of all available monitoring regions.
 
@@ -112,7 +112,7 @@ def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequen
     """
     __args__ = dict()
     __args__['regions'] = regions
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('ns1:index/getMonitoringRegions:getMonitoringRegions', __args__, opts=opts, typ=GetMonitoringRegionsResult)
     return __ret__.apply(lambda __response__: GetMonitoringRegionsResult(
         id=pulumi.get(__response__, 'id'),
