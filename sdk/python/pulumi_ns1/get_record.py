@@ -249,7 +249,7 @@ def get_record(domain: Optional[str] = None,
 def get_record_output(domain: Optional[pulumi.Input[str]] = None,
                       type: Optional[pulumi.Input[str]] = None,
                       zone: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordResult]:
     """
     Provides details about a NS1 Record. Use this if you would simply like to read
     information from NS1 into your configurations. For read/write operations, you
@@ -276,7 +276,7 @@ def get_record_output(domain: Optional[pulumi.Input[str]] = None,
     __args__['domain'] = domain
     __args__['type'] = type
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('ns1:index/getRecord:getRecord', __args__, opts=opts, typ=GetRecordResult)
     return __ret__.apply(lambda __response__: GetRecordResult(
         answers=pulumi.get(__response__, 'answers'),

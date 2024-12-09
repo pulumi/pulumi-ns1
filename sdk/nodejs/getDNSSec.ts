@@ -80,7 +80,7 @@ export interface GetDNSSecResult {
  * });
  * ```
  */
-export function getDNSSecOutput(args: GetDNSSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDNSSecResult> {
+export function getDNSSecOutput(args: GetDNSSecOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDNSSecResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("ns1:index/getDNSSec:getDNSSec", {
         "zone": args.zone,
