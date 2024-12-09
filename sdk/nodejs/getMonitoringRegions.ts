@@ -65,7 +65,7 @@ export interface GetMonitoringRegionsResult {
  * const example = ns1.getMonitoringRegions({});
  * ```
  */
-export function getMonitoringRegionsOutput(args?: GetMonitoringRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringRegionsResult> {
+export function getMonitoringRegionsOutput(args?: GetMonitoringRegionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoringRegionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("ns1:index/getMonitoringRegions:getMonitoringRegions", {
