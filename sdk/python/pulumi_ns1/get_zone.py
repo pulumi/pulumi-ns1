@@ -301,7 +301,7 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
                     additional_primaries: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                     primary_port: Optional[pulumi.Input[Optional[int]]] = None,
                     zone: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
     """
     Provides details about a NS1 Zone. Use this if you would simply like to read
     information from NS1 into your configurations. For read/write operations, you
@@ -327,7 +327,7 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
     __args__['additionalPrimaries'] = additional_primaries
     __args__['primaryPort'] = primary_port
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('ns1:index/getZone:getZone', __args__, opts=opts, typ=GetZoneResult)
     return __ret__.apply(lambda __response__: GetZoneResult(
         additional_ports=pulumi.get(__response__, 'additional_ports'),
