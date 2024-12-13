@@ -54,6 +54,28 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Output<GetMonitoringRegionsResult> Invoke(GetMonitoringRegionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringRegionsResult>("ns1:index/getMonitoringRegions:getMonitoringRegions", args ?? new GetMonitoringRegionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details of all available monitoring regions.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get details of all available monitoring regions.
+        ///     var example = Ns1.GetMonitoringRegions.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetMonitoringRegionsResult> Invoke(GetMonitoringRegionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringRegionsResult>("ns1:index/getMonitoringRegions:getMonitoringRegions", args ?? new GetMonitoringRegionsInvokeArgs(), options.WithDefaults());
     }
 
 

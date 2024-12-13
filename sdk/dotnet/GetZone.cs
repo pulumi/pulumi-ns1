@@ -64,6 +64,33 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a NS1 Zone. Use this if you would simply like to read
+        /// information from NS1 into your configurations. For read/write operations, you
+        /// should use a resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get details about a NS1 Zone.
+        ///     var example = Ns1.GetZone.Invoke(new()
+        ///     {
+        ///         Zone = "terraform.example.io",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("ns1:index/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
     }
 
 

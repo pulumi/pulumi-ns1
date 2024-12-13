@@ -68,6 +68,35 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Output<GetRecordResult> Invoke(GetRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a NS1 Record. Use this if you would simply like to read
+        /// information from NS1 into your configurations. For read/write operations, you
+        /// should use a resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get details about a NS1 Record.
+        ///     var example = Ns1.GetRecord.Invoke(new()
+        ///     {
+        ///         Zone = "example.io",
+        ///         Domain = "terraform.example.io",
+        ///         Type = "A",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRecordResult> Invoke(GetRecordInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecordResult>("ns1:index/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithDefaults());
     }
 
 

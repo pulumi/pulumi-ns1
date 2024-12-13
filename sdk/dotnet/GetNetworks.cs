@@ -58,6 +58,30 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Output<GetNetworksResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("ns1:index/getNetworks:getNetworks", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about NS1 Networks. Use this if you would simply like to read
+        /// information from NS1 into your configurations. For read/write operations, you
+        /// should use a resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get details about NS1 Networks.
+        ///     var example = Ns1.GetNetworks.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworksResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworksResult>("ns1:index/getNetworks:getNetworks", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
