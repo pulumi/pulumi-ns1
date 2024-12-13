@@ -72,6 +72,37 @@ namespace Pulumi.Ns1
         /// </summary>
         public static Output<GetDNSSecResult> Invoke(GetDNSSecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides DNSSEC details about a NS1 Zone.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Ns1 = Pulumi.Ns1;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get DNSSEC details about a NS1 Zone.
+        ///     var exampleZone = new Ns1.Zone("example", new()
+        ///     {
+        ///         ZoneName = "terraform.example.io",
+        ///         Dnssec = true,
+        ///     });
+        /// 
+        ///     var example = Ns1.GetDNSSec.Invoke(new()
+        ///     {
+        ///         Zone = exampleZone.ZoneName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDNSSecResult> Invoke(GetDNSSecInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDNSSecResult>("ns1:index/getDNSSec:getDNSSec", args ?? new GetDNSSecInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -72,21 +72,11 @@ type GetDNSSecResult struct {
 }
 
 func GetDNSSecOutput(ctx *pulumi.Context, args GetDNSSecOutputArgs, opts ...pulumi.InvokeOption) GetDNSSecResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDNSSecResultOutput, error) {
 			args := v.(GetDNSSecArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetDNSSecResult
-			secret, err := ctx.InvokePackageRaw("ns1:index/getDNSSec:getDNSSec", args, &rv, "", opts...)
-			if err != nil {
-				return GetDNSSecResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetDNSSecResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetDNSSecResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("ns1:index/getDNSSec:getDNSSec", args, GetDNSSecResultOutput{}, options).(GetDNSSecResultOutput), nil
 		}).(GetDNSSecResultOutput)
 }
 
