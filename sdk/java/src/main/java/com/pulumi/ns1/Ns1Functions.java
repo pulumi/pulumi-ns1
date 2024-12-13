@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.ns1.Utilities;
 import com.pulumi.ns1.inputs.GetDNSSecArgs;
 import com.pulumi.ns1.inputs.GetDNSSecPlainArgs;
@@ -173,6 +174,56 @@ public final class Ns1Functions {
      * 
      */
     public static Output<GetDNSSecResult> getDNSSec(GetDNSSecArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getDNSSec:getDNSSec", TypeShape.of(GetDNSSecResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides DNSSEC details about a NS1 Zone.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Zone;
+     * import com.pulumi.ns1.ZoneArgs;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetDNSSecArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get DNSSEC details about a NS1 Zone.
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+     *             .zone("terraform.example.io")
+     *             .dnssec(true)
+     *             .build());
+     * 
+     *         final var example = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()
+     *             .zone(exampleZone.zone())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDNSSecResult> getDNSSec(GetDNSSecArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("ns1:index/getDNSSec:getDNSSec", TypeShape.of(GetDNSSecResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -468,6 +519,47 @@ public final class Ns1Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetMonitoringRegionsResult> getMonitoringRegions(GetMonitoringRegionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getMonitoringRegions:getMonitoringRegions", TypeShape.of(GetMonitoringRegionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details of all available monitoring regions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details of all available monitoring regions.
+     *         final var example = Ns1Functions.getMonitoringRegions();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetMonitoringRegionsResult> getMonitoringRegionsPlain(GetMonitoringRegionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("ns1:index/getMonitoringRegions:getMonitoringRegions", TypeShape.of(GetMonitoringRegionsResult.class), args, Utilities.withVersion(options));
     }
@@ -720,6 +812,48 @@ public final class Ns1Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetNetworksResult> getNetworks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about NS1 Networks. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about NS1 Networks.
+     *         final var example = Ns1Functions.getNetworks();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNetworksResult> getNetworksPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("ns1:index/getNetworks:getNetworks", TypeShape.of(GetNetworksResult.class), args, Utilities.withVersion(options));
     }
@@ -908,6 +1042,53 @@ public final class Ns1Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRecordResult> getRecord(GetRecordArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a NS1 Record. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Record.
+     *         final var example = Ns1Functions.getRecord(GetRecordArgs.builder()
+     *             .zone("example.io")
+     *             .domain("terraform.example.io")
+     *             .type("A")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("ns1:index/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
     }
@@ -1044,6 +1225,51 @@ public final class Ns1Functions {
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a NS1 Zone. Use this if you would simply like to read
+     * information from NS1 into your configurations. For read/write operations, you
+     * should use a resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.Ns1Functions;
+     * import com.pulumi.ns1.inputs.GetZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about a NS1 Zone.
+     *         final var example = Ns1Functions.getZone(GetZoneArgs.builder()
+     *             .zone("terraform.example.io")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("ns1:index/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
     }
     /**
