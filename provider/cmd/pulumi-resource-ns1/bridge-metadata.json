@@ -10,6 +10,21 @@
                     }
                 }
             },
+            "ns1_alert": {
+                "current": "ns1:index/alert:Alert",
+                "majorVersion": 3,
+                "fields": {
+                    "notification_lists": {
+                        "maxItemsOne": false
+                    },
+                    "record_ids": {
+                        "maxItemsOne": false
+                    },
+                    "zone_names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "ns1_apikey": {
                 "current": "ns1:index/aPIKey:APIKey",
                 "majorVersion": 3,

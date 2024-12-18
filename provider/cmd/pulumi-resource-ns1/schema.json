@@ -1435,6 +1435,163 @@
                 "type": "object"
             }
         },
+        "ns1:index/alert:Alert": {
+            "description": "Provides a NS1 Alert resource. This can be used to create, modify, and delete alerts.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Alert(\"example\", {\n    name: \"Example Alert\",\n    type: \"zone\",\n    subtype: \"transfer_failed\",\n    notificationLists: [],\n    zoneNames: [],\n    recordIds: [],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Alert(\"example\",\n    name=\"Example Alert\",\n    type=\"zone\",\n    subtype=\"transfer_failed\",\n    notification_lists=[],\n    zone_names=[],\n    record_ids=[])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Alert(\"example\", new()\n    {\n        Name = \"Example Alert\",\n        Type = \"zone\",\n        Subtype = \"transfer_failed\",\n        NotificationLists = new[] {},\n        ZoneNames = new[] {},\n        RecordIds = new[] {},\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewAlert(ctx, \"example\", \u0026ns1.AlertArgs{\n\t\t\tName:              pulumi.String(\"Example Alert\"),\n\t\t\tType:              pulumi.String(\"zone\"),\n\t\t\tSubtype:           pulumi.String(\"transfer_failed\"),\n\t\t\tNotificationLists: pulumi.StringArray{},\n\t\t\tZoneNames:         pulumi.StringArray{},\n\t\t\tRecordIds:         pulumi.StringArray{},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Alert;\nimport com.pulumi.ns1.AlertArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Alert(\"example\", AlertArgs.builder()\n            .name(\"Example Alert\")\n            .type(\"zone\")\n            .subtype(\"transfer_failed\")\n            .notificationLists()\n            .zoneNames()\n            .recordIds()\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Alert\n    properties:\n      name: Example Alert\n      type: zone\n      subtype: transfer_failed\n      notificationLists: []\n      zoneNames: []\n      recordIds: []\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Alerts Api Doc](https://ns1.com/api#alerts)\n\n## Import\n\n```sh\n$ pulumi import ns1:index/alert:Alert \u003cname\u003e \u003calert_id\u003e`\n```\n\n",
+            "properties": {
+                "createdAt": {
+                    "type": "integer",
+                    "description": "(Read Only) The Unix timestamp representing when the alert configuration was created.\n"
+                },
+                "createdBy": {
+                    "type": "string",
+                    "description": "(Read Only) The user or apikey that created this alert.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The free-form display name for the alert.\n"
+                },
+                "notificationLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of id's for notification lists whose notifiers will be triggered by the alert.\n"
+                },
+                "recordIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of record id's this alert applies to.\n"
+                },
+                "subtype": {
+                    "type": "string",
+                    "description": "The type of the alert.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the alert.\n"
+                },
+                "updatedAt": {
+                    "type": "integer",
+                    "description": "(Read Only) The Unix timestamp representing when the alert configuration was last modified.\n"
+                },
+                "updatedBy": {
+                    "type": "string",
+                    "description": "(Read Only) The user or apikey that last modified this alert.\n"
+                },
+                "zoneNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of zones this alert applies to.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "createdBy",
+                "name",
+                "subtype",
+                "type",
+                "updatedAt",
+                "updatedBy"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The free-form display name for the alert.\n"
+                },
+                "notificationLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of id's for notification lists whose notifiers will be triggered by the alert.\n"
+                },
+                "recordIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of record id's this alert applies to.\n"
+                },
+                "subtype": {
+                    "type": "string",
+                    "description": "The type of the alert.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the alert.\n"
+                },
+                "zoneNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of zones this alert applies to.\n"
+                }
+            },
+            "requiredInputs": [
+                "subtype",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Alert resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "integer",
+                        "description": "(Read Only) The Unix timestamp representing when the alert configuration was created.\n"
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "description": "(Read Only) The user or apikey that created this alert.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The free-form display name for the alert.\n"
+                    },
+                    "notificationLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of id's for notification lists whose notifiers will be triggered by the alert.\n"
+                    },
+                    "recordIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of record id's this alert applies to.\n"
+                    },
+                    "subtype": {
+                        "type": "string",
+                        "description": "The type of the alert.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the alert.\n"
+                    },
+                    "updatedAt": {
+                        "type": "integer",
+                        "description": "(Read Only) The Unix timestamp representing when the alert configuration was last modified.\n"
+                    },
+                    "updatedBy": {
+                        "type": "string",
+                        "description": "(Read Only) The user or apikey that last modified this alert.\n"
+                    },
+                    "zoneNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of zones this alert applies to.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "ns1:index/application:Application": {
             "description": "Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.\n\n## Import\n\n```sh\n$ pulumi import ns1:index/application:Application `ns1_application`\n```\n\nSo for the example above:\n\n```sh\n$ pulumi import ns1:index/application:Application example terraform.example.io`\n```\n\n",
             "properties": {
