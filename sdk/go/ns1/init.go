@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &APIKey{}
 	case "ns1:index/accountWhitelist:AccountWhitelist":
 		r = &AccountWhitelist{}
+	case "ns1:index/alert:Alert":
+		r = &Alert{}
 	case "ns1:index/application:Application":
 		r = &Application{}
 	case "ns1:index/dataFeed:DataFeed":
@@ -94,6 +96,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"ns1",
 		"index/accountWhitelist",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"ns1",
+		"index/alert",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

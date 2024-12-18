@@ -14,6 +14,7 @@
     },
     "files": [
         "accountWhitelist.ts",
+        "alert.ts",
         "apikey.ts",
         "application.ts",
         "config/index.ts",
