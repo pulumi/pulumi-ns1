@@ -10,6 +10,11 @@ export type AccountWhitelist = import("./accountWhitelist").AccountWhitelist;
 export const AccountWhitelist: typeof import("./accountWhitelist").AccountWhitelist = null as any;
 utilities.lazyLoad(exports, ["AccountWhitelist"], () => require("./accountWhitelist"));
 
+export { AlertArgs, AlertState } from "./alert";
+export type Alert = import("./alert").Alert;
+export const Alert: typeof import("./alert").Alert = null as any;
+utilities.lazyLoad(exports, ["Alert"], () => require("./alert"));
+
 export { APIKeyArgs, APIKeyState } from "./apikey";
 export type APIKey = import("./apikey").APIKey;
 export const APIKey: typeof import("./apikey").APIKey = null as any;
@@ -138,6 +143,8 @@ const _module = {
                 return new APIKey(name, <any>undefined, { urn })
             case "ns1:index/accountWhitelist:AccountWhitelist":
                 return new AccountWhitelist(name, <any>undefined, { urn })
+            case "ns1:index/alert:Alert":
+                return new Alert(name, <any>undefined, { urn })
             case "ns1:index/application:Application":
                 return new Application(name, <any>undefined, { urn })
             case "ns1:index/dataFeed:DataFeed":
@@ -175,6 +182,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("ns1", "index/aPIKey", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/accountWhitelist", _module)
+pulumi.runtime.registerResourceModule("ns1", "index/alert", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/application", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataFeed", _module)
 pulumi.runtime.registerResourceModule("ns1", "index/dataSource", _module)
