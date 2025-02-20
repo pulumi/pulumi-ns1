@@ -65,6 +65,8 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
+    /// -&gt; Imported keys will not have their key stored in the state file.
+    /// 
     /// ```sh
     /// $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey`
     /// ```
