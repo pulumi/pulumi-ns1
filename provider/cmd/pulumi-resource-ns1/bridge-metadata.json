@@ -258,6 +258,22 @@
             }
         },
         "datasources": {
+            "ns1_billing_usage": {
+                "current": "ns1:index/getBillingUsage:getBillingUsage",
+                "majorVersion": 3,
+                "fields": {
+                    "by_network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "daily": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "ns1_dnssec": {
                 "current": "ns1:index/getDNSSec:getDNSSec",
                 "majorVersion": 3,

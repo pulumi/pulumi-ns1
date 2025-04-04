@@ -554,6 +554,83 @@
                 }
             }
         },
+        "ns1:index/getBillingUsageByNetwork:getBillingUsageByNetwork": {
+            "properties": {
+                "billableQueries": {
+                    "type": "integer",
+                    "description": "Total billable queries for this network.\n"
+                },
+                "cleanQueries": {
+                    "type": "integer",
+                    "description": "Clean queries for this day.\n"
+                },
+                "dailies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/getBillingUsageByNetworkDaily:getBillingUsageByNetworkDaily"
+                    },
+                    "description": "Daily breakdown containing:\n"
+                },
+                "ddosQueries": {
+                    "type": "integer",
+                    "description": "DDoS queries for this day.\n"
+                },
+                "network": {
+                    "type": "integer",
+                    "description": "The network ID.\n"
+                },
+                "nxdResponses": {
+                    "type": "integer",
+                    "description": "NXD responses for this day.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "billableQueries",
+                "cleanQueries",
+                "dailies",
+                "ddosQueries",
+                "network",
+                "nxdResponses"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "ns1:index/getBillingUsageByNetworkDaily:getBillingUsageByNetworkDaily": {
+            "properties": {
+                "cleanQueries": {
+                    "type": "integer",
+                    "description": "Clean queries for this day.\n"
+                },
+                "ddosQueries": {
+                    "type": "integer",
+                    "description": "DDoS queries for this day.\n"
+                },
+                "nxdResponses": {
+                    "type": "integer",
+                    "description": "NXD responses for this day.\n"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "description": "The timestamp for the day.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cleanQueries",
+                "ddosQueries",
+                "nxdResponses",
+                "timestamp"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "ns1:index/getDNSSecDelegation:getDNSSecDelegation": {
             "properties": {
                 "dnskeys": {
@@ -4204,6 +4281,130 @@
         }
     },
     "functions": {
+        "ns1:index/getBillingUsage:getBillingUsage": {
+            "description": "Provides billing usage details about a NS1 account.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Get query usage data for the given timeframe\nconst queries = new ns1.index.BillingUsage(\"queries\", {\n    metricType: \"queries\",\n    from: 1731605824,\n    to: 1734197824,\n});\n// Get account limits data for the given timeframe\nconst limits = new ns1.index.BillingUsage(\"limits\", {\n    metricType: \"limits\",\n    from: 1731605824,\n    to: 1734197824,\n});\n// Get RUM decisions usage data for the given timeframe\nconst decisions = new ns1.index.BillingUsage(\"decisions\", {\n    metricType: \"decisions\",\n    from: 1731605824,\n    to: 1734197824,\n});\n// Get filter chains usage data\nconst filterChains = new ns1.index.BillingUsage(\"filter_chains\", {metricType: \"filter-chains\"});\n// Get monitoring jobs usage data\nconst monitors = new ns1.index.BillingUsage(\"monitors\", {metricType: \"monitors\"});\n// Get records usage data\nconst records = new ns1.index.BillingUsage(\"records\", {metricType: \"records\"});\nexport const totalQueries = queries.cleanQueries;\nexport const totalDdosQueries = queries.ddosQueries;\nexport const totalNxdResponses = queries.nxdResponses;\nexport const queriesLimit = limits.queriesLimit;\nexport const totalDecisions = decisions.totalUsage;\nexport const decisionsLimit = limits.decisionsLimit;\nexport const totalFilterChains = filterChains.totalUsage;\nexport const filterChainsLimit = limits.filterChainsLimit;\nexport const totalMonitors = monitors.totalUsage;\nexport const monitorsLimit = limits.monitorsLimit;\nexport const totalRecords = records.totalUsage;\nexport const recordsLimit = limits.recordsLimit;\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Get query usage data for the given timeframe\nqueries = ns1.index.BillingUsage(\"queries\",\n    metric_type=queries,\n    from_=1731605824,\n    to=1734197824)\n# Get account limits data for the given timeframe\nlimits = ns1.index.BillingUsage(\"limits\",\n    metric_type=limits,\n    from_=1731605824,\n    to=1734197824)\n# Get RUM decisions usage data for the given timeframe\ndecisions = ns1.index.BillingUsage(\"decisions\",\n    metric_type=decisions,\n    from_=1731605824,\n    to=1734197824)\n# Get filter chains usage data\nfilter_chains = ns1.index.BillingUsage(\"filter_chains\", metric_type=filter-chains)\n# Get monitoring jobs usage data\nmonitors = ns1.index.BillingUsage(\"monitors\", metric_type=monitors)\n# Get records usage data\nrecords = ns1.index.BillingUsage(\"records\", metric_type=records)\npulumi.export(\"totalQueries\", queries[\"cleanQueries\"])\npulumi.export(\"totalDdosQueries\", queries[\"ddosQueries\"])\npulumi.export(\"totalNxdResponses\", queries[\"nxdResponses\"])\npulumi.export(\"queriesLimit\", limits[\"queriesLimit\"])\npulumi.export(\"totalDecisions\", decisions[\"totalUsage\"])\npulumi.export(\"decisionsLimit\", limits[\"decisionsLimit\"])\npulumi.export(\"totalFilterChains\", filter_chains[\"totalUsage\"])\npulumi.export(\"filterChainsLimit\", limits[\"filterChainsLimit\"])\npulumi.export(\"totalMonitors\", monitors[\"totalUsage\"])\npulumi.export(\"monitorsLimit\", limits[\"monitorsLimit\"])\npulumi.export(\"totalRecords\", records[\"totalUsage\"])\npulumi.export(\"recordsLimit\", limits[\"recordsLimit\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Get query usage data for the given timeframe\n    var queries = new Ns1.Index.BillingUsage(\"queries\", new()\n    {\n        MetricType = \"queries\",\n        From = 1731605824,\n        To = 1734197824,\n    });\n\n    // Get account limits data for the given timeframe\n    var limits = new Ns1.Index.BillingUsage(\"limits\", new()\n    {\n        MetricType = \"limits\",\n        From = 1731605824,\n        To = 1734197824,\n    });\n\n    // Get RUM decisions usage data for the given timeframe\n    var decisions = new Ns1.Index.BillingUsage(\"decisions\", new()\n    {\n        MetricType = \"decisions\",\n        From = 1731605824,\n        To = 1734197824,\n    });\n\n    // Get filter chains usage data\n    var filterChains = new Ns1.Index.BillingUsage(\"filter_chains\", new()\n    {\n        MetricType = \"filter-chains\",\n    });\n\n    // Get monitoring jobs usage data\n    var monitors = new Ns1.Index.BillingUsage(\"monitors\", new()\n    {\n        MetricType = \"monitors\",\n    });\n\n    // Get records usage data\n    var records = new Ns1.Index.BillingUsage(\"records\", new()\n    {\n        MetricType = \"records\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"totalQueries\"] = queries.CleanQueries,\n        [\"totalDdosQueries\"] = queries.DdosQueries,\n        [\"totalNxdResponses\"] = queries.NxdResponses,\n        [\"queriesLimit\"] = limits.QueriesLimit,\n        [\"totalDecisions\"] = decisions.TotalUsage,\n        [\"decisionsLimit\"] = limits.DecisionsLimit,\n        [\"totalFilterChains\"] = filterChains.TotalUsage,\n        [\"filterChainsLimit\"] = limits.FilterChainsLimit,\n        [\"totalMonitors\"] = monitors.TotalUsage,\n        [\"monitorsLimit\"] = limits.MonitorsLimit,\n        [\"totalRecords\"] = records.TotalUsage,\n        [\"recordsLimit\"] = limits.RecordsLimit,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Get query usage data for the given timeframe\n\t\tqueries, err := ns1.NewBillingUsage(ctx, \"queries\", \u0026ns1.BillingUsageArgs{\n\t\t\tMetricType: \"queries\",\n\t\t\tFrom:       1731605824,\n\t\t\tTo:         1734197824,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Get account limits data for the given timeframe\n\t\tlimits, err := ns1.NewBillingUsage(ctx, \"limits\", \u0026ns1.BillingUsageArgs{\n\t\t\tMetricType: \"limits\",\n\t\t\tFrom:       1731605824,\n\t\t\tTo:         1734197824,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Get RUM decisions usage data for the given timeframe\n\t\tdecisions, err := ns1.NewBillingUsage(ctx, \"decisions\", \u0026ns1.BillingUsageArgs{\n\t\t\tMetricType: \"decisions\",\n\t\t\tFrom:       1731605824,\n\t\t\tTo:         1734197824,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Get filter chains usage data\n\t\tfilterChains, err := ns1.NewBillingUsage(ctx, \"filter_chains\", \u0026ns1.BillingUsageArgs{\n\t\t\tMetricType: \"filter-chains\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Get monitoring jobs usage data\n\t\tmonitors, err := ns1.NewBillingUsage(ctx, \"monitors\", \u0026ns1.BillingUsageArgs{\n\t\t\tMetricType: \"monitors\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Get records usage data\n\t\trecords, err := ns1.NewBillingUsage(ctx, \"records\", \u0026ns1.BillingUsageArgs{\n\t\t\tMetricType: \"records\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"totalQueries\", queries.CleanQueries)\n\t\tctx.Export(\"totalDdosQueries\", queries.DdosQueries)\n\t\tctx.Export(\"totalNxdResponses\", queries.NxdResponses)\n\t\tctx.Export(\"queriesLimit\", limits.QueriesLimit)\n\t\tctx.Export(\"totalDecisions\", decisions.TotalUsage)\n\t\tctx.Export(\"decisionsLimit\", limits.DecisionsLimit)\n\t\tctx.Export(\"totalFilterChains\", filterChains.TotalUsage)\n\t\tctx.Export(\"filterChainsLimit\", limits.FilterChainsLimit)\n\t\tctx.Export(\"totalMonitors\", monitors.TotalUsage)\n\t\tctx.Export(\"monitorsLimit\", limits.MonitorsLimit)\n\t\tctx.Export(\"totalRecords\", records.TotalUsage)\n\t\tctx.Export(\"recordsLimit\", limits.RecordsLimit)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.billingUsage;\nimport com.pulumi.ns1.BillingUsageArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Get query usage data for the given timeframe\n        var queries = new BillingUsage(\"queries\", BillingUsageArgs.builder()\n            .metricType(\"queries\")\n            .from(1731605824)\n            .to(1734197824)\n            .build());\n\n        // Get account limits data for the given timeframe\n        var limits = new BillingUsage(\"limits\", BillingUsageArgs.builder()\n            .metricType(\"limits\")\n            .from(1731605824)\n            .to(1734197824)\n            .build());\n\n        // Get RUM decisions usage data for the given timeframe\n        var decisions = new BillingUsage(\"decisions\", BillingUsageArgs.builder()\n            .metricType(\"decisions\")\n            .from(1731605824)\n            .to(1734197824)\n            .build());\n\n        // Get filter chains usage data\n        var filterChains = new BillingUsage(\"filterChains\", BillingUsageArgs.builder()\n            .metricType(\"filter-chains\")\n            .build());\n\n        // Get monitoring jobs usage data\n        var monitors = new BillingUsage(\"monitors\", BillingUsageArgs.builder()\n            .metricType(\"monitors\")\n            .build());\n\n        // Get records usage data\n        var records = new BillingUsage(\"records\", BillingUsageArgs.builder()\n            .metricType(\"records\")\n            .build());\n\n        ctx.export(\"totalQueries\", queries.cleanQueries());\n        ctx.export(\"totalDdosQueries\", queries.ddosQueries());\n        ctx.export(\"totalNxdResponses\", queries.nxdResponses());\n        ctx.export(\"queriesLimit\", limits.queriesLimit());\n        ctx.export(\"totalDecisions\", decisions.totalUsage());\n        ctx.export(\"decisionsLimit\", limits.decisionsLimit());\n        ctx.export(\"totalFilterChains\", filterChains.totalUsage());\n        ctx.export(\"filterChainsLimit\", limits.filterChainsLimit());\n        ctx.export(\"totalMonitors\", monitors.totalUsage());\n        ctx.export(\"monitorsLimit\", limits.monitorsLimit());\n        ctx.export(\"totalRecords\", records.totalUsage());\n        ctx.export(\"recordsLimit\", limits.recordsLimit());\n    }\n}\n```\n```yaml\nresources:\n  # Get query usage data for the given timeframe\n  queries:\n    type: ns1:billingUsage\n    properties:\n      metricType: queries\n      from: 1.731605824e+09 # 2024-11-15 00:00:00 UTC\n      to: 1.734197824e+09 # 2024-12-15 00:00:00 UTC\n  # Get account limits data for the given timeframe\n  limits:\n    type: ns1:billingUsage\n    properties:\n      metricType: limits\n      from: 1.731605824e+09 # 2024-11-15 00:00:00 UTC\n      to: 1.734197824e+09 # 2024-12-15 00:00:00 UTC\n  # Get RUM decisions usage data for the given timeframe\n  decisions:\n    type: ns1:billingUsage\n    properties:\n      metricType: decisions\n      from: 1.731605824e+09 # 2024-11-15 00:00:00 UTC\n      to: 1.734197824e+09 # 2024-12-15 00:00:00 UTC\n  # Get filter chains usage data\n  filterChains:\n    type: ns1:billingUsage\n    name: filter_chains\n    properties:\n      metricType: filter-chains\n  # Get monitoring jobs usage data\n  monitors:\n    type: ns1:billingUsage\n    properties:\n      metricType: monitors\n  # Get records usage data\n  records:\n    type: ns1:billingUsage\n    properties:\n      metricType: records\noutputs:\n  # Example of using the data in other resources\n  totalQueries: ${queries.cleanQueries}\n  totalDdosQueries: ${queries.ddosQueries}\n  totalNxdResponses: ${queries.nxdResponses}\n  queriesLimit: ${limits.queriesLimit}\n  totalDecisions: ${decisions.totalUsage}\n  decisionsLimit: ${limits.decisionsLimit}\n  totalFilterChains: ${filterChains.totalUsage}\n  filterChainsLimit: ${limits.filterChainsLimit}\n  totalMonitors: ${monitors.totalUsage}\n  monitorsLimit: ${limits.monitorsLimit}\n  totalRecords: ${records.totalUsage}\n  recordsLimit: ${limits.recordsLimit}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getBillingUsage.\n",
+                "properties": {
+                    "from": {
+                        "type": "integer",
+                        "description": "The start timestamp for the data range in Unix epoch format.\n"
+                    },
+                    "metricType": {
+                        "type": "string",
+                        "description": "The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.\n"
+                    },
+                    "to": {
+                        "type": "integer",
+                        "description": "The end timestamp for the data range in Unix epoch format.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "from",
+                    "metricType",
+                    "to"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getBillingUsage.\n",
+                "properties": {
+                    "byNetworks": {
+                        "description": "(Computed) A list of network-specific query data containing:\n",
+                        "items": {
+                            "$ref": "#/types/ns1:index/getBillingUsageByNetwork:getBillingUsageByNetwork"
+                        },
+                        "type": "array"
+                    },
+                    "chinaQueriesLimit": {
+                        "description": "(Computed) The queries limit for the China network.\n",
+                        "type": "integer"
+                    },
+                    "cleanQueries": {
+                        "description": "Clean queries for this day.\n",
+                        "type": "integer"
+                    },
+                    "ddosProtectionEnabled": {
+                        "description": "(Computed) Whether DDoS Protection is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "ddosQueries": {
+                        "description": "DDoS queries for this day.\n",
+                        "type": "integer"
+                    },
+                    "decisionsLimit": {
+                        "description": "(Computed) The RUM decisions limit for this billing cycle.\n",
+                        "type": "integer"
+                    },
+                    "filterChainsLimit": {
+                        "description": "(Computed) The filter chains limit for this billing cycle.\n",
+                        "type": "integer"
+                    },
+                    "from": {
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "includeDedicatedDnsNetworkInManagedDnsUsage": {
+                        "description": "(Computed) Whether dedicated DNS usage counts towards managed DNS usage.\n",
+                        "type": "boolean"
+                    },
+                    "metricType": {
+                        "type": "string"
+                    },
+                    "monitorsLimit": {
+                        "description": "(Computed) The monitoring jobs limit for this billing cycle.\n",
+                        "type": "integer"
+                    },
+                    "nxdProtectionEnabled": {
+                        "description": "(Computed) Whether NXD Protection is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "nxdResponses": {
+                        "description": "NXD responses for this day.\n",
+                        "type": "integer"
+                    },
+                    "queriesLimit": {
+                        "description": "(Computed) The queries limit for this billing cycle.\n",
+                        "type": "integer"
+                    },
+                    "recordsLimit": {
+                        "description": "(Computed) The records limit for this billing cycle.\n",
+                        "type": "integer"
+                    },
+                    "to": {
+                        "type": "integer"
+                    },
+                    "totalUsage": {
+                        "description": "(Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.\n",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "byNetworks",
+                    "chinaQueriesLimit",
+                    "cleanQueries",
+                    "ddosProtectionEnabled",
+                    "ddosQueries",
+                    "decisionsLimit",
+                    "filterChainsLimit",
+                    "from",
+                    "includeDedicatedDnsNetworkInManagedDnsUsage",
+                    "metricType",
+                    "monitorsLimit",
+                    "nxdProtectionEnabled",
+                    "nxdResponses",
+                    "queriesLimit",
+                    "recordsLimit",
+                    "to",
+                    "totalUsage",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "ns1:index/getDNSSec:getDNSSec": {
             "description": "Provides DNSSEC details about a NS1 Zone.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\n// Get DNSSEC details about a NS1 Zone.\nconst exampleZone = new ns1.Zone(\"example\", {\n    zone: \"terraform.example.io\",\n    dnssec: true,\n});\nconst example = ns1.getDNSSecOutput({\n    zone: exampleZone.zone,\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\n# Get DNSSEC details about a NS1 Zone.\nexample_zone = ns1.Zone(\"example\",\n    zone=\"terraform.example.io\",\n    dnssec=True)\nexample = ns1.get_dns_sec_output(zone=example_zone.zone)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Get DNSSEC details about a NS1 Zone.\n    var exampleZone = new Ns1.Zone(\"example\", new()\n    {\n        ZoneName = \"terraform.example.io\",\n        Dnssec = true,\n    });\n\n    var example = Ns1.GetDNSSec.Invoke(new()\n    {\n        Zone = exampleZone.ZoneName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Get DNSSEC details about a NS1 Zone.\n\t\texampleZone, err := ns1.NewZone(ctx, \"example\", \u0026ns1.ZoneArgs{\n\t\t\tZone:   pulumi.String(\"terraform.example.io\"),\n\t\t\tDnssec: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = ns1.GetDNSSecOutput(ctx, ns1.GetDNSSecOutputArgs{\n\t\t\tZone: exampleZone.Zone,\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Zone;\nimport com.pulumi.ns1.ZoneArgs;\nimport com.pulumi.ns1.Ns1Functions;\nimport com.pulumi.ns1.inputs.GetDNSSecArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Get DNSSEC details about a NS1 Zone.\n        var exampleZone = new Zone(\"exampleZone\", ZoneArgs.builder()\n            .zone(\"terraform.example.io\")\n            .dnssec(true)\n            .build());\n\n        final var example = Ns1Functions.getDNSSec(GetDNSSecArgs.builder()\n            .zone(exampleZone.zone())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Get DNSSEC details about a NS1 Zone.\n  exampleZone:\n    type: ns1:Zone\n    name: example\n    properties:\n      zone: terraform.example.io\n      dnssec: true\nvariables:\n  example:\n    fn::invoke:\n      function: ns1:getDNSSec\n      arguments:\n        zone: ${exampleZone.zone}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
