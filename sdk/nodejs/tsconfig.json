@@ -23,6 +23,7 @@
         "dataSource.ts",
         "dataset.ts",
         "dnsview.ts",
+        "getBillingUsage.ts",
         "getDNSSec.ts",
         "getMonitoringRegions.ts",
         "getNetworks.ts",

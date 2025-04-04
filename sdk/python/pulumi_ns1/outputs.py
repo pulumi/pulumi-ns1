@@ -37,6 +37,8 @@ __all__ = [
     'UserDnsRecordsAllow',
     'UserDnsRecordsDeny',
     'ZoneSecondary',
+    'GetBillingUsageByNetworkResult',
+    'GetBillingUsageByNetworkDailyResult',
     'GetDNSSecDelegationResult',
     'GetDNSSecDelegationDResult',
     'GetDNSSecDelegationDnskeyResult',
@@ -1097,6 +1099,130 @@ class ZoneSecondary(dict):
         Port of the the secondary server. Default `53`.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetBillingUsageByNetworkResult(dict):
+    def __init__(__self__, *,
+                 billable_queries: int,
+                 clean_queries: int,
+                 dailies: Sequence['outputs.GetBillingUsageByNetworkDailyResult'],
+                 ddos_queries: int,
+                 network: int,
+                 nxd_responses: int):
+        """
+        :param int billable_queries: Total billable queries for this network.
+        :param int clean_queries: Clean queries for this day.
+        :param Sequence['GetBillingUsageByNetworkDailyArgs'] dailies: Daily breakdown containing:
+        :param int ddos_queries: DDoS queries for this day.
+        :param int network: The network ID.
+        :param int nxd_responses: NXD responses for this day.
+        """
+        pulumi.set(__self__, "billable_queries", billable_queries)
+        pulumi.set(__self__, "clean_queries", clean_queries)
+        pulumi.set(__self__, "dailies", dailies)
+        pulumi.set(__self__, "ddos_queries", ddos_queries)
+        pulumi.set(__self__, "network", network)
+        pulumi.set(__self__, "nxd_responses", nxd_responses)
+
+    @property
+    @pulumi.getter(name="billableQueries")
+    def billable_queries(self) -> int:
+        """
+        Total billable queries for this network.
+        """
+        return pulumi.get(self, "billable_queries")
+
+    @property
+    @pulumi.getter(name="cleanQueries")
+    def clean_queries(self) -> int:
+        """
+        Clean queries for this day.
+        """
+        return pulumi.get(self, "clean_queries")
+
+    @property
+    @pulumi.getter
+    def dailies(self) -> Sequence['outputs.GetBillingUsageByNetworkDailyResult']:
+        """
+        Daily breakdown containing:
+        """
+        return pulumi.get(self, "dailies")
+
+    @property
+    @pulumi.getter(name="ddosQueries")
+    def ddos_queries(self) -> int:
+        """
+        DDoS queries for this day.
+        """
+        return pulumi.get(self, "ddos_queries")
+
+    @property
+    @pulumi.getter
+    def network(self) -> int:
+        """
+        The network ID.
+        """
+        return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="nxdResponses")
+    def nxd_responses(self) -> int:
+        """
+        NXD responses for this day.
+        """
+        return pulumi.get(self, "nxd_responses")
+
+
+@pulumi.output_type
+class GetBillingUsageByNetworkDailyResult(dict):
+    def __init__(__self__, *,
+                 clean_queries: int,
+                 ddos_queries: int,
+                 nxd_responses: int,
+                 timestamp: int):
+        """
+        :param int clean_queries: Clean queries for this day.
+        :param int ddos_queries: DDoS queries for this day.
+        :param int nxd_responses: NXD responses for this day.
+        :param int timestamp: The timestamp for the day.
+        """
+        pulumi.set(__self__, "clean_queries", clean_queries)
+        pulumi.set(__self__, "ddos_queries", ddos_queries)
+        pulumi.set(__self__, "nxd_responses", nxd_responses)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="cleanQueries")
+    def clean_queries(self) -> int:
+        """
+        Clean queries for this day.
+        """
+        return pulumi.get(self, "clean_queries")
+
+    @property
+    @pulumi.getter(name="ddosQueries")
+    def ddos_queries(self) -> int:
+        """
+        DDoS queries for this day.
+        """
+        return pulumi.get(self, "ddos_queries")
+
+    @property
+    @pulumi.getter(name="nxdResponses")
+    def nxd_responses(self) -> int:
+        """
+        NXD responses for this day.
+        """
+        return pulumi.get(self, "nxd_responses")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> int:
+        """
+        The timestamp for the day.
+        """
+        return pulumi.get(self, "timestamp")
 
 
 @pulumi.output_type

@@ -2888,6 +2888,272 @@ func (o ZoneSecondaryArrayOutput) Index(i pulumi.IntInput) ZoneSecondaryOutput {
 	}).(ZoneSecondaryOutput)
 }
 
+type GetBillingUsageByNetwork struct {
+	// Total billable queries for this network.
+	BillableQueries int `pulumi:"billableQueries"`
+	// Clean queries for this day.
+	CleanQueries int `pulumi:"cleanQueries"`
+	// Daily breakdown containing:
+	Dailies []GetBillingUsageByNetworkDaily `pulumi:"dailies"`
+	// DDoS queries for this day.
+	DdosQueries int `pulumi:"ddosQueries"`
+	// The network ID.
+	Network int `pulumi:"network"`
+	// NXD responses for this day.
+	NxdResponses int `pulumi:"nxdResponses"`
+}
+
+// GetBillingUsageByNetworkInput is an input type that accepts GetBillingUsageByNetworkArgs and GetBillingUsageByNetworkOutput values.
+// You can construct a concrete instance of `GetBillingUsageByNetworkInput` via:
+//
+//	GetBillingUsageByNetworkArgs{...}
+type GetBillingUsageByNetworkInput interface {
+	pulumi.Input
+
+	ToGetBillingUsageByNetworkOutput() GetBillingUsageByNetworkOutput
+	ToGetBillingUsageByNetworkOutputWithContext(context.Context) GetBillingUsageByNetworkOutput
+}
+
+type GetBillingUsageByNetworkArgs struct {
+	// Total billable queries for this network.
+	BillableQueries pulumi.IntInput `pulumi:"billableQueries"`
+	// Clean queries for this day.
+	CleanQueries pulumi.IntInput `pulumi:"cleanQueries"`
+	// Daily breakdown containing:
+	Dailies GetBillingUsageByNetworkDailyArrayInput `pulumi:"dailies"`
+	// DDoS queries for this day.
+	DdosQueries pulumi.IntInput `pulumi:"ddosQueries"`
+	// The network ID.
+	Network pulumi.IntInput `pulumi:"network"`
+	// NXD responses for this day.
+	NxdResponses pulumi.IntInput `pulumi:"nxdResponses"`
+}
+
+func (GetBillingUsageByNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBillingUsageByNetwork)(nil)).Elem()
+}
+
+func (i GetBillingUsageByNetworkArgs) ToGetBillingUsageByNetworkOutput() GetBillingUsageByNetworkOutput {
+	return i.ToGetBillingUsageByNetworkOutputWithContext(context.Background())
+}
+
+func (i GetBillingUsageByNetworkArgs) ToGetBillingUsageByNetworkOutputWithContext(ctx context.Context) GetBillingUsageByNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBillingUsageByNetworkOutput)
+}
+
+// GetBillingUsageByNetworkArrayInput is an input type that accepts GetBillingUsageByNetworkArray and GetBillingUsageByNetworkArrayOutput values.
+// You can construct a concrete instance of `GetBillingUsageByNetworkArrayInput` via:
+//
+//	GetBillingUsageByNetworkArray{ GetBillingUsageByNetworkArgs{...} }
+type GetBillingUsageByNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetBillingUsageByNetworkArrayOutput() GetBillingUsageByNetworkArrayOutput
+	ToGetBillingUsageByNetworkArrayOutputWithContext(context.Context) GetBillingUsageByNetworkArrayOutput
+}
+
+type GetBillingUsageByNetworkArray []GetBillingUsageByNetworkInput
+
+func (GetBillingUsageByNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBillingUsageByNetwork)(nil)).Elem()
+}
+
+func (i GetBillingUsageByNetworkArray) ToGetBillingUsageByNetworkArrayOutput() GetBillingUsageByNetworkArrayOutput {
+	return i.ToGetBillingUsageByNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetBillingUsageByNetworkArray) ToGetBillingUsageByNetworkArrayOutputWithContext(ctx context.Context) GetBillingUsageByNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBillingUsageByNetworkArrayOutput)
+}
+
+type GetBillingUsageByNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetBillingUsageByNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBillingUsageByNetwork)(nil)).Elem()
+}
+
+func (o GetBillingUsageByNetworkOutput) ToGetBillingUsageByNetworkOutput() GetBillingUsageByNetworkOutput {
+	return o
+}
+
+func (o GetBillingUsageByNetworkOutput) ToGetBillingUsageByNetworkOutputWithContext(ctx context.Context) GetBillingUsageByNetworkOutput {
+	return o
+}
+
+// Total billable queries for this network.
+func (o GetBillingUsageByNetworkOutput) BillableQueries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetwork) int { return v.BillableQueries }).(pulumi.IntOutput)
+}
+
+// Clean queries for this day.
+func (o GetBillingUsageByNetworkOutput) CleanQueries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetwork) int { return v.CleanQueries }).(pulumi.IntOutput)
+}
+
+// Daily breakdown containing:
+func (o GetBillingUsageByNetworkOutput) Dailies() GetBillingUsageByNetworkDailyArrayOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetwork) []GetBillingUsageByNetworkDaily { return v.Dailies }).(GetBillingUsageByNetworkDailyArrayOutput)
+}
+
+// DDoS queries for this day.
+func (o GetBillingUsageByNetworkOutput) DdosQueries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetwork) int { return v.DdosQueries }).(pulumi.IntOutput)
+}
+
+// The network ID.
+func (o GetBillingUsageByNetworkOutput) Network() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetwork) int { return v.Network }).(pulumi.IntOutput)
+}
+
+// NXD responses for this day.
+func (o GetBillingUsageByNetworkOutput) NxdResponses() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetwork) int { return v.NxdResponses }).(pulumi.IntOutput)
+}
+
+type GetBillingUsageByNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBillingUsageByNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBillingUsageByNetwork)(nil)).Elem()
+}
+
+func (o GetBillingUsageByNetworkArrayOutput) ToGetBillingUsageByNetworkArrayOutput() GetBillingUsageByNetworkArrayOutput {
+	return o
+}
+
+func (o GetBillingUsageByNetworkArrayOutput) ToGetBillingUsageByNetworkArrayOutputWithContext(ctx context.Context) GetBillingUsageByNetworkArrayOutput {
+	return o
+}
+
+func (o GetBillingUsageByNetworkArrayOutput) Index(i pulumi.IntInput) GetBillingUsageByNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBillingUsageByNetwork {
+		return vs[0].([]GetBillingUsageByNetwork)[vs[1].(int)]
+	}).(GetBillingUsageByNetworkOutput)
+}
+
+type GetBillingUsageByNetworkDaily struct {
+	// Clean queries for this day.
+	CleanQueries int `pulumi:"cleanQueries"`
+	// DDoS queries for this day.
+	DdosQueries int `pulumi:"ddosQueries"`
+	// NXD responses for this day.
+	NxdResponses int `pulumi:"nxdResponses"`
+	// The timestamp for the day.
+	Timestamp int `pulumi:"timestamp"`
+}
+
+// GetBillingUsageByNetworkDailyInput is an input type that accepts GetBillingUsageByNetworkDailyArgs and GetBillingUsageByNetworkDailyOutput values.
+// You can construct a concrete instance of `GetBillingUsageByNetworkDailyInput` via:
+//
+//	GetBillingUsageByNetworkDailyArgs{...}
+type GetBillingUsageByNetworkDailyInput interface {
+	pulumi.Input
+
+	ToGetBillingUsageByNetworkDailyOutput() GetBillingUsageByNetworkDailyOutput
+	ToGetBillingUsageByNetworkDailyOutputWithContext(context.Context) GetBillingUsageByNetworkDailyOutput
+}
+
+type GetBillingUsageByNetworkDailyArgs struct {
+	// Clean queries for this day.
+	CleanQueries pulumi.IntInput `pulumi:"cleanQueries"`
+	// DDoS queries for this day.
+	DdosQueries pulumi.IntInput `pulumi:"ddosQueries"`
+	// NXD responses for this day.
+	NxdResponses pulumi.IntInput `pulumi:"nxdResponses"`
+	// The timestamp for the day.
+	Timestamp pulumi.IntInput `pulumi:"timestamp"`
+}
+
+func (GetBillingUsageByNetworkDailyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBillingUsageByNetworkDaily)(nil)).Elem()
+}
+
+func (i GetBillingUsageByNetworkDailyArgs) ToGetBillingUsageByNetworkDailyOutput() GetBillingUsageByNetworkDailyOutput {
+	return i.ToGetBillingUsageByNetworkDailyOutputWithContext(context.Background())
+}
+
+func (i GetBillingUsageByNetworkDailyArgs) ToGetBillingUsageByNetworkDailyOutputWithContext(ctx context.Context) GetBillingUsageByNetworkDailyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBillingUsageByNetworkDailyOutput)
+}
+
+// GetBillingUsageByNetworkDailyArrayInput is an input type that accepts GetBillingUsageByNetworkDailyArray and GetBillingUsageByNetworkDailyArrayOutput values.
+// You can construct a concrete instance of `GetBillingUsageByNetworkDailyArrayInput` via:
+//
+//	GetBillingUsageByNetworkDailyArray{ GetBillingUsageByNetworkDailyArgs{...} }
+type GetBillingUsageByNetworkDailyArrayInput interface {
+	pulumi.Input
+
+	ToGetBillingUsageByNetworkDailyArrayOutput() GetBillingUsageByNetworkDailyArrayOutput
+	ToGetBillingUsageByNetworkDailyArrayOutputWithContext(context.Context) GetBillingUsageByNetworkDailyArrayOutput
+}
+
+type GetBillingUsageByNetworkDailyArray []GetBillingUsageByNetworkDailyInput
+
+func (GetBillingUsageByNetworkDailyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBillingUsageByNetworkDaily)(nil)).Elem()
+}
+
+func (i GetBillingUsageByNetworkDailyArray) ToGetBillingUsageByNetworkDailyArrayOutput() GetBillingUsageByNetworkDailyArrayOutput {
+	return i.ToGetBillingUsageByNetworkDailyArrayOutputWithContext(context.Background())
+}
+
+func (i GetBillingUsageByNetworkDailyArray) ToGetBillingUsageByNetworkDailyArrayOutputWithContext(ctx context.Context) GetBillingUsageByNetworkDailyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBillingUsageByNetworkDailyArrayOutput)
+}
+
+type GetBillingUsageByNetworkDailyOutput struct{ *pulumi.OutputState }
+
+func (GetBillingUsageByNetworkDailyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBillingUsageByNetworkDaily)(nil)).Elem()
+}
+
+func (o GetBillingUsageByNetworkDailyOutput) ToGetBillingUsageByNetworkDailyOutput() GetBillingUsageByNetworkDailyOutput {
+	return o
+}
+
+func (o GetBillingUsageByNetworkDailyOutput) ToGetBillingUsageByNetworkDailyOutputWithContext(ctx context.Context) GetBillingUsageByNetworkDailyOutput {
+	return o
+}
+
+// Clean queries for this day.
+func (o GetBillingUsageByNetworkDailyOutput) CleanQueries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetworkDaily) int { return v.CleanQueries }).(pulumi.IntOutput)
+}
+
+// DDoS queries for this day.
+func (o GetBillingUsageByNetworkDailyOutput) DdosQueries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetworkDaily) int { return v.DdosQueries }).(pulumi.IntOutput)
+}
+
+// NXD responses for this day.
+func (o GetBillingUsageByNetworkDailyOutput) NxdResponses() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetworkDaily) int { return v.NxdResponses }).(pulumi.IntOutput)
+}
+
+// The timestamp for the day.
+func (o GetBillingUsageByNetworkDailyOutput) Timestamp() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBillingUsageByNetworkDaily) int { return v.Timestamp }).(pulumi.IntOutput)
+}
+
+type GetBillingUsageByNetworkDailyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBillingUsageByNetworkDailyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBillingUsageByNetworkDaily)(nil)).Elem()
+}
+
+func (o GetBillingUsageByNetworkDailyArrayOutput) ToGetBillingUsageByNetworkDailyArrayOutput() GetBillingUsageByNetworkDailyArrayOutput {
+	return o
+}
+
+func (o GetBillingUsageByNetworkDailyArrayOutput) ToGetBillingUsageByNetworkDailyArrayOutputWithContext(ctx context.Context) GetBillingUsageByNetworkDailyArrayOutput {
+	return o
+}
+
+func (o GetBillingUsageByNetworkDailyArrayOutput) Index(i pulumi.IntInput) GetBillingUsageByNetworkDailyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBillingUsageByNetworkDaily {
+		return vs[0].([]GetBillingUsageByNetworkDaily)[vs[1].(int)]
+	}).(GetBillingUsageByNetworkDailyOutput)
+}
+
 type GetDNSSecDelegation struct {
 	// (Computed) List of Keys. Key is documented below.
 	Dnskeys []GetDNSSecDelegationDnskey `pulumi:"dnskeys"`
@@ -4202,6 +4468,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDnsRecordsDenyArrayInput)(nil)).Elem(), UserDnsRecordsDenyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSecondaryInput)(nil)).Elem(), ZoneSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSecondaryArrayInput)(nil)).Elem(), ZoneSecondaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBillingUsageByNetworkInput)(nil)).Elem(), GetBillingUsageByNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBillingUsageByNetworkArrayInput)(nil)).Elem(), GetBillingUsageByNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBillingUsageByNetworkDailyInput)(nil)).Elem(), GetBillingUsageByNetworkDailyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBillingUsageByNetworkDailyArrayInput)(nil)).Elem(), GetBillingUsageByNetworkDailyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationInput)(nil)).Elem(), GetDNSSecDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationArrayInput)(nil)).Elem(), GetDNSSecDelegationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDNSSecDelegationDInput)(nil)).Elem(), GetDNSSecDelegationDArgs{})
@@ -4266,6 +4536,10 @@ func init() {
 	pulumi.RegisterOutputType(UserDnsRecordsDenyArrayOutput{})
 	pulumi.RegisterOutputType(ZoneSecondaryOutput{})
 	pulumi.RegisterOutputType(ZoneSecondaryArrayOutput{})
+	pulumi.RegisterOutputType(GetBillingUsageByNetworkOutput{})
+	pulumi.RegisterOutputType(GetBillingUsageByNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetBillingUsageByNetworkDailyOutput{})
+	pulumi.RegisterOutputType(GetBillingUsageByNetworkDailyArrayOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationArrayOutput{})
 	pulumi.RegisterOutputType(GetDNSSecDelegationDOutput{})

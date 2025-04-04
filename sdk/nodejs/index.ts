@@ -45,6 +45,11 @@ export type Dnsview = import("./dnsview").Dnsview;
 export const Dnsview: typeof import("./dnsview").Dnsview = null as any;
 utilities.lazyLoad(exports, ["Dnsview"], () => require("./dnsview"));
 
+export { GetBillingUsageArgs, GetBillingUsageResult, GetBillingUsageOutputArgs } from "./getBillingUsage";
+export const getBillingUsage: typeof import("./getBillingUsage").getBillingUsage = null as any;
+export const getBillingUsageOutput: typeof import("./getBillingUsage").getBillingUsageOutput = null as any;
+utilities.lazyLoad(exports, ["getBillingUsage","getBillingUsageOutput"], () => require("./getBillingUsage"));
+
 export { GetDNSSecArgs, GetDNSSecResult, GetDNSSecOutputArgs } from "./getDNSSec";
 export const getDNSSec: typeof import("./getDNSSec").getDNSSec = null as any;
 export const getDNSSecOutput: typeof import("./getDNSSec").getDNSSecOutput = null as any;
