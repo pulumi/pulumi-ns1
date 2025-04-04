@@ -13,6 +13,7 @@ from .data_feed import *
 from .data_source import *
 from .dataset import *
 from .dnsview import *
+from .get_billing_usage import *
 from .get_dns_sec import *
 from .get_monitoring_regions import *
 from .get_networks import *

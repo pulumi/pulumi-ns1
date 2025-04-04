@@ -9,6 +9,8 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.ns1.Utilities;
+import com.pulumi.ns1.inputs.GetBillingUsageArgs;
+import com.pulumi.ns1.inputs.GetBillingUsagePlainArgs;
 import com.pulumi.ns1.inputs.GetDNSSecArgs;
 import com.pulumi.ns1.inputs.GetDNSSecPlainArgs;
 import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
@@ -17,6 +19,7 @@ import com.pulumi.ns1.inputs.GetRecordArgs;
 import com.pulumi.ns1.inputs.GetRecordPlainArgs;
 import com.pulumi.ns1.inputs.GetZoneArgs;
 import com.pulumi.ns1.inputs.GetZonePlainArgs;
+import com.pulumi.ns1.outputs.GetBillingUsageResult;
 import com.pulumi.ns1.outputs.GetDNSSecResult;
 import com.pulumi.ns1.outputs.GetMonitoringRegionsResult;
 import com.pulumi.ns1.outputs.GetNetworksResult;
@@ -26,6 +29,436 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class Ns1Functions {
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.billingUsage;
+     * import com.pulumi.ns1.BillingUsageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get query usage data for the given timeframe
+     *         var queries = new BillingUsage("queries", BillingUsageArgs.builder()
+     *             .metricType("queries")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get account limits data for the given timeframe
+     *         var limits = new BillingUsage("limits", BillingUsageArgs.builder()
+     *             .metricType("limits")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get RUM decisions usage data for the given timeframe
+     *         var decisions = new BillingUsage("decisions", BillingUsageArgs.builder()
+     *             .metricType("decisions")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get filter chains usage data
+     *         var filterChains = new BillingUsage("filterChains", BillingUsageArgs.builder()
+     *             .metricType("filter-chains")
+     *             .build());
+     * 
+     *         // Get monitoring jobs usage data
+     *         var monitors = new BillingUsage("monitors", BillingUsageArgs.builder()
+     *             .metricType("monitors")
+     *             .build());
+     * 
+     *         // Get records usage data
+     *         var records = new BillingUsage("records", BillingUsageArgs.builder()
+     *             .metricType("records")
+     *             .build());
+     * 
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBillingUsageResult> getBillingUsage(GetBillingUsageArgs args) {
+        return getBillingUsage(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.billingUsage;
+     * import com.pulumi.ns1.BillingUsageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get query usage data for the given timeframe
+     *         var queries = new BillingUsage("queries", BillingUsageArgs.builder()
+     *             .metricType("queries")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get account limits data for the given timeframe
+     *         var limits = new BillingUsage("limits", BillingUsageArgs.builder()
+     *             .metricType("limits")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get RUM decisions usage data for the given timeframe
+     *         var decisions = new BillingUsage("decisions", BillingUsageArgs.builder()
+     *             .metricType("decisions")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get filter chains usage data
+     *         var filterChains = new BillingUsage("filterChains", BillingUsageArgs.builder()
+     *             .metricType("filter-chains")
+     *             .build());
+     * 
+     *         // Get monitoring jobs usage data
+     *         var monitors = new BillingUsage("monitors", BillingUsageArgs.builder()
+     *             .metricType("monitors")
+     *             .build());
+     * 
+     *         // Get records usage data
+     *         var records = new BillingUsage("records", BillingUsageArgs.builder()
+     *             .metricType("records")
+     *             .build());
+     * 
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBillingUsageResult> getBillingUsagePlain(GetBillingUsagePlainArgs args) {
+        return getBillingUsagePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.billingUsage;
+     * import com.pulumi.ns1.BillingUsageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get query usage data for the given timeframe
+     *         var queries = new BillingUsage("queries", BillingUsageArgs.builder()
+     *             .metricType("queries")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get account limits data for the given timeframe
+     *         var limits = new BillingUsage("limits", BillingUsageArgs.builder()
+     *             .metricType("limits")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get RUM decisions usage data for the given timeframe
+     *         var decisions = new BillingUsage("decisions", BillingUsageArgs.builder()
+     *             .metricType("decisions")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get filter chains usage data
+     *         var filterChains = new BillingUsage("filterChains", BillingUsageArgs.builder()
+     *             .metricType("filter-chains")
+     *             .build());
+     * 
+     *         // Get monitoring jobs usage data
+     *         var monitors = new BillingUsage("monitors", BillingUsageArgs.builder()
+     *             .metricType("monitors")
+     *             .build());
+     * 
+     *         // Get records usage data
+     *         var records = new BillingUsage("records", BillingUsageArgs.builder()
+     *             .metricType("records")
+     *             .build());
+     * 
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBillingUsageResult> getBillingUsage(GetBillingUsageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getBillingUsage:getBillingUsage", TypeShape.of(GetBillingUsageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.billingUsage;
+     * import com.pulumi.ns1.BillingUsageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get query usage data for the given timeframe
+     *         var queries = new BillingUsage("queries", BillingUsageArgs.builder()
+     *             .metricType("queries")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get account limits data for the given timeframe
+     *         var limits = new BillingUsage("limits", BillingUsageArgs.builder()
+     *             .metricType("limits")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get RUM decisions usage data for the given timeframe
+     *         var decisions = new BillingUsage("decisions", BillingUsageArgs.builder()
+     *             .metricType("decisions")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get filter chains usage data
+     *         var filterChains = new BillingUsage("filterChains", BillingUsageArgs.builder()
+     *             .metricType("filter-chains")
+     *             .build());
+     * 
+     *         // Get monitoring jobs usage data
+     *         var monitors = new BillingUsage("monitors", BillingUsageArgs.builder()
+     *             .metricType("monitors")
+     *             .build());
+     * 
+     *         // Get records usage data
+     *         var records = new BillingUsage("records", BillingUsageArgs.builder()
+     *             .metricType("records")
+     *             .build());
+     * 
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBillingUsageResult> getBillingUsage(GetBillingUsageArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("ns1:index/getBillingUsage:getBillingUsage", TypeShape.of(GetBillingUsageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.ns1.billingUsage;
+     * import com.pulumi.ns1.BillingUsageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get query usage data for the given timeframe
+     *         var queries = new BillingUsage("queries", BillingUsageArgs.builder()
+     *             .metricType("queries")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get account limits data for the given timeframe
+     *         var limits = new BillingUsage("limits", BillingUsageArgs.builder()
+     *             .metricType("limits")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get RUM decisions usage data for the given timeframe
+     *         var decisions = new BillingUsage("decisions", BillingUsageArgs.builder()
+     *             .metricType("decisions")
+     *             .from(1731605824)
+     *             .to(1734197824)
+     *             .build());
+     * 
+     *         // Get filter chains usage data
+     *         var filterChains = new BillingUsage("filterChains", BillingUsageArgs.builder()
+     *             .metricType("filter-chains")
+     *             .build());
+     * 
+     *         // Get monitoring jobs usage data
+     *         var monitors = new BillingUsage("monitors", BillingUsageArgs.builder()
+     *             .metricType("monitors")
+     *             .build());
+     * 
+     *         // Get records usage data
+     *         var records = new BillingUsage("records", BillingUsageArgs.builder()
+     *             .metricType("records")
+     *             .build());
+     * 
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBillingUsageResult> getBillingUsagePlain(GetBillingUsagePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("ns1:index/getBillingUsage:getBillingUsage", TypeShape.of(GetBillingUsageResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Provides DNSSEC details about a NS1 Zone.
      * 

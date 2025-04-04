@@ -74,6 +74,52 @@ export interface DatasetTimeframe {
     to?: number;
 }
 
+export interface GetBillingUsageByNetwork {
+    /**
+     * Total billable queries for this network.
+     */
+    billableQueries: number;
+    /**
+     * Clean queries for this day.
+     */
+    cleanQueries: number;
+    /**
+     * Daily breakdown containing:
+     */
+    dailies: outputs.GetBillingUsageByNetworkDaily[];
+    /**
+     * DDoS queries for this day.
+     */
+    ddosQueries: number;
+    /**
+     * The network ID.
+     */
+    network: number;
+    /**
+     * NXD responses for this day.
+     */
+    nxdResponses: number;
+}
+
+export interface GetBillingUsageByNetworkDaily {
+    /**
+     * Clean queries for this day.
+     */
+    cleanQueries: number;
+    /**
+     * DDoS queries for this day.
+     */
+    ddosQueries: number;
+    /**
+     * NXD responses for this day.
+     */
+    nxdResponses: number;
+    /**
+     * The timestamp for the day.
+     */
+    timestamp: number;
+}
+
 export interface GetDNSSecDelegation {
     /**
      * (Computed) List of Keys. Key is documented below.
