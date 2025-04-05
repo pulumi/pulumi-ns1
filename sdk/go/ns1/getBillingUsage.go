@@ -28,50 +28,50 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get query usage data for the given timeframe
-//			queries, err := ns1.NewBillingUsage(ctx, "queries", &ns1.BillingUsageArgs{
+//			queries, err := ns1.GetBillingUsage(ctx, &ns1.GetBillingUsageArgs{
 //				MetricType: "queries",
-//				From:       1731605824,
-//				To:         1734197824,
-//			})
+//				From:       pulumi.IntRef(1738368000),
+//				To:         pulumi.IntRef(1740787199),
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Get account limits data for the given timeframe
-//			limits, err := ns1.NewBillingUsage(ctx, "limits", &ns1.BillingUsageArgs{
+//			limits, err := ns1.GetBillingUsage(ctx, &ns1.GetBillingUsageArgs{
 //				MetricType: "limits",
-//				From:       1731605824,
-//				To:         1734197824,
-//			})
+//				From:       pulumi.IntRef(1738368000),
+//				To:         pulumi.IntRef(1740787199),
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Get RUM decisions usage data for the given timeframe
-//			decisions, err := ns1.NewBillingUsage(ctx, "decisions", &ns1.BillingUsageArgs{
+//			decisions, err := ns1.GetBillingUsage(ctx, &ns1.GetBillingUsageArgs{
 //				MetricType: "decisions",
-//				From:       1731605824,
-//				To:         1734197824,
-//			})
+//				From:       pulumi.IntRef(1738368000),
+//				To:         pulumi.IntRef(1740787199),
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Get filter chains usage data
-//			filterChains, err := ns1.NewBillingUsage(ctx, "filter_chains", &ns1.BillingUsageArgs{
+//			filterChains, err := ns1.GetBillingUsage(ctx, &ns1.GetBillingUsageArgs{
 //				MetricType: "filter-chains",
-//			})
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Get monitoring jobs usage data
-//			monitors, err := ns1.NewBillingUsage(ctx, "monitors", &ns1.BillingUsageArgs{
+//			monitors, err := ns1.GetBillingUsage(ctx, &ns1.GetBillingUsageArgs{
 //				MetricType: "monitors",
-//			})
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			// Get records usage data
-//			records, err := ns1.NewBillingUsage(ctx, "records", &ns1.BillingUsageArgs{
+//			records, err := ns1.GetBillingUsage(ctx, &ns1.GetBillingUsageArgs{
 //				MetricType: "records",
-//			})
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -105,11 +105,11 @@ func GetBillingUsage(ctx *pulumi.Context, args *GetBillingUsageArgs, opts ...pul
 // A collection of arguments for invoking getBillingUsage.
 type GetBillingUsageArgs struct {
 	// The start timestamp for the data range in Unix epoch format.
-	From int `pulumi:"from"`
+	From *int `pulumi:"from"`
 	// The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
 	MetricType string `pulumi:"metricType"`
 	// The end timestamp for the data range in Unix epoch format.
-	To int `pulumi:"to"`
+	To *int `pulumi:"to"`
 }
 
 // A collection of values returned by getBillingUsage.
@@ -127,8 +127,8 @@ type GetBillingUsageResult struct {
 	// (Computed) The RUM decisions limit for this billing cycle.
 	DecisionsLimit int `pulumi:"decisionsLimit"`
 	// (Computed) The filter chains limit for this billing cycle.
-	FilterChainsLimit int `pulumi:"filterChainsLimit"`
-	From              int `pulumi:"from"`
+	FilterChainsLimit int  `pulumi:"filterChainsLimit"`
+	From              *int `pulumi:"from"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// (Computed) Whether dedicated DNS usage counts towards managed DNS usage.
@@ -143,8 +143,8 @@ type GetBillingUsageResult struct {
 	// (Computed) The queries limit for this billing cycle.
 	QueriesLimit int `pulumi:"queriesLimit"`
 	// (Computed) The records limit for this billing cycle.
-	RecordsLimit int `pulumi:"recordsLimit"`
-	To           int `pulumi:"to"`
+	RecordsLimit int  `pulumi:"recordsLimit"`
+	To           *int `pulumi:"to"`
 	// (Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.
 	TotalUsage int `pulumi:"totalUsage"`
 }
@@ -161,11 +161,11 @@ func GetBillingUsageOutput(ctx *pulumi.Context, args GetBillingUsageOutputArgs, 
 // A collection of arguments for invoking getBillingUsage.
 type GetBillingUsageOutputArgs struct {
 	// The start timestamp for the data range in Unix epoch format.
-	From pulumi.IntInput `pulumi:"from"`
+	From pulumi.IntPtrInput `pulumi:"from"`
 	// The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
 	MetricType pulumi.StringInput `pulumi:"metricType"`
 	// The end timestamp for the data range in Unix epoch format.
-	To pulumi.IntInput `pulumi:"to"`
+	To pulumi.IntPtrInput `pulumi:"to"`
 }
 
 func (GetBillingUsageOutputArgs) ElementType() reflect.Type {
@@ -222,8 +222,8 @@ func (o GetBillingUsageResultOutput) FilterChainsLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBillingUsageResult) int { return v.FilterChainsLimit }).(pulumi.IntOutput)
 }
 
-func (o GetBillingUsageResultOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v GetBillingUsageResult) int { return v.From }).(pulumi.IntOutput)
+func (o GetBillingUsageResultOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetBillingUsageResult) *int { return v.From }).(pulumi.IntPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -265,8 +265,8 @@ func (o GetBillingUsageResultOutput) RecordsLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBillingUsageResult) int { return v.RecordsLimit }).(pulumi.IntOutput)
 }
 
-func (o GetBillingUsageResultOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v GetBillingUsageResult) int { return v.To }).(pulumi.IntOutput)
+func (o GetBillingUsageResultOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetBillingUsageResult) *int { return v.To }).(pulumi.IntPtrOutput)
 }
 
 // (Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.
