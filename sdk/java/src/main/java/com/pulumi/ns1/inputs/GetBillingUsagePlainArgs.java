@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetBillingUsagePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -18,15 +20,15 @@ public final class GetBillingUsagePlainArgs extends com.pulumi.resources.InvokeA
      * The start timestamp for the data range in Unix epoch format.
      * 
      */
-    @Import(name="from", required=true)
-    private Integer from;
+    @Import(name="from")
+    private @Nullable Integer from;
 
     /**
      * @return The start timestamp for the data range in Unix epoch format.
      * 
      */
-    public Integer from() {
-        return this.from;
+    public Optional<Integer> from() {
+        return Optional.ofNullable(this.from);
     }
 
     /**
@@ -48,15 +50,15 @@ public final class GetBillingUsagePlainArgs extends com.pulumi.resources.InvokeA
      * The end timestamp for the data range in Unix epoch format.
      * 
      */
-    @Import(name="to", required=true)
-    private Integer to;
+    @Import(name="to")
+    private @Nullable Integer to;
 
     /**
      * @return The end timestamp for the data range in Unix epoch format.
      * 
      */
-    public Integer to() {
-        return this.to;
+    public Optional<Integer> to() {
+        return Optional.ofNullable(this.to);
     }
 
     private GetBillingUsagePlainArgs() {}
@@ -91,7 +93,7 @@ public final class GetBillingUsagePlainArgs extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder from(Integer from) {
+        public Builder from(@Nullable Integer from) {
             $.from = from;
             return this;
         }
@@ -113,20 +115,14 @@ public final class GetBillingUsagePlainArgs extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder to(Integer to) {
+        public Builder to(@Nullable Integer to) {
             $.to = to;
             return this;
         }
 
         public GetBillingUsagePlainArgs build() {
-            if ($.from == null) {
-                throw new MissingRequiredPropertyException("GetBillingUsagePlainArgs", "from");
-            }
             if ($.metricType == null) {
                 throw new MissingRequiredPropertyException("GetBillingUsagePlainArgs", "metricType");
-            }
-            if ($.to == null) {
-                throw new MissingRequiredPropertyException("GetBillingUsagePlainArgs", "to");
             }
             return $;
         }

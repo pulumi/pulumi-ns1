@@ -25,61 +25,61 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get query usage data for the given timeframe
-        ///     var queries = new Ns1.Index.BillingUsage("queries", new()
+        ///     var queries = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "queries",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get account limits data for the given timeframe
-        ///     var limits = new Ns1.Index.BillingUsage("limits", new()
+        ///     var limits = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "limits",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get RUM decisions usage data for the given timeframe
-        ///     var decisions = new Ns1.Index.BillingUsage("decisions", new()
+        ///     var decisions = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "decisions",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get filter chains usage data
-        ///     var filterChains = new Ns1.Index.BillingUsage("filter_chains", new()
+        ///     var filterChains = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "filter-chains",
         ///     });
         /// 
         ///     // Get monitoring jobs usage data
-        ///     var monitors = new Ns1.Index.BillingUsage("monitors", new()
+        ///     var monitors = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "monitors",
         ///     });
         /// 
         ///     // Get records usage data
-        ///     var records = new Ns1.Index.BillingUsage("records", new()
+        ///     var records = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "records",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["totalQueries"] = queries.CleanQueries,
-        ///         ["totalDdosQueries"] = queries.DdosQueries,
-        ///         ["totalNxdResponses"] = queries.NxdResponses,
-        ///         ["queriesLimit"] = limits.QueriesLimit,
-        ///         ["totalDecisions"] = decisions.TotalUsage,
-        ///         ["decisionsLimit"] = limits.DecisionsLimit,
-        ///         ["totalFilterChains"] = filterChains.TotalUsage,
-        ///         ["filterChainsLimit"] = limits.FilterChainsLimit,
-        ///         ["totalMonitors"] = monitors.TotalUsage,
-        ///         ["monitorsLimit"] = limits.MonitorsLimit,
-        ///         ["totalRecords"] = records.TotalUsage,
-        ///         ["recordsLimit"] = limits.RecordsLimit,
+        ///         ["totalQueries"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.CleanQueries),
+        ///         ["totalDdosQueries"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.DdosQueries),
+        ///         ["totalNxdResponses"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.NxdResponses),
+        ///         ["queriesLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.QueriesLimit),
+        ///         ["totalDecisions"] = decisions.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["decisionsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.DecisionsLimit),
+        ///         ["totalFilterChains"] = filterChains.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["filterChainsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.FilterChainsLimit),
+        ///         ["totalMonitors"] = monitors.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["monitorsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.MonitorsLimit),
+        ///         ["totalRecords"] = records.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["recordsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.RecordsLimit),
         ///     };
         /// });
         /// ```
@@ -101,61 +101,61 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get query usage data for the given timeframe
-        ///     var queries = new Ns1.Index.BillingUsage("queries", new()
+        ///     var queries = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "queries",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get account limits data for the given timeframe
-        ///     var limits = new Ns1.Index.BillingUsage("limits", new()
+        ///     var limits = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "limits",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get RUM decisions usage data for the given timeframe
-        ///     var decisions = new Ns1.Index.BillingUsage("decisions", new()
+        ///     var decisions = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "decisions",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get filter chains usage data
-        ///     var filterChains = new Ns1.Index.BillingUsage("filter_chains", new()
+        ///     var filterChains = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "filter-chains",
         ///     });
         /// 
         ///     // Get monitoring jobs usage data
-        ///     var monitors = new Ns1.Index.BillingUsage("monitors", new()
+        ///     var monitors = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "monitors",
         ///     });
         /// 
         ///     // Get records usage data
-        ///     var records = new Ns1.Index.BillingUsage("records", new()
+        ///     var records = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "records",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["totalQueries"] = queries.CleanQueries,
-        ///         ["totalDdosQueries"] = queries.DdosQueries,
-        ///         ["totalNxdResponses"] = queries.NxdResponses,
-        ///         ["queriesLimit"] = limits.QueriesLimit,
-        ///         ["totalDecisions"] = decisions.TotalUsage,
-        ///         ["decisionsLimit"] = limits.DecisionsLimit,
-        ///         ["totalFilterChains"] = filterChains.TotalUsage,
-        ///         ["filterChainsLimit"] = limits.FilterChainsLimit,
-        ///         ["totalMonitors"] = monitors.TotalUsage,
-        ///         ["monitorsLimit"] = limits.MonitorsLimit,
-        ///         ["totalRecords"] = records.TotalUsage,
-        ///         ["recordsLimit"] = limits.RecordsLimit,
+        ///         ["totalQueries"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.CleanQueries),
+        ///         ["totalDdosQueries"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.DdosQueries),
+        ///         ["totalNxdResponses"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.NxdResponses),
+        ///         ["queriesLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.QueriesLimit),
+        ///         ["totalDecisions"] = decisions.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["decisionsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.DecisionsLimit),
+        ///         ["totalFilterChains"] = filterChains.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["filterChainsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.FilterChainsLimit),
+        ///         ["totalMonitors"] = monitors.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["monitorsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.MonitorsLimit),
+        ///         ["totalRecords"] = records.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["recordsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.RecordsLimit),
         ///     };
         /// });
         /// ```
@@ -177,61 +177,61 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get query usage data for the given timeframe
-        ///     var queries = new Ns1.Index.BillingUsage("queries", new()
+        ///     var queries = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "queries",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get account limits data for the given timeframe
-        ///     var limits = new Ns1.Index.BillingUsage("limits", new()
+        ///     var limits = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "limits",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get RUM decisions usage data for the given timeframe
-        ///     var decisions = new Ns1.Index.BillingUsage("decisions", new()
+        ///     var decisions = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "decisions",
-        ///         From = 1731605824,
-        ///         To = 1734197824,
+        ///         From = 1738368000,
+        ///         To = 1740787199,
         ///     });
         /// 
         ///     // Get filter chains usage data
-        ///     var filterChains = new Ns1.Index.BillingUsage("filter_chains", new()
+        ///     var filterChains = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "filter-chains",
         ///     });
         /// 
         ///     // Get monitoring jobs usage data
-        ///     var monitors = new Ns1.Index.BillingUsage("monitors", new()
+        ///     var monitors = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "monitors",
         ///     });
         /// 
         ///     // Get records usage data
-        ///     var records = new Ns1.Index.BillingUsage("records", new()
+        ///     var records = Ns1.GetBillingUsage.Invoke(new()
         ///     {
         ///         MetricType = "records",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["totalQueries"] = queries.CleanQueries,
-        ///         ["totalDdosQueries"] = queries.DdosQueries,
-        ///         ["totalNxdResponses"] = queries.NxdResponses,
-        ///         ["queriesLimit"] = limits.QueriesLimit,
-        ///         ["totalDecisions"] = decisions.TotalUsage,
-        ///         ["decisionsLimit"] = limits.DecisionsLimit,
-        ///         ["totalFilterChains"] = filterChains.TotalUsage,
-        ///         ["filterChainsLimit"] = limits.FilterChainsLimit,
-        ///         ["totalMonitors"] = monitors.TotalUsage,
-        ///         ["monitorsLimit"] = limits.MonitorsLimit,
-        ///         ["totalRecords"] = records.TotalUsage,
-        ///         ["recordsLimit"] = limits.RecordsLimit,
+        ///         ["totalQueries"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.CleanQueries),
+        ///         ["totalDdosQueries"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.DdosQueries),
+        ///         ["totalNxdResponses"] = queries.Apply(getBillingUsageResult =&gt; getBillingUsageResult.NxdResponses),
+        ///         ["queriesLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.QueriesLimit),
+        ///         ["totalDecisions"] = decisions.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["decisionsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.DecisionsLimit),
+        ///         ["totalFilterChains"] = filterChains.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["filterChainsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.FilterChainsLimit),
+        ///         ["totalMonitors"] = monitors.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["monitorsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.MonitorsLimit),
+        ///         ["totalRecords"] = records.Apply(getBillingUsageResult =&gt; getBillingUsageResult.TotalUsage),
+        ///         ["recordsLimit"] = limits.Apply(getBillingUsageResult =&gt; getBillingUsageResult.RecordsLimit),
         ///     };
         /// });
         /// ```
@@ -246,8 +246,8 @@ namespace Pulumi.Ns1
         /// <summary>
         /// The start timestamp for the data range in Unix epoch format.
         /// </summary>
-        [Input("from", required: true)]
-        public int From { get; set; }
+        [Input("from")]
+        public int? From { get; set; }
 
         /// <summary>
         /// The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
@@ -258,8 +258,8 @@ namespace Pulumi.Ns1
         /// <summary>
         /// The end timestamp for the data range in Unix epoch format.
         /// </summary>
-        [Input("to", required: true)]
-        public int To { get; set; }
+        [Input("to")]
+        public int? To { get; set; }
 
         public GetBillingUsageArgs()
         {
@@ -272,8 +272,8 @@ namespace Pulumi.Ns1
         /// <summary>
         /// The start timestamp for the data range in Unix epoch format.
         /// </summary>
-        [Input("from", required: true)]
-        public Input<int> From { get; set; } = null!;
+        [Input("from")]
+        public Input<int>? From { get; set; }
 
         /// <summary>
         /// The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
@@ -284,8 +284,8 @@ namespace Pulumi.Ns1
         /// <summary>
         /// The end timestamp for the data range in Unix epoch format.
         /// </summary>
-        [Input("to", required: true)]
-        public Input<int> To { get; set; } = null!;
+        [Input("to")]
+        public Input<int>? To { get; set; }
 
         public GetBillingUsageInvokeArgs()
         {
@@ -325,7 +325,7 @@ namespace Pulumi.Ns1
         /// (Computed) The filter chains limit for this billing cycle.
         /// </summary>
         public readonly int FilterChainsLimit;
-        public readonly int From;
+        public readonly int? From;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -355,7 +355,7 @@ namespace Pulumi.Ns1
         /// (Computed) The records limit for this billing cycle.
         /// </summary>
         public readonly int RecordsLimit;
-        public readonly int To;
+        public readonly int? To;
         /// <summary>
         /// (Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.
         /// </summary>
@@ -377,7 +377,7 @@ namespace Pulumi.Ns1
 
             int filterChainsLimit,
 
-            int from,
+            int? from,
 
             string id,
 
@@ -395,7 +395,7 @@ namespace Pulumi.Ns1
 
             int recordsLimit,
 
-            int to,
+            int? to,
 
             int totalUsage)
         {

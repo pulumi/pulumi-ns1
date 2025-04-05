@@ -11,6 +11,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBillingUsageResult {
@@ -49,7 +51,7 @@ public final class GetBillingUsageResult {
      * 
      */
     private Integer filterChainsLimit;
-    private Integer from;
+    private @Nullable Integer from;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -86,7 +88,7 @@ public final class GetBillingUsageResult {
      * 
      */
     private Integer recordsLimit;
-    private Integer to;
+    private @Nullable Integer to;
     /**
      * @return (Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.
      * 
@@ -143,8 +145,8 @@ public final class GetBillingUsageResult {
     public Integer filterChainsLimit() {
         return this.filterChainsLimit;
     }
-    public Integer from() {
-        return this.from;
+    public Optional<Integer> from() {
+        return Optional.ofNullable(this.from);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -198,8 +200,8 @@ public final class GetBillingUsageResult {
     public Integer recordsLimit() {
         return this.recordsLimit;
     }
-    public Integer to() {
-        return this.to;
+    public Optional<Integer> to() {
+        return Optional.ofNullable(this.to);
     }
     /**
      * @return (Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.
@@ -225,7 +227,7 @@ public final class GetBillingUsageResult {
         private Integer ddosQueries;
         private Integer decisionsLimit;
         private Integer filterChainsLimit;
-        private Integer from;
+        private @Nullable Integer from;
         private String id;
         private Boolean includeDedicatedDnsNetworkInManagedDnsUsage;
         private String metricType;
@@ -234,7 +236,7 @@ public final class GetBillingUsageResult {
         private Integer nxdResponses;
         private Integer queriesLimit;
         private Integer recordsLimit;
-        private Integer to;
+        private @Nullable Integer to;
         private Integer totalUsage;
         public Builder() {}
         public Builder(GetBillingUsageResult defaults) {
@@ -319,10 +321,8 @@ public final class GetBillingUsageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder from(Integer from) {
-            if (from == null) {
-              throw new MissingRequiredPropertyException("GetBillingUsageResult", "from");
-            }
+        public Builder from(@Nullable Integer from) {
+
             this.from = from;
             return this;
         }
@@ -391,10 +391,8 @@ public final class GetBillingUsageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder to(Integer to) {
-            if (to == null) {
-              throw new MissingRequiredPropertyException("GetBillingUsageResult", "to");
-            }
+        public Builder to(@Nullable Integer to) {
+
             this.to = to;
             return this;
         }

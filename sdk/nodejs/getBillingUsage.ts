@@ -16,41 +16,47 @@ import * as utilities from "./utilities";
  * import * as ns1 from "@pulumi/ns1";
  *
  * // Get query usage data for the given timeframe
- * const queries = new ns1.index.BillingUsage("queries", {
+ * const queries = ns1.getBillingUsage({
  *     metricType: "queries",
- *     from: 1731605824,
- *     to: 1734197824,
+ *     from: 1738368000,
+ *     to: 1740787199,
  * });
  * // Get account limits data for the given timeframe
- * const limits = new ns1.index.BillingUsage("limits", {
+ * const limits = ns1.getBillingUsage({
  *     metricType: "limits",
- *     from: 1731605824,
- *     to: 1734197824,
+ *     from: 1738368000,
+ *     to: 1740787199,
  * });
  * // Get RUM decisions usage data for the given timeframe
- * const decisions = new ns1.index.BillingUsage("decisions", {
+ * const decisions = ns1.getBillingUsage({
  *     metricType: "decisions",
- *     from: 1731605824,
- *     to: 1734197824,
+ *     from: 1738368000,
+ *     to: 1740787199,
  * });
  * // Get filter chains usage data
- * const filterChains = new ns1.index.BillingUsage("filter_chains", {metricType: "filter-chains"});
+ * const filterChains = ns1.getBillingUsage({
+ *     metricType: "filter-chains",
+ * });
  * // Get monitoring jobs usage data
- * const monitors = new ns1.index.BillingUsage("monitors", {metricType: "monitors"});
+ * const monitors = ns1.getBillingUsage({
+ *     metricType: "monitors",
+ * });
  * // Get records usage data
- * const records = new ns1.index.BillingUsage("records", {metricType: "records"});
- * export const totalQueries = queries.cleanQueries;
- * export const totalDdosQueries = queries.ddosQueries;
- * export const totalNxdResponses = queries.nxdResponses;
- * export const queriesLimit = limits.queriesLimit;
- * export const totalDecisions = decisions.totalUsage;
- * export const decisionsLimit = limits.decisionsLimit;
- * export const totalFilterChains = filterChains.totalUsage;
- * export const filterChainsLimit = limits.filterChainsLimit;
- * export const totalMonitors = monitors.totalUsage;
- * export const monitorsLimit = limits.monitorsLimit;
- * export const totalRecords = records.totalUsage;
- * export const recordsLimit = limits.recordsLimit;
+ * const records = ns1.getBillingUsage({
+ *     metricType: "records",
+ * });
+ * export const totalQueries = queries.then(queries => queries.cleanQueries);
+ * export const totalDdosQueries = queries.then(queries => queries.ddosQueries);
+ * export const totalNxdResponses = queries.then(queries => queries.nxdResponses);
+ * export const queriesLimit = limits.then(limits => limits.queriesLimit);
+ * export const totalDecisions = decisions.then(decisions => decisions.totalUsage);
+ * export const decisionsLimit = limits.then(limits => limits.decisionsLimit);
+ * export const totalFilterChains = filterChains.then(filterChains => filterChains.totalUsage);
+ * export const filterChainsLimit = limits.then(limits => limits.filterChainsLimit);
+ * export const totalMonitors = monitors.then(monitors => monitors.totalUsage);
+ * export const monitorsLimit = limits.then(limits => limits.monitorsLimit);
+ * export const totalRecords = records.then(records => records.totalUsage);
+ * export const recordsLimit = limits.then(limits => limits.recordsLimit);
  * ```
  */
 export function getBillingUsage(args: GetBillingUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingUsageResult> {
@@ -69,7 +75,7 @@ export interface GetBillingUsageArgs {
     /**
      * The start timestamp for the data range in Unix epoch format.
      */
-    from: number;
+    from?: number;
     /**
      * The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
      */
@@ -77,7 +83,7 @@ export interface GetBillingUsageArgs {
     /**
      * The end timestamp for the data range in Unix epoch format.
      */
-    to: number;
+    to?: number;
 }
 
 /**
@@ -112,7 +118,7 @@ export interface GetBillingUsageResult {
      * (Computed) The filter chains limit for this billing cycle.
      */
     readonly filterChainsLimit: number;
-    readonly from: number;
+    readonly from?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -142,7 +148,7 @@ export interface GetBillingUsageResult {
      * (Computed) The records limit for this billing cycle.
      */
     readonly recordsLimit: number;
-    readonly to: number;
+    readonly to?: number;
     /**
      * (Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.
      */
@@ -158,41 +164,47 @@ export interface GetBillingUsageResult {
  * import * as ns1 from "@pulumi/ns1";
  *
  * // Get query usage data for the given timeframe
- * const queries = new ns1.index.BillingUsage("queries", {
+ * const queries = ns1.getBillingUsage({
  *     metricType: "queries",
- *     from: 1731605824,
- *     to: 1734197824,
+ *     from: 1738368000,
+ *     to: 1740787199,
  * });
  * // Get account limits data for the given timeframe
- * const limits = new ns1.index.BillingUsage("limits", {
+ * const limits = ns1.getBillingUsage({
  *     metricType: "limits",
- *     from: 1731605824,
- *     to: 1734197824,
+ *     from: 1738368000,
+ *     to: 1740787199,
  * });
  * // Get RUM decisions usage data for the given timeframe
- * const decisions = new ns1.index.BillingUsage("decisions", {
+ * const decisions = ns1.getBillingUsage({
  *     metricType: "decisions",
- *     from: 1731605824,
- *     to: 1734197824,
+ *     from: 1738368000,
+ *     to: 1740787199,
  * });
  * // Get filter chains usage data
- * const filterChains = new ns1.index.BillingUsage("filter_chains", {metricType: "filter-chains"});
+ * const filterChains = ns1.getBillingUsage({
+ *     metricType: "filter-chains",
+ * });
  * // Get monitoring jobs usage data
- * const monitors = new ns1.index.BillingUsage("monitors", {metricType: "monitors"});
+ * const monitors = ns1.getBillingUsage({
+ *     metricType: "monitors",
+ * });
  * // Get records usage data
- * const records = new ns1.index.BillingUsage("records", {metricType: "records"});
- * export const totalQueries = queries.cleanQueries;
- * export const totalDdosQueries = queries.ddosQueries;
- * export const totalNxdResponses = queries.nxdResponses;
- * export const queriesLimit = limits.queriesLimit;
- * export const totalDecisions = decisions.totalUsage;
- * export const decisionsLimit = limits.decisionsLimit;
- * export const totalFilterChains = filterChains.totalUsage;
- * export const filterChainsLimit = limits.filterChainsLimit;
- * export const totalMonitors = monitors.totalUsage;
- * export const monitorsLimit = limits.monitorsLimit;
- * export const totalRecords = records.totalUsage;
- * export const recordsLimit = limits.recordsLimit;
+ * const records = ns1.getBillingUsage({
+ *     metricType: "records",
+ * });
+ * export const totalQueries = queries.then(queries => queries.cleanQueries);
+ * export const totalDdosQueries = queries.then(queries => queries.ddosQueries);
+ * export const totalNxdResponses = queries.then(queries => queries.nxdResponses);
+ * export const queriesLimit = limits.then(limits => limits.queriesLimit);
+ * export const totalDecisions = decisions.then(decisions => decisions.totalUsage);
+ * export const decisionsLimit = limits.then(limits => limits.decisionsLimit);
+ * export const totalFilterChains = filterChains.then(filterChains => filterChains.totalUsage);
+ * export const filterChainsLimit = limits.then(limits => limits.filterChainsLimit);
+ * export const totalMonitors = monitors.then(monitors => monitors.totalUsage);
+ * export const monitorsLimit = limits.then(limits => limits.monitorsLimit);
+ * export const totalRecords = records.then(records => records.totalUsage);
+ * export const recordsLimit = limits.then(limits => limits.recordsLimit);
  * ```
  */
 export function getBillingUsageOutput(args: GetBillingUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingUsageResult> {
@@ -211,7 +223,7 @@ export interface GetBillingUsageOutputArgs {
     /**
      * The start timestamp for the data range in Unix epoch format.
      */
-    from: pulumi.Input<number>;
+    from?: pulumi.Input<number>;
     /**
      * The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
      */
@@ -219,5 +231,5 @@ export interface GetBillingUsageOutputArgs {
     /**
      * The end timestamp for the data range in Unix epoch format.
      */
-    to: pulumi.Input<number>;
+    to?: pulumi.Input<number>;
 }

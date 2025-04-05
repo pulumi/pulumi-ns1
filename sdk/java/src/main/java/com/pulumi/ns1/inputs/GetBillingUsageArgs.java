@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetBillingUsageArgs extends com.pulumi.resources.InvokeArgs {
@@ -19,15 +21,15 @@ public final class GetBillingUsageArgs extends com.pulumi.resources.InvokeArgs {
      * The start timestamp for the data range in Unix epoch format.
      * 
      */
-    @Import(name="from", required=true)
-    private Output<Integer> from;
+    @Import(name="from")
+    private @Nullable Output<Integer> from;
 
     /**
      * @return The start timestamp for the data range in Unix epoch format.
      * 
      */
-    public Output<Integer> from() {
-        return this.from;
+    public Optional<Output<Integer>> from() {
+        return Optional.ofNullable(this.from);
     }
 
     /**
@@ -49,15 +51,15 @@ public final class GetBillingUsageArgs extends com.pulumi.resources.InvokeArgs {
      * The end timestamp for the data range in Unix epoch format.
      * 
      */
-    @Import(name="to", required=true)
-    private Output<Integer> to;
+    @Import(name="to")
+    private @Nullable Output<Integer> to;
 
     /**
      * @return The end timestamp for the data range in Unix epoch format.
      * 
      */
-    public Output<Integer> to() {
-        return this.to;
+    public Optional<Output<Integer>> to() {
+        return Optional.ofNullable(this.to);
     }
 
     private GetBillingUsageArgs() {}
@@ -92,7 +94,7 @@ public final class GetBillingUsageArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder from(Output<Integer> from) {
+        public Builder from(@Nullable Output<Integer> from) {
             $.from = from;
             return this;
         }
@@ -134,7 +136,7 @@ public final class GetBillingUsageArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder to(Output<Integer> to) {
+        public Builder to(@Nullable Output<Integer> to) {
             $.to = to;
             return this;
         }
@@ -150,14 +152,8 @@ public final class GetBillingUsageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetBillingUsageArgs build() {
-            if ($.from == null) {
-                throw new MissingRequiredPropertyException("GetBillingUsageArgs", "from");
-            }
             if ($.metricType == null) {
                 throw new MissingRequiredPropertyException("GetBillingUsageArgs", "metricType");
-            }
-            if ($.to == null) {
-                throw new MissingRequiredPropertyException("GetBillingUsageArgs", "to");
             }
             return $;
         }
