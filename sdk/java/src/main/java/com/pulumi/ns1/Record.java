@@ -46,7 +46,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.ns1.inputs.RecordAnswerArgs;
  * import com.pulumi.ns1.inputs.RecordFilterArgs;
  * import com.pulumi.external.source;
- * import com.pulumi.external.SourceArgs;
+ * import com.pulumi.external.sourceArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.ReplaceArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -87,7 +89,7 @@ import javax.annotation.Nullable;
  *             .domain(String.format("www.%s", tld.zone()))
  *             .type("CNAME")
  *             .ttl(60)
- *             .meta(Map.of("up", true))
+ *             .meta(Map.of("up", "true"))
  *             .regions(            
  *                 RecordRegionArgs.builder()
  *                     .name("east")
@@ -101,13 +103,13 @@ import javax.annotation.Nullable;
  *                 RecordAnswerArgs.builder()
  *                     .answer(String.format("sub1.%s", tld.zone()))
  *                     .region("east")
- *                     .meta(Map.of("up", foo.id().applyValue(id -> String.format("{{\"feed\":\"%s\"}}", id))))
+ *                     .meta(Map.of("up", foo.id().applyValue(_id -> String.format("{{\"feed\":\"%s\"}}", _id))))
  *                     .build(),
  *                 RecordAnswerArgs.builder()
  *                     .answer(String.format("sub2.%s", tld.zone()))
  *                     .meta(Map.ofEntries(
- *                         Map.entry("up", bar.id().applyValue(id -> String.format("{{\"feed\":\"%s\"}}", id))),
- *                         Map.entry("connections", 3)
+ *                         Map.entry("up", bar.id().applyValue(_id -> String.format("{{\"feed\":\"%s\"}}", _id))),
+ *                         Map.entry("connections", "3")
  *                     ))
  *                     .build(),
  *                 RecordAnswerArgs.builder()
@@ -135,7 +137,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .filters(RecordFilterArgs.builder()
  *                 .filter("select_first_n")
- *                 .config(Map.of("N", 1))
+ *                 .config(Map.of("N", "1"))
  *                 .build())
  *             .build());
  * 
