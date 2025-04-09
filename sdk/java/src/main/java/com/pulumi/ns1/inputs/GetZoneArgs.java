@@ -42,6 +42,13 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.additionalPrimaries);
     }
 
+    @Import(name="primaryNetwork")
+    private @Nullable Output<Integer> primaryNetwork;
+
+    public Optional<Output<Integer>> primaryNetwork() {
+        return Optional.ofNullable(this.primaryNetwork);
+    }
+
     @Import(name="primaryPort")
     private @Nullable Output<Integer> primaryPort;
 
@@ -69,6 +76,7 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
     private GetZoneArgs(GetZoneArgs $) {
         this.additionalPorts = $.additionalPorts;
         this.additionalPrimaries = $.additionalPrimaries;
+        this.primaryNetwork = $.primaryNetwork;
         this.primaryPort = $.primaryPort;
         this.zone = $.zone;
     }
@@ -136,6 +144,15 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder additionalPrimaries(String... additionalPrimaries) {
             return additionalPrimaries(List.of(additionalPrimaries));
+        }
+
+        public Builder primaryNetwork(@Nullable Output<Integer> primaryNetwork) {
+            $.primaryNetwork = primaryNetwork;
+            return this;
+        }
+
+        public Builder primaryNetwork(Integer primaryNetwork) {
+            return primaryNetwork(Output.of(primaryNetwork));
         }
 
         public Builder primaryPort(@Nullable Output<Integer> primaryPort) {

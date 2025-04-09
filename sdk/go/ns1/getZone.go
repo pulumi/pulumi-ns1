@@ -57,6 +57,7 @@ type LookupZoneArgs struct {
 	// List of additional IPv4 addresses for the primary
 	// zone.
 	AdditionalPrimaries []string `pulumi:"additionalPrimaries"`
+	PrimaryNetwork      *int     `pulumi:"primaryNetwork"`
 	PrimaryPort         *int     `pulumi:"primaryPort"`
 	// The domain name of the zone.
 	Zone string `pulumi:"zone"`
@@ -86,8 +87,9 @@ type LookupZoneResult struct {
 	// The SOA NX TTL.
 	NxTtl int `pulumi:"nxTtl"`
 	// The primary zones' IPv4 address.
-	Primary     string `pulumi:"primary"`
-	PrimaryPort *int   `pulumi:"primaryPort"`
+	Primary        string `pulumi:"primary"`
+	PrimaryNetwork *int   `pulumi:"primaryNetwork"`
+	PrimaryPort    *int   `pulumi:"primaryPort"`
 	// The SOA Refresh.
 	Refresh int `pulumi:"refresh"`
 	// The SOA Retry.
@@ -116,6 +118,7 @@ type LookupZoneOutputArgs struct {
 	// List of additional IPv4 addresses for the primary
 	// zone.
 	AdditionalPrimaries pulumi.StringArrayInput `pulumi:"additionalPrimaries"`
+	PrimaryNetwork      pulumi.IntPtrInput      `pulumi:"primaryNetwork"`
 	PrimaryPort         pulumi.IntPtrInput      `pulumi:"primaryPort"`
 	// The domain name of the zone.
 	Zone pulumi.StringInput `pulumi:"zone"`
@@ -194,6 +197,10 @@ func (o LookupZoneResultOutput) NxTtl() pulumi.IntOutput {
 // The primary zones' IPv4 address.
 func (o LookupZoneResultOutput) Primary() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.Primary }).(pulumi.StringOutput)
+}
+
+func (o LookupZoneResultOutput) PrimaryNetwork() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupZoneResult) *int { return v.PrimaryNetwork }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupZoneResultOutput) PrimaryPort() pulumi.IntPtrOutput {

@@ -93,6 +93,7 @@ export class Zone extends pulumi.CustomResource {
      * secondary. Conflicts with `secondaries`.
      */
     public readonly primary!: pulumi.Output<string | undefined>;
+    public readonly primaryNetwork!: pulumi.Output<number | undefined>;
     public readonly primaryPort!: pulumi.Output<number>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
@@ -151,6 +152,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["networks"] = state ? state.networks : undefined;
             resourceInputs["nxTtl"] = state ? state.nxTtl : undefined;
             resourceInputs["primary"] = state ? state.primary : undefined;
+            resourceInputs["primaryNetwork"] = state ? state.primaryNetwork : undefined;
             resourceInputs["primaryPort"] = state ? state.primaryPort : undefined;
             resourceInputs["refresh"] = state ? state.refresh : undefined;
             resourceInputs["retry"] = state ? state.retry : undefined;
@@ -174,6 +176,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["networks"] = args ? args.networks : undefined;
             resourceInputs["nxTtl"] = args ? args.nxTtl : undefined;
             resourceInputs["primary"] = args ? args.primary : undefined;
+            resourceInputs["primaryNetwork"] = args ? args.primaryNetwork : undefined;
             resourceInputs["primaryPort"] = args ? args.primaryPort : undefined;
             resourceInputs["refresh"] = args ? args.refresh : undefined;
             resourceInputs["retry"] = args ? args.retry : undefined;
@@ -239,6 +242,7 @@ export interface ZoneState {
      * secondary. Conflicts with `secondaries`.
      */
     primary?: pulumi.Input<string>;
+    primaryNetwork?: pulumi.Input<number>;
     primaryPort?: pulumi.Input<number>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
@@ -320,6 +324,7 @@ export interface ZoneArgs {
      * secondary. Conflicts with `secondaries`.
      */
     primary?: pulumi.Input<string>;
+    primaryNetwork?: pulumi.Input<number>;
     primaryPort?: pulumi.Input<number>;
     /**
      * The SOA Refresh. Conflicts with `primary` and

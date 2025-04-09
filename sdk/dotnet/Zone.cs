@@ -93,6 +93,9 @@ namespace Pulumi.Ns1
         [Output("primary")]
         public Output<string?> Primary { get; private set; } = null!;
 
+        [Output("primaryNetwork")]
+        public Output<int?> PrimaryNetwork { get; private set; } = null!;
+
         [Output("primaryPort")]
         public Output<int> PrimaryPort { get; private set; } = null!;
 
@@ -267,6 +270,9 @@ namespace Pulumi.Ns1
         [Input("primary")]
         public Input<string>? Primary { get; set; }
 
+        [Input("primaryNetwork")]
+        public Input<int>? PrimaryNetwork { get; set; }
+
         [Input("primaryPort")]
         public Input<int>? PrimaryPort { get; set; }
 
@@ -426,6 +432,9 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("primary")]
         public Input<string>? Primary { get; set; }
+
+        [Input("primaryNetwork")]
+        public Input<int>? PrimaryNetwork { get; set; }
 
         [Input("primaryPort")]
         public Input<int>? PrimaryPort { get; set; }
