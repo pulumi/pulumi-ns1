@@ -27,7 +27,7 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, additional_ports=None, additional_primaries=None, dns_servers=None, dnssec=None, expiry=None, hostmaster=None, id=None, link=None, networks=None, nx_ttl=None, primary=None, primary_port=None, refresh=None, retry=None, secondaries=None, tags=None, ttl=None, zone=None):
+    def __init__(__self__, additional_ports=None, additional_primaries=None, dns_servers=None, dnssec=None, expiry=None, hostmaster=None, id=None, link=None, networks=None, nx_ttl=None, primary=None, primary_network=None, primary_port=None, refresh=None, retry=None, secondaries=None, tags=None, ttl=None, zone=None):
         if additional_ports and not isinstance(additional_ports, list):
             raise TypeError("Expected argument 'additional_ports' to be a list")
         pulumi.set(__self__, "additional_ports", additional_ports)
@@ -61,6 +61,9 @@ class GetZoneResult:
         if primary and not isinstance(primary, str):
             raise TypeError("Expected argument 'primary' to be a str")
         pulumi.set(__self__, "primary", primary)
+        if primary_network and not isinstance(primary_network, int):
+            raise TypeError("Expected argument 'primary_network' to be a int")
+        pulumi.set(__self__, "primary_network", primary_network)
         if primary_port and not isinstance(primary_port, int):
             raise TypeError("Expected argument 'primary_port' to be a int")
         pulumi.set(__self__, "primary_port", primary_port)
@@ -171,6 +174,11 @@ class GetZoneResult:
         return pulumi.get(self, "primary")
 
     @property
+    @pulumi.getter(name="primaryNetwork")
+    def primary_network(self) -> Optional[int]:
+        return pulumi.get(self, "primary_network")
+
+    @property
     @pulumi.getter(name="primaryPort")
     def primary_port(self) -> Optional[int]:
         return pulumi.get(self, "primary_port")
@@ -236,6 +244,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             networks=self.networks,
             nx_ttl=self.nx_ttl,
             primary=self.primary,
+            primary_network=self.primary_network,
             primary_port=self.primary_port,
             refresh=self.refresh,
             retry=self.retry,
@@ -247,6 +256,7 @@ class AwaitableGetZoneResult(GetZoneResult):
 
 def get_zone(additional_ports: Optional[Sequence[int]] = None,
              additional_primaries: Optional[Sequence[str]] = None,
+             primary_network: Optional[int] = None,
              primary_port: Optional[int] = None,
              zone: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
@@ -273,6 +283,7 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
     __args__ = dict()
     __args__['additionalPorts'] = additional_ports
     __args__['additionalPrimaries'] = additional_primaries
+    __args__['primaryNetwork'] = primary_network
     __args__['primaryPort'] = primary_port
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -290,6 +301,7 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
         networks=pulumi.get(__ret__, 'networks'),
         nx_ttl=pulumi.get(__ret__, 'nx_ttl'),
         primary=pulumi.get(__ret__, 'primary'),
+        primary_network=pulumi.get(__ret__, 'primary_network'),
         primary_port=pulumi.get(__ret__, 'primary_port'),
         refresh=pulumi.get(__ret__, 'refresh'),
         retry=pulumi.get(__ret__, 'retry'),
@@ -299,6 +311,7 @@ def get_zone(additional_ports: Optional[Sequence[int]] = None,
         zone=pulumi.get(__ret__, 'zone'))
 def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[int]]]] = None,
                     additional_primaries: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                    primary_network: Optional[pulumi.Input[Optional[int]]] = None,
                     primary_port: Optional[pulumi.Input[Optional[int]]] = None,
                     zone: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
@@ -325,6 +338,7 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
     __args__ = dict()
     __args__['additionalPorts'] = additional_ports
     __args__['additionalPrimaries'] = additional_primaries
+    __args__['primaryNetwork'] = primary_network
     __args__['primaryPort'] = primary_port
     __args__['zone'] = zone
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -341,6 +355,7 @@ def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[in
         networks=pulumi.get(__response__, 'networks'),
         nx_ttl=pulumi.get(__response__, 'nx_ttl'),
         primary=pulumi.get(__response__, 'primary'),
+        primary_network=pulumi.get(__response__, 'primary_network'),
         primary_port=pulumi.get(__response__, 'primary_port'),
         refresh=pulumi.get(__response__, 'refresh'),
         retry=pulumi.get(__response__, 'retry'),

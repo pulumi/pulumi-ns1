@@ -70,6 +70,7 @@ public final class GetZoneResult {
      * 
      */
     private String primary;
+    private @Nullable Integer primaryNetwork;
     private @Nullable Integer primaryPort;
     /**
      * @return The SOA Refresh.
@@ -171,6 +172,9 @@ public final class GetZoneResult {
     public String primary() {
         return this.primary;
     }
+    public Optional<Integer> primaryNetwork() {
+        return Optional.ofNullable(this.primaryNetwork);
+    }
     public Optional<Integer> primaryPort() {
         return Optional.ofNullable(this.primaryPort);
     }
@@ -230,6 +234,7 @@ public final class GetZoneResult {
         private List<Integer> networks;
         private Integer nxTtl;
         private String primary;
+        private @Nullable Integer primaryNetwork;
         private @Nullable Integer primaryPort;
         private Integer refresh;
         private Integer retry;
@@ -251,6 +256,7 @@ public final class GetZoneResult {
     	      this.networks = defaults.networks;
     	      this.nxTtl = defaults.nxTtl;
     	      this.primary = defaults.primary;
+    	      this.primaryNetwork = defaults.primaryNetwork;
     	      this.primaryPort = defaults.primaryPort;
     	      this.refresh = defaults.refresh;
     	      this.retry = defaults.retry;
@@ -354,6 +360,12 @@ public final class GetZoneResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryNetwork(@Nullable Integer primaryNetwork) {
+
+            this.primaryNetwork = primaryNetwork;
+            return this;
+        }
+        @CustomType.Setter
         public Builder primaryPort(@Nullable Integer primaryPort) {
 
             this.primaryPort = primaryPort;
@@ -423,6 +435,7 @@ public final class GetZoneResult {
             _resultValue.networks = networks;
             _resultValue.nxTtl = nxTtl;
             _resultValue.primary = primary;
+            _resultValue.primaryNetwork = primaryNetwork;
             _resultValue.primaryPort = primaryPort;
             _resultValue.refresh = refresh;
             _resultValue.retry = retry;

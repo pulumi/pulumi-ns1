@@ -28,6 +28,7 @@ export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise
     return pulumi.runtime.invoke("ns1:index/getZone:getZone", {
         "additionalPorts": args.additionalPorts,
         "additionalPrimaries": args.additionalPrimaries,
+        "primaryNetwork": args.primaryNetwork,
         "primaryPort": args.primaryPort,
         "zone": args.zone,
     }, opts);
@@ -43,6 +44,7 @@ export interface GetZoneArgs {
      * zone.
      */
     additionalPrimaries?: string[];
+    primaryNetwork?: number;
     primaryPort?: number;
     /**
      * The domain name of the zone.
@@ -97,6 +99,7 @@ export interface GetZoneResult {
      * The primary zones' IPv4 address.
      */
     readonly primary: string;
+    readonly primaryNetwork?: number;
     readonly primaryPort?: number;
     /**
      * The SOA Refresh.
@@ -140,6 +143,7 @@ export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOutpu
     return pulumi.runtime.invokeOutput("ns1:index/getZone:getZone", {
         "additionalPorts": args.additionalPorts,
         "additionalPrimaries": args.additionalPrimaries,
+        "primaryNetwork": args.primaryNetwork,
         "primaryPort": args.primaryPort,
         "zone": args.zone,
     }, opts);
@@ -155,6 +159,7 @@ export interface GetZoneOutputArgs {
      * zone.
      */
     additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
+    primaryNetwork?: pulumi.Input<number>;
     primaryPort?: pulumi.Input<number>;
     /**
      * The domain name of the zone.

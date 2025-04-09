@@ -185,6 +185,13 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.primary);
     }
 
+    @Import(name="primaryNetwork")
+    private @Nullable Output<Integer> primaryNetwork;
+
+    public Optional<Output<Integer>> primaryNetwork() {
+        return Optional.ofNullable(this.primaryNetwork);
+    }
+
     @Import(name="primaryPort")
     private @Nullable Output<Integer> primaryPort;
 
@@ -319,6 +326,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         this.networks = $.networks;
         this.nxTtl = $.nxTtl;
         this.primary = $.primary;
+        this.primaryNetwork = $.primaryNetwork;
         this.primaryPort = $.primaryPort;
         this.refresh = $.refresh;
         this.retry = $.retry;
@@ -595,6 +603,15 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder primary(String primary) {
             return primary(Output.of(primary));
+        }
+
+        public Builder primaryNetwork(@Nullable Output<Integer> primaryNetwork) {
+            $.primaryNetwork = primaryNetwork;
+            return this;
+        }
+
+        public Builder primaryNetwork(Integer primaryNetwork) {
+            return primaryNetwork(Output.of(primaryNetwork));
         }
 
         public Builder primaryPort(@Nullable Output<Integer> primaryPort) {

@@ -117,6 +117,9 @@ namespace Pulumi.Ns1
             set => _additionalPrimaries = value;
         }
 
+        [Input("primaryNetwork")]
+        public int? PrimaryNetwork { get; set; }
+
         [Input("primaryPort")]
         public int? PrimaryPort { get; set; }
 
@@ -154,6 +157,9 @@ namespace Pulumi.Ns1
             get => _additionalPrimaries ?? (_additionalPrimaries = new InputList<string>());
             set => _additionalPrimaries = value;
         }
+
+        [Input("primaryNetwork")]
+        public Input<int>? PrimaryNetwork { get; set; }
 
         [Input("primaryPort")]
         public Input<int>? PrimaryPort { get; set; }
@@ -217,6 +223,7 @@ namespace Pulumi.Ns1
         /// The primary zones' IPv4 address.
         /// </summary>
         public readonly string Primary;
+        public readonly int? PrimaryNetwork;
         public readonly int? PrimaryPort;
         /// <summary>
         /// The SOA Refresh.
@@ -262,6 +269,8 @@ namespace Pulumi.Ns1
 
             string primary,
 
+            int? primaryNetwork,
+
             int? primaryPort,
 
             int refresh,
@@ -287,6 +296,7 @@ namespace Pulumi.Ns1
             Networks = networks;
             NxTtl = nxTtl;
             Primary = primary;
+            PrimaryNetwork = primaryNetwork;
             PrimaryPort = primaryPort;
             Refresh = refresh;
             Retry = retry;

@@ -53,8 +53,9 @@ type Zone struct {
 	NxTtl pulumi.IntOutput `pulumi:"nxTtl"`
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary     pulumi.StringPtrOutput `pulumi:"primary"`
-	PrimaryPort pulumi.IntOutput       `pulumi:"primaryPort"`
+	Primary        pulumi.StringPtrOutput `pulumi:"primary"`
+	PrimaryNetwork pulumi.IntPtrOutput    `pulumi:"primaryNetwork"`
+	PrimaryPort    pulumi.IntOutput       `pulumi:"primaryPort"`
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh pulumi.IntOutput `pulumi:"refresh"`
@@ -135,8 +136,9 @@ type zoneState struct {
 	NxTtl *int `pulumi:"nxTtl"`
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary     *string `pulumi:"primary"`
-	PrimaryPort *int    `pulumi:"primaryPort"`
+	Primary        *string `pulumi:"primary"`
+	PrimaryNetwork *int    `pulumi:"primaryNetwork"`
+	PrimaryPort    *int    `pulumi:"primaryPort"`
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh *int `pulumi:"refresh"`
@@ -185,8 +187,9 @@ type ZoneState struct {
 	NxTtl pulumi.IntPtrInput
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary     pulumi.StringPtrInput
-	PrimaryPort pulumi.IntPtrInput
+	Primary        pulumi.StringPtrInput
+	PrimaryNetwork pulumi.IntPtrInput
+	PrimaryPort    pulumi.IntPtrInput
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh pulumi.IntPtrInput
@@ -237,8 +240,9 @@ type zoneArgs struct {
 	NxTtl *int `pulumi:"nxTtl"`
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary     *string `pulumi:"primary"`
-	PrimaryPort *int    `pulumi:"primaryPort"`
+	Primary        *string `pulumi:"primary"`
+	PrimaryNetwork *int    `pulumi:"primaryNetwork"`
+	PrimaryPort    *int    `pulumi:"primaryPort"`
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh *int `pulumi:"refresh"`
@@ -286,8 +290,9 @@ type ZoneArgs struct {
 	NxTtl pulumi.IntPtrInput
 	// The primary zones' IPv4 address. This makes the zone a
 	// secondary. Conflicts with `secondaries`.
-	Primary     pulumi.StringPtrInput
-	PrimaryPort pulumi.IntPtrInput
+	Primary        pulumi.StringPtrInput
+	PrimaryNetwork pulumi.IntPtrInput
+	PrimaryPort    pulumi.IntPtrInput
 	// The SOA Refresh. Conflicts with `primary` and
 	// `additionalPrimaries` (default must be accepted).
 	Refresh pulumi.IntPtrInput
@@ -454,6 +459,10 @@ func (o ZoneOutput) NxTtl() pulumi.IntOutput {
 // secondary. Conflicts with `secondaries`.
 func (o ZoneOutput) Primary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Primary }).(pulumi.StringPtrOutput)
+}
+
+func (o ZoneOutput) PrimaryNetwork() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntPtrOutput { return v.PrimaryNetwork }).(pulumi.IntPtrOutput)
 }
 
 func (o ZoneOutput) PrimaryPort() pulumi.IntOutput {

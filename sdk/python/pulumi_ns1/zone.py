@@ -32,6 +32,7 @@ class ZoneArgs:
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  nx_ttl: Optional[pulumi.Input[int]] = None,
                  primary: Optional[pulumi.Input[str]] = None,
+                 primary_network: Optional[pulumi.Input[int]] = None,
                  primary_port: Optional[pulumi.Input[int]] = None,
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
@@ -90,6 +91,8 @@ class ZoneArgs:
             pulumi.set(__self__, "nx_ttl", nx_ttl)
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
+        if primary_network is not None:
+            pulumi.set(__self__, "primary_network", primary_network)
         if primary_port is not None:
             pulumi.set(__self__, "primary_port", primary_port)
         if refresh is not None:
@@ -240,6 +243,15 @@ class ZoneArgs:
         pulumi.set(self, "primary", value)
 
     @property
+    @pulumi.getter(name="primaryNetwork")
+    def primary_network(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "primary_network")
+
+    @primary_network.setter
+    def primary_network(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "primary_network", value)
+
+    @property
     @pulumi.getter(name="primaryPort")
     def primary_port(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "primary_port")
@@ -339,6 +351,7 @@ class _ZoneState:
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  nx_ttl: Optional[pulumi.Input[int]] = None,
                  primary: Optional[pulumi.Input[str]] = None,
+                 primary_network: Optional[pulumi.Input[int]] = None,
                  primary_port: Optional[pulumi.Input[int]] = None,
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
@@ -400,6 +413,8 @@ class _ZoneState:
             pulumi.set(__self__, "nx_ttl", nx_ttl)
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
+        if primary_network is not None:
+            pulumi.set(__self__, "primary_network", primary_network)
         if primary_port is not None:
             pulumi.set(__self__, "primary_port", primary_port)
         if refresh is not None:
@@ -552,6 +567,15 @@ class _ZoneState:
         pulumi.set(self, "primary", value)
 
     @property
+    @pulumi.getter(name="primaryNetwork")
+    def primary_network(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "primary_network")
+
+    @primary_network.setter
+    def primary_network(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "primary_network", value)
+
+    @property
     @pulumi.getter(name="primaryPort")
     def primary_port(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "primary_port")
@@ -664,6 +688,7 @@ class Zone(pulumi.CustomResource):
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  nx_ttl: Optional[pulumi.Input[int]] = None,
                  primary: Optional[pulumi.Input[str]] = None,
+                 primary_network: Optional[pulumi.Input[int]] = None,
                  primary_port: Optional[pulumi.Input[int]] = None,
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
@@ -760,6 +785,7 @@ class Zone(pulumi.CustomResource):
                  networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  nx_ttl: Optional[pulumi.Input[int]] = None,
                  primary: Optional[pulumi.Input[str]] = None,
+                 primary_network: Optional[pulumi.Input[int]] = None,
                  primary_port: Optional[pulumi.Input[int]] = None,
                  refresh: Optional[pulumi.Input[int]] = None,
                  retry: Optional[pulumi.Input[int]] = None,
@@ -787,6 +813,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["networks"] = networks
             __props__.__dict__["nx_ttl"] = nx_ttl
             __props__.__dict__["primary"] = primary
+            __props__.__dict__["primary_network"] = primary_network
             __props__.__dict__["primary_port"] = primary_port
             __props__.__dict__["refresh"] = refresh
             __props__.__dict__["retry"] = retry
@@ -819,6 +846,7 @@ class Zone(pulumi.CustomResource):
             networks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             nx_ttl: Optional[pulumi.Input[int]] = None,
             primary: Optional[pulumi.Input[str]] = None,
+            primary_network: Optional[pulumi.Input[int]] = None,
             primary_port: Optional[pulumi.Input[int]] = None,
             refresh: Optional[pulumi.Input[int]] = None,
             retry: Optional[pulumi.Input[int]] = None,
@@ -878,6 +906,7 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["networks"] = networks
         __props__.__dict__["nx_ttl"] = nx_ttl
         __props__.__dict__["primary"] = primary
+        __props__.__dict__["primary_network"] = primary_network
         __props__.__dict__["primary_port"] = primary_port
         __props__.__dict__["refresh"] = refresh
         __props__.__dict__["retry"] = retry
@@ -977,6 +1006,11 @@ class Zone(pulumi.CustomResource):
         secondary. Conflicts with `secondaries`.
         """
         return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="primaryNetwork")
+    def primary_network(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "primary_network")
 
     @property
     @pulumi.getter(name="primaryPort")

@@ -189,6 +189,12 @@ public class Zone extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> primary() {
         return Codegen.optional(this.primary);
     }
+    @Export(name="primaryNetwork", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> primaryNetwork;
+
+    public Output<Optional<Integer>> primaryNetwork() {
+        return Codegen.optional(this.primaryNetwork);
+    }
     @Export(name="primaryPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> primaryPort;
 
