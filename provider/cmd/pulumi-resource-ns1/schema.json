@@ -4016,6 +4016,9 @@
                     "type": "string",
                     "description": "The primary zones' IPv4 address. This makes the zone a\nsecondary. Conflicts with `secondaries`.\n"
                 },
+                "primaryNetwork": {
+                    "type": "integer"
+                },
                 "primaryPort": {
                     "type": "integer"
                 },
@@ -4124,6 +4127,9 @@
                     "type": "string",
                     "description": "The primary zones' IPv4 address. This makes the zone a\nsecondary. Conflicts with `secondaries`.\n"
                 },
+                "primaryNetwork": {
+                    "type": "integer"
+                },
                 "primaryPort": {
                     "type": "integer"
                 },
@@ -4228,6 +4234,9 @@
                     "primary": {
                         "type": "string",
                         "description": "The primary zones' IPv4 address. This makes the zone a\nsecondary. Conflicts with `secondaries`.\n"
+                    },
+                    "primaryNetwork": {
+                        "type": "integer"
                     },
                     "primaryPort": {
                         "type": "integer"
@@ -4648,6 +4657,9 @@
                         },
                         "description": "List of additional IPv4 addresses for the primary\nzone.\n"
                     },
+                    "primaryNetwork": {
+                        "type": "integer"
+                    },
                     "primaryPort": {
                         "type": "integer"
                     },
@@ -4715,6 +4727,9 @@
                     "primary": {
                         "description": "The primary zones' IPv4 address.\n",
                         "type": "string"
+                    },
+                    "primaryNetwork": {
+                        "type": "integer"
                     },
                     "primaryPort": {
                         "type": "integer"

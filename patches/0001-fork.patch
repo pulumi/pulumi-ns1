@@ -5,7 +5,7 @@ Subject: [PATCH] fork
 
 
 diff --git a/go.mod b/go.mod
-index e68a1c6..ce26e06 100644
+index a7cc681..4957da1 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
