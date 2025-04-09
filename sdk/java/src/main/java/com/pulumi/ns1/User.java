@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .username("example_user")
  *             .email("user}{@literal @}{@code example.com")
  *             .teams(example.id())
- *             .notify(Map.of("billing", false))
+ *             .notify(Map.of("billing", "false"))
  *             .build());
  * 
  *     }}{@code

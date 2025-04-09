@@ -61,9 +61,9 @@ import javax.annotation.Nullable;
  *             .policy("quorum")
  *             .mute(true)
  *             .config(Map.ofEntries(
- *                 Map.entry("ssl", 1),
+ *                 Map.entry("ssl", "1"),
  *                 Map.entry("send", "HEAD / HTTP/1.0\\r\\n\\r\\n"),
- *                 Map.entry("port", 443),
+ *                 Map.entry("port", "443"),
  *                 Map.entry("host", "example-elb-uswest.aws.amazon.com")
  *             ))
  *             .rules(MonitoringJobRuleArgs.builder()

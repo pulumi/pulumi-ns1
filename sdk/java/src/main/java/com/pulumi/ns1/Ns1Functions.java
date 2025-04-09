@@ -93,18 +93,18 @@ public final class Ns1Functions {
      *             .metricType("records")
      *             .build());
      * 
-     *         ctx.export("totalQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.cleanQueries()));
-     *         ctx.export("totalDdosQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.ddosQueries()));
-     *         ctx.export("totalNxdResponses", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.nxdResponses()));
-     *         ctx.export("queriesLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.queriesLimit()));
-     *         ctx.export("totalDecisions", decisions.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("decisionsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.decisionsLimit()));
-     *         ctx.export("totalFilterChains", filterChains.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("filterChainsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.filterChainsLimit()));
-     *         ctx.export("totalMonitors", monitors.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("monitorsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.monitorsLimit()));
-     *         ctx.export("totalRecords", records.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("recordsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.recordsLimit()));
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
      *     }
      * }
      * }
@@ -179,18 +179,18 @@ public final class Ns1Functions {
      *             .metricType("records")
      *             .build());
      * 
-     *         ctx.export("totalQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.cleanQueries()));
-     *         ctx.export("totalDdosQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.ddosQueries()));
-     *         ctx.export("totalNxdResponses", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.nxdResponses()));
-     *         ctx.export("queriesLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.queriesLimit()));
-     *         ctx.export("totalDecisions", decisions.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("decisionsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.decisionsLimit()));
-     *         ctx.export("totalFilterChains", filterChains.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("filterChainsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.filterChainsLimit()));
-     *         ctx.export("totalMonitors", monitors.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("monitorsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.monitorsLimit()));
-     *         ctx.export("totalRecords", records.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("recordsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.recordsLimit()));
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
      *     }
      * }
      * }
@@ -265,18 +265,18 @@ public final class Ns1Functions {
      *             .metricType("records")
      *             .build());
      * 
-     *         ctx.export("totalQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.cleanQueries()));
-     *         ctx.export("totalDdosQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.ddosQueries()));
-     *         ctx.export("totalNxdResponses", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.nxdResponses()));
-     *         ctx.export("queriesLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.queriesLimit()));
-     *         ctx.export("totalDecisions", decisions.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("decisionsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.decisionsLimit()));
-     *         ctx.export("totalFilterChains", filterChains.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("filterChainsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.filterChainsLimit()));
-     *         ctx.export("totalMonitors", monitors.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("monitorsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.monitorsLimit()));
-     *         ctx.export("totalRecords", records.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("recordsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.recordsLimit()));
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
      *     }
      * }
      * }
@@ -351,18 +351,18 @@ public final class Ns1Functions {
      *             .metricType("records")
      *             .build());
      * 
-     *         ctx.export("totalQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.cleanQueries()));
-     *         ctx.export("totalDdosQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.ddosQueries()));
-     *         ctx.export("totalNxdResponses", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.nxdResponses()));
-     *         ctx.export("queriesLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.queriesLimit()));
-     *         ctx.export("totalDecisions", decisions.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("decisionsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.decisionsLimit()));
-     *         ctx.export("totalFilterChains", filterChains.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("filterChainsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.filterChainsLimit()));
-     *         ctx.export("totalMonitors", monitors.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("monitorsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.monitorsLimit()));
-     *         ctx.export("totalRecords", records.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("recordsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.recordsLimit()));
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
      *     }
      * }
      * }
@@ -437,18 +437,18 @@ public final class Ns1Functions {
      *             .metricType("records")
      *             .build());
      * 
-     *         ctx.export("totalQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.cleanQueries()));
-     *         ctx.export("totalDdosQueries", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.ddosQueries()));
-     *         ctx.export("totalNxdResponses", queries.applyValue(getBillingUsageResult -> getBillingUsageResult.nxdResponses()));
-     *         ctx.export("queriesLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.queriesLimit()));
-     *         ctx.export("totalDecisions", decisions.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("decisionsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.decisionsLimit()));
-     *         ctx.export("totalFilterChains", filterChains.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("filterChainsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.filterChainsLimit()));
-     *         ctx.export("totalMonitors", monitors.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("monitorsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.monitorsLimit()));
-     *         ctx.export("totalRecords", records.applyValue(getBillingUsageResult -> getBillingUsageResult.totalUsage()));
-     *         ctx.export("recordsLimit", limits.applyValue(getBillingUsageResult -> getBillingUsageResult.recordsLimit()));
+     *         ctx.export("totalQueries", queries.cleanQueries());
+     *         ctx.export("totalDdosQueries", queries.ddosQueries());
+     *         ctx.export("totalNxdResponses", queries.nxdResponses());
+     *         ctx.export("queriesLimit", limits.queriesLimit());
+     *         ctx.export("totalDecisions", decisions.totalUsage());
+     *         ctx.export("decisionsLimit", limits.decisionsLimit());
+     *         ctx.export("totalFilterChains", filterChains.totalUsage());
+     *         ctx.export("filterChainsLimit", limits.filterChainsLimit());
+     *         ctx.export("totalMonitors", monitors.totalUsage());
+     *         ctx.export("monitorsLimit", limits.monitorsLimit());
+     *         ctx.export("totalRecords", records.totalUsage());
+     *         ctx.export("recordsLimit", limits.recordsLimit());
      *     }
      * }
      * }
@@ -738,7 +738,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details of all available monitoring regions.
-     *         final var example = Ns1Functions.getMonitoringRegions();
+     *         final var example = Ns1Functions.getMonitoringRegions(GetMonitoringRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -779,7 +780,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details of all available monitoring regions.
-     *         final var example = Ns1Functions.getMonitoringRegions();
+     *         final var example = Ns1Functions.getMonitoringRegions(GetMonitoringRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -820,7 +822,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details of all available monitoring regions.
-     *         final var example = Ns1Functions.getMonitoringRegions();
+     *         final var example = Ns1Functions.getMonitoringRegions(GetMonitoringRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -861,7 +864,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details of all available monitoring regions.
-     *         final var example = Ns1Functions.getMonitoringRegions();
+     *         final var example = Ns1Functions.getMonitoringRegions(GetMonitoringRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -902,7 +906,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details of all available monitoring regions.
-     *         final var example = Ns1Functions.getMonitoringRegions();
+     *         final var example = Ns1Functions.getMonitoringRegions(GetMonitoringRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -943,7 +948,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details of all available monitoring regions.
-     *         final var example = Ns1Functions.getMonitoringRegions();
+     *         final var example = Ns1Functions.getMonitoringRegions(GetMonitoringRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -984,7 +990,8 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details of all available monitoring regions.
-     *         final var example = Ns1Functions.getMonitoringRegions();
+     *         final var example = Ns1Functions.getMonitoringRegions(GetMonitoringRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1026,7 +1033,7 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details about NS1 Networks.
-     *         final var example = Ns1Functions.getNetworks();
+     *         final var example = Ns1Functions.getNetworks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1068,7 +1075,7 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details about NS1 Networks.
-     *         final var example = Ns1Functions.getNetworks();
+     *         final var example = Ns1Functions.getNetworks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1110,7 +1117,7 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details about NS1 Networks.
-     *         final var example = Ns1Functions.getNetworks();
+     *         final var example = Ns1Functions.getNetworks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1152,7 +1159,7 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details about NS1 Networks.
-     *         final var example = Ns1Functions.getNetworks();
+     *         final var example = Ns1Functions.getNetworks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1194,7 +1201,7 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details about NS1 Networks.
-     *         final var example = Ns1Functions.getNetworks();
+     *         final var example = Ns1Functions.getNetworks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1236,7 +1243,7 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details about NS1 Networks.
-     *         final var example = Ns1Functions.getNetworks();
+     *         final var example = Ns1Functions.getNetworks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1278,7 +1285,7 @@ public final class Ns1Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Get details about NS1 Networks.
-     *         final var example = Ns1Functions.getNetworks();
+     *         final var example = Ns1Functions.getNetworks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

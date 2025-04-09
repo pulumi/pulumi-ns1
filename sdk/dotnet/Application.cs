@@ -15,7 +15,7 @@ namespace Pulumi.Ns1
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import ns1:index/application:Application `ns1_application`
+    /// $ pulumi import ns1:index/application:Application `ns1_application` 
     /// ```
     /// 
     /// So for the example above:
