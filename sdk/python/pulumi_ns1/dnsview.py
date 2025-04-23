@@ -202,6 +202,9 @@ class _DnsviewState:
 
 
 class Dnsview(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/dnsview:Dnsview"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

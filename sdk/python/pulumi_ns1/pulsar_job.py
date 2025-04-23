@@ -262,6 +262,9 @@ class _PulsarJobState:
 
 
 class PulsarJob(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/pulsarJob:PulsarJob"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

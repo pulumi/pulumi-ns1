@@ -100,6 +100,9 @@ class _NotifyListState:
 
 
 class NotifyList(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/notifyList:NotifyList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
