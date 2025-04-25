@@ -387,6 +387,9 @@ class _RedirectState:
 
 
 class Redirect(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/redirect:Redirect"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

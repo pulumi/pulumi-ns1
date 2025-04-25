@@ -128,6 +128,9 @@ class _TsigkeyState:
 
 
 class Tsigkey(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/tsigkey:Tsigkey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -117,6 +117,9 @@ class _RedirectCertificateState:
 
 
 class RedirectCertificate(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/redirectCertificate:RedirectCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
