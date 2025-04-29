@@ -189,6 +189,9 @@ class _DatasetState:
 
 
 class Dataset(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/dataset:Dataset"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

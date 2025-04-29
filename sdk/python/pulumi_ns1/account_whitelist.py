@@ -97,6 +97,9 @@ class _AccountWhitelistState:
 
 
 class AccountWhitelist(pulumi.CustomResource):
+
+    pulumi_type = "ns1:index/accountWhitelist:AccountWhitelist"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
