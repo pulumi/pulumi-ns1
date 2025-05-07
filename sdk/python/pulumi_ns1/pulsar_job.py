@@ -261,10 +261,8 @@ class _PulsarJobState:
         pulumi.set(self, "weights", value)
 
 
+@pulumi.type_token("ns1:index/pulsarJob:PulsarJob")
 class PulsarJob(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/pulsarJob:PulsarJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

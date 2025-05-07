@@ -85,10 +85,8 @@ export type NotifyList = import("./notifyList").NotifyList;
 export const NotifyList: typeof import("./notifyList").NotifyList = null as any;
 utilities.lazyLoad(exports, ["NotifyList"], () => require("./notifyList"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { PulsarJobArgs, PulsarJobState } from "./pulsarJob";
 export type PulsarJob = import("./pulsarJob").PulsarJob;

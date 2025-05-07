@@ -1055,10 +1055,8 @@ class _APIKeyState:
         pulumi.set(self, "teams", value)
 
 
+@pulumi.type_token("ns1:index/aPIKey:APIKey")
 class APIKey(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/aPIKey:APIKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

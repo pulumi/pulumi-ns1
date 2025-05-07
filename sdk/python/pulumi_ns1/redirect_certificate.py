@@ -116,10 +116,8 @@ class _RedirectCertificateState:
         pulumi.set(self, "valid_until", value)
 
 
+@pulumi.type_token("ns1:index/redirectCertificate:RedirectCertificate")
 class RedirectCertificate(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/redirectCertificate:RedirectCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

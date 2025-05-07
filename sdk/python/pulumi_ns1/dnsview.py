@@ -201,10 +201,8 @@ class _DnsviewState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("ns1:index/dnsview:Dnsview")
 class Dnsview(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/dnsview:Dnsview"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
