@@ -543,10 +543,8 @@ class _MonitoringJobState:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("ns1:index/monitoringJob:MonitoringJob")
 class MonitoringJob(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/monitoringJob:MonitoringJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

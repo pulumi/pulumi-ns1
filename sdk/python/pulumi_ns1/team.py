@@ -975,10 +975,8 @@ class _TeamState:
         pulumi.set(self, "security_manage_global2fa", value)
 
 
+@pulumi.type_token("ns1:index/team:Team")
 class Team(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/team:Team"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,10 +96,8 @@ class _AccountWhitelistState:
         pulumi.set(self, "values", value)
 
 
+@pulumi.type_token("ns1:index/accountWhitelist:AccountWhitelist")
 class AccountWhitelist(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/accountWhitelist:AccountWhitelist"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -524,10 +524,8 @@ class _RecordState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("ns1:index/record:Record")
 class Record(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/record:Record"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

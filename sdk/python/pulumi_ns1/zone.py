@@ -722,10 +722,8 @@ class _ZoneState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("ns1:index/zone:Zone")
 class Zone(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/zone:Zone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
