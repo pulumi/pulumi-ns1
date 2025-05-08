@@ -21,6 +21,20 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ZoneArgs Empty = new ZoneArgs();
 
+    @Import(name="additionalNetworks")
+    private @Nullable Output<List<Integer>> additionalNetworks;
+
+    public Optional<Output<List<Integer>>> additionalNetworks() {
+        return Optional.ofNullable(this.additionalNetworks);
+    }
+
+    @Import(name="additionalNotifyOnlies")
+    private @Nullable Output<List<Boolean>> additionalNotifyOnlies;
+
+    public Optional<Output<List<Boolean>>> additionalNotifyOnlies() {
+        return Optional.ofNullable(this.additionalNotifyOnlies);
+    }
+
     @Import(name="additionalPorts")
     private @Nullable Output<List<Integer>> additionalPorts;
 
@@ -301,6 +315,8 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
     private ZoneArgs() {}
 
     private ZoneArgs(ZoneArgs $) {
+        this.additionalNetworks = $.additionalNetworks;
+        this.additionalNotifyOnlies = $.additionalNotifyOnlies;
         this.additionalPorts = $.additionalPorts;
         this.additionalPrimaries = $.additionalPrimaries;
         this.autogenerateNsRecord = $.autogenerateNsRecord;
@@ -338,6 +354,32 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ZoneArgs defaults) {
             $ = new ZoneArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder additionalNetworks(@Nullable Output<List<Integer>> additionalNetworks) {
+            $.additionalNetworks = additionalNetworks;
+            return this;
+        }
+
+        public Builder additionalNetworks(List<Integer> additionalNetworks) {
+            return additionalNetworks(Output.of(additionalNetworks));
+        }
+
+        public Builder additionalNetworks(Integer... additionalNetworks) {
+            return additionalNetworks(List.of(additionalNetworks));
+        }
+
+        public Builder additionalNotifyOnlies(@Nullable Output<List<Boolean>> additionalNotifyOnlies) {
+            $.additionalNotifyOnlies = additionalNotifyOnlies;
+            return this;
+        }
+
+        public Builder additionalNotifyOnlies(List<Boolean> additionalNotifyOnlies) {
+            return additionalNotifyOnlies(Output.of(additionalNotifyOnlies));
+        }
+
+        public Builder additionalNotifyOnlies(Boolean... additionalNotifyOnlies) {
+            return additionalNotifyOnlies(List.of(additionalNotifyOnlies));
         }
 
         public Builder additionalPorts(@Nullable Output<List<Integer>> additionalPorts) {

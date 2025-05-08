@@ -23,6 +23,8 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  zone: pulumi.Input[builtins.str],
+                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]] = None,
                  additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
                  additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  autogenerate_ns_record: Optional[pulumi.Input[builtins.bool]] = None,
@@ -72,6 +74,10 @@ class ZoneArgs:
         :param pulumi.Input[builtins.int] ttl: The SOA TTL.
         """
         pulumi.set(__self__, "zone", zone)
+        if additional_networks is not None:
+            pulumi.set(__self__, "additional_networks", additional_networks)
+        if additional_notify_onlies is not None:
+            pulumi.set(__self__, "additional_notify_onlies", additional_notify_onlies)
         if additional_ports is not None:
             pulumi.set(__self__, "additional_ports", additional_ports)
         if additional_primaries is not None:
@@ -120,6 +126,24 @@ class ZoneArgs:
     @zone.setter
     def zone(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "zone", value)
+
+    @property
+    @pulumi.getter(name="additionalNetworks")
+    def additional_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "additional_networks")
+
+    @additional_networks.setter
+    def additional_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "additional_networks", value)
+
+    @property
+    @pulumi.getter(name="additionalNotifyOnlies")
+    def additional_notify_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]]:
+        return pulumi.get(self, "additional_notify_onlies")
+
+    @additional_notify_onlies.setter
+    def additional_notify_onlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]]):
+        pulumi.set(self, "additional_notify_onlies", value)
 
     @property
     @pulumi.getter(name="additionalPorts")
@@ -341,6 +365,8 @@ class ZoneArgs:
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
+                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]] = None,
                  additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
                  additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  autogenerate_ns_record: Optional[pulumi.Input[builtins.bool]] = None,
@@ -392,6 +418,10 @@ class _ZoneState:
         :param pulumi.Input[builtins.int] ttl: The SOA TTL.
         :param pulumi.Input[builtins.str] zone: The domain name of the zone.
         """
+        if additional_networks is not None:
+            pulumi.set(__self__, "additional_networks", additional_networks)
+        if additional_notify_onlies is not None:
+            pulumi.set(__self__, "additional_notify_onlies", additional_notify_onlies)
         if additional_ports is not None:
             pulumi.set(__self__, "additional_ports", additional_ports)
         if additional_primaries is not None:
@@ -432,6 +462,24 @@ class _ZoneState:
             pulumi.set(__self__, "ttl", ttl)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="additionalNetworks")
+    def additional_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "additional_networks")
+
+    @additional_networks.setter
+    def additional_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "additional_networks", value)
+
+    @property
+    @pulumi.getter(name="additionalNotifyOnlies")
+    def additional_notify_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]]:
+        return pulumi.get(self, "additional_notify_onlies")
+
+    @additional_notify_onlies.setter
+    def additional_notify_onlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]]):
+        pulumi.set(self, "additional_notify_onlies", value)
 
     @property
     @pulumi.getter(name="additionalPorts")
@@ -682,6 +730,8 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]] = None,
                  additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
                  additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  autogenerate_ns_record: Optional[pulumi.Input[builtins.bool]] = None,
@@ -779,6 +829,8 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]] = None,
                  additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
                  additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  autogenerate_ns_record: Optional[pulumi.Input[builtins.bool]] = None,
@@ -807,6 +859,8 @@ class Zone(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ZoneArgs.__new__(ZoneArgs)
 
+            __props__.__dict__["additional_networks"] = additional_networks
+            __props__.__dict__["additional_notify_onlies"] = additional_notify_onlies
             __props__.__dict__["additional_ports"] = additional_ports
             __props__.__dict__["additional_primaries"] = additional_primaries
             __props__.__dict__["autogenerate_ns_record"] = autogenerate_ns_record
@@ -839,6 +893,8 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+            additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.bool]]]] = None,
             additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
             additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             autogenerate_ns_record: Optional[pulumi.Input[builtins.bool]] = None,
@@ -899,6 +955,8 @@ class Zone(pulumi.CustomResource):
 
         __props__ = _ZoneState.__new__(_ZoneState)
 
+        __props__.__dict__["additional_networks"] = additional_networks
+        __props__.__dict__["additional_notify_onlies"] = additional_notify_onlies
         __props__.__dict__["additional_ports"] = additional_ports
         __props__.__dict__["additional_primaries"] = additional_primaries
         __props__.__dict__["autogenerate_ns_record"] = autogenerate_ns_record
@@ -920,6 +978,16 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["ttl"] = ttl
         __props__.__dict__["zone"] = zone
         return Zone(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalNetworks")
+    def additional_networks(self) -> pulumi.Output[Optional[Sequence[builtins.int]]]:
+        return pulumi.get(self, "additional_networks")
+
+    @property
+    @pulumi.getter(name="additionalNotifyOnlies")
+    def additional_notify_onlies(self) -> pulumi.Output[Optional[Sequence[builtins.bool]]]:
+        return pulumi.get(self, "additional_notify_onlies")
 
     @property
     @pulumi.getter(name="additionalPorts")

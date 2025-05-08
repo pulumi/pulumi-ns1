@@ -26,7 +26,9 @@ import (
 type Zone struct {
 	pulumi.CustomResourceState
 
-	AdditionalPorts pulumi.IntArrayOutput `pulumi:"additionalPorts"`
+	AdditionalNetworks     pulumi.IntArrayOutput  `pulumi:"additionalNetworks"`
+	AdditionalNotifyOnlies pulumi.BoolArrayOutput `pulumi:"additionalNotifyOnlies"`
+	AdditionalPorts        pulumi.IntArrayOutput  `pulumi:"additionalPorts"`
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  pulumi.StringArrayOutput `pulumi:"additionalPrimaries"`
@@ -109,7 +111,9 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
-	AdditionalPorts []int `pulumi:"additionalPorts"`
+	AdditionalNetworks     []int  `pulumi:"additionalNetworks"`
+	AdditionalNotifyOnlies []bool `pulumi:"additionalNotifyOnlies"`
+	AdditionalPorts        []int  `pulumi:"additionalPorts"`
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  []string `pulumi:"additionalPrimaries"`
@@ -160,7 +164,9 @@ type zoneState struct {
 }
 
 type ZoneState struct {
-	AdditionalPorts pulumi.IntArrayInput
+	AdditionalNetworks     pulumi.IntArrayInput
+	AdditionalNotifyOnlies pulumi.BoolArrayInput
+	AdditionalPorts        pulumi.IntArrayInput
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  pulumi.StringArrayInput
@@ -215,7 +221,9 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
-	AdditionalPorts []int `pulumi:"additionalPorts"`
+	AdditionalNetworks     []int  `pulumi:"additionalNetworks"`
+	AdditionalNotifyOnlies []bool `pulumi:"additionalNotifyOnlies"`
+	AdditionalPorts        []int  `pulumi:"additionalPorts"`
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  []string `pulumi:"additionalPrimaries"`
@@ -265,7 +273,9 @@ type zoneArgs struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	AdditionalPorts pulumi.IntArrayInput
+	AdditionalNetworks     pulumi.IntArrayInput
+	AdditionalNotifyOnlies pulumi.BoolArrayInput
+	AdditionalPorts        pulumi.IntArrayInput
 	// List of additional IPv4 addresses for the primary
 	// zone. Conflicts with `secondaries`.
 	AdditionalPrimaries  pulumi.StringArrayInput
@@ -398,6 +408,14 @@ func (o ZoneOutput) ToZoneOutput() ZoneOutput {
 
 func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return o
+}
+
+func (o ZoneOutput) AdditionalNetworks() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.IntArrayOutput { return v.AdditionalNetworks }).(pulumi.IntArrayOutput)
+}
+
+func (o ZoneOutput) AdditionalNotifyOnlies() pulumi.BoolArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.BoolArrayOutput { return v.AdditionalNotifyOnlies }).(pulumi.BoolArrayOutput)
 }
 
 func (o ZoneOutput) AdditionalPorts() pulumi.IntArrayOutput {

@@ -47,6 +47,8 @@ export class Zone extends pulumi.CustomResource {
         return obj['__pulumiType'] === Zone.__pulumiType;
     }
 
+    public readonly additionalNetworks!: pulumi.Output<number[] | undefined>;
+    public readonly additionalNotifyOnlies!: pulumi.Output<boolean[] | undefined>;
     public readonly additionalPorts!: pulumi.Output<number[] | undefined>;
     /**
      * List of additional IPv4 addresses for the primary
@@ -141,6 +143,8 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
+            resourceInputs["additionalNetworks"] = state ? state.additionalNetworks : undefined;
+            resourceInputs["additionalNotifyOnlies"] = state ? state.additionalNotifyOnlies : undefined;
             resourceInputs["additionalPorts"] = state ? state.additionalPorts : undefined;
             resourceInputs["additionalPrimaries"] = state ? state.additionalPrimaries : undefined;
             resourceInputs["autogenerateNsRecord"] = state ? state.autogenerateNsRecord : undefined;
@@ -166,6 +170,8 @@ export class Zone extends pulumi.CustomResource {
             if ((!args || args.zone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
+            resourceInputs["additionalNetworks"] = args ? args.additionalNetworks : undefined;
+            resourceInputs["additionalNotifyOnlies"] = args ? args.additionalNotifyOnlies : undefined;
             resourceInputs["additionalPorts"] = args ? args.additionalPorts : undefined;
             resourceInputs["additionalPrimaries"] = args ? args.additionalPrimaries : undefined;
             resourceInputs["autogenerateNsRecord"] = args ? args.autogenerateNsRecord : undefined;
@@ -196,6 +202,8 @@ export class Zone extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Zone resources.
  */
 export interface ZoneState {
+    additionalNetworks?: pulumi.Input<pulumi.Input<number>[]>;
+    additionalNotifyOnlies?: pulumi.Input<pulumi.Input<boolean>[]>;
     additionalPorts?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of additional IPv4 addresses for the primary
@@ -282,6 +290,8 @@ export interface ZoneState {
  * The set of arguments for constructing a Zone resource.
  */
 export interface ZoneArgs {
+    additionalNetworks?: pulumi.Input<pulumi.Input<number>[]>;
+    additionalNotifyOnlies?: pulumi.Input<pulumi.Input<boolean>[]>;
     additionalPorts?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of additional IPv4 addresses for the primary
