@@ -25,6 +25,12 @@ namespace Pulumi.Ns1
     [Ns1ResourceType("ns1:index/zone:Zone")]
     public partial class Zone : global::Pulumi.CustomResource
     {
+        [Output("additionalNetworks")]
+        public Output<ImmutableArray<int>> AdditionalNetworks { get; private set; } = null!;
+
+        [Output("additionalNotifyOnlies")]
+        public Output<ImmutableArray<bool>> AdditionalNotifyOnlies { get; private set; } = null!;
+
         [Output("additionalPorts")]
         public Output<ImmutableArray<int>> AdditionalPorts { get; private set; } = null!;
 
@@ -191,6 +197,22 @@ namespace Pulumi.Ns1
 
     public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalNetworks")]
+        private InputList<int>? _additionalNetworks;
+        public InputList<int> AdditionalNetworks
+        {
+            get => _additionalNetworks ?? (_additionalNetworks = new InputList<int>());
+            set => _additionalNetworks = value;
+        }
+
+        [Input("additionalNotifyOnlies")]
+        private InputList<bool>? _additionalNotifyOnlies;
+        public InputList<bool> AdditionalNotifyOnlies
+        {
+            get => _additionalNotifyOnlies ?? (_additionalNotifyOnlies = new InputList<bool>());
+            set => _additionalNotifyOnlies = value;
+        }
+
         [Input("additionalPorts")]
         private InputList<int>? _additionalPorts;
         public InputList<int> AdditionalPorts
@@ -348,6 +370,22 @@ namespace Pulumi.Ns1
 
     public sealed class ZoneState : global::Pulumi.ResourceArgs
     {
+        [Input("additionalNetworks")]
+        private InputList<int>? _additionalNetworks;
+        public InputList<int> AdditionalNetworks
+        {
+            get => _additionalNetworks ?? (_additionalNetworks = new InputList<int>());
+            set => _additionalNetworks = value;
+        }
+
+        [Input("additionalNotifyOnlies")]
+        private InputList<bool>? _additionalNotifyOnlies;
+        public InputList<bool> AdditionalNotifyOnlies
+        {
+            get => _additionalNotifyOnlies ?? (_additionalNotifyOnlies = new InputList<bool>());
+            set => _additionalNotifyOnlies = value;
+        }
+
         [Input("additionalPorts")]
         private InputList<int>? _additionalPorts;
         public InputList<int> AdditionalPorts

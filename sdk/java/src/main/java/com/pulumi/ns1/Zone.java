@@ -35,6 +35,18 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="ns1:index/zone:Zone")
 public class Zone extends com.pulumi.resources.CustomResource {
+    @Export(name="additionalNetworks", refs={List.class,Integer.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<Integer>> additionalNetworks;
+
+    public Output<Optional<List<Integer>>> additionalNetworks() {
+        return Codegen.optional(this.additionalNetworks);
+    }
+    @Export(name="additionalNotifyOnlies", refs={List.class,Boolean.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<Boolean>> additionalNotifyOnlies;
+
+    public Output<Optional<List<Boolean>>> additionalNotifyOnlies() {
+        return Codegen.optional(this.additionalNotifyOnlies);
+    }
     @Export(name="additionalPorts", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> additionalPorts;
 
