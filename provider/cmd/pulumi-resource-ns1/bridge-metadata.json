@@ -235,6 +235,12 @@
                 "current": "ns1:index/zone:Zone",
                 "majorVersion": 3,
                 "fields": {
+                    "additional_networks": {
+                        "maxItemsOne": false
+                    },
+                    "additional_notify_only": {
+                        "maxItemsOne": false
+                    },
                     "additional_ports": {
                         "maxItemsOne": false
                     },

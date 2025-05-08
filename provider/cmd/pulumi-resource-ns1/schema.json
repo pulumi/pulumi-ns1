@@ -3965,6 +3965,18 @@
         "ns1:index/zone:Zone": {
             "description": "\n\n## Import\n\n```sh\n$ pulumi import ns1:index/zone:Zone \u003cname\u003e \u003czone\u003e`\n```\n\nSo for the example above:\n\n```sh\n$ pulumi import ns1:index/zone:Zone example terraform.example.io`\n```\n\n",
             "properties": {
+                "additionalNetworks": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "additionalNotifyOnlies": {
+                    "type": "array",
+                    "items": {
+                        "type": "boolean"
+                    }
+                },
                 "additionalPorts": {
                     "type": "array",
                     "items": {
@@ -4079,6 +4091,18 @@
                 "zone"
             ],
             "inputProperties": {
+                "additionalNetworks": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "additionalNotifyOnlies": {
+                    "type": "array",
+                    "items": {
+                        "type": "boolean"
+                    }
+                },
                 "additionalPorts": {
                     "type": "array",
                     "items": {
@@ -4183,6 +4207,18 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Zone resources.\n",
                 "properties": {
+                    "additionalNetworks": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "additionalNotifyOnlies": {
+                        "type": "array",
+                        "items": {
+                            "type": "boolean"
+                        }
+                    },
                     "additionalPorts": {
                         "type": "array",
                         "items": {
