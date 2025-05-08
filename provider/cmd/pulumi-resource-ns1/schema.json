@@ -1000,6 +1000,9 @@
                 "type": "string",
                 "description": "User-Agent string to use in NS1 API requests\n"
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:ns1/terraformConfig"
         }
     },
     "resources": {
@@ -4815,6 +4818,35 @@
                     "ttl",
                     "zone",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:ns1/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:ns1"
+                    }
+                },
+                "type": "pulumi:providers:ns1/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }

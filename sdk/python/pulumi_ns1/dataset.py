@@ -188,10 +188,8 @@ class _DatasetState:
         pulumi.set(self, "timeframe", value)
 
 
+@pulumi.type_token("ns1:index/dataset:Dataset")
 class Dataset(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/dataset:Dataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

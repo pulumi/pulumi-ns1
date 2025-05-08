@@ -132,10 +132,8 @@ class _DataFeedState:
         pulumi.set(self, "source_id", value)
 
 
+@pulumi.type_token("ns1:index/dataFeed:DataFeed")
 class DataFeed(pulumi.CustomResource):
-
-    pulumi_type = "ns1:index/dataFeed:DataFeed"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
