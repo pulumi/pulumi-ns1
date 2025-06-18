@@ -53,6 +53,7 @@ class UserArgs:
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -87,8 +88,9 @@ class UserArgs:
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: The teams that the user belongs to.
         """
@@ -155,6 +157,8 @@ class UserArgs:
             pulumi.set(__self__, "name", name)
         if notify is not None:
             pulumi.set(__self__, "notify", notify)
+        if redirects_manage_redirects is not None:
+            pulumi.set(__self__, "redirects_manage_redirects", redirects_manage_redirects)
         if security_manage_active_directory is not None:
             pulumi.set(__self__, "security_manage_active_directory", security_manage_active_directory)
         if security_manage_global2fa is not None:
@@ -530,11 +534,23 @@ class UserArgs:
         pulumi.set(self, "notify", value)
 
     @property
+    @pulumi.getter(name="redirectsManageRedirects")
+    def redirects_manage_redirects(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the user can manage redirects.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "redirects_manage_redirects")
+
+    @redirects_manage_redirects.setter
+    def redirects_manage_redirects(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "redirects_manage_redirects", value)
+
+    @property
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether the user can manage global active directory.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -600,6 +616,7 @@ class _UserState:
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -634,8 +651,9 @@ class _UserState:
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: The teams that the user belongs to.
         :param pulumi.Input[builtins.str] username: The users login name.
@@ -703,6 +721,8 @@ class _UserState:
             pulumi.set(__self__, "name", name)
         if notify is not None:
             pulumi.set(__self__, "notify", notify)
+        if redirects_manage_redirects is not None:
+            pulumi.set(__self__, "redirects_manage_redirects", redirects_manage_redirects)
         if security_manage_active_directory is not None:
             pulumi.set(__self__, "security_manage_active_directory", security_manage_active_directory)
         if security_manage_global2fa is not None:
@@ -1068,11 +1088,23 @@ class _UserState:
         pulumi.set(self, "notify", value)
 
     @property
+    @pulumi.getter(name="redirectsManageRedirects")
+    def redirects_manage_redirects(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the user can manage redirects.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "redirects_manage_redirects")
+
+    @redirects_manage_redirects.setter
+    def redirects_manage_redirects(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "redirects_manage_redirects", value)
+
+    @property
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether the user can manage global active directory.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -1153,6 +1185,7 @@ class User(pulumi.CustomResource):
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1242,8 +1275,9 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: The teams that the user belongs to.
         :param pulumi.Input[builtins.str] username: The users login name.
@@ -1353,6 +1387,7 @@ class User(pulumi.CustomResource):
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1398,6 +1433,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["monitoring_view_jobs"] = monitoring_view_jobs
             __props__.__dict__["name"] = name
             __props__.__dict__["notify"] = notify
+            __props__.__dict__["redirects_manage_redirects"] = redirects_manage_redirects
             __props__.__dict__["security_manage_active_directory"] = security_manage_active_directory
             __props__.__dict__["security_manage_global2fa"] = security_manage_global2fa
             __props__.__dict__["teams"] = teams
@@ -1444,6 +1480,7 @@ class User(pulumi.CustomResource):
             monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             notify: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
             security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
             security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None,
             teams: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1483,8 +1520,9 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the user can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] teams: The teams that the user belongs to.
         :param pulumi.Input[builtins.str] username: The users login name.
@@ -1523,6 +1561,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["monitoring_view_jobs"] = monitoring_view_jobs
         __props__.__dict__["name"] = name
         __props__.__dict__["notify"] = notify
+        __props__.__dict__["redirects_manage_redirects"] = redirects_manage_redirects
         __props__.__dict__["security_manage_active_directory"] = security_manage_active_directory
         __props__.__dict__["security_manage_global2fa"] = security_manage_global2fa
         __props__.__dict__["teams"] = teams
@@ -1765,11 +1804,19 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "notify")
 
     @property
+    @pulumi.getter(name="redirectsManageRedirects")
+    def redirects_manage_redirects(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether the user can manage redirects.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "redirects_manage_redirects")
+
+    @property
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Whether the user can manage global active directory.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 

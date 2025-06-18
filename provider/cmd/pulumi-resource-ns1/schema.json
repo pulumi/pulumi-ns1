@@ -1142,9 +1142,13 @@
                     "type": "string",
                     "description": "The free form name of the apikey.\n"
                 },
+                "redirectsManageRedirects": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the apikey can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the apikey can manage global active directory.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -1291,9 +1295,13 @@
                     "type": "string",
                     "description": "The free form name of the apikey.\n"
                 },
+                "redirectsManageRedirects": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the apikey can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the apikey can manage global active directory.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -1443,9 +1451,13 @@
                         "type": "string",
                         "description": "The free form name of the apikey.\n"
                     },
+                    "redirectsManageRedirects": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    },
                     "securityManageActiveDirectory": {
                         "type": "boolean",
-                        "description": "Whether the apikey can manage global active directory.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the apikey can manage global active directory.\n"
                     },
                     "securityManageGlobal2fa": {
                         "type": "boolean",
@@ -3130,9 +3142,13 @@
                     "type": "string",
                     "description": "The free form name of the team.\n"
                 },
+                "redirectsManageRedirects": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the team can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the team can manage global active directory.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3267,9 +3283,13 @@
                     "type": "string",
                     "description": "The free form name of the team.\n"
                 },
+                "redirectsManageRedirects": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the team can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the team can manage global active directory.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3403,9 +3423,13 @@
                         "type": "string",
                         "description": "The free form name of the team.\n"
                     },
+                    "redirectsManageRedirects": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    },
                     "securityManageActiveDirectory": {
                         "type": "boolean",
-                        "description": "Whether the team can manage global active directory.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the team can manage global active directory.\n"
                     },
                     "securityManageGlobal2fa": {
                         "type": "boolean",
@@ -3613,9 +3637,13 @@
                     },
                     "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
                 },
+                "redirectsManageRedirects": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the user can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can manage global active directory.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3776,9 +3804,13 @@
                     },
                     "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
                 },
+                "redirectsManageRedirects": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the user can manage global active directory.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can manage global active directory.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3941,9 +3973,13 @@
                         },
                         "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
                     },
+                    "redirectsManageRedirects": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    },
                     "securityManageActiveDirectory": {
                         "type": "boolean",
-                        "description": "Whether the user can manage global active directory.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the user can manage global active directory.\n"
                     },
                     "securityManageGlobal2fa": {
                         "type": "boolean",

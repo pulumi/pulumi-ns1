@@ -151,8 +151,10 @@ type Team struct {
 	MonitoringViewJobs pulumi.BoolPtrOutput `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether the team can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrOutput `pulumi:"redirectsManageRedirects"`
+	// Whether the team can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrOutput `pulumi:"securityManageGlobal2fa"`
@@ -244,8 +246,10 @@ type teamState struct {
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
 	Name *string `pulumi:"name"`
-	// Whether the team can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
+	// Whether the team can manage global active directory.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -308,8 +312,10 @@ type TeamState struct {
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the team.
 	Name pulumi.StringPtrInput
-	// Whether the team can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrInput
+	// Whether the team can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -376,8 +382,10 @@ type teamArgs struct {
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
 	Name *string `pulumi:"name"`
-	// Whether the team can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
+	// Whether the team can manage global active directory.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -441,8 +449,10 @@ type TeamArgs struct {
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the team.
 	Name pulumi.StringPtrInput
-	// Whether the team can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrInput
+	// Whether the team can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -672,8 +682,13 @@ func (o TeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether the team can manage global active directory.
+// Whether the user can manage redirects.
 // Only relevant for the DDI product.
+func (o TeamOutput) RedirectsManageRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.RedirectsManageRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can manage global active directory.
 func (o TeamOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
 }

@@ -204,8 +204,12 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether the team can manage global active directory.
+     * Whether the user can manage redirects.
      * Only relevant for the DDI product.
+     */
+    public readonly redirectsManageRedirects!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the team can manage global active directory.
      */
     public readonly securityManageActiveDirectory!: pulumi.Output<boolean | undefined>;
     /**
@@ -253,6 +257,7 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["monitoringUpdateJobs"] = state ? state.monitoringUpdateJobs : undefined;
             resourceInputs["monitoringViewJobs"] = state ? state.monitoringViewJobs : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redirectsManageRedirects"] = state ? state.redirectsManageRedirects : undefined;
             resourceInputs["securityManageActiveDirectory"] = state ? state.securityManageActiveDirectory : undefined;
             resourceInputs["securityManageGlobal2fa"] = state ? state.securityManageGlobal2fa : undefined;
         } else {
@@ -284,6 +289,7 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["monitoringUpdateJobs"] = args ? args.monitoringUpdateJobs : undefined;
             resourceInputs["monitoringViewJobs"] = args ? args.monitoringViewJobs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redirectsManageRedirects"] = args ? args.redirectsManageRedirects : undefined;
             resourceInputs["securityManageActiveDirectory"] = args ? args.securityManageActiveDirectory : undefined;
             resourceInputs["securityManageGlobal2fa"] = args ? args.securityManageGlobal2fa : undefined;
         }
@@ -407,8 +413,12 @@ export interface TeamState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the team can manage global active directory.
+     * Whether the user can manage redirects.
      * Only relevant for the DDI product.
+     */
+    redirectsManageRedirects?: pulumi.Input<boolean>;
+    /**
+     * Whether the team can manage global active directory.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
@@ -532,8 +542,12 @@ export interface TeamArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the team can manage global active directory.
+     * Whether the user can manage redirects.
      * Only relevant for the DDI product.
+     */
+    redirectsManageRedirects?: pulumi.Input<boolean>;
+    /**
+     * Whether the team can manage global active directory.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**

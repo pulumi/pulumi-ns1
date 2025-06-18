@@ -149,8 +149,10 @@ type User struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
 	Notify pulumi.StringMapOutput `pulumi:"notify"`
-	// Whether the user can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrOutput `pulumi:"redirectsManageRedirects"`
+	// Whether the user can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrOutput `pulumi:"securityManageGlobal2fa"`
@@ -256,8 +258,10 @@ type userState struct {
 	Name *string `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
 	Notify map[string]string `pulumi:"notify"`
-	// Whether the user can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
+	// Whether the user can manage global active directory.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -328,8 +332,10 @@ type UserState struct {
 	Name pulumi.StringPtrInput
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
 	Notify pulumi.StringMapInput
-	// Whether the user can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrInput
+	// Whether the user can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -404,8 +410,10 @@ type userArgs struct {
 	Name *string `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
 	Notify map[string]string `pulumi:"notify"`
-	// Whether the user can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
+	// Whether the user can manage global active directory.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -477,8 +485,10 @@ type UserArgs struct {
 	Name pulumi.StringPtrInput
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
 	Notify pulumi.StringMapInput
-	// Whether the user can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrInput
+	// Whether the user can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -725,8 +735,13 @@ func (o UserOutput) Notify() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Notify }).(pulumi.StringMapOutput)
 }
 
-// Whether the user can manage global active directory.
+// Whether the user can manage redirects.
 // Only relevant for the DDI product.
+func (o UserOutput) RedirectsManageRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.RedirectsManageRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can manage global active directory.
 func (o UserOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
 }

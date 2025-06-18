@@ -255,8 +255,14 @@ namespace Pulumi.Ns1
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the apikey can manage global active directory.
+        /// Whether the user can manage redirects.
         /// Only relevant for the DDI product.
+        /// </summary>
+        [Output("redirectsManageRedirects")]
+        public Output<bool?> RedirectsManageRedirects { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the apikey can manage global active directory.
         /// </summary>
         [Output("securityManageActiveDirectory")]
         public Output<bool?> SecurityManageActiveDirectory { get; private set; } = null!;
@@ -522,8 +528,14 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the apikey can manage global active directory.
+        /// Whether the user can manage redirects.
         /// Only relevant for the DDI product.
+        /// </summary>
+        [Input("redirectsManageRedirects")]
+        public Input<bool>? RedirectsManageRedirects { get; set; }
+
+        /// <summary>
+        /// Whether the apikey can manage global active directory.
         /// </summary>
         [Input("securityManageActiveDirectory")]
         public Input<bool>? SecurityManageActiveDirectory { get; set; }
@@ -769,8 +781,14 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the apikey can manage global active directory.
+        /// Whether the user can manage redirects.
         /// Only relevant for the DDI product.
+        /// </summary>
+        [Input("redirectsManageRedirects")]
+        public Input<bool>? RedirectsManageRedirects { get; set; }
+
+        /// <summary>
+        /// Whether the apikey can manage global active directory.
         /// </summary>
         [Input("securityManageActiveDirectory")]
         public Input<bool>? SecurityManageActiveDirectory { get; set; }
