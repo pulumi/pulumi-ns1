@@ -147,8 +147,10 @@ type APIKey struct {
 	MonitoringViewJobs pulumi.BoolPtrOutput `pulumi:"monitoringViewJobs"`
 	// The free form name of the apikey.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether the apikey can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrOutput `pulumi:"redirectsManageRedirects"`
+	// Whether the apikey can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrOutput `pulumi:"securityManageGlobal2fa"`
@@ -250,8 +252,10 @@ type apikeyState struct {
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the apikey.
 	Name *string `pulumi:"name"`
-	// Whether the apikey can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
+	// Whether the apikey can manage global active directory.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -320,8 +324,10 @@ type APIKeyState struct {
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the apikey.
 	Name pulumi.StringPtrInput
-	// Whether the apikey can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrInput
+	// Whether the apikey can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -392,8 +398,10 @@ type apikeyArgs struct {
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the apikey.
 	Name *string `pulumi:"name"`
-	// Whether the apikey can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
+	// Whether the apikey can manage global active directory.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -461,8 +469,10 @@ type APIKeyArgs struct {
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the apikey.
 	Name pulumi.StringPtrInput
-	// Whether the apikey can manage global active directory.
+	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
+	RedirectsManageRedirects pulumi.BoolPtrInput
+	// Whether the apikey can manage global active directory.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -704,8 +714,13 @@ func (o APIKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether the apikey can manage global active directory.
+// Whether the user can manage redirects.
 // Only relevant for the DDI product.
+func (o APIKeyOutput) RedirectsManageRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.RedirectsManageRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can manage global active directory.
 func (o APIKeyOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
 }

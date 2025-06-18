@@ -49,6 +49,7 @@ class TeamArgs:
                  monitoring_update_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -80,8 +81,9 @@ class TeamArgs:
         :param pulumi.Input[builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the team.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         if account_manage_account_settings is not None:
@@ -141,6 +143,8 @@ class TeamArgs:
             pulumi.set(__self__, "monitoring_view_jobs", monitoring_view_jobs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if redirects_manage_redirects is not None:
+            pulumi.set(__self__, "redirects_manage_redirects", redirects_manage_redirects)
         if security_manage_active_directory is not None:
             pulumi.set(__self__, "security_manage_active_directory", security_manage_active_directory)
         if security_manage_global2fa is not None:
@@ -472,11 +476,23 @@ class TeamArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="redirectsManageRedirects")
+    def redirects_manage_redirects(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the user can manage redirects.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "redirects_manage_redirects")
+
+    @redirects_manage_redirects.setter
+    def redirects_manage_redirects(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "redirects_manage_redirects", value)
+
+    @property
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether the team can manage global active directory.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -527,6 +543,7 @@ class _TeamState:
                  monitoring_update_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -558,8 +575,9 @@ class _TeamState:
         :param pulumi.Input[builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the team.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         if account_manage_account_settings is not None:
@@ -619,6 +637,8 @@ class _TeamState:
             pulumi.set(__self__, "monitoring_view_jobs", monitoring_view_jobs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if redirects_manage_redirects is not None:
+            pulumi.set(__self__, "redirects_manage_redirects", redirects_manage_redirects)
         if security_manage_active_directory is not None:
             pulumi.set(__self__, "security_manage_active_directory", security_manage_active_directory)
         if security_manage_global2fa is not None:
@@ -950,11 +970,23 @@ class _TeamState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="redirectsManageRedirects")
+    def redirects_manage_redirects(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the user can manage redirects.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "redirects_manage_redirects")
+
+    @redirects_manage_redirects.setter
+    def redirects_manage_redirects(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "redirects_manage_redirects", value)
+
+    @property
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether the team can manage global active directory.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -1008,6 +1040,7 @@ class Team(pulumi.CustomResource):
                  monitoring_update_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -1097,8 +1130,9 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the team.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         ...
@@ -1206,6 +1240,7 @@ class Team(pulumi.CustomResource):
                  monitoring_update_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
                  security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -1244,6 +1279,7 @@ class Team(pulumi.CustomResource):
             __props__.__dict__["monitoring_update_jobs"] = monitoring_update_jobs
             __props__.__dict__["monitoring_view_jobs"] = monitoring_view_jobs
             __props__.__dict__["name"] = name
+            __props__.__dict__["redirects_manage_redirects"] = redirects_manage_redirects
             __props__.__dict__["security_manage_active_directory"] = security_manage_active_directory
             __props__.__dict__["security_manage_global2fa"] = security_manage_global2fa
         super(Team, __self__).__init__(
@@ -1283,6 +1319,7 @@ class Team(pulumi.CustomResource):
             monitoring_update_jobs: Optional[pulumi.Input[builtins.bool]] = None,
             monitoring_view_jobs: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            redirects_manage_redirects: Optional[pulumi.Input[builtins.bool]] = None,
             security_manage_active_directory: Optional[pulumi.Input[builtins.bool]] = None,
             security_manage_global2fa: Optional[pulumi.Input[builtins.bool]] = None) -> 'Team':
         """
@@ -1319,8 +1356,9 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[builtins.str] name: The free form name of the team.
-        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
                Only relevant for the DDI product.
+        :param pulumi.Input[builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
         :param pulumi.Input[builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1354,6 +1392,7 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["monitoring_update_jobs"] = monitoring_update_jobs
         __props__.__dict__["monitoring_view_jobs"] = monitoring_view_jobs
         __props__.__dict__["name"] = name
+        __props__.__dict__["redirects_manage_redirects"] = redirects_manage_redirects
         __props__.__dict__["security_manage_active_directory"] = security_manage_active_directory
         __props__.__dict__["security_manage_global2fa"] = security_manage_global2fa
         return Team(resource_name, opts=opts, __props__=__props__)
@@ -1576,11 +1615,19 @@ class Team(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="redirectsManageRedirects")
+    def redirects_manage_redirects(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether the user can manage redirects.
+        Only relevant for the DDI product.
+        """
+        return pulumi.get(self, "redirects_manage_redirects")
+
+    @property
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Whether the team can manage global active directory.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 

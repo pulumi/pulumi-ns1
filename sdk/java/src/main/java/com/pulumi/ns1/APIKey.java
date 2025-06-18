@@ -513,8 +513,23 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether the apikey can manage global active directory.
+     * Whether the user can manage redirects.
      * Only relevant for the DDI product.
+     * 
+     */
+    @Export(name="redirectsManageRedirects", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> redirectsManageRedirects;
+
+    /**
+     * @return Whether the user can manage redirects.
+     * Only relevant for the DDI product.
+     * 
+     */
+    public Output<Optional<Boolean>> redirectsManageRedirects() {
+        return Codegen.optional(this.redirectsManageRedirects);
+    }
+    /**
+     * Whether the apikey can manage global active directory.
      * 
      */
     @Export(name="securityManageActiveDirectory", refs={Boolean.class}, tree="[0]")
@@ -522,7 +537,6 @@ public class APIKey extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether the apikey can manage global active directory.
-     * Only relevant for the DDI product.
      * 
      */
     public Output<Optional<Boolean>> securityManageActiveDirectory() {

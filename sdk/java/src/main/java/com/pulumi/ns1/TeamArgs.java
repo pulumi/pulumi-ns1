@@ -434,8 +434,24 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the team can manage global active directory.
+     * Whether the user can manage redirects.
      * Only relevant for the DDI product.
+     * 
+     */
+    @Import(name="redirectsManageRedirects")
+    private @Nullable Output<Boolean> redirectsManageRedirects;
+
+    /**
+     * @return Whether the user can manage redirects.
+     * Only relevant for the DDI product.
+     * 
+     */
+    public Optional<Output<Boolean>> redirectsManageRedirects() {
+        return Optional.ofNullable(this.redirectsManageRedirects);
+    }
+
+    /**
+     * Whether the team can manage global active directory.
      * 
      */
     @Import(name="securityManageActiveDirectory")
@@ -443,7 +459,6 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether the team can manage global active directory.
-     * Only relevant for the DDI product.
      * 
      */
     public Optional<Output<Boolean>> securityManageActiveDirectory() {
@@ -495,6 +510,7 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         this.monitoringUpdateJobs = $.monitoringUpdateJobs;
         this.monitoringViewJobs = $.monitoringViewJobs;
         this.name = $.name;
+        this.redirectsManageRedirects = $.redirectsManageRedirects;
         this.securityManageActiveDirectory = $.securityManageActiveDirectory;
         this.securityManageGlobal2fa = $.securityManageGlobal2fa;
     }
@@ -1143,8 +1159,30 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityManageActiveDirectory Whether the team can manage global active directory.
+         * @param redirectsManageRedirects Whether the user can manage redirects.
          * Only relevant for the DDI product.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder redirectsManageRedirects(@Nullable Output<Boolean> redirectsManageRedirects) {
+            $.redirectsManageRedirects = redirectsManageRedirects;
+            return this;
+        }
+
+        /**
+         * @param redirectsManageRedirects Whether the user can manage redirects.
+         * Only relevant for the DDI product.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder redirectsManageRedirects(Boolean redirectsManageRedirects) {
+            return redirectsManageRedirects(Output.of(redirectsManageRedirects));
+        }
+
+        /**
+         * @param securityManageActiveDirectory Whether the team can manage global active directory.
          * 
          * @return builder
          * 
@@ -1156,7 +1194,6 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param securityManageActiveDirectory Whether the team can manage global active directory.
-         * Only relevant for the DDI product.
          * 
          * @return builder
          * 
