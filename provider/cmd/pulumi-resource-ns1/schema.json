@@ -4864,7 +4864,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:ns1"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:ns1/terraformConfig",
