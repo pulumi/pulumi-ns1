@@ -50,27 +50,27 @@
         "variables": {
             "apikey": {
                 "type": "string",
-                "description": "The ns1 API key (required)\n"
+                "description": "The ns1 API key (required)"
             },
             "endpoint": {
                 "type": "string",
-                "description": "URL prefix (including version) for API calls\n"
+                "description": "URL prefix (including version) for API calls"
             },
             "ignoreSsl": {
                 "type": "boolean",
-                "description": "Don't validate server SSL/TLS certificate\n"
+                "description": "Don't validate server SSL/TLS certificate"
             },
             "rateLimitParallelism": {
                 "type": "integer",
-                "description": "Tune response to rate limits, see docs\n"
+                "description": "Tune response to rate limits, see docs"
             },
             "retryMax": {
                 "type": "integer",
-                "description": "Maximum retries for 50x errors (-1 to disable)\n"
+                "description": "Maximum retries for 50x errors (-1 to disable)"
             },
             "userAgent": {
                 "type": "string",
-                "description": "User-Agent string to use in NS1 API requests\n"
+                "description": "User-Agent string to use in NS1 API requests"
             }
         }
     },
@@ -952,53 +952,53 @@
         "properties": {
             "apikey": {
                 "type": "string",
-                "description": "The ns1 API key (required)\n"
+                "description": "The ns1 API key (required)"
             },
             "endpoint": {
                 "type": "string",
-                "description": "URL prefix (including version) for API calls\n"
+                "description": "URL prefix (including version) for API calls"
             },
             "ignoreSsl": {
                 "type": "boolean",
-                "description": "Don't validate server SSL/TLS certificate\n"
+                "description": "Don't validate server SSL/TLS certificate"
             },
             "rateLimitParallelism": {
                 "type": "integer",
-                "description": "Tune response to rate limits, see docs\n"
+                "description": "Tune response to rate limits, see docs"
             },
             "retryMax": {
                 "type": "integer",
-                "description": "Maximum retries for 50x errors (-1 to disable)\n"
+                "description": "Maximum retries for 50x errors (-1 to disable)"
             },
             "userAgent": {
                 "type": "string",
-                "description": "User-Agent string to use in NS1 API requests\n"
+                "description": "User-Agent string to use in NS1 API requests"
             }
         },
         "inputProperties": {
             "apikey": {
                 "type": "string",
-                "description": "The ns1 API key (required)\n"
+                "description": "The ns1 API key (required)"
             },
             "endpoint": {
                 "type": "string",
-                "description": "URL prefix (including version) for API calls\n"
+                "description": "URL prefix (including version) for API calls"
             },
             "ignoreSsl": {
                 "type": "boolean",
-                "description": "Don't validate server SSL/TLS certificate\n"
+                "description": "Don't validate server SSL/TLS certificate"
             },
             "rateLimitParallelism": {
                 "type": "integer",
-                "description": "Tune response to rate limits, see docs\n"
+                "description": "Tune response to rate limits, see docs"
             },
             "retryMax": {
                 "type": "integer",
-                "description": "Maximum retries for 50x errors (-1 to disable)\n"
+                "description": "Maximum retries for 50x errors (-1 to disable)"
             },
             "userAgent": {
                 "type": "string",
-                "description": "User-Agent string to use in NS1 API requests\n"
+                "description": "User-Agent string to use in NS1 API requests"
             }
         },
         "methods": {
@@ -4426,7 +4426,7 @@
                         "type": "integer"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "includeDedicatedDnsNetworkInManagedDnsUsage": {
@@ -4511,7 +4511,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "keys": {
@@ -4553,7 +4553,7 @@
                 "description": "A collection of values returned by getMonitoringRegions.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "regions": {
@@ -4576,7 +4576,7 @@
                 "description": "A collection of values returned by getNetworks.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "networks": {
@@ -4640,7 +4640,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "link": {
@@ -4781,7 +4781,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "link": {
