@@ -61,15 +61,15 @@ export class DataSource extends pulumi.CustomResource {
      * The data source configuration, determined by its type,
      * matching the specification in `config` from /data/sourcetypes.
      */
-    public readonly config!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly config: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The free form name of the data source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
      */
-    public readonly sourcetype!: pulumi.Output<string>;
+    declare public readonly sourcetype: pulumi.Output<string>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -84,17 +84,17 @@ export class DataSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sourcetype"] = state ? state.sourcetype : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sourcetype"] = state?.sourcetype;
         } else {
             const args = argsOrState as DataSourceArgs | undefined;
-            if ((!args || args.sourcetype === undefined) && !opts.urn) {
+            if (args?.sourcetype === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourcetype'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sourcetype"] = args ? args.sourcetype : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sourcetype"] = args?.sourcetype;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataSource.__pulumiType, name, resourceInputs, opts);

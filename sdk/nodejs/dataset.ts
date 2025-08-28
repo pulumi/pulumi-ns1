@@ -34,13 +34,13 @@ export class Dataset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dataset.__pulumiType;
     }
 
-    public readonly datatype!: pulumi.Output<outputs.DatasetDatatype>;
-    public readonly exportType!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly recipientEmails!: pulumi.Output<string[] | undefined>;
-    public readonly repeat!: pulumi.Output<outputs.DatasetRepeat | undefined>;
-    public /*out*/ readonly reports!: pulumi.Output<outputs.DatasetReport[]>;
-    public readonly timeframe!: pulumi.Output<outputs.DatasetTimeframe>;
+    declare public readonly datatype: pulumi.Output<outputs.DatasetDatatype>;
+    declare public readonly exportType: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly recipientEmails: pulumi.Output<string[] | undefined>;
+    declare public readonly repeat: pulumi.Output<outputs.DatasetRepeat | undefined>;
+    declare public /*out*/ readonly reports: pulumi.Output<outputs.DatasetReport[]>;
+    declare public readonly timeframe: pulumi.Output<outputs.DatasetTimeframe>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -55,30 +55,30 @@ export class Dataset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetState | undefined;
-            resourceInputs["datatype"] = state ? state.datatype : undefined;
-            resourceInputs["exportType"] = state ? state.exportType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recipientEmails"] = state ? state.recipientEmails : undefined;
-            resourceInputs["repeat"] = state ? state.repeat : undefined;
-            resourceInputs["reports"] = state ? state.reports : undefined;
-            resourceInputs["timeframe"] = state ? state.timeframe : undefined;
+            resourceInputs["datatype"] = state?.datatype;
+            resourceInputs["exportType"] = state?.exportType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recipientEmails"] = state?.recipientEmails;
+            resourceInputs["repeat"] = state?.repeat;
+            resourceInputs["reports"] = state?.reports;
+            resourceInputs["timeframe"] = state?.timeframe;
         } else {
             const args = argsOrState as DatasetArgs | undefined;
-            if ((!args || args.datatype === undefined) && !opts.urn) {
+            if (args?.datatype === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datatype'");
             }
-            if ((!args || args.exportType === undefined) && !opts.urn) {
+            if (args?.exportType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportType'");
             }
-            if ((!args || args.timeframe === undefined) && !opts.urn) {
+            if (args?.timeframe === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeframe'");
             }
-            resourceInputs["datatype"] = args ? args.datatype : undefined;
-            resourceInputs["exportType"] = args ? args.exportType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recipientEmails"] = args ? args.recipientEmails : undefined;
-            resourceInputs["repeat"] = args ? args.repeat : undefined;
-            resourceInputs["timeframe"] = args ? args.timeframe : undefined;
+            resourceInputs["datatype"] = args?.datatype;
+            resourceInputs["exportType"] = args?.exportType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recipientEmails"] = args?.recipientEmails;
+            resourceInputs["repeat"] = args?.repeat;
+            resourceInputs["timeframe"] = args?.timeframe;
             resourceInputs["reports"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

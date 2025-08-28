@@ -67,11 +67,11 @@ export class AccountWhitelist extends pulumi.CustomResource {
     /**
      * The free form name of the whitelist.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Array of IP addresses/networks from which to allow access.
      */
-    public readonly values!: pulumi.Output<string[]>;
+    declare public readonly values: pulumi.Output<string[]>;
 
     /**
      * Create a AccountWhitelist resource with the given unique name, arguments, and options.
@@ -86,15 +86,15 @@ export class AccountWhitelist extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountWhitelistState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["values"] = state ? state.values : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["values"] = state?.values;
         } else {
             const args = argsOrState as AccountWhitelistArgs | undefined;
-            if ((!args || args.values === undefined) && !opts.urn) {
+            if (args?.values === undefined && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["values"] = args?.values;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountWhitelist.__pulumiType, name, resourceInputs, opts);

@@ -60,15 +60,15 @@ export class Tsigkey extends pulumi.CustomResource {
     /**
      * The algorithm used to hash the TSIG key's secret.
      */
-    public readonly algorithm!: pulumi.Output<string>;
+    declare public readonly algorithm: pulumi.Output<string>;
     /**
      * The free form name of the tsigkey.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The key's secret to be hashed.
      */
-    public readonly secret!: pulumi.Output<string>;
+    declare public readonly secret: pulumi.Output<string>;
 
     /**
      * Create a Tsigkey resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class Tsigkey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TsigkeyState | undefined;
-            resourceInputs["algorithm"] = state ? state.algorithm : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["algorithm"] = state?.algorithm;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["secret"] = state?.secret;
         } else {
             const args = argsOrState as TsigkeyArgs | undefined;
-            if ((!args || args.algorithm === undefined) && !opts.urn) {
+            if (args?.algorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'algorithm'");
             }
-            if ((!args || args.secret === undefined) && !opts.urn) {
+            if (args?.secret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secret'");
             }
-            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["secret"] = args ? args.secret : undefined;
+            resourceInputs["algorithm"] = args?.algorithm;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["secret"] = args?.secret;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Tsigkey.__pulumiType, name, resourceInputs, opts);

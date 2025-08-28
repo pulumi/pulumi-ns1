@@ -34,17 +34,17 @@ export class PulsarJob extends pulumi.CustomResource {
         return obj['__pulumiType'] === PulsarJob.__pulumiType;
     }
 
-    public readonly active!: pulumi.Output<boolean | undefined>;
-    public readonly appId!: pulumi.Output<string>;
-    public readonly blendMetricWeights!: pulumi.Output<outputs.PulsarJobBlendMetricWeights | undefined>;
-    public /*out*/ readonly community!: pulumi.Output<boolean>;
-    public readonly config!: pulumi.Output<outputs.PulsarJobConfig | undefined>;
-    public /*out*/ readonly customer!: pulumi.Output<number>;
-    public /*out*/ readonly jobId!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly shared!: pulumi.Output<boolean | undefined>;
-    public readonly typeId!: pulumi.Output<string>;
-    public readonly weights!: pulumi.Output<outputs.PulsarJobWeight[] | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
+    declare public readonly appId: pulumi.Output<string>;
+    declare public readonly blendMetricWeights: pulumi.Output<outputs.PulsarJobBlendMetricWeights | undefined>;
+    declare public /*out*/ readonly community: pulumi.Output<boolean>;
+    declare public readonly config: pulumi.Output<outputs.PulsarJobConfig | undefined>;
+    declare public /*out*/ readonly customer: pulumi.Output<number>;
+    declare public /*out*/ readonly jobId: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly shared: pulumi.Output<boolean | undefined>;
+    declare public readonly typeId: pulumi.Output<string>;
+    declare public readonly weights: pulumi.Output<outputs.PulsarJobWeight[] | undefined>;
 
     /**
      * Create a PulsarJob resource with the given unique name, arguments, and options.
@@ -59,33 +59,33 @@ export class PulsarJob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PulsarJobState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["blendMetricWeights"] = state ? state.blendMetricWeights : undefined;
-            resourceInputs["community"] = state ? state.community : undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["customer"] = state ? state.customer : undefined;
-            resourceInputs["jobId"] = state ? state.jobId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["shared"] = state ? state.shared : undefined;
-            resourceInputs["typeId"] = state ? state.typeId : undefined;
-            resourceInputs["weights"] = state ? state.weights : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["blendMetricWeights"] = state?.blendMetricWeights;
+            resourceInputs["community"] = state?.community;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["customer"] = state?.customer;
+            resourceInputs["jobId"] = state?.jobId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["shared"] = state?.shared;
+            resourceInputs["typeId"] = state?.typeId;
+            resourceInputs["weights"] = state?.weights;
         } else {
             const args = argsOrState as PulsarJobArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.typeId === undefined) && !opts.urn) {
+            if (args?.typeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeId'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["blendMetricWeights"] = args ? args.blendMetricWeights : undefined;
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["shared"] = args ? args.shared : undefined;
-            resourceInputs["typeId"] = args ? args.typeId : undefined;
-            resourceInputs["weights"] = args ? args.weights : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["blendMetricWeights"] = args?.blendMetricWeights;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["shared"] = args?.shared;
+            resourceInputs["typeId"] = args?.typeId;
+            resourceInputs["weights"] = args?.weights;
             resourceInputs["community"] = undefined /*out*/;
             resourceInputs["customer"] = undefined /*out*/;
             resourceInputs["jobId"] = undefined /*out*/;

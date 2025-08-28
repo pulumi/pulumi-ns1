@@ -69,18 +69,18 @@ export class Redirect extends pulumi.CustomResource {
         return obj['__pulumiType'] === Redirect.__pulumiType;
     }
 
-    public readonly certificateId!: pulumi.Output<string>;
+    declare public readonly certificateId: pulumi.Output<string>;
     /**
      * The domain the redirect refers to.
      */
-    public readonly domain!: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
     /**
      * How the target is interpreted:
      * * __all__       appends the entire incoming path to the target destination;
      * * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
      * * __none__      does not append any part of the incoming path.
      */
-    public readonly forwardingMode!: pulumi.Output<string | undefined>;
+    declare public readonly forwardingMode: pulumi.Output<string | undefined>;
     /**
      * How the redirect is executed:
      * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
@@ -92,35 +92,35 @@ export class Redirect extends pulumi.CustomResource {
      * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
      * address they entered, even though the displayed content comes from a different web page).
      */
-    public readonly forwardingType!: pulumi.Output<string | undefined>;
+    declare public readonly forwardingType: pulumi.Output<string | undefined>;
     /**
      * True if HTTPS is supported on the source domain by using Let's Encrypt certificates.
      */
-    public /*out*/ readonly httpsEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly httpsEnabled: pulumi.Output<boolean>;
     /**
      * Forces redirect for users that try to visit HTTP domain to HTTPS instead.
      */
-    public readonly httpsForced!: pulumi.Output<boolean>;
+    declare public readonly httpsForced: pulumi.Output<boolean>;
     /**
      * The Unix timestamp representing when the certificate was last signed.
      */
-    public /*out*/ readonly lastUpdated!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastUpdated: pulumi.Output<number>;
     /**
      * The path on the domain to redirect from.
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * Enables the query string of a URL to be applied directly to the new target URL.
      */
-    public readonly queryForwarding!: pulumi.Output<boolean | undefined>;
+    declare public readonly queryForwarding: pulumi.Output<boolean | undefined>;
     /**
      * Tags associated with the configuration.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * The URL to redirect to.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
 
     /**
      * Create a Redirect resource with the given unique name, arguments, and options.
@@ -135,37 +135,37 @@ export class Redirect extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RedirectState | undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["forwardingMode"] = state ? state.forwardingMode : undefined;
-            resourceInputs["forwardingType"] = state ? state.forwardingType : undefined;
-            resourceInputs["httpsEnabled"] = state ? state.httpsEnabled : undefined;
-            resourceInputs["httpsForced"] = state ? state.httpsForced : undefined;
-            resourceInputs["lastUpdated"] = state ? state.lastUpdated : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["queryForwarding"] = state ? state.queryForwarding : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
+            resourceInputs["certificateId"] = state?.certificateId;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["forwardingMode"] = state?.forwardingMode;
+            resourceInputs["forwardingType"] = state?.forwardingType;
+            resourceInputs["httpsEnabled"] = state?.httpsEnabled;
+            resourceInputs["httpsForced"] = state?.httpsForced;
+            resourceInputs["lastUpdated"] = state?.lastUpdated;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["queryForwarding"] = state?.queryForwarding;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["target"] = state?.target;
         } else {
             const args = argsOrState as RedirectArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["forwardingMode"] = args ? args.forwardingMode : undefined;
-            resourceInputs["forwardingType"] = args ? args.forwardingType : undefined;
-            resourceInputs["httpsForced"] = args ? args.httpsForced : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["queryForwarding"] = args ? args.queryForwarding : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["certificateId"] = args?.certificateId;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["forwardingMode"] = args?.forwardingMode;
+            resourceInputs["forwardingType"] = args?.forwardingType;
+            resourceInputs["httpsForced"] = args?.httpsForced;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["queryForwarding"] = args?.queryForwarding;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["target"] = args?.target;
             resourceInputs["httpsEnabled"] = undefined /*out*/;
             resourceInputs["lastUpdated"] = undefined /*out*/;
         }
