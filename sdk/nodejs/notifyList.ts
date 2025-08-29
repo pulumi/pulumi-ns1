@@ -75,11 +75,11 @@ export class NotifyList extends pulumi.CustomResource {
     /**
      * The free-form display name for the notify list.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
      */
-    public readonly notifications!: pulumi.Output<outputs.NotifyListNotification[] | undefined>;
+    declare public readonly notifications: pulumi.Output<outputs.NotifyListNotification[] | undefined>;
 
     /**
      * Create a NotifyList resource with the given unique name, arguments, and options.
@@ -94,12 +94,12 @@ export class NotifyList extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotifyListState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifications"] = state?.notifications;
         } else {
             const args = argsOrState as NotifyListArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotifyList.__pulumiType, name, resourceInputs, opts);

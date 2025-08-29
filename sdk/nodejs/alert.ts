@@ -64,43 +64,43 @@ export class Alert extends pulumi.CustomResource {
     /**
      * (Read Only) The Unix timestamp representing when the alert configuration was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<number>;
     /**
      * (Read Only) The user or apikey that created this alert.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The free-form display name for the alert.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of id's for notification lists whose notifiers will be triggered by the alert.
      */
-    public readonly notificationLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly notificationLists: pulumi.Output<string[] | undefined>;
     /**
      * A list of record id's this alert applies to.
      */
-    public readonly recordIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly recordIds: pulumi.Output<string[] | undefined>;
     /**
      * The type of the alert.
      */
-    public readonly subtype!: pulumi.Output<string>;
+    declare public readonly subtype: pulumi.Output<string>;
     /**
      * The type of the alert.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * (Read Only) The Unix timestamp representing when the alert configuration was last modified.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<number>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<number>;
     /**
      * (Read Only) The user or apikey that last modified this alert.
      */
-    public /*out*/ readonly updatedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedBy: pulumi.Output<string>;
     /**
      * A list of zones this alert applies to.
      */
-    public readonly zoneNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly zoneNames: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Alert resource with the given unique name, arguments, and options.
@@ -115,30 +115,30 @@ export class Alert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationLists"] = state ? state.notificationLists : undefined;
-            resourceInputs["recordIds"] = state ? state.recordIds : undefined;
-            resourceInputs["subtype"] = state ? state.subtype : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["updatedBy"] = state ? state.updatedBy : undefined;
-            resourceInputs["zoneNames"] = state ? state.zoneNames : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationLists"] = state?.notificationLists;
+            resourceInputs["recordIds"] = state?.recordIds;
+            resourceInputs["subtype"] = state?.subtype;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["updatedBy"] = state?.updatedBy;
+            resourceInputs["zoneNames"] = state?.zoneNames;
         } else {
             const args = argsOrState as AlertArgs | undefined;
-            if ((!args || args.subtype === undefined) && !opts.urn) {
+            if (args?.subtype === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subtype'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationLists"] = args ? args.notificationLists : undefined;
-            resourceInputs["recordIds"] = args ? args.recordIds : undefined;
-            resourceInputs["subtype"] = args ? args.subtype : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["zoneNames"] = args ? args.zoneNames : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationLists"] = args?.notificationLists;
+            resourceInputs["recordIds"] = args?.recordIds;
+            resourceInputs["subtype"] = args?.subtype;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["zoneNames"] = args?.zoneNames;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;

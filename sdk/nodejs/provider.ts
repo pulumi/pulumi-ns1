@@ -28,15 +28,15 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The ns1 API key (required)
      */
-    public readonly apikey!: pulumi.Output<string | undefined>;
+    declare public readonly apikey: pulumi.Output<string | undefined>;
     /**
      * URL prefix (including version) for API calls
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * User-Agent string to use in NS1 API requests
      */
-    public readonly userAgent!: pulumi.Output<string | undefined>;
+    declare public readonly userAgent: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -49,12 +49,12 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apikey"] = args ? args.apikey : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["ignoreSsl"] = pulumi.output(args ? args.ignoreSsl : undefined).apply(JSON.stringify);
-            resourceInputs["rateLimitParallelism"] = pulumi.output(args ? args.rateLimitParallelism : undefined).apply(JSON.stringify);
-            resourceInputs["retryMax"] = pulumi.output(args ? args.retryMax : undefined).apply(JSON.stringify);
-            resourceInputs["userAgent"] = args ? args.userAgent : undefined;
+            resourceInputs["apikey"] = args?.apikey;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["ignoreSsl"] = pulumi.output(args?.ignoreSsl).apply(JSON.stringify);
+            resourceInputs["rateLimitParallelism"] = pulumi.output(args?.rateLimitParallelism).apply(JSON.stringify);
+            resourceInputs["retryMax"] = pulumi.output(args?.retryMax).apply(JSON.stringify);
+            resourceInputs["userAgent"] = args?.userAgent;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);

@@ -176,61 +176,61 @@ export class Record extends pulumi.CustomResource {
      * One or more NS1 answers for the records' specified type.
      * Answers are documented below.
      */
-    public readonly answers!: pulumi.Output<outputs.RecordAnswer[] | undefined>;
-    public readonly blockedTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly answers: pulumi.Output<outputs.RecordAnswer[] | undefined>;
+    declare public readonly blockedTags: pulumi.Output<string[] | undefined>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
      */
-    public readonly domain!: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
     /**
      * One or more NS1 filters for the record(order matters).
      * Filters are documented below.
      */
-    public readonly filters!: pulumi.Output<outputs.RecordFilter[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.RecordFilter[] | undefined>;
     /**
      * The target record to link to. This means this record is a
      * 'linked' record, and it inherits all properties from its target.
      */
-    public readonly link!: pulumi.Output<string | undefined>;
-    public readonly meta!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly overrideAddressRecords!: pulumi.Output<boolean | undefined>;
-    public readonly overrideTtl!: pulumi.Output<boolean | undefined>;
+    declare public readonly link: pulumi.Output<string | undefined>;
+    declare public readonly meta: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly overrideAddressRecords: pulumi.Output<boolean | undefined>;
+    declare public readonly overrideTtl: pulumi.Output<boolean | undefined>;
     /**
      * One or more "regions" for the record. These are really
      * just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
      * but remain `regions` here for legacy reasons. Regions are
      * documented below. Please note the ordering requirement!
      */
-    public readonly regions!: pulumi.Output<outputs.RecordRegion[] | undefined>;
+    declare public readonly regions: pulumi.Output<outputs.RecordRegion[] | undefined>;
     /**
      * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
      */
-    public readonly shortAnswers!: pulumi.Output<string[] | undefined>;
+    declare public readonly shortAnswers: pulumi.Output<string[] | undefined>;
     /**
      * map of tags in the form of `"key" = "value"` where both key and value are strings
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The records' time to live (in seconds).
      */
-    public readonly ttl!: pulumi.Output<number>;
+    declare public readonly ttl: pulumi.Output<number>;
     /**
      * The records' RR type.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
      * * ` meta` - (Optional) meta is supported at the `record` level. Meta
      * is documented below.
      */
-    public readonly useClientSubnet!: pulumi.Output<boolean | undefined>;
+    declare public readonly useClientSubnet: pulumi.Output<boolean | undefined>;
     /**
      * The zone the record belongs to. Cannot have leading or
      * trailing dots (".") - see the example above and `FQDN formatting` below.
      */
-    public readonly zone!: pulumi.Output<string>;
+    declare public readonly zone: pulumi.Output<string>;
 
     /**
      * Create a Record resource with the given unique name, arguments, and options.
@@ -245,47 +245,47 @@ export class Record extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordState | undefined;
-            resourceInputs["answers"] = state ? state.answers : undefined;
-            resourceInputs["blockedTags"] = state ? state.blockedTags : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["link"] = state ? state.link : undefined;
-            resourceInputs["meta"] = state ? state.meta : undefined;
-            resourceInputs["overrideAddressRecords"] = state ? state.overrideAddressRecords : undefined;
-            resourceInputs["overrideTtl"] = state ? state.overrideTtl : undefined;
-            resourceInputs["regions"] = state ? state.regions : undefined;
-            resourceInputs["shortAnswers"] = state ? state.shortAnswers : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["useClientSubnet"] = state ? state.useClientSubnet : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["answers"] = state?.answers;
+            resourceInputs["blockedTags"] = state?.blockedTags;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["link"] = state?.link;
+            resourceInputs["meta"] = state?.meta;
+            resourceInputs["overrideAddressRecords"] = state?.overrideAddressRecords;
+            resourceInputs["overrideTtl"] = state?.overrideTtl;
+            resourceInputs["regions"] = state?.regions;
+            resourceInputs["shortAnswers"] = state?.shortAnswers;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["useClientSubnet"] = state?.useClientSubnet;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as RecordArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.zone === undefined) && !opts.urn) {
+            if (args?.zone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
-            resourceInputs["answers"] = args ? args.answers : undefined;
-            resourceInputs["blockedTags"] = args ? args.blockedTags : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["link"] = args ? args.link : undefined;
-            resourceInputs["meta"] = args ? args.meta : undefined;
-            resourceInputs["overrideAddressRecords"] = args ? args.overrideAddressRecords : undefined;
-            resourceInputs["overrideTtl"] = args ? args.overrideTtl : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["shortAnswers"] = args ? args.shortAnswers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["useClientSubnet"] = args ? args.useClientSubnet : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["answers"] = args?.answers;
+            resourceInputs["blockedTags"] = args?.blockedTags;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["link"] = args?.link;
+            resourceInputs["meta"] = args?.meta;
+            resourceInputs["overrideAddressRecords"] = args?.overrideAddressRecords;
+            resourceInputs["overrideTtl"] = args?.overrideTtl;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["shortAnswers"] = args?.shortAnswers;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["useClientSubnet"] = args?.useClientSubnet;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Record.__pulumiType, name, resourceInputs, opts);

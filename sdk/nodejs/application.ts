@@ -53,25 +53,25 @@ export class Application extends pulumi.CustomResource {
      * Indicates whether or not this application is currently active and usable for traffic
      * steering.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * The amount of time (in milliseconds) the browser should wait before running
      * measurements.
      */
-    public readonly browserWaitMillis!: pulumi.Output<number | undefined>;
+    declare public readonly browserWaitMillis: pulumi.Output<number | undefined>;
     /**
      * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
-    public readonly defaultConfig!: pulumi.Output<outputs.ApplicationDefaultConfig>;
+    declare public readonly defaultConfig: pulumi.Output<outputs.ApplicationDefaultConfig>;
     /**
      * Number of jobs to measure per user impression.
      */
-    public readonly jobsPerTransaction!: pulumi.Output<number | undefined>;
+    declare public readonly jobsPerTransaction: pulumi.Output<number | undefined>;
     /**
      * Descriptive name for this Pulsar app.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -86,18 +86,18 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["browserWaitMillis"] = state ? state.browserWaitMillis : undefined;
-            resourceInputs["defaultConfig"] = state ? state.defaultConfig : undefined;
-            resourceInputs["jobsPerTransaction"] = state ? state.jobsPerTransaction : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["browserWaitMillis"] = state?.browserWaitMillis;
+            resourceInputs["defaultConfig"] = state?.defaultConfig;
+            resourceInputs["jobsPerTransaction"] = state?.jobsPerTransaction;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["browserWaitMillis"] = args ? args.browserWaitMillis : undefined;
-            resourceInputs["defaultConfig"] = args ? args.defaultConfig : undefined;
-            resourceInputs["jobsPerTransaction"] = args ? args.jobsPerTransaction : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["browserWaitMillis"] = args?.browserWaitMillis;
+            resourceInputs["defaultConfig"] = args?.defaultConfig;
+            resourceInputs["jobsPerTransaction"] = args?.jobsPerTransaction;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Application.__pulumiType, name, resourceInputs, opts);
