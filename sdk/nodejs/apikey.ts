@@ -90,138 +90,138 @@ export class APIKey extends pulumi.CustomResource {
     /**
      * Whether the apikey can modify account settings.
      */
-    public readonly accountManageAccountSettings!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountManageAccountSettings: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify account apikeys.
      */
-    public readonly accountManageApikeys!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountManageApikeys: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can manage ip whitelist.
      */
-    public readonly accountManageIpWhitelist!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountManageIpWhitelist: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify account payment methods.
      */
-    public readonly accountManagePaymentMethods!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountManagePaymentMethods: pulumi.Output<boolean | undefined>;
     /**
      * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
-    public readonly accountManagePlan!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountManagePlan: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify other teams in the account.
      */
-    public readonly accountManageTeams!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountManageTeams: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify account users.
      */
-    public readonly accountManageUsers!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountManageUsers: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can view activity logs.
      */
-    public readonly accountViewActivityLog!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountViewActivityLog: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can view invoices.
      */
-    public readonly accountViewInvoices!: pulumi.Output<boolean | undefined>;
+    declare public readonly accountViewInvoices: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify data feeds.
      */
-    public readonly dataManageDatafeeds!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataManageDatafeeds: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify data sources.
      */
-    public readonly dataManageDatasources!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataManageDatasources: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can publish to data feeds.
      */
-    public readonly dataPushToDatafeeds!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataPushToDatafeeds: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify the accounts zones.
      */
-    public readonly dnsManageZones!: pulumi.Output<boolean | undefined>;
+    declare public readonly dnsManageZones: pulumi.Output<boolean | undefined>;
     /**
      * List of records that the apikey may access.
      */
-    public readonly dnsRecordsAllows!: pulumi.Output<outputs.APIKeyDnsRecordsAllow[] | undefined>;
+    declare public readonly dnsRecordsAllows: pulumi.Output<outputs.APIKeyDnsRecordsAllow[] | undefined>;
     /**
      * List of records that the apikey may not access.
      */
-    public readonly dnsRecordsDenies!: pulumi.Output<outputs.APIKeyDnsRecordsDeny[] | undefined>;
+    declare public readonly dnsRecordsDenies: pulumi.Output<outputs.APIKeyDnsRecordsDeny[] | undefined>;
     /**
      * Whether the apikey can view the accounts zones.
      */
-    public readonly dnsViewZones!: pulumi.Output<boolean | undefined>;
+    declare public readonly dnsViewZones: pulumi.Output<boolean | undefined>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    public readonly dnsZonesAllowByDefault!: pulumi.Output<boolean | undefined>;
+    declare public readonly dnsZonesAllowByDefault: pulumi.Output<boolean | undefined>;
     /**
      * List of zones that the apikey may access.
      */
-    public readonly dnsZonesAllows!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsZonesAllows: pulumi.Output<string[] | undefined>;
     /**
      * List of zones that the apikey may not access.
      */
-    public readonly dnsZonesDenies!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsZonesDenies: pulumi.Output<string[] | undefined>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    public readonly ipWhitelistStrict!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipWhitelistStrict: pulumi.Output<boolean | undefined>;
     /**
      * Array of IP addresses/networks to which to grant the API key access.
      */
-    public readonly ipWhitelists!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipWhitelists: pulumi.Output<string[] | undefined>;
     /**
      * (Computed) The apikeys authentication token.
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
      * Whether the user can create monitoring jobs when manageJobs is not set to true.
      */
-    public readonly monitoringCreateJobs!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringCreateJobs: pulumi.Output<boolean | undefined>;
     /**
      * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      */
-    public readonly monitoringDeleteJobs!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringDeleteJobs: pulumi.Output<boolean | undefined>;
     /**
      * Whether the user can create, update, and delete monitoring jobs.
      */
-    public readonly monitoringManageJobs!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringManageJobs: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can modify notification lists.
      */
-    public readonly monitoringManageLists!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringManageLists: pulumi.Output<boolean | undefined>;
     /**
      * Whether the user can update monitoring jobs when manageJobs is not set to true.
      */
-    public readonly monitoringUpdateJobs!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringUpdateJobs: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can view monitoring jobs.
      */
-    public readonly monitoringViewJobs!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringViewJobs: pulumi.Output<boolean | undefined>;
     /**
      * The free form name of the apikey.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the user can manage redirects.
      * Only relevant for the DDI product.
      */
-    public readonly redirectsManageRedirects!: pulumi.Output<boolean | undefined>;
+    declare public readonly redirectsManageRedirects: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can manage global active directory.
      */
-    public readonly securityManageActiveDirectory!: pulumi.Output<boolean | undefined>;
+    declare public readonly securityManageActiveDirectory: pulumi.Output<boolean | undefined>;
     /**
      * Whether the apikey can manage global two factor authentication.
      */
-    public readonly securityManageGlobal2fa!: pulumi.Output<boolean | undefined>;
+    declare public readonly securityManageGlobal2fa: pulumi.Output<boolean | undefined>;
     /**
      * The teams that the apikey belongs to.
      */
-    public readonly teams!: pulumi.Output<string[] | undefined>;
+    declare public readonly teams: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a APIKey resource with the given unique name, arguments, and options.
@@ -236,73 +236,73 @@ export class APIKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as APIKeyState | undefined;
-            resourceInputs["accountManageAccountSettings"] = state ? state.accountManageAccountSettings : undefined;
-            resourceInputs["accountManageApikeys"] = state ? state.accountManageApikeys : undefined;
-            resourceInputs["accountManageIpWhitelist"] = state ? state.accountManageIpWhitelist : undefined;
-            resourceInputs["accountManagePaymentMethods"] = state ? state.accountManagePaymentMethods : undefined;
-            resourceInputs["accountManagePlan"] = state ? state.accountManagePlan : undefined;
-            resourceInputs["accountManageTeams"] = state ? state.accountManageTeams : undefined;
-            resourceInputs["accountManageUsers"] = state ? state.accountManageUsers : undefined;
-            resourceInputs["accountViewActivityLog"] = state ? state.accountViewActivityLog : undefined;
-            resourceInputs["accountViewInvoices"] = state ? state.accountViewInvoices : undefined;
-            resourceInputs["dataManageDatafeeds"] = state ? state.dataManageDatafeeds : undefined;
-            resourceInputs["dataManageDatasources"] = state ? state.dataManageDatasources : undefined;
-            resourceInputs["dataPushToDatafeeds"] = state ? state.dataPushToDatafeeds : undefined;
-            resourceInputs["dnsManageZones"] = state ? state.dnsManageZones : undefined;
-            resourceInputs["dnsRecordsAllows"] = state ? state.dnsRecordsAllows : undefined;
-            resourceInputs["dnsRecordsDenies"] = state ? state.dnsRecordsDenies : undefined;
-            resourceInputs["dnsViewZones"] = state ? state.dnsViewZones : undefined;
-            resourceInputs["dnsZonesAllowByDefault"] = state ? state.dnsZonesAllowByDefault : undefined;
-            resourceInputs["dnsZonesAllows"] = state ? state.dnsZonesAllows : undefined;
-            resourceInputs["dnsZonesDenies"] = state ? state.dnsZonesDenies : undefined;
-            resourceInputs["ipWhitelistStrict"] = state ? state.ipWhitelistStrict : undefined;
-            resourceInputs["ipWhitelists"] = state ? state.ipWhitelists : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["monitoringCreateJobs"] = state ? state.monitoringCreateJobs : undefined;
-            resourceInputs["monitoringDeleteJobs"] = state ? state.monitoringDeleteJobs : undefined;
-            resourceInputs["monitoringManageJobs"] = state ? state.monitoringManageJobs : undefined;
-            resourceInputs["monitoringManageLists"] = state ? state.monitoringManageLists : undefined;
-            resourceInputs["monitoringUpdateJobs"] = state ? state.monitoringUpdateJobs : undefined;
-            resourceInputs["monitoringViewJobs"] = state ? state.monitoringViewJobs : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["redirectsManageRedirects"] = state ? state.redirectsManageRedirects : undefined;
-            resourceInputs["securityManageActiveDirectory"] = state ? state.securityManageActiveDirectory : undefined;
-            resourceInputs["securityManageGlobal2fa"] = state ? state.securityManageGlobal2fa : undefined;
-            resourceInputs["teams"] = state ? state.teams : undefined;
+            resourceInputs["accountManageAccountSettings"] = state?.accountManageAccountSettings;
+            resourceInputs["accountManageApikeys"] = state?.accountManageApikeys;
+            resourceInputs["accountManageIpWhitelist"] = state?.accountManageIpWhitelist;
+            resourceInputs["accountManagePaymentMethods"] = state?.accountManagePaymentMethods;
+            resourceInputs["accountManagePlan"] = state?.accountManagePlan;
+            resourceInputs["accountManageTeams"] = state?.accountManageTeams;
+            resourceInputs["accountManageUsers"] = state?.accountManageUsers;
+            resourceInputs["accountViewActivityLog"] = state?.accountViewActivityLog;
+            resourceInputs["accountViewInvoices"] = state?.accountViewInvoices;
+            resourceInputs["dataManageDatafeeds"] = state?.dataManageDatafeeds;
+            resourceInputs["dataManageDatasources"] = state?.dataManageDatasources;
+            resourceInputs["dataPushToDatafeeds"] = state?.dataPushToDatafeeds;
+            resourceInputs["dnsManageZones"] = state?.dnsManageZones;
+            resourceInputs["dnsRecordsAllows"] = state?.dnsRecordsAllows;
+            resourceInputs["dnsRecordsDenies"] = state?.dnsRecordsDenies;
+            resourceInputs["dnsViewZones"] = state?.dnsViewZones;
+            resourceInputs["dnsZonesAllowByDefault"] = state?.dnsZonesAllowByDefault;
+            resourceInputs["dnsZonesAllows"] = state?.dnsZonesAllows;
+            resourceInputs["dnsZonesDenies"] = state?.dnsZonesDenies;
+            resourceInputs["ipWhitelistStrict"] = state?.ipWhitelistStrict;
+            resourceInputs["ipWhitelists"] = state?.ipWhitelists;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["monitoringCreateJobs"] = state?.monitoringCreateJobs;
+            resourceInputs["monitoringDeleteJobs"] = state?.monitoringDeleteJobs;
+            resourceInputs["monitoringManageJobs"] = state?.monitoringManageJobs;
+            resourceInputs["monitoringManageLists"] = state?.monitoringManageLists;
+            resourceInputs["monitoringUpdateJobs"] = state?.monitoringUpdateJobs;
+            resourceInputs["monitoringViewJobs"] = state?.monitoringViewJobs;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["redirectsManageRedirects"] = state?.redirectsManageRedirects;
+            resourceInputs["securityManageActiveDirectory"] = state?.securityManageActiveDirectory;
+            resourceInputs["securityManageGlobal2fa"] = state?.securityManageGlobal2fa;
+            resourceInputs["teams"] = state?.teams;
         } else {
             const args = argsOrState as APIKeyArgs | undefined;
-            resourceInputs["accountManageAccountSettings"] = args ? args.accountManageAccountSettings : undefined;
-            resourceInputs["accountManageApikeys"] = args ? args.accountManageApikeys : undefined;
-            resourceInputs["accountManageIpWhitelist"] = args ? args.accountManageIpWhitelist : undefined;
-            resourceInputs["accountManagePaymentMethods"] = args ? args.accountManagePaymentMethods : undefined;
-            resourceInputs["accountManagePlan"] = args ? args.accountManagePlan : undefined;
-            resourceInputs["accountManageTeams"] = args ? args.accountManageTeams : undefined;
-            resourceInputs["accountManageUsers"] = args ? args.accountManageUsers : undefined;
-            resourceInputs["accountViewActivityLog"] = args ? args.accountViewActivityLog : undefined;
-            resourceInputs["accountViewInvoices"] = args ? args.accountViewInvoices : undefined;
-            resourceInputs["dataManageDatafeeds"] = args ? args.dataManageDatafeeds : undefined;
-            resourceInputs["dataManageDatasources"] = args ? args.dataManageDatasources : undefined;
-            resourceInputs["dataPushToDatafeeds"] = args ? args.dataPushToDatafeeds : undefined;
-            resourceInputs["dnsManageZones"] = args ? args.dnsManageZones : undefined;
-            resourceInputs["dnsRecordsAllows"] = args ? args.dnsRecordsAllows : undefined;
-            resourceInputs["dnsRecordsDenies"] = args ? args.dnsRecordsDenies : undefined;
-            resourceInputs["dnsViewZones"] = args ? args.dnsViewZones : undefined;
-            resourceInputs["dnsZonesAllowByDefault"] = args ? args.dnsZonesAllowByDefault : undefined;
-            resourceInputs["dnsZonesAllows"] = args ? args.dnsZonesAllows : undefined;
-            resourceInputs["dnsZonesDenies"] = args ? args.dnsZonesDenies : undefined;
-            resourceInputs["ipWhitelistStrict"] = args ? args.ipWhitelistStrict : undefined;
-            resourceInputs["ipWhitelists"] = args ? args.ipWhitelists : undefined;
-            resourceInputs["monitoringCreateJobs"] = args ? args.monitoringCreateJobs : undefined;
-            resourceInputs["monitoringDeleteJobs"] = args ? args.monitoringDeleteJobs : undefined;
-            resourceInputs["monitoringManageJobs"] = args ? args.monitoringManageJobs : undefined;
-            resourceInputs["monitoringManageLists"] = args ? args.monitoringManageLists : undefined;
-            resourceInputs["monitoringUpdateJobs"] = args ? args.monitoringUpdateJobs : undefined;
-            resourceInputs["monitoringViewJobs"] = args ? args.monitoringViewJobs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redirectsManageRedirects"] = args ? args.redirectsManageRedirects : undefined;
-            resourceInputs["securityManageActiveDirectory"] = args ? args.securityManageActiveDirectory : undefined;
-            resourceInputs["securityManageGlobal2fa"] = args ? args.securityManageGlobal2fa : undefined;
-            resourceInputs["teams"] = args ? args.teams : undefined;
+            resourceInputs["accountManageAccountSettings"] = args?.accountManageAccountSettings;
+            resourceInputs["accountManageApikeys"] = args?.accountManageApikeys;
+            resourceInputs["accountManageIpWhitelist"] = args?.accountManageIpWhitelist;
+            resourceInputs["accountManagePaymentMethods"] = args?.accountManagePaymentMethods;
+            resourceInputs["accountManagePlan"] = args?.accountManagePlan;
+            resourceInputs["accountManageTeams"] = args?.accountManageTeams;
+            resourceInputs["accountManageUsers"] = args?.accountManageUsers;
+            resourceInputs["accountViewActivityLog"] = args?.accountViewActivityLog;
+            resourceInputs["accountViewInvoices"] = args?.accountViewInvoices;
+            resourceInputs["dataManageDatafeeds"] = args?.dataManageDatafeeds;
+            resourceInputs["dataManageDatasources"] = args?.dataManageDatasources;
+            resourceInputs["dataPushToDatafeeds"] = args?.dataPushToDatafeeds;
+            resourceInputs["dnsManageZones"] = args?.dnsManageZones;
+            resourceInputs["dnsRecordsAllows"] = args?.dnsRecordsAllows;
+            resourceInputs["dnsRecordsDenies"] = args?.dnsRecordsDenies;
+            resourceInputs["dnsViewZones"] = args?.dnsViewZones;
+            resourceInputs["dnsZonesAllowByDefault"] = args?.dnsZonesAllowByDefault;
+            resourceInputs["dnsZonesAllows"] = args?.dnsZonesAllows;
+            resourceInputs["dnsZonesDenies"] = args?.dnsZonesDenies;
+            resourceInputs["ipWhitelistStrict"] = args?.ipWhitelistStrict;
+            resourceInputs["ipWhitelists"] = args?.ipWhitelists;
+            resourceInputs["monitoringCreateJobs"] = args?.monitoringCreateJobs;
+            resourceInputs["monitoringDeleteJobs"] = args?.monitoringDeleteJobs;
+            resourceInputs["monitoringManageJobs"] = args?.monitoringManageJobs;
+            resourceInputs["monitoringManageLists"] = args?.monitoringManageLists;
+            resourceInputs["monitoringUpdateJobs"] = args?.monitoringUpdateJobs;
+            resourceInputs["monitoringViewJobs"] = args?.monitoringViewJobs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["redirectsManageRedirects"] = args?.redirectsManageRedirects;
+            resourceInputs["securityManageActiveDirectory"] = args?.securityManageActiveDirectory;
+            resourceInputs["securityManageGlobal2fa"] = args?.securityManageGlobal2fa;
+            resourceInputs["teams"] = args?.teams;
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

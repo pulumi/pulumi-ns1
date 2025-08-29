@@ -32,12 +32,12 @@ export class RedirectCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === RedirectCertificate.__pulumiType;
     }
 
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
-    public readonly domain!: pulumi.Output<string>;
-    public /*out*/ readonly errors!: pulumi.Output<string>;
-    public /*out*/ readonly lastUpdated!: pulumi.Output<number>;
-    public /*out*/ readonly validFrom!: pulumi.Output<number>;
-    public /*out*/ readonly validUntil!: pulumi.Output<number>;
+    declare public /*out*/ readonly certificate: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
+    declare public /*out*/ readonly errors: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdated: pulumi.Output<number>;
+    declare public /*out*/ readonly validFrom: pulumi.Output<number>;
+    declare public /*out*/ readonly validUntil: pulumi.Output<number>;
 
     /**
      * Create a RedirectCertificate resource with the given unique name, arguments, and options.
@@ -52,18 +52,18 @@ export class RedirectCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RedirectCertificateState | undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["errors"] = state ? state.errors : undefined;
-            resourceInputs["lastUpdated"] = state ? state.lastUpdated : undefined;
-            resourceInputs["validFrom"] = state ? state.validFrom : undefined;
-            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["errors"] = state?.errors;
+            resourceInputs["lastUpdated"] = state?.lastUpdated;
+            resourceInputs["validFrom"] = state?.validFrom;
+            resourceInputs["validUntil"] = state?.validUntil;
         } else {
             const args = argsOrState as RedirectCertificateArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domain"] = args?.domain;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["lastUpdated"] = undefined /*out*/;

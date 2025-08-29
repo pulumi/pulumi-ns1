@@ -47,88 +47,88 @@ export class Zone extends pulumi.CustomResource {
         return obj['__pulumiType'] === Zone.__pulumiType;
     }
 
-    public readonly additionalNetworks!: pulumi.Output<number[] | undefined>;
-    public readonly additionalNotifyOnlies!: pulumi.Output<boolean[] | undefined>;
-    public readonly additionalPorts!: pulumi.Output<number[] | undefined>;
+    declare public readonly additionalNetworks: pulumi.Output<number[] | undefined>;
+    declare public readonly additionalNotifyOnlies: pulumi.Output<boolean[] | undefined>;
+    declare public readonly additionalPorts: pulumi.Output<number[] | undefined>;
     /**
      * List of additional IPv4 addresses for the primary
      * zone. Conflicts with `secondaries`.
      */
-    public readonly additionalPrimaries!: pulumi.Output<string[] | undefined>;
-    public readonly autogenerateNsRecord!: pulumi.Output<boolean | undefined>;
+    declare public readonly additionalPrimaries: pulumi.Output<string[] | undefined>;
+    declare public readonly autogenerateNsRecord: pulumi.Output<boolean | undefined>;
     /**
      * (Computed) Authoritative Name Servers.
      */
-    public /*out*/ readonly dnsServers!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsServers: pulumi.Output<string>;
     /**
      * Whether or not DNSSEC is enabled for the zone.
      * Note that DNSSEC must be enabled on the account by support for this to be set
      * to `true`.
      */
-    public readonly dnssec!: pulumi.Output<boolean>;
+    declare public readonly dnssec: pulumi.Output<boolean>;
     /**
      * The SOA Expiry. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    public readonly expiry!: pulumi.Output<number>;
+    declare public readonly expiry: pulumi.Output<number>;
     /**
      * (Computed) The SOA Hostmaster.
      */
-    public readonly hostmaster!: pulumi.Output<string>;
+    declare public readonly hostmaster: pulumi.Output<string>;
     /**
      * The target zone(domain name) to link to.
      */
-    public readonly link!: pulumi.Output<string | undefined>;
+    declare public readonly link: pulumi.Output<string | undefined>;
     /**
      * List of network IDs for which the zone is
      * available. If no network is provided, the zone will be created in network 0,
      * the primary NS1 Global Network.
      */
-    public readonly networks!: pulumi.Output<number[]>;
+    declare public readonly networks: pulumi.Output<number[]>;
     /**
      * The SOA NX TTL. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    public readonly nxTtl!: pulumi.Output<number>;
+    declare public readonly nxTtl: pulumi.Output<number>;
     /**
      * The primary zones' IPv4 address. This makes the zone a
      * secondary. Conflicts with `secondaries`.
      */
-    public readonly primary!: pulumi.Output<string | undefined>;
-    public readonly primaryNetwork!: pulumi.Output<number | undefined>;
-    public readonly primaryPort!: pulumi.Output<number>;
+    declare public readonly primary: pulumi.Output<string | undefined>;
+    declare public readonly primaryNetwork: pulumi.Output<number | undefined>;
+    declare public readonly primaryPort: pulumi.Output<number>;
     /**
      * The SOA Refresh. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    public readonly refresh!: pulumi.Output<number>;
+    declare public readonly refresh: pulumi.Output<number>;
     /**
      * The SOA Retry. Conflicts with `primary` and
      * `additionalPrimaries` (default must be accepted).
      */
-    public readonly retry!: pulumi.Output<number>;
+    declare public readonly retry: pulumi.Output<number>;
     /**
      * List of secondary servers. This makes the zone a
      * primary. Conflicts with `primary` and `additionalPrimaries`.
      * Secondaries is documented below.
      */
-    public readonly secondaries!: pulumi.Output<outputs.ZoneSecondary[] | undefined>;
+    declare public readonly secondaries: pulumi.Output<outputs.ZoneSecondary[] | undefined>;
     /**
      * map of tags in the form of `"key" = "value"` where both key and value are strings
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * TSIG is documented below
      */
-    public readonly tsig!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tsig: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The SOA TTL.
      */
-    public readonly ttl!: pulumi.Output<number>;
+    declare public readonly ttl: pulumi.Output<number>;
     /**
      * The domain name of the zone.
      */
-    public readonly zone!: pulumi.Output<string>;
+    declare public readonly zone: pulumi.Output<string>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -143,54 +143,54 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            resourceInputs["additionalNetworks"] = state ? state.additionalNetworks : undefined;
-            resourceInputs["additionalNotifyOnlies"] = state ? state.additionalNotifyOnlies : undefined;
-            resourceInputs["additionalPorts"] = state ? state.additionalPorts : undefined;
-            resourceInputs["additionalPrimaries"] = state ? state.additionalPrimaries : undefined;
-            resourceInputs["autogenerateNsRecord"] = state ? state.autogenerateNsRecord : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["dnssec"] = state ? state.dnssec : undefined;
-            resourceInputs["expiry"] = state ? state.expiry : undefined;
-            resourceInputs["hostmaster"] = state ? state.hostmaster : undefined;
-            resourceInputs["link"] = state ? state.link : undefined;
-            resourceInputs["networks"] = state ? state.networks : undefined;
-            resourceInputs["nxTtl"] = state ? state.nxTtl : undefined;
-            resourceInputs["primary"] = state ? state.primary : undefined;
-            resourceInputs["primaryNetwork"] = state ? state.primaryNetwork : undefined;
-            resourceInputs["primaryPort"] = state ? state.primaryPort : undefined;
-            resourceInputs["refresh"] = state ? state.refresh : undefined;
-            resourceInputs["retry"] = state ? state.retry : undefined;
-            resourceInputs["secondaries"] = state ? state.secondaries : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tsig"] = state ? state.tsig : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["additionalNetworks"] = state?.additionalNetworks;
+            resourceInputs["additionalNotifyOnlies"] = state?.additionalNotifyOnlies;
+            resourceInputs["additionalPorts"] = state?.additionalPorts;
+            resourceInputs["additionalPrimaries"] = state?.additionalPrimaries;
+            resourceInputs["autogenerateNsRecord"] = state?.autogenerateNsRecord;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["dnssec"] = state?.dnssec;
+            resourceInputs["expiry"] = state?.expiry;
+            resourceInputs["hostmaster"] = state?.hostmaster;
+            resourceInputs["link"] = state?.link;
+            resourceInputs["networks"] = state?.networks;
+            resourceInputs["nxTtl"] = state?.nxTtl;
+            resourceInputs["primary"] = state?.primary;
+            resourceInputs["primaryNetwork"] = state?.primaryNetwork;
+            resourceInputs["primaryPort"] = state?.primaryPort;
+            resourceInputs["refresh"] = state?.refresh;
+            resourceInputs["retry"] = state?.retry;
+            resourceInputs["secondaries"] = state?.secondaries;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tsig"] = state?.tsig;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            if ((!args || args.zone === undefined) && !opts.urn) {
+            if (args?.zone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
-            resourceInputs["additionalNetworks"] = args ? args.additionalNetworks : undefined;
-            resourceInputs["additionalNotifyOnlies"] = args ? args.additionalNotifyOnlies : undefined;
-            resourceInputs["additionalPorts"] = args ? args.additionalPorts : undefined;
-            resourceInputs["additionalPrimaries"] = args ? args.additionalPrimaries : undefined;
-            resourceInputs["autogenerateNsRecord"] = args ? args.autogenerateNsRecord : undefined;
-            resourceInputs["dnssec"] = args ? args.dnssec : undefined;
-            resourceInputs["expiry"] = args ? args.expiry : undefined;
-            resourceInputs["hostmaster"] = args ? args.hostmaster : undefined;
-            resourceInputs["link"] = args ? args.link : undefined;
-            resourceInputs["networks"] = args ? args.networks : undefined;
-            resourceInputs["nxTtl"] = args ? args.nxTtl : undefined;
-            resourceInputs["primary"] = args ? args.primary : undefined;
-            resourceInputs["primaryNetwork"] = args ? args.primaryNetwork : undefined;
-            resourceInputs["primaryPort"] = args ? args.primaryPort : undefined;
-            resourceInputs["refresh"] = args ? args.refresh : undefined;
-            resourceInputs["retry"] = args ? args.retry : undefined;
-            resourceInputs["secondaries"] = args ? args.secondaries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tsig"] = args ? args.tsig : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["additionalNetworks"] = args?.additionalNetworks;
+            resourceInputs["additionalNotifyOnlies"] = args?.additionalNotifyOnlies;
+            resourceInputs["additionalPorts"] = args?.additionalPorts;
+            resourceInputs["additionalPrimaries"] = args?.additionalPrimaries;
+            resourceInputs["autogenerateNsRecord"] = args?.autogenerateNsRecord;
+            resourceInputs["dnssec"] = args?.dnssec;
+            resourceInputs["expiry"] = args?.expiry;
+            resourceInputs["hostmaster"] = args?.hostmaster;
+            resourceInputs["link"] = args?.link;
+            resourceInputs["networks"] = args?.networks;
+            resourceInputs["nxTtl"] = args?.nxTtl;
+            resourceInputs["primary"] = args?.primary;
+            resourceInputs["primaryNetwork"] = args?.primaryNetwork;
+            resourceInputs["primaryPort"] = args?.primaryPort;
+            resourceInputs["refresh"] = args?.refresh;
+            resourceInputs["retry"] = args?.retry;
+            resourceInputs["secondaries"] = args?.secondaries;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tsig"] = args?.tsig;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["zone"] = args?.zone;
             resourceInputs["dnsServers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

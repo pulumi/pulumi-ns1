@@ -32,14 +32,14 @@ export class Dnsview extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dnsview.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<number>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly networks!: pulumi.Output<number[] | undefined>;
-    public readonly preference!: pulumi.Output<number>;
-    public readonly readAcls!: pulumi.Output<string[] | undefined>;
-    public readonly updateAcls!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<number>;
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<number>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly networks: pulumi.Output<number[] | undefined>;
+    declare public readonly preference: pulumi.Output<number>;
+    declare public readonly readAcls: pulumi.Output<string[] | undefined>;
+    declare public readonly updateAcls: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<number>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Dnsview resource with the given unique name, arguments, and options.
@@ -54,22 +54,22 @@ export class Dnsview extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DnsviewState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networks"] = state ? state.networks : undefined;
-            resourceInputs["preference"] = state ? state.preference : undefined;
-            resourceInputs["readAcls"] = state ? state.readAcls : undefined;
-            resourceInputs["updateAcls"] = state ? state.updateAcls : undefined;
-            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networks"] = state?.networks;
+            resourceInputs["preference"] = state?.preference;
+            resourceInputs["readAcls"] = state?.readAcls;
+            resourceInputs["updateAcls"] = state?.updateAcls;
+            resourceInputs["updatedAt"] = state?.updatedAt;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as DnsviewArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networks"] = args ? args.networks : undefined;
-            resourceInputs["preference"] = args ? args.preference : undefined;
-            resourceInputs["readAcls"] = args ? args.readAcls : undefined;
-            resourceInputs["updateAcls"] = args ? args.updateAcls : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networks"] = args?.networks;
+            resourceInputs["preference"] = args?.preference;
+            resourceInputs["readAcls"] = args?.readAcls;
+            resourceInputs["updateAcls"] = args?.updateAcls;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
