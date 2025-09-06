@@ -437,6 +437,18 @@ class Redirect(pulumi.CustomResource):
 
         [Redirect Api Doc](https://ns1.com/api#redirect)
 
+        ## Import
+
+        The resource can be imported via their `id`:
+
+        ```sh
+        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
+        ```
+
+        ```sh
+        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain: The domain the redirect refers to.
@@ -500,6 +512,18 @@ class Redirect(pulumi.CustomResource):
         ## NS1 Documentation
 
         [Redirect Api Doc](https://ns1.com/api#redirect)
+
+        ## Import
+
+        The resource can be imported via their `id`:
+
+        ```sh
+        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
+        ```
+
+        ```sh
+        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
+        ```
 
         :param str resource_name: The name of the resource.
         :param RedirectArgs args: The arguments to use to populate this resource's properties.

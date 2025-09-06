@@ -451,14 +451,22 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
     @Import(name="notify")
     private @Nullable Output<Map<String,String>> notify;
 
     /**
      * @return Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
     public Optional<Output<Map<String,String>>> notify_() {
         return Optional.ofNullable(this.notify);
     }
@@ -1234,7 +1242,11 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
         public Builder notify_(@Nullable Output<Map<String,String>> notify) {
             $.notify = notify;
             return this;
@@ -1245,7 +1257,11 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
         public Builder notify_(Map<String,String> notify) {
             return notify_(Output.of(notify));
         }

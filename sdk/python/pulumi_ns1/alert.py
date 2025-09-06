@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AlertArgs', 'Alert']
 
@@ -21,6 +23,7 @@ class AlertArgs:
     def __init__(__self__, *,
                  subtype: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
+                 datas: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -29,6 +32,7 @@ class AlertArgs:
         The set of arguments for constructing a Alert resource.
         :param pulumi.Input[_builtins.str] subtype: The type of the alert.
         :param pulumi.Input[_builtins.str] type: The type of the alert.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_lists: A list of id's for notification lists whose notifiers will be triggered by the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_ids: A list of record id's this alert applies to.
@@ -36,6 +40,8 @@ class AlertArgs:
         """
         pulumi.set(__self__, "subtype", subtype)
         pulumi.set(__self__, "type", type)
+        if datas is not None:
+            pulumi.set(__self__, "datas", datas)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_lists is not None:
@@ -68,6 +74,18 @@ class AlertArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def datas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]]]:
+        """
+        A resource block with additional settings: the name and type of them vary based on the alert type.
+        """
+        return pulumi.get(self, "datas")
+
+    @datas.setter
+    def datas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]]]):
+        pulumi.set(self, "datas", value)
 
     @_builtins.property
     @pulumi.getter
@@ -123,6 +141,7 @@ class _AlertState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[_builtins.int]] = None,
                  created_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 datas: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -135,6 +154,7 @@ class _AlertState:
         Input properties used for looking up and filtering Alert resources.
         :param pulumi.Input[_builtins.int] created_at: (Read Only) The Unix timestamp representing when the alert configuration was created.
         :param pulumi.Input[_builtins.str] created_by: (Read Only) The user or apikey that created this alert.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_lists: A list of id's for notification lists whose notifiers will be triggered by the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_ids: A list of record id's this alert applies to.
@@ -148,6 +168,8 @@ class _AlertState:
             pulumi.set(__self__, "created_at", created_at)
         if created_by is not None:
             pulumi.set(__self__, "created_by", created_by)
+        if datas is not None:
+            pulumi.set(__self__, "datas", datas)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_lists is not None:
@@ -188,6 +210,18 @@ class _AlertState:
     @created_by.setter
     def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "created_by", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def datas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]]]:
+        """
+        A resource block with additional settings: the name and type of them vary based on the alert type.
+        """
+        return pulumi.get(self, "datas")
+
+    @datas.setter
+    def datas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]]]):
+        pulumi.set(self, "datas", value)
 
     @_builtins.property
     @pulumi.getter
@@ -292,6 +326,7 @@ class Alert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 datas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -308,13 +343,23 @@ class Alert(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.Alert("example",
-            name="Example Alert",
+        example_zone_alert = ns1.Alert("example_zone_alert",
+            name="Example Zone Alert",
             type="zone",
             subtype="transfer_failed",
             notification_lists=[],
-            zone_names=[],
+            zone_names=[
+                "a.b.c.com",
+                "myzone",
+            ],
             record_ids=[])
+        example_usage_alert = ns1.Alert("example_usage_alert",
+            name="Example Usage Alert",
+            type="account",
+            subtype="record_usage",
+            datas=[{
+                "alert_at_percent": 80,
+            }])
         ```
 
         ## NS1 Documentation
@@ -329,6 +374,7 @@ class Alert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_lists: A list of id's for notification lists whose notifiers will be triggered by the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_ids: A list of record id's this alert applies to.
@@ -351,13 +397,23 @@ class Alert(pulumi.CustomResource):
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.Alert("example",
-            name="Example Alert",
+        example_zone_alert = ns1.Alert("example_zone_alert",
+            name="Example Zone Alert",
             type="zone",
             subtype="transfer_failed",
             notification_lists=[],
-            zone_names=[],
+            zone_names=[
+                "a.b.c.com",
+                "myzone",
+            ],
             record_ids=[])
+        example_usage_alert = ns1.Alert("example_usage_alert",
+            name="Example Usage Alert",
+            type="account",
+            subtype="record_usage",
+            datas=[{
+                "alert_at_percent": 80,
+            }])
         ```
 
         ## NS1 Documentation
@@ -385,6 +441,7 @@ class Alert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 datas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -400,6 +457,7 @@ class Alert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertArgs.__new__(AlertArgs)
 
+            __props__.__dict__["datas"] = datas
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_lists"] = notification_lists
             __props__.__dict__["record_ids"] = record_ids
@@ -426,6 +484,7 @@ class Alert(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: Optional[pulumi.Input[_builtins.int]] = None,
             created_by: Optional[pulumi.Input[_builtins.str]] = None,
+            datas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             notification_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -443,6 +502,7 @@ class Alert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] created_at: (Read Only) The Unix timestamp representing when the alert configuration was created.
         :param pulumi.Input[_builtins.str] created_by: (Read Only) The user or apikey that created this alert.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_lists: A list of id's for notification lists whose notifiers will be triggered by the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_ids: A list of record id's this alert applies to.
@@ -458,6 +518,7 @@ class Alert(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["created_by"] = created_by
+        __props__.__dict__["datas"] = datas
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_lists"] = notification_lists
         __props__.__dict__["record_ids"] = record_ids
@@ -483,6 +544,14 @@ class Alert(pulumi.CustomResource):
         (Read Only) The user or apikey that created this alert.
         """
         return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter
+    def datas(self) -> pulumi.Output[Optional[Sequence['outputs.AlertData']]]:
+        """
+        A resource block with additional settings: the name and type of them vary based on the alert type.
+        """
+        return pulumi.get(self, "datas")
 
     @_builtins.property
     @pulumi.getter

@@ -18,6 +18,7 @@ from . import outputs
 __all__ = [
     'APIKeyDnsRecordsAllow',
     'APIKeyDnsRecordsDeny',
+    'AlertData',
     'ApplicationDefaultConfig',
     'DatasetDatatype',
     'DatasetRepeat',
@@ -150,6 +151,42 @@ class APIKeyDnsRecordsDeny(dict):
     @pulumi.getter
     def zone(self) -> _builtins.str:
         return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class AlertData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertAtPercent":
+            suggest = "alert_at_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alert_at_percent: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int alert_at_percent: required by the account/usage alerts, with a value between 1 and 100
+        """
+        if alert_at_percent is not None:
+            pulumi.set(__self__, "alert_at_percent", alert_at_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="alertAtPercent")
+    def alert_at_percent(self) -> Optional[_builtins.int]:
+        """
+        required by the account/usage alerts, with a value between 1 and 100
+        """
+        return pulumi.get(self, "alert_at_percent")
 
 
 @pulumi.output_type

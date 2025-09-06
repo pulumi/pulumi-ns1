@@ -121,6 +121,15 @@
                 "zone"
             ]
         },
+        "ns1:index/AlertData:AlertData": {
+            "properties": {
+                "alertAtPercent": {
+                    "type": "integer",
+                    "description": "required by the account/usage alerts, with a value between 1 and 100\n"
+                }
+            },
+            "type": "object"
+        },
         "ns1:index/ApplicationDefaultConfig:ApplicationDefaultConfig": {
             "properties": {
                 "http": {
@@ -1528,7 +1537,7 @@
             }
         },
         "ns1:index/alert:Alert": {
-            "description": "Provides a NS1 Alert resource. This can be used to create, modify, and delete alerts.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Alert(\"example\", {\n    name: \"Example Alert\",\n    type: \"zone\",\n    subtype: \"transfer_failed\",\n    notificationLists: [],\n    zoneNames: [],\n    recordIds: [],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Alert(\"example\",\n    name=\"Example Alert\",\n    type=\"zone\",\n    subtype=\"transfer_failed\",\n    notification_lists=[],\n    zone_names=[],\n    record_ids=[])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Alert(\"example\", new()\n    {\n        Name = \"Example Alert\",\n        Type = \"zone\",\n        Subtype = \"transfer_failed\",\n        NotificationLists = new[] {},\n        ZoneNames = new[] {},\n        RecordIds = new[] {},\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewAlert(ctx, \"example\", \u0026ns1.AlertArgs{\n\t\t\tName:              pulumi.String(\"Example Alert\"),\n\t\t\tType:              pulumi.String(\"zone\"),\n\t\t\tSubtype:           pulumi.String(\"transfer_failed\"),\n\t\t\tNotificationLists: pulumi.StringArray{},\n\t\t\tZoneNames:         pulumi.StringArray{},\n\t\t\tRecordIds:         pulumi.StringArray{},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Alert;\nimport com.pulumi.ns1.AlertArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Alert(\"example\", AlertArgs.builder()\n            .name(\"Example Alert\")\n            .type(\"zone\")\n            .subtype(\"transfer_failed\")\n            .notificationLists()\n            .zoneNames()\n            .recordIds()\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Alert\n    properties:\n      name: Example Alert\n      type: zone\n      subtype: transfer_failed\n      notificationLists: []\n      zoneNames: []\n      recordIds: []\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Alerts Api Doc](https://ns1.com/api#alerts)\n\n## Import\n\n```sh\n$ pulumi import ns1:index/alert:Alert \u003cname\u003e \u003calert_id\u003e`\n```\n\n",
+            "description": "Provides a NS1 Alert resource. This can be used to create, modify, and delete alerts.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst exampleZoneAlert = new ns1.Alert(\"example_zone_alert\", {\n    name: \"Example Zone Alert\",\n    type: \"zone\",\n    subtype: \"transfer_failed\",\n    notificationLists: [],\n    zoneNames: [\n        \"a.b.c.com\",\n        \"myzone\",\n    ],\n    recordIds: [],\n});\nconst exampleUsageAlert = new ns1.Alert(\"example_usage_alert\", {\n    name: \"Example Usage Alert\",\n    type: \"account\",\n    subtype: \"record_usage\",\n    datas: [{\n        alertAtPercent: 80,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample_zone_alert = ns1.Alert(\"example_zone_alert\",\n    name=\"Example Zone Alert\",\n    type=\"zone\",\n    subtype=\"transfer_failed\",\n    notification_lists=[],\n    zone_names=[\n        \"a.b.c.com\",\n        \"myzone\",\n    ],\n    record_ids=[])\nexample_usage_alert = ns1.Alert(\"example_usage_alert\",\n    name=\"Example Usage Alert\",\n    type=\"account\",\n    subtype=\"record_usage\",\n    datas=[{\n        \"alert_at_percent\": 80,\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleZoneAlert = new Ns1.Alert(\"example_zone_alert\", new()\n    {\n        Name = \"Example Zone Alert\",\n        Type = \"zone\",\n        Subtype = \"transfer_failed\",\n        NotificationLists = new[] {},\n        ZoneNames = new[]\n        {\n            \"a.b.c.com\",\n            \"myzone\",\n        },\n        RecordIds = new[] {},\n    });\n\n    var exampleUsageAlert = new Ns1.Alert(\"example_usage_alert\", new()\n    {\n        Name = \"Example Usage Alert\",\n        Type = \"account\",\n        Subtype = \"record_usage\",\n        Datas = new[]\n        {\n            new Ns1.Inputs.AlertDataArgs\n            {\n                AlertAtPercent = 80,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewAlert(ctx, \"example_zone_alert\", \u0026ns1.AlertArgs{\n\t\t\tName:              pulumi.String(\"Example Zone Alert\"),\n\t\t\tType:              pulumi.String(\"zone\"),\n\t\t\tSubtype:           pulumi.String(\"transfer_failed\"),\n\t\t\tNotificationLists: pulumi.StringArray{},\n\t\t\tZoneNames: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"a.b.c.com\"),\n\t\t\t\tpulumi.String(\"myzone\"),\n\t\t\t},\n\t\t\tRecordIds: pulumi.StringArray{},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewAlert(ctx, \"example_usage_alert\", \u0026ns1.AlertArgs{\n\t\t\tName:    pulumi.String(\"Example Usage Alert\"),\n\t\t\tType:    pulumi.String(\"account\"),\n\t\t\tSubtype: pulumi.String(\"record_usage\"),\n\t\t\tDatas: ns1.AlertDataArray{\n\t\t\t\t\u0026ns1.AlertDataArgs{\n\t\t\t\t\tAlertAtPercent: pulumi.Int(80),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Alert;\nimport com.pulumi.ns1.AlertArgs;\nimport com.pulumi.ns1.inputs.AlertDataArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleZoneAlert = new Alert(\"exampleZoneAlert\", AlertArgs.builder()\n            .name(\"Example Zone Alert\")\n            .type(\"zone\")\n            .subtype(\"transfer_failed\")\n            .notificationLists()\n            .zoneNames(            \n                \"a.b.c.com\",\n                \"myzone\")\n            .recordIds()\n            .build());\n\n        var exampleUsageAlert = new Alert(\"exampleUsageAlert\", AlertArgs.builder()\n            .name(\"Example Usage Alert\")\n            .type(\"account\")\n            .subtype(\"record_usage\")\n            .datas(AlertDataArgs.builder()\n                .alertAtPercent(80)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleZoneAlert:\n    type: ns1:Alert\n    name: example_zone_alert\n    properties:\n      name: Example Zone Alert\n      type: zone\n      subtype: transfer_failed\n      notificationLists: []\n      zoneNames:\n        - a.b.c.com\n        - myzone\n      recordIds: []\n  exampleUsageAlert:\n    type: ns1:Alert\n    name: example_usage_alert\n    properties:\n      name: Example Usage Alert\n      type: account\n      subtype: record_usage\n      datas:\n        - alertAtPercent: 80\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Alerts Api Doc](https://ns1.com/api#alerts)\n\n## Import\n\n```sh\n$ pulumi import ns1:index/alert:Alert \u003cname\u003e \u003calert_id\u003e`\n```\n\n",
             "properties": {
                 "createdAt": {
                     "type": "integer",
@@ -1537,6 +1546,13 @@
                 "createdBy": {
                     "type": "string",
                     "description": "(Read Only) The user or apikey that created this alert.\n"
+                },
+                "datas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/AlertData:AlertData"
+                    },
+                    "description": "A resource block with additional settings: the name and type of them vary based on the alert type.\n"
                 },
                 "name": {
                     "type": "string",
@@ -1590,6 +1606,13 @@
                 "updatedBy"
             ],
             "inputProperties": {
+                "datas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/AlertData:AlertData"
+                    },
+                    "description": "A resource block with additional settings: the name and type of them vary based on the alert type.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The free-form display name for the alert.\n"
@@ -1638,6 +1661,13 @@
                     "createdBy": {
                         "type": "string",
                         "description": "(Read Only) The user or apikey that created this alert.\n"
+                    },
+                    "datas": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/AlertData:AlertData"
+                        },
+                        "description": "A resource block with additional settings: the name and type of them vary based on the alert type.\n"
                     },
                     "name": {
                         "type": "string",
@@ -2560,7 +2590,7 @@
                 },
                 "link": {
                     "type": "string",
-                    "description": "The target record to link to. This means this record is a\n'linked' record, and it inherits all properties from its target.\n"
+                    "description": "The fully qualified domain name (without a terminating dot)\nof the target record. This means this record is a 'linked' record, and it\ninherits all properties from its target.\n"
                 },
                 "meta": {
                     "type": "object",
@@ -2646,7 +2676,7 @@
                 },
                 "link": {
                     "type": "string",
-                    "description": "The target record to link to. This means this record is a\n'linked' record, and it inherits all properties from its target.\n"
+                    "description": "The fully qualified domain name (without a terminating dot)\nof the target record. This means this record is a 'linked' record, and it\ninherits all properties from its target.\n"
                 },
                 "meta": {
                     "type": "object",
@@ -2735,7 +2765,7 @@
                     },
                     "link": {
                         "type": "string",
-                        "description": "The target record to link to. This means this record is a\n'linked' record, and it inherits all properties from its target.\n"
+                        "description": "The fully qualified domain name (without a terminating dot)\nof the target record. This means this record is a 'linked' record, and it\ninherits all properties from its target.\n"
                     },
                     "meta": {
                         "type": "object",
@@ -2793,7 +2823,7 @@
             }
         },
         "ns1:index/redirect:Redirect": {
-            "description": "Provides a NS1 Redirect resource. This can be used to create, modify, and delete redirects.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Redirect(\"example\", {\n    domain: \"www.example.com\",\n    path: \"/from/path\",\n    target: \"https://url.com/target/path\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Redirect(\"example\",\n    domain=\"www.example.com\",\n    path=\"/from/path\",\n    target=\"https://url.com/target/path\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Redirect(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n        Path = \"/from/path\",\n        Target = \"https://url.com/target/path\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirect(ctx, \"example\", \u0026ns1.RedirectArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t\tPath:   pulumi.String(\"/from/path\"),\n\t\t\tTarget: pulumi.String(\"https://url.com/target/path\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Redirect;\nimport com.pulumi.ns1.RedirectArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Redirect(\"example\", RedirectArgs.builder()\n            .domain(\"www.example.com\")\n            .path(\"/from/path\")\n            .target(\"https://url.com/target/path\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Redirect\n    properties:\n      domain: www.example.com\n      path: /from/path\n      target: https://url.com/target/path\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n### Additional Examples\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.RedirectCertificate(\"example\", {domain: \"www.example.com\"});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.RedirectCertificate(\"example\", domain=\"www.example.com\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.RedirectCertificate(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirectCertificate(ctx, \"example\", \u0026ns1.RedirectCertificateArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.RedirectCertificate;\nimport com.pulumi.ns1.RedirectCertificateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RedirectCertificate(\"example\", RedirectCertificateArgs.builder()\n            .domain(\"www.example.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:RedirectCertificate\n    properties:\n      domain: www.example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n\n\n# ns1\\_redirect\\_certificate\n\nProvides a NS1 Redirect Certificate resource. This can be used to create, modify, and delete redirect certificates.\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n",
+            "description": "Provides a NS1 Redirect resource. This can be used to create, modify, and delete redirects.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Redirect(\"example\", {\n    domain: \"www.example.com\",\n    path: \"/from/path\",\n    target: \"https://url.com/target/path\",\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Redirect(\"example\",\n    domain=\"www.example.com\",\n    path=\"/from/path\",\n    target=\"https://url.com/target/path\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Redirect(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n        Path = \"/from/path\",\n        Target = \"https://url.com/target/path\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirect(ctx, \"example\", \u0026ns1.RedirectArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t\tPath:   pulumi.String(\"/from/path\"),\n\t\t\tTarget: pulumi.String(\"https://url.com/target/path\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Redirect;\nimport com.pulumi.ns1.RedirectArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Redirect(\"example\", RedirectArgs.builder()\n            .domain(\"www.example.com\")\n            .path(\"/from/path\")\n            .target(\"https://url.com/target/path\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Redirect\n    properties:\n      domain: www.example.com\n      path: /from/path\n      target: https://url.com/target/path\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n### Additional Examples\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.RedirectCertificate(\"example\", {domain: \"www.example.com\"});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.RedirectCertificate(\"example\", domain=\"www.example.com\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.RedirectCertificate(\"example\", new()\n    {\n        Domain = \"www.example.com\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ns1.NewRedirectCertificate(ctx, \"example\", \u0026ns1.RedirectCertificateArgs{\n\t\t\tDomain: pulumi.String(\"www.example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.RedirectCertificate;\nimport com.pulumi.ns1.RedirectCertificateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RedirectCertificate(\"example\", RedirectCertificateArgs.builder()\n            .domain(\"www.example.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:RedirectCertificate\n    properties:\n      domain: www.example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n\n\n# ns1\\_redirect\\_certificate\n\nProvides a NS1 Redirect Certificate resource. This can be used to create, modify, and delete redirect certificates.\n\n## NS1 Documentation\n\n[Redirect Api Doc](https://ns1.com/api#redirect)\n\n## Import\n\nThe resource can be imported via their `id`:\n\n```sh\n$ pulumi import ns1:index/redirect:Redirect \u003cname\u003e \u003cid\u003e`\n```\n\n```sh\n$ pulumi import ns1:index/redirect:Redirect \u003cname\u003e \u003cid\u003e`\n```\n\n",
             "properties": {
                 "certificateId": {
                     "type": "string"
@@ -3635,7 +3665,8 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
+                    "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n",
+                    "deprecationMessage": "This field is deprecated and will be removed in a future release; create account usage alerts instead."
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
@@ -3664,6 +3695,7 @@
             "required": [
                 "email",
                 "name",
+                "notify",
                 "username"
             ],
             "inputProperties": {
@@ -3802,7 +3834,8 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
+                    "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n",
+                    "deprecationMessage": "This field is deprecated and will be removed in a future release; create account usage alerts instead."
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
@@ -3971,7 +4004,8 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n"
+                        "description": "Whether or not to notify the user of specified events. Only `billing` is available currently.\n",
+                        "deprecationMessage": "This field is deprecated and will be removed in a future release; create account usage alerts instead."
                     },
                     "redirectsManageRedirects": {
                         "type": "boolean",

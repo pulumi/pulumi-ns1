@@ -104,6 +104,18 @@ import javax.annotation.Nullable;
  * 
  * [Redirect Api Doc](https://ns1.com/api#redirect)
  * 
+ * ## Import
+ * 
+ * The resource can be imported via their `id`:
+ * 
+ * ```sh
+ * $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
+ * ```
+ * 
+ * ```sh
+ * $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
+ * ```
+ * 
  */
 @ResourceType(type="ns1:index/redirect:Redirect")
 public class Redirect extends com.pulumi.resources.CustomResource {

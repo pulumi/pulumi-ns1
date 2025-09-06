@@ -247,16 +247,18 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filters);
     }
     /**
-     * The target record to link to. This means this record is a
-     * &#39;linked&#39; record, and it inherits all properties from its target.
+     * The fully qualified domain name (without a terminating dot)
+     * of the target record. This means this record is a &#39;linked&#39; record, and it
+     * inherits all properties from its target.
      * 
      */
     @Export(name="link", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> link;
 
     /**
-     * @return The target record to link to. This means this record is a
-     * &#39;linked&#39; record, and it inherits all properties from its target.
+     * @return The fully qualified domain name (without a terminating dot)
+     * of the target record. This means this record is a &#39;linked&#39; record, and it
+     * inherits all properties from its target.
      * 
      */
     public Output<Optional<String>> link() {

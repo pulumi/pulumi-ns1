@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-ns1/provider/v3
 
-go 1.23.11
+go 1.24
 
 toolchain go1.24.6
 

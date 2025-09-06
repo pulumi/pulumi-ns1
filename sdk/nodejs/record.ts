@@ -189,8 +189,9 @@ export class Record extends pulumi.CustomResource {
      */
     declare public readonly filters: pulumi.Output<outputs.RecordFilter[] | undefined>;
     /**
-     * The target record to link to. This means this record is a
-     * 'linked' record, and it inherits all properties from its target.
+     * The fully qualified domain name (without a terminating dot)
+     * of the target record. This means this record is a 'linked' record, and it
+     * inherits all properties from its target.
      */
     declare public readonly link: pulumi.Output<string | undefined>;
     declare public readonly meta: pulumi.Output<{[key: string]: string} | undefined>;
@@ -313,8 +314,9 @@ export interface RecordState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
     /**
-     * The target record to link to. This means this record is a
-     * 'linked' record, and it inherits all properties from its target.
+     * The fully qualified domain name (without a terminating dot)
+     * of the target record. This means this record is a 'linked' record, and it
+     * inherits all properties from its target.
      */
     link?: pulumi.Input<string>;
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -378,8 +380,9 @@ export interface RecordArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
     /**
-     * The target record to link to. This means this record is a
-     * 'linked' record, and it inherits all properties from its target.
+     * The fully qualified domain name (without a terminating dot)
+     * of the target record. This means this record is a 'linked' record, and it
+     * inherits all properties from its target.
      */
     link?: pulumi.Input<string>;
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

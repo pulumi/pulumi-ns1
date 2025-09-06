@@ -61,6 +61,18 @@ namespace Pulumi.Ns1
     /// ## NS1 Documentation
     /// 
     /// [Redirect Api Doc](https://ns1.com/api#redirect)
+    /// 
+    /// ## Import
+    /// 
+    /// The resource can be imported via their `id`:
+    /// 
+    /// ```sh
+    /// $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
+    /// ```
+    /// 
+    /// ```sh
+    /// $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
+    /// ```
     /// </summary>
     [Ns1ResourceType("ns1:index/redirect:Redirect")]
     public partial class Redirect : global::Pulumi.CustomResource

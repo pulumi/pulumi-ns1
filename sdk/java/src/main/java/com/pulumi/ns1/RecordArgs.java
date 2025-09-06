@@ -82,16 +82,18 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target record to link to. This means this record is a
-     * &#39;linked&#39; record, and it inherits all properties from its target.
+     * The fully qualified domain name (without a terminating dot)
+     * of the target record. This means this record is a &#39;linked&#39; record, and it
+     * inherits all properties from its target.
      * 
      */
     @Import(name="link")
     private @Nullable Output<String> link;
 
     /**
-     * @return The target record to link to. This means this record is a
-     * &#39;linked&#39; record, and it inherits all properties from its target.
+     * @return The fully qualified domain name (without a terminating dot)
+     * of the target record. This means this record is a &#39;linked&#39; record, and it
+     * inherits all properties from its target.
      * 
      */
     public Optional<Output<String>> link() {
@@ -385,8 +387,9 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param link The target record to link to. This means this record is a
-         * &#39;linked&#39; record, and it inherits all properties from its target.
+         * @param link The fully qualified domain name (without a terminating dot)
+         * of the target record. This means this record is a &#39;linked&#39; record, and it
+         * inherits all properties from its target.
          * 
          * @return builder
          * 
@@ -397,8 +400,9 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param link The target record to link to. This means this record is a
-         * &#39;linked&#39; record, and it inherits all properties from its target.
+         * @param link The fully qualified domain name (without a terminating dot)
+         * of the target record. This means this record is a &#39;linked&#39; record, and it
+         * inherits all properties from its target.
          * 
          * @return builder
          * 

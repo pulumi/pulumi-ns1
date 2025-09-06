@@ -28,13 +28,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ns1.NewAlert(ctx, "example", &ns1.AlertArgs{
-//				Name:              pulumi.String("Example Alert"),
+//			_, err := ns1.NewAlert(ctx, "example_zone_alert", &ns1.AlertArgs{
+//				Name:              pulumi.String("Example Zone Alert"),
 //				Type:              pulumi.String("zone"),
 //				Subtype:           pulumi.String("transfer_failed"),
 //				NotificationLists: pulumi.StringArray{},
-//				ZoneNames:         pulumi.StringArray{},
-//				RecordIds:         pulumi.StringArray{},
+//				ZoneNames: pulumi.StringArray{
+//					pulumi.String("a.b.c.com"),
+//					pulumi.String("myzone"),
+//				},
+//				RecordIds: pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ns1.NewAlert(ctx, "example_usage_alert", &ns1.AlertArgs{
+//				Name:    pulumi.String("Example Usage Alert"),
+//				Type:    pulumi.String("account"),
+//				Subtype: pulumi.String("record_usage"),
+//				Datas: ns1.AlertDataArray{
+//					&ns1.AlertDataArgs{
+//						AlertAtPercent: pulumi.Int(80),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -61,6 +77,8 @@ type Alert struct {
 	CreatedAt pulumi.IntOutput `pulumi:"createdAt"`
 	// (Read Only) The user or apikey that created this alert.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	// A resource block with additional settings: the name and type of them vary based on the alert type.
+	Datas AlertDataArrayOutput `pulumi:"datas"`
 	// The free-form display name for the alert.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of id's for notification lists whose notifiers will be triggered by the alert.
@@ -119,6 +137,8 @@ type alertState struct {
 	CreatedAt *int `pulumi:"createdAt"`
 	// (Read Only) The user or apikey that created this alert.
 	CreatedBy *string `pulumi:"createdBy"`
+	// A resource block with additional settings: the name and type of them vary based on the alert type.
+	Datas []AlertData `pulumi:"datas"`
 	// The free-form display name for the alert.
 	Name *string `pulumi:"name"`
 	// A list of id's for notification lists whose notifiers will be triggered by the alert.
@@ -142,6 +162,8 @@ type AlertState struct {
 	CreatedAt pulumi.IntPtrInput
 	// (Read Only) The user or apikey that created this alert.
 	CreatedBy pulumi.StringPtrInput
+	// A resource block with additional settings: the name and type of them vary based on the alert type.
+	Datas AlertDataArrayInput
 	// The free-form display name for the alert.
 	Name pulumi.StringPtrInput
 	// A list of id's for notification lists whose notifiers will be triggered by the alert.
@@ -165,6 +187,8 @@ func (AlertState) ElementType() reflect.Type {
 }
 
 type alertArgs struct {
+	// A resource block with additional settings: the name and type of them vary based on the alert type.
+	Datas []AlertData `pulumi:"datas"`
 	// The free-form display name for the alert.
 	Name *string `pulumi:"name"`
 	// A list of id's for notification lists whose notifiers will be triggered by the alert.
@@ -181,6 +205,8 @@ type alertArgs struct {
 
 // The set of arguments for constructing a Alert resource.
 type AlertArgs struct {
+	// A resource block with additional settings: the name and type of them vary based on the alert type.
+	Datas AlertDataArrayInput
 	// The free-form display name for the alert.
 	Name pulumi.StringPtrInput
 	// A list of id's for notification lists whose notifiers will be triggered by the alert.
@@ -290,6 +316,11 @@ func (o AlertOutput) CreatedAt() pulumi.IntOutput {
 // (Read Only) The user or apikey that created this alert.
 func (o AlertOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// A resource block with additional settings: the name and type of them vary based on the alert type.
+func (o AlertOutput) Datas() AlertDataArrayOutput {
+	return o.ApplyT(func(v *Alert) AlertDataArrayOutput { return v.Datas }).(AlertDataArrayOutput)
 }
 
 // The free-form display name for the alert.

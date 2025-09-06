@@ -5,6 +5,7 @@ package com.pulumi.ns1.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.ns1.inputs.AlertDataArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -45,6 +46,21 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createdBy() {
         return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * A resource block with additional settings: the name and type of them vary based on the alert type.
+     * 
+     */
+    @Import(name="datas")
+    private @Nullable Output<List<AlertDataArgs>> datas;
+
+    /**
+     * @return A resource block with additional settings: the name and type of them vary based on the alert type.
+     * 
+     */
+    public Optional<Output<List<AlertDataArgs>>> datas() {
+        return Optional.ofNullable(this.datas);
     }
 
     /**
@@ -172,6 +188,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     private AlertState(AlertState $) {
         this.createdAt = $.createdAt;
         this.createdBy = $.createdBy;
+        this.datas = $.datas;
         this.name = $.name;
         this.notificationLists = $.notificationLists;
         this.recordIds = $.recordIds;
@@ -240,6 +257,37 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdBy(String createdBy) {
             return createdBy(Output.of(createdBy));
+        }
+
+        /**
+         * @param datas A resource block with additional settings: the name and type of them vary based on the alert type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datas(@Nullable Output<List<AlertDataArgs>> datas) {
+            $.datas = datas;
+            return this;
+        }
+
+        /**
+         * @param datas A resource block with additional settings: the name and type of them vary based on the alert type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datas(List<AlertDataArgs> datas) {
+            return datas(Output.of(datas));
+        }
+
+        /**
+         * @param datas A resource block with additional settings: the name and type of them vary based on the alert type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datas(AlertDataArgs... datas) {
+            return datas(List.of(datas));
         }
 
         /**
