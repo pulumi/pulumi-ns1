@@ -254,7 +254,7 @@ namespace Pulumi.Ns1
         /// Whether or not to notify the user of specified events. Only `billing` is available currently.
         /// </summary>
         [Output("notify")]
-        public Output<ImmutableDictionary<string, string>?> Notify { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Notify { get; private set; } = null!;
 
         /// <summary>
         /// Whether the user can manage redirects.
@@ -535,6 +535,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether or not to notify the user of specified events. Only `billing` is available currently.
         /// </summary>
+        [Obsolete(@"This field is deprecated and will be removed in a future release; create account usage alerts instead.")]
         public InputMap<string> Notify
         {
             get => _notify ?? (_notify = new InputMap<string>());
@@ -788,6 +789,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether or not to notify the user of specified events. Only `billing` is available currently.
         /// </summary>
+        [Obsolete(@"This field is deprecated and will be removed in a future release; create account usage alerts instead.")]
         public InputMap<string> Notify
         {
             get => _notify ?? (_notify = new InputMap<string>());

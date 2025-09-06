@@ -225,8 +225,9 @@ type Record struct {
 	// One or more NS1 filters for the record(order matters).
 	// Filters are documented below.
 	Filters RecordFilterArrayOutput `pulumi:"filters"`
-	// The target record to link to. This means this record is a
-	// 'linked' record, and it inherits all properties from its target.
+	// The fully qualified domain name (without a terminating dot)
+	// of the target record. This means this record is a 'linked' record, and it
+	// inherits all properties from its target.
 	Link                   pulumi.StringPtrOutput `pulumi:"link"`
 	Meta                   pulumi.StringMapOutput `pulumi:"meta"`
 	OverrideAddressRecords pulumi.BoolPtrOutput   `pulumi:"overrideAddressRecords"`
@@ -303,8 +304,9 @@ type recordState struct {
 	// One or more NS1 filters for the record(order matters).
 	// Filters are documented below.
 	Filters []RecordFilter `pulumi:"filters"`
-	// The target record to link to. This means this record is a
-	// 'linked' record, and it inherits all properties from its target.
+	// The fully qualified domain name (without a terminating dot)
+	// of the target record. This means this record is a 'linked' record, and it
+	// inherits all properties from its target.
 	Link                   *string           `pulumi:"link"`
 	Meta                   map[string]string `pulumi:"meta"`
 	OverrideAddressRecords *bool             `pulumi:"overrideAddressRecords"`
@@ -343,8 +345,9 @@ type RecordState struct {
 	// One or more NS1 filters for the record(order matters).
 	// Filters are documented below.
 	Filters RecordFilterArrayInput
-	// The target record to link to. This means this record is a
-	// 'linked' record, and it inherits all properties from its target.
+	// The fully qualified domain name (without a terminating dot)
+	// of the target record. This means this record is a 'linked' record, and it
+	// inherits all properties from its target.
 	Link                   pulumi.StringPtrInput
 	Meta                   pulumi.StringMapInput
 	OverrideAddressRecords pulumi.BoolPtrInput
@@ -387,8 +390,9 @@ type recordArgs struct {
 	// One or more NS1 filters for the record(order matters).
 	// Filters are documented below.
 	Filters []RecordFilter `pulumi:"filters"`
-	// The target record to link to. This means this record is a
-	// 'linked' record, and it inherits all properties from its target.
+	// The fully qualified domain name (without a terminating dot)
+	// of the target record. This means this record is a 'linked' record, and it
+	// inherits all properties from its target.
 	Link                   *string           `pulumi:"link"`
 	Meta                   map[string]string `pulumi:"meta"`
 	OverrideAddressRecords *bool             `pulumi:"overrideAddressRecords"`
@@ -428,8 +432,9 @@ type RecordArgs struct {
 	// One or more NS1 filters for the record(order matters).
 	// Filters are documented below.
 	Filters RecordFilterArrayInput
-	// The target record to link to. This means this record is a
-	// 'linked' record, and it inherits all properties from its target.
+	// The fully qualified domain name (without a terminating dot)
+	// of the target record. This means this record is a 'linked' record, and it
+	// inherits all properties from its target.
 	Link                   pulumi.StringPtrInput
 	Meta                   pulumi.StringMapInput
 	OverrideAddressRecords pulumi.BoolPtrInput
@@ -566,8 +571,9 @@ func (o RecordOutput) Filters() RecordFilterArrayOutput {
 	return o.ApplyT(func(v *Record) RecordFilterArrayOutput { return v.Filters }).(RecordFilterArrayOutput)
 }
 
-// The target record to link to. This means this record is a
-// 'linked' record, and it inherits all properties from its target.
+// The fully qualified domain name (without a terminating dot)
+// of the target record. This means this record is a 'linked' record, and it
+// inherits all properties from its target.
 func (o RecordOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringPtrOutput { return v.Link }).(pulumi.StringPtrOutput)
 }

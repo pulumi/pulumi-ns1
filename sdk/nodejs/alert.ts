@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -13,13 +15,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const example = new ns1.Alert("example", {
- *     name: "Example Alert",
+ * const exampleZoneAlert = new ns1.Alert("example_zone_alert", {
+ *     name: "Example Zone Alert",
  *     type: "zone",
  *     subtype: "transfer_failed",
  *     notificationLists: [],
- *     zoneNames: [],
+ *     zoneNames: [
+ *         "a.b.c.com",
+ *         "myzone",
+ *     ],
  *     recordIds: [],
+ * });
+ * const exampleUsageAlert = new ns1.Alert("example_usage_alert", {
+ *     name: "Example Usage Alert",
+ *     type: "account",
+ *     subtype: "record_usage",
+ *     datas: [{
+ *         alertAtPercent: 80,
+ *     }],
  * });
  * ```
  *
@@ -70,6 +83,10 @@ export class Alert extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
+     * A resource block with additional settings: the name and type of them vary based on the alert type.
+     */
+    declare public readonly datas: pulumi.Output<outputs.AlertData[] | undefined>;
+    /**
      * The free-form display name for the alert.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -117,6 +134,7 @@ export class Alert extends pulumi.CustomResource {
             const state = argsOrState as AlertState | undefined;
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["datas"] = state?.datas;
             resourceInputs["name"] = state?.name;
             resourceInputs["notificationLists"] = state?.notificationLists;
             resourceInputs["recordIds"] = state?.recordIds;
@@ -133,6 +151,7 @@ export class Alert extends pulumi.CustomResource {
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["datas"] = args?.datas;
             resourceInputs["name"] = args?.name;
             resourceInputs["notificationLists"] = args?.notificationLists;
             resourceInputs["recordIds"] = args?.recordIds;
@@ -161,6 +180,10 @@ export interface AlertState {
      * (Read Only) The user or apikey that created this alert.
      */
     createdBy?: pulumi.Input<string>;
+    /**
+     * A resource block with additional settings: the name and type of them vary based on the alert type.
+     */
+    datas?: pulumi.Input<pulumi.Input<inputs.AlertData>[]>;
     /**
      * The free-form display name for the alert.
      */
@@ -199,6 +222,10 @@ export interface AlertState {
  * The set of arguments for constructing a Alert resource.
  */
 export interface AlertArgs {
+    /**
+     * A resource block with additional settings: the name and type of them vary based on the alert type.
+     */
+    datas?: pulumi.Input<pulumi.Input<inputs.AlertData>[]>;
     /**
      * The free-form display name for the alert.
      */

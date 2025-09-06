@@ -19,6 +19,13 @@ export interface APIKeyDnsRecordsDeny {
     zone: string;
 }
 
+export interface AlertData {
+    /**
+     * required by the account/usage alerts, with a value between 1 and 100
+     */
+    alertAtPercent?: number;
+}
+
 export interface ApplicationDefaultConfig {
     /**
      * Indicates whether or not to use HTTP in measurements.

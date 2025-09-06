@@ -47,8 +47,9 @@ class RecordArgs:
                Answers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
-        :param pulumi.Input[_builtins.str] link: The target record to link to. This means this record is a
-               'linked' record, and it inherits all properties from its target.
+        :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
+               of the target record. This means this record is a 'linked' record, and it
+               inherits all properties from its target.
         :param pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -168,8 +169,9 @@ class RecordArgs:
     @pulumi.getter
     def link(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The target record to link to. This means this record is a
-        'linked' record, and it inherits all properties from its target.
+        The fully qualified domain name (without a terminating dot)
+        of the target record. This means this record is a 'linked' record, and it
+        inherits all properties from its target.
         """
         return pulumi.get(self, "link")
 
@@ -295,8 +297,9 @@ class _RecordState:
                dots - see the example above and `FQDN formatting` below.
         :param pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
-        :param pulumi.Input[_builtins.str] link: The target record to link to. This means this record is a
-               'linked' record, and it inherits all properties from its target.
+        :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
+               of the target record. This means this record is a 'linked' record, and it
+               inherits all properties from its target.
         :param pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -397,8 +400,9 @@ class _RecordState:
     @pulumi.getter
     def link(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The target record to link to. This means this record is a
-        'linked' record, and it inherits all properties from its target.
+        The fully qualified domain name (without a terminating dot)
+        of the target record. This means this record is a 'linked' record, and it
+        inherits all properties from its target.
         """
         return pulumi.get(self, "link")
 
@@ -682,8 +686,9 @@ class Record(pulumi.CustomResource):
                dots - see the example above and `FQDN formatting` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
-        :param pulumi.Input[_builtins.str] link: The target record to link to. This means this record is a
-               'linked' record, and it inherits all properties from its target.
+        :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
+               of the target record. This means this record is a 'linked' record, and it
+               inherits all properties from its target.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -931,8 +936,9 @@ class Record(pulumi.CustomResource):
                dots - see the example above and `FQDN formatting` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
-        :param pulumi.Input[_builtins.str] link: The target record to link to. This means this record is a
-               'linked' record, and it inherits all properties from its target.
+        :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
+               of the target record. This means this record is a 'linked' record, and it
+               inherits all properties from its target.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -1004,8 +1010,9 @@ class Record(pulumi.CustomResource):
     @pulumi.getter
     def link(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The target record to link to. This means this record is a
-        'linked' record, and it inherits all properties from its target.
+        The fully qualified domain name (without a terminating dot)
+        of the target record. This means this record is a 'linked' record, and it
+        inherits all properties from its target.
         """
         return pulumi.get(self, "link")
 

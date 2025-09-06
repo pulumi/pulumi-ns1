@@ -204,8 +204,10 @@ export class User extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
+     *
+     * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      */
-    declare public readonly notify: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly notify: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether the user can manage redirects.
      * Only relevant for the DDI product.
@@ -443,6 +445,8 @@ export interface UserState {
     name?: pulumi.Input<string>;
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
+     *
+     * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      */
     notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -586,6 +590,8 @@ export interface UserArgs {
     name?: pulumi.Input<string>;
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
+     *
+     * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      */
     notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

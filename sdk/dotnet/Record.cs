@@ -226,8 +226,9 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<Outputs.RecordFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// The target record to link to. This means this record is a
-        /// 'linked' record, and it inherits all properties from its target.
+        /// The fully qualified domain name (without a terminating dot)
+        /// of the target record. This means this record is a 'linked' record, and it
+        /// inherits all properties from its target.
         /// </summary>
         [Output("link")]
         public Output<string?> Link { get; private set; } = null!;
@@ -375,8 +376,9 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// The target record to link to. This means this record is a
-        /// 'linked' record, and it inherits all properties from its target.
+        /// The fully qualified domain name (without a terminating dot)
+        /// of the target record. This means this record is a 'linked' record, and it
+        /// inherits all properties from its target.
         /// </summary>
         [Input("link")]
         public Input<string>? Link { get; set; }
@@ -509,8 +511,9 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// The target record to link to. This means this record is a
-        /// 'linked' record, and it inherits all properties from its target.
+        /// The fully qualified domain name (without a terminating dot)
+        /// of the target record. This means this record is a 'linked' record, and it
+        /// inherits all properties from its target.
         /// </summary>
         [Input("link")]
         public Input<string>? Link { get; set; }

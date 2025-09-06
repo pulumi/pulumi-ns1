@@ -237,6 +237,103 @@ func (o APIKeyDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) APIKeyDnsRecor
 	}).(APIKeyDnsRecordsDenyOutput)
 }
 
+type AlertData struct {
+	// required by the account/usage alerts, with a value between 1 and 100
+	AlertAtPercent *int `pulumi:"alertAtPercent"`
+}
+
+// AlertDataInput is an input type that accepts AlertDataArgs and AlertDataOutput values.
+// You can construct a concrete instance of `AlertDataInput` via:
+//
+//	AlertDataArgs{...}
+type AlertDataInput interface {
+	pulumi.Input
+
+	ToAlertDataOutput() AlertDataOutput
+	ToAlertDataOutputWithContext(context.Context) AlertDataOutput
+}
+
+type AlertDataArgs struct {
+	// required by the account/usage alerts, with a value between 1 and 100
+	AlertAtPercent pulumi.IntPtrInput `pulumi:"alertAtPercent"`
+}
+
+func (AlertDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertData)(nil)).Elem()
+}
+
+func (i AlertDataArgs) ToAlertDataOutput() AlertDataOutput {
+	return i.ToAlertDataOutputWithContext(context.Background())
+}
+
+func (i AlertDataArgs) ToAlertDataOutputWithContext(ctx context.Context) AlertDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDataOutput)
+}
+
+// AlertDataArrayInput is an input type that accepts AlertDataArray and AlertDataArrayOutput values.
+// You can construct a concrete instance of `AlertDataArrayInput` via:
+//
+//	AlertDataArray{ AlertDataArgs{...} }
+type AlertDataArrayInput interface {
+	pulumi.Input
+
+	ToAlertDataArrayOutput() AlertDataArrayOutput
+	ToAlertDataArrayOutputWithContext(context.Context) AlertDataArrayOutput
+}
+
+type AlertDataArray []AlertDataInput
+
+func (AlertDataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertData)(nil)).Elem()
+}
+
+func (i AlertDataArray) ToAlertDataArrayOutput() AlertDataArrayOutput {
+	return i.ToAlertDataArrayOutputWithContext(context.Background())
+}
+
+func (i AlertDataArray) ToAlertDataArrayOutputWithContext(ctx context.Context) AlertDataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDataArrayOutput)
+}
+
+type AlertDataOutput struct{ *pulumi.OutputState }
+
+func (AlertDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertData)(nil)).Elem()
+}
+
+func (o AlertDataOutput) ToAlertDataOutput() AlertDataOutput {
+	return o
+}
+
+func (o AlertDataOutput) ToAlertDataOutputWithContext(ctx context.Context) AlertDataOutput {
+	return o
+}
+
+// required by the account/usage alerts, with a value between 1 and 100
+func (o AlertDataOutput) AlertAtPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertData) *int { return v.AlertAtPercent }).(pulumi.IntPtrOutput)
+}
+
+type AlertDataArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertDataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertData)(nil)).Elem()
+}
+
+func (o AlertDataArrayOutput) ToAlertDataArrayOutput() AlertDataArrayOutput {
+	return o
+}
+
+func (o AlertDataArrayOutput) ToAlertDataArrayOutputWithContext(ctx context.Context) AlertDataArrayOutput {
+	return o
+}
+
+func (o AlertDataArrayOutput) Index(i pulumi.IntInput) AlertDataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertData {
+		return vs[0].([]AlertData)[vs[1].(int)]
+	}).(AlertDataOutput)
+}
+
 type ApplicationDefaultConfig struct {
 	// Indicates whether or not to use HTTP in measurements.
 	Http bool `pulumi:"http"`
@@ -4430,6 +4527,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsAllowArrayInput)(nil)).Elem(), APIKeyDnsRecordsAllowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsDenyInput)(nil)).Elem(), APIKeyDnsRecordsDenyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsDenyArrayInput)(nil)).Elem(), APIKeyDnsRecordsDenyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertDataInput)(nil)).Elem(), AlertDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertDataArrayInput)(nil)).Elem(), AlertDataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefaultConfigInput)(nil)).Elem(), ApplicationDefaultConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefaultConfigPtrInput)(nil)).Elem(), ApplicationDefaultConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDatatypeInput)(nil)).Elem(), DatasetDatatypeArgs{})
@@ -4498,6 +4597,8 @@ func init() {
 	pulumi.RegisterOutputType(APIKeyDnsRecordsAllowArrayOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyArrayOutput{})
+	pulumi.RegisterOutputType(AlertDataOutput{})
+	pulumi.RegisterOutputType(AlertDataArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDefaultConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationDefaultConfigPtrOutput{})
 	pulumi.RegisterOutputType(DatasetDatatypeOutput{})

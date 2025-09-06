@@ -22,14 +22,32 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.Alert("example", new()
+    ///     var exampleZoneAlert = new Ns1.Alert("example_zone_alert", new()
     ///     {
-    ///         Name = "Example Alert",
+    ///         Name = "Example Zone Alert",
     ///         Type = "zone",
     ///         Subtype = "transfer_failed",
     ///         NotificationLists = new[] {},
-    ///         ZoneNames = new[] {},
+    ///         ZoneNames = new[]
+    ///         {
+    ///             "a.b.c.com",
+    ///             "myzone",
+    ///         },
     ///         RecordIds = new[] {},
+    ///     });
+    /// 
+    ///     var exampleUsageAlert = new Ns1.Alert("example_usage_alert", new()
+    ///     {
+    ///         Name = "Example Usage Alert",
+    ///         Type = "account",
+    ///         Subtype = "record_usage",
+    ///         Datas = new[]
+    ///         {
+    ///             new Ns1.Inputs.AlertDataArgs
+    ///             {
+    ///                 AlertAtPercent = 80,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -59,6 +77,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// A resource block with additional settings: the name and type of them vary based on the alert type.
+        /// </summary>
+        [Output("datas")]
+        public Output<ImmutableArray<Outputs.AlertData>> Datas { get; private set; } = null!;
 
         /// <summary>
         /// The free-form display name for the alert.
@@ -154,6 +178,18 @@ namespace Pulumi.Ns1
 
     public sealed class AlertArgs : global::Pulumi.ResourceArgs
     {
+        [Input("datas")]
+        private InputList<Inputs.AlertDataArgs>? _datas;
+
+        /// <summary>
+        /// A resource block with additional settings: the name and type of them vary based on the alert type.
+        /// </summary>
+        public InputList<Inputs.AlertDataArgs> Datas
+        {
+            get => _datas ?? (_datas = new InputList<Inputs.AlertDataArgs>());
+            set => _datas = value;
+        }
+
         /// <summary>
         /// The free-form display name for the alert.
         /// </summary>
@@ -227,6 +263,18 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
+
+        [Input("datas")]
+        private InputList<Inputs.AlertDataGetArgs>? _datas;
+
+        /// <summary>
+        /// A resource block with additional settings: the name and type of them vary based on the alert type.
+        /// </summary>
+        public InputList<Inputs.AlertDataGetArgs> Datas
+        {
+            get => _datas ?? (_datas = new InputList<Inputs.AlertDataGetArgs>());
+            set => _datas = value;
+        }
 
         /// <summary>
         /// The free-form display name for the alert.

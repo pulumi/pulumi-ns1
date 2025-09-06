@@ -155,6 +155,9 @@ class UserArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notify is not None:
+            warnings.warn("""This field is deprecated and will be removed in a future release; create account usage alerts instead.""", DeprecationWarning)
+            pulumi.log.warn("""notify is deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.""")
+        if notify is not None:
             pulumi.set(__self__, "notify", notify)
         if redirects_manage_redirects is not None:
             pulumi.set(__self__, "redirects_manage_redirects", redirects_manage_redirects)
@@ -522,6 +525,7 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This field is deprecated and will be removed in a future release; create account usage alerts instead.""")
     def notify(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Whether or not to notify the user of specified events. Only `billing` is available currently.
@@ -718,6 +722,9 @@ class _UserState:
             pulumi.set(__self__, "monitoring_view_jobs", monitoring_view_jobs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if notify is not None:
+            warnings.warn("""This field is deprecated and will be removed in a future release; create account usage alerts instead.""", DeprecationWarning)
+            pulumi.log.warn("""notify is deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.""")
         if notify is not None:
             pulumi.set(__self__, "notify", notify)
         if redirects_manage_redirects is not None:
@@ -1076,6 +1083,7 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This field is deprecated and will be removed in a future release; create account usage alerts instead.""")
     def notify(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Whether or not to notify the user of specified events. Only `billing` is available currently.
@@ -1796,7 +1804,8 @@ class User(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def notify(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+    @_utilities.deprecated("""This field is deprecated and will be removed in a future release; create account usage alerts instead.""")
+    def notify(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
         Whether or not to notify the user of specified events. Only `billing` is available currently.
         """

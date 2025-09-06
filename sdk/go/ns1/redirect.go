@@ -79,6 +79,18 @@ import (
 // ## NS1 Documentation
 //
 // [Redirect Api Doc](https://ns1.com/api#redirect)
+//
+// ## Import
+//
+// The resource can be imported via their `id`:
+//
+// ```sh
+// $ pulumi import ns1:index/redirect:Redirect <name> <id>`
+// ```
+//
+// ```sh
+// $ pulumi import ns1:index/redirect:Redirect <name> <id>`
+// ```
 type Redirect struct {
 	pulumi.CustomResourceState
 

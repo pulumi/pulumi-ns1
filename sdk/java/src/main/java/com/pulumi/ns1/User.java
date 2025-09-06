@@ -499,16 +499,20 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
+     * @deprecated
+     * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+     * 
      */
+    @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
     @Export(name="notify", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> notify;
+    private Output<Map<String,String>> notify;
 
     /**
      * @return Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
      */
-    public Output<Optional<Map<String,String>>> notify_() {
-        return Codegen.optional(this.notify);
+    public Output<Map<String,String>> notify_() {
+        return this.notify;
     }
     /**
      * Whether the user can manage redirects.

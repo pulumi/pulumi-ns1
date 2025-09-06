@@ -19,6 +19,8 @@ __all__ = [
     'APIKeyDnsRecordsAllowArgsDict',
     'APIKeyDnsRecordsDenyArgs',
     'APIKeyDnsRecordsDenyArgsDict',
+    'AlertDataArgs',
+    'AlertDataArgsDict',
     'ApplicationDefaultConfigArgs',
     'ApplicationDefaultConfigArgsDict',
     'DatasetDatatypeArgs',
@@ -177,6 +179,38 @@ class APIKeyDnsRecordsDenyArgs:
     @zone.setter
     def zone(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "zone", value)
+
+
+if not MYPY:
+    class AlertDataArgsDict(TypedDict):
+        alert_at_percent: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        required by the account/usage alerts, with a value between 1 and 100
+        """
+elif False:
+    AlertDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AlertDataArgs:
+    def __init__(__self__, *,
+                 alert_at_percent: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] alert_at_percent: required by the account/usage alerts, with a value between 1 and 100
+        """
+        if alert_at_percent is not None:
+            pulumi.set(__self__, "alert_at_percent", alert_at_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="alertAtPercent")
+    def alert_at_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        required by the account/usage alerts, with a value between 1 and 100
+        """
+        return pulumi.get(self, "alert_at_percent")
+
+    @alert_at_percent.setter
+    def alert_at_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "alert_at_percent", value)
 
 
 if not MYPY:

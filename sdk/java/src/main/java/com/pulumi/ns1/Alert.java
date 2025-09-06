@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.ns1.AlertArgs;
 import com.pulumi.ns1.Utilities;
 import com.pulumi.ns1.inputs.AlertState;
+import com.pulumi.ns1.outputs.AlertData;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -31,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.ns1.Alert;
  * import com.pulumi.ns1.AlertArgs;
+ * import com.pulumi.ns1.inputs.AlertDataArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,13 +46,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Alert("example", AlertArgs.builder()
- *             .name("Example Alert")
+ *         var exampleZoneAlert = new Alert("exampleZoneAlert", AlertArgs.builder()
+ *             .name("Example Zone Alert")
  *             .type("zone")
  *             .subtype("transfer_failed")
  *             .notificationLists()
- *             .zoneNames()
+ *             .zoneNames(            
+ *                 "a.b.c.com",
+ *                 "myzone")
  *             .recordIds()
+ *             .build());
+ * 
+ *         var exampleUsageAlert = new Alert("exampleUsageAlert", AlertArgs.builder()
+ *             .name("Example Usage Alert")
+ *             .type("account")
+ *             .subtype("record_usage")
+ *             .datas(AlertDataArgs.builder()
+ *                 .alertAtPercent(80)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -99,6 +112,20 @@ public class Alert extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdBy() {
         return this.createdBy;
+    }
+    /**
+     * A resource block with additional settings: the name and type of them vary based on the alert type.
+     * 
+     */
+    @Export(name="datas", refs={List.class,AlertData.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AlertData>> datas;
+
+    /**
+     * @return A resource block with additional settings: the name and type of them vary based on the alert type.
+     * 
+     */
+    public Output<Optional<List<AlertData>>> datas() {
+        return Codegen.optional(this.datas);
     }
     /**
      * The free-form display name for the alert.

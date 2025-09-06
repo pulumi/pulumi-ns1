@@ -148,6 +148,8 @@ type User struct {
 	// The free form name of the user.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
+	//
+	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify pulumi.StringMapOutput `pulumi:"notify"`
 	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
@@ -257,6 +259,8 @@ type userState struct {
 	// The free form name of the user.
 	Name *string `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
+	//
+	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify map[string]string `pulumi:"notify"`
 	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
@@ -331,6 +335,8 @@ type UserState struct {
 	// The free form name of the user.
 	Name pulumi.StringPtrInput
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
+	//
+	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify pulumi.StringMapInput
 	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
@@ -409,6 +415,8 @@ type userArgs struct {
 	// The free form name of the user.
 	Name *string `pulumi:"name"`
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
+	//
+	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify map[string]string `pulumi:"notify"`
 	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
@@ -484,6 +492,8 @@ type UserArgs struct {
 	// The free form name of the user.
 	Name pulumi.StringPtrInput
 	// Whether or not to notify the user of specified events. Only `billing` is available currently.
+	//
+	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify pulumi.StringMapInput
 	// Whether the user can manage redirects.
 	// Only relevant for the DDI product.
@@ -731,6 +741,8 @@ func (o UserOutput) Name() pulumi.StringOutput {
 }
 
 // Whether or not to notify the user of specified events. Only `billing` is available currently.
+//
+// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 func (o UserOutput) Notify() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Notify }).(pulumi.StringMapOutput)
 }
