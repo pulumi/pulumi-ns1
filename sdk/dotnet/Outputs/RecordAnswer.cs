@@ -40,11 +40,11 @@ namespace Pulumi.Ns1.Outputs
         public readonly ImmutableDictionary<string, string>? Meta;
         /// <summary>
         /// The region (Answer Group really) that this answer
-        /// belongs to. This should be one of the names specified in `regions`. Only a
-        /// single `region` per answer is currently supported. If you want an answer in
+        /// belongs to. This should be one of the names specified in `Regions`. Only a
+        /// single `Region` per answer is currently supported. If you want an answer in
         /// multiple regions, duplicating the answer (including metadata) is the correct
         /// approach.
-        /// * ` meta` - (Optional) meta is supported at the `answer` level. Meta
+        /// * ` meta` - (Optional) meta is supported at the `Answer` level. Meta
         /// is documented below.
         /// </summary>
         public readonly string? Region;

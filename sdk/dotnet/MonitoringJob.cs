@@ -78,7 +78,7 @@ namespace Pulumi.Ns1
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each JobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         [Output("config")]
         public Output<ImmutableDictionary<string, string>> Config { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Ns1
         private InputMap<string>? _config;
 
         /// <summary>
-        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each JobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         public InputMap<string> Config
         {
@@ -343,7 +343,7 @@ namespace Pulumi.Ns1
         private InputMap<string>? _config;
 
         /// <summary>
-        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        /// A configuration dictionary with keys and values depending on the job_type. Configuration details for each JobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         /// </summary>
         public InputMap<string> Config
         {
