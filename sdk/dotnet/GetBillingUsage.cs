@@ -250,7 +250,7 @@ namespace Pulumi.Ns1
         public int? From { get; set; }
 
         /// <summary>
-        /// The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
+        /// The type of billing metric to retrieve. Must be one of: `Queries`, `Limits`, `Decisions`, `filter-chains`, `Monitors`, `Records`.
         /// </summary>
         [Input("metricType", required: true)]
         public string MetricType { get; set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Ns1
         public Input<int>? From { get; set; }
 
         /// <summary>
-        /// The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
+        /// The type of billing metric to retrieve. Must be one of: `Queries`, `Limits`, `Decisions`, `filter-chains`, `Monitors`, `Records`.
         /// </summary>
         [Input("metricType", required: true)]
         public Input<string> MetricType { get; set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Ns1
         public readonly int RecordsLimit;
         public readonly int? To;
         /// <summary>
-        /// (Computed) The total usage count for the metric. Available for `decisions`, `filter-chains`, `monitors`, and `records` metrics.
+        /// (Computed) The total usage count for the metric. Available for `Decisions`, `filter-chains`, `Monitors`, and `Records` metrics.
         /// </summary>
         public readonly int TotalUsage;
 

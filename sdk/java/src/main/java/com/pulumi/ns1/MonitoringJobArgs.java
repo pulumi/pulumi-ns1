@@ -37,14 +37,14 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
     @Import(name="config", required=true)
     private Output<Map<String,String>> config;
 
     /**
-     * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
     public Output<Map<String,String>> config() {
@@ -318,7 +318,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+         * @param config A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
          * 
          * @return builder
          * 
