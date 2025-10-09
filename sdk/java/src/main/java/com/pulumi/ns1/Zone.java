@@ -109,7 +109,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     }
     /**
      * The SOA Expiry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Export(name="expiry", refs={Integer.class}, tree="[0]")
@@ -117,7 +117,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The SOA Expiry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Output<Integer> expiry() {
@@ -171,7 +171,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     }
     /**
      * The SOA NX TTL. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Export(name="nxTtl", refs={Integer.class}, tree="[0]")
@@ -179,7 +179,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The SOA NX TTL. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Output<Integer> nxTtl() {
@@ -215,7 +215,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     }
     /**
      * The SOA Refresh. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Export(name="refresh", refs={Integer.class}, tree="[0]")
@@ -223,7 +223,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The SOA Refresh. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Output<Integer> refresh() {
@@ -231,7 +231,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     }
     /**
      * The SOA Retry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Export(name="retry", refs={Integer.class}, tree="[0]")
@@ -239,7 +239,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The SOA Retry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Output<Integer> retry() {
@@ -247,7 +247,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
     }
     /**
      * List of secondary servers. This makes the zone a
-     * primary. Conflicts with `primary` and `additional_primaries`.
+     * primary. Conflicts with `primary` and `additionalPrimaries`.
      * Secondaries is documented below.
      * 
      */
@@ -256,7 +256,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
 
     /**
      * @return List of secondary servers. This makes the zone a
-     * primary. Conflicts with `primary` and `additional_primaries`.
+     * primary. Conflicts with `primary` and `additionalPrimaries`.
      * Secondaries is documented below.
      * 
      */

@@ -245,7 +245,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// One or more "regions" for the record. These are really
         /// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
-        /// but remain `regions` here for legacy reasons. Regions are
+        /// but remain `Regions` here for legacy reasons. Regions are
         /// documented below. Please note the ordering requirement!
         /// </summary>
         [Output("regions")]
@@ -275,7 +275,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `record` level. Meta
+        /// * ` meta` - (Optional) meta is supported at the `Record` level. Meta
         /// is documented below.
         /// </summary>
         [Output("useClientSubnet")]
@@ -403,7 +403,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// One or more "regions" for the record. These are really
         /// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
-        /// but remain `regions` here for legacy reasons. Regions are
+        /// but remain `Regions` here for legacy reasons. Regions are
         /// documented below. Please note the ordering requirement!
         /// </summary>
         public InputList<Inputs.RecordRegionArgs> Regions
@@ -448,7 +448,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `record` level. Meta
+        /// * ` meta` - (Optional) meta is supported at the `Record` level. Meta
         /// is documented below.
         /// </summary>
         [Input("useClientSubnet")]
@@ -538,7 +538,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// One or more "regions" for the record. These are really
         /// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
-        /// but remain `regions` here for legacy reasons. Regions are
+        /// but remain `Regions` here for legacy reasons. Regions are
         /// documented below. Please note the ordering requirement!
         /// </summary>
         public InputList<Inputs.RecordRegionGetArgs> Regions
@@ -583,7 +583,7 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `record` level. Meta
+        /// * ` meta` - (Optional) meta is supported at the `Record` level. Meta
         /// is documented below.
         /// </summary>
         [Input("useClientSubnet")]
