@@ -87,7 +87,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The SOA Expiry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Import(name="expiry")
@@ -95,7 +95,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The SOA Expiry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Optional<Output<Integer>> expiry() {
@@ -153,7 +153,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The SOA NX TTL. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Import(name="nxTtl")
@@ -161,7 +161,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The SOA NX TTL. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Optional<Output<Integer>> nxTtl() {
@@ -201,7 +201,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The SOA Refresh. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Import(name="refresh")
@@ -209,7 +209,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The SOA Refresh. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Optional<Output<Integer>> refresh() {
@@ -218,7 +218,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The SOA Retry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     @Import(name="retry")
@@ -226,7 +226,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The SOA Retry. Conflicts with `primary` and
-     * `additional_primaries` (default must be accepted).
+     * `additionalPrimaries` (default must be accepted).
      * 
      */
     public Optional<Output<Integer>> retry() {
@@ -235,7 +235,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * List of secondary servers. This makes the zone a
-     * primary. Conflicts with `primary` and `additional_primaries`.
+     * primary. Conflicts with `primary` and `additionalPrimaries`.
      * Secondaries is documented below.
      * 
      */
@@ -244,7 +244,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return List of secondary servers. This makes the zone a
-     * primary. Conflicts with `primary` and `additional_primaries`.
+     * primary. Conflicts with `primary` and `additionalPrimaries`.
      * Secondaries is documented below.
      * 
      */
@@ -465,7 +465,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param expiry The SOA Expiry. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param expiry The SOA Expiry. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param nxTtl The SOA NX TTL. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param nxTtl The SOA NX TTL. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param refresh The SOA Refresh. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param refresh The SOA Refresh. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param retry The SOA Retry. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param retry The SOA Retry. Conflicts with `primary` and
-         * `additional_primaries` (default must be accepted).
+         * `additionalPrimaries` (default must be accepted).
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secondaries List of secondary servers. This makes the zone a
-         * primary. Conflicts with `primary` and `additional_primaries`.
+         * primary. Conflicts with `primary` and `additionalPrimaries`.
          * Secondaries is documented below.
          * 
          * @return builder
@@ -690,7 +690,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secondaries List of secondary servers. This makes the zone a
-         * primary. Conflicts with `primary` and `additional_primaries`.
+         * primary. Conflicts with `primary` and `additionalPrimaries`.
          * Secondaries is documented below.
          * 
          * @return builder
@@ -702,7 +702,7 @@ public final class ZoneArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secondaries List of secondary servers. This makes the zone a
-         * primary. Conflicts with `primary` and `additional_primaries`.
+         * primary. Conflicts with `primary` and `additionalPrimaries`.
          * Secondaries is documented below.
          * 
          * @return builder

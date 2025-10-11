@@ -22,7 +22,7 @@ namespace Pulumi.Ns1.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// network ID (`int`). Default is network 0, the primary NS1 Managed DNS Network.
+        /// network ID (`Int`). Default is network 0, the primary NS1 Managed DNS Network.
         /// </summary>
         public readonly int NetworkId;
 

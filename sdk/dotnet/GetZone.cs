@@ -211,7 +211,7 @@ namespace Pulumi.Ns1
         /// </summary>
         public readonly string Link;
         /// <summary>
-        /// List of network IDs (`int`) for which the zone should be made
+        /// List of network IDs (`Int`) for which the zone should be made
         /// available. Default is network 0, the primary NSONE Global Network.
         /// </summary>
         public readonly ImmutableArray<int> Networks;

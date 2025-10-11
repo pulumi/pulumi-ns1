@@ -18,14 +18,14 @@ namespace Pulumi.Ns1.Outputs
         /// </summary>
         public readonly string Ip;
         /// <summary>
-        /// List of network IDs (`int`) for which the zone
+        /// List of network IDs (`Int`) for which the zone
         /// should be made available. Default is network 0, the primary NSONE Global
         /// Network. Normally, you should not have to worry about this.
         /// </summary>
         public readonly ImmutableArray<int> Networks;
         /// <summary>
         /// Whether we send `NOTIFY` messages to the secondary host
-        /// when the zone changes. Default `false`.
+        /// when the zone changes. Default `False`.
         /// </summary>
         public readonly bool? Notify;
         /// <summary>

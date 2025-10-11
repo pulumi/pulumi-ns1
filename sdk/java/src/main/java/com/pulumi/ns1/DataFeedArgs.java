@@ -19,7 +19,7 @@ public final class DataFeedArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The feeds configuration matching the specification in
-     * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
+     * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      * 
      */
     @Import(name="config")
@@ -27,7 +27,7 @@ public final class DataFeedArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The feeds configuration matching the specification in
-     * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
+     * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      * 
      */
     public Optional<Output<Map<String,String>>> config() {
@@ -92,7 +92,7 @@ public final class DataFeedArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param config The feeds configuration matching the specification in
-         * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
+         * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DataFeedArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param config The feeds configuration matching the specification in
-         * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
+         * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
          * 
          * @return builder
          * 

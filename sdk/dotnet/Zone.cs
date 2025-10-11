@@ -36,7 +36,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// List of additional IPv4 addresses for the primary
-        /// zone. Conflicts with `secondaries`.
+        /// zone. Conflicts with `Secondaries`.
         /// </summary>
         [Output("additionalPrimaries")]
         public Output<ImmutableArray<string>> AdditionalPrimaries { get; private set; } = null!;
@@ -53,14 +53,14 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether or not DNSSEC is enabled for the zone.
         /// Note that DNSSEC must be enabled on the account by support for this to be set
-        /// to `true`.
+        /// to `True`.
         /// </summary>
         [Output("dnssec")]
         public Output<bool> Dnssec { get; private set; } = null!;
 
         /// <summary>
-        /// The SOA Expiry. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Expiry. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Output("expiry")]
         public Output<int> Expiry { get; private set; } = null!;
@@ -86,15 +86,15 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<int>> Networks { get; private set; } = null!;
 
         /// <summary>
-        /// The SOA NX TTL. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA NX TTL. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Output("nxTtl")]
         public Output<int> NxTtl { get; private set; } = null!;
 
         /// <summary>
         /// The primary zones' IPv4 address. This makes the zone a
-        /// secondary. Conflicts with `secondaries`.
+        /// secondary. Conflicts with `Secondaries`.
         /// </summary>
         [Output("primary")]
         public Output<string?> Primary { get; private set; } = null!;
@@ -106,22 +106,22 @@ namespace Pulumi.Ns1
         public Output<int> PrimaryPort { get; private set; } = null!;
 
         /// <summary>
-        /// The SOA Refresh. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Refresh. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Output("refresh")]
         public Output<int> Refresh { get; private set; } = null!;
 
         /// <summary>
-        /// The SOA Retry. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Retry. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Output("retry")]
         public Output<int> Retry { get; private set; } = null!;
 
         /// <summary>
         /// List of secondary servers. This makes the zone a
-        /// primary. Conflicts with `primary` and `additional_primaries`.
+        /// primary. Conflicts with `Primary` and `AdditionalPrimaries`.
         /// Secondaries is documented below.
         /// </summary>
         [Output("secondaries")]
@@ -226,7 +226,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// List of additional IPv4 addresses for the primary
-        /// zone. Conflicts with `secondaries`.
+        /// zone. Conflicts with `Secondaries`.
         /// </summary>
         public InputList<string> AdditionalPrimaries
         {
@@ -240,14 +240,14 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether or not DNSSEC is enabled for the zone.
         /// Note that DNSSEC must be enabled on the account by support for this to be set
-        /// to `true`.
+        /// to `True`.
         /// </summary>
         [Input("dnssec")]
         public Input<bool>? Dnssec { get; set; }
 
         /// <summary>
-        /// The SOA Expiry. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Expiry. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("expiry")]
         public Input<int>? Expiry { get; set; }
@@ -279,15 +279,15 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// The SOA NX TTL. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA NX TTL. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("nxTtl")]
         public Input<int>? NxTtl { get; set; }
 
         /// <summary>
         /// The primary zones' IPv4 address. This makes the zone a
-        /// secondary. Conflicts with `secondaries`.
+        /// secondary. Conflicts with `Secondaries`.
         /// </summary>
         [Input("primary")]
         public Input<string>? Primary { get; set; }
@@ -299,15 +299,15 @@ namespace Pulumi.Ns1
         public Input<int>? PrimaryPort { get; set; }
 
         /// <summary>
-        /// The SOA Refresh. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Refresh. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("refresh")]
         public Input<int>? Refresh { get; set; }
 
         /// <summary>
-        /// The SOA Retry. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Retry. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("retry")]
         public Input<int>? Retry { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// List of secondary servers. This makes the zone a
-        /// primary. Conflicts with `primary` and `additional_primaries`.
+        /// primary. Conflicts with `Primary` and `AdditionalPrimaries`.
         /// Secondaries is documented below.
         /// </summary>
         public InputList<Inputs.ZoneSecondaryArgs> Secondaries
@@ -399,7 +399,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// List of additional IPv4 addresses for the primary
-        /// zone. Conflicts with `secondaries`.
+        /// zone. Conflicts with `Secondaries`.
         /// </summary>
         public InputList<string> AdditionalPrimaries
         {
@@ -419,14 +419,14 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether or not DNSSEC is enabled for the zone.
         /// Note that DNSSEC must be enabled on the account by support for this to be set
-        /// to `true`.
+        /// to `True`.
         /// </summary>
         [Input("dnssec")]
         public Input<bool>? Dnssec { get; set; }
 
         /// <summary>
-        /// The SOA Expiry. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Expiry. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("expiry")]
         public Input<int>? Expiry { get; set; }
@@ -458,15 +458,15 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// The SOA NX TTL. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA NX TTL. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("nxTtl")]
         public Input<int>? NxTtl { get; set; }
 
         /// <summary>
         /// The primary zones' IPv4 address. This makes the zone a
-        /// secondary. Conflicts with `secondaries`.
+        /// secondary. Conflicts with `Secondaries`.
         /// </summary>
         [Input("primary")]
         public Input<string>? Primary { get; set; }
@@ -478,15 +478,15 @@ namespace Pulumi.Ns1
         public Input<int>? PrimaryPort { get; set; }
 
         /// <summary>
-        /// The SOA Refresh. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Refresh. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("refresh")]
         public Input<int>? Refresh { get; set; }
 
         /// <summary>
-        /// The SOA Retry. Conflicts with `primary` and
-        /// `additional_primaries` (default must be accepted).
+        /// The SOA Retry. Conflicts with `Primary` and
+        /// `AdditionalPrimaries` (default must be accepted).
         /// </summary>
         [Input("retry")]
         public Input<int>? Retry { get; set; }
@@ -496,7 +496,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// List of secondary servers. This makes the zone a
-        /// primary. Conflicts with `primary` and `additional_primaries`.
+        /// primary. Conflicts with `Primary` and `AdditionalPrimaries`.
         /// Secondaries is documented below.
         /// </summary>
         public InputList<Inputs.ZoneSecondaryGetArgs> Secondaries

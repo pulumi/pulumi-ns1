@@ -329,14 +329,14 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsViewZones);
     }
     /**
-     * If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+     * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      * 
      */
     @Export(name="dnsZonesAllowByDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dnsZonesAllowByDefault;
 
     /**
-     * @return If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+     * @return If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      * 
      */
     public Output<Optional<Boolean>> dnsZonesAllowByDefault() {
@@ -413,28 +413,28 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * Whether the user can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringCreateJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringCreateJobs;
 
     /**
-     * @return Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * @return Whether the user can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringCreateJobs() {
         return Codegen.optional(this.monitoringCreateJobs);
     }
     /**
-     * Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringDeleteJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringDeleteJobs;
 
     /**
-     * @return Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * @return Whether the user can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringDeleteJobs() {
@@ -469,14 +469,14 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitoringManageLists);
     }
     /**
-     * Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * Whether the user can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringUpdateJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringUpdateJobs;
 
     /**
-     * @return Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * @return Whether the user can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringUpdateJobs() {

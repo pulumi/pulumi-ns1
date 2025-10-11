@@ -105,14 +105,14 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.active);
     }
     /**
-     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
     @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> config;
 
     /**
-     * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+     * @return A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      * 
      */
     public Output<Map<String,String>> config() {

@@ -268,14 +268,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+     * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      * 
      */
     @Import(name="dnsZonesAllowByDefault")
     private @Nullable Output<Boolean> dnsZonesAllowByDefault;
 
     /**
-     * @return If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+     * @return If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      * 
      */
     public Optional<Output<Boolean>> dnsZonesAllowByDefault() {
@@ -358,14 +358,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * Whether the user can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Import(name="monitoringCreateJobs")
     private @Nullable Output<Boolean> monitoringCreateJobs;
 
     /**
-     * @return Whether the user can create monitoring jobs when manage_jobs is not set to true.
+     * @return Whether the user can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Optional<Output<Boolean>> monitoringCreateJobs() {
@@ -373,14 +373,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Import(name="monitoringDeleteJobs")
     private @Nullable Output<Boolean> monitoringDeleteJobs;
 
     /**
-     * @return Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+     * @return Whether the user can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Optional<Output<Boolean>> monitoringDeleteJobs() {
@@ -418,14 +418,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * Whether the user can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Import(name="monitoringUpdateJobs")
     private @Nullable Output<Boolean> monitoringUpdateJobs;
 
     /**
-     * @return Whether the user can update monitoring jobs when manage_jobs is not set to true.
+     * @return Whether the user can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Optional<Output<Boolean>> monitoringUpdateJobs() {
@@ -945,7 +945,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsZonesAllowByDefault If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+         * @param dnsZonesAllowByDefault If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
          * 
          * @return builder
          * 
@@ -956,7 +956,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsZonesAllowByDefault If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+         * @param dnsZonesAllowByDefault If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
          * 
          * @return builder
          * 
@@ -1101,7 +1101,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manage_jobs is not set to true.
+         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1112,7 +1112,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manage_jobs is not set to true.
+         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1122,7 +1122,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1133,7 +1133,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1185,7 +1185,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manage_jobs is not set to true.
+         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1196,7 +1196,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manage_jobs is not set to true.
+         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
