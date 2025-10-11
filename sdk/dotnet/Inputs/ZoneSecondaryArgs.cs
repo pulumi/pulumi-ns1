@@ -22,7 +22,7 @@ namespace Pulumi.Ns1.Inputs
         private InputList<int>? _networks;
 
         /// <summary>
-        /// List of network IDs (`int`) for which the zone
+        /// List of network IDs (`Int`) for which the zone
         /// should be made available. Default is network 0, the primary NSONE Global
         /// Network. Normally, you should not have to worry about this.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Ns1.Inputs
 
         /// <summary>
         /// Whether we send `NOTIFY` messages to the secondary host
-        /// when the zone changes. Default `false`.
+        /// when the zone changes. Default `False`.
         /// </summary>
         [Input("notify")]
         public Input<bool>? Notify { get; set; }

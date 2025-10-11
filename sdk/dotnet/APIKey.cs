@@ -177,7 +177,7 @@ namespace Pulumi.Ns1
         public Output<bool?> DnsViewZones { get; private set; } = null!;
 
         /// <summary>
-        /// If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+        /// If true, enable the `DnsZonesAllow` list, otherwise enable the `DnsZonesDeny` list.
         /// </summary>
         [Output("dnsZonesAllowByDefault")]
         public Output<bool?> DnsZonesAllowByDefault { get; private set; } = null!;
@@ -213,13 +213,13 @@ namespace Pulumi.Ns1
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can create monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Output("monitoringCreateJobs")]
         public Output<bool?> MonitoringCreateJobs { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can delete monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Output("monitoringDeleteJobs")]
         public Output<bool?> MonitoringDeleteJobs { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Ns1
         public Output<bool?> MonitoringManageLists { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can update monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Output("monitoringUpdateJobs")]
         public Output<bool?> MonitoringUpdateJobs { get; private set; } = null!;
@@ -438,7 +438,7 @@ namespace Pulumi.Ns1
         public Input<bool>? DnsViewZones { get; set; }
 
         /// <summary>
-        /// If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+        /// If true, enable the `DnsZonesAllow` list, otherwise enable the `DnsZonesDeny` list.
         /// </summary>
         [Input("dnsZonesAllowByDefault")]
         public Input<bool>? DnsZonesAllowByDefault { get; set; }
@@ -486,13 +486,13 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can create monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringCreateJobs")]
         public Input<bool>? MonitoringCreateJobs { get; set; }
 
         /// <summary>
-        /// Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can delete monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringDeleteJobs")]
         public Input<bool>? MonitoringDeleteJobs { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Ns1
         public Input<bool>? MonitoringManageLists { get; set; }
 
         /// <summary>
-        /// Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can update monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringUpdateJobs")]
         public Input<bool>? MonitoringUpdateJobs { get; set; }
@@ -675,7 +675,7 @@ namespace Pulumi.Ns1
         public Input<bool>? DnsViewZones { get; set; }
 
         /// <summary>
-        /// If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
+        /// If true, enable the `DnsZonesAllow` list, otherwise enable the `DnsZonesDeny` list.
         /// </summary>
         [Input("dnsZonesAllowByDefault")]
         public Input<bool>? DnsZonesAllowByDefault { get; set; }
@@ -739,13 +739,13 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can create monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringCreateJobs")]
         public Input<bool>? MonitoringCreateJobs { get; set; }
 
         /// <summary>
-        /// Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can delete monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringDeleteJobs")]
         public Input<bool>? MonitoringDeleteJobs { get; set; }
@@ -763,7 +763,7 @@ namespace Pulumi.Ns1
         public Input<bool>? MonitoringManageLists { get; set; }
 
         /// <summary>
-        /// Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        /// Whether the user can update monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringUpdateJobs")]
         public Input<bool>? MonitoringUpdateJobs { get; set; }
