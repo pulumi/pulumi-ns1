@@ -46,7 +46,7 @@ namespace Pulumi.Ns1
     {
         /// <summary>
         /// The data source configuration, determined by its type,
-        /// matching the specification in `config` from /data/sourcetypes.
+        /// matching the specification in `Config` from /data/sourcetypes.
         /// </summary>
         [Output("config")]
         public Output<ImmutableDictionary<string, string>?> Config { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The data source configuration, determined by its type,
-        /// matching the specification in `config` from /data/sourcetypes.
+        /// matching the specification in `Config` from /data/sourcetypes.
         /// </summary>
         public InputMap<string> Config
         {
@@ -147,7 +147,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The data source configuration, determined by its type,
-        /// matching the specification in `config` from /data/sourcetypes.
+        /// matching the specification in `Config` from /data/sourcetypes.
         /// </summary>
         public InputMap<string> Config
         {
