@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
 public class DataFeed extends com.pulumi.resources.CustomResource {
     /**
      * The feeds configuration matching the specification in
-     * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
+     * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      * 
      */
     @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -100,7 +100,7 @@ public class DataFeed extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The feeds configuration matching the specification in
-     * `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
+     * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      * 
      */
     public Output<Optional<Map<String,String>>> config() {
