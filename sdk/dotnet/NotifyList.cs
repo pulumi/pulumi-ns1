@@ -33,6 +33,7 @@ namespace Pulumi.Ns1
     ///                 Config = 
     ///                 {
     ///                     { "url", "http://www.mywebhook.com" },
+    ///                     { "headers", "Content-Type: application/json" },
     ///                 },
     ///             },
     ///             new Ns1.Inputs.NotifyListNotificationArgs

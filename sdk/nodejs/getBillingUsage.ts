@@ -6,59 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Provides billing usage details about a NS1 account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * // Get query usage data for the given timeframe
- * const queries = ns1.getBillingUsage({
- *     metricType: "queries",
- *     from: 1738368000,
- *     to: 1740787199,
- * });
- * // Get account limits data for the given timeframe
- * const limits = ns1.getBillingUsage({
- *     metricType: "limits",
- *     from: 1738368000,
- *     to: 1740787199,
- * });
- * // Get RUM decisions usage data for the given timeframe
- * const decisions = ns1.getBillingUsage({
- *     metricType: "decisions",
- *     from: 1738368000,
- *     to: 1740787199,
- * });
- * // Get filter chains usage data
- * const filterChains = ns1.getBillingUsage({
- *     metricType: "filter-chains",
- * });
- * // Get monitoring jobs usage data
- * const monitors = ns1.getBillingUsage({
- *     metricType: "monitors",
- * });
- * // Get records usage data
- * const records = ns1.getBillingUsage({
- *     metricType: "records",
- * });
- * export const totalQueries = queries.then(queries => queries.cleanQueries);
- * export const totalDdosQueries = queries.then(queries => queries.ddosQueries);
- * export const totalNxdResponses = queries.then(queries => queries.nxdResponses);
- * export const queriesLimit = limits.then(limits => limits.queriesLimit);
- * export const totalDecisions = decisions.then(decisions => decisions.totalUsage);
- * export const decisionsLimit = limits.then(limits => limits.decisionsLimit);
- * export const totalFilterChains = filterChains.then(filterChains => filterChains.totalUsage);
- * export const filterChainsLimit = limits.then(limits => limits.filterChainsLimit);
- * export const totalMonitors = monitors.then(monitors => monitors.totalUsage);
- * export const monitorsLimit = limits.then(limits => limits.monitorsLimit);
- * export const totalRecords = records.then(records => records.totalUsage);
- * export const recordsLimit = limits.then(limits => limits.recordsLimit);
- * ```
- */
 export function getBillingUsage(args: GetBillingUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getBillingUsage:getBillingUsage", {
@@ -154,59 +101,6 @@ export interface GetBillingUsageResult {
      */
     readonly totalUsage: number;
 }
-/**
- * Provides billing usage details about a NS1 account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as ns1 from "@pulumi/ns1";
- *
- * // Get query usage data for the given timeframe
- * const queries = ns1.getBillingUsage({
- *     metricType: "queries",
- *     from: 1738368000,
- *     to: 1740787199,
- * });
- * // Get account limits data for the given timeframe
- * const limits = ns1.getBillingUsage({
- *     metricType: "limits",
- *     from: 1738368000,
- *     to: 1740787199,
- * });
- * // Get RUM decisions usage data for the given timeframe
- * const decisions = ns1.getBillingUsage({
- *     metricType: "decisions",
- *     from: 1738368000,
- *     to: 1740787199,
- * });
- * // Get filter chains usage data
- * const filterChains = ns1.getBillingUsage({
- *     metricType: "filter-chains",
- * });
- * // Get monitoring jobs usage data
- * const monitors = ns1.getBillingUsage({
- *     metricType: "monitors",
- * });
- * // Get records usage data
- * const records = ns1.getBillingUsage({
- *     metricType: "records",
- * });
- * export const totalQueries = queries.then(queries => queries.cleanQueries);
- * export const totalDdosQueries = queries.then(queries => queries.ddosQueries);
- * export const totalNxdResponses = queries.then(queries => queries.nxdResponses);
- * export const queriesLimit = limits.then(limits => limits.queriesLimit);
- * export const totalDecisions = decisions.then(decisions => decisions.totalUsage);
- * export const decisionsLimit = limits.then(limits => limits.decisionsLimit);
- * export const totalFilterChains = filterChains.then(filterChains => filterChains.totalUsage);
- * export const filterChainsLimit = limits.then(limits => limits.filterChainsLimit);
- * export const totalMonitors = monitors.then(monitors => monitors.totalUsage);
- * export const monitorsLimit = limits.then(limits => limits.monitorsLimit);
- * export const totalRecords = records.then(records => records.totalUsage);
- * export const recordsLimit = limits.then(limits => limits.recordsLimit);
- * ```
- */
 export function getBillingUsageOutput(args: GetBillingUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("ns1:index/getBillingUsage:getBillingUsage", {

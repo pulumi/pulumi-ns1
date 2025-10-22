@@ -33,7 +33,8 @@ import (
 //					&ns1.NotifyListNotificationArgs{
 //						Type: pulumi.String("webhook"),
 //						Config: pulumi.StringMap{
-//							"url": pulumi.String("http://www.mywebhook.com"),
+//							"url":     pulumi.String("http://www.mywebhook.com"),
+//							"headers": pulumi.String("Content-Type: application/json"),
 //						},
 //					},
 //					&ns1.NotifyListNotificationArgs{

@@ -123,6 +123,7 @@ class NotifyList(pulumi.CustomResource):
                     "type": "webhook",
                     "config": {
                         "url": "http://www.mywebhook.com",
+                        "headers": "Content-Type: application/json",
                     },
                 },
                 {
@@ -171,6 +172,7 @@ class NotifyList(pulumi.CustomResource):
                     "type": "webhook",
                     "config": {
                         "url": "http://www.mywebhook.com",
+                        "headers": "Content-Type: application/json",
                     },
                 },
                 {

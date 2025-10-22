@@ -250,46 +250,7 @@ def get_billing_usage(from_: Optional[_builtins.int] = None,
                       to: Optional[_builtins.int] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingUsageResult:
     """
-    Provides billing usage details about a NS1 account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_ns1 as ns1
-
-    # Get query usage data for the given timeframe
-    queries = ns1.get_billing_usage(metric_type="queries",
-        from_=1738368000,
-        to=1740787199)
-    # Get account limits data for the given timeframe
-    limits = ns1.get_billing_usage(metric_type="limits",
-        from_=1738368000,
-        to=1740787199)
-    # Get RUM decisions usage data for the given timeframe
-    decisions = ns1.get_billing_usage(metric_type="decisions",
-        from_=1738368000,
-        to=1740787199)
-    # Get filter chains usage data
-    filter_chains = ns1.get_billing_usage(metric_type="filter-chains")
-    # Get monitoring jobs usage data
-    monitors = ns1.get_billing_usage(metric_type="monitors")
-    # Get records usage data
-    records = ns1.get_billing_usage(metric_type="records")
-    pulumi.export("totalQueries", queries.clean_queries)
-    pulumi.export("totalDdosQueries", queries.ddos_queries)
-    pulumi.export("totalNxdResponses", queries.nxd_responses)
-    pulumi.export("queriesLimit", limits.queries_limit)
-    pulumi.export("totalDecisions", decisions.total_usage)
-    pulumi.export("decisionsLimit", limits.decisions_limit)
-    pulumi.export("totalFilterChains", filter_chains.total_usage)
-    pulumi.export("filterChainsLimit", limits.filter_chains_limit)
-    pulumi.export("totalMonitors", monitors.total_usage)
-    pulumi.export("monitorsLimit", limits.monitors_limit)
-    pulumi.export("totalRecords", records.total_usage)
-    pulumi.export("recordsLimit", limits.records_limit)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param _builtins.int from_: The start timestamp for the data range in Unix epoch format.
     :param _builtins.str metric_type: The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
@@ -326,46 +287,7 @@ def get_billing_usage_output(from_: Optional[pulumi.Input[Optional[_builtins.int
                              to: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingUsageResult]:
     """
-    Provides billing usage details about a NS1 account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_ns1 as ns1
-
-    # Get query usage data for the given timeframe
-    queries = ns1.get_billing_usage(metric_type="queries",
-        from_=1738368000,
-        to=1740787199)
-    # Get account limits data for the given timeframe
-    limits = ns1.get_billing_usage(metric_type="limits",
-        from_=1738368000,
-        to=1740787199)
-    # Get RUM decisions usage data for the given timeframe
-    decisions = ns1.get_billing_usage(metric_type="decisions",
-        from_=1738368000,
-        to=1740787199)
-    # Get filter chains usage data
-    filter_chains = ns1.get_billing_usage(metric_type="filter-chains")
-    # Get monitoring jobs usage data
-    monitors = ns1.get_billing_usage(metric_type="monitors")
-    # Get records usage data
-    records = ns1.get_billing_usage(metric_type="records")
-    pulumi.export("totalQueries", queries.clean_queries)
-    pulumi.export("totalDdosQueries", queries.ddos_queries)
-    pulumi.export("totalNxdResponses", queries.nxd_responses)
-    pulumi.export("queriesLimit", limits.queries_limit)
-    pulumi.export("totalDecisions", decisions.total_usage)
-    pulumi.export("decisionsLimit", limits.decisions_limit)
-    pulumi.export("totalFilterChains", filter_chains.total_usage)
-    pulumi.export("filterChainsLimit", limits.filter_chains_limit)
-    pulumi.export("totalMonitors", monitors.total_usage)
-    pulumi.export("monitorsLimit", limits.monitors_limit)
-    pulumi.export("totalRecords", records.total_usage)
-    pulumi.export("recordsLimit", limits.records_limit)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param _builtins.int from_: The start timestamp for the data range in Unix epoch format.
     :param _builtins.str metric_type: The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.

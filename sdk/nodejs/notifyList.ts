@@ -22,6 +22,7 @@ import * as utilities from "./utilities";
  *             type: "webhook",
  *             config: {
  *                 url: "http://www.mywebhook.com",
+ *                 headers: "Content-Type: application/json",
  *             },
  *         },
  *         {

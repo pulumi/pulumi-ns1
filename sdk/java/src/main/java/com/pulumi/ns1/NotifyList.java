@@ -49,7 +49,10 @@ import javax.annotation.Nullable;
  *             .notifications(            
  *                 NotifyListNotificationArgs.builder()
  *                     .type("webhook")
- *                     .config(Map.of("url", "http://www.mywebhook.com"))
+ *                     .config(Map.ofEntries(
+ *                         Map.entry("url", "http://www.mywebhook.com"),
+ *                         Map.entry("headers", "Content-Type: application/json")
+ *                     ))
  *                     .build(),
  *                 NotifyListNotificationArgs.builder()
  *                     .type("email")
