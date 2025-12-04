@@ -40,6 +40,7 @@ config:
         value: 60
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as ns1 from "@pulumi/ns1";
@@ -47,6 +48,7 @@ import * as ns1 from "@pulumi/ns1";
 // Create a new zone
 const foobar = new ns1.Zone("foobar", {});
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -60,6 +62,7 @@ config:
         value: 60
 
 ```
+
 ```python
 import pulumi
 import pulumi_ns1 as ns1
@@ -67,6 +70,7 @@ import pulumi_ns1 as ns1
 # Create a new zone
 foobar = ns1.Zone("foobar")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -80,6 +84,7 @@ config:
         value: 60
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -94,6 +99,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -107,6 +113,7 @@ config:
         value: 60
 
 ```
+
 ```go
 package main
 
@@ -126,6 +133,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -139,12 +147,14 @@ config:
         value: 60
 
 ```
+
 ```yaml
 resources:
   # Create a new zone
   foobar:
     type: ns1:Zone
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -158,6 +168,7 @@ config:
         value: 60
 
 ```
+
 ```java
 package generated_program;
 
@@ -184,6 +195,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Configuration Reference
