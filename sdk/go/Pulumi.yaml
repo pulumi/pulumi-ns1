@@ -1,0 +1,3 @@
+name: ns1
+description: A Pulumi resource provider for ns1.
+language: go
