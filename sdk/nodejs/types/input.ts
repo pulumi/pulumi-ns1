@@ -173,8 +173,15 @@ export interface RecordAnswer {
      * SPF:
      *
      * answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+     *
+     * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+     * Only one of `answer` or `answerParts` can be specified.
      */
     answer?: pulumi.Input<string>;
+    /**
+     * A list of individual RDATA fields. This field cannot be set together with `answer`
+     */
+    answerParts?: pulumi.Input<pulumi.Input<string>[]>;
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The region (Answer Group really) that this answer

@@ -1909,8 +1909,13 @@ type RecordAnswer struct {
 	// SPF:
 	//
 	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
-	Answer *string           `pulumi:"answer"`
-	Meta   map[string]string `pulumi:"meta"`
+	//
+	// Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+	// Only one of `answer` or `answerParts` can be specified.
+	Answer *string `pulumi:"answer"`
+	// A list of individual RDATA fields. This field cannot be set together with `answer`
+	AnswerParts []string          `pulumi:"answerParts"`
+	Meta        map[string]string `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
 	// belongs to. This should be one of the names specified in `regions`. Only a
 	// single `region` per answer is currently supported. If you want an answer in
@@ -1954,8 +1959,13 @@ type RecordAnswerArgs struct {
 	// SPF:
 	//
 	// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+	//
+	// Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+	// Only one of `answer` or `answerParts` can be specified.
 	Answer pulumi.StringPtrInput `pulumi:"answer"`
-	Meta   pulumi.StringMapInput `pulumi:"meta"`
+	// A list of individual RDATA fields. This field cannot be set together with `answer`
+	AnswerParts pulumi.StringArrayInput `pulumi:"answerParts"`
+	Meta        pulumi.StringMapInput   `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
 	// belongs to. This should be one of the names specified in `regions`. Only a
 	// single `region` per answer is currently supported. If you want an answer in
@@ -2038,8 +2048,16 @@ func (o RecordAnswerOutput) ToRecordAnswerOutputWithContext(ctx context.Context)
 // SPF:
 //
 // answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+//
+// Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+// Only one of `answer` or `answerParts` can be specified.
 func (o RecordAnswerOutput) Answer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordAnswer) *string { return v.Answer }).(pulumi.StringPtrOutput)
+}
+
+// A list of individual RDATA fields. This field cannot be set together with `answer`
+func (o RecordAnswerOutput) AnswerParts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecordAnswer) []string { return v.AnswerParts }).(pulumi.StringArrayOutput)
 }
 
 func (o RecordAnswerOutput) Meta() pulumi.StringMapOutput {

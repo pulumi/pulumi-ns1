@@ -34,9 +34,24 @@ namespace Pulumi.Ns1.Inputs
         /// SPF:
         /// 
         /// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+        /// 
+        /// Optionally, the individual parts of the answer can be expressed as a list in the field `AnswerParts`.
+        /// Only one of `Answer` or `AnswerParts` can be specified.
         /// </summary>
         [Input("answer")]
         public Input<string>? Answer { get; set; }
+
+        [Input("answerParts")]
+        private InputList<string>? _answerParts;
+
+        /// <summary>
+        /// A list of individual RDATA fields. This field cannot be set together with `Answer`
+        /// </summary>
+        public InputList<string> AnswerParts
+        {
+            get => _answerParts ?? (_answerParts = new InputList<string>());
+            set => _answerParts = value;
+        }
 
         [Input("meta")]
         private InputMap<string>? _meta;
