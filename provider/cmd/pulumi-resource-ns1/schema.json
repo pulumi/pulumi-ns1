@@ -359,7 +359,14 @@
             "properties": {
                 "answer": {
                     "type": "string",
-                    "description": "Space delimited string of RDATA fields dependent on the record type.\n\nA:\n\nanswer = \"1.2.3.4\"\n\nCNAME:\n\nanswer = \"www.example.com\"\n\nMX:\n\nanswer = \"5 mail.example.com\"\n\nSRV:\n\nanswer = \"10 0 2380 node-1.example.com\"\n\nSPF:\n\nanswer = \"v=DKIM1; k=rsa; p=XXXXXXXX\"\n"
+                    "description": "Space delimited string of RDATA fields dependent on the record type.\n\nA:\n\nanswer = \"1.2.3.4\"\n\nCNAME:\n\nanswer = \"www.example.com\"\n\nMX:\n\nanswer = \"5 mail.example.com\"\n\nSRV:\n\nanswer = \"10 0 2380 node-1.example.com\"\n\nSPF:\n\nanswer = \"v=DKIM1; k=rsa; p=XXXXXXXX\"\n\nOptionally, the individual parts of the answer can be expressed as a list in the field \u003cspan pulumi-lang-nodejs=\"`answerParts`\" pulumi-lang-dotnet=\"`AnswerParts`\" pulumi-lang-go=\"`answerParts`\" pulumi-lang-python=\"`answer_parts`\" pulumi-lang-yaml=\"`answerParts`\" pulumi-lang-java=\"`answerParts`\"\u003e`answer_parts`\u003c/span\u003e.\nOnly one of \u003cspan pulumi-lang-nodejs=\"`answer`\" pulumi-lang-dotnet=\"`Answer`\" pulumi-lang-go=\"`answer`\" pulumi-lang-python=\"`answer`\" pulumi-lang-yaml=\"`answer`\" pulumi-lang-java=\"`answer`\"\u003e`answer`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`answerParts`\" pulumi-lang-dotnet=\"`AnswerParts`\" pulumi-lang-go=\"`answerParts`\" pulumi-lang-python=\"`answer_parts`\" pulumi-lang-yaml=\"`answerParts`\" pulumi-lang-java=\"`answerParts`\"\u003e`answer_parts`\u003c/span\u003e can be specified.\n"
+                },
+                "answerParts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of individual RDATA fields. This field cannot be set together with \u003cspan pulumi-lang-nodejs=\"`answer`\" pulumi-lang-dotnet=\"`Answer`\" pulumi-lang-go=\"`answer`\" pulumi-lang-python=\"`answer`\" pulumi-lang-yaml=\"`answer`\" pulumi-lang-java=\"`answer`\"\u003e`answer`\u003c/span\u003e\n"
                 },
                 "meta": {
                     "type": "object",

@@ -5,6 +5,7 @@ package com.pulumi.ns1.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,8 +36,16 @@ public final class RecordAnswer {
      * 
      * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
+     * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+     * Only one of `answer` or `answerParts` can be specified.
+     * 
      */
     private @Nullable String answer;
+    /**
+     * @return A list of individual RDATA fields. This field cannot be set together with `answer`
+     * 
+     */
+    private @Nullable List<String> answerParts;
     private @Nullable Map<String,String> meta;
     /**
      * @return The region (Answer Group really) that this answer
@@ -74,9 +83,19 @@ public final class RecordAnswer {
      * 
      * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
+     * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+     * Only one of `answer` or `answerParts` can be specified.
+     * 
      */
     public Optional<String> answer() {
         return Optional.ofNullable(this.answer);
+    }
+    /**
+     * @return A list of individual RDATA fields. This field cannot be set together with `answer`
+     * 
+     */
+    public List<String> answerParts() {
+        return this.answerParts == null ? List.of() : this.answerParts;
     }
     public Map<String,String> meta() {
         return this.meta == null ? Map.of() : this.meta;
@@ -105,12 +124,14 @@ public final class RecordAnswer {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String answer;
+        private @Nullable List<String> answerParts;
         private @Nullable Map<String,String> meta;
         private @Nullable String region;
         public Builder() {}
         public Builder(RecordAnswer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.answer = defaults.answer;
+    	      this.answerParts = defaults.answerParts;
     	      this.meta = defaults.meta;
     	      this.region = defaults.region;
         }
@@ -120,6 +141,15 @@ public final class RecordAnswer {
 
             this.answer = answer;
             return this;
+        }
+        @CustomType.Setter
+        public Builder answerParts(@Nullable List<String> answerParts) {
+
+            this.answerParts = answerParts;
+            return this;
+        }
+        public Builder answerParts(String... answerParts) {
+            return answerParts(List.of(answerParts));
         }
         @CustomType.Setter
         public Builder meta(@Nullable Map<String,String> meta) {
@@ -136,6 +166,7 @@ public final class RecordAnswer {
         public RecordAnswer build() {
             final var _resultValue = new RecordAnswer();
             _resultValue.answer = answer;
+            _resultValue.answerParts = answerParts;
             _resultValue.meta = meta;
             _resultValue.region = region;
             return _resultValue;

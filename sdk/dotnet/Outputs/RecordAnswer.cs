@@ -35,8 +35,15 @@ namespace Pulumi.Ns1.Outputs
         /// SPF:
         /// 
         /// answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+        /// 
+        /// Optionally, the individual parts of the answer can be expressed as a list in the field `AnswerParts`.
+        /// Only one of `Answer` or `AnswerParts` can be specified.
         /// </summary>
         public readonly string? Answer;
+        /// <summary>
+        /// A list of individual RDATA fields. This field cannot be set together with `Answer`
+        /// </summary>
+        public readonly ImmutableArray<string> AnswerParts;
         public readonly ImmutableDictionary<string, string>? Meta;
         /// <summary>
         /// The region (Answer Group really) that this answer
@@ -53,11 +60,14 @@ namespace Pulumi.Ns1.Outputs
         private RecordAnswer(
             string? answer,
 
+            ImmutableArray<string> answerParts,
+
             ImmutableDictionary<string, string>? meta,
 
             string? region)
         {
             Answer = answer;
+            AnswerParts = answerParts;
             Meta = meta;
             Region = region;
         }

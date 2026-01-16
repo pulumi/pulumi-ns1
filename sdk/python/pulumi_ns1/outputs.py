@@ -692,8 +692,26 @@ class PulsarJobWeight(dict):
 
 @pulumi.output_type
 class RecordAnswer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerParts":
+            suggest = "answer_parts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordAnswer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordAnswer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordAnswer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  answer: Optional[_builtins.str] = None,
+                 answer_parts: Optional[Sequence[_builtins.str]] = None,
                  meta: Optional[Mapping[str, _builtins.str]] = None,
                  region: Optional[_builtins.str] = None):
         """
@@ -718,6 +736,10 @@ class RecordAnswer(dict):
                SPF:
                
                answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+               
+               Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
+               Only one of `answer` or `answer_parts` can be specified.
+        :param Sequence[_builtins.str] answer_parts: A list of individual RDATA fields. This field cannot be set together with `answer`
         :param _builtins.str region: The region (Answer Group really) that this answer
                belongs to. This should be one of the names specified in `regions`. Only a
                single `region` per answer is currently supported. If you want an answer in
@@ -728,6 +750,8 @@ class RecordAnswer(dict):
         """
         if answer is not None:
             pulumi.set(__self__, "answer", answer)
+        if answer_parts is not None:
+            pulumi.set(__self__, "answer_parts", answer_parts)
         if meta is not None:
             pulumi.set(__self__, "meta", meta)
         if region is not None:
@@ -758,8 +782,19 @@ class RecordAnswer(dict):
         SPF:
 
         answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+
+        Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
+        Only one of `answer` or `answer_parts` can be specified.
         """
         return pulumi.get(self, "answer")
+
+    @_builtins.property
+    @pulumi.getter(name="answerParts")
+    def answer_parts(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of individual RDATA fields. This field cannot be set together with `answer`
+        """
+        return pulumi.get(self, "answer_parts")
 
     @_builtins.property
     @pulumi.getter

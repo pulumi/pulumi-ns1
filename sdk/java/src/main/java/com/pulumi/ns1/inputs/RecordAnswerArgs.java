@@ -6,6 +6,7 @@ package com.pulumi.ns1.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -39,6 +40,9 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
+     * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+     * Only one of `answer` or `answerParts` can be specified.
+     * 
      */
     @Import(name="answer")
     private @Nullable Output<String> answer;
@@ -66,9 +70,27 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
      * 
+     * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+     * Only one of `answer` or `answerParts` can be specified.
+     * 
      */
     public Optional<Output<String>> answer() {
         return Optional.ofNullable(this.answer);
+    }
+
+    /**
+     * A list of individual RDATA fields. This field cannot be set together with `answer`
+     * 
+     */
+    @Import(name="answerParts")
+    private @Nullable Output<List<String>> answerParts;
+
+    /**
+     * @return A list of individual RDATA fields. This field cannot be set together with `answer`
+     * 
+     */
+    public Optional<Output<List<String>>> answerParts() {
+        return Optional.ofNullable(this.answerParts);
     }
 
     @Import(name="meta")
@@ -109,6 +131,7 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
 
     private RecordAnswerArgs(RecordAnswerArgs $) {
         this.answer = $.answer;
+        this.answerParts = $.answerParts;
         this.meta = $.meta;
         this.region = $.region;
     }
@@ -154,6 +177,9 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
          * 
+         * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+         * Only one of `answer` or `answerParts` can be specified.
+         * 
          * @return builder
          * 
          */
@@ -185,11 +211,45 @@ public final class RecordAnswerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * answer = &#34;v=DKIM1; k=rsa; p=XXXXXXXX&#34;
          * 
+         * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+         * Only one of `answer` or `answerParts` can be specified.
+         * 
          * @return builder
          * 
          */
         public Builder answer(String answer) {
             return answer(Output.of(answer));
+        }
+
+        /**
+         * @param answerParts A list of individual RDATA fields. This field cannot be set together with `answer`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder answerParts(@Nullable Output<List<String>> answerParts) {
+            $.answerParts = answerParts;
+            return this;
+        }
+
+        /**
+         * @param answerParts A list of individual RDATA fields. This field cannot be set together with `answer`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder answerParts(List<String> answerParts) {
+            return answerParts(Output.of(answerParts));
+        }
+
+        /**
+         * @param answerParts A list of individual RDATA fields. This field cannot be set together with `answer`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder answerParts(String... answerParts) {
+            return answerParts(List.of(answerParts));
         }
 
         public Builder meta(@Nullable Output<Map<String,String>> meta) {

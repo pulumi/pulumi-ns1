@@ -891,6 +891,13 @@ if not MYPY:
         SPF:
 
         answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+
+        Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
+        Only one of `answer` or `answer_parts` can be specified.
+        """
+        answer_parts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        A list of individual RDATA fields. This field cannot be set together with `answer`
         """
         meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
         region: NotRequired[pulumi.Input[_builtins.str]]
@@ -910,6 +917,7 @@ elif False:
 class RecordAnswerArgs:
     def __init__(__self__, *,
                  answer: Optional[pulumi.Input[_builtins.str]] = None,
+                 answer_parts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -934,6 +942,10 @@ class RecordAnswerArgs:
                SPF:
                
                answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+               
+               Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
+               Only one of `answer` or `answer_parts` can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] answer_parts: A list of individual RDATA fields. This field cannot be set together with `answer`
         :param pulumi.Input[_builtins.str] region: The region (Answer Group really) that this answer
                belongs to. This should be one of the names specified in `regions`. Only a
                single `region` per answer is currently supported. If you want an answer in
@@ -944,6 +956,8 @@ class RecordAnswerArgs:
         """
         if answer is not None:
             pulumi.set(__self__, "answer", answer)
+        if answer_parts is not None:
+            pulumi.set(__self__, "answer_parts", answer_parts)
         if meta is not None:
             pulumi.set(__self__, "meta", meta)
         if region is not None:
@@ -974,12 +988,27 @@ class RecordAnswerArgs:
         SPF:
 
         answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+
+        Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
+        Only one of `answer` or `answer_parts` can be specified.
         """
         return pulumi.get(self, "answer")
 
     @answer.setter
     def answer(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "answer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="answerParts")
+    def answer_parts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of individual RDATA fields. This field cannot be set together with `answer`
+        """
+        return pulumi.get(self, "answer_parts")
+
+    @answer_parts.setter
+    def answer_parts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "answer_parts", value)
 
     @_builtins.property
     @pulumi.getter

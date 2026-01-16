@@ -5,14 +5,14 @@ Subject: [PATCH] fork
 
 
 diff --git a/go.mod b/go.mod
-index c132324..2d5d732 100644
+index 5037df6..a079e58 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
 -module github.com/terraform-providers/terraform-provider-ns1
 +module github.com/ns1-terraform/terraform-provider-ns1
  
- go 1.24
+ go 1.24.0
  
 diff --git a/main.go b/main.go
 index 97093e2..dd93b8b 100644
@@ -28,7 +28,7 @@ index 97093e2..dd93b8b 100644
  
  func main() {
 diff --git a/ns1/resource_record.go b/ns1/resource_record.go
-index 371d15d..534f19e 100644
+index cffefba..c96e399 100644
 --- a/ns1/resource_record.go
 +++ b/ns1/resource_record.go
 @@ -107,14 +107,7 @@ func recordResource() *schema.Resource {

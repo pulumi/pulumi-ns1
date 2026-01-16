@@ -346,8 +346,15 @@ export interface RecordAnswer {
      * SPF:
      *
      * answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+     *
+     * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
+     * Only one of `answer` or `answerParts` can be specified.
      */
     answer?: string;
+    /**
+     * A list of individual RDATA fields. This field cannot be set together with `answer`
+     */
+    answerParts?: string[];
     meta?: {[key: string]: string};
     /**
      * The region (Answer Group really) that this answer
