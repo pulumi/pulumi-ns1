@@ -143,19 +143,47 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * short_answers will be deprecated in a future release. It is suggested to migrate to a regular &#34;answers&#34; block.
+     * short_answers will be deprecated in a future release.
+     * It is suggested to migrate to a regular &#34;answers&#34; block. Using Terraform 0.12+, a similar convenience to &#34;shortAnswers&#34; can be achieved with dynamic blocks:
+     *   dynamic &#34;answers&#34; {
+     *     forEach = [&#34;4.4.4.4&#34;, &#34;5.5.5.5&#34;]
+     *     content {
+     *       answer  = answers.value
+     *     }
+     *   }
      * 
      */
-    @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
+    @Deprecated /* short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""shortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    forEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  } */
     @Import(name="shortAnswers")
     private @Nullable Output<List<String>> shortAnswers;
 
     /**
      * @deprecated
-     * short_answers will be deprecated in a future release. It is suggested to migrate to a regular &#34;answers&#34; block.
+     * short_answers will be deprecated in a future release.
+     * It is suggested to migrate to a regular &#34;answers&#34; block. Using Terraform 0.12+, a similar convenience to &#34;shortAnswers&#34; can be achieved with dynamic blocks:
+     *   dynamic &#34;answers&#34; {
+     *     forEach = [&#34;4.4.4.4&#34;, &#34;5.5.5.5&#34;]
+     *     content {
+     *       answer  = answers.value
+     *     }
+     *   }
      * 
      */
-    @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
+    @Deprecated /* short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""shortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    forEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  } */
     public Optional<Output<List<String>>> shortAnswers() {
         return Optional.ofNullable(this.shortAnswers);
     }
@@ -481,10 +509,24 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * short_answers will be deprecated in a future release. It is suggested to migrate to a regular &#34;answers&#34; block.
+         * short_answers will be deprecated in a future release.
+         * It is suggested to migrate to a regular &#34;answers&#34; block. Using Terraform 0.12+, a similar convenience to &#34;shortAnswers&#34; can be achieved with dynamic blocks:
+         *   dynamic &#34;answers&#34; {
+         *     forEach = [&#34;4.4.4.4&#34;, &#34;5.5.5.5&#34;]
+         *     content {
+         *       answer  = answers.value
+         *     }
+         *   }
          * 
          */
-        @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
+        @Deprecated /* short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""shortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    forEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  } */
         public Builder shortAnswers(@Nullable Output<List<String>> shortAnswers) {
             $.shortAnswers = shortAnswers;
             return this;
@@ -494,10 +536,24 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * short_answers will be deprecated in a future release. It is suggested to migrate to a regular &#34;answers&#34; block.
+         * short_answers will be deprecated in a future release.
+         * It is suggested to migrate to a regular &#34;answers&#34; block. Using Terraform 0.12+, a similar convenience to &#34;shortAnswers&#34; can be achieved with dynamic blocks:
+         *   dynamic &#34;answers&#34; {
+         *     forEach = [&#34;4.4.4.4&#34;, &#34;5.5.5.5&#34;]
+         *     content {
+         *       answer  = answers.value
+         *     }
+         *   }
          * 
          */
-        @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
+        @Deprecated /* short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""shortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    forEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  } */
         public Builder shortAnswers(List<String> shortAnswers) {
             return shortAnswers(Output.of(shortAnswers));
         }
@@ -506,10 +562,24 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * short_answers will be deprecated in a future release. It is suggested to migrate to a regular &#34;answers&#34; block.
+         * short_answers will be deprecated in a future release.
+         * It is suggested to migrate to a regular &#34;answers&#34; block. Using Terraform 0.12+, a similar convenience to &#34;shortAnswers&#34; can be achieved with dynamic blocks:
+         *   dynamic &#34;answers&#34; {
+         *     forEach = [&#34;4.4.4.4&#34;, &#34;5.5.5.5&#34;]
+         *     content {
+         *       answer  = answers.value
+         *     }
+         *   }
          * 
          */
-        @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
+        @Deprecated /* short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""shortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    forEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  } */
         public Builder shortAnswers(String... shortAnswers) {
             return shortAnswers(List.of(shortAnswers));
         }

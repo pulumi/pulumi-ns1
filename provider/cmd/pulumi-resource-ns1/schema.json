@@ -2623,7 +2623,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "deprecationMessage": "short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block."
+                    "deprecationMessage": "short_answers will be deprecated in a future release.\nIt is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \u003cspan pulumi-lang-nodejs=\"\"shortAnswers\"\" pulumi-lang-dotnet=\"\"ShortAnswers\"\" pulumi-lang-go=\"\"shortAnswers\"\" pulumi-lang-python=\"\"short_answers\"\" pulumi-lang-yaml=\"\"shortAnswers\"\" pulumi-lang-java=\"\"shortAnswers\"\"\u003e\"short_answers\"\u003c/span\u003e can be achieved with dynamic blocks:\n  dynamic \"answers\" {\n   \u003cspan pulumi-lang-nodejs=\" forEach \" pulumi-lang-dotnet=\" ForEach \" pulumi-lang-go=\" forEach \" pulumi-lang-python=\" for_each \" pulumi-lang-yaml=\" forEach \" pulumi-lang-java=\" forEach \"\u003e for_each \u003c/span\u003e= [\"4.4.4.4\", \"5.5.5.5\"]\n    content {\n      answer  = answers.value\n    }\n  }"
                 },
                 "tags": {
                     "type": "object",
@@ -2709,7 +2709,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "deprecationMessage": "short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block."
+                    "deprecationMessage": "short_answers will be deprecated in a future release.\nIt is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \u003cspan pulumi-lang-nodejs=\"\"shortAnswers\"\" pulumi-lang-dotnet=\"\"ShortAnswers\"\" pulumi-lang-go=\"\"shortAnswers\"\" pulumi-lang-python=\"\"short_answers\"\" pulumi-lang-yaml=\"\"shortAnswers\"\" pulumi-lang-java=\"\"shortAnswers\"\"\u003e\"short_answers\"\u003c/span\u003e can be achieved with dynamic blocks:\n  dynamic \"answers\" {\n   \u003cspan pulumi-lang-nodejs=\" forEach \" pulumi-lang-dotnet=\" ForEach \" pulumi-lang-go=\" forEach \" pulumi-lang-python=\" for_each \" pulumi-lang-yaml=\" forEach \" pulumi-lang-java=\" forEach \"\u003e for_each \u003c/span\u003e= [\"4.4.4.4\", \"5.5.5.5\"]\n    content {\n      answer  = answers.value\n    }\n  }"
                 },
                 "tags": {
                     "type": "object",
@@ -2798,7 +2798,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "deprecationMessage": "short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block."
+                        "deprecationMessage": "short_answers will be deprecated in a future release.\nIt is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \u003cspan pulumi-lang-nodejs=\"\"shortAnswers\"\" pulumi-lang-dotnet=\"\"ShortAnswers\"\" pulumi-lang-go=\"\"shortAnswers\"\" pulumi-lang-python=\"\"short_answers\"\" pulumi-lang-yaml=\"\"shortAnswers\"\" pulumi-lang-java=\"\"shortAnswers\"\"\u003e\"short_answers\"\u003c/span\u003e can be achieved with dynamic blocks:\n  dynamic \"answers\" {\n   \u003cspan pulumi-lang-nodejs=\" forEach \" pulumi-lang-dotnet=\" ForEach \" pulumi-lang-go=\" forEach \" pulumi-lang-python=\" for_each \" pulumi-lang-yaml=\" forEach \" pulumi-lang-java=\" forEach \"\u003e for_each \u003c/span\u003e= [\"4.4.4.4\", \"5.5.5.5\"]\n    content {\n      answer  = answers.value\n    }\n  }"
                     },
                     "tags": {
                         "type": "object",
