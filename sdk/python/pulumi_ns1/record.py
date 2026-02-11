@@ -81,8 +81,22 @@ class RecordArgs:
         if regions is not None:
             pulumi.set(__self__, "regions", regions)
         if short_answers is not None:
-            warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
-            pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+            warnings.warn("""short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:
+  dynamic \"answers\" {
+    for_each = [\"4.4.4.4\", \"5.5.5.5\"]
+    content {
+      answer  = answers.value
+    }
+  }""", DeprecationWarning)
+            pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:
+  dynamic \"answers\" {
+    for_each = [\"4.4.4.4\", \"5.5.5.5\"]
+    content {
+      answer  = answers.value
+    }
+  }""")
         if short_answers is not None:
             pulumi.set(__self__, "short_answers", short_answers)
         if tags is not None:
@@ -223,7 +237,14 @@ class RecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="shortAnswers")
-    @_utilities.deprecated("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+    @_utilities.deprecated("""short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:
+  dynamic \"answers\" {
+    for_each = [\"4.4.4.4\", \"5.5.5.5\"]
+    content {
+      answer  = answers.value
+    }
+  }""")
     def short_answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "short_answers")
 
@@ -333,8 +354,22 @@ class _RecordState:
         if regions is not None:
             pulumi.set(__self__, "regions", regions)
         if short_answers is not None:
-            warnings.warn("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""", DeprecationWarning)
-            pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+            warnings.warn("""short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:
+  dynamic \"answers\" {
+    for_each = [\"4.4.4.4\", \"5.5.5.5\"]
+    content {
+      answer  = answers.value
+    }
+  }""", DeprecationWarning)
+            pulumi.log.warn("""short_answers is deprecated: short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:
+  dynamic \"answers\" {
+    for_each = [\"4.4.4.4\", \"5.5.5.5\"]
+    content {
+      answer  = answers.value
+    }
+  }""")
         if short_answers is not None:
             pulumi.set(__self__, "short_answers", short_answers)
         if tags is not None:
@@ -454,7 +489,14 @@ class _RecordState:
 
     @_builtins.property
     @pulumi.getter(name="shortAnswers")
-    @_utilities.deprecated("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+    @_utilities.deprecated("""short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:
+  dynamic \"answers\" {
+    for_each = [\"4.4.4.4\", \"5.5.5.5\"]
+    content {
+      answer  = answers.value
+    }
+  }""")
     def short_answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "short_answers")
 
@@ -1044,7 +1086,14 @@ class Record(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="shortAnswers")
-    @_utilities.deprecated("""short_answers will be deprecated in a future release. It is suggested to migrate to a regular \"answers\" block.""")
+    @_utilities.deprecated("""short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+, a similar convenience to \"short_answers\" can be achieved with dynamic blocks:
+  dynamic \"answers\" {
+    for_each = [\"4.4.4.4\", \"5.5.5.5\"]
+    content {
+      answer  = answers.value
+    }
+  }""")
     def short_answers(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "short_answers")
 

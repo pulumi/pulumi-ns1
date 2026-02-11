@@ -414,7 +414,14 @@ namespace Pulumi.Ns1
 
         [Input("shortAnswers")]
         private InputList<string>? _shortAnswers;
-        [Obsolete(@"short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block.")]
+        [Obsolete(@"short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""ShortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    ForEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  }")]
         public InputList<string> ShortAnswers
         {
             get => _shortAnswers ?? (_shortAnswers = new InputList<string>());
@@ -549,7 +556,14 @@ namespace Pulumi.Ns1
 
         [Input("shortAnswers")]
         private InputList<string>? _shortAnswers;
-        [Obsolete(@"short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block.")]
+        [Obsolete(@"short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""ShortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    ForEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  }")]
         public InputList<string> ShortAnswers
         {
             get => _shortAnswers ?? (_shortAnswers = new InputList<string>());

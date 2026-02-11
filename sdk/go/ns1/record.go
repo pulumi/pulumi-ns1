@@ -237,7 +237,14 @@ type Record struct {
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
 	Regions RecordRegionArrayOutput `pulumi:"regions"`
-	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+	// Deprecated: short_answers will be deprecated in a future release.
+	// It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+	//   dynamic "answers" {
+	//     forEach = ["4.4.4.4", "5.5.5.5"]
+	//     content {
+	//       answer  = answers.value
+	//     }
+	//   }
 	ShortAnswers pulumi.StringArrayOutput `pulumi:"shortAnswers"`
 	// map of tags in the form of `"key" = "value"` where both key and value are strings
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -316,7 +323,14 @@ type recordState struct {
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
 	Regions []RecordRegion `pulumi:"regions"`
-	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+	// Deprecated: short_answers will be deprecated in a future release.
+	// It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+	//   dynamic "answers" {
+	//     forEach = ["4.4.4.4", "5.5.5.5"]
+	//     content {
+	//       answer  = answers.value
+	//     }
+	//   }
 	ShortAnswers []string `pulumi:"shortAnswers"`
 	// map of tags in the form of `"key" = "value"` where both key and value are strings
 	Tags map[string]string `pulumi:"tags"`
@@ -357,7 +371,14 @@ type RecordState struct {
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
 	Regions RecordRegionArrayInput
-	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+	// Deprecated: short_answers will be deprecated in a future release.
+	// It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+	//   dynamic "answers" {
+	//     forEach = ["4.4.4.4", "5.5.5.5"]
+	//     content {
+	//       answer  = answers.value
+	//     }
+	//   }
 	ShortAnswers pulumi.StringArrayInput
 	// map of tags in the form of `"key" = "value"` where both key and value are strings
 	Tags pulumi.StringMapInput
@@ -402,7 +423,14 @@ type recordArgs struct {
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
 	Regions []RecordRegion `pulumi:"regions"`
-	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+	// Deprecated: short_answers will be deprecated in a future release.
+	// It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+	//   dynamic "answers" {
+	//     forEach = ["4.4.4.4", "5.5.5.5"]
+	//     content {
+	//       answer  = answers.value
+	//     }
+	//   }
 	ShortAnswers []string `pulumi:"shortAnswers"`
 	// map of tags in the form of `"key" = "value"` where both key and value are strings
 	Tags map[string]string `pulumi:"tags"`
@@ -444,7 +472,14 @@ type RecordArgs struct {
 	// but remain `regions` here for legacy reasons. Regions are
 	// documented below. Please note the ordering requirement!
 	Regions RecordRegionArrayInput
-	// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+	// Deprecated: short_answers will be deprecated in a future release.
+	// It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+	//   dynamic "answers" {
+	//     forEach = ["4.4.4.4", "5.5.5.5"]
+	//     content {
+	//       answer  = answers.value
+	//     }
+	//   }
 	ShortAnswers pulumi.StringArrayInput
 	// map of tags in the form of `"key" = "value"` where both key and value are strings
 	Tags pulumi.StringMapInput
@@ -598,7 +633,15 @@ func (o RecordOutput) Regions() RecordRegionArrayOutput {
 	return o.ApplyT(func(v *Record) RecordRegionArrayOutput { return v.Regions }).(RecordRegionArrayOutput)
 }
 
-// Deprecated: short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+// Deprecated: short_answers will be deprecated in a future release.
+// It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+//
+//	dynamic "answers" {
+//	  forEach = ["4.4.4.4", "5.5.5.5"]
+//	  content {
+//	    answer  = answers.value
+//	  }
+//	}
 func (o RecordOutput) ShortAnswers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringArrayOutput { return v.ShortAnswers }).(pulumi.StringArrayOutput)
 }

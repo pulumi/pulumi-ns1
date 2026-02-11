@@ -302,10 +302,24 @@ public class Record extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * short_answers will be deprecated in a future release. It is suggested to migrate to a regular &#34;answers&#34; block.
+     * short_answers will be deprecated in a future release.
+     * It is suggested to migrate to a regular &#34;answers&#34; block. Using Terraform 0.12+, a similar convenience to &#34;shortAnswers&#34; can be achieved with dynamic blocks:
+     *   dynamic &#34;answers&#34; {
+     *     forEach = [&#34;4.4.4.4&#34;, &#34;5.5.5.5&#34;]
+     *     content {
+     *       answer  = answers.value
+     *     }
+     *   }
      * 
      */
-    @Deprecated /* short_answers will be deprecated in a future release. It is suggested to migrate to a regular ""answers"" block. */
+    @Deprecated /* short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""shortAnswers"" can be achieved with dynamic blocks:
+  dynamic ""answers"" {
+    forEach = [""4.4.4.4"", ""5.5.5.5""]
+    content {
+      answer  = answers.value
+    }
+  } */
     @Export(name="shortAnswers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> shortAnswers;
 

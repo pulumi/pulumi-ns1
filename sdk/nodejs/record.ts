@@ -205,7 +205,14 @@ export class Record extends pulumi.CustomResource {
      */
     declare public readonly regions: pulumi.Output<outputs.RecordRegion[] | undefined>;
     /**
-     * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+     * @deprecated short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+  dynamic "answers" {
+    forEach = ["4.4.4.4", "5.5.5.5"]
+    content {
+      answer  = answers.value
+    }
+  }
      */
     declare public readonly shortAnswers: pulumi.Output<string[] | undefined>;
     /**
@@ -330,7 +337,14 @@ export interface RecordState {
      */
     regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
     /**
-     * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+     * @deprecated short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+  dynamic "answers" {
+    forEach = ["4.4.4.4", "5.5.5.5"]
+    content {
+      answer  = answers.value
+    }
+  }
      */
     shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -396,7 +410,14 @@ export interface RecordArgs {
      */
     regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
     /**
-     * @deprecated short_answers will be deprecated in a future release. It is suggested to migrate to a regular "answers" block.
+     * @deprecated short_answers will be deprecated in a future release.
+It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
+  dynamic "answers" {
+    forEach = ["4.4.4.4", "5.5.5.5"]
+    content {
+      answer  = answers.value
+    }
+  }
      */
     shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
