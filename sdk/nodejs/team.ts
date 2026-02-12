@@ -61,9 +61,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/team:Team <name> <team_id>`
- * ```
+ * `terraform import ns1_team.<name> <team_id>`
  */
 export class Team extends pulumi.CustomResource {
     /**

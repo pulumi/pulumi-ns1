@@ -56,9 +56,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/notifyList:NotifyList &lt;name&gt; &lt;notifylist_id&gt;`
-    /// ```
+    /// `terraform import ns1_notifylist.&lt;name&gt; &lt;notifylist_id&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/notifyList:NotifyList")]
     public partial class NotifyList : global::Pulumi.CustomResource

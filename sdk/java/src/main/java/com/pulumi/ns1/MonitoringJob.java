@@ -83,9 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/monitoringJob:MonitoringJob &lt;name&gt; &lt;monitoringjob_id&gt;`
- * ```
+ * `terraform import ns1_monitoringjob.&lt;name&gt; &lt;monitoringjob_id&gt;`
  * 
  */
 @ResourceType(type="ns1:index/monitoringJob:MonitoringJob")
@@ -216,9 +214,17 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> notifyFailback() {
         return Codegen.optional(this.notifyFailback);
     }
+    /**
+     * The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+     * 
+     */
     @Export(name="notifyList", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notifyList;
 
+    /**
+     * @return The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+     * 
+     */
     public Output<Optional<String>> notifyList() {
         return Codegen.optional(this.notifyList);
     }

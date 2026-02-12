@@ -60,9 +60,7 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
-// ```
+// `terraform import ns1_notifylist.<name> <notifylist_id>`
 type NotifyList struct {
 	pulumi.CustomResourceState
 

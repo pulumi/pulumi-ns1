@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides billing usage details about a NS1 account.
 func GetBillingUsage(ctx *pulumi.Context, args *GetBillingUsageArgs, opts ...pulumi.InvokeOption) (*GetBillingUsageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBillingUsageResult

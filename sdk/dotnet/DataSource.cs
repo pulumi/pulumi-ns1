@@ -37,9 +37,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/dataSource:DataSource &lt;name&gt; &lt;datasource_id&gt;`
-    /// ```
+    /// `terraform import ns1_datasource.&lt;name&gt; &lt;datasource_id&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/dataSource:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource

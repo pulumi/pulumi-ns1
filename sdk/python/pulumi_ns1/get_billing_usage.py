@@ -250,7 +250,8 @@ def get_billing_usage(from_: Optional[_builtins.int] = None,
                       to: Optional[_builtins.int] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingUsageResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides billing usage details about a NS1 account.
+
 
     :param _builtins.int from_: The start timestamp for the data range in Unix epoch format.
     :param _builtins.str metric_type: The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
@@ -287,7 +288,8 @@ def get_billing_usage_output(from_: Optional[pulumi.Input[Optional[_builtins.int
                              to: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingUsageResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides billing usage details about a NS1 account.
+
 
     :param _builtins.int from_: The start timestamp for the data range in Unix epoch format.
     :param _builtins.str metric_type: The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.

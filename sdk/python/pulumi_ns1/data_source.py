@@ -161,9 +161,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
-        ```
+        `terraform import ns1_datasource.<name> <datasource_id>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,9 +196,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
-        ```
+        `terraform import ns1_datasource.<name> <datasource_id>`
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

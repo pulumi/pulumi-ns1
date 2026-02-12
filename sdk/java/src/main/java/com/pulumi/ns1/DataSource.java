@@ -58,9 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/dataSource:DataSource &lt;name&gt; &lt;datasource_id&gt;`
- * ```
+ * `terraform import ns1_datasource.&lt;name&gt; &lt;datasource_id&gt;`
  * 
  */
 @ResourceType(type="ns1:index/dataSource:DataSource")

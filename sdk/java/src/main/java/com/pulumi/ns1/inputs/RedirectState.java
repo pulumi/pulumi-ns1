@@ -18,9 +18,21 @@ public final class RedirectState extends com.pulumi.resources.ResourceArgs {
 
     public static final RedirectState Empty = new RedirectState();
 
+    /**
+     * The certificate redirect id. If not specified the redirect will be created as HTTP,
+     * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+     * If the certificate is managed in terraform it&#39;s recommended to set explictly to &#34;${ns1_redirect_certificate.name.id}&#34;.
+     * 
+     */
     @Import(name="certificateId")
     private @Nullable Output<String> certificateId;
 
+    /**
+     * @return The certificate redirect id. If not specified the redirect will be created as HTTP,
+     * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+     * If the certificate is managed in terraform it&#39;s recommended to set explictly to &#34;${ns1_redirect_certificate.name.id}&#34;.
+     * 
+     */
     public Optional<Output<String>> certificateId() {
         return Optional.ofNullable(this.certificateId);
     }
@@ -231,11 +243,27 @@ public final class RedirectState extends com.pulumi.resources.ResourceArgs {
             $ = new RedirectState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateId The certificate redirect id. If not specified the redirect will be created as HTTP,
+         * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+         * If the certificate is managed in terraform it&#39;s recommended to set explictly to &#34;${ns1_redirect_certificate.name.id}&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateId(@Nullable Output<String> certificateId) {
             $.certificateId = certificateId;
             return this;
         }
 
+        /**
+         * @param certificateId The certificate redirect id. If not specified the redirect will be created as HTTP,
+         * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+         * If the certificate is managed in terraform it&#39;s recommended to set explictly to &#34;${ns1_redirect_certificate.name.id}&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateId(String certificateId) {
             return certificateId(Output.of(certificateId));
         }

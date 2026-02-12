@@ -42,9 +42,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/alert:Alert <name> <alert_id>`
- * ```
+ * `terraform import ns1_alert.<name> <alert_id>`
  */
 export class Alert extends pulumi.CustomResource {
     /**

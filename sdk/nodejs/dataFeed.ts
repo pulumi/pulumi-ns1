@@ -50,9 +50,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
- * ```
+ * `terraform import ns1_datafeed.<name> <datasource_id>/<datafeed_id>`
  */
 export class DataFeed extends pulumi.CustomResource {
     /**

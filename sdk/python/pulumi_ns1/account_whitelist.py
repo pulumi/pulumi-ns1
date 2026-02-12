@@ -131,9 +131,7 @@ class AccountWhitelist(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
-        ```
+        `terraform import ns1_account_whitelist.example <ID>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,9 +171,7 @@ class AccountWhitelist(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
-        ```
+        `terraform import ns1_account_whitelist.example <ID>`
 
         :param str resource_name: The name of the resource.
         :param AccountWhitelistArgs args: The arguments to use to populate this resource's properties.

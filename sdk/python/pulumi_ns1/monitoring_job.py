@@ -50,6 +50,7 @@ class MonitoringJobArgs:
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
         :param pulumi.Input[_builtins.bool] notify_failback: If true, a notification is sent when a job returns to an "up" state.
+        :param pulumi.Input[_builtins.str] notify_list: The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
@@ -210,6 +211,9 @@ class MonitoringJobArgs:
     @_builtins.property
     @pulumi.getter(name="notifyList")
     def notify_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+        """
         return pulumi.get(self, "notify_list")
 
     @notify_list.setter
@@ -308,6 +312,7 @@ class _MonitoringJobState:
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
         :param pulumi.Input[_builtins.bool] notify_failback: If true, a notification is sent when a job returns to an "up" state.
+        :param pulumi.Input[_builtins.str] notify_list: The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
@@ -461,6 +466,9 @@ class _MonitoringJobState:
     @_builtins.property
     @pulumi.getter(name="notifyList")
     def notify_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+        """
         return pulumi.get(self, "notify_list")
 
     @notify_list.setter
@@ -606,9 +614,7 @@ class MonitoringJob(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
-        ```
+        `terraform import ns1_monitoringjob.<name> <monitoringjob_id>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -621,6 +627,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
         :param pulumi.Input[_builtins.bool] notify_failback: If true, a notification is sent when a job returns to an "up" state.
+        :param pulumi.Input[_builtins.str] notify_list: The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
@@ -677,9 +684,7 @@ class MonitoringJob(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
-        ```
+        `terraform import ns1_monitoringjob.<name> <monitoringjob_id>`
 
         :param str resource_name: The name of the resource.
         :param MonitoringJobArgs args: The arguments to use to populate this resource's properties.
@@ -787,6 +792,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
         :param pulumi.Input[_builtins.bool] notify_failback: If true, a notification is sent when a job returns to an "up" state.
+        :param pulumi.Input[_builtins.str] notify_list: The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
@@ -893,6 +899,9 @@ class MonitoringJob(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="notifyList")
     def notify_list(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+        """
         return pulumi.get(self, "notify_list")
 
     @_builtins.property

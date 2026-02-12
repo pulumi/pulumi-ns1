@@ -45,13 +45,8 @@ import * as utilities from "./utilities";
  *
  * The resource can be imported via their `id`:
  *
- * ```sh
- * $ pulumi import ns1:index/redirect:Redirect <name> <id>`
- * ```
- *
- * ```sh
- * $ pulumi import ns1:index/redirect:Redirect <name> <id>`
- * ```
+ * `terraform import ns1_redirect_certificate.<name> <id>`
+ * `terraform import ns1_redirect.<name> <id>`
  */
 export class Redirect extends pulumi.CustomResource {
     /**
@@ -81,6 +76,11 @@ export class Redirect extends pulumi.CustomResource {
         return obj['__pulumiType'] === Redirect.__pulumiType;
     }
 
+    /**
+     * The certificate redirect id. If not specified the redirect will be created as HTTP,
+     * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+     * If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+     */
     declare public readonly certificateId: pulumi.Output<string>;
     /**
      * The domain the redirect refers to.
@@ -190,6 +190,11 @@ export class Redirect extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Redirect resources.
  */
 export interface RedirectState {
+    /**
+     * The certificate redirect id. If not specified the redirect will be created as HTTP,
+     * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+     * If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+     */
     certificateId?: pulumi.Input<string>;
     /**
      * The domain the redirect refers to.
@@ -248,6 +253,11 @@ export interface RedirectState {
  * The set of arguments for constructing a Redirect resource.
  */
 export interface RedirectArgs {
+    /**
+     * The certificate redirect id. If not specified the redirect will be created as HTTP,
+     * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+     * If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+     */
     certificateId?: pulumi.Input<string>;
     /**
      * The domain the redirect refers to.

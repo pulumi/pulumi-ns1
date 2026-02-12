@@ -59,9 +59,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/alert:Alert &lt;name&gt; &lt;alert_id&gt;`
-    /// ```
+    /// `terraform import ns1_alert.&lt;name&gt; &lt;alert_id&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/alert:Alert")]
     public partial class Alert : global::Pulumi.CustomResource

@@ -63,16 +63,11 @@ __all__ = [
     'GetMonitoringRegionsRegionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class APIKeyDnsRecordsAllowArgsDict(TypedDict):
-        domain: pulumi.Input[_builtins.str]
-        include_subdomains: pulumi.Input[_builtins.bool]
-        type: pulumi.Input[_builtins.str]
-        zone: pulumi.Input[_builtins.str]
-elif False:
-    APIKeyDnsRecordsAllowArgsDict: TypeAlias = Mapping[str, Any]
+class APIKeyDnsRecordsAllowArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    include_subdomains: pulumi.Input[_builtins.bool]
+    type: pulumi.Input[_builtins.str]
+    zone: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class APIKeyDnsRecordsAllowArgs:
@@ -123,14 +118,11 @@ class APIKeyDnsRecordsAllowArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class APIKeyDnsRecordsDenyArgsDict(TypedDict):
-        domain: pulumi.Input[_builtins.str]
-        include_subdomains: pulumi.Input[_builtins.bool]
-        type: pulumi.Input[_builtins.str]
-        zone: pulumi.Input[_builtins.str]
-elif False:
-    APIKeyDnsRecordsDenyArgsDict: TypeAlias = Mapping[str, Any]
+class APIKeyDnsRecordsDenyArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    include_subdomains: pulumi.Input[_builtins.bool]
+    type: pulumi.Input[_builtins.str]
+    zone: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class APIKeyDnsRecordsDenyArgs:
@@ -181,14 +173,11 @@ class APIKeyDnsRecordsDenyArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class AlertDataArgsDict(TypedDict):
-        alert_at_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        required by the account/usage alerts, with a value between 1 and 100
-        """
-elif False:
-    AlertDataArgsDict: TypeAlias = Mapping[str, Any]
+class AlertDataArgsDict(TypedDict):
+    alert_at_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    required by the account/usage alerts, with a value between 1 and 100
+    """
 
 @pulumi.input_type
 class AlertDataArgs:
@@ -213,35 +202,32 @@ class AlertDataArgs:
         pulumi.set(self, "alert_at_percent", value)
 
 
-if not MYPY:
-    class ApplicationDefaultConfigArgsDict(TypedDict):
-        http: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether or not to use HTTP in measurements.
-        """
-        https: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether or not to use HTTPS in measurements.
-        """
-        job_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum timeout per job
-        0, the primary NSONE Global Network. Normally, you should not have to worry about this.
-        """
-        request_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum timeout per request.
-        """
-        static_values: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether or not to skip aggregation for this job's measurements
-        """
-        use_xhr: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use XMLHttpRequest (XHR) when taking measurements.
-        """
-elif False:
-    ApplicationDefaultConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationDefaultConfigArgsDict(TypedDict):
+    http: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether or not to use HTTP in measurements.
+    """
+    https: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether or not to use HTTPS in measurements.
+    """
+    job_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum timeout per job
+    0, the primary NSONE Global Network. Normally, you should not have to worry about this.
+    """
+    request_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum timeout per request.
+    """
+    static_values: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether or not to skip aggregation for this job's measurements
+    """
+    use_xhr: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use XMLHttpRequest (XHR) when taking measurements.
+    """
 
 @pulumi.input_type
 class ApplicationDefaultConfigArgs:
@@ -347,13 +333,10 @@ class ApplicationDefaultConfigArgs:
         pulumi.set(self, "use_xhr", value)
 
 
-if not MYPY:
-    class DatasetDatatypeArgsDict(TypedDict):
-        data: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        scope: pulumi.Input[_builtins.str]
-        type: pulumi.Input[_builtins.str]
-elif False:
-    DatasetDatatypeArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetDatatypeArgsDict(TypedDict):
+    data: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    scope: pulumi.Input[_builtins.str]
+    type: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class DatasetDatatypeArgs:
@@ -393,13 +376,10 @@ class DatasetDatatypeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DatasetRepeatArgsDict(TypedDict):
-        end_after_n: pulumi.Input[_builtins.int]
-        repeats_every: pulumi.Input[_builtins.str]
-        start: pulumi.Input[_builtins.int]
-elif False:
-    DatasetRepeatArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetRepeatArgsDict(TypedDict):
+    end_after_n: pulumi.Input[_builtins.int]
+    repeats_every: pulumi.Input[_builtins.str]
+    start: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class DatasetRepeatArgs:
@@ -439,15 +419,12 @@ class DatasetRepeatArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class DatasetReportArgsDict(TypedDict):
-        created_at: NotRequired[pulumi.Input[_builtins.int]]
-        end: NotRequired[pulumi.Input[_builtins.int]]
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        start: NotRequired[pulumi.Input[_builtins.int]]
-        status: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DatasetReportArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetReportArgsDict(TypedDict):
+    created_at: NotRequired[pulumi.Input[_builtins.int]]
+    end: NotRequired[pulumi.Input[_builtins.int]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[_builtins.int]]
+    status: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DatasetReportArgs:
@@ -514,14 +491,11 @@ class DatasetReportArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class DatasetTimeframeArgsDict(TypedDict):
-        aggregation: pulumi.Input[_builtins.str]
-        cycles: NotRequired[pulumi.Input[_builtins.int]]
-        from_: NotRequired[pulumi.Input[_builtins.int]]
-        to: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    DatasetTimeframeArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetTimeframeArgsDict(TypedDict):
+    aggregation: pulumi.Input[_builtins.str]
+    cycles: NotRequired[pulumi.Input[_builtins.int]]
+    from_: NotRequired[pulumi.Input[_builtins.int]]
+    to: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class DatasetTimeframeArgs:
@@ -575,13 +549,10 @@ class DatasetTimeframeArgs:
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class MonitoringJobRuleArgsDict(TypedDict):
-        comparison: pulumi.Input[_builtins.str]
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    MonitoringJobRuleArgsDict: TypeAlias = Mapping[str, Any]
+class MonitoringJobRuleArgsDict(TypedDict):
+    comparison: pulumi.Input[_builtins.str]
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MonitoringJobRuleArgs:
@@ -621,18 +592,15 @@ class MonitoringJobRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class NotifyListNotificationArgsDict(TypedDict):
-        config: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Configuration details for the given notifier type.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
-        """
-elif False:
-    NotifyListNotificationArgsDict: TypeAlias = Mapping[str, Any]
+class NotifyListNotificationArgsDict(TypedDict):
+    config: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Configuration details for the given notifier type.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of notifier. Available notifiers are indicated in /notifytypes endpoint.
+    """
 
 @pulumi.input_type
 class NotifyListNotificationArgs:
@@ -671,11 +639,8 @@ class NotifyListNotificationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PulsarJobBlendMetricWeightsArgsDict(TypedDict):
-        timestamp: pulumi.Input[_builtins.int]
-elif False:
-    PulsarJobBlendMetricWeightsArgsDict: TypeAlias = Mapping[str, Any]
+class PulsarJobBlendMetricWeightsArgsDict(TypedDict):
+    timestamp: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class PulsarJobBlendMetricWeightsArgs:
@@ -693,18 +658,15 @@ class PulsarJobBlendMetricWeightsArgs:
         pulumi.set(self, "timestamp", value)
 
 
-if not MYPY:
-    class PulsarJobConfigArgsDict(TypedDict):
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        http: NotRequired[pulumi.Input[_builtins.bool]]
-        https: NotRequired[pulumi.Input[_builtins.bool]]
-        job_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
-        request_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
-        static_values: NotRequired[pulumi.Input[_builtins.bool]]
-        url_path: NotRequired[pulumi.Input[_builtins.str]]
-        use_xhr: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PulsarJobConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PulsarJobConfigArgsDict(TypedDict):
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    http: NotRequired[pulumi.Input[_builtins.bool]]
+    https: NotRequired[pulumi.Input[_builtins.bool]]
+    job_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
+    request_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
+    static_values: NotRequired[pulumi.Input[_builtins.bool]]
+    url_path: NotRequired[pulumi.Input[_builtins.str]]
+    use_xhr: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PulsarJobConfigArgs:
@@ -807,14 +769,11 @@ class PulsarJobConfigArgs:
         pulumi.set(self, "use_xhr", value)
 
 
-if not MYPY:
-    class PulsarJobWeightArgsDict(TypedDict):
-        default_value: pulumi.Input[_builtins.float]
-        name: pulumi.Input[_builtins.str]
-        weight: pulumi.Input[_builtins.int]
-        maximize: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PulsarJobWeightArgsDict: TypeAlias = Mapping[str, Any]
+class PulsarJobWeightArgsDict(TypedDict):
+    default_value: pulumi.Input[_builtins.float]
+    name: pulumi.Input[_builtins.str]
+    weight: pulumi.Input[_builtins.int]
+    maximize: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PulsarJobWeightArgs:
@@ -866,52 +825,60 @@ class PulsarJobWeightArgs:
         pulumi.set(self, "maximize", value)
 
 
-if not MYPY:
-    class RecordAnswerArgsDict(TypedDict):
-        answer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Space delimited string of RDATA fields dependent on the record type.
+class RecordAnswerArgsDict(TypedDict):
+    answer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Space delimited string of RDATA fields dependent on the record type.
 
-        A:
+    A:
 
-        answer = "1.2.3.4"
+    answer = "1.2.3.4"
 
-        CNAME:
+    CNAME:
 
-        answer = "www.example.com"
+    answer = "www.example.com"
 
-        MX:
+    MX:
 
-        answer = "5 mail.example.com"
+    answer = "5 mail.example.com"
 
-        SRV:
+    SRV:
 
-        answer = "10 0 2380 node-1.example.com"
+    answer = "10 0 2380 node-1.example.com"
 
-        SPF:
+    SPF:
 
-        answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
+    answer = "v=DKIM1; k=rsa; p=XXXXXXXX"
 
-        Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
-        Only one of `answer` or `answer_parts` can be specified.
-        """
-        answer_parts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of individual RDATA fields. This field cannot be set together with `answer`
-        """
-        meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The region (Answer Group really) that this answer
-        belongs to. This should be one of the names specified in `regions`. Only a
-        single `region` per answer is currently supported. If you want an answer in
-        multiple regions, duplicating the answer (including metadata) is the correct
-        approach.
-        * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-        is documented below.
-        """
-elif False:
-    RecordAnswerArgsDict: TypeAlias = Mapping[str, Any]
+    Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
+    Only one of `answer` or `answer_parts` can be specified.
+    """
+    answer_parts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of individual RDATA fields. This field cannot be set together with `answer`
+    """
+    meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    meta is supported at the `regions` level. Meta
+    is documented below.
+    Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+    `us_state` should be comma separated strings, and changes in ordering will not
+    lead to terraform detecting a change.
+
+    Note: regions **must** be sorted lexically by their "name" argument in the
+    Terraform configuration file, otherwise Terraform will detect changes to the
+    record when none actually exist.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The region (Answer Group really) that this answer
+    belongs to. This should be one of the names specified in `regions`. Only a
+    single `region` per answer is currently supported. If you want an answer in
+    multiple regions, duplicating the answer (including metadata) is the correct
+    approach.
+    * ` meta` - (Optional) meta is supported at the `answer` level. Meta
+    is documented below.
+    """
 
 @pulumi.input_type
 class RecordAnswerArgs:
@@ -946,6 +913,15 @@ class RecordAnswerArgs:
                Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
                Only one of `answer` or `answer_parts` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] answer_parts: A list of individual RDATA fields. This field cannot be set together with `answer`
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] meta: meta is supported at the `regions` level. Meta
+               is documented below.
+               Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+               `us_state` should be comma separated strings, and changes in ordering will not
+               lead to terraform detecting a change.
+               
+               Note: regions **must** be sorted lexically by their "name" argument in the
+               Terraform configuration file, otherwise Terraform will detect changes to the
+               record when none actually exist.
         :param pulumi.Input[_builtins.str] region: The region (Answer Group really) that this answer
                belongs to. This should be one of the names specified in `regions`. Only a
                single `region` per answer is currently supported. If you want an answer in
@@ -1013,6 +989,17 @@ class RecordAnswerArgs:
     @_builtins.property
     @pulumi.getter
     def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        meta is supported at the `regions` level. Meta
+        is documented below.
+        Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+        `us_state` should be comma separated strings, and changes in ordering will not
+        lead to terraform detecting a change.
+
+        Note: regions **must** be sorted lexically by their "name" argument in the
+        Terraform configuration file, otherwise Terraform will detect changes to the
+        record when none actually exist.
+        """
         return pulumi.get(self, "meta")
 
     @meta.setter
@@ -1038,24 +1025,21 @@ class RecordAnswerArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class RecordFilterArgsDict(TypedDict):
-        filter: pulumi.Input[_builtins.str]
-        """
-        The type of filter.
-        """
-        config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The filters' configuration. Simple key/value pairs
-        determined by the filter type.
-        """
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether the filter is applied in the
-        filter chain.
-        """
-elif False:
-    RecordFilterArgsDict: TypeAlias = Mapping[str, Any]
+class RecordFilterArgsDict(TypedDict):
+    filter: pulumi.Input[_builtins.str]
+    """
+    The type of filter.
+    """
+    config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The filters' configuration. Simple key/value pairs
+    determined by the filter type.
+    """
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether the filter is applied in the
+    filter chain.
+    """
 
 @pulumi.input_type
 class RecordFilterArgs:
@@ -1115,15 +1099,23 @@ class RecordFilterArgs:
         pulumi.set(self, "disabled", value)
 
 
-if not MYPY:
-    class RecordRegionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the region (or Answer Group).
-        """
-        meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-elif False:
-    RecordRegionArgsDict: TypeAlias = Mapping[str, Any]
+class RecordRegionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the region (or Answer Group).
+    """
+    meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    meta is supported at the `regions` level. Meta
+    is documented below.
+    Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+    `us_state` should be comma separated strings, and changes in ordering will not
+    lead to terraform detecting a change.
+
+    Note: regions **must** be sorted lexically by their "name" argument in the
+    Terraform configuration file, otherwise Terraform will detect changes to the
+    record when none actually exist.
+    """
 
 @pulumi.input_type
 class RecordRegionArgs:
@@ -1132,6 +1124,15 @@ class RecordRegionArgs:
                  meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the region (or Answer Group).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] meta: meta is supported at the `regions` level. Meta
+               is documented below.
+               Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+               `us_state` should be comma separated strings, and changes in ordering will not
+               lead to terraform detecting a change.
+               
+               Note: regions **must** be sorted lexically by their "name" argument in the
+               Terraform configuration file, otherwise Terraform will detect changes to the
+               record when none actually exist.
         """
         pulumi.set(__self__, "name", name)
         if meta is not None:
@@ -1152,6 +1153,17 @@ class RecordRegionArgs:
     @_builtins.property
     @pulumi.getter
     def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        meta is supported at the `regions` level. Meta
+        is documented below.
+        Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+        `us_state` should be comma separated strings, and changes in ordering will not
+        lead to terraform detecting a change.
+
+        Note: regions **must** be sorted lexically by their "name" argument in the
+        Terraform configuration file, otherwise Terraform will detect changes to the
+        record when none actually exist.
+        """
         return pulumi.get(self, "meta")
 
     @meta.setter
@@ -1159,14 +1171,11 @@ class RecordRegionArgs:
         pulumi.set(self, "meta", value)
 
 
-if not MYPY:
-    class TeamDnsRecordsAllowArgsDict(TypedDict):
-        domain: pulumi.Input[_builtins.str]
-        include_subdomains: pulumi.Input[_builtins.bool]
-        type: pulumi.Input[_builtins.str]
-        zone: pulumi.Input[_builtins.str]
-elif False:
-    TeamDnsRecordsAllowArgsDict: TypeAlias = Mapping[str, Any]
+class TeamDnsRecordsAllowArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    include_subdomains: pulumi.Input[_builtins.bool]
+    type: pulumi.Input[_builtins.str]
+    zone: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class TeamDnsRecordsAllowArgs:
@@ -1217,14 +1226,11 @@ class TeamDnsRecordsAllowArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class TeamDnsRecordsDenyArgsDict(TypedDict):
-        domain: pulumi.Input[_builtins.str]
-        include_subdomains: pulumi.Input[_builtins.bool]
-        type: pulumi.Input[_builtins.str]
-        zone: pulumi.Input[_builtins.str]
-elif False:
-    TeamDnsRecordsDenyArgsDict: TypeAlias = Mapping[str, Any]
+class TeamDnsRecordsDenyArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    include_subdomains: pulumi.Input[_builtins.bool]
+    type: pulumi.Input[_builtins.str]
+    zone: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class TeamDnsRecordsDenyArgs:
@@ -1275,15 +1281,12 @@ class TeamDnsRecordsDenyArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class TeamIpWhitelistArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The free form name of the team.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    TeamIpWhitelistArgsDict: TypeAlias = Mapping[str, Any]
+class TeamIpWhitelistArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The free form name of the team.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class TeamIpWhitelistArgs:
@@ -1318,14 +1321,11 @@ class TeamIpWhitelistArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class UserDnsRecordsAllowArgsDict(TypedDict):
-        domain: pulumi.Input[_builtins.str]
-        include_subdomains: pulumi.Input[_builtins.bool]
-        type: pulumi.Input[_builtins.str]
-        zone: pulumi.Input[_builtins.str]
-elif False:
-    UserDnsRecordsAllowArgsDict: TypeAlias = Mapping[str, Any]
+class UserDnsRecordsAllowArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    include_subdomains: pulumi.Input[_builtins.bool]
+    type: pulumi.Input[_builtins.str]
+    zone: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class UserDnsRecordsAllowArgs:
@@ -1376,14 +1376,11 @@ class UserDnsRecordsAllowArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class UserDnsRecordsDenyArgsDict(TypedDict):
-        domain: pulumi.Input[_builtins.str]
-        include_subdomains: pulumi.Input[_builtins.bool]
-        type: pulumi.Input[_builtins.str]
-        zone: pulumi.Input[_builtins.str]
-elif False:
-    UserDnsRecordsDenyArgsDict: TypeAlias = Mapping[str, Any]
+class UserDnsRecordsDenyArgsDict(TypedDict):
+    domain: pulumi.Input[_builtins.str]
+    include_subdomains: pulumi.Input[_builtins.bool]
+    type: pulumi.Input[_builtins.str]
+    zone: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class UserDnsRecordsDenyArgs:
@@ -1434,29 +1431,26 @@ class UserDnsRecordsDenyArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class ZoneSecondaryArgsDict(TypedDict):
-        ip: pulumi.Input[_builtins.str]
-        """
-        IPv4 address of the secondary server.
-        """
-        networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        List of network IDs (`int`) for which the zone
-        should be made available. Default is network 0, the primary NSONE Global
-        Network. Normally, you should not have to worry about this.
-        """
-        notify: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether we send `NOTIFY` messages to the secondary host
-        when the zone changes. Default `false`.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port of the the secondary server. Default `53`.
-        """
-elif False:
-    ZoneSecondaryArgsDict: TypeAlias = Mapping[str, Any]
+class ZoneSecondaryArgsDict(TypedDict):
+    ip: pulumi.Input[_builtins.str]
+    """
+    IPv4 address of the secondary server.
+    """
+    networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    List of network IDs (`int`) for which the zone
+    should be made available. Default is network 0, the primary NSONE Global
+    Network. Normally, you should not have to worry about this.
+    """
+    notify: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether we send `NOTIFY` messages to the secondary host
+    when the zone changes. Default `false`.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port of the the secondary server. Default `53`.
+    """
 
 @pulumi.input_type
 class ZoneSecondaryArgs:
@@ -1534,22 +1528,19 @@ class ZoneSecondaryArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class GetMonitoringRegionsRegionArgsDict(TypedDict):
-        code: NotRequired[_builtins.str]
-        """
-        3-letter city code identifying the location of the monitor.
-        """
-        name: NotRequired[_builtins.str]
-        """
-        City name identifying the location of the monitor.
-        """
-        subnets: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of IPv4 and IPv6 subnets the monitor sources requests from.
-        """
-elif False:
-    GetMonitoringRegionsRegionArgsDict: TypeAlias = Mapping[str, Any]
+class GetMonitoringRegionsRegionArgsDict(TypedDict):
+    code: NotRequired[_builtins.str]
+    """
+    3-letter city code identifying the location of the monitor.
+    """
+    name: NotRequired[_builtins.str]
+    """
+    City name identifying the location of the monitor.
+    """
+    subnets: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of IPv4 and IPv6 subnets the monitor sources requests from.
+    """
 
 @pulumi.input_type
 class GetMonitoringRegionsRegionArgs:

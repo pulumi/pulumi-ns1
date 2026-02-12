@@ -12,6 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecordRegion {
+    /**
+     * @return meta is supported at the `regions` level. Meta
+     * is documented below.
+     * Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+     * `usState` should be comma separated strings, and changes in ordering will not
+     * lead to terraform detecting a change.
+     * 
+     * Note: regions **must** be sorted lexically by their &#34;name&#34; argument in the
+     * Terraform configuration file, otherwise Terraform will detect changes to the
+     * record when none actually exist.
+     * 
+     */
     private @Nullable Map<String,String> meta;
     /**
      * @return Name of the region (or Answer Group).
@@ -20,6 +32,18 @@ public final class RecordRegion {
     private String name;
 
     private RecordRegion() {}
+    /**
+     * @return meta is supported at the `regions` level. Meta
+     * is documented below.
+     * Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+     * `usState` should be comma separated strings, and changes in ordering will not
+     * lead to terraform detecting a change.
+     * 
+     * Note: regions **must** be sorted lexically by their &#34;name&#34; argument in the
+     * Terraform configuration file, otherwise Terraform will detect changes to the
+     * record when none actually exist.
+     * 
+     */
     public Map<String,String> meta() {
         return this.meta == null ? Map.of() : this.meta;
     }

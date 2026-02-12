@@ -47,17 +47,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * -> Imported keys will not have their key stored in the state file.
+ * > Imported keys will not have their key stored in the state file.
  *
- * ```sh
- * $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey` 
- * ```
+ * `terraform import ns1.APIKey`
  *
  * So for the example above:
  *
- * ```sh
- * $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
- * ```
+ * `terraform import ns1_apikey.example <ID>`
  */
 export class APIKey extends pulumi.CustomResource {
     /**

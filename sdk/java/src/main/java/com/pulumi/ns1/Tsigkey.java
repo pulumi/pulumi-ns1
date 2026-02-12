@@ -56,9 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/tsigkey:Tsigkey importTest &lt;name&gt;`
- * ```
+ * `terraform import ns1_tsigkey.importTest &lt;name&gt;`
  * 
  */
 @ResourceType(type="ns1:index/tsigkey:Tsigkey")

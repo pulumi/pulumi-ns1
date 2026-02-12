@@ -13,6 +13,17 @@ namespace Pulumi.Ns1.Outputs
     [OutputType]
     public sealed class RecordRegion
     {
+        /// <summary>
+        /// meta is supported at the `Regions` level. Meta
+        /// is documented below.
+        /// Note that `Meta` values for `Country`, `CaProvince`, `Georegion`, and
+        /// `UsState` should be comma separated strings, and changes in ordering will not
+        /// lead to terraform detecting a change.
+        /// 
+        /// Note: regions **must** be sorted lexically by their "name" argument in the
+        /// Terraform configuration file, otherwise Terraform will detect changes to the
+        /// record when none actually exist.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Meta;
         /// <summary>
         /// Name of the region (or Answer Group).

@@ -89,9 +89,7 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/team:Team <name> <team_id>`
-// ```
+// `terraform import ns1_team.<name> <team_id>`
 type Team struct {
 	pulumi.CustomResourceState
 

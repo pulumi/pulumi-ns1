@@ -47,9 +47,7 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
-// ```
+// `terraform import ns1_datasource.<name> <datasource_id>`
 type DataSource struct {
 	pulumi.CustomResourceState
 

@@ -55,6 +55,18 @@ namespace Pulumi.Ns1.Inputs
 
         [Input("meta")]
         private InputMap<string>? _meta;
+
+        /// <summary>
+        /// meta is supported at the `Regions` level. Meta
+        /// is documented below.
+        /// Note that `Meta` values for `Country`, `CaProvince`, `Georegion`, and
+        /// `UsState` should be comma separated strings, and changes in ordering will not
+        /// lead to terraform detecting a change.
+        /// 
+        /// Note: regions **must** be sorted lexically by their "name" argument in the
+        /// Terraform configuration file, otherwise Terraform will detect changes to the
+        /// record when none actually exist.
+        /// </summary>
         public InputMap<string> Meta
         {
             get => _meta ?? (_meta = new InputMap<string>());

@@ -203,15 +203,11 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/record:Record <name> <zone>/<domain>/<type>`
-// ```
+// `terraform import ns1_record.<name> <zone>/<domain>/<type>`
 //
 // So for the example above:
 //
-// ```sh
-// $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
-// ```
+// `terraform import ns1_record.www terraform.example.io/www.terraform.example.io/CNAME`
 type Record struct {
 	pulumi.CustomResourceState
 

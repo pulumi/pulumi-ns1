@@ -25,9 +25,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
- * ```
+ * `terraform import ns1_tsigkey.importTest <name>`
  */
 export class Tsigkey extends pulumi.CustomResource {
     /**

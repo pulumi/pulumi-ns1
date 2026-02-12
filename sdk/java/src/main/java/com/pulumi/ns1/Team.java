@@ -96,9 +96,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/team:Team &lt;name&gt; &lt;team_id&gt;`
- * ```
+ * `terraform import ns1_team.&lt;name&gt; &lt;team_id&gt;`
  * 
  */
 @ResourceType(type="ns1:index/team:Team")

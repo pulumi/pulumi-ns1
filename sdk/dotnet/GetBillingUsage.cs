@@ -11,12 +11,21 @@ namespace Pulumi.Ns1
 {
     public static class GetBillingUsage
     {
+        /// <summary>
+        /// Provides billing usage details about a NS1 account.
+        /// </summary>
         public static Task<GetBillingUsageResult> InvokeAsync(GetBillingUsageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingUsageResult>("ns1:index/getBillingUsage:getBillingUsage", args ?? new GetBillingUsageArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides billing usage details about a NS1 account.
+        /// </summary>
         public static Output<GetBillingUsageResult> Invoke(GetBillingUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingUsageResult>("ns1:index/getBillingUsage:getBillingUsage", args ?? new GetBillingUsageInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides billing usage details about a NS1 account.
+        /// </summary>
         public static Output<GetBillingUsageResult> Invoke(GetBillingUsageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingUsageResult>("ns1:index/getBillingUsage:getBillingUsage", args ?? new GetBillingUsageInvokeArgs(), options.WithDefaults());
     }

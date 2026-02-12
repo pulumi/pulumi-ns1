@@ -37,9 +37,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/tsigkey:Tsigkey importTest &lt;name&gt;`
-    /// ```
+    /// `terraform import ns1_tsigkey.importTest &lt;name&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/tsigkey:Tsigkey")]
     public partial class Tsigkey : global::Pulumi.CustomResource

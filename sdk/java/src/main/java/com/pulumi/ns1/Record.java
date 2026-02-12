@@ -177,15 +177,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/record:Record &lt;name&gt; &lt;zone&gt;/&lt;domain&gt;/&lt;type&gt;`
- * ```
+ * `terraform import ns1_record.&lt;name&gt; &lt;zone&gt;/&lt;domain&gt;/&lt;type&gt;`
  * 
  * So for the example above:
  * 
- * ```sh
- * $ pulumi import ns1:index/record:Record www terraform.example.io/www.terraform.example.io/CNAME`
- * ```
+ * `terraform import ns1_record.www terraform.example.io/www.terraform.example.io/CNAME`
  * 
  */
 @ResourceType(type="ns1:index/record:Record")
