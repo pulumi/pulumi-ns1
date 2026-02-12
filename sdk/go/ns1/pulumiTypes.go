@@ -1914,8 +1914,17 @@ type RecordAnswer struct {
 	// Only one of `answer` or `answerParts` can be specified.
 	Answer *string `pulumi:"answer"`
 	// A list of individual RDATA fields. This field cannot be set together with `answer`
-	AnswerParts []string          `pulumi:"answerParts"`
-	Meta        map[string]string `pulumi:"meta"`
+	AnswerParts []string `pulumi:"answerParts"`
+	// meta is supported at the `regions` level. Meta
+	// is documented below.
+	// Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+	// `usState` should be comma separated strings, and changes in ordering will not
+	// lead to terraform detecting a change.
+	//
+	// Note: regions **must** be sorted lexically by their "name" argument in the
+	// Terraform configuration file, otherwise Terraform will detect changes to the
+	// record when none actually exist.
+	Meta map[string]string `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
 	// belongs to. This should be one of the names specified in `regions`. Only a
 	// single `region` per answer is currently supported. If you want an answer in
@@ -1965,7 +1974,16 @@ type RecordAnswerArgs struct {
 	Answer pulumi.StringPtrInput `pulumi:"answer"`
 	// A list of individual RDATA fields. This field cannot be set together with `answer`
 	AnswerParts pulumi.StringArrayInput `pulumi:"answerParts"`
-	Meta        pulumi.StringMapInput   `pulumi:"meta"`
+	// meta is supported at the `regions` level. Meta
+	// is documented below.
+	// Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+	// `usState` should be comma separated strings, and changes in ordering will not
+	// lead to terraform detecting a change.
+	//
+	// Note: regions **must** be sorted lexically by their "name" argument in the
+	// Terraform configuration file, otherwise Terraform will detect changes to the
+	// record when none actually exist.
+	Meta pulumi.StringMapInput `pulumi:"meta"`
 	// The region (Answer Group really) that this answer
 	// belongs to. This should be one of the names specified in `regions`. Only a
 	// single `region` per answer is currently supported. If you want an answer in
@@ -2060,6 +2078,15 @@ func (o RecordAnswerOutput) AnswerParts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecordAnswer) []string { return v.AnswerParts }).(pulumi.StringArrayOutput)
 }
 
+// meta is supported at the `regions` level. Meta
+// is documented below.
+// Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+// `usState` should be comma separated strings, and changes in ordering will not
+// lead to terraform detecting a change.
+//
+// Note: regions **must** be sorted lexically by their "name" argument in the
+// Terraform configuration file, otherwise Terraform will detect changes to the
+// record when none actually exist.
 func (o RecordAnswerOutput) Meta() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RecordAnswer) map[string]string { return v.Meta }).(pulumi.StringMapOutput)
 }
@@ -2217,6 +2244,15 @@ func (o RecordFilterArrayOutput) Index(i pulumi.IntInput) RecordFilterOutput {
 }
 
 type RecordRegion struct {
+	// meta is supported at the `regions` level. Meta
+	// is documented below.
+	// Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+	// `usState` should be comma separated strings, and changes in ordering will not
+	// lead to terraform detecting a change.
+	//
+	// Note: regions **must** be sorted lexically by their "name" argument in the
+	// Terraform configuration file, otherwise Terraform will detect changes to the
+	// record when none actually exist.
 	Meta map[string]string `pulumi:"meta"`
 	// Name of the region (or Answer Group).
 	Name string `pulumi:"name"`
@@ -2234,6 +2270,15 @@ type RecordRegionInput interface {
 }
 
 type RecordRegionArgs struct {
+	// meta is supported at the `regions` level. Meta
+	// is documented below.
+	// Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+	// `usState` should be comma separated strings, and changes in ordering will not
+	// lead to terraform detecting a change.
+	//
+	// Note: regions **must** be sorted lexically by their "name" argument in the
+	// Terraform configuration file, otherwise Terraform will detect changes to the
+	// record when none actually exist.
 	Meta pulumi.StringMapInput `pulumi:"meta"`
 	// Name of the region (or Answer Group).
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2290,6 +2335,15 @@ func (o RecordRegionOutput) ToRecordRegionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// meta is supported at the `regions` level. Meta
+// is documented below.
+// Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+// `usState` should be comma separated strings, and changes in ordering will not
+// lead to terraform detecting a change.
+//
+// Note: regions **must** be sorted lexically by their "name" argument in the
+// Terraform configuration file, otherwise Terraform will detect changes to the
+// record when none actually exist.
 func (o RecordRegionOutput) Meta() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RecordRegion) map[string]string { return v.Meta }).(pulumi.StringMapOutput)
 }

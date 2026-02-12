@@ -83,9 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/dataFeed:DataFeed &lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
- * ```
+ * `terraform import ns1_datafeed.&lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
  * 
  */
 @ResourceType(type="ns1:index/dataFeed:DataFeed")

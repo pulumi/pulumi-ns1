@@ -46,6 +46,18 @@ public final class RecordAnswer {
      * 
      */
     private @Nullable List<String> answerParts;
+    /**
+     * @return meta is supported at the `regions` level. Meta
+     * is documented below.
+     * Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+     * `usState` should be comma separated strings, and changes in ordering will not
+     * lead to terraform detecting a change.
+     * 
+     * Note: regions **must** be sorted lexically by their &#34;name&#34; argument in the
+     * Terraform configuration file, otherwise Terraform will detect changes to the
+     * record when none actually exist.
+     * 
+     */
     private @Nullable Map<String,String> meta;
     /**
      * @return The region (Answer Group really) that this answer
@@ -97,6 +109,18 @@ public final class RecordAnswer {
     public List<String> answerParts() {
         return this.answerParts == null ? List.of() : this.answerParts;
     }
+    /**
+     * @return meta is supported at the `regions` level. Meta
+     * is documented below.
+     * Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+     * `usState` should be comma separated strings, and changes in ordering will not
+     * lead to terraform detecting a change.
+     * 
+     * Note: regions **must** be sorted lexically by their &#34;name&#34; argument in the
+     * Terraform configuration file, otherwise Terraform will detect changes to the
+     * record when none actually exist.
+     * 
+     */
     public Map<String,String> meta() {
         return this.meta == null ? Map.of() : this.meta;
     }

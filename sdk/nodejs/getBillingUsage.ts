@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides billing usage details about a NS1 account.
+ */
 export function getBillingUsage(args: GetBillingUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("ns1:index/getBillingUsage:getBillingUsage", {
@@ -101,6 +104,9 @@ export interface GetBillingUsageResult {
      */
     readonly totalUsage: number;
 }
+/**
+ * Provides billing usage details about a NS1 account.
+ */
 export function getBillingUsageOutput(args: GetBillingUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("ns1:index/getBillingUsage:getBillingUsage", {

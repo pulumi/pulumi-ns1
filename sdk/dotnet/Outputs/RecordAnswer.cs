@@ -44,6 +44,17 @@ namespace Pulumi.Ns1.Outputs
         /// A list of individual RDATA fields. This field cannot be set together with `Answer`
         /// </summary>
         public readonly ImmutableArray<string> AnswerParts;
+        /// <summary>
+        /// meta is supported at the `Regions` level. Meta
+        /// is documented below.
+        /// Note that `Meta` values for `Country`, `CaProvince`, `Georegion`, and
+        /// `UsState` should be comma separated strings, and changes in ordering will not
+        /// lead to terraform detecting a change.
+        /// 
+        /// Note: regions **must** be sorted lexically by their "name" argument in the
+        /// Terraform configuration file, otherwise Terraform will detect changes to the
+        /// record when none actually exist.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Meta;
         /// <summary>
         /// The region (Answer Group really) that this answer

@@ -45,9 +45,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example &lt;ID&gt;`
-    /// ```
+    /// `terraform import ns1_account_whitelist.example &lt;ID&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/accountWhitelist:AccountWhitelist")]
     public partial class AccountWhitelist : global::Pulumi.CustomResource

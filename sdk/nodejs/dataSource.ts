@@ -25,9 +25,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/dataSource:DataSource <name> <datasource_id>`
- * ```
+ * `terraform import ns1_datasource.<name> <datasource_id>`
  */
 export class DataSource extends pulumi.CustomResource {
     /**

@@ -84,9 +84,7 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
-// ```
+// `terraform import ns1_datafeed.<name> <datasource_id>/<datafeed_id>`
 type DataFeed struct {
 	pulumi.CustomResourceState
 

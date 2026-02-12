@@ -64,9 +64,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/monitoringJob:MonitoringJob &lt;name&gt; &lt;monitoringjob_id&gt;`
-    /// ```
+    /// `terraform import ns1_monitoringjob.&lt;name&gt; &lt;monitoringjob_id&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/monitoringJob:MonitoringJob")]
     public partial class MonitoringJob : global::Pulumi.CustomResource
@@ -125,6 +123,9 @@ namespace Pulumi.Ns1
         [Output("notifyFailback")]
         public Output<bool?> NotifyFailback { get; private set; } = null!;
 
+        /// <summary>
+        /// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+        /// </summary>
         [Output("notifyList")]
         public Output<string?> NotifyList { get; private set; } = null!;
 
@@ -272,6 +273,9 @@ namespace Pulumi.Ns1
         [Input("notifyFailback")]
         public Input<bool>? NotifyFailback { get; set; }
 
+        /// <summary>
+        /// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+        /// </summary>
         [Input("notifyList")]
         public Input<string>? NotifyList { get; set; }
 
@@ -393,6 +397,9 @@ namespace Pulumi.Ns1
         [Input("notifyFailback")]
         public Input<bool>? NotifyFailback { get; set; }
 
+        /// <summary>
+        /// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+        /// </summary>
         [Input("notifyList")]
         public Input<string>? NotifyList { get; set; }
 

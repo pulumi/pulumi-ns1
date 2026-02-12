@@ -65,17 +65,13 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// -&gt; Imported keys will not have their key stored in the state file.
+    /// &gt; Imported keys will not have their key stored in the state file.
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey` 
-    /// ```
+    /// `terraform import ns1.APIKey`
     /// 
     /// So for the example above:
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/aPIKey:APIKey example &lt;ID&gt;`
-    /// ```
+    /// `terraform import ns1_apikey.example &lt;ID&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/aPIKey:APIKey")]
     public partial class APIKey : global::Pulumi.CustomResource

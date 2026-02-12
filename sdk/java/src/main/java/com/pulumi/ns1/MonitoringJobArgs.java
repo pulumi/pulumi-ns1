@@ -156,9 +156,17 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.notifyFailback);
     }
 
+    /**
+     * The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+     * 
+     */
     @Import(name="notifyList")
     private @Nullable Output<String> notifyList;
 
+    /**
+     * @return The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+     * 
+     */
     public Optional<Output<String>> notifyList() {
         return Optional.ofNullable(this.notifyList);
     }
@@ -485,11 +493,23 @@ public final class MonitoringJobArgs extends com.pulumi.resources.ResourceArgs {
             return notifyFailback(Output.of(notifyFailback));
         }
 
+        /**
+         * @param notifyList The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notifyList(@Nullable Output<String> notifyList) {
             $.notifyList = notifyList;
             return this;
         }
 
+        /**
+         * @param notifyList The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notifyList(String notifyList) {
             return notifyList(Output.of(notifyList));
         }

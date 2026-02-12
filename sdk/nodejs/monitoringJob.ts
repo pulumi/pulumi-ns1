@@ -48,9 +48,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
- * ```
+ * `terraform import ns1_monitoringjob.<name> <monitoringjob_id>`
  */
 export class MonitoringJob extends pulumi.CustomResource {
     /**
@@ -116,6 +114,9 @@ export class MonitoringJob extends pulumi.CustomResource {
      * If true, a notification is sent when a job returns to an "up" state.
      */
     declare public readonly notifyFailback: pulumi.Output<boolean | undefined>;
+    /**
+     * The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+     */
     declare public readonly notifyList: pulumi.Output<string | undefined>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
@@ -249,6 +250,9 @@ export interface MonitoringJobState {
      * If true, a notification is sent when a job returns to an "up" state.
      */
     notifyFailback?: pulumi.Input<boolean>;
+    /**
+     * The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+     */
     notifyList?: pulumi.Input<string>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
@@ -318,6 +322,9 @@ export interface MonitoringJobArgs {
      * If true, a notification is sent when a job returns to an "up" state.
      */
     notifyFailback?: pulumi.Input<boolean>;
+    /**
+     * The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+     */
     notifyList?: pulumi.Input<string>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.

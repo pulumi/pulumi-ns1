@@ -1165,17 +1165,13 @@ class APIKey(pulumi.CustomResource):
 
         ## Import
 
-        -> Imported keys will not have their key stored in the state file.
+        > Imported keys will not have their key stored in the state file.
 
-        ```sh
-        $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey` 
-        ```
+        `terraform import APIKey`
 
         So for the example above:
 
-        ```sh
-        $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
-        ```
+        `terraform import ns1_apikey.example <ID>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1259,17 +1255,13 @@ class APIKey(pulumi.CustomResource):
 
         ## Import
 
-        -> Imported keys will not have their key stored in the state file.
+        > Imported keys will not have their key stored in the state file.
 
-        ```sh
-        $ pulumi import ns1:index/aPIKey:APIKey `ns1_apikey` 
-        ```
+        `terraform import APIKey`
 
         So for the example above:
 
-        ```sh
-        $ pulumi import ns1:index/aPIKey:APIKey example <ID>`
-        ```
+        `terraform import ns1_apikey.example <ID>`
 
         :param str resource_name: The name of the resource.
         :param APIKeyArgs args: The arguments to use to populate this resource's properties.

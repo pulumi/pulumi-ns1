@@ -63,9 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example &lt;ID&gt;`
- * ```
+ * `terraform import ns1_account_whitelist.example &lt;ID&gt;`
  * 
  */
 @ResourceType(type="ns1:index/accountWhitelist:AccountWhitelist")

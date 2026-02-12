@@ -182,6 +182,17 @@ export interface RecordAnswer {
      * A list of individual RDATA fields. This field cannot be set together with `answer`
      */
     answerParts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * meta is supported at the `regions` level. Meta
+     * is documented below.
+     * Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+     * `usState` should be comma separated strings, and changes in ordering will not
+     * lead to terraform detecting a change.
+     *
+     * Note: regions **must** be sorted lexically by their "name" argument in the
+     * Terraform configuration file, otherwise Terraform will detect changes to the
+     * record when none actually exist.
+     */
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The region (Answer Group really) that this answer
@@ -213,6 +224,17 @@ export interface RecordFilter {
 }
 
 export interface RecordRegion {
+    /**
+     * meta is supported at the `regions` level. Meta
+     * is documented below.
+     * Note that `Meta` values for `country`, `caProvince`, `georegion`, and
+     * `usState` should be comma separated strings, and changes in ordering will not
+     * lead to terraform detecting a change.
+     *
+     * Note: regions **must** be sorted lexically by their "name" argument in the
+     * Terraform configuration file, otherwise Terraform will detect changes to the
+     * record when none actually exist.
+     */
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the region (or Answer Group).

@@ -221,18 +221,6 @@ class Application(pulumi.CustomResource):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
-        ## Import
-
-        ```sh
-        $ pulumi import ns1:index/application:Application `ns1_application` 
-        ```
-
-        So for the example above:
-
-        ```sh
-        $ pulumi import ns1:index/application:Application example terraform.example.io`
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Indicates whether or not this application is currently active and usable for traffic
@@ -252,18 +240,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
-
-        ## Import
-
-        ```sh
-        $ pulumi import ns1:index/application:Application `ns1_application` 
-        ```
-
-        So for the example above:
-
-        ```sh
-        $ pulumi import ns1:index/application:Application example terraform.example.io`
-        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

@@ -73,9 +73,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/dataFeed:DataFeed &lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
-    /// ```
+    /// `terraform import ns1_datafeed.&lt;name&gt; &lt;datasource_id&gt;/&lt;datafeed_id&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/dataFeed:DataFeed")]
     public partial class DataFeed : global::Pulumi.CustomResource

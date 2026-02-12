@@ -740,6 +740,15 @@ class RecordAnswer(dict):
                Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
                Only one of `answer` or `answer_parts` can be specified.
         :param Sequence[_builtins.str] answer_parts: A list of individual RDATA fields. This field cannot be set together with `answer`
+        :param Mapping[str, _builtins.str] meta: meta is supported at the `regions` level. Meta
+               is documented below.
+               Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+               `us_state` should be comma separated strings, and changes in ordering will not
+               lead to terraform detecting a change.
+               
+               Note: regions **must** be sorted lexically by their "name" argument in the
+               Terraform configuration file, otherwise Terraform will detect changes to the
+               record when none actually exist.
         :param _builtins.str region: The region (Answer Group really) that this answer
                belongs to. This should be one of the names specified in `regions`. Only a
                single `region` per answer is currently supported. If you want an answer in
@@ -799,6 +808,17 @@ class RecordAnswer(dict):
     @_builtins.property
     @pulumi.getter
     def meta(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        meta is supported at the `regions` level. Meta
+        is documented below.
+        Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+        `us_state` should be comma separated strings, and changes in ordering will not
+        lead to terraform detecting a change.
+
+        Note: regions **must** be sorted lexically by their "name" argument in the
+        Terraform configuration file, otherwise Terraform will detect changes to the
+        record when none actually exist.
+        """
         return pulumi.get(self, "meta")
 
     @_builtins.property
@@ -869,6 +889,15 @@ class RecordRegion(dict):
                  meta: Optional[Mapping[str, _builtins.str]] = None):
         """
         :param _builtins.str name: Name of the region (or Answer Group).
+        :param Mapping[str, _builtins.str] meta: meta is supported at the `regions` level. Meta
+               is documented below.
+               Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+               `us_state` should be comma separated strings, and changes in ordering will not
+               lead to terraform detecting a change.
+               
+               Note: regions **must** be sorted lexically by their "name" argument in the
+               Terraform configuration file, otherwise Terraform will detect changes to the
+               record when none actually exist.
         """
         pulumi.set(__self__, "name", name)
         if meta is not None:
@@ -885,6 +914,17 @@ class RecordRegion(dict):
     @_builtins.property
     @pulumi.getter
     def meta(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        meta is supported at the `regions` level. Meta
+        is documented below.
+        Note that `Meta` values for `country`, `ca_province`, `georegion`, and
+        `us_state` should be comma separated strings, and changes in ordering will not
+        lead to terraform detecting a change.
+
+        Note: regions **must** be sorted lexically by their "name" argument in the
+        Terraform configuration file, otherwise Terraform will detect changes to the
+        record when none actually exist.
+        """
         return pulumi.get(self, "meta")
 
 

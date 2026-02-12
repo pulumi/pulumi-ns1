@@ -104,20 +104,27 @@ import javax.annotation.Nullable;
  * 
  * The resource can be imported via their `id`:
  * 
- * ```sh
- * $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
- * ```
- * 
- * ```sh
- * $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
- * ```
+ * `terraform import ns1_redirect_certificate.&lt;name&gt; &lt;id&gt;`
+ * `terraform import ns1_redirect.&lt;name&gt; &lt;id&gt;`
  * 
  */
 @ResourceType(type="ns1:index/redirect:Redirect")
 public class Redirect extends com.pulumi.resources.CustomResource {
+    /**
+     * The certificate redirect id. If not specified the redirect will be created as HTTP,
+     * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+     * If the certificate is managed in terraform it&#39;s recommended to set explictly to &#34;${ns1_redirect_certificate.name.id}&#34;.
+     * 
+     */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
+    /**
+     * @return The certificate redirect id. If not specified the redirect will be created as HTTP,
+     * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+     * If the certificate is managed in terraform it&#39;s recommended to set explictly to &#34;${ns1_redirect_certificate.name.id}&#34;.
+     * 
+     */
     public Output<String> certificateId() {
         return this.certificateId;
     }

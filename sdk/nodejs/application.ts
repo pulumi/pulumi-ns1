@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
- *
- * ## Import
- *
- * ```sh
- * $ pulumi import ns1:index/application:Application `ns1_application` 
- * ```
- *
- * So for the example above:
- *
- * ```sh
- * $ pulumi import ns1:index/application:Application example terraform.example.io`
- * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

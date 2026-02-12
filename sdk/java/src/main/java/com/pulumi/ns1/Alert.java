@@ -76,9 +76,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ```sh
- * $ pulumi import ns1:index/alert:Alert &lt;name&gt; &lt;alert_id&gt;`
- * ```
+ * `terraform import ns1_alert.&lt;name&gt; &lt;alert_id&gt;`
  * 
  */
 @ResourceType(type="ns1:index/alert:Alert")

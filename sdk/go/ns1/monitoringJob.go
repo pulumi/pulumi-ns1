@@ -70,9 +70,7 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/monitoringJob:MonitoringJob <name> <monitoringjob_id>`
-// ```
+// `terraform import ns1_monitoringjob.<name> <monitoringjob_id>`
 type MonitoringJob struct {
 	pulumi.CustomResourceState
 
@@ -93,8 +91,9 @@ type MonitoringJob struct {
 	// The time in seconds after a failure to wait before sending a notification.
 	NotifyDelay pulumi.IntPtrOutput `pulumi:"notifyDelay"`
 	// If true, a notification is sent when a job returns to an "up" state.
-	NotifyFailback pulumi.BoolPtrOutput   `pulumi:"notifyFailback"`
-	NotifyList     pulumi.StringPtrOutput `pulumi:"notifyList"`
+	NotifyFailback pulumi.BoolPtrOutput `pulumi:"notifyFailback"`
+	// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+	NotifyList pulumi.StringPtrOutput `pulumi:"notifyList"`
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional pulumi.BoolPtrOutput `pulumi:"notifyRegional"`
 	// The time in seconds between repeat notifications of a failed job.
@@ -170,8 +169,9 @@ type monitoringJobState struct {
 	// The time in seconds after a failure to wait before sending a notification.
 	NotifyDelay *int `pulumi:"notifyDelay"`
 	// If true, a notification is sent when a job returns to an "up" state.
-	NotifyFailback *bool   `pulumi:"notifyFailback"`
-	NotifyList     *string `pulumi:"notifyList"`
+	NotifyFailback *bool `pulumi:"notifyFailback"`
+	// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+	NotifyList *string `pulumi:"notifyList"`
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional *bool `pulumi:"notifyRegional"`
 	// The time in seconds between repeat notifications of a failed job.
@@ -207,7 +207,8 @@ type MonitoringJobState struct {
 	NotifyDelay pulumi.IntPtrInput
 	// If true, a notification is sent when a job returns to an "up" state.
 	NotifyFailback pulumi.BoolPtrInput
-	NotifyList     pulumi.StringPtrInput
+	// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+	NotifyList pulumi.StringPtrInput
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional pulumi.BoolPtrInput
 	// The time in seconds between repeat notifications of a failed job.
@@ -246,8 +247,9 @@ type monitoringJobArgs struct {
 	// The time in seconds after a failure to wait before sending a notification.
 	NotifyDelay *int `pulumi:"notifyDelay"`
 	// If true, a notification is sent when a job returns to an "up" state.
-	NotifyFailback *bool   `pulumi:"notifyFailback"`
-	NotifyList     *string `pulumi:"notifyList"`
+	NotifyFailback *bool `pulumi:"notifyFailback"`
+	// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+	NotifyList *string `pulumi:"notifyList"`
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional *bool `pulumi:"notifyRegional"`
 	// The time in seconds between repeat notifications of a failed job.
@@ -284,7 +286,8 @@ type MonitoringJobArgs struct {
 	NotifyDelay pulumi.IntPtrInput
 	// If true, a notification is sent when a job returns to an "up" state.
 	NotifyFailback pulumi.BoolPtrInput
-	NotifyList     pulumi.StringPtrInput
+	// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
+	NotifyList pulumi.StringPtrInput
 	// If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
 	NotifyRegional pulumi.BoolPtrInput
 	// The time in seconds between repeat notifications of a failed job.
@@ -433,6 +436,7 @@ func (o MonitoringJobOutput) NotifyFailback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MonitoringJob) pulumi.BoolPtrOutput { return v.NotifyFailback }).(pulumi.BoolPtrOutput)
 }
 
+// The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
 func (o MonitoringJobOutput) NotifyList() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringJob) pulumi.StringPtrOutput { return v.NotifyList }).(pulumi.StringPtrOutput)
 }

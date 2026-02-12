@@ -1248,9 +1248,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/user:User <name> <username>`
-        ```
+        `terraform import ns1_user.<name> <username>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1345,9 +1343,7 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/user:User <name> <username>`
-        ```
+        `terraform import ns1_user.<name> <username>`
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

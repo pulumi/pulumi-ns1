@@ -64,19 +64,19 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// The resource can be imported via their `id`:
+    /// The resource can be imported via their `Id`:
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
-    /// ```
-    /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/redirect:Redirect &lt;name&gt; &lt;id&gt;`
-    /// ```
+    /// `terraform import ns1_redirect_certificate.&lt;name&gt; &lt;id&gt;`
+    /// `terraform import ns1_redirect.&lt;name&gt; &lt;id&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/redirect:Redirect")]
     public partial class Redirect : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The certificate redirect id. If not specified the redirect will be created as HTTP,
+        /// but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+        /// If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+        /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
 
@@ -197,6 +197,11 @@ namespace Pulumi.Ns1
 
     public sealed class RedirectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate redirect id. If not specified the redirect will be created as HTTP,
+        /// but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+        /// If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+        /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 
@@ -273,6 +278,11 @@ namespace Pulumi.Ns1
 
     public sealed class RedirectState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate redirect id. If not specified the redirect will be created as HTTP,
+        /// but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+        /// If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+        /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 

@@ -47,9 +47,7 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/tsigkey:Tsigkey importTest <name>`
-// ```
+// `terraform import ns1_tsigkey.importTest <name>`
 type Tsigkey struct {
 	pulumi.CustomResourceState
 

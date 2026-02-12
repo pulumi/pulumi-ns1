@@ -41,9 +41,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/notifyList:NotifyList <name> <notifylist_id>`
- * ```
+ * `terraform import ns1_notifylist.<name> <notifylist_id>`
  */
 export class NotifyList extends pulumi.CustomResource {
     /**

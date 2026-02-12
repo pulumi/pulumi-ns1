@@ -182,9 +182,7 @@ class DataFeed(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
-        ```
+        `terraform import ns1_datafeed.<name> <datasource_id>/<datafeed_id>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,9 +238,7 @@ class DataFeed(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/dataFeed:DataFeed <name> <datasource_id>/<datafeed_id>`
-        ```
+        `terraform import ns1_datafeed.<name> <datasource_id>/<datafeed_id>`
 
         :param str resource_name: The name of the resource.
         :param DataFeedArgs args: The arguments to use to populate this resource's properties.

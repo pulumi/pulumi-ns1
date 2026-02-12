@@ -75,9 +75,7 @@ namespace Pulumi.Ns1
     /// 
     /// ## Import
     /// 
-    /// ```sh
-    /// $ pulumi import ns1:index/user:User &lt;name&gt; &lt;username&gt;`
-    /// ```
+    /// `terraform import ns1_user.&lt;name&gt; &lt;username&gt;`
     /// </summary>
     [Ns1ResourceType("ns1:index/user:User")]
     public partial class User : global::Pulumi.CustomResource

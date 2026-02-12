@@ -368,9 +368,7 @@ class Alert(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/alert:Alert <name> <alert_id>`
-        ```
+        `terraform import ns1_alert.<name> <alert_id>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -422,9 +420,7 @@ class Alert(pulumi.CustomResource):
 
         ## Import
 
-        ```sh
-        $ pulumi import ns1:index/alert:Alert <name> <alert_id>`
-        ```
+        `terraform import ns1_alert.<name> <alert_id>`
 
         :param str resource_name: The name of the resource.
         :param AlertArgs args: The arguments to use to populate this resource's properties.

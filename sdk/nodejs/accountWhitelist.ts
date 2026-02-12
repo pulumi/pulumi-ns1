@@ -32,9 +32,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/accountWhitelist:AccountWhitelist example <ID>`
- * ```
+ * `terraform import ns1_account_whitelist.example <ID>`
  */
 export class AccountWhitelist extends pulumi.CustomResource {
     /**

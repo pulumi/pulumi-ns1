@@ -83,9 +83,7 @@ import (
 //
 // ## Import
 //
-// ```sh
-// $ pulumi import ns1:index/user:User <name> <username>`
-// ```
+// `terraform import ns1_user.<name> <username>`
 type User struct {
 	pulumi.CustomResourceState
 

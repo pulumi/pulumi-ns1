@@ -33,6 +33,9 @@ class RedirectArgs:
         :param pulumi.Input[_builtins.str] domain: The domain the redirect refers to.
         :param pulumi.Input[_builtins.str] path: The path on the domain to redirect from.
         :param pulumi.Input[_builtins.str] target: The URL to redirect to.
+        :param pulumi.Input[_builtins.str] certificate_id: The certificate redirect id. If not specified the redirect will be created as HTTP,
+               but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+               If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
         :param pulumi.Input[_builtins.str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
                * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
@@ -105,6 +108,11 @@ class RedirectArgs:
     @_builtins.property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The certificate redirect id. If not specified the redirect will be created as HTTP,
+        but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+        If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+        """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
@@ -199,6 +207,9 @@ class _RedirectState:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Redirect resources.
+        :param pulumi.Input[_builtins.str] certificate_id: The certificate redirect id. If not specified the redirect will be created as HTTP,
+               but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+               If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
         :param pulumi.Input[_builtins.str] domain: The domain the redirect refers to.
         :param pulumi.Input[_builtins.str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
@@ -247,6 +258,11 @@ class _RedirectState:
     @_builtins.property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The certificate redirect id. If not specified the redirect will be created as HTTP,
+        but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+        If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+        """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
@@ -441,16 +457,14 @@ class Redirect(pulumi.CustomResource):
 
         The resource can be imported via their `id`:
 
-        ```sh
-        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
-        ```
-
-        ```sh
-        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
-        ```
+        `terraform import ns1_redirect_certificate.<name> <id>`
+        `terraform import ns1_redirect.<name> <id>`
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] certificate_id: The certificate redirect id. If not specified the redirect will be created as HTTP,
+               but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+               If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
         :param pulumi.Input[_builtins.str] domain: The domain the redirect refers to.
         :param pulumi.Input[_builtins.str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
@@ -517,13 +531,8 @@ class Redirect(pulumi.CustomResource):
 
         The resource can be imported via their `id`:
 
-        ```sh
-        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
-        ```
-
-        ```sh
-        $ pulumi import ns1:index/redirect:Redirect <name> <id>`
-        ```
+        `terraform import ns1_redirect_certificate.<name> <id>`
+        `terraform import ns1_redirect.<name> <id>`
 
         :param str resource_name: The name of the resource.
         :param RedirectArgs args: The arguments to use to populate this resource's properties.
@@ -603,6 +612,9 @@ class Redirect(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] certificate_id: The certificate redirect id. If not specified the redirect will be created as HTTP,
+               but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+               If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
         :param pulumi.Input[_builtins.str] domain: The domain the redirect refers to.
         :param pulumi.Input[_builtins.str] forwarding_mode: How the target is interpreted:
                * __all__       appends the entire incoming path to the target destination;
@@ -645,6 +657,11 @@ class Redirect(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The certificate redirect id. If not specified the redirect will be created as HTTP,
+        but it may be turned to HTTPS if a certificate exists for the source domain on the server.
+        If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
+        """
         return pulumi.get(self, "certificate_id")
 
     @_builtins.property

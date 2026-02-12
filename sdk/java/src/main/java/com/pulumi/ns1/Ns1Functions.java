@@ -29,18 +29,38 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class Ns1Functions {
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     */
     public static Output<GetBillingUsageResult> getBillingUsage(GetBillingUsageArgs args) {
         return getBillingUsage(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     */
     public static CompletableFuture<GetBillingUsageResult> getBillingUsagePlain(GetBillingUsagePlainArgs args) {
         return getBillingUsagePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     */
     public static Output<GetBillingUsageResult> getBillingUsage(GetBillingUsageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("ns1:index/getBillingUsage:getBillingUsage", TypeShape.of(GetBillingUsageResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     */
     public static Output<GetBillingUsageResult> getBillingUsage(GetBillingUsageArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("ns1:index/getBillingUsage:getBillingUsage", TypeShape.of(GetBillingUsageResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides billing usage details about a NS1 account.
+     * 
+     */
     public static CompletableFuture<GetBillingUsageResult> getBillingUsagePlain(GetBillingUsagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("ns1:index/getBillingUsage:getBillingUsage", TypeShape.of(GetBillingUsageResult.class), args, Utilities.withVersion(options));
     }

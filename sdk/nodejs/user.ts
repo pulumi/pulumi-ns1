@@ -58,9 +58,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ```sh
- * $ pulumi import ns1:index/user:User <name> <username>`
- * ```
+ * `terraform import ns1_user.<name> <username>`
  */
 export class User extends pulumi.CustomResource {
     /**
