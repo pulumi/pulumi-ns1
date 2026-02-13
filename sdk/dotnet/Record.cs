@@ -235,6 +235,9 @@ namespace Pulumi.Ns1
         [Output("overrideAddressRecords")]
         public Output<bool?> OverrideAddressRecords { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to override the TTL value.
+        /// </summary>
         [Output("overrideTtl")]
         public Output<bool?> OverrideTtl { get; private set; } = null!;
 
@@ -390,6 +393,9 @@ namespace Pulumi.Ns1
         [Input("overrideAddressRecords")]
         public Input<bool>? OverrideAddressRecords { get; set; }
 
+        /// <summary>
+        /// Whether to override the TTL value.
+        /// </summary>
         [Input("overrideTtl")]
         public Input<bool>? OverrideTtl { get; set; }
 
@@ -532,6 +538,9 @@ It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+
         [Input("overrideAddressRecords")]
         public Input<bool>? OverrideAddressRecords { get; set; }
 
+        /// <summary>
+        /// Whether to override the TTL value.
+        /// </summary>
         [Input("overrideTtl")]
         public Input<bool>? OverrideTtl { get; set; }
 

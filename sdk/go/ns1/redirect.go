@@ -113,7 +113,7 @@ type Redirect struct {
 	// True if HTTPS is supported on the source domain by using Let's Encrypt certificates.
 	HttpsEnabled pulumi.BoolOutput `pulumi:"httpsEnabled"`
 	// Forces redirect for users that try to visit HTTP domain to HTTPS instead.
-	HttpsForced pulumi.BoolOutput `pulumi:"httpsForced"`
+	HttpsForced pulumi.BoolPtrOutput `pulumi:"httpsForced"`
 	// The Unix timestamp representing when the certificate was last signed.
 	LastUpdated pulumi.IntOutput `pulumi:"lastUpdated"`
 	// The path on the domain to redirect from.
@@ -439,8 +439,8 @@ func (o RedirectOutput) HttpsEnabled() pulumi.BoolOutput {
 }
 
 // Forces redirect for users that try to visit HTTP domain to HTTPS instead.
-func (o RedirectOutput) HttpsForced() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Redirect) pulumi.BoolOutput { return v.HttpsForced }).(pulumi.BoolOutput)
+func (o RedirectOutput) HttpsForced() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Redirect) pulumi.BoolPtrOutput { return v.HttpsForced }).(pulumi.BoolPtrOutput)
 }
 
 // The Unix timestamp representing when the certificate was last signed.

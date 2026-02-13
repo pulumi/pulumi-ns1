@@ -709,7 +709,7 @@ class Redirect(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="httpsForced")
-    def https_forced(self) -> pulumi.Output[_builtins.bool]:
+    def https_forced(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Forces redirect for users that try to visit HTTP domain to HTTPS instead.
         """

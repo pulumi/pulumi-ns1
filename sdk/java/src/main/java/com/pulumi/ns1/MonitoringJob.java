@@ -145,14 +145,14 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
         return this.jobType;
     }
     /**
-     * turn off the notifications for the monitoring job.
+     * Turn off the notifications for the monitoring job.
      * 
      */
     @Export(name="mute", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mute;
 
     /**
-     * @return turn off the notifications for the monitoring job.
+     * @return Turn off the notifications for the monitoring job.
      * 
      */
     public Output<Optional<Boolean>> mute() {
@@ -258,7 +258,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
     }
     /**
      * The policy for determining the monitor&#39;s global status
-     * based on the status of the job in all regions. See NS1 API docs for supported values.
+     * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
@@ -266,7 +266,7 @@ public class MonitoringJob extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The policy for determining the monitor&#39;s global status
-     * based on the status of the job in all regions. See NS1 API docs for supported values.
+     * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      * 
      */
     public Output<Optional<String>> policy() {

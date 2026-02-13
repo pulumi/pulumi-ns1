@@ -19,16 +19,14 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
     public static final RecordFilterArgs Empty = new RecordFilterArgs();
 
     /**
-     * The filters&#39; configuration. Simple key/value pairs
-     * determined by the filter type.
+     * The filters&#39; configuration. Simple key/value pairs determined by the filter type.
      * 
      */
     @Import(name="config")
     private @Nullable Output<Map<String,String>> config;
 
     /**
-     * @return The filters&#39; configuration. Simple key/value pairs
-     * determined by the filter type.
+     * @return The filters&#39; configuration. Simple key/value pairs determined by the filter type.
      * 
      */
     public Optional<Output<Map<String,String>>> config() {
@@ -36,16 +34,14 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether the filter is applied in the
-     * filter chain.
+     * Determines whether the filter is applied in the filter chain.
      * 
      */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
     /**
-     * @return Determines whether the filter is applied in the
-     * filter chain.
+     * @return Determines whether the filter is applied in the filter chain.
      * 
      */
     public Optional<Output<Boolean>> disabled() {
@@ -94,8 +90,7 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config The filters&#39; configuration. Simple key/value pairs
-         * determined by the filter type.
+         * @param config The filters&#39; configuration. Simple key/value pairs determined by the filter type.
          * 
          * @return builder
          * 
@@ -106,8 +101,7 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config The filters&#39; configuration. Simple key/value pairs
-         * determined by the filter type.
+         * @param config The filters&#39; configuration. Simple key/value pairs determined by the filter type.
          * 
          * @return builder
          * 
@@ -117,8 +111,7 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disabled Determines whether the filter is applied in the
-         * filter chain.
+         * @param disabled Determines whether the filter is applied in the filter chain.
          * 
          * @return builder
          * 
@@ -129,8 +122,7 @@ public final class RecordFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disabled Determines whether the filter is applied in the
-         * filter chain.
+         * @param disabled Determines whether the filter is applied in the filter chain.
          * 
          * @return builder
          * 

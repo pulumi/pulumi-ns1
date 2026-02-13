@@ -50,6 +50,7 @@ class RecordArgs:
         :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
                of the target record. This means this record is a 'linked' record, and it
                inherits all properties from its target.
+        :param pulumi.Input[_builtins.bool] override_ttl: Whether to override the TTL value.
         :param pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -214,6 +215,9 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
     @_builtins.property
     @pulumi.getter(name="overrideTtl")
     def override_ttl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to override the TTL value.
+        """
         return pulumi.get(self, "override_ttl")
 
     @override_ttl.setter
@@ -321,6 +325,7 @@ class _RecordState:
         :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
                of the target record. This means this record is a 'linked' record, and it
                inherits all properties from its target.
+        :param pulumi.Input[_builtins.bool] override_ttl: Whether to override the TTL value.
         :param pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -466,6 +471,9 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
     @_builtins.property
     @pulumi.getter(name="overrideTtl")
     def override_ttl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to override the TTL value.
+        """
         return pulumi.get(self, "override_ttl")
 
     @override_ttl.setter
@@ -727,6 +735,7 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
                of the target record. This means this record is a 'linked' record, and it
                inherits all properties from its target.
+        :param pulumi.Input[_builtins.bool] override_ttl: Whether to override the TTL value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -973,6 +982,7 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
                of the target record. This means this record is a 'linked' record, and it
                inherits all properties from its target.
+        :param pulumi.Input[_builtins.bool] override_ttl: Whether to override the TTL value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
@@ -1063,6 +1073,9 @@ class Record(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="overrideTtl")
     def override_ttl(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to override the TTL value.
+        """
         return pulumi.get(self, "override_ttl")
 
     @_builtins.property

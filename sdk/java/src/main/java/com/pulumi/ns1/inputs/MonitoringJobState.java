@@ -81,14 +81,14 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * turn off the notifications for the monitoring job.
+     * Turn off the notifications for the monitoring job.
      * 
      */
     @Import(name="mute")
     private @Nullable Output<Boolean> mute;
 
     /**
-     * @return turn off the notifications for the monitoring job.
+     * @return Turn off the notifications for the monitoring job.
      * 
      */
     public Optional<Output<Boolean>> mute() {
@@ -202,7 +202,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * The policy for determining the monitor&#39;s global status
-     * based on the status of the job in all regions. See NS1 API docs for supported values.
+     * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      * 
      */
     @Import(name="policy")
@@ -210,7 +210,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return The policy for determining the monitor&#39;s global status
-     * based on the status of the job in all regions. See NS1 API docs for supported values.
+     * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -388,7 +388,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mute turn off the notifications for the monitoring job.
+         * @param mute Turn off the notifications for the monitoring job.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mute turn off the notifications for the monitoring job.
+         * @param mute Turn off the notifications for the monitoring job.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param policy The policy for determining the monitor&#39;s global status
-         * based on the status of the job in all regions. See NS1 API docs for supported values.
+         * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class MonitoringJobState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param policy The policy for determining the monitor&#39;s global status
-         * based on the status of the job in all regions. See NS1 API docs for supported values.
+         * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
          * 
          * @return builder
          * 

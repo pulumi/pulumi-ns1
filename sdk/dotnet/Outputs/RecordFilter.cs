@@ -14,13 +14,11 @@ namespace Pulumi.Ns1.Outputs
     public sealed class RecordFilter
     {
         /// <summary>
-        /// The filters' configuration. Simple key/value pairs
-        /// determined by the filter type.
+        /// The filters' configuration. Simple key/value pairs determined by the filter type.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Config;
         /// <summary>
-        /// Determines whether the filter is applied in the
-        /// filter chain.
+        /// Determines whether the filter is applied in the filter chain.
         /// </summary>
         public readonly bool? Disabled;
         /// <summary>

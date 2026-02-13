@@ -94,7 +94,7 @@ namespace Pulumi.Ns1
         public Output<string> JobType { get; private set; } = null!;
 
         /// <summary>
-        /// turn off the notifications for the monitoring job.
+        /// Turn off the notifications for the monitoring job.
         /// </summary>
         [Output("mute")]
         public Output<bool?> Mute { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The policy for determining the monitor's global status
-        /// based on the status of the job in all regions. See NS1 API docs for supported values.
+        /// based on the status of the job in all regions. Supported values: `All`, `One`, `Quorum`.
         /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Ns1
         public Input<string> JobType { get; set; } = null!;
 
         /// <summary>
-        /// turn off the notifications for the monitoring job.
+        /// Turn off the notifications for the monitoring job.
         /// </summary>
         [Input("mute")]
         public Input<bool>? Mute { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The policy for determining the monitor's global status
-        /// based on the status of the job in all regions. See NS1 API docs for supported values.
+        /// based on the status of the job in all regions. Supported values: `All`, `One`, `Quorum`.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Ns1
         public Input<string>? JobType { get; set; }
 
         /// <summary>
-        /// turn off the notifications for the monitoring job.
+        /// Turn off the notifications for the monitoring job.
         /// </summary>
         [Input("mute")]
         public Input<bool>? Mute { get; set; }
@@ -417,7 +417,7 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// The policy for determining the monitor's global status
-        /// based on the status of the job in all regions. See NS1 API docs for supported values.
+        /// based on the status of the job in all regions. Supported values: `All`, `One`, `Quorum`.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

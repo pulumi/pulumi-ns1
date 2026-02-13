@@ -227,7 +227,8 @@ type Record struct {
 	Link                   pulumi.StringPtrOutput `pulumi:"link"`
 	Meta                   pulumi.StringMapOutput `pulumi:"meta"`
 	OverrideAddressRecords pulumi.BoolPtrOutput   `pulumi:"overrideAddressRecords"`
-	OverrideTtl            pulumi.BoolPtrOutput   `pulumi:"overrideTtl"`
+	// Whether to override the TTL value.
+	OverrideTtl pulumi.BoolPtrOutput `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -313,7 +314,8 @@ type recordState struct {
 	Link                   *string           `pulumi:"link"`
 	Meta                   map[string]string `pulumi:"meta"`
 	OverrideAddressRecords *bool             `pulumi:"overrideAddressRecords"`
-	OverrideTtl            *bool             `pulumi:"overrideTtl"`
+	// Whether to override the TTL value.
+	OverrideTtl *bool `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -361,7 +363,8 @@ type RecordState struct {
 	Link                   pulumi.StringPtrInput
 	Meta                   pulumi.StringMapInput
 	OverrideAddressRecords pulumi.BoolPtrInput
-	OverrideTtl            pulumi.BoolPtrInput
+	// Whether to override the TTL value.
+	OverrideTtl pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -413,7 +416,8 @@ type recordArgs struct {
 	Link                   *string           `pulumi:"link"`
 	Meta                   map[string]string `pulumi:"meta"`
 	OverrideAddressRecords *bool             `pulumi:"overrideAddressRecords"`
-	OverrideTtl            *bool             `pulumi:"overrideTtl"`
+	// Whether to override the TTL value.
+	OverrideTtl *bool `pulumi:"overrideTtl"`
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -462,7 +466,8 @@ type RecordArgs struct {
 	Link                   pulumi.StringPtrInput
 	Meta                   pulumi.StringMapInput
 	OverrideAddressRecords pulumi.BoolPtrInput
-	OverrideTtl            pulumi.BoolPtrInput
+	// Whether to override the TTL value.
+	OverrideTtl pulumi.BoolPtrInput
 	// One or more "regions" for the record. These are really
 	// just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
 	// but remain `regions` here for legacy reasons. Regions are
@@ -617,6 +622,7 @@ func (o RecordOutput) OverrideAddressRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Record) pulumi.BoolPtrOutput { return v.OverrideAddressRecords }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to override the TTL value.
 func (o RecordOutput) OverrideTtl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Record) pulumi.BoolPtrOutput { return v.OverrideTtl }).(pulumi.BoolPtrOutput)
 }

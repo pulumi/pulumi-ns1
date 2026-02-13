@@ -119,7 +119,7 @@ namespace Pulumi.Ns1
         /// Forces redirect for users that try to visit HTTP domain to HTTPS instead.
         /// </summary>
         [Output("httpsForced")]
-        public Output<bool> HttpsForced { get; private set; } = null!;
+        public Output<bool?> HttpsForced { get; private set; } = null!;
 
         /// <summary>
         /// The Unix timestamp representing when the certificate was last signed.
