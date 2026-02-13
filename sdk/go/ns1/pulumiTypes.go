@@ -2123,11 +2123,9 @@ func (o RecordAnswerArrayOutput) Index(i pulumi.IntInput) RecordAnswerOutput {
 }
 
 type RecordFilter struct {
-	// The filters' configuration. Simple key/value pairs
-	// determined by the filter type.
+	// The filters' configuration. Simple key/value pairs determined by the filter type.
 	Config map[string]string `pulumi:"config"`
-	// Determines whether the filter is applied in the
-	// filter chain.
+	// Determines whether the filter is applied in the filter chain.
 	Disabled *bool `pulumi:"disabled"`
 	// The type of filter.
 	Filter string `pulumi:"filter"`
@@ -2145,11 +2143,9 @@ type RecordFilterInput interface {
 }
 
 type RecordFilterArgs struct {
-	// The filters' configuration. Simple key/value pairs
-	// determined by the filter type.
+	// The filters' configuration. Simple key/value pairs determined by the filter type.
 	Config pulumi.StringMapInput `pulumi:"config"`
-	// Determines whether the filter is applied in the
-	// filter chain.
+	// Determines whether the filter is applied in the filter chain.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
 	// The type of filter.
 	Filter pulumi.StringInput `pulumi:"filter"`
@@ -2206,14 +2202,12 @@ func (o RecordFilterOutput) ToRecordFilterOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The filters' configuration. Simple key/value pairs
-// determined by the filter type.
+// The filters' configuration. Simple key/value pairs determined by the filter type.
 func (o RecordFilterOutput) Config() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RecordFilter) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
-// Determines whether the filter is applied in the
-// filter chain.
+// Determines whether the filter is applied in the filter chain.
 func (o RecordFilterOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecordFilter) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
@@ -2931,10 +2925,9 @@ type ZoneSecondary struct {
 	// should be made available. Default is network 0, the primary NSONE Global
 	// Network. Normally, you should not have to worry about this.
 	Networks []int `pulumi:"networks"`
-	// Whether we send `NOTIFY` messages to the secondary host
-	// when the zone changes. Default `false`.
+	// Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
 	Notify *bool `pulumi:"notify"`
-	// Port of the the secondary server. Default `53`.
+	// Port of the the secondary server.
 	Port *int `pulumi:"port"`
 }
 
@@ -2956,10 +2949,9 @@ type ZoneSecondaryArgs struct {
 	// should be made available. Default is network 0, the primary NSONE Global
 	// Network. Normally, you should not have to worry about this.
 	Networks pulumi.IntArrayInput `pulumi:"networks"`
-	// Whether we send `NOTIFY` messages to the secondary host
-	// when the zone changes. Default `false`.
+	// Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
 	Notify pulumi.BoolPtrInput `pulumi:"notify"`
-	// Port of the the secondary server. Default `53`.
+	// Port of the the secondary server.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -3026,13 +3018,12 @@ func (o ZoneSecondaryOutput) Networks() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v ZoneSecondary) []int { return v.Networks }).(pulumi.IntArrayOutput)
 }
 
-// Whether we send `NOTIFY` messages to the secondary host
-// when the zone changes. Default `false`.
+// Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
 func (o ZoneSecondaryOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ZoneSecondary) *bool { return v.Notify }).(pulumi.BoolPtrOutput)
 }
 
-// Port of the the secondary server. Default `53`.
+// Port of the the secondary server.
 func (o ZoneSecondaryOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ZoneSecondary) *int { return v.Port }).(pulumi.IntPtrOutput)
 }

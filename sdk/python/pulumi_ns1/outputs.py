@@ -844,10 +844,8 @@ class RecordFilter(dict):
                  disabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str filter: The type of filter.
-        :param Mapping[str, _builtins.str] config: The filters' configuration. Simple key/value pairs
-               determined by the filter type.
-        :param _builtins.bool disabled: Determines whether the filter is applied in the
-               filter chain.
+        :param Mapping[str, _builtins.str] config: The filters' configuration. Simple key/value pairs determined by the filter type.
+        :param _builtins.bool disabled: Determines whether the filter is applied in the filter chain.
         """
         pulumi.set(__self__, "filter", filter)
         if config is not None:
@@ -867,8 +865,7 @@ class RecordFilter(dict):
     @pulumi.getter
     def config(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The filters' configuration. Simple key/value pairs
-        determined by the filter type.
+        The filters' configuration. Simple key/value pairs determined by the filter type.
         """
         return pulumi.get(self, "config")
 
@@ -876,8 +873,7 @@ class RecordFilter(dict):
     @pulumi.getter
     def disabled(self) -> Optional[_builtins.bool]:
         """
-        Determines whether the filter is applied in the
-        filter chain.
+        Determines whether the filter is applied in the filter chain.
         """
         return pulumi.get(self, "disabled")
 
@@ -1165,9 +1161,8 @@ class ZoneSecondary(dict):
         :param Sequence[_builtins.int] networks: List of network IDs (`int`) for which the zone
                should be made available. Default is network 0, the primary NSONE Global
                Network. Normally, you should not have to worry about this.
-        :param _builtins.bool notify: Whether we send `NOTIFY` messages to the secondary host
-               when the zone changes. Default `false`.
-        :param _builtins.int port: Port of the the secondary server. Default `53`.
+        :param _builtins.bool notify: Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
+        :param _builtins.int port: Port of the the secondary server.
         """
         pulumi.set(__self__, "ip", ip)
         if networks is not None:
@@ -1199,8 +1194,7 @@ class ZoneSecondary(dict):
     @pulumi.getter
     def notify(self) -> Optional[_builtins.bool]:
         """
-        Whether we send `NOTIFY` messages to the secondary host
-        when the zone changes. Default `false`.
+        Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
         """
         return pulumi.get(self, "notify")
 
@@ -1208,7 +1202,7 @@ class ZoneSecondary(dict):
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
         """
-        Port of the the secondary server. Default `53`.
+        Port of the the secondary server.
         """
         return pulumi.get(self, "port")
 

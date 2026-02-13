@@ -15,14 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RecordFilter {
     /**
-     * @return The filters&#39; configuration. Simple key/value pairs
-     * determined by the filter type.
+     * @return The filters&#39; configuration. Simple key/value pairs determined by the filter type.
      * 
      */
     private @Nullable Map<String,String> config;
     /**
-     * @return Determines whether the filter is applied in the
-     * filter chain.
+     * @return Determines whether the filter is applied in the filter chain.
      * 
      */
     private @Nullable Boolean disabled;
@@ -34,16 +32,14 @@ public final class RecordFilter {
 
     private RecordFilter() {}
     /**
-     * @return The filters&#39; configuration. Simple key/value pairs
-     * determined by the filter type.
+     * @return The filters&#39; configuration. Simple key/value pairs determined by the filter type.
      * 
      */
     public Map<String,String> config() {
         return this.config == null ? Map.of() : this.config;
     }
     /**
-     * @return Determines whether the filter is applied in the
-     * filter chain.
+     * @return Determines whether the filter is applied in the filter chain.
      * 
      */
     public Optional<Boolean> disabled() {

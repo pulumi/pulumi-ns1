@@ -28,13 +28,12 @@ public final class ZoneSecondary {
      */
     private @Nullable List<Integer> networks;
     /**
-     * @return Whether we send `NOTIFY` messages to the secondary host
-     * when the zone changes. Default `false`.
+     * @return Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
      * 
      */
     private @Nullable Boolean notify;
     /**
-     * @return Port of the the secondary server. Default `53`.
+     * @return Port of the the secondary server.
      * 
      */
     private @Nullable Integer port;
@@ -57,15 +56,14 @@ public final class ZoneSecondary {
         return this.networks == null ? List.of() : this.networks;
     }
     /**
-     * @return Whether we send `NOTIFY` messages to the secondary host
-     * when the zone changes. Default `false`.
+     * @return Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
      * 
      */
     public Optional<Boolean> notify_() {
         return Optional.ofNullable(this.notify);
     }
     /**
-     * @return Port of the the secondary server. Default `53`.
+     * @return Port of the the secondary server.
      * 
      */
     public Optional<Integer> port() {

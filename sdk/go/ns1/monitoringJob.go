@@ -82,7 +82,7 @@ type MonitoringJob struct {
 	Frequency pulumi.IntOutput `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringOutput `pulumi:"jobType"`
-	// turn off the notifications for the monitoring job.
+	// Turn off the notifications for the monitoring job.
 	Mute pulumi.BoolPtrOutput `pulumi:"mute"`
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -99,7 +99,7 @@ type MonitoringJob struct {
 	// The time in seconds between repeat notifications of a failed job.
 	NotifyRepeat pulumi.IntPtrOutput `pulumi:"notifyRepeat"`
 	// The policy for determining the monitor's global status
-	// based on the status of the job in all regions. See NS1 API docs for supported values.
+	// based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
 	RapidRecheck pulumi.BoolPtrOutput `pulumi:"rapidRecheck"`
@@ -160,7 +160,7 @@ type monitoringJobState struct {
 	Frequency *int `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType *string `pulumi:"jobType"`
-	// turn off the notifications for the monitoring job.
+	// Turn off the notifications for the monitoring job.
 	Mute *bool `pulumi:"mute"`
 	// The free-form display name for the monitoring job.
 	Name *string `pulumi:"name"`
@@ -177,7 +177,7 @@ type monitoringJobState struct {
 	// The time in seconds between repeat notifications of a failed job.
 	NotifyRepeat *int `pulumi:"notifyRepeat"`
 	// The policy for determining the monitor's global status
-	// based on the status of the job in all regions. See NS1 API docs for supported values.
+	// based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
 	Policy *string `pulumi:"policy"`
 	// If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
 	RapidRecheck *bool `pulumi:"rapidRecheck"`
@@ -197,7 +197,7 @@ type MonitoringJobState struct {
 	Frequency pulumi.IntPtrInput
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringPtrInput
-	// turn off the notifications for the monitoring job.
+	// Turn off the notifications for the monitoring job.
 	Mute pulumi.BoolPtrInput
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type MonitoringJobState struct {
 	// The time in seconds between repeat notifications of a failed job.
 	NotifyRepeat pulumi.IntPtrInput
 	// The policy for determining the monitor's global status
-	// based on the status of the job in all regions. See NS1 API docs for supported values.
+	// based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
 	Policy pulumi.StringPtrInput
 	// If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
 	RapidRecheck pulumi.BoolPtrInput
@@ -238,7 +238,7 @@ type monitoringJobArgs struct {
 	Frequency int `pulumi:"frequency"`
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType string `pulumi:"jobType"`
-	// turn off the notifications for the monitoring job.
+	// Turn off the notifications for the monitoring job.
 	Mute *bool `pulumi:"mute"`
 	// The free-form display name for the monitoring job.
 	Name *string `pulumi:"name"`
@@ -255,7 +255,7 @@ type monitoringJobArgs struct {
 	// The time in seconds between repeat notifications of a failed job.
 	NotifyRepeat *int `pulumi:"notifyRepeat"`
 	// The policy for determining the monitor's global status
-	// based on the status of the job in all regions. See NS1 API docs for supported values.
+	// based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
 	Policy *string `pulumi:"policy"`
 	// If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
 	RapidRecheck *bool `pulumi:"rapidRecheck"`
@@ -276,7 +276,7 @@ type MonitoringJobArgs struct {
 	Frequency pulumi.IntInput
 	// The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
 	JobType pulumi.StringInput
-	// turn off the notifications for the monitoring job.
+	// Turn off the notifications for the monitoring job.
 	Mute pulumi.BoolPtrInput
 	// The free-form display name for the monitoring job.
 	Name pulumi.StringPtrInput
@@ -293,7 +293,7 @@ type MonitoringJobArgs struct {
 	// The time in seconds between repeat notifications of a failed job.
 	NotifyRepeat pulumi.IntPtrInput
 	// The policy for determining the monitor's global status
-	// based on the status of the job in all regions. See NS1 API docs for supported values.
+	// based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
 	Policy pulumi.StringPtrInput
 	// If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
 	RapidRecheck pulumi.BoolPtrInput
@@ -411,7 +411,7 @@ func (o MonitoringJobOutput) JobType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringJob) pulumi.StringOutput { return v.JobType }).(pulumi.StringOutput)
 }
 
-// turn off the notifications for the monitoring job.
+// Turn off the notifications for the monitoring job.
 func (o MonitoringJobOutput) Mute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MonitoringJob) pulumi.BoolPtrOutput { return v.Mute }).(pulumi.BoolPtrOutput)
 }
@@ -452,7 +452,7 @@ func (o MonitoringJobOutput) NotifyRepeat() pulumi.IntPtrOutput {
 }
 
 // The policy for determining the monitor's global status
-// based on the status of the job in all regions. See NS1 API docs for supported values.
+// based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
 func (o MonitoringJobOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringJob) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }

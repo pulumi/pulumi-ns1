@@ -45,7 +45,7 @@ class MonitoringJobArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
         :param pulumi.Input[_builtins.bool] active: Indicates if the job is active or temporarily disabled.
-        :param pulumi.Input[_builtins.bool] mute: turn off the notifications for the monitoring job.
+        :param pulumi.Input[_builtins.bool] mute: Turn off the notifications for the monitoring job.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -54,7 +54,7 @@ class MonitoringJobArgs:
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
-               based on the status of the job in all regions. See NS1 API docs for supported values.
+               based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
         :param pulumi.Input[_builtins.bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]] rules: A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
@@ -152,7 +152,7 @@ class MonitoringJobArgs:
     @pulumi.getter
     def mute(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        turn off the notifications for the monitoring job.
+        Turn off the notifications for the monitoring job.
         """
         return pulumi.get(self, "mute")
 
@@ -249,7 +249,7 @@ class MonitoringJobArgs:
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The policy for determining the monitor's global status
-        based on the status of the job in all regions. See NS1 API docs for supported values.
+        based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
         """
         return pulumi.get(self, "policy")
 
@@ -307,7 +307,7 @@ class _MonitoringJobState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[_builtins.int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[_builtins.str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
-        :param pulumi.Input[_builtins.bool] mute: turn off the notifications for the monitoring job.
+        :param pulumi.Input[_builtins.bool] mute: Turn off the notifications for the monitoring job.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -316,7 +316,7 @@ class _MonitoringJobState:
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
-               based on the status of the job in all regions. See NS1 API docs for supported values.
+               based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
         :param pulumi.Input[_builtins.bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
@@ -407,7 +407,7 @@ class _MonitoringJobState:
     @pulumi.getter
     def mute(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        turn off the notifications for the monitoring job.
+        Turn off the notifications for the monitoring job.
         """
         return pulumi.get(self, "mute")
 
@@ -504,7 +504,7 @@ class _MonitoringJobState:
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The policy for determining the monitor's global status
-        based on the status of the job in all regions. See NS1 API docs for supported values.
+        based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
         """
         return pulumi.get(self, "policy")
 
@@ -622,7 +622,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[_builtins.int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[_builtins.str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
-        :param pulumi.Input[_builtins.bool] mute: turn off the notifications for the monitoring job.
+        :param pulumi.Input[_builtins.bool] mute: Turn off the notifications for the monitoring job.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -631,7 +631,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
-               based on the status of the job in all regions. See NS1 API docs for supported values.
+               based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
         :param pulumi.Input[_builtins.bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
@@ -787,7 +787,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[_builtins.int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[_builtins.str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
-        :param pulumi.Input[_builtins.bool] mute: turn off the notifications for the monitoring job.
+        :param pulumi.Input[_builtins.bool] mute: Turn off the notifications for the monitoring job.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the monitoring job.
         :param pulumi.Input[_builtins.str] notes: Freeform notes to be included in any notifications about this job.
         :param pulumi.Input[_builtins.int] notify_delay: The time in seconds after a failure to wait before sending a notification.
@@ -796,7 +796,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] notify_regional: If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         :param pulumi.Input[_builtins.int] notify_repeat: The time in seconds between repeat notifications of a failed job.
         :param pulumi.Input[_builtins.str] policy: The policy for determining the monitor's global status
-               based on the status of the job in all regions. See NS1 API docs for supported values.
+               based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
         :param pulumi.Input[_builtins.bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
@@ -860,7 +860,7 @@ class MonitoringJob(pulumi.CustomResource):
     @pulumi.getter
     def mute(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        turn off the notifications for the monitoring job.
+        Turn off the notifications for the monitoring job.
         """
         return pulumi.get(self, "mute")
 
@@ -925,7 +925,7 @@ class MonitoringJob(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The policy for determining the monitor's global status
-        based on the status of the job in all regions. See NS1 API docs for supported values.
+        based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
         """
         return pulumi.get(self, "policy")
 

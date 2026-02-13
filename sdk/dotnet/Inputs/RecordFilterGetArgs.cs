@@ -16,8 +16,7 @@ namespace Pulumi.Ns1.Inputs
         private InputMap<string>? _config;
 
         /// <summary>
-        /// The filters' configuration. Simple key/value pairs
-        /// determined by the filter type.
+        /// The filters' configuration. Simple key/value pairs determined by the filter type.
         /// </summary>
         public InputMap<string> Config
         {
@@ -26,8 +25,7 @@ namespace Pulumi.Ns1.Inputs
         }
 
         /// <summary>
-        /// Determines whether the filter is applied in the
-        /// filter chain.
+        /// Determines whether the filter is applied in the filter chain.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }

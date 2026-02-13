@@ -114,9 +114,17 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.overrideAddressRecords);
     }
 
+    /**
+     * Whether to override the TTL value.
+     * 
+     */
     @Import(name="overrideTtl")
     private @Nullable Output<Boolean> overrideTtl;
 
+    /**
+     * @return Whether to override the TTL value.
+     * 
+     */
     public Optional<Output<Boolean>> overrideTtl() {
         return Optional.ofNullable(this.overrideTtl);
     }
@@ -457,11 +465,23 @@ It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+
             return overrideAddressRecords(Output.of(overrideAddressRecords));
         }
 
+        /**
+         * @param overrideTtl Whether to override the TTL value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideTtl(@Nullable Output<Boolean> overrideTtl) {
             $.overrideTtl = overrideTtl;
             return this;
         }
 
+        /**
+         * @param overrideTtl Whether to override the TTL value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideTtl(Boolean overrideTtl) {
             return overrideTtl(Output.of(overrideTtl));
         }

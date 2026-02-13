@@ -54,16 +54,14 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether we send `NOTIFY` messages to the secondary host
-     * when the zone changes. Default `false`.
+     * Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
      * 
      */
     @Import(name="notify")
     private @Nullable Output<Boolean> notify;
 
     /**
-     * @return Whether we send `NOTIFY` messages to the secondary host
-     * when the zone changes. Default `false`.
+     * @return Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
      * 
      */
     public Optional<Output<Boolean>> notify_() {
@@ -71,14 +69,14 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port of the the secondary server. Default `53`.
+     * Port of the the secondary server.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port of the the secondary server. Default `53`.
+     * @return Port of the the secondary server.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -171,8 +169,7 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notify Whether we send `NOTIFY` messages to the secondary host
-         * when the zone changes. Default `false`.
+         * @param notify Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
          * 
          * @return builder
          * 
@@ -183,8 +180,7 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notify Whether we send `NOTIFY` messages to the secondary host
-         * when the zone changes. Default `false`.
+         * @param notify Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
          * 
          * @return builder
          * 
@@ -194,7 +190,7 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port of the the secondary server. Default `53`.
+         * @param port Port of the the secondary server.
          * 
          * @return builder
          * 
@@ -205,7 +201,7 @@ public final class ZoneSecondaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port of the the secondary server. Default `53`.
+         * @param port Port of the the secondary server.
          * 
          * @return builder
          * 

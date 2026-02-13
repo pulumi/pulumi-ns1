@@ -211,14 +211,14 @@ public class Redirect extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="httpsForced", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> httpsForced;
+    private Output</* @Nullable */ Boolean> httpsForced;
 
     /**
      * @return Forces redirect for users that try to visit HTTP domain to HTTPS instead.
      * 
      */
-    public Output<Boolean> httpsForced() {
-        return this.httpsForced;
+    public Output<Optional<Boolean>> httpsForced() {
+        return Codegen.optional(this.httpsForced);
     }
     /**
      * The Unix timestamp representing when the certificate was last signed.

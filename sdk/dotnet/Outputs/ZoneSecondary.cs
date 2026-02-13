@@ -24,12 +24,11 @@ namespace Pulumi.Ns1.Outputs
         /// </summary>
         public readonly ImmutableArray<int> Networks;
         /// <summary>
-        /// Whether we send `NOTIFY` messages to the secondary host
-        /// when the zone changes. Default `False`.
+        /// Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `False`.
         /// </summary>
         public readonly bool? Notify;
         /// <summary>
-        /// Port of the the secondary server. Default `53`.
+        /// Port of the the secondary server.
         /// </summary>
         public readonly int? Port;
 

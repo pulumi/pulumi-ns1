@@ -1032,13 +1032,11 @@ class RecordFilterArgsDict(TypedDict):
     """
     config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
-    The filters' configuration. Simple key/value pairs
-    determined by the filter type.
+    The filters' configuration. Simple key/value pairs determined by the filter type.
     """
     disabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
-    Determines whether the filter is applied in the
-    filter chain.
+    Determines whether the filter is applied in the filter chain.
     """
 
 @pulumi.input_type
@@ -1049,10 +1047,8 @@ class RecordFilterArgs:
                  disabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] filter: The type of filter.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The filters' configuration. Simple key/value pairs
-               determined by the filter type.
-        :param pulumi.Input[_builtins.bool] disabled: Determines whether the filter is applied in the
-               filter chain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The filters' configuration. Simple key/value pairs determined by the filter type.
+        :param pulumi.Input[_builtins.bool] disabled: Determines whether the filter is applied in the filter chain.
         """
         pulumi.set(__self__, "filter", filter)
         if config is not None:
@@ -1076,8 +1072,7 @@ class RecordFilterArgs:
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The filters' configuration. Simple key/value pairs
-        determined by the filter type.
+        The filters' configuration. Simple key/value pairs determined by the filter type.
         """
         return pulumi.get(self, "config")
 
@@ -1089,8 +1084,7 @@ class RecordFilterArgs:
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Determines whether the filter is applied in the
-        filter chain.
+        Determines whether the filter is applied in the filter chain.
         """
         return pulumi.get(self, "disabled")
 
@@ -1444,12 +1438,11 @@ class ZoneSecondaryArgsDict(TypedDict):
     """
     notify: NotRequired[pulumi.Input[_builtins.bool]]
     """
-    Whether we send `NOTIFY` messages to the secondary host
-    when the zone changes. Default `false`.
+    Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
     """
     port: NotRequired[pulumi.Input[_builtins.int]]
     """
-    Port of the the secondary server. Default `53`.
+    Port of the the secondary server.
     """
 
 @pulumi.input_type
@@ -1464,9 +1457,8 @@ class ZoneSecondaryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] networks: List of network IDs (`int`) for which the zone
                should be made available. Default is network 0, the primary NSONE Global
                Network. Normally, you should not have to worry about this.
-        :param pulumi.Input[_builtins.bool] notify: Whether we send `NOTIFY` messages to the secondary host
-               when the zone changes. Default `false`.
-        :param pulumi.Input[_builtins.int] port: Port of the the secondary server. Default `53`.
+        :param pulumi.Input[_builtins.bool] notify: Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
+        :param pulumi.Input[_builtins.int] port: Port of the the secondary server.
         """
         pulumi.set(__self__, "ip", ip)
         if networks is not None:
@@ -1506,8 +1498,7 @@ class ZoneSecondaryArgs:
     @pulumi.getter
     def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether we send `NOTIFY` messages to the secondary host
-        when the zone changes. Default `false`.
+        Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
         """
         return pulumi.get(self, "notify")
 
@@ -1519,7 +1510,7 @@ class ZoneSecondaryArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Port of the the secondary server. Default `53`.
+        Port of the the secondary server.
         """
         return pulumi.get(self, "port")
 

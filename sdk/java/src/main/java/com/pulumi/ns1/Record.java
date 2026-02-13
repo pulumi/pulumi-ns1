@@ -270,9 +270,17 @@ public class Record extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> overrideAddressRecords() {
         return Codegen.optional(this.overrideAddressRecords);
     }
+    /**
+     * Whether to override the TTL value.
+     * 
+     */
     @Export(name="overrideTtl", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overrideTtl;
 
+    /**
+     * @return Whether to override the TTL value.
+     * 
+     */
     public Output<Optional<Boolean>> overrideTtl() {
         return Codegen.optional(this.overrideTtl);
     }

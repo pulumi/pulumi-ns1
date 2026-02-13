@@ -389,11 +389,11 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "The filters' configuration. Simple key/value pairs\ndetermined by the filter type.\n"
+                    "description": "The filters' configuration. Simple key/value pairs determined by the filter type.\n"
                 },
                 "disabled": {
                     "type": "boolean",
-                    "description": "Determines whether the filter is applied in the\nfilter chain.\n"
+                    "description": "Determines whether the filter is applied in the filter chain.\n"
                 },
                 "filter": {
                     "type": "string",
@@ -550,11 +550,11 @@
                 },
                 "notify": {
                     "type": "boolean",
-                    "description": "Whether we send `NOTIFY` messages to the secondary host\nwhen the zone changes. Default \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    "description": "Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "Port of the the secondary server. Default \u003cspan pulumi-lang-nodejs=\"`53`\" pulumi-lang-dotnet=\"`53`\" pulumi-lang-go=\"`53`\" pulumi-lang-python=\"`53`\" pulumi-lang-yaml=\"`53`\" pulumi-lang-java=\"`53`\"\u003e`53`\u003c/span\u003e.\n"
+                    "description": "Port of the the secondary server.\n"
                 }
             },
             "type": "object",
@@ -2177,7 +2177,7 @@
                 },
                 "mute": {
                     "type": "boolean",
-                    "description": "turn off the notifications for the monitoring job.\n"
+                    "description": "Turn off the notifications for the monitoring job.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2209,7 +2209,7 @@
                 },
                 "policy": {
                     "type": "string",
-                    "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. See NS1 API docs for supported values.\n"
+                    "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. Supported values: \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`one`\" pulumi-lang-dotnet=\"`One`\" pulumi-lang-go=\"`one`\" pulumi-lang-python=\"`one`\" pulumi-lang-yaml=\"`one`\" pulumi-lang-java=\"`one`\"\u003e`one`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`quorum`\" pulumi-lang-dotnet=\"`Quorum`\" pulumi-lang-go=\"`quorum`\" pulumi-lang-python=\"`quorum`\" pulumi-lang-yaml=\"`quorum`\" pulumi-lang-java=\"`quorum`\"\u003e`quorum`\u003c/span\u003e.\n"
                 },
                 "rapidRecheck": {
                     "type": "boolean",
@@ -2260,7 +2260,7 @@
                 },
                 "mute": {
                     "type": "boolean",
-                    "description": "turn off the notifications for the monitoring job.\n"
+                    "description": "Turn off the notifications for the monitoring job.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2292,7 +2292,7 @@
                 },
                 "policy": {
                     "type": "string",
-                    "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. See NS1 API docs for supported values.\n"
+                    "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. Supported values: \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`one`\" pulumi-lang-dotnet=\"`One`\" pulumi-lang-go=\"`one`\" pulumi-lang-python=\"`one`\" pulumi-lang-yaml=\"`one`\" pulumi-lang-java=\"`one`\"\u003e`one`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`quorum`\" pulumi-lang-dotnet=\"`Quorum`\" pulumi-lang-go=\"`quorum`\" pulumi-lang-python=\"`quorum`\" pulumi-lang-yaml=\"`quorum`\" pulumi-lang-java=\"`quorum`\"\u003e`quorum`\u003c/span\u003e.\n"
                 },
                 "rapidRecheck": {
                     "type": "boolean",
@@ -2344,7 +2344,7 @@
                     },
                     "mute": {
                         "type": "boolean",
-                        "description": "turn off the notifications for the monitoring job.\n"
+                        "description": "Turn off the notifications for the monitoring job.\n"
                     },
                     "name": {
                         "type": "string",
@@ -2376,7 +2376,7 @@
                     },
                     "policy": {
                         "type": "string",
-                        "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. See NS1 API docs for supported values.\n"
+                        "description": "The policy for determining the monitor's global status\nbased on the status of the job in all regions. Supported values: \u003cspan pulumi-lang-nodejs=\"`all`\" pulumi-lang-dotnet=\"`All`\" pulumi-lang-go=\"`all`\" pulumi-lang-python=\"`all`\" pulumi-lang-yaml=\"`all`\" pulumi-lang-java=\"`all`\"\u003e`all`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`one`\" pulumi-lang-dotnet=\"`One`\" pulumi-lang-go=\"`one`\" pulumi-lang-python=\"`one`\" pulumi-lang-yaml=\"`one`\" pulumi-lang-java=\"`one`\"\u003e`one`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`quorum`\" pulumi-lang-dotnet=\"`Quorum`\" pulumi-lang-go=\"`quorum`\" pulumi-lang-python=\"`quorum`\" pulumi-lang-yaml=\"`quorum`\" pulumi-lang-java=\"`quorum`\"\u003e`quorum`\u003c/span\u003e.\n"
                     },
                     "rapidRecheck": {
                         "type": "boolean",
@@ -2614,7 +2614,8 @@
                     "type": "boolean"
                 },
                 "overrideTtl": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether to override the TTL value.\n"
                 },
                 "regions": {
                     "type": "array",
@@ -2700,7 +2701,8 @@
                     "type": "boolean"
                 },
                 "overrideTtl": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether to override the TTL value.\n"
                 },
                 "regions": {
                     "type": "array",
@@ -2789,7 +2791,8 @@
                         "type": "boolean"
                     },
                     "overrideTtl": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Whether to override the TTL value.\n"
                     },
                     "regions": {
                         "type": "array",
@@ -2889,7 +2892,6 @@
                 "certificateId",
                 "domain",
                 "httpsEnabled",
-                "httpsForced",
                 "lastUpdated",
                 "path",
                 "target"

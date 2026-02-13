@@ -381,13 +381,11 @@ export interface RecordAnswer {
 
 export interface RecordFilter {
     /**
-     * The filters' configuration. Simple key/value pairs
-     * determined by the filter type.
+     * The filters' configuration. Simple key/value pairs determined by the filter type.
      */
     config?: {[key: string]: string};
     /**
-     * Determines whether the filter is applied in the
-     * filter chain.
+     * Determines whether the filter is applied in the filter chain.
      */
     disabled?: boolean;
     /**
@@ -463,12 +461,11 @@ export interface ZoneSecondary {
      */
     networks: number[];
     /**
-     * Whether we send `NOTIFY` messages to the secondary host
-     * when the zone changes. Default `false`.
+     * Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
      */
     notify: boolean;
     /**
-     * Port of the the secondary server. Default `53`.
+     * Port of the the secondary server.
      */
     port: number;
 }

@@ -95,7 +95,7 @@ export class MonitoringJob extends pulumi.CustomResource {
      */
     declare public readonly jobType: pulumi.Output<string>;
     /**
-     * turn off the notifications for the monitoring job.
+     * Turn off the notifications for the monitoring job.
      */
     declare public readonly mute: pulumi.Output<boolean | undefined>;
     /**
@@ -128,7 +128,7 @@ export class MonitoringJob extends pulumi.CustomResource {
     declare public readonly notifyRepeat: pulumi.Output<number | undefined>;
     /**
      * The policy for determining the monitor's global status
-     * based on the status of the job in all regions. See NS1 API docs for supported values.
+     * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      */
     declare public readonly policy: pulumi.Output<string | undefined>;
     /**
@@ -231,7 +231,7 @@ export interface MonitoringJobState {
      */
     jobType?: pulumi.Input<string>;
     /**
-     * turn off the notifications for the monitoring job.
+     * Turn off the notifications for the monitoring job.
      */
     mute?: pulumi.Input<boolean>;
     /**
@@ -264,7 +264,7 @@ export interface MonitoringJobState {
     notifyRepeat?: pulumi.Input<number>;
     /**
      * The policy for determining the monitor's global status
-     * based on the status of the job in all regions. See NS1 API docs for supported values.
+     * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      */
     policy?: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface MonitoringJobArgs {
      */
     jobType: pulumi.Input<string>;
     /**
-     * turn off the notifications for the monitoring job.
+     * Turn off the notifications for the monitoring job.
      */
     mute?: pulumi.Input<boolean>;
     /**
@@ -336,7 +336,7 @@ export interface MonitoringJobArgs {
     notifyRepeat?: pulumi.Input<number>;
     /**
      * The policy for determining the monitor's global status
-     * based on the status of the job in all regions. See NS1 API docs for supported values.
+     * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      */
     policy?: pulumi.Input<string>;
     /**

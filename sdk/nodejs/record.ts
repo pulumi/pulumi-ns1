@@ -192,6 +192,9 @@ export class Record extends pulumi.CustomResource {
     declare public readonly link: pulumi.Output<string | undefined>;
     declare public readonly meta: pulumi.Output<{[key: string]: string} | undefined>;
     declare public readonly overrideAddressRecords: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to override the TTL value.
+     */
     declare public readonly overrideTtl: pulumi.Output<boolean | undefined>;
     /**
      * One or more "regions" for the record. These are really
@@ -324,6 +327,9 @@ export interface RecordState {
     link?: pulumi.Input<string>;
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     overrideAddressRecords?: pulumi.Input<boolean>;
+    /**
+     * Whether to override the TTL value.
+     */
     overrideTtl?: pulumi.Input<boolean>;
     /**
      * One or more "regions" for the record. These are really
@@ -397,6 +403,9 @@ export interface RecordArgs {
     link?: pulumi.Input<string>;
     meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     overrideAddressRecords?: pulumi.Input<boolean>;
+    /**
+     * Whether to override the TTL value.
+     */
     overrideTtl?: pulumi.Input<boolean>;
     /**
      * One or more "regions" for the record. These are really

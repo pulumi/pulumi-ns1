@@ -112,7 +112,7 @@ export class Redirect extends pulumi.CustomResource {
     /**
      * Forces redirect for users that try to visit HTTP domain to HTTPS instead.
      */
-    declare public readonly httpsForced: pulumi.Output<boolean>;
+    declare public readonly httpsForced: pulumi.Output<boolean | undefined>;
     /**
      * The Unix timestamp representing when the certificate was last signed.
      */

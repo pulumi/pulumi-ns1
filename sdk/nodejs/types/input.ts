@@ -208,13 +208,11 @@ export interface RecordAnswer {
 
 export interface RecordFilter {
     /**
-     * The filters' configuration. Simple key/value pairs
-     * determined by the filter type.
+     * The filters' configuration. Simple key/value pairs determined by the filter type.
      */
     config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Determines whether the filter is applied in the
-     * filter chain.
+     * Determines whether the filter is applied in the filter chain.
      */
     disabled?: pulumi.Input<boolean>;
     /**
@@ -290,12 +288,11 @@ export interface ZoneSecondary {
      */
     networks?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Whether we send `NOTIFY` messages to the secondary host
-     * when the zone changes. Default `false`.
+     * Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
      */
     notify?: pulumi.Input<boolean>;
     /**
-     * Port of the the secondary server. Default `53`.
+     * Port of the the secondary server.
      */
     port?: pulumi.Input<number>;
 }
