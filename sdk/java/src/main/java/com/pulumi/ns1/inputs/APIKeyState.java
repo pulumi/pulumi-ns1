@@ -148,14 +148,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the apikey can view invoices.
+     * , default: `false` Whether the apikey can view invoices.
      * 
      */
     @Import(name="accountViewInvoices")
     private @Nullable Output<Boolean> accountViewInvoices;
 
     /**
-     * @return Whether the apikey can view invoices.
+     * @return , default: `false` Whether the apikey can view invoices.
      * 
      */
     public Optional<Output<Boolean>> accountViewInvoices() {
@@ -313,6 +313,36 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether the apikey can manage DNS insights.
+     * 
+     */
+    @Import(name="insightsManageInsights")
+    private @Nullable Output<Boolean> insightsManageInsights;
+
+    /**
+     * @return Whether the apikey can manage DNS insights.
+     * 
+     */
+    public Optional<Output<Boolean>> insightsManageInsights() {
+        return Optional.ofNullable(this.insightsManageInsights);
+    }
+
+    /**
+     * Whether the apikey can view DNS insights.
+     * 
+     */
+    @Import(name="insightsViewInsights")
+    private @Nullable Output<Boolean> insightsViewInsights;
+
+    /**
+     * @return Whether the apikey can view DNS insights.
+     * 
+     */
+    public Optional<Output<Boolean>> insightsViewInsights() {
+        return Optional.ofNullable(this.insightsViewInsights);
+    }
+
+    /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      * 
      */
@@ -358,14 +388,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Import(name="monitoringCreateJobs")
     private @Nullable Output<Boolean> monitoringCreateJobs;
 
     /**
-     * @return Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * @return Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Optional<Output<Boolean>> monitoringCreateJobs() {
@@ -373,14 +403,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Import(name="monitoringDeleteJobs")
     private @Nullable Output<Boolean> monitoringDeleteJobs;
 
     /**
-     * @return Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * @return Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Optional<Output<Boolean>> monitoringDeleteJobs() {
@@ -388,14 +418,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the apikey can create, update, and delete monitoring jobs.
      * 
      */
     @Import(name="monitoringManageJobs")
     private @Nullable Output<Boolean> monitoringManageJobs;
 
     /**
-     * @return Whether the user can create, update, and delete monitoring jobs.
+     * @return Whether the apikey can create, update, and delete monitoring jobs.
      * 
      */
     public Optional<Output<Boolean>> monitoringManageJobs() {
@@ -418,14 +448,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Import(name="monitoringUpdateJobs")
     private @Nullable Output<Boolean> monitoringUpdateJobs;
 
     /**
-     * @return Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * @return Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Optional<Output<Boolean>> monitoringUpdateJobs() {
@@ -463,16 +493,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the apikey can manage redirects.
      * 
      */
     @Import(name="redirectsManageRedirects")
     private @Nullable Output<Boolean> redirectsManageRedirects;
 
     /**
-     * @return Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * @return Whether the apikey can manage redirects.
      * 
      */
     public Optional<Output<Boolean>> redirectsManageRedirects() {
@@ -480,14 +508,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the apikey can manage global active directory.
+     * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      * 
      */
     @Import(name="securityManageActiveDirectory")
     private @Nullable Output<Boolean> securityManageActiveDirectory;
 
     /**
-     * @return Whether the apikey can manage global active directory.
+     * @return Whether the apikey can manage global active directory. Only relevant for the DDI product.
      * 
      */
     public Optional<Output<Boolean>> securityManageActiveDirectory() {
@@ -546,6 +574,8 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         this.dnsZonesAllowByDefault = $.dnsZonesAllowByDefault;
         this.dnsZonesAllows = $.dnsZonesAllows;
         this.dnsZonesDenies = $.dnsZonesDenies;
+        this.insightsManageInsights = $.insightsManageInsights;
+        this.insightsViewInsights = $.insightsViewInsights;
         this.ipWhitelistStrict = $.ipWhitelistStrict;
         this.ipWhitelists = $.ipWhitelists;
         this.key = $.key;
@@ -757,7 +787,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountViewInvoices Whether the apikey can view invoices.
+         * @param accountViewInvoices , default: `false` Whether the apikey can view invoices.
          * 
          * @return builder
          * 
@@ -768,7 +798,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountViewInvoices Whether the apikey can view invoices.
+         * @param accountViewInvoices , default: `false` Whether the apikey can view invoices.
          * 
          * @return builder
          * 
@@ -1028,6 +1058,48 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param insightsManageInsights Whether the apikey can manage DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsManageInsights(@Nullable Output<Boolean> insightsManageInsights) {
+            $.insightsManageInsights = insightsManageInsights;
+            return this;
+        }
+
+        /**
+         * @param insightsManageInsights Whether the apikey can manage DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsManageInsights(Boolean insightsManageInsights) {
+            return insightsManageInsights(Output.of(insightsManageInsights));
+        }
+
+        /**
+         * @param insightsViewInsights Whether the apikey can view DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsViewInsights(@Nullable Output<Boolean> insightsViewInsights) {
+            $.insightsViewInsights = insightsViewInsights;
+            return this;
+        }
+
+        /**
+         * @param insightsViewInsights Whether the apikey can view DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsViewInsights(Boolean insightsViewInsights) {
+            return insightsViewInsights(Output.of(insightsViewInsights));
+        }
+
+        /**
          * @param ipWhitelistStrict Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
          * 
          * @return builder
@@ -1101,7 +1173,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manageJobs is not set to true.
+         * @param monitoringCreateJobs Whether the apikey can create monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1112,7 +1184,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringCreateJobs Whether the user can create monitoring jobs when manageJobs is not set to true.
+         * @param monitoringCreateJobs Whether the apikey can create monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1122,7 +1194,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manageJobs is not set to true.
+         * @param monitoringDeleteJobs Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1133,7 +1205,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringDeleteJobs Whether the user can delete monitoring jobs when manageJobs is not set to true.
+         * @param monitoringDeleteJobs Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1143,7 +1215,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringManageJobs Whether the user can create, update, and delete monitoring jobs.
+         * @param monitoringManageJobs Whether the apikey can create, update, and delete monitoring jobs.
          * 
          * @return builder
          * 
@@ -1154,7 +1226,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringManageJobs Whether the user can create, update, and delete monitoring jobs.
+         * @param monitoringManageJobs Whether the apikey can create, update, and delete monitoring jobs.
          * 
          * @return builder
          * 
@@ -1185,7 +1257,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manageJobs is not set to true.
+         * @param monitoringUpdateJobs Whether the apikey can update monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1196,7 +1268,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringUpdateJobs Whether the user can update monitoring jobs when manageJobs is not set to true.
+         * @param monitoringUpdateJobs Whether the apikey can update monitoring jobs when manageJobs is not set to true.
          * 
          * @return builder
          * 
@@ -1248,8 +1320,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectsManageRedirects Whether the user can manage redirects.
-         * Only relevant for the DDI product.
+         * @param redirectsManageRedirects Whether the apikey can manage redirects.
          * 
          * @return builder
          * 
@@ -1260,8 +1331,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectsManageRedirects Whether the user can manage redirects.
-         * Only relevant for the DDI product.
+         * @param redirectsManageRedirects Whether the apikey can manage redirects.
          * 
          * @return builder
          * 
@@ -1271,7 +1341,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityManageActiveDirectory Whether the apikey can manage global active directory.
+         * @param securityManageActiveDirectory Whether the apikey can manage global active directory. Only relevant for the DDI product.
          * 
          * @return builder
          * 
@@ -1282,7 +1352,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityManageActiveDirectory Whether the apikey can manage global active directory.
+         * @param securityManageActiveDirectory Whether the apikey can manage global active directory. Only relevant for the DDI product.
          * 
          * @return builder
          * 

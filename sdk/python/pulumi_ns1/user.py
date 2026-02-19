@@ -42,6 +42,8 @@ class UserArgs:
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -73,10 +75,14 @@ class UserArgs:
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
         :param pulumi.Input[_builtins.bool] dns_manage_zones: Whether the user can modify the accounts zones.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsAllowArgs']]] dns_records_allows: List of records that the user may access.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsDenyArgs']]] dns_records_denies: List of records that the user may not access.
         :param pulumi.Input[_builtins.bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the user may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the user can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the user can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
@@ -88,8 +94,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the user belongs to.
         """
@@ -136,6 +141,10 @@ class UserArgs:
             pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+        if insights_manage_insights is not None:
+            pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
+        if insights_view_insights is not None:
+            pulumi.set(__self__, "insights_view_insights", insights_view_insights)
         if ip_whitelist_strict is not None:
             pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
@@ -352,6 +361,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="dnsRecordsAllows")
     def dns_records_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsAllowArgs']]]]:
+        """
+        List of records that the user may access.
+        """
         return pulumi.get(self, "dns_records_allows")
 
     @dns_records_allows.setter
@@ -361,6 +373,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="dnsRecordsDenies")
     def dns_records_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsDenyArgs']]]]:
+        """
+        List of records that the user may not access.
+        """
         return pulumi.get(self, "dns_records_denies")
 
     @dns_records_denies.setter
@@ -414,6 +429,30 @@ class UserArgs:
     @dns_zones_denies.setter
     def dns_zones_denies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_zones_denies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the user can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @insights_manage_insights.setter
+    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_manage_insights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the user can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @insights_view_insights.setter
+    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_view_insights", value)
 
     @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
@@ -541,7 +580,6 @@ class UserArgs:
     def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether the user can manage redirects.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -553,7 +591,7 @@ class UserArgs:
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can manage global active directory.
+        Whether the user can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -609,6 +647,8 @@ class _UserState:
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  email: Optional[pulumi.Input[_builtins.str]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -639,11 +679,15 @@ class _UserState:
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
         :param pulumi.Input[_builtins.bool] dns_manage_zones: Whether the user can modify the accounts zones.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsAllowArgs']]] dns_records_allows: List of records that the user may access.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsDenyArgs']]] dns_records_denies: List of records that the user may not access.
         :param pulumi.Input[_builtins.bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the user may not access.
         :param pulumi.Input[_builtins.str] email: The email address of the user.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the user can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the user can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
@@ -655,8 +699,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the user belongs to.
         :param pulumi.Input[_builtins.str] username: The users login name.
@@ -704,6 +747,10 @@ class _UserState:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
         if email is not None:
             pulumi.set(__self__, "email", email)
+        if insights_manage_insights is not None:
+            pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
+        if insights_view_insights is not None:
+            pulumi.set(__self__, "insights_view_insights", insights_view_insights)
         if ip_whitelist_strict is not None:
             pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
@@ -898,6 +945,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="dnsRecordsAllows")
     def dns_records_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsAllowArgs']]]]:
+        """
+        List of records that the user may access.
+        """
         return pulumi.get(self, "dns_records_allows")
 
     @dns_records_allows.setter
@@ -907,6 +957,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="dnsRecordsDenies")
     def dns_records_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDnsRecordsDenyArgs']]]]:
+        """
+        List of records that the user may not access.
+        """
         return pulumi.get(self, "dns_records_denies")
 
     @dns_records_denies.setter
@@ -972,6 +1025,30 @@ class _UserState:
     @email.setter
     def email(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the user can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @insights_manage_insights.setter
+    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_manage_insights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the user can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @insights_view_insights.setter
+    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_view_insights", value)
 
     @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
@@ -1099,7 +1176,6 @@ class _UserState:
     def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether the user can manage redirects.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -1111,7 +1187,7 @@ class _UserState:
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can manage global active directory.
+        Whether the user can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -1182,6 +1258,8 @@ class User(pulumi.CustomResource):
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  email: Optional[pulumi.Input[_builtins.str]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1265,11 +1343,15 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
         :param pulumi.Input[_builtins.bool] dns_manage_zones: Whether the user can modify the accounts zones.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the user may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the user may not access.
         :param pulumi.Input[_builtins.bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the user may not access.
         :param pulumi.Input[_builtins.str] email: The email address of the user.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the user can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the user can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
@@ -1281,8 +1363,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the user belongs to.
         :param pulumi.Input[_builtins.str] username: The users login name.
@@ -1380,6 +1461,8 @@ class User(pulumi.CustomResource):
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  email: Optional[pulumi.Input[_builtins.str]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1426,6 +1509,8 @@ class User(pulumi.CustomResource):
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
+            __props__.__dict__["insights_manage_insights"] = insights_manage_insights
+            __props__.__dict__["insights_view_insights"] = insights_view_insights
             __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
             __props__.__dict__["ip_whitelists"] = ip_whitelists
             __props__.__dict__["monitoring_create_jobs"] = monitoring_create_jobs
@@ -1473,6 +1558,8 @@ class User(pulumi.CustomResource):
             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             email: Optional[pulumi.Input[_builtins.str]] = None,
+            insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+            insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
             ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
             ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1508,11 +1595,15 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
         :param pulumi.Input[_builtins.bool] dns_manage_zones: Whether the user can modify the accounts zones.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the user may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the user may not access.
         :param pulumi.Input[_builtins.bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the user may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the user may not access.
         :param pulumi.Input[_builtins.str] email: The email address of the user.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the user can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the user can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the user access.
         :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
@@ -1524,8 +1615,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The free form name of the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] notify: Whether or not to notify the user of specified events. Only `billing` is available currently.
         :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the user can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the user can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the user belongs to.
         :param pulumi.Input[_builtins.str] username: The users login name.
@@ -1554,6 +1644,8 @@ class User(pulumi.CustomResource):
         __props__.__dict__["dns_zones_allows"] = dns_zones_allows
         __props__.__dict__["dns_zones_denies"] = dns_zones_denies
         __props__.__dict__["email"] = email
+        __props__.__dict__["insights_manage_insights"] = insights_manage_insights
+        __props__.__dict__["insights_view_insights"] = insights_view_insights
         __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
         __props__.__dict__["ip_whitelists"] = ip_whitelists
         __props__.__dict__["monitoring_create_jobs"] = monitoring_create_jobs
@@ -1679,11 +1771,17 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="dnsRecordsAllows")
     def dns_records_allows(self) -> pulumi.Output[Optional[Sequence['outputs.UserDnsRecordsAllow']]]:
+        """
+        List of records that the user may access.
+        """
         return pulumi.get(self, "dns_records_allows")
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordsDenies")
     def dns_records_denies(self) -> pulumi.Output[Optional[Sequence['outputs.UserDnsRecordsDeny']]]:
+        """
+        List of records that the user may not access.
+        """
         return pulumi.get(self, "dns_records_denies")
 
     @_builtins.property
@@ -1725,6 +1823,22 @@ class User(pulumi.CustomResource):
         The email address of the user.
         """
         return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the user can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the user can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
 
     @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
@@ -1812,7 +1926,6 @@ class User(pulumi.CustomResource):
     def redirects_manage_redirects(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Whether the user can manage redirects.
-        Only relevant for the DDI product.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -1820,7 +1933,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can manage global active directory.
+        Whether the user can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 

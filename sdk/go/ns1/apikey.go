@@ -101,7 +101,7 @@ type APIKey struct {
 	AccountManageUsers pulumi.BoolPtrOutput `pulumi:"accountManageUsers"`
 	// Whether the apikey can view activity logs.
 	AccountViewActivityLog pulumi.BoolPtrOutput `pulumi:"accountViewActivityLog"`
-	// Whether the apikey can view invoices.
+	// , default: `false` Whether the apikey can view invoices.
 	AccountViewInvoices pulumi.BoolPtrOutput `pulumi:"accountViewInvoices"`
 	// Whether the apikey can modify data feeds.
 	DataManageDatafeeds pulumi.BoolPtrOutput `pulumi:"dataManageDatafeeds"`
@@ -123,30 +123,33 @@ type APIKey struct {
 	DnsZonesAllows pulumi.StringArrayOutput `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
+	// Whether the apikey can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrOutput `pulumi:"insightsManageInsights"`
+	// Whether the apikey can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrOutput `pulumi:"insightsViewInsights"`
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrOutput `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayOutput `pulumi:"ipWhitelists"`
 	// (Computed) The apikeys authentication token.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrOutput `pulumi:"monitoringCreateJobs"`
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs pulumi.BoolPtrOutput `pulumi:"monitoringDeleteJobs"`
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the apikey can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrOutput `pulumi:"monitoringManageJobs"`
 	// Whether the apikey can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrOutput `pulumi:"monitoringManageLists"`
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs pulumi.BoolPtrOutput `pulumi:"monitoringUpdateJobs"`
 	// Whether the apikey can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrOutput `pulumi:"monitoringViewJobs"`
 	// The free form name of the apikey.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrOutput `pulumi:"redirectsManageRedirects"`
-	// Whether the apikey can manage global active directory.
+	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrOutput `pulumi:"securityManageGlobal2fa"`
@@ -206,7 +209,7 @@ type apikeyState struct {
 	AccountManageUsers *bool `pulumi:"accountManageUsers"`
 	// Whether the apikey can view activity logs.
 	AccountViewActivityLog *bool `pulumi:"accountViewActivityLog"`
-	// Whether the apikey can view invoices.
+	// , default: `false` Whether the apikey can view invoices.
 	AccountViewInvoices *bool `pulumi:"accountViewInvoices"`
 	// Whether the apikey can modify data feeds.
 	DataManageDatafeeds *bool `pulumi:"dataManageDatafeeds"`
@@ -228,30 +231,33 @@ type apikeyState struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
+	// Whether the apikey can manage DNS insights.
+	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
+	// Whether the apikey can view DNS insights.
+	InsightsViewInsights *bool `pulumi:"insightsViewInsights"`
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
 	// (Computed) The apikeys authentication token.
 	Key *string `pulumi:"key"`
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the apikey can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the apikey can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the apikey can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the apikey.
 	Name *string `pulumi:"name"`
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
-	// Whether the apikey can manage global active directory.
+	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -278,7 +284,7 @@ type APIKeyState struct {
 	AccountManageUsers pulumi.BoolPtrInput
 	// Whether the apikey can view activity logs.
 	AccountViewActivityLog pulumi.BoolPtrInput
-	// Whether the apikey can view invoices.
+	// , default: `false` Whether the apikey can view invoices.
 	AccountViewInvoices pulumi.BoolPtrInput
 	// Whether the apikey can modify data feeds.
 	DataManageDatafeeds pulumi.BoolPtrInput
@@ -300,30 +306,33 @@ type APIKeyState struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayInput
+	// Whether the apikey can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrInput
+	// Whether the apikey can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrInput
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayInput
 	// (Computed) The apikeys authentication token.
 	Key pulumi.StringPtrInput
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrInput
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs pulumi.BoolPtrInput
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the apikey can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the apikey can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the apikey can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the apikey.
 	Name pulumi.StringPtrInput
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrInput
-	// Whether the apikey can manage global active directory.
+	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -354,7 +363,7 @@ type apikeyArgs struct {
 	AccountManageUsers *bool `pulumi:"accountManageUsers"`
 	// Whether the apikey can view activity logs.
 	AccountViewActivityLog *bool `pulumi:"accountViewActivityLog"`
-	// Whether the apikey can view invoices.
+	// , default: `false` Whether the apikey can view invoices.
 	AccountViewInvoices *bool `pulumi:"accountViewInvoices"`
 	// Whether the apikey can modify data feeds.
 	DataManageDatafeeds *bool `pulumi:"dataManageDatafeeds"`
@@ -376,28 +385,31 @@ type apikeyArgs struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
+	// Whether the apikey can manage DNS insights.
+	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
+	// Whether the apikey can view DNS insights.
+	InsightsViewInsights *bool `pulumi:"insightsViewInsights"`
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the apikey can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the apikey can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the apikey can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the apikey.
 	Name *string `pulumi:"name"`
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
-	// Whether the apikey can manage global active directory.
+	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -425,7 +437,7 @@ type APIKeyArgs struct {
 	AccountManageUsers pulumi.BoolPtrInput
 	// Whether the apikey can view activity logs.
 	AccountViewActivityLog pulumi.BoolPtrInput
-	// Whether the apikey can view invoices.
+	// , default: `false` Whether the apikey can view invoices.
 	AccountViewInvoices pulumi.BoolPtrInput
 	// Whether the apikey can modify data feeds.
 	DataManageDatafeeds pulumi.BoolPtrInput
@@ -447,28 +459,31 @@ type APIKeyArgs struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayInput
+	// Whether the apikey can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrInput
+	// Whether the apikey can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrInput
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayInput
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrInput
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs pulumi.BoolPtrInput
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the apikey can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the apikey can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the apikey can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the apikey can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the apikey.
 	Name pulumi.StringPtrInput
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrInput
-	// Whether the apikey can manage global active directory.
+	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the apikey can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -605,7 +620,7 @@ func (o APIKeyOutput) AccountViewActivityLog() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountViewActivityLog }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the apikey can view invoices.
+// , default: `false` Whether the apikey can view invoices.
 func (o APIKeyOutput) AccountViewInvoices() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.AccountViewInvoices }).(pulumi.BoolPtrOutput)
 }
@@ -660,6 +675,16 @@ func (o APIKeyOutput) DnsZonesDenies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.StringArrayOutput { return v.DnsZonesDenies }).(pulumi.StringArrayOutput)
 }
 
+// Whether the apikey can manage DNS insights.
+func (o APIKeyOutput) InsightsManageInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.InsightsManageInsights }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the apikey can view DNS insights.
+func (o APIKeyOutput) InsightsViewInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.InsightsViewInsights }).(pulumi.BoolPtrOutput)
+}
+
 // Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 func (o APIKeyOutput) IpWhitelistStrict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.IpWhitelistStrict }).(pulumi.BoolPtrOutput)
@@ -675,17 +700,17 @@ func (o APIKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Whether the user can create monitoring jobs when manageJobs is not set to true.
+// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 func (o APIKeyOutput) MonitoringCreateJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringCreateJobs }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+// Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
 func (o APIKeyOutput) MonitoringDeleteJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringDeleteJobs }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can create, update, and delete monitoring jobs.
+// Whether the apikey can create, update, and delete monitoring jobs.
 func (o APIKeyOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringManageJobs }).(pulumi.BoolPtrOutput)
 }
@@ -695,7 +720,7 @@ func (o APIKeyOutput) MonitoringManageLists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringManageLists }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can update monitoring jobs when manageJobs is not set to true.
+// Whether the apikey can update monitoring jobs when manageJobs is not set to true.
 func (o APIKeyOutput) MonitoringUpdateJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.MonitoringUpdateJobs }).(pulumi.BoolPtrOutput)
 }
@@ -710,13 +735,12 @@ func (o APIKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether the user can manage redirects.
-// Only relevant for the DDI product.
+// Whether the apikey can manage redirects.
 func (o APIKeyOutput) RedirectsManageRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.RedirectsManageRedirects }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the apikey can manage global active directory.
+// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 func (o APIKeyOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
 }

@@ -142,7 +142,13 @@ export class User extends pulumi.CustomResource {
      * Whether the user can modify the accounts zones.
      */
     declare public readonly dnsManageZones: pulumi.Output<boolean | undefined>;
+    /**
+     * List of records that the user may access.
+     */
     declare public readonly dnsRecordsAllows: pulumi.Output<outputs.UserDnsRecordsAllow[] | undefined>;
+    /**
+     * List of records that the user may not access.
+     */
     declare public readonly dnsRecordsDenies: pulumi.Output<outputs.UserDnsRecordsDeny[] | undefined>;
     /**
      * Whether the user can view the accounts zones.
@@ -164,6 +170,14 @@ export class User extends pulumi.CustomResource {
      * The email address of the user.
      */
     declare public readonly email: pulumi.Output<string>;
+    /**
+     * Whether the user can manage DNS insights.
+     */
+    declare public readonly insightsManageInsights: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the user can view DNS insights.
+     */
+    declare public readonly insightsViewInsights: pulumi.Output<boolean | undefined>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
@@ -208,11 +222,10 @@ export class User extends pulumi.CustomResource {
     declare public readonly notify: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
      */
     declare public readonly redirectsManageRedirects: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can manage global active directory.
+     * Whether the user can manage global active directory. Only relevant for the DDI product.
      */
     declare public readonly securityManageActiveDirectory: pulumi.Output<boolean | undefined>;
     /**
@@ -261,6 +274,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllows"] = state?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = state?.dnsZonesDenies;
             resourceInputs["email"] = state?.email;
+            resourceInputs["insightsManageInsights"] = state?.insightsManageInsights;
+            resourceInputs["insightsViewInsights"] = state?.insightsViewInsights;
             resourceInputs["ipWhitelistStrict"] = state?.ipWhitelistStrict;
             resourceInputs["ipWhitelists"] = state?.ipWhitelists;
             resourceInputs["monitoringCreateJobs"] = state?.monitoringCreateJobs;
@@ -304,6 +319,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllows"] = args?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = args?.dnsZonesDenies;
             resourceInputs["email"] = args?.email;
+            resourceInputs["insightsManageInsights"] = args?.insightsManageInsights;
+            resourceInputs["insightsViewInsights"] = args?.insightsViewInsights;
             resourceInputs["ipWhitelistStrict"] = args?.ipWhitelistStrict;
             resourceInputs["ipWhitelists"] = args?.ipWhitelists;
             resourceInputs["monitoringCreateJobs"] = args?.monitoringCreateJobs;
@@ -383,7 +400,13 @@ export interface UserState {
      * Whether the user can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
+    /**
+     * List of records that the user may access.
+     */
     dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
+    /**
+     * List of records that the user may not access.
+     */
     dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
     /**
      * Whether the user can view the accounts zones.
@@ -405,6 +428,14 @@ export interface UserState {
      * The email address of the user.
      */
     email?: pulumi.Input<string>;
+    /**
+     * Whether the user can manage DNS insights.
+     */
+    insightsManageInsights?: pulumi.Input<boolean>;
+    /**
+     * Whether the user can view DNS insights.
+     */
+    insightsViewInsights?: pulumi.Input<boolean>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
@@ -449,11 +480,10 @@ export interface UserState {
     notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
      */
     redirectsManageRedirects?: pulumi.Input<boolean>;
     /**
-     * Whether the user can manage global active directory.
+     * Whether the user can manage global active directory. Only relevant for the DDI product.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
@@ -528,7 +558,13 @@ export interface UserArgs {
      * Whether the user can modify the accounts zones.
      */
     dnsManageZones?: pulumi.Input<boolean>;
+    /**
+     * List of records that the user may access.
+     */
     dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
+    /**
+     * List of records that the user may not access.
+     */
     dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
     /**
      * Whether the user can view the accounts zones.
@@ -550,6 +586,14 @@ export interface UserArgs {
      * The email address of the user.
      */
     email: pulumi.Input<string>;
+    /**
+     * Whether the user can manage DNS insights.
+     */
+    insightsManageInsights?: pulumi.Input<boolean>;
+    /**
+     * Whether the user can view DNS insights.
+     */
+    insightsViewInsights?: pulumi.Input<boolean>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
@@ -594,11 +638,10 @@ export interface UserArgs {
     notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
      */
     redirectsManageRedirects?: pulumi.Input<boolean>;
     /**
-     * Whether the user can manage global active directory.
+     * Whether the user can manage global active directory. Only relevant for the DDI product.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**

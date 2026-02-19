@@ -158,9 +158,15 @@ namespace Pulumi.Ns1
         [Output("dnsManageZones")]
         public Output<bool?> DnsManageZones { get; private set; } = null!;
 
+        /// <summary>
+        /// List of records that the user may access.
+        /// </summary>
         [Output("dnsRecordsAllows")]
         public Output<ImmutableArray<Outputs.UserDnsRecordsAllow>> DnsRecordsAllows { get; private set; } = null!;
 
+        /// <summary>
+        /// List of records that the user may not access.
+        /// </summary>
         [Output("dnsRecordsDenies")]
         public Output<ImmutableArray<Outputs.UserDnsRecordsDeny>> DnsRecordsDenies { get; private set; } = null!;
 
@@ -193,6 +199,18 @@ namespace Pulumi.Ns1
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the user can manage DNS insights.
+        /// </summary>
+        [Output("insightsManageInsights")]
+        public Output<bool?> InsightsManageInsights { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the user can view DNS insights.
+        /// </summary>
+        [Output("insightsViewInsights")]
+        public Output<bool?> InsightsViewInsights { get; private set; } = null!;
 
         /// <summary>
         /// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
@@ -256,13 +274,12 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// Whether the user can manage redirects.
-        /// Only relevant for the DDI product.
         /// </summary>
         [Output("redirectsManageRedirects")]
         public Output<bool?> RedirectsManageRedirects { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can manage global active directory.
+        /// Whether the user can manage global active directory. Only relevant for the DDI product.
         /// </summary>
         [Output("securityManageActiveDirectory")]
         public Output<bool?> SecurityManageActiveDirectory { get; private set; } = null!;
@@ -411,6 +428,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsAllows")]
         private InputList<Inputs.UserDnsRecordsAllowArgs>? _dnsRecordsAllows;
+
+        /// <summary>
+        /// List of records that the user may access.
+        /// </summary>
         public InputList<Inputs.UserDnsRecordsAllowArgs> DnsRecordsAllows
         {
             get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.UserDnsRecordsAllowArgs>());
@@ -419,6 +440,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsDenies")]
         private InputList<Inputs.UserDnsRecordsDenyArgs>? _dnsRecordsDenies;
+
+        /// <summary>
+        /// List of records that the user may not access.
+        /// </summary>
         public InputList<Inputs.UserDnsRecordsDenyArgs> DnsRecordsDenies
         {
             get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.UserDnsRecordsDenyArgs>());
@@ -466,6 +491,18 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
+
+        /// <summary>
+        /// Whether the user can manage DNS insights.
+        /// </summary>
+        [Input("insightsManageInsights")]
+        public Input<bool>? InsightsManageInsights { get; set; }
+
+        /// <summary>
+        /// Whether the user can view DNS insights.
+        /// </summary>
+        [Input("insightsViewInsights")]
+        public Input<bool>? InsightsViewInsights { get; set; }
 
         /// <summary>
         /// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
@@ -542,13 +579,12 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// Whether the user can manage redirects.
-        /// Only relevant for the DDI product.
         /// </summary>
         [Input("redirectsManageRedirects")]
         public Input<bool>? RedirectsManageRedirects { get; set; }
 
         /// <summary>
-        /// Whether the user can manage global active directory.
+        /// Whether the user can manage global active directory. Only relevant for the DDI product.
         /// </summary>
         [Input("securityManageActiveDirectory")]
         public Input<bool>? SecurityManageActiveDirectory { get; set; }
@@ -665,6 +701,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsAllows")]
         private InputList<Inputs.UserDnsRecordsAllowGetArgs>? _dnsRecordsAllows;
+
+        /// <summary>
+        /// List of records that the user may access.
+        /// </summary>
         public InputList<Inputs.UserDnsRecordsAllowGetArgs> DnsRecordsAllows
         {
             get => _dnsRecordsAllows ?? (_dnsRecordsAllows = new InputList<Inputs.UserDnsRecordsAllowGetArgs>());
@@ -673,6 +713,10 @@ namespace Pulumi.Ns1
 
         [Input("dnsRecordsDenies")]
         private InputList<Inputs.UserDnsRecordsDenyGetArgs>? _dnsRecordsDenies;
+
+        /// <summary>
+        /// List of records that the user may not access.
+        /// </summary>
         public InputList<Inputs.UserDnsRecordsDenyGetArgs> DnsRecordsDenies
         {
             get => _dnsRecordsDenies ?? (_dnsRecordsDenies = new InputList<Inputs.UserDnsRecordsDenyGetArgs>());
@@ -720,6 +764,18 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
+
+        /// <summary>
+        /// Whether the user can manage DNS insights.
+        /// </summary>
+        [Input("insightsManageInsights")]
+        public Input<bool>? InsightsManageInsights { get; set; }
+
+        /// <summary>
+        /// Whether the user can view DNS insights.
+        /// </summary>
+        [Input("insightsViewInsights")]
+        public Input<bool>? InsightsViewInsights { get; set; }
 
         /// <summary>
         /// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
@@ -796,13 +852,12 @@ namespace Pulumi.Ns1
 
         /// <summary>
         /// Whether the user can manage redirects.
-        /// Only relevant for the DDI product.
         /// </summary>
         [Input("redirectsManageRedirects")]
         public Input<bool>? RedirectsManageRedirects { get; set; }
 
         /// <summary>
-        /// Whether the user can manage global active directory.
+        /// Whether the user can manage global active directory. Only relevant for the DDI product.
         /// </summary>
         [Input("securityManageActiveDirectory")]
         public Input<bool>? SecurityManageActiveDirectory { get; set; }

@@ -1062,7 +1062,7 @@
                 },
                 "accountViewInvoices": {
                     "type": "boolean",
-                    "description": "Whether the apikey can view invoices.\n"
+                    "description": ", default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e Whether the apikey can view invoices.\n"
                 },
                 "dataManageDatafeeds": {
                     "type": "boolean",
@@ -1116,6 +1116,14 @@
                     },
                     "description": "List of zones that the apikey may not access.\n"
                 },
+                "insightsManageInsights": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage DNS insights.\n"
+                },
+                "insightsViewInsights": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view DNS insights.\n"
+                },
                 "ipWhitelistStrict": {
                     "type": "boolean",
                     "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
@@ -1134,15 +1142,15 @@
                 },
                 "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the apikey can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringDeleteJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the apikey can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
+                    "description": "Whether the apikey can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
@@ -1150,7 +1158,7 @@
                 },
                 "monitoringUpdateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the apikey can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -1162,11 +1170,11 @@
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
-                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the apikey can manage redirects.\n"
                 },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the apikey can manage global active directory.\n"
+                    "description": "Whether the apikey can manage global active directory. Only relevant for the DDI product.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -1220,7 +1228,7 @@
                 },
                 "accountViewInvoices": {
                     "type": "boolean",
-                    "description": "Whether the apikey can view invoices.\n"
+                    "description": ", default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e Whether the apikey can view invoices.\n"
                 },
                 "dataManageDatafeeds": {
                     "type": "boolean",
@@ -1274,6 +1282,14 @@
                     },
                     "description": "List of zones that the apikey may not access.\n"
                 },
+                "insightsManageInsights": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can manage DNS insights.\n"
+                },
+                "insightsViewInsights": {
+                    "type": "boolean",
+                    "description": "Whether the apikey can view DNS insights.\n"
+                },
                 "ipWhitelistStrict": {
                     "type": "boolean",
                     "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
@@ -1287,15 +1303,15 @@
                 },
                 "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the apikey can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringDeleteJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the apikey can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
+                    "description": "Whether the apikey can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
@@ -1303,7 +1319,7 @@
                 },
                 "monitoringUpdateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the apikey can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -1315,11 +1331,11 @@
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
-                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the apikey can manage redirects.\n"
                 },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the apikey can manage global active directory.\n"
+                    "description": "Whether the apikey can manage global active directory. Only relevant for the DDI product.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -1371,7 +1387,7 @@
                     },
                     "accountViewInvoices": {
                         "type": "boolean",
-                        "description": "Whether the apikey can view invoices.\n"
+                        "description": ", default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e Whether the apikey can view invoices.\n"
                     },
                     "dataManageDatafeeds": {
                         "type": "boolean",
@@ -1425,6 +1441,14 @@
                         },
                         "description": "List of zones that the apikey may not access.\n"
                     },
+                    "insightsManageInsights": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can manage DNS insights.\n"
+                    },
+                    "insightsViewInsights": {
+                        "type": "boolean",
+                        "description": "Whether the apikey can view DNS insights.\n"
+                    },
                     "ipWhitelistStrict": {
                         "type": "boolean",
                         "description": "Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.\n"
@@ -1443,15 +1467,15 @@
                     },
                     "monitoringCreateJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                        "description": "Whether the apikey can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                     },
                     "monitoringDeleteJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                        "description": "Whether the apikey can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                     },
                     "monitoringManageJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can create, update, and delete monitoring jobs.\n"
+                        "description": "Whether the apikey can create, update, and delete monitoring jobs.\n"
                     },
                     "monitoringManageLists": {
                         "type": "boolean",
@@ -1459,7 +1483,7 @@
                     },
                     "monitoringUpdateJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                        "description": "Whether the apikey can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                     },
                     "monitoringViewJobs": {
                         "type": "boolean",
@@ -1471,11 +1495,11 @@
                     },
                     "redirectsManageRedirects": {
                         "type": "boolean",
-                        "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the apikey can manage redirects.\n"
                     },
                     "securityManageActiveDirectory": {
                         "type": "boolean",
-                        "description": "Whether the apikey can manage global active directory.\n"
+                        "description": "Whether the apikey can manage global active directory. Only relevant for the DDI product.\n"
                     },
                     "securityManageGlobal2fa": {
                         "type": "boolean",
@@ -3154,6 +3178,14 @@
                     },
                     "description": "List of zones that the team may not access.\n"
                 },
+                "insightsManageInsights": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage DNS insights.\n"
+                },
+                "insightsViewInsights": {
+                    "type": "boolean",
+                    "description": "Whether the team can view DNS insights.\n"
+                },
                 "ipWhitelists": {
                     "type": "array",
                     "items": {
@@ -3163,15 +3195,15 @@
                 },
                 "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the team can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringDeleteJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the team can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
+                    "description": "Whether the team can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
@@ -3179,7 +3211,7 @@
                 },
                 "monitoringUpdateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the team can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -3191,11 +3223,11 @@
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
-                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the team can manage redirects.\n"
                 },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the team can manage global active directory.\n"
+                    "description": "Whether the team can manage global active directory. Only relevant for the DDI product.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3295,6 +3327,14 @@
                     },
                     "description": "List of zones that the team may not access.\n"
                 },
+                "insightsManageInsights": {
+                    "type": "boolean",
+                    "description": "Whether the team can manage DNS insights.\n"
+                },
+                "insightsViewInsights": {
+                    "type": "boolean",
+                    "description": "Whether the team can view DNS insights.\n"
+                },
                 "ipWhitelists": {
                     "type": "array",
                     "items": {
@@ -3304,15 +3344,15 @@
                 },
                 "monitoringCreateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the team can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringDeleteJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the team can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringManageJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can create, update, and delete monitoring jobs.\n"
+                    "description": "Whether the team can create, update, and delete monitoring jobs.\n"
                 },
                 "monitoringManageLists": {
                     "type": "boolean",
@@ -3320,7 +3360,7 @@
                 },
                 "monitoringUpdateJobs": {
                     "type": "boolean",
-                    "description": "Whether the user can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                    "description": "Whether the team can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                 },
                 "monitoringViewJobs": {
                     "type": "boolean",
@@ -3332,11 +3372,11 @@
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
-                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the team can manage redirects.\n"
                 },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the team can manage global active directory.\n"
+                    "description": "Whether the team can manage global active directory. Only relevant for the DDI product.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3435,6 +3475,14 @@
                         },
                         "description": "List of zones that the team may not access.\n"
                     },
+                    "insightsManageInsights": {
+                        "type": "boolean",
+                        "description": "Whether the team can manage DNS insights.\n"
+                    },
+                    "insightsViewInsights": {
+                        "type": "boolean",
+                        "description": "Whether the team can view DNS insights.\n"
+                    },
                     "ipWhitelists": {
                         "type": "array",
                         "items": {
@@ -3444,15 +3492,15 @@
                     },
                     "monitoringCreateJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                        "description": "Whether the team can create monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                     },
                     "monitoringDeleteJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                        "description": "Whether the team can delete monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                     },
                     "monitoringManageJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can create, update, and delete monitoring jobs.\n"
+                        "description": "Whether the team can create, update, and delete monitoring jobs.\n"
                     },
                     "monitoringManageLists": {
                         "type": "boolean",
@@ -3460,7 +3508,7 @@
                     },
                     "monitoringUpdateJobs": {
                         "type": "boolean",
-                        "description": "Whether the user can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
+                        "description": "Whether the team can update monitoring jobs when\u003cspan pulumi-lang-nodejs=\" manageJobs \" pulumi-lang-dotnet=\" ManageJobs \" pulumi-lang-go=\" manageJobs \" pulumi-lang-python=\" manage_jobs \" pulumi-lang-yaml=\" manageJobs \" pulumi-lang-java=\" manageJobs \"\u003e manage_jobs \u003c/span\u003eis not set to true.\n"
                     },
                     "monitoringViewJobs": {
                         "type": "boolean",
@@ -3472,11 +3520,11 @@
                     },
                     "redirectsManageRedirects": {
                         "type": "boolean",
-                        "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the team can manage redirects.\n"
                     },
                     "securityManageActiveDirectory": {
                         "type": "boolean",
-                        "description": "Whether the team can manage global active directory.\n"
+                        "description": "Whether the team can manage global active directory. Only relevant for the DDI product.\n"
                     },
                     "securityManageGlobal2fa": {
                         "type": "boolean",
@@ -3604,13 +3652,15 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow"
-                    }
+                    },
+                    "description": "List of records that the user may access.\n"
                 },
                 "dnsRecordsDenies": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny"
-                    }
+                    },
+                    "description": "List of records that the user may not access.\n"
                 },
                 "dnsViewZones": {
                     "type": "boolean",
@@ -3637,6 +3687,14 @@
                 "email": {
                     "type": "string",
                     "description": "The email address of the user.\n"
+                },
+                "insightsManageInsights": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage DNS insights.\n"
+                },
+                "insightsViewInsights": {
+                    "type": "boolean",
+                    "description": "Whether the user can view DNS insights.\n"
                 },
                 "ipWhitelistStrict": {
                     "type": "boolean",
@@ -3687,11 +3745,11 @@
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
-                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can manage redirects.\n"
                 },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the user can manage global active directory.\n"
+                    "description": "Whether the user can manage global active directory. Only relevant for the DDI product.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3773,13 +3831,15 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow"
-                    }
+                    },
+                    "description": "List of records that the user may access.\n"
                 },
                 "dnsRecordsDenies": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny"
-                    }
+                    },
+                    "description": "List of records that the user may not access.\n"
                 },
                 "dnsViewZones": {
                     "type": "boolean",
@@ -3806,6 +3866,14 @@
                 "email": {
                     "type": "string",
                     "description": "The email address of the user.\n"
+                },
+                "insightsManageInsights": {
+                    "type": "boolean",
+                    "description": "Whether the user can manage DNS insights.\n"
+                },
+                "insightsViewInsights": {
+                    "type": "boolean",
+                    "description": "Whether the user can view DNS insights.\n"
                 },
                 "ipWhitelistStrict": {
                     "type": "boolean",
@@ -3856,11 +3924,11 @@
                 },
                 "redirectsManageRedirects": {
                     "type": "boolean",
-                    "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                    "description": "Whether the user can manage redirects.\n"
                 },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
-                    "description": "Whether the user can manage global active directory.\n"
+                    "description": "Whether the user can manage global active directory. Only relevant for the DDI product.\n"
                 },
                 "securityManageGlobal2fa": {
                     "type": "boolean",
@@ -3943,13 +4011,15 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/ns1:index/UserDnsRecordsAllow:UserDnsRecordsAllow"
-                        }
+                        },
+                        "description": "List of records that the user may access.\n"
                     },
                     "dnsRecordsDenies": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/ns1:index/UserDnsRecordsDeny:UserDnsRecordsDeny"
-                        }
+                        },
+                        "description": "List of records that the user may not access.\n"
                     },
                     "dnsViewZones": {
                         "type": "boolean",
@@ -3976,6 +4046,14 @@
                     "email": {
                         "type": "string",
                         "description": "The email address of the user.\n"
+                    },
+                    "insightsManageInsights": {
+                        "type": "boolean",
+                        "description": "Whether the user can manage DNS insights.\n"
+                    },
+                    "insightsViewInsights": {
+                        "type": "boolean",
+                        "description": "Whether the user can view DNS insights.\n"
                     },
                     "ipWhitelistStrict": {
                         "type": "boolean",
@@ -4026,11 +4104,11 @@
                     },
                     "redirectsManageRedirects": {
                         "type": "boolean",
-                        "description": "Whether the user can manage redirects.\nOnly relevant for the DDI product.\n"
+                        "description": "Whether the user can manage redirects.\n"
                     },
                     "securityManageActiveDirectory": {
                         "type": "boolean",
-                        "description": "Whether the user can manage global active directory.\n"
+                        "description": "Whether the user can manage global active directory. Only relevant for the DDI product.\n"
                     },
                     "securityManageGlobal2fa": {
                         "type": "boolean",

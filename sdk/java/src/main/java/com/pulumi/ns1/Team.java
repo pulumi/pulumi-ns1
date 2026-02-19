@@ -372,6 +372,34 @@ public class Team extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsZonesDenies);
     }
     /**
+     * Whether the team can manage DNS insights.
+     * 
+     */
+    @Export(name="insightsManageInsights", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> insightsManageInsights;
+
+    /**
+     * @return Whether the team can manage DNS insights.
+     * 
+     */
+    public Output<Optional<Boolean>> insightsManageInsights() {
+        return Codegen.optional(this.insightsManageInsights);
+    }
+    /**
+     * Whether the team can view DNS insights.
+     * 
+     */
+    @Export(name="insightsViewInsights", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> insightsViewInsights;
+
+    /**
+     * @return Whether the team can view DNS insights.
+     * 
+     */
+    public Output<Optional<Boolean>> insightsViewInsights() {
+        return Codegen.optional(this.insightsViewInsights);
+    }
+    /**
      * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each &#34;allow&#34; list.
      * 
      */
@@ -386,42 +414,42 @@ public class Team extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipWhitelists);
     }
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the team can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringCreateJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringCreateJobs;
 
     /**
-     * @return Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * @return Whether the team can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringCreateJobs() {
         return Codegen.optional(this.monitoringCreateJobs);
     }
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the team can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringDeleteJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringDeleteJobs;
 
     /**
-     * @return Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * @return Whether the team can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringDeleteJobs() {
         return Codegen.optional(this.monitoringDeleteJobs);
     }
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the team can create, update, and delete monitoring jobs.
      * 
      */
     @Export(name="monitoringManageJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageJobs;
 
     /**
-     * @return Whether the user can create, update, and delete monitoring jobs.
+     * @return Whether the team can create, update, and delete monitoring jobs.
      * 
      */
     public Output<Optional<Boolean>> monitoringManageJobs() {
@@ -442,14 +470,14 @@ public class Team extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitoringManageLists);
     }
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the team can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringUpdateJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringUpdateJobs;
 
     /**
-     * @return Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * @return Whether the team can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringUpdateJobs() {
@@ -484,30 +512,28 @@ public class Team extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the team can manage redirects.
      * 
      */
     @Export(name="redirectsManageRedirects", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> redirectsManageRedirects;
 
     /**
-     * @return Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * @return Whether the team can manage redirects.
      * 
      */
     public Output<Optional<Boolean>> redirectsManageRedirects() {
         return Codegen.optional(this.redirectsManageRedirects);
     }
     /**
-     * Whether the team can manage global active directory.
+     * Whether the team can manage global active directory. Only relevant for the DDI product.
      * 
      */
     @Export(name="securityManageActiveDirectory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageActiveDirectory;
 
     /**
-     * @return Whether the team can manage global active directory.
+     * @return Whether the team can manage global active directory. Only relevant for the DDI product.
      * 
      */
     public Output<Optional<Boolean>> securityManageActiveDirectory() {

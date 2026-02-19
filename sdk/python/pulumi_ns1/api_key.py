@@ -40,6 +40,8 @@ class APIKeyArgs:
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -63,7 +65,7 @@ class APIKeyArgs:
         :param pulumi.Input[_builtins.bool] account_manage_teams: Whether the apikey can modify other teams in the account.
         :param pulumi.Input[_builtins.bool] account_manage_users: Whether the apikey can modify account users.
         :param pulumi.Input[_builtins.bool] account_view_activity_log: Whether the apikey can view activity logs.
-        :param pulumi.Input[_builtins.bool] account_view_invoices: Whether the apikey can view invoices.
+        :param pulumi.Input[_builtins.bool] account_view_invoices: , default: `false` Whether the apikey can view invoices.
         :param pulumi.Input[_builtins.bool] data_manage_datafeeds: Whether the apikey can modify data feeds.
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the apikey can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the apikey can publish to data feeds.
@@ -74,18 +76,19 @@ class APIKeyArgs:
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the API key access.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the apikey can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the apikey can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the apikey can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the apikey.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the apikey can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the apikey belongs to.
         """
@@ -130,6 +133,10 @@ class APIKeyArgs:
             pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+        if insights_manage_insights is not None:
+            pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
+        if insights_view_insights is not None:
+            pulumi.set(__self__, "insights_view_insights", insights_view_insights)
         if ip_whitelist_strict is not None:
             pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
@@ -258,7 +265,7 @@ class APIKeyArgs:
     @pulumi.getter(name="accountViewInvoices")
     def account_view_invoices(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the apikey can view invoices.
+        , default: `false` Whether the apikey can view invoices.
         """
         return pulumi.get(self, "account_view_invoices")
 
@@ -387,6 +394,30 @@ class APIKeyArgs:
         pulumi.set(self, "dns_zones_denies", value)
 
     @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the apikey can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @insights_manage_insights.setter
+    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_manage_insights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the apikey can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @insights_view_insights.setter
+    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_view_insights", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
     def ip_whitelist_strict(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -414,7 +445,7 @@ class APIKeyArgs:
     @pulumi.getter(name="monitoringCreateJobs")
     def monitoring_create_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
@@ -426,7 +457,7 @@ class APIKeyArgs:
     @pulumi.getter(name="monitoringDeleteJobs")
     def monitoring_delete_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
@@ -438,7 +469,7 @@ class APIKeyArgs:
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create, update, and delete monitoring jobs.
+        Whether the apikey can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -462,7 +493,7 @@ class APIKeyArgs:
     @pulumi.getter(name="monitoringUpdateJobs")
     def monitoring_update_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
@@ -498,8 +529,7 @@ class APIKeyArgs:
     @pulumi.getter(name="redirectsManageRedirects")
     def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can manage redirects.
-        Only relevant for the DDI product.
+        Whether the apikey can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -511,7 +541,7 @@ class APIKeyArgs:
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the apikey can manage global active directory.
+        Whether the apikey can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -566,6 +596,8 @@ class _APIKeyState:
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -590,7 +622,7 @@ class _APIKeyState:
         :param pulumi.Input[_builtins.bool] account_manage_teams: Whether the apikey can modify other teams in the account.
         :param pulumi.Input[_builtins.bool] account_manage_users: Whether the apikey can modify account users.
         :param pulumi.Input[_builtins.bool] account_view_activity_log: Whether the apikey can view activity logs.
-        :param pulumi.Input[_builtins.bool] account_view_invoices: Whether the apikey can view invoices.
+        :param pulumi.Input[_builtins.bool] account_view_invoices: , default: `false` Whether the apikey can view invoices.
         :param pulumi.Input[_builtins.bool] data_manage_datafeeds: Whether the apikey can modify data feeds.
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the apikey can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the apikey can publish to data feeds.
@@ -601,19 +633,20 @@ class _APIKeyState:
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the API key access.
         :param pulumi.Input[_builtins.str] key: (Computed) The apikeys authentication token.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the apikey can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the apikey can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the apikey can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the apikey.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the apikey can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the apikey belongs to.
         """
@@ -658,6 +691,10 @@ class _APIKeyState:
             pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+        if insights_manage_insights is not None:
+            pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
+        if insights_view_insights is not None:
+            pulumi.set(__self__, "insights_view_insights", insights_view_insights)
         if ip_whitelist_strict is not None:
             pulumi.set(__self__, "ip_whitelist_strict", ip_whitelist_strict)
         if ip_whitelists is not None:
@@ -788,7 +825,7 @@ class _APIKeyState:
     @pulumi.getter(name="accountViewInvoices")
     def account_view_invoices(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the apikey can view invoices.
+        , default: `false` Whether the apikey can view invoices.
         """
         return pulumi.get(self, "account_view_invoices")
 
@@ -917,6 +954,30 @@ class _APIKeyState:
         pulumi.set(self, "dns_zones_denies", value)
 
     @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the apikey can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @insights_manage_insights.setter
+    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_manage_insights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the apikey can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @insights_view_insights.setter
+    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_view_insights", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
     def ip_whitelist_strict(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -956,7 +1017,7 @@ class _APIKeyState:
     @pulumi.getter(name="monitoringCreateJobs")
     def monitoring_create_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
@@ -968,7 +1029,7 @@ class _APIKeyState:
     @pulumi.getter(name="monitoringDeleteJobs")
     def monitoring_delete_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
@@ -980,7 +1041,7 @@ class _APIKeyState:
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create, update, and delete monitoring jobs.
+        Whether the apikey can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -1004,7 +1065,7 @@ class _APIKeyState:
     @pulumi.getter(name="monitoringUpdateJobs")
     def monitoring_update_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
@@ -1040,8 +1101,7 @@ class _APIKeyState:
     @pulumi.getter(name="redirectsManageRedirects")
     def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can manage redirects.
-        Only relevant for the DDI product.
+        Whether the apikey can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -1053,7 +1113,7 @@ class _APIKeyState:
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the apikey can manage global active directory.
+        Whether the apikey can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -1111,6 +1171,8 @@ class APIKey(pulumi.CustomResource):
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1183,7 +1245,7 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] account_manage_teams: Whether the apikey can modify other teams in the account.
         :param pulumi.Input[_builtins.bool] account_manage_users: Whether the apikey can modify account users.
         :param pulumi.Input[_builtins.bool] account_view_activity_log: Whether the apikey can view activity logs.
-        :param pulumi.Input[_builtins.bool] account_view_invoices: Whether the apikey can view invoices.
+        :param pulumi.Input[_builtins.bool] account_view_invoices: , default: `false` Whether the apikey can view invoices.
         :param pulumi.Input[_builtins.bool] data_manage_datafeeds: Whether the apikey can modify data feeds.
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the apikey can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the apikey can publish to data feeds.
@@ -1194,18 +1256,19 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the API key access.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the apikey can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the apikey can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the apikey can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the apikey.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the apikey can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the apikey belongs to.
         """
@@ -1297,6 +1360,8 @@ class APIKey(pulumi.CustomResource):
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1338,6 +1403,8 @@ class APIKey(pulumi.CustomResource):
             __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
             __props__.__dict__["dns_zones_allows"] = dns_zones_allows
             __props__.__dict__["dns_zones_denies"] = dns_zones_denies
+            __props__.__dict__["insights_manage_insights"] = insights_manage_insights
+            __props__.__dict__["insights_view_insights"] = insights_view_insights
             __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
             __props__.__dict__["ip_whitelists"] = ip_whitelists
             __props__.__dict__["monitoring_create_jobs"] = monitoring_create_jobs
@@ -1383,6 +1450,8 @@ class APIKey(pulumi.CustomResource):
             dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+            insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
             ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
             ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1412,7 +1481,7 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] account_manage_teams: Whether the apikey can modify other teams in the account.
         :param pulumi.Input[_builtins.bool] account_manage_users: Whether the apikey can modify account users.
         :param pulumi.Input[_builtins.bool] account_view_activity_log: Whether the apikey can view activity logs.
-        :param pulumi.Input[_builtins.bool] account_view_invoices: Whether the apikey can view invoices.
+        :param pulumi.Input[_builtins.bool] account_view_invoices: , default: `false` Whether the apikey can view invoices.
         :param pulumi.Input[_builtins.bool] data_manage_datafeeds: Whether the apikey can modify data feeds.
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the apikey can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the apikey can publish to data feeds.
@@ -1423,19 +1492,20 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the API key access.
         :param pulumi.Input[_builtins.str] key: (Computed) The apikeys authentication token.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the apikey can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the apikey can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the apikey can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the apikey.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the apikey can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the apikey belongs to.
         """
@@ -1462,6 +1532,8 @@ class APIKey(pulumi.CustomResource):
         __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
         __props__.__dict__["dns_zones_allows"] = dns_zones_allows
         __props__.__dict__["dns_zones_denies"] = dns_zones_denies
+        __props__.__dict__["insights_manage_insights"] = insights_manage_insights
+        __props__.__dict__["insights_view_insights"] = insights_view_insights
         __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
         __props__.__dict__["ip_whitelists"] = ip_whitelists
         __props__.__dict__["key"] = key
@@ -1547,7 +1619,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter(name="accountViewInvoices")
     def account_view_invoices(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the apikey can view invoices.
+        , default: `false` Whether the apikey can view invoices.
         """
         return pulumi.get(self, "account_view_invoices")
 
@@ -1632,6 +1704,22 @@ class APIKey(pulumi.CustomResource):
         return pulumi.get(self, "dns_zones_denies")
 
     @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the apikey can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the apikey can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
     def ip_whitelist_strict(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -1659,7 +1747,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter(name="monitoringCreateJobs")
     def monitoring_create_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
@@ -1667,7 +1755,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter(name="monitoringDeleteJobs")
     def monitoring_delete_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
@@ -1675,7 +1763,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can create, update, and delete monitoring jobs.
+        Whether the apikey can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -1691,7 +1779,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter(name="monitoringUpdateJobs")
     def monitoring_update_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
@@ -1715,8 +1803,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter(name="redirectsManageRedirects")
     def redirects_manage_redirects(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can manage redirects.
-        Only relevant for the DDI product.
+        Whether the apikey can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -1724,7 +1811,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the apikey can manage global active directory.
+        Whether the apikey can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 

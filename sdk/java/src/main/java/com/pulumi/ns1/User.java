@@ -284,15 +284,31 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> dnsManageZones() {
         return Codegen.optional(this.dnsManageZones);
     }
+    /**
+     * List of records that the user may access.
+     * 
+     */
     @Export(name="dnsRecordsAllows", refs={List.class,UserDnsRecordsAllow.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserDnsRecordsAllow>> dnsRecordsAllows;
 
+    /**
+     * @return List of records that the user may access.
+     * 
+     */
     public Output<Optional<List<UserDnsRecordsAllow>>> dnsRecordsAllows() {
         return Codegen.optional(this.dnsRecordsAllows);
     }
+    /**
+     * List of records that the user may not access.
+     * 
+     */
     @Export(name="dnsRecordsDenies", refs={List.class,UserDnsRecordsDeny.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserDnsRecordsDeny>> dnsRecordsDenies;
 
+    /**
+     * @return List of records that the user may not access.
+     * 
+     */
     public Output<Optional<List<UserDnsRecordsDeny>>> dnsRecordsDenies() {
         return Codegen.optional(this.dnsRecordsDenies);
     }
@@ -365,6 +381,34 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<String> email() {
         return this.email;
+    }
+    /**
+     * Whether the user can manage DNS insights.
+     * 
+     */
+    @Export(name="insightsManageInsights", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> insightsManageInsights;
+
+    /**
+     * @return Whether the user can manage DNS insights.
+     * 
+     */
+    public Output<Optional<Boolean>> insightsManageInsights() {
+        return Codegen.optional(this.insightsManageInsights);
+    }
+    /**
+     * Whether the user can view DNS insights.
+     * 
+     */
+    @Export(name="insightsViewInsights", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> insightsViewInsights;
+
+    /**
+     * @return Whether the user can view DNS insights.
+     * 
+     */
+    public Output<Optional<Boolean>> insightsViewInsights() {
+        return Codegen.optional(this.insightsViewInsights);
     }
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
@@ -512,7 +556,6 @@ public class User extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
      * 
      */
     @Export(name="redirectsManageRedirects", refs={Boolean.class}, tree="[0]")
@@ -520,21 +563,20 @@ public class User extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether the user can manage redirects.
-     * Only relevant for the DDI product.
      * 
      */
     public Output<Optional<Boolean>> redirectsManageRedirects() {
         return Codegen.optional(this.redirectsManageRedirects);
     }
     /**
-     * Whether the user can manage global active directory.
+     * Whether the user can manage global active directory. Only relevant for the DDI product.
      * 
      */
     @Export(name="securityManageActiveDirectory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageActiveDirectory;
 
     /**
-     * @return Whether the user can manage global active directory.
+     * @return Whether the user can manage global active directory. Only relevant for the DDI product.
      * 
      */
     public Output<Optional<Boolean>> securityManageActiveDirectory() {
