@@ -114,9 +114,11 @@ type User struct {
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrOutput `pulumi:"dataPushToDatafeeds"`
 	// Whether the user can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrOutput           `pulumi:"dnsManageZones"`
+	DnsManageZones pulumi.BoolPtrOutput `pulumi:"dnsManageZones"`
+	// List of records that the user may access.
 	DnsRecordsAllows UserDnsRecordsAllowArrayOutput `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies UserDnsRecordsDenyArrayOutput  `pulumi:"dnsRecordsDenies"`
+	// List of records that the user may not access.
+	DnsRecordsDenies UserDnsRecordsDenyArrayOutput `pulumi:"dnsRecordsDenies"`
 	// Whether the user can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrOutput `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -127,6 +129,10 @@ type User struct {
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
 	// The email address of the user.
 	Email pulumi.StringOutput `pulumi:"email"`
+	// Whether the user can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrOutput `pulumi:"insightsManageInsights"`
+	// Whether the user can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrOutput `pulumi:"insightsViewInsights"`
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrOutput `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the user access.
@@ -150,9 +156,8 @@ type User struct {
 	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify pulumi.StringMapOutput `pulumi:"notify"`
 	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
 	RedirectsManageRedirects pulumi.BoolPtrOutput `pulumi:"redirectsManageRedirects"`
-	// Whether the user can manage global active directory.
+	// Whether the user can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrOutput `pulumi:"securityManageGlobal2fa"`
@@ -225,9 +230,11 @@ type userState struct {
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds *bool `pulumi:"dataPushToDatafeeds"`
 	// Whether the user can modify the accounts zones.
-	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	// List of records that the user may access.
 	DnsRecordsAllows []UserDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies []UserDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
+	// List of records that the user may not access.
+	DnsRecordsDenies []UserDnsRecordsDeny `pulumi:"dnsRecordsDenies"`
 	// Whether the user can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -238,6 +245,10 @@ type userState struct {
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
 	// The email address of the user.
 	Email *string `pulumi:"email"`
+	// Whether the user can manage DNS insights.
+	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
+	// Whether the user can view DNS insights.
+	InsightsViewInsights *bool `pulumi:"insightsViewInsights"`
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the user access.
@@ -261,9 +272,8 @@ type userState struct {
 	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify map[string]string `pulumi:"notify"`
 	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
 	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
-	// Whether the user can manage global active directory.
+	// Whether the user can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -301,8 +311,10 @@ type UserState struct {
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrInput
 	// Whether the user can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrInput
+	DnsManageZones pulumi.BoolPtrInput
+	// List of records that the user may access.
 	DnsRecordsAllows UserDnsRecordsAllowArrayInput
+	// List of records that the user may not access.
 	DnsRecordsDenies UserDnsRecordsDenyArrayInput
 	// Whether the user can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
@@ -314,6 +326,10 @@ type UserState struct {
 	DnsZonesDenies pulumi.StringArrayInput
 	// The email address of the user.
 	Email pulumi.StringPtrInput
+	// Whether the user can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrInput
+	// Whether the user can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrInput
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
 	// Array of IP addresses/networks to which to grant the user access.
@@ -337,9 +353,8 @@ type UserState struct {
 	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify pulumi.StringMapInput
 	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
 	RedirectsManageRedirects pulumi.BoolPtrInput
-	// Whether the user can manage global active directory.
+	// Whether the user can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -381,9 +396,11 @@ type userArgs struct {
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds *bool `pulumi:"dataPushToDatafeeds"`
 	// Whether the user can modify the accounts zones.
-	DnsManageZones   *bool                 `pulumi:"dnsManageZones"`
+	DnsManageZones *bool `pulumi:"dnsManageZones"`
+	// List of records that the user may access.
 	DnsRecordsAllows []UserDnsRecordsAllow `pulumi:"dnsRecordsAllows"`
-	DnsRecordsDenies []UserDnsRecordsDeny  `pulumi:"dnsRecordsDenies"`
+	// List of records that the user may not access.
+	DnsRecordsDenies []UserDnsRecordsDeny `pulumi:"dnsRecordsDenies"`
 	// Whether the user can view the accounts zones.
 	DnsViewZones *bool `pulumi:"dnsViewZones"`
 	// If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
@@ -394,6 +411,10 @@ type userArgs struct {
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
 	// The email address of the user.
 	Email string `pulumi:"email"`
+	// Whether the user can manage DNS insights.
+	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
+	// Whether the user can view DNS insights.
+	InsightsViewInsights *bool `pulumi:"insightsViewInsights"`
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the user access.
@@ -417,9 +438,8 @@ type userArgs struct {
 	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify map[string]string `pulumi:"notify"`
 	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
 	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
-	// Whether the user can manage global active directory.
+	// Whether the user can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -458,8 +478,10 @@ type UserArgs struct {
 	// Whether the user can publish to data feeds.
 	DataPushToDatafeeds pulumi.BoolPtrInput
 	// Whether the user can modify the accounts zones.
-	DnsManageZones   pulumi.BoolPtrInput
+	DnsManageZones pulumi.BoolPtrInput
+	// List of records that the user may access.
 	DnsRecordsAllows UserDnsRecordsAllowArrayInput
+	// List of records that the user may not access.
 	DnsRecordsDenies UserDnsRecordsDenyArrayInput
 	// Whether the user can view the accounts zones.
 	DnsViewZones pulumi.BoolPtrInput
@@ -471,6 +493,10 @@ type UserArgs struct {
 	DnsZonesDenies pulumi.StringArrayInput
 	// The email address of the user.
 	Email pulumi.StringInput
+	// Whether the user can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrInput
+	// Whether the user can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrInput
 	// Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
 	IpWhitelistStrict pulumi.BoolPtrInput
 	// Array of IP addresses/networks to which to grant the user access.
@@ -494,9 +520,8 @@ type UserArgs struct {
 	// Deprecated: This field is deprecated and will be removed in a future release; create account usage alerts instead.
 	Notify pulumi.StringMapInput
 	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
 	RedirectsManageRedirects pulumi.BoolPtrInput
-	// Whether the user can manage global active directory.
+	// Whether the user can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the user can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -660,10 +685,12 @@ func (o UserOutput) DnsManageZones() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.DnsManageZones }).(pulumi.BoolPtrOutput)
 }
 
+// List of records that the user may access.
 func (o UserOutput) DnsRecordsAllows() UserDnsRecordsAllowArrayOutput {
 	return o.ApplyT(func(v *User) UserDnsRecordsAllowArrayOutput { return v.DnsRecordsAllows }).(UserDnsRecordsAllowArrayOutput)
 }
 
+// List of records that the user may not access.
 func (o UserOutput) DnsRecordsDenies() UserDnsRecordsDenyArrayOutput {
 	return o.ApplyT(func(v *User) UserDnsRecordsDenyArrayOutput { return v.DnsRecordsDenies }).(UserDnsRecordsDenyArrayOutput)
 }
@@ -691,6 +718,16 @@ func (o UserOutput) DnsZonesDenies() pulumi.StringArrayOutput {
 // The email address of the user.
 func (o UserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// Whether the user can manage DNS insights.
+func (o UserOutput) InsightsManageInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.InsightsManageInsights }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the user can view DNS insights.
+func (o UserOutput) InsightsViewInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.InsightsViewInsights }).(pulumi.BoolPtrOutput)
 }
 
 // Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
@@ -746,12 +783,11 @@ func (o UserOutput) Notify() pulumi.StringMapOutput {
 }
 
 // Whether the user can manage redirects.
-// Only relevant for the DDI product.
 func (o UserOutput) RedirectsManageRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.RedirectsManageRedirects }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can manage global active directory.
+// Whether the user can manage global active directory. Only relevant for the DDI product.
 func (o UserOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
 }

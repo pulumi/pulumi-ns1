@@ -208,25 +208,37 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<string>> DnsZonesDenies { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the team can manage DNS insights.
+        /// </summary>
+        [Output("insightsManageInsights")]
+        public Output<bool?> InsightsManageInsights { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the team can view DNS insights.
+        /// </summary>
+        [Output("insightsViewInsights")]
+        public Output<bool?> InsightsViewInsights { get; private set; } = null!;
+
+        /// <summary>
         /// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
         /// </summary>
         [Output("ipWhitelists")]
         public Output<ImmutableArray<Outputs.TeamIpWhitelist>> IpWhitelists { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can create monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can create monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Output("monitoringCreateJobs")]
         public Output<bool?> MonitoringCreateJobs { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can delete monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can delete monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Output("monitoringDeleteJobs")]
         public Output<bool?> MonitoringDeleteJobs { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can create, update, and delete monitoring jobs.
+        /// Whether the team can create, update, and delete monitoring jobs.
         /// </summary>
         [Output("monitoringManageJobs")]
         public Output<bool?> MonitoringManageJobs { get; private set; } = null!;
@@ -238,7 +250,7 @@ namespace Pulumi.Ns1
         public Output<bool?> MonitoringManageLists { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can update monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can update monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Output("monitoringUpdateJobs")]
         public Output<bool?> MonitoringUpdateJobs { get; private set; } = null!;
@@ -256,14 +268,13 @@ namespace Pulumi.Ns1
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user can manage redirects.
-        /// Only relevant for the DDI product.
+        /// Whether the team can manage redirects.
         /// </summary>
         [Output("redirectsManageRedirects")]
         public Output<bool?> RedirectsManageRedirects { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the team can manage global active directory.
+        /// Whether the team can manage global active directory. Only relevant for the DDI product.
         /// </summary>
         [Output("securityManageActiveDirectory")]
         public Output<bool?> SecurityManageActiveDirectory { get; private set; } = null!;
@@ -458,6 +469,18 @@ namespace Pulumi.Ns1
             set => _dnsZonesDenies = value;
         }
 
+        /// <summary>
+        /// Whether the team can manage DNS insights.
+        /// </summary>
+        [Input("insightsManageInsights")]
+        public Input<bool>? InsightsManageInsights { get; set; }
+
+        /// <summary>
+        /// Whether the team can view DNS insights.
+        /// </summary>
+        [Input("insightsViewInsights")]
+        public Input<bool>? InsightsViewInsights { get; set; }
+
         [Input("ipWhitelists")]
         private InputList<Inputs.TeamIpWhitelistArgs>? _ipWhitelists;
 
@@ -471,19 +494,19 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// Whether the user can create monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can create monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringCreateJobs")]
         public Input<bool>? MonitoringCreateJobs { get; set; }
 
         /// <summary>
-        /// Whether the user can delete monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can delete monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringDeleteJobs")]
         public Input<bool>? MonitoringDeleteJobs { get; set; }
 
         /// <summary>
-        /// Whether the user can create, update, and delete monitoring jobs.
+        /// Whether the team can create, update, and delete monitoring jobs.
         /// </summary>
         [Input("monitoringManageJobs")]
         public Input<bool>? MonitoringManageJobs { get; set; }
@@ -495,7 +518,7 @@ namespace Pulumi.Ns1
         public Input<bool>? MonitoringManageLists { get; set; }
 
         /// <summary>
-        /// Whether the user can update monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can update monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringUpdateJobs")]
         public Input<bool>? MonitoringUpdateJobs { get; set; }
@@ -513,14 +536,13 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the user can manage redirects.
-        /// Only relevant for the DDI product.
+        /// Whether the team can manage redirects.
         /// </summary>
         [Input("redirectsManageRedirects")]
         public Input<bool>? RedirectsManageRedirects { get; set; }
 
         /// <summary>
-        /// Whether the team can manage global active directory.
+        /// Whether the team can manage global active directory. Only relevant for the DDI product.
         /// </summary>
         [Input("securityManageActiveDirectory")]
         public Input<bool>? SecurityManageActiveDirectory { get; set; }
@@ -677,6 +699,18 @@ namespace Pulumi.Ns1
             set => _dnsZonesDenies = value;
         }
 
+        /// <summary>
+        /// Whether the team can manage DNS insights.
+        /// </summary>
+        [Input("insightsManageInsights")]
+        public Input<bool>? InsightsManageInsights { get; set; }
+
+        /// <summary>
+        /// Whether the team can view DNS insights.
+        /// </summary>
+        [Input("insightsViewInsights")]
+        public Input<bool>? InsightsViewInsights { get; set; }
+
         [Input("ipWhitelists")]
         private InputList<Inputs.TeamIpWhitelistGetArgs>? _ipWhitelists;
 
@@ -690,19 +724,19 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
-        /// Whether the user can create monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can create monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringCreateJobs")]
         public Input<bool>? MonitoringCreateJobs { get; set; }
 
         /// <summary>
-        /// Whether the user can delete monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can delete monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringDeleteJobs")]
         public Input<bool>? MonitoringDeleteJobs { get; set; }
 
         /// <summary>
-        /// Whether the user can create, update, and delete monitoring jobs.
+        /// Whether the team can create, update, and delete monitoring jobs.
         /// </summary>
         [Input("monitoringManageJobs")]
         public Input<bool>? MonitoringManageJobs { get; set; }
@@ -714,7 +748,7 @@ namespace Pulumi.Ns1
         public Input<bool>? MonitoringManageLists { get; set; }
 
         /// <summary>
-        /// Whether the user can update monitoring jobs when ManageJobs is not set to true.
+        /// Whether the team can update monitoring jobs when ManageJobs is not set to true.
         /// </summary>
         [Input("monitoringUpdateJobs")]
         public Input<bool>? MonitoringUpdateJobs { get; set; }
@@ -732,14 +766,13 @@ namespace Pulumi.Ns1
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the user can manage redirects.
-        /// Only relevant for the DDI product.
+        /// Whether the team can manage redirects.
         /// </summary>
         [Input("redirectsManageRedirects")]
         public Input<bool>? RedirectsManageRedirects { get; set; }
 
         /// <summary>
-        /// Whether the team can manage global active directory.
+        /// Whether the team can manage global active directory. Only relevant for the DDI product.
         /// </summary>
         [Input("securityManageActiveDirectory")]
         public Input<bool>? SecurityManageActiveDirectory { get; set; }

@@ -133,26 +133,29 @@ type Team struct {
 	DnsZonesAllows pulumi.StringArrayOutput `pulumi:"dnsZonesAllows"`
 	// List of zones that the team may not access.
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
+	// Whether the team can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrOutput `pulumi:"insightsManageInsights"`
+	// Whether the team can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrOutput `pulumi:"insightsViewInsights"`
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayOutput `pulumi:"ipWhitelists"`
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the team can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrOutput `pulumi:"monitoringCreateJobs"`
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the team can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs pulumi.BoolPtrOutput `pulumi:"monitoringDeleteJobs"`
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the team can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrOutput `pulumi:"monitoringManageJobs"`
 	// Whether the team can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrOutput `pulumi:"monitoringManageLists"`
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the team can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs pulumi.BoolPtrOutput `pulumi:"monitoringUpdateJobs"`
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrOutput `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the team can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrOutput `pulumi:"redirectsManageRedirects"`
-	// Whether the team can manage global active directory.
+	// Whether the team can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrOutput `pulumi:"securityManageGlobal2fa"`
@@ -228,26 +231,29 @@ type teamState struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the team may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
+	// Whether the team can manage DNS insights.
+	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
+	// Whether the team can view DNS insights.
+	InsightsViewInsights *bool `pulumi:"insightsViewInsights"`
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists []TeamIpWhitelist `pulumi:"ipWhitelists"`
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the team can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the team can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the team can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the team can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the team can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
 	Name *string `pulumi:"name"`
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the team can manage redirects.
 	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
-	// Whether the team can manage global active directory.
+	// Whether the team can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -294,26 +300,29 @@ type TeamState struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the team may not access.
 	DnsZonesDenies pulumi.StringArrayInput
+	// Whether the team can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrInput
+	// Whether the team can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrInput
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayInput
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the team can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrInput
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the team can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs pulumi.BoolPtrInput
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the team can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the team can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the team can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the team.
 	Name pulumi.StringPtrInput
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the team can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrInput
-	// Whether the team can manage global active directory.
+	// Whether the team can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -364,26 +373,29 @@ type teamArgs struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the team may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
+	// Whether the team can manage DNS insights.
+	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
+	// Whether the team can view DNS insights.
+	InsightsViewInsights *bool `pulumi:"insightsViewInsights"`
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists []TeamIpWhitelist `pulumi:"ipWhitelists"`
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the team can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the team can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs *bool `pulumi:"monitoringDeleteJobs"`
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the team can create, update, and delete monitoring jobs.
 	MonitoringManageJobs *bool `pulumi:"monitoringManageJobs"`
 	// Whether the team can modify notification lists.
 	MonitoringManageLists *bool `pulumi:"monitoringManageLists"`
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the team can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs *bool `pulumi:"monitoringUpdateJobs"`
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs *bool `pulumi:"monitoringViewJobs"`
 	// The free form name of the team.
 	Name *string `pulumi:"name"`
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the team can manage redirects.
 	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
-	// Whether the team can manage global active directory.
+	// Whether the team can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa *bool `pulumi:"securityManageGlobal2fa"`
@@ -431,26 +443,29 @@ type TeamArgs struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the team may not access.
 	DnsZonesDenies pulumi.StringArrayInput
+	// Whether the team can manage DNS insights.
+	InsightsManageInsights pulumi.BoolPtrInput
+	// Whether the team can view DNS insights.
+	InsightsViewInsights pulumi.BoolPtrInput
 	// Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 	IpWhitelists TeamIpWhitelistArrayInput
-	// Whether the user can create monitoring jobs when manageJobs is not set to true.
+	// Whether the team can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrInput
-	// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+	// Whether the team can delete monitoring jobs when manageJobs is not set to true.
 	MonitoringDeleteJobs pulumi.BoolPtrInput
-	// Whether the user can create, update, and delete monitoring jobs.
+	// Whether the team can create, update, and delete monitoring jobs.
 	MonitoringManageJobs pulumi.BoolPtrInput
 	// Whether the team can modify notification lists.
 	MonitoringManageLists pulumi.BoolPtrInput
-	// Whether the user can update monitoring jobs when manageJobs is not set to true.
+	// Whether the team can update monitoring jobs when manageJobs is not set to true.
 	MonitoringUpdateJobs pulumi.BoolPtrInput
 	// Whether the team can view monitoring jobs.
 	MonitoringViewJobs pulumi.BoolPtrInput
 	// The free form name of the team.
 	Name pulumi.StringPtrInput
-	// Whether the user can manage redirects.
-	// Only relevant for the DDI product.
+	// Whether the team can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrInput
-	// Whether the team can manage global active directory.
+	// Whether the team can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the team can manage global two factor authentication.
 	SecurityManageGlobal2fa pulumi.BoolPtrInput
@@ -640,22 +655,32 @@ func (o TeamOutput) DnsZonesDenies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringArrayOutput { return v.DnsZonesDenies }).(pulumi.StringArrayOutput)
 }
 
+// Whether the team can manage DNS insights.
+func (o TeamOutput) InsightsManageInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.InsightsManageInsights }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the team can view DNS insights.
+func (o TeamOutput) InsightsViewInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.InsightsViewInsights }).(pulumi.BoolPtrOutput)
+}
+
 // Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
 func (o TeamOutput) IpWhitelists() TeamIpWhitelistArrayOutput {
 	return o.ApplyT(func(v *Team) TeamIpWhitelistArrayOutput { return v.IpWhitelists }).(TeamIpWhitelistArrayOutput)
 }
 
-// Whether the user can create monitoring jobs when manageJobs is not set to true.
+// Whether the team can create monitoring jobs when manageJobs is not set to true.
 func (o TeamOutput) MonitoringCreateJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringCreateJobs }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can delete monitoring jobs when manageJobs is not set to true.
+// Whether the team can delete monitoring jobs when manageJobs is not set to true.
 func (o TeamOutput) MonitoringDeleteJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringDeleteJobs }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can create, update, and delete monitoring jobs.
+// Whether the team can create, update, and delete monitoring jobs.
 func (o TeamOutput) MonitoringManageJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringManageJobs }).(pulumi.BoolPtrOutput)
 }
@@ -665,7 +690,7 @@ func (o TeamOutput) MonitoringManageLists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringManageLists }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the user can update monitoring jobs when manageJobs is not set to true.
+// Whether the team can update monitoring jobs when manageJobs is not set to true.
 func (o TeamOutput) MonitoringUpdateJobs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.MonitoringUpdateJobs }).(pulumi.BoolPtrOutput)
 }
@@ -680,13 +705,12 @@ func (o TeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether the user can manage redirects.
-// Only relevant for the DDI product.
+// Whether the team can manage redirects.
 func (o TeamOutput) RedirectsManageRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.RedirectsManageRedirects }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the team can manage global active directory.
+// Whether the team can manage global active directory. Only relevant for the DDI product.
 func (o TeamOutput) SecurityManageActiveDirectory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.BoolPtrOutput { return v.SecurityManageActiveDirectory }).(pulumi.BoolPtrOutput)
 }

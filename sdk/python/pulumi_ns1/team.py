@@ -40,6 +40,8 @@ class TeamArgs:
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input['TeamIpWhitelistArgs']]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
                  monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -72,17 +74,18 @@ class TeamArgs:
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the team may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the team can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the team can view DNS insights.
         :param pulumi.Input[Sequence[pulumi.Input['TeamIpWhitelistArgs']]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the team can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the team can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the team can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the team can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the team can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the team.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the team can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         if account_manage_account_settings is not None:
@@ -126,6 +129,10 @@ class TeamArgs:
             pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+        if insights_manage_insights is not None:
+            pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
+        if insights_view_insights is not None:
+            pulumi.set(__self__, "insights_view_insights", insights_view_insights)
         if ip_whitelists is not None:
             pulumi.set(__self__, "ip_whitelists", ip_whitelists)
         if monitoring_create_jobs is not None:
@@ -379,6 +386,30 @@ class TeamArgs:
         pulumi.set(self, "dns_zones_denies", value)
 
     @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the team can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @insights_manage_insights.setter
+    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_manage_insights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the team can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @insights_view_insights.setter
+    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_view_insights", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipWhitelists")
     def ip_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamIpWhitelistArgs']]]]:
         """
@@ -394,7 +425,7 @@ class TeamArgs:
     @pulumi.getter(name="monitoringCreateJobs")
     def monitoring_create_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        Whether the team can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
@@ -406,7 +437,7 @@ class TeamArgs:
     @pulumi.getter(name="monitoringDeleteJobs")
     def monitoring_delete_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        Whether the team can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
@@ -418,7 +449,7 @@ class TeamArgs:
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create, update, and delete monitoring jobs.
+        Whether the team can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -442,7 +473,7 @@ class TeamArgs:
     @pulumi.getter(name="monitoringUpdateJobs")
     def monitoring_update_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        Whether the team can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
@@ -478,8 +509,7 @@ class TeamArgs:
     @pulumi.getter(name="redirectsManageRedirects")
     def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can manage redirects.
-        Only relevant for the DDI product.
+        Whether the team can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -491,7 +521,7 @@ class TeamArgs:
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the team can manage global active directory.
+        Whether the team can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -534,6 +564,8 @@ class _TeamState:
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input['TeamIpWhitelistArgs']]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
                  monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -566,17 +598,18 @@ class _TeamState:
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the team may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the team can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the team can view DNS insights.
         :param pulumi.Input[Sequence[pulumi.Input['TeamIpWhitelistArgs']]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the team can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the team can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the team can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the team can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the team can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the team.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the team can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         if account_manage_account_settings is not None:
@@ -620,6 +653,10 @@ class _TeamState:
             pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+        if insights_manage_insights is not None:
+            pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
+        if insights_view_insights is not None:
+            pulumi.set(__self__, "insights_view_insights", insights_view_insights)
         if ip_whitelists is not None:
             pulumi.set(__self__, "ip_whitelists", ip_whitelists)
         if monitoring_create_jobs is not None:
@@ -873,6 +910,30 @@ class _TeamState:
         pulumi.set(self, "dns_zones_denies", value)
 
     @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the team can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @insights_manage_insights.setter
+    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_manage_insights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the team can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @insights_view_insights.setter
+    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "insights_view_insights", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipWhitelists")
     def ip_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamIpWhitelistArgs']]]]:
         """
@@ -888,7 +949,7 @@ class _TeamState:
     @pulumi.getter(name="monitoringCreateJobs")
     def monitoring_create_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        Whether the team can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
@@ -900,7 +961,7 @@ class _TeamState:
     @pulumi.getter(name="monitoringDeleteJobs")
     def monitoring_delete_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        Whether the team can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
@@ -912,7 +973,7 @@ class _TeamState:
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can create, update, and delete monitoring jobs.
+        Whether the team can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -936,7 +997,7 @@ class _TeamState:
     @pulumi.getter(name="monitoringUpdateJobs")
     def monitoring_update_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        Whether the team can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
@@ -972,8 +1033,7 @@ class _TeamState:
     @pulumi.getter(name="redirectsManageRedirects")
     def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the user can manage redirects.
-        Only relevant for the DDI product.
+        Whether the team can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -985,7 +1045,7 @@ class _TeamState:
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether the team can manage global active directory.
+        Whether the team can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
@@ -1031,6 +1091,8 @@ class Team(pulumi.CustomResource):
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
                  monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1119,17 +1181,18 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the team may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the team can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the team can view DNS insights.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the team can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the team can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the team can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the team can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the team can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the team.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the team can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         ...
@@ -1227,6 +1290,8 @@ class Team(pulumi.CustomResource):
                  dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]]] = None,
                  monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
                  monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1266,6 +1331,8 @@ class Team(pulumi.CustomResource):
             __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
             __props__.__dict__["dns_zones_allows"] = dns_zones_allows
             __props__.__dict__["dns_zones_denies"] = dns_zones_denies
+            __props__.__dict__["insights_manage_insights"] = insights_manage_insights
+            __props__.__dict__["insights_view_insights"] = insights_view_insights
             __props__.__dict__["ip_whitelists"] = ip_whitelists
             __props__.__dict__["monitoring_create_jobs"] = monitoring_create_jobs
             __props__.__dict__["monitoring_delete_jobs"] = monitoring_delete_jobs
@@ -1306,6 +1373,8 @@ class Team(pulumi.CustomResource):
             dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
             dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
+            insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
             ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]]] = None,
             monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
             monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1343,17 +1412,18 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the team may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the team may not access.
+        :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the team can manage DNS insights.
+        :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the team can view DNS insights.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TeamIpWhitelistArgs', 'TeamIpWhitelistArgsDict']]]] ip_whitelists: Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
-        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the user can create monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the user can delete monitoring jobs when manage_jobs is not set to true.
-        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the user can create, update, and delete monitoring jobs.
+        :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the team can create monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the team can delete monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the team can create, update, and delete monitoring jobs.
         :param pulumi.Input[_builtins.bool] monitoring_manage_lists: Whether the team can modify notification lists.
-        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        :param pulumi.Input[_builtins.bool] monitoring_update_jobs: Whether the team can update monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the team can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the team.
-        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the user can manage redirects.
-               Only relevant for the DDI product.
-        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory.
+        :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the team can manage redirects.
+        :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the team can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the team can manage global two factor authentication.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1379,6 +1449,8 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
         __props__.__dict__["dns_zones_allows"] = dns_zones_allows
         __props__.__dict__["dns_zones_denies"] = dns_zones_denies
+        __props__.__dict__["insights_manage_insights"] = insights_manage_insights
+        __props__.__dict__["insights_view_insights"] = insights_view_insights
         __props__.__dict__["ip_whitelists"] = ip_whitelists
         __props__.__dict__["monitoring_create_jobs"] = monitoring_create_jobs
         __props__.__dict__["monitoring_delete_jobs"] = monitoring_delete_jobs
@@ -1546,6 +1618,22 @@ class Team(pulumi.CustomResource):
         return pulumi.get(self, "dns_zones_denies")
 
     @_builtins.property
+    @pulumi.getter(name="insightsManageInsights")
+    def insights_manage_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the team can manage DNS insights.
+        """
+        return pulumi.get(self, "insights_manage_insights")
+
+    @_builtins.property
+    @pulumi.getter(name="insightsViewInsights")
+    def insights_view_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the team can view DNS insights.
+        """
+        return pulumi.get(self, "insights_view_insights")
+
+    @_builtins.property
     @pulumi.getter(name="ipWhitelists")
     def ip_whitelists(self) -> pulumi.Output[Optional[Sequence['outputs.TeamIpWhitelist']]]:
         """
@@ -1557,7 +1645,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="monitoringCreateJobs")
     def monitoring_create_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can create monitoring jobs when manage_jobs is not set to true.
+        Whether the team can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
@@ -1565,7 +1653,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="monitoringDeleteJobs")
     def monitoring_delete_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can delete monitoring jobs when manage_jobs is not set to true.
+        Whether the team can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
@@ -1573,7 +1661,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="monitoringManageJobs")
     def monitoring_manage_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can create, update, and delete monitoring jobs.
+        Whether the team can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
@@ -1589,7 +1677,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="monitoringUpdateJobs")
     def monitoring_update_jobs(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can update monitoring jobs when manage_jobs is not set to true.
+        Whether the team can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
@@ -1613,8 +1701,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="redirectsManageRedirects")
     def redirects_manage_redirects(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the user can manage redirects.
-        Only relevant for the DDI product.
+        Whether the team can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
@@ -1622,7 +1709,7 @@ class Team(pulumi.CustomResource):
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether the team can manage global active directory.
+        Whether the team can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 

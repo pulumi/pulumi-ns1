@@ -118,7 +118,7 @@ export class APIKey extends pulumi.CustomResource {
      */
     declare public readonly accountViewActivityLog: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the apikey can view invoices.
+     * , default: `false` Whether the apikey can view invoices.
      */
     declare public readonly accountViewInvoices: pulumi.Output<boolean | undefined>;
     /**
@@ -162,6 +162,14 @@ export class APIKey extends pulumi.CustomResource {
      */
     declare public readonly dnsZonesDenies: pulumi.Output<string[] | undefined>;
     /**
+     * Whether the apikey can manage DNS insights.
+     */
+    declare public readonly insightsManageInsights: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the apikey can view DNS insights.
+     */
+    declare public readonly insightsViewInsights: pulumi.Output<boolean | undefined>;
+    /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
     declare public readonly ipWhitelistStrict: pulumi.Output<boolean | undefined>;
@@ -174,15 +182,15 @@ export class APIKey extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      */
     declare public readonly monitoringCreateJobs: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      */
     declare public readonly monitoringDeleteJobs: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the apikey can create, update, and delete monitoring jobs.
      */
     declare public readonly monitoringManageJobs: pulumi.Output<boolean | undefined>;
     /**
@@ -190,7 +198,7 @@ export class APIKey extends pulumi.CustomResource {
      */
     declare public readonly monitoringManageLists: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      */
     declare public readonly monitoringUpdateJobs: pulumi.Output<boolean | undefined>;
     /**
@@ -202,12 +210,11 @@ export class APIKey extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the apikey can manage redirects.
      */
     declare public readonly redirectsManageRedirects: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the apikey can manage global active directory.
+     * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      */
     declare public readonly securityManageActiveDirectory: pulumi.Output<boolean | undefined>;
     /**
@@ -251,6 +258,8 @@ export class APIKey extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllowByDefault"] = state?.dnsZonesAllowByDefault;
             resourceInputs["dnsZonesAllows"] = state?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = state?.dnsZonesDenies;
+            resourceInputs["insightsManageInsights"] = state?.insightsManageInsights;
+            resourceInputs["insightsViewInsights"] = state?.insightsViewInsights;
             resourceInputs["ipWhitelistStrict"] = state?.ipWhitelistStrict;
             resourceInputs["ipWhitelists"] = state?.ipWhitelists;
             resourceInputs["key"] = state?.key;
@@ -286,6 +295,8 @@ export class APIKey extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllowByDefault"] = args?.dnsZonesAllowByDefault;
             resourceInputs["dnsZonesAllows"] = args?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = args?.dnsZonesDenies;
+            resourceInputs["insightsManageInsights"] = args?.insightsManageInsights;
+            resourceInputs["insightsViewInsights"] = args?.insightsViewInsights;
             resourceInputs["ipWhitelistStrict"] = args?.ipWhitelistStrict;
             resourceInputs["ipWhitelists"] = args?.ipWhitelists;
             resourceInputs["monitoringCreateJobs"] = args?.monitoringCreateJobs;
@@ -347,7 +358,7 @@ export interface APIKeyState {
      */
     accountViewActivityLog?: pulumi.Input<boolean>;
     /**
-     * Whether the apikey can view invoices.
+     * , default: `false` Whether the apikey can view invoices.
      */
     accountViewInvoices?: pulumi.Input<boolean>;
     /**
@@ -391,6 +402,14 @@ export interface APIKeyState {
      */
     dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether the apikey can manage DNS insights.
+     */
+    insightsManageInsights?: pulumi.Input<boolean>;
+    /**
+     * Whether the apikey can view DNS insights.
+     */
+    insightsViewInsights?: pulumi.Input<boolean>;
+    /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
     ipWhitelistStrict?: pulumi.Input<boolean>;
@@ -403,15 +422,15 @@ export interface APIKeyState {
      */
     key?: pulumi.Input<string>;
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      */
     monitoringCreateJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      */
     monitoringDeleteJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the apikey can create, update, and delete monitoring jobs.
      */
     monitoringManageJobs?: pulumi.Input<boolean>;
     /**
@@ -419,7 +438,7 @@ export interface APIKeyState {
      */
     monitoringManageLists?: pulumi.Input<boolean>;
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      */
     monitoringUpdateJobs?: pulumi.Input<boolean>;
     /**
@@ -431,12 +450,11 @@ export interface APIKeyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the apikey can manage redirects.
      */
     redirectsManageRedirects?: pulumi.Input<boolean>;
     /**
-     * Whether the apikey can manage global active directory.
+     * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
@@ -488,7 +506,7 @@ export interface APIKeyArgs {
      */
     accountViewActivityLog?: pulumi.Input<boolean>;
     /**
-     * Whether the apikey can view invoices.
+     * , default: `false` Whether the apikey can view invoices.
      */
     accountViewInvoices?: pulumi.Input<boolean>;
     /**
@@ -532,6 +550,14 @@ export interface APIKeyArgs {
      */
     dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether the apikey can manage DNS insights.
+     */
+    insightsManageInsights?: pulumi.Input<boolean>;
+    /**
+     * Whether the apikey can view DNS insights.
+     */
+    insightsViewInsights?: pulumi.Input<boolean>;
+    /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
     ipWhitelistStrict?: pulumi.Input<boolean>;
@@ -540,15 +566,15 @@ export interface APIKeyArgs {
      */
     ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      */
     monitoringCreateJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      */
     monitoringDeleteJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the apikey can create, update, and delete monitoring jobs.
      */
     monitoringManageJobs?: pulumi.Input<boolean>;
     /**
@@ -556,7 +582,7 @@ export interface APIKeyArgs {
      */
     monitoringManageLists?: pulumi.Input<boolean>;
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      */
     monitoringUpdateJobs?: pulumi.Input<boolean>;
     /**
@@ -568,12 +594,11 @@ export interface APIKeyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the apikey can manage redirects.
      */
     redirectsManageRedirects?: pulumi.Input<boolean>;
     /**
-     * Whether the apikey can manage global active directory.
+     * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**

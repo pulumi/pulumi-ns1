@@ -213,14 +213,14 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountViewActivityLog);
     }
     /**
-     * Whether the apikey can view invoices.
+     * , default: `false` Whether the apikey can view invoices.
      * 
      */
     @Export(name="accountViewInvoices", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountViewInvoices;
 
     /**
-     * @return Whether the apikey can view invoices.
+     * @return , default: `false` Whether the apikey can view invoices.
      * 
      */
     public Output<Optional<Boolean>> accountViewInvoices() {
@@ -367,6 +367,34 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsZonesDenies);
     }
     /**
+     * Whether the apikey can manage DNS insights.
+     * 
+     */
+    @Export(name="insightsManageInsights", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> insightsManageInsights;
+
+    /**
+     * @return Whether the apikey can manage DNS insights.
+     * 
+     */
+    public Output<Optional<Boolean>> insightsManageInsights() {
+        return Codegen.optional(this.insightsManageInsights);
+    }
+    /**
+     * Whether the apikey can view DNS insights.
+     * 
+     */
+    @Export(name="insightsViewInsights", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> insightsViewInsights;
+
+    /**
+     * @return Whether the apikey can view DNS insights.
+     * 
+     */
+    public Output<Optional<Boolean>> insightsViewInsights() {
+        return Codegen.optional(this.insightsViewInsights);
+    }
+    /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      * 
      */
@@ -409,42 +437,42 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringCreateJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringCreateJobs;
 
     /**
-     * @return Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * @return Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringCreateJobs() {
         return Codegen.optional(this.monitoringCreateJobs);
     }
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringDeleteJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringDeleteJobs;
 
     /**
-     * @return Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * @return Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringDeleteJobs() {
         return Codegen.optional(this.monitoringDeleteJobs);
     }
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the apikey can create, update, and delete monitoring jobs.
      * 
      */
     @Export(name="monitoringManageJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringManageJobs;
 
     /**
-     * @return Whether the user can create, update, and delete monitoring jobs.
+     * @return Whether the apikey can create, update, and delete monitoring jobs.
      * 
      */
     public Output<Optional<Boolean>> monitoringManageJobs() {
@@ -465,14 +493,14 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitoringManageLists);
     }
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     @Export(name="monitoringUpdateJobs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringUpdateJobs;
 
     /**
-     * @return Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * @return Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      * 
      */
     public Output<Optional<Boolean>> monitoringUpdateJobs() {
@@ -507,30 +535,28 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the apikey can manage redirects.
      * 
      */
     @Export(name="redirectsManageRedirects", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> redirectsManageRedirects;
 
     /**
-     * @return Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * @return Whether the apikey can manage redirects.
      * 
      */
     public Output<Optional<Boolean>> redirectsManageRedirects() {
         return Codegen.optional(this.redirectsManageRedirects);
     }
     /**
-     * Whether the apikey can manage global active directory.
+     * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      * 
      */
     @Export(name="securityManageActiveDirectory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> securityManageActiveDirectory;
 
     /**
-     * @return Whether the apikey can manage global active directory.
+     * @return Whether the apikey can manage global active directory. Only relevant for the DDI product.
      * 
      */
     public Output<Optional<Boolean>> securityManageActiveDirectory() {

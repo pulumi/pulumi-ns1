@@ -224,16 +224,32 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dnsManageZones);
     }
 
+    /**
+     * List of records that the user may access.
+     * 
+     */
     @Import(name="dnsRecordsAllows")
     private @Nullable Output<List<UserDnsRecordsAllowArgs>> dnsRecordsAllows;
 
+    /**
+     * @return List of records that the user may access.
+     * 
+     */
     public Optional<Output<List<UserDnsRecordsAllowArgs>>> dnsRecordsAllows() {
         return Optional.ofNullable(this.dnsRecordsAllows);
     }
 
+    /**
+     * List of records that the user may not access.
+     * 
+     */
     @Import(name="dnsRecordsDenies")
     private @Nullable Output<List<UserDnsRecordsDenyArgs>> dnsRecordsDenies;
 
+    /**
+     * @return List of records that the user may not access.
+     * 
+     */
     public Optional<Output<List<UserDnsRecordsDenyArgs>>> dnsRecordsDenies() {
         return Optional.ofNullable(this.dnsRecordsDenies);
     }
@@ -311,6 +327,36 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> email() {
         return this.email;
+    }
+
+    /**
+     * Whether the user can manage DNS insights.
+     * 
+     */
+    @Import(name="insightsManageInsights")
+    private @Nullable Output<Boolean> insightsManageInsights;
+
+    /**
+     * @return Whether the user can manage DNS insights.
+     * 
+     */
+    public Optional<Output<Boolean>> insightsManageInsights() {
+        return Optional.ofNullable(this.insightsManageInsights);
+    }
+
+    /**
+     * Whether the user can view DNS insights.
+     * 
+     */
+    @Import(name="insightsViewInsights")
+    private @Nullable Output<Boolean> insightsViewInsights;
+
+    /**
+     * @return Whether the user can view DNS insights.
+     * 
+     */
+    public Optional<Output<Boolean>> insightsViewInsights() {
+        return Optional.ofNullable(this.insightsViewInsights);
     }
 
     /**
@@ -473,7 +519,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
      * 
      */
     @Import(name="redirectsManageRedirects")
@@ -481,7 +526,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether the user can manage redirects.
-     * Only relevant for the DDI product.
      * 
      */
     public Optional<Output<Boolean>> redirectsManageRedirects() {
@@ -489,14 +533,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the user can manage global active directory.
+     * Whether the user can manage global active directory. Only relevant for the DDI product.
      * 
      */
     @Import(name="securityManageActiveDirectory")
     private @Nullable Output<Boolean> securityManageActiveDirectory;
 
     /**
-     * @return Whether the user can manage global active directory.
+     * @return Whether the user can manage global active directory. Only relevant for the DDI product.
      * 
      */
     public Optional<Output<Boolean>> securityManageActiveDirectory() {
@@ -571,6 +615,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         this.dnsZonesAllows = $.dnsZonesAllows;
         this.dnsZonesDenies = $.dnsZonesDenies;
         this.email = $.email;
+        this.insightsManageInsights = $.insightsManageInsights;
+        this.insightsViewInsights = $.insightsViewInsights;
         this.ipWhitelistStrict = $.ipWhitelistStrict;
         this.ipWhitelists = $.ipWhitelists;
         this.monitoringCreateJobs = $.monitoringCreateJobs;
@@ -887,28 +933,64 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
             return dnsManageZones(Output.of(dnsManageZones));
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the user may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(@Nullable Output<List<UserDnsRecordsAllowArgs>> dnsRecordsAllows) {
             $.dnsRecordsAllows = dnsRecordsAllows;
             return this;
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the user may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(List<UserDnsRecordsAllowArgs> dnsRecordsAllows) {
             return dnsRecordsAllows(Output.of(dnsRecordsAllows));
         }
 
+        /**
+         * @param dnsRecordsAllows List of records that the user may access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsAllows(UserDnsRecordsAllowArgs... dnsRecordsAllows) {
             return dnsRecordsAllows(List.of(dnsRecordsAllows));
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the user may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(@Nullable Output<List<UserDnsRecordsDenyArgs>> dnsRecordsDenies) {
             $.dnsRecordsDenies = dnsRecordsDenies;
             return this;
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the user may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(List<UserDnsRecordsDenyArgs> dnsRecordsDenies) {
             return dnsRecordsDenies(Output.of(dnsRecordsDenies));
         }
 
+        /**
+         * @param dnsRecordsDenies List of records that the user may not access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRecordsDenies(UserDnsRecordsDenyArgs... dnsRecordsDenies) {
             return dnsRecordsDenies(List.of(dnsRecordsDenies));
         }
@@ -1036,6 +1118,48 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder email(String email) {
             return email(Output.of(email));
+        }
+
+        /**
+         * @param insightsManageInsights Whether the user can manage DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsManageInsights(@Nullable Output<Boolean> insightsManageInsights) {
+            $.insightsManageInsights = insightsManageInsights;
+            return this;
+        }
+
+        /**
+         * @param insightsManageInsights Whether the user can manage DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsManageInsights(Boolean insightsManageInsights) {
+            return insightsManageInsights(Output.of(insightsManageInsights));
+        }
+
+        /**
+         * @param insightsViewInsights Whether the user can view DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsViewInsights(@Nullable Output<Boolean> insightsViewInsights) {
+            $.insightsViewInsights = insightsViewInsights;
+            return this;
+        }
+
+        /**
+         * @param insightsViewInsights Whether the user can view DNS insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder insightsViewInsights(Boolean insightsViewInsights) {
+            return insightsViewInsights(Output.of(insightsViewInsights));
         }
 
         /**
@@ -1268,7 +1392,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param redirectsManageRedirects Whether the user can manage redirects.
-         * Only relevant for the DDI product.
          * 
          * @return builder
          * 
@@ -1280,7 +1403,6 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param redirectsManageRedirects Whether the user can manage redirects.
-         * Only relevant for the DDI product.
          * 
          * @return builder
          * 
@@ -1290,7 +1412,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityManageActiveDirectory Whether the user can manage global active directory.
+         * @param securityManageActiveDirectory Whether the user can manage global active directory. Only relevant for the DDI product.
          * 
          * @return builder
          * 
@@ -1301,7 +1423,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityManageActiveDirectory Whether the user can manage global active directory.
+         * @param securityManageActiveDirectory Whether the user can manage global active directory. Only relevant for the DDI product.
          * 
          * @return builder
          * 

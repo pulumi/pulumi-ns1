@@ -170,19 +170,27 @@ export class Team extends pulumi.CustomResource {
      */
     declare public readonly dnsZonesDenies: pulumi.Output<string[] | undefined>;
     /**
+     * Whether the team can manage DNS insights.
+     */
+    declare public readonly insightsManageInsights: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the team can view DNS insights.
+     */
+    declare public readonly insightsViewInsights: pulumi.Output<boolean | undefined>;
+    /**
      * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
      */
     declare public readonly ipWhitelists: pulumi.Output<outputs.TeamIpWhitelist[] | undefined>;
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the team can create monitoring jobs when manageJobs is not set to true.
      */
     declare public readonly monitoringCreateJobs: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the team can delete monitoring jobs when manageJobs is not set to true.
      */
     declare public readonly monitoringDeleteJobs: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the team can create, update, and delete monitoring jobs.
      */
     declare public readonly monitoringManageJobs: pulumi.Output<boolean | undefined>;
     /**
@@ -190,7 +198,7 @@ export class Team extends pulumi.CustomResource {
      */
     declare public readonly monitoringManageLists: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the team can update monitoring jobs when manageJobs is not set to true.
      */
     declare public readonly monitoringUpdateJobs: pulumi.Output<boolean | undefined>;
     /**
@@ -202,12 +210,11 @@ export class Team extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the team can manage redirects.
      */
     declare public readonly redirectsManageRedirects: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the team can manage global active directory.
+     * Whether the team can manage global active directory. Only relevant for the DDI product.
      */
     declare public readonly securityManageActiveDirectory: pulumi.Output<boolean | undefined>;
     /**
@@ -247,6 +254,8 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllowByDefault"] = state?.dnsZonesAllowByDefault;
             resourceInputs["dnsZonesAllows"] = state?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = state?.dnsZonesDenies;
+            resourceInputs["insightsManageInsights"] = state?.insightsManageInsights;
+            resourceInputs["insightsViewInsights"] = state?.insightsViewInsights;
             resourceInputs["ipWhitelists"] = state?.ipWhitelists;
             resourceInputs["monitoringCreateJobs"] = state?.monitoringCreateJobs;
             resourceInputs["monitoringDeleteJobs"] = state?.monitoringDeleteJobs;
@@ -279,6 +288,8 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllowByDefault"] = args?.dnsZonesAllowByDefault;
             resourceInputs["dnsZonesAllows"] = args?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = args?.dnsZonesDenies;
+            resourceInputs["insightsManageInsights"] = args?.insightsManageInsights;
+            resourceInputs["insightsViewInsights"] = args?.insightsViewInsights;
             resourceInputs["ipWhitelists"] = args?.ipWhitelists;
             resourceInputs["monitoringCreateJobs"] = args?.monitoringCreateJobs;
             resourceInputs["monitoringDeleteJobs"] = args?.monitoringDeleteJobs;
@@ -379,19 +390,27 @@ export interface TeamState {
      */
     dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether the team can manage DNS insights.
+     */
+    insightsManageInsights?: pulumi.Input<boolean>;
+    /**
+     * Whether the team can view DNS insights.
+     */
+    insightsViewInsights?: pulumi.Input<boolean>;
+    /**
      * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
      */
     ipWhitelists?: pulumi.Input<pulumi.Input<inputs.TeamIpWhitelist>[]>;
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the team can create monitoring jobs when manageJobs is not set to true.
      */
     monitoringCreateJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the team can delete monitoring jobs when manageJobs is not set to true.
      */
     monitoringDeleteJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the team can create, update, and delete monitoring jobs.
      */
     monitoringManageJobs?: pulumi.Input<boolean>;
     /**
@@ -399,7 +418,7 @@ export interface TeamState {
      */
     monitoringManageLists?: pulumi.Input<boolean>;
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the team can update monitoring jobs when manageJobs is not set to true.
      */
     monitoringUpdateJobs?: pulumi.Input<boolean>;
     /**
@@ -411,12 +430,11 @@ export interface TeamState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the team can manage redirects.
      */
     redirectsManageRedirects?: pulumi.Input<boolean>;
     /**
-     * Whether the team can manage global active directory.
+     * Whether the team can manage global active directory. Only relevant for the DDI product.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
@@ -508,19 +526,27 @@ export interface TeamArgs {
      */
     dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether the team can manage DNS insights.
+     */
+    insightsManageInsights?: pulumi.Input<boolean>;
+    /**
+     * Whether the team can view DNS insights.
+     */
+    insightsViewInsights?: pulumi.Input<boolean>;
+    /**
      * Array of IP addresses objects to chich to grant the team access. Each object includes a **name** (string), and **values** (array of strings) associated to each "allow" list.
      */
     ipWhitelists?: pulumi.Input<pulumi.Input<inputs.TeamIpWhitelist>[]>;
     /**
-     * Whether the user can create monitoring jobs when manageJobs is not set to true.
+     * Whether the team can create monitoring jobs when manageJobs is not set to true.
      */
     monitoringCreateJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can delete monitoring jobs when manageJobs is not set to true.
+     * Whether the team can delete monitoring jobs when manageJobs is not set to true.
      */
     monitoringDeleteJobs?: pulumi.Input<boolean>;
     /**
-     * Whether the user can create, update, and delete monitoring jobs.
+     * Whether the team can create, update, and delete monitoring jobs.
      */
     monitoringManageJobs?: pulumi.Input<boolean>;
     /**
@@ -528,7 +554,7 @@ export interface TeamArgs {
      */
     monitoringManageLists?: pulumi.Input<boolean>;
     /**
-     * Whether the user can update monitoring jobs when manageJobs is not set to true.
+     * Whether the team can update monitoring jobs when manageJobs is not set to true.
      */
     monitoringUpdateJobs?: pulumi.Input<boolean>;
     /**
@@ -540,12 +566,11 @@ export interface TeamArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the user can manage redirects.
-     * Only relevant for the DDI product.
+     * Whether the team can manage redirects.
      */
     redirectsManageRedirects?: pulumi.Input<boolean>;
     /**
-     * Whether the team can manage global active directory.
+     * Whether the team can manage global active directory. Only relevant for the DDI product.
      */
     securityManageActiveDirectory?: pulumi.Input<boolean>;
     /**
