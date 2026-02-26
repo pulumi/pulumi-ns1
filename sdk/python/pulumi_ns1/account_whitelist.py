@@ -23,6 +23,7 @@ class AccountWhitelistArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountWhitelist resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Array of IP addresses/networks from which to allow access.
         :param pulumi.Input[_builtins.str] name: The free form name of the whitelist.
         """
@@ -62,6 +63,7 @@ class _AccountWhitelistState:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccountWhitelist resources.
+
         :param pulumi.Input[_builtins.str] name: The free form name of the whitelist.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Array of IP addresses/networks from which to allow access.
         """
@@ -133,6 +135,7 @@ class AccountWhitelist(pulumi.CustomResource):
 
         `terraform import ns1_account_whitelist.example <ID>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The free form name of the whitelist.
@@ -172,6 +175,7 @@ class AccountWhitelist(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_account_whitelist.example <ID>`
+
 
         :param str resource_name: The name of the resource.
         :param AccountWhitelistArgs args: The arguments to use to populate this resource's properties.

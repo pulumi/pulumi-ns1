@@ -38,6 +38,7 @@ class RecordArgs:
                  use_client_subnet: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Record resource.
+
         :param pulumi.Input[_builtins.str] domain: The records' domain. Cannot have leading or trailing
                dots - see the example above and `FQDN formatting` below.
         :param pulumi.Input[_builtins.str] type: The records' RR type.
@@ -316,6 +317,7 @@ class _RecordState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Record resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]] answers: One or more NS1 answers for the records' specified type.
                Answers are documented below.
         :param pulumi.Input[_builtins.str] domain: The records' domain. Cannot have leading or trailing
@@ -724,6 +726,7 @@ class Record(pulumi.CustomResource):
 
         `terraform import ns1_record.www terraform.example.io/www.terraform.example.io/CNAME`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]] answers: One or more NS1 answers for the records' specified type.
@@ -880,6 +883,7 @@ class Record(pulumi.CustomResource):
         So for the example above:
 
         `terraform import ns1_record.www terraform.example.io/www.terraform.example.io/CNAME`
+
 
         :param str resource_name: The name of the resource.
         :param RecordArgs args: The arguments to use to populate this resource's properties.

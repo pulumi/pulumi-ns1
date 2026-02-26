@@ -55,6 +55,7 @@ class TeamArgs:
                  security_manage_global2fa: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Team resource.
+
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the team can modify account settings.
         :param pulumi.Input[_builtins.bool] account_manage_apikeys: Whether the team can modify account apikeys.
         :param pulumi.Input[_builtins.bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
@@ -579,6 +580,7 @@ class _TeamState:
                  security_manage_global2fa: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the team can modify account settings.
         :param pulumi.Input[_builtins.bool] account_manage_apikeys: Whether the team can modify account apikeys.
         :param pulumi.Input[_builtins.bool] account_manage_ip_whitelist: Whether the team can manage ip whitelist.
@@ -1160,6 +1162,7 @@ class Team(pulumi.CustomResource):
 
         `terraform import ns1_team.<name> <team_id>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the team can modify account settings.
@@ -1255,6 +1258,7 @@ class Team(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_team.<name> <team_id>`
+
 
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.

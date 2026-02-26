@@ -28,6 +28,7 @@ class ApplicationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.bool] active: Indicates whether or not this application is currently active and usable for traffic
                steering.
         :param pulumi.Input[_builtins.int] browser_wait_millis: The amount of time (in milliseconds) the browser should wait before running
@@ -122,6 +123,7 @@ class _ApplicationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.bool] active: Indicates whether or not this application is currently active and usable for traffic
                steering.
         :param pulumi.Input[_builtins.int] browser_wait_millis: The amount of time (in milliseconds) the browser should wait before running
@@ -221,6 +223,7 @@ class Application(pulumi.CustomResource):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Indicates whether or not this application is currently active and usable for traffic
@@ -240,6 +243,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

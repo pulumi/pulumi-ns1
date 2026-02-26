@@ -57,6 +57,7 @@ class APIKeyArgs:
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a APIKey resource.
+
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the apikey can modify account settings.
         :param pulumi.Input[_builtins.bool] account_manage_apikeys: Whether the apikey can modify account apikeys.
         :param pulumi.Input[_builtins.bool] account_manage_ip_whitelist: Whether the apikey can manage ip whitelist.
@@ -614,6 +615,7 @@ class _APIKeyState:
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering APIKey resources.
+
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the apikey can modify account settings.
         :param pulumi.Input[_builtins.bool] account_manage_apikeys: Whether the apikey can modify account apikeys.
         :param pulumi.Input[_builtins.bool] account_manage_ip_whitelist: Whether the apikey can manage ip whitelist.
@@ -1235,6 +1237,7 @@ class APIKey(pulumi.CustomResource):
 
         `terraform import ns1_apikey.example <ID>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the apikey can modify account settings.
@@ -1325,6 +1328,7 @@ class APIKey(pulumi.CustomResource):
         So for the example above:
 
         `terraform import ns1_apikey.example <ID>`
+
 
         :param str resource_name: The name of the resource.
         :param APIKeyArgs args: The arguments to use to populate this resource's properties.
