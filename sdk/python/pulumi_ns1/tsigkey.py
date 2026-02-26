@@ -24,6 +24,7 @@ class TsigkeyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tsigkey resource.
+
         :param pulumi.Input[_builtins.str] algorithm: The algorithm used to hash the TSIG key's secret.
         :param pulumi.Input[_builtins.str] secret: The key's secret to be hashed.
         :param pulumi.Input[_builtins.str] name: The free form name of the tsigkey.
@@ -78,6 +79,7 @@ class _TsigkeyState:
                  secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tsigkey resources.
+
         :param pulumi.Input[_builtins.str] algorithm: The algorithm used to hash the TSIG key's secret.
         :param pulumi.Input[_builtins.str] name: The free form name of the tsigkey.
         :param pulumi.Input[_builtins.str] secret: The key's secret to be hashed.
@@ -158,6 +160,7 @@ class Tsigkey(pulumi.CustomResource):
 
         `terraform import ns1_tsigkey.importTest <name>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] algorithm: The algorithm used to hash the TSIG key's secret.
@@ -191,6 +194,7 @@ class Tsigkey(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_tsigkey.importTest <name>`
+
 
         :param str resource_name: The name of the resource.
         :param TsigkeyArgs args: The arguments to use to populate this resource's properties.

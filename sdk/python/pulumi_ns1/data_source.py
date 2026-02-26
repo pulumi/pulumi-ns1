@@ -24,6 +24,7 @@ class DataSourceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input[_builtins.str] sourcetype: The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
@@ -81,6 +82,7 @@ class _DataSourceState:
                  sourcetype: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The data source configuration, determined by its type,
                matching the specification in `config` from /data/sourcetypes.
         :param pulumi.Input[_builtins.str] name: The free form name of the data source.
@@ -163,6 +165,7 @@ class DataSource(pulumi.CustomResource):
 
         `terraform import ns1_datasource.<name> <datasource_id>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The data source configuration, determined by its type,
@@ -197,6 +200,7 @@ class DataSource(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_datasource.<name> <datasource_id>`
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

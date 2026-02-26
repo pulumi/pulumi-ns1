@@ -30,6 +30,7 @@ class AlertArgs:
                  zone_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Alert resource.
+
         :param pulumi.Input[_builtins.str] subtype: The type of the alert.
         :param pulumi.Input[_builtins.str] type: The type of the alert.
         :param pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
@@ -152,6 +153,7 @@ class _AlertState:
                  zone_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Alert resources.
+
         :param pulumi.Input[_builtins.int] created_at: (Read Only) The Unix timestamp representing when the alert configuration was created.
         :param pulumi.Input[_builtins.str] created_by: (Read Only) The user or apikey that created this alert.
         :param pulumi.Input[Sequence[pulumi.Input['AlertDataArgs']]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
@@ -370,6 +372,7 @@ class Alert(pulumi.CustomResource):
 
         `terraform import ns1_alert.<name> <alert_id>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
@@ -421,6 +424,7 @@ class Alert(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_alert.<name> <alert_id>`
+
 
         :param str resource_name: The name of the resource.
         :param AlertArgs args: The arguments to use to populate this resource's properties.

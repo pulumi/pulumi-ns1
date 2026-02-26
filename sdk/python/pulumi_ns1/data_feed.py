@@ -24,6 +24,7 @@ class DataFeedArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataFeed resource.
+
         :param pulumi.Input[_builtins.str] source_id: The data source id that this feed is connected to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The feeds configuration matching the specification in
                `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
@@ -81,6 +82,7 @@ class _DataFeedState:
                  source_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataFeed resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The feeds configuration matching the specification in
                `feed_config` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
         :param pulumi.Input[_builtins.str] name: The free form name of the data feed.
@@ -184,6 +186,7 @@ class DataFeed(pulumi.CustomResource):
 
         `terraform import ns1_datafeed.<name> <datasource_id>/<datafeed_id>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The feeds configuration matching the specification in
@@ -239,6 +242,7 @@ class DataFeed(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_datafeed.<name> <datasource_id>/<datafeed_id>`
+
 
         :param str resource_name: The name of the resource.
         :param DataFeedArgs args: The arguments to use to populate this resource's properties.

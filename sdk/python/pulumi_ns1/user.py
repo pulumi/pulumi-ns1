@@ -60,6 +60,7 @@ class UserArgs:
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] email: The email address of the user.
         :param pulumi.Input[_builtins.str] username: The users login name.
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the user can modify account settings.
@@ -666,6 +667,7 @@ class _UserState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the user can modify account settings.
         :param pulumi.Input[_builtins.bool] account_manage_apikeys: Whether the user can modify account apikeys.
         :param pulumi.Input[_builtins.bool] account_manage_ip_whitelist: Whether the user can manage ip whitelist.
@@ -1328,6 +1330,7 @@ class User(pulumi.CustomResource):
 
         `terraform import ns1_user.<name> <username>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] account_manage_account_settings: Whether the user can modify account settings.
@@ -1425,6 +1428,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_user.<name> <username>`
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

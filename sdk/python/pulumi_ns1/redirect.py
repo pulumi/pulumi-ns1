@@ -30,6 +30,7 @@ class RedirectArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Redirect resource.
+
         :param pulumi.Input[_builtins.str] domain: The domain the redirect refers to.
         :param pulumi.Input[_builtins.str] path: The path on the domain to redirect from.
         :param pulumi.Input[_builtins.str] target: The URL to redirect to.
@@ -207,6 +208,7 @@ class _RedirectState:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Redirect resources.
+
         :param pulumi.Input[_builtins.str] certificate_id: The certificate redirect id. If not specified the redirect will be created as HTTP,
                but it may be turned to HTTPS if a certificate exists for the source domain on the server.
                If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
@@ -460,6 +462,7 @@ class Redirect(pulumi.CustomResource):
         `terraform import ns1_redirect_certificate.<name> <id>`
         `terraform import ns1_redirect.<name> <id>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_id: The certificate redirect id. If not specified the redirect will be created as HTTP,
@@ -533,6 +536,7 @@ class Redirect(pulumi.CustomResource):
 
         `terraform import ns1_redirect_certificate.<name> <id>`
         `terraform import ns1_redirect.<name> <id>`
+
 
         :param str resource_name: The name of the resource.
         :param RedirectArgs args: The arguments to use to populate this resource's properties.

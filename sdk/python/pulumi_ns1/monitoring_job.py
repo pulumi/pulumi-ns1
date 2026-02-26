@@ -39,6 +39,7 @@ class MonitoringJobArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringJob resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[_builtins.int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
         :param pulumi.Input[_builtins.str] job_type: The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
@@ -303,6 +304,7 @@ class _MonitoringJobState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering MonitoringJob resources.
+
         :param pulumi.Input[_builtins.bool] active: Indicates if the job is active or temporarily disabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         :param pulumi.Input[_builtins.int] frequency: The frequency, in seconds, at which to run the monitoring job in each region.
@@ -616,6 +618,7 @@ class MonitoringJob(pulumi.CustomResource):
 
         `terraform import ns1_monitoringjob.<name> <monitoringjob_id>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Indicates if the job is active or temporarily disabled.
@@ -685,6 +688,7 @@ class MonitoringJob(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_monitoringjob.<name> <monitoringjob_id>`
+
 
         :param str resource_name: The name of the resource.
         :param MonitoringJobArgs args: The arguments to use to populate this resource's properties.

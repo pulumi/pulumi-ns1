@@ -44,6 +44,7 @@ class ZoneArgs:
                  ttl: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Zone resource.
+
         :param pulumi.Input[_builtins.str] zone: The domain name of the zone.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_primaries: List of additional IPv4 addresses for the primary
                zone. Conflicts with `secondaries`.
@@ -400,6 +401,7 @@ class _ZoneState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_primaries: List of additional IPv4 addresses for the primary
                zone. Conflicts with `secondaries`.
         :param pulumi.Input[_builtins.bool] autogenerate_ns_record: . If set to false, clears
@@ -776,6 +778,7 @@ class Zone(pulumi.CustomResource):
         """
         Provides a NS1 DNS Zone resource. This can be used to create, modify, and delete zones.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_primaries: List of additional IPv4 addresses for the primary
@@ -819,6 +822,7 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a NS1 DNS Zone resource. This can be used to create, modify, and delete zones.
+
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.

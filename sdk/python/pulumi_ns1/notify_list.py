@@ -25,6 +25,7 @@ class NotifyListArgs:
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
         """
         The set of arguments for constructing a NotifyList resource.
+
         :param pulumi.Input[_builtins.str] name: The free-form display name for the notify list.
         :param pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
@@ -65,6 +66,7 @@ class _NotifyListState:
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
         """
         Input properties used for looking up and filtering NotifyList resources.
+
         :param pulumi.Input[_builtins.str] name: The free-form display name for the notify list.
         :param pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]] notifications: A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
@@ -143,6 +145,7 @@ class NotifyList(pulumi.CustomResource):
 
         `terraform import ns1_notifylist.<name> <notifylist_id>`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the notify list.
@@ -189,6 +192,7 @@ class NotifyList(pulumi.CustomResource):
         ## Import
 
         `terraform import ns1_notifylist.<name> <notifylist_id>`
+
 
         :param str resource_name: The name of the resource.
         :param NotifyListArgs args: The arguments to use to populate this resource's properties.
