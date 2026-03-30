@@ -136,8 +136,8 @@ import (
 //					&ns1.RecordAnswerArgs{
 //						Answer: pulumi.Sprintf("sub3.%v", tld.Zone),
 //						Meta: pulumi.StringMap{
-//							"pulsar":       pulumi.String(json0),
-//							"subdivisions": pulumi.String(json1),
+//							"pulsar":       pulumi.String(pulumi.String(json0)),
+//							"subdivisions": pulumi.String(pulumi.String(json1)),
 //						},
 //					},
 //				},
