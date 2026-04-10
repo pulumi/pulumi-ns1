@@ -27,7 +27,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details about NS1 Networks.
-        ///     var example = Ns1.GetNetworks.Invoke();
+        ///     var example = Ns1.Index.GetNetworks.Invoke();
         /// 
         /// });
         /// ```
@@ -51,7 +51,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details about NS1 Networks.
-        ///     var example = Ns1.GetNetworks.Invoke();
+        ///     var example = Ns1.Index.GetNetworks.Invoke();
         /// 
         /// });
         /// ```
@@ -75,7 +75,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details about NS1 Networks.
-        ///     var example = Ns1.GetNetworks.Invoke();
+        ///     var example = Ns1.Index.GetNetworks.Invoke();
         /// 
         /// });
         /// ```

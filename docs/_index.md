@@ -94,7 +94,7 @@ using Ns1 = Pulumi.Ns1;
 return await Deployment.RunAsync(() =>
 {
     // Create a new zone
-    var foobar = new Ns1.Zone("foobar");
+    var foobar = new Ns1.Index.Zone("foobar");
 
 });
 

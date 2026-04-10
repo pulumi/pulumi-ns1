@@ -24,7 +24,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.AccountWhitelist("example", new()
+    ///     var example = new Ns1.Index.AccountWhitelist("example", new()
     ///     {
     ///         Name = "Example Whitelist",
     ///         Values = new[]

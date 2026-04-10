@@ -22,7 +22,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nl = new Ns1.NotifyList("nl", new()
+    ///     var nl = new Ns1.Index.NotifyList("nl", new()
     ///     {
     ///         Name = "my notify list",
     ///         Notifications = new[]
