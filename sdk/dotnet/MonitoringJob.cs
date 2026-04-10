@@ -22,7 +22,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var uswestMonitor = new Ns1.MonitoringJob("uswest_monitor", new()
+    ///     var uswestMonitor = new Ns1.Index.MonitoringJob("uswest_monitor", new()
     ///     {
     ///         Name = "uswest",
     ///         Active = true,

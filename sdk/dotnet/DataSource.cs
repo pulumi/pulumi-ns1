@@ -22,7 +22,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.DataSource("example", new()
+    ///     var example = new Ns1.Index.DataSource("example", new()
     ///     {
     ///         Name = "example",
     ///         Sourcetype = "nsone_v1",

@@ -24,7 +24,7 @@ namespace Pulumi.Ns1
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new NS1 Team
-    ///     var example = new Ns1.Team("example", new()
+    ///     var example = new Ns1.Index.Team("example", new()
     ///     {
     ///         Name = "Example team",
     ///         IpWhitelists = new[]
@@ -53,7 +53,7 @@ namespace Pulumi.Ns1
     ///     });
     /// 
     ///     // Another team
-    ///     var example2 = new Ns1.Team("example2", new()
+    ///     var example2 = new Ns1.Index.Team("example2", new()
     ///     {
     ///         Name = "another team",
     ///         DnsViewZones = true,

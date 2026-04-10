@@ -22,19 +22,19 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.DataSource("example", new()
+    ///     var example = new Ns1.Index.DataSource("example", new()
     ///     {
     ///         Name = "example",
     ///         Sourcetype = "nsone_v1",
     ///     });
     /// 
-    ///     var exampleMonitoring = new Ns1.DataSource("example_monitoring", new()
+    ///     var exampleMonitoring = new Ns1.Index.DataSource("example_monitoring", new()
     ///     {
     ///         Name = "example_monitoring",
     ///         Sourcetype = "nsone_monitoring",
     ///     });
     /// 
-    ///     var uswestFeed = new Ns1.DataFeed("uswest_feed", new()
+    ///     var uswestFeed = new Ns1.Index.DataFeed("uswest_feed", new()
     ///     {
     ///         Name = "uswest_feed",
     ///         SourceId = example.Id,
@@ -44,7 +44,7 @@ namespace Pulumi.Ns1
     ///         },
     ///     });
     /// 
-    ///     var useastFeed = new Ns1.DataFeed("useast_feed", new()
+    ///     var useastFeed = new Ns1.Index.DataFeed("useast_feed", new()
     ///     {
     ///         Name = "useast_feed",
     ///         SourceId = example.Id,
@@ -54,7 +54,7 @@ namespace Pulumi.Ns1
     ///         },
     ///     });
     /// 
-    ///     var useastMonitorFeed = new Ns1.DataFeed("useast_monitor_feed", new()
+    ///     var useastMonitorFeed = new Ns1.Index.DataFeed("useast_monitor_feed", new()
     ///     {
     ///         Name = "useast_monitor_feed",
     ///         SourceId = exampleMonitoring.Id,

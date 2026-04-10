@@ -22,7 +22,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleZoneAlert = new Ns1.Alert("example_zone_alert", new()
+    ///     var exampleZoneAlert = new Ns1.Index.Alert("example_zone_alert", new()
     ///     {
     ///         Name = "Example Zone Alert",
     ///         Type = "zone",
@@ -36,7 +36,7 @@ namespace Pulumi.Ns1
     ///         RecordIds = new[] {},
     ///     });
     /// 
-    ///     var exampleUsageAlert = new Ns1.Alert("example_usage_alert", new()
+    ///     var exampleUsageAlert = new Ns1.Index.Alert("example_usage_alert", new()
     ///     {
     ///         Name = "Example Usage Alert",
     ///         Type = "account",

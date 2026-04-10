@@ -695,7 +695,7 @@ class Record(pulumi.CustomResource):
                 },
             }])
         # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
-        baz = external.index.Source("baz",
+        baz = external.Source("baz",
             zone=terraform.example.io.,
             domain=.www.terraform.example.io)
         # Basic record showing how to clean a zone or domain field that comes from
@@ -853,7 +853,7 @@ class Record(pulumi.CustomResource):
                 },
             }])
         # Some other non-NS1 provider that returns a zone with a trailing dot and a domain with a leading dot.
-        baz = external.index.Source("baz",
+        baz = external.Source("baz",
             zone=terraform.example.io.,
             domain=.www.terraform.example.io)
         # Basic record showing how to clean a zone or domain field that comes from

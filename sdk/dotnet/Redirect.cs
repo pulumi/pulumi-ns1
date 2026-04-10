@@ -22,7 +22,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.Redirect("example", new()
+    ///     var example = new Ns1.Index.Redirect("example", new()
     ///     {
     ///         Domain = "www.example.com",
     ///         Path = "/from/path",
@@ -42,7 +42,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.RedirectCertificate("example", new()
+    ///     var example = new Ns1.Index.RedirectCertificate("example", new()
     ///     {
     ///         Domain = "www.example.com",
     ///     });

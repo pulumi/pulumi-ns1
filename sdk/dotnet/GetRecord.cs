@@ -27,7 +27,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details about a NS1 Record.
-        ///     var example = Ns1.GetRecord.Invoke(new()
+        ///     var example = Ns1.Index.GetRecord.Invoke(new()
         ///     {
         ///         Zone = "example.io",
         ///         Domain = "terraform.example.io",
@@ -56,7 +56,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details about a NS1 Record.
-        ///     var example = Ns1.GetRecord.Invoke(new()
+        ///     var example = Ns1.Index.GetRecord.Invoke(new()
         ///     {
         ///         Zone = "example.io",
         ///         Domain = "terraform.example.io",
@@ -85,7 +85,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details about a NS1 Record.
-        ///     var example = Ns1.GetRecord.Invoke(new()
+        ///     var example = Ns1.Index.GetRecord.Invoke(new()
         ///     {
         ///         Zone = "example.io",
         ///         Domain = "terraform.example.io",

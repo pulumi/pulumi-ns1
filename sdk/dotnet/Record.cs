@@ -25,18 +25,18 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.Zone("example", new()
+    ///     var example = new Ns1.Index.Zone("example", new()
     ///     {
     ///         ZoneName = "terraform.example.io",
     ///     });
     /// 
-    ///     var ns1 = new Ns1.DataSource("ns1", new()
+    ///     var ns1 = new Ns1.Index.DataSource("ns1", new()
     ///     {
     ///         Name = "ns1_source",
     ///         Sourcetype = "nsone_v1",
     ///     });
     /// 
-    ///     var foo = new Ns1.DataFeed("foo", new()
+    ///     var foo = new Ns1.Index.DataFeed("foo", new()
     ///     {
     ///         Name = "foo_feed",
     ///         SourceId = ns1.Id,
@@ -46,7 +46,7 @@ namespace Pulumi.Ns1
     ///         },
     ///     });
     /// 
-    ///     var bar = new Ns1.DataFeed("bar", new()
+    ///     var bar = new Ns1.Index.DataFeed("bar", new()
     ///     {
     ///         Name = "bar_feed",
     ///         SourceId = ns1.Id,
@@ -56,7 +56,7 @@ namespace Pulumi.Ns1
     ///         },
     ///     });
     /// 
-    ///     var www = new Ns1.Record("www", new()
+    ///     var www = new Ns1.Index.Record("www", new()
     ///     {
     ///         Zone = tld.Zone,
     ///         Domain = $"www.{tld.Zone}",
@@ -162,15 +162,15 @@ namespace Pulumi.Ns1
     ///     //
     ///     // In other cases, a domain or zone may be passed in with a preceding dot ('.')
     ///     // character which would likewise lead the system to fail.
-    ///     var external = new Ns1.Record("external", new()
+    ///     var external = new Ns1.Index.Record("external", new()
     ///     {
-    ///         Zone = Std.Replace.Invoke(new()
+    ///         Zone = Std.Index.Replace.Invoke(new()
     ///         {
     ///             Text = zone,
     ///             Search = "/(^\\.)|(\\.$)/",
     ///             Replace = "",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Domain = Std.Replace.Invoke(new()
+    ///         Domain = Std.Index.Replace.Invoke(new()
     ///         {
     ///             Text = domain,
     ///             Search = "/(^\\.)|(\\.$)/",

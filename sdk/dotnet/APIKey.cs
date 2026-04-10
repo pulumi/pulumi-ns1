@@ -22,12 +22,12 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.Team("example", new()
+    ///     var example = new Ns1.Index.Team("example", new()
     ///     {
     ///         Name = "Example team",
     ///     });
     /// 
-    ///     var exampleAPIKey = new Ns1.APIKey("example", new()
+    ///     var exampleAPIKey = new Ns1.Index.APIKey("example", new()
     ///     {
     ///         Name = "Example key",
     ///         Teams = new[]

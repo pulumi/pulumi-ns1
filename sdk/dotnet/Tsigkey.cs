@@ -22,7 +22,7 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.Tsigkey("example", new()
+    ///     var example = new Ns1.Index.Tsigkey("example", new()
     ///     {
     ///         Name = "ExampleTsigKey",
     ///         Algorithm = "hmac-sha256",

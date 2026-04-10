@@ -25,7 +25,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details of all available monitoring regions.
-        ///     var example = Ns1.GetMonitoringRegions.Invoke();
+        ///     var example = Ns1.Index.GetMonitoringRegions.Invoke();
         /// 
         /// });
         /// ```
@@ -47,7 +47,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details of all available monitoring regions.
-        ///     var example = Ns1.GetMonitoringRegions.Invoke();
+        ///     var example = Ns1.Index.GetMonitoringRegions.Invoke();
         /// 
         /// });
         /// ```
@@ -69,7 +69,7 @@ namespace Pulumi.Ns1
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get details of all available monitoring regions.
-        ///     var example = Ns1.GetMonitoringRegions.Invoke();
+        ///     var example = Ns1.Index.GetMonitoringRegions.Invoke();
         /// 
         /// });
         /// ```
