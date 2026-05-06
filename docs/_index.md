@@ -94,7 +94,7 @@ using Ns1 = Pulumi.Ns1;
 return await Deployment.RunAsync(() =>
 {
     // Create a new zone
-    var foobar = new Ns1.Index.Zone("foobar");
+    var foobar = new Ns1.Zone("foobar");
 
 });
 
@@ -176,8 +176,8 @@ import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.ns1.Zone;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

@@ -18,20 +18,20 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new ns1.Zone("example", {zone: "terraform.example.io"});
- * const ns1 = new ns1.DataSource("ns1", {
+ * const ns12 = new ns1.DataSource("ns1", {
  *     name: "ns1_source",
  *     sourcetype: "nsone_v1",
  * });
  * const foo = new ns1.DataFeed("foo", {
  *     name: "foo_feed",
- *     sourceId: ns1.id,
+ *     sourceId: ns12.id,
  *     config: {
  *         label: "foo",
  *     },
  * });
  * const bar = new ns1.DataFeed("bar", {
  *     name: "bar_feed",
- *     sourceId: ns1.id,
+ *     sourceId: ns12.id,
  *     config: {
  *         label: "bar",
  *     },
@@ -113,7 +113,7 @@ import * as utilities from "./utilities";
  * //
  * // In other cases, a domain or zone may be passed in with a preceding dot ('.')
  * // character which would likewise lead the system to fail.
- * const external = new ns1.Record("external", {
+ * const external2 = new ns1.Record("external", {
  *     zone: std.replace({
  *         text: zone,
  *         search: "/(^\\.)|(\\.$)/",

@@ -614,18 +614,18 @@ class Record(pulumi.CustomResource):
         import pulumi_std as std
 
         example = ns1.Zone("example", zone="terraform.example.io")
-        ns1 = ns1.DataSource("ns1",
+        ns1_1 = ns1.DataSource("ns1",
             name="ns1_source",
             sourcetype="nsone_v1")
         foo = ns1.DataFeed("foo",
             name="foo_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "foo",
             })
         bar = ns1.DataFeed("bar",
             name="bar_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "bar",
             })
@@ -704,7 +704,7 @@ class Record(pulumi.CustomResource):
         #
         # In other cases, a domain or zone may be passed in with a preceding dot ('.')
         # character which would likewise lead the system to fail.
-        external = ns1.Record("external",
+        external_1 = ns1.Record("external",
             zone=std.replace(text=zone,
                 search="/(^\\\\.)|(\\\\.$)/",
                 replace="").result,
@@ -772,18 +772,18 @@ class Record(pulumi.CustomResource):
         import pulumi_std as std
 
         example = ns1.Zone("example", zone="terraform.example.io")
-        ns1 = ns1.DataSource("ns1",
+        ns1_1 = ns1.DataSource("ns1",
             name="ns1_source",
             sourcetype="nsone_v1")
         foo = ns1.DataFeed("foo",
             name="foo_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "foo",
             })
         bar = ns1.DataFeed("bar",
             name="bar_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "bar",
             })
@@ -862,7 +862,7 @@ class Record(pulumi.CustomResource):
         #
         # In other cases, a domain or zone may be passed in with a preceding dot ('.')
         # character which would likewise lead the system to fail.
-        external = ns1.Record("external",
+        external_1 = ns1.Record("external",
             zone=std.replace(text=zone,
                 search="/(^\\\\.)|(\\\\.$)/",
                 replace="").result,
