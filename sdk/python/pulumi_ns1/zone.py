@@ -22,26 +22,26 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  zone: pulumi.Input[_builtins.str],
-                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]] = None,
-                 additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 autogenerate_ns_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dnssec: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 hostmaster: Optional[pulumi.Input[_builtins.str]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 nx_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_network: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None):
+                 additional_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_notify_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]] = None,
+                 additional_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_primaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 autogenerate_ns_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dnssec: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 hostmaster: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nx_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_network: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Zone resource.
 
@@ -134,34 +134,34 @@ class ZoneArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalNetworks")
-    def additional_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def additional_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "additional_networks")
 
     @additional_networks.setter
-    def additional_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def additional_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "additional_networks", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalNotifyOnlies")
-    def additional_notify_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]]:
+    def additional_notify_onlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]]:
         return pulumi.get(self, "additional_notify_onlies")
 
     @additional_notify_onlies.setter
-    def additional_notify_onlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]]):
+    def additional_notify_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]]):
         pulumi.set(self, "additional_notify_onlies", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalPorts")
-    def additional_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def additional_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "additional_ports")
 
     @additional_ports.setter
-    def additional_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def additional_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "additional_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalPrimaries")
-    def additional_primaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_primaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of additional IPv4 addresses for the primary
         zone. Conflicts with `secondaries`.
@@ -169,12 +169,12 @@ class ZoneArgs:
         return pulumi.get(self, "additional_primaries")
 
     @additional_primaries.setter
-    def additional_primaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_primaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_primaries", value)
 
     @_builtins.property
     @pulumi.getter(name="autogenerateNsRecord")
-    def autogenerate_ns_record(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def autogenerate_ns_record(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         . If set to false, clears
         the autogenerated NS record on zone creation. This allows an automated
@@ -185,12 +185,12 @@ class ZoneArgs:
         return pulumi.get(self, "autogenerate_ns_record")
 
     @autogenerate_ns_record.setter
-    def autogenerate_ns_record(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def autogenerate_ns_record(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "autogenerate_ns_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def dnssec(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dnssec(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not DNSSEC is enabled for the zone.
         Note that DNSSEC must be enabled on the account by support for this to be set
@@ -199,12 +199,12 @@ class ZoneArgs:
         return pulumi.get(self, "dnssec")
 
     @dnssec.setter
-    def dnssec(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dnssec(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dnssec", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA Expiry. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -212,36 +212,36 @@ class ZoneArgs:
         return pulumi.get(self, "expiry")
 
     @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiry", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostmaster(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostmaster(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Computed) The SOA Hostmaster.
         """
         return pulumi.get(self, "hostmaster")
 
     @hostmaster.setter
-    def hostmaster(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostmaster(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostmaster", value)
 
     @_builtins.property
     @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target zone(domain name) to link to.
         """
         return pulumi.get(self, "link")
 
     @link.setter
-    def link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link", value)
 
     @_builtins.property
     @pulumi.getter
-    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of network IDs for which the zone is
         available. If no network is provided, the zone will be created in network 0,
@@ -250,12 +250,12 @@ class ZoneArgs:
         return pulumi.get(self, "networks")
 
     @networks.setter
-    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "networks", value)
 
     @_builtins.property
     @pulumi.getter(name="nxTtl")
-    def nx_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def nx_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA NX TTL. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -263,12 +263,12 @@ class ZoneArgs:
         return pulumi.get(self, "nx_ttl")
 
     @nx_ttl.setter
-    def nx_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def nx_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "nx_ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary zones' IPv4 address. This makes the zone a
         secondary. Conflicts with `secondaries`.
@@ -276,30 +276,30 @@ class ZoneArgs:
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryNetwork")
-    def primary_network(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_network(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "primary_network")
 
     @primary_network.setter
-    def primary_network(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_network(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_network", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryPort")
-    def primary_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "primary_port")
 
     @primary_port.setter
-    def primary_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def refresh(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA Refresh. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -307,12 +307,12 @@ class ZoneArgs:
         return pulumi.get(self, "refresh")
 
     @refresh.setter
-    def refresh(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh", value)
 
     @_builtins.property
     @pulumi.getter
-    def retry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA Retry. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -320,12 +320,12 @@ class ZoneArgs:
         return pulumi.get(self, "retry")
 
     @retry.setter
-    def retry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry", value)
 
     @_builtins.property
     @pulumi.getter
-    def secondaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]:
+    def secondaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]:
         """
         List of secondary servers. This makes the zone a
         primary. Conflicts with `primary` and `additional_primaries`.
@@ -334,71 +334,71 @@ class ZoneArgs:
         return pulumi.get(self, "secondaries")
 
     @secondaries.setter
-    def secondaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]):
+    def secondaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]):
         pulumi.set(self, "secondaries", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         map of tags in the form of `"key" = "value"` where both key and value are strings
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tsig(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tsig(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         TSIG is documented below
         """
         return pulumi.get(self, "tsig")
 
     @tsig.setter
-    def tsig(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tsig(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tsig", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA TTL.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
-                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]] = None,
-                 additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 autogenerate_ns_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_servers: Optional[pulumi.Input[_builtins.str]] = None,
-                 dnssec: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 hostmaster: Optional[pulumi.Input[_builtins.str]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 nx_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_network: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondaries: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_notify_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]] = None,
+                 additional_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_primaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 autogenerate_ns_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_servers: pulumi.Input[Optional[_builtins.str]] = None,
+                 dnssec: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 hostmaster: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nx_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_network: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneSecondaryArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
 
@@ -483,34 +483,34 @@ class _ZoneState:
 
     @_builtins.property
     @pulumi.getter(name="additionalNetworks")
-    def additional_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def additional_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "additional_networks")
 
     @additional_networks.setter
-    def additional_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def additional_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "additional_networks", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalNotifyOnlies")
-    def additional_notify_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]]:
+    def additional_notify_onlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]]:
         return pulumi.get(self, "additional_notify_onlies")
 
     @additional_notify_onlies.setter
-    def additional_notify_onlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]]):
+    def additional_notify_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]]):
         pulumi.set(self, "additional_notify_onlies", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalPorts")
-    def additional_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def additional_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "additional_ports")
 
     @additional_ports.setter
-    def additional_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def additional_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "additional_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalPrimaries")
-    def additional_primaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_primaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of additional IPv4 addresses for the primary
         zone. Conflicts with `secondaries`.
@@ -518,12 +518,12 @@ class _ZoneState:
         return pulumi.get(self, "additional_primaries")
 
     @additional_primaries.setter
-    def additional_primaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_primaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_primaries", value)
 
     @_builtins.property
     @pulumi.getter(name="autogenerateNsRecord")
-    def autogenerate_ns_record(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def autogenerate_ns_record(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         . If set to false, clears
         the autogenerated NS record on zone creation. This allows an automated
@@ -534,24 +534,24 @@ class _ZoneState:
         return pulumi.get(self, "autogenerate_ns_record")
 
     @autogenerate_ns_record.setter
-    def autogenerate_ns_record(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def autogenerate_ns_record(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "autogenerate_ns_record", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_servers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Computed) Authoritative Name Servers.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_servers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def dnssec(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dnssec(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not DNSSEC is enabled for the zone.
         Note that DNSSEC must be enabled on the account by support for this to be set
@@ -560,12 +560,12 @@ class _ZoneState:
         return pulumi.get(self, "dnssec")
 
     @dnssec.setter
-    def dnssec(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dnssec(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dnssec", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA Expiry. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -573,36 +573,36 @@ class _ZoneState:
         return pulumi.get(self, "expiry")
 
     @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiry", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostmaster(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostmaster(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Computed) The SOA Hostmaster.
         """
         return pulumi.get(self, "hostmaster")
 
     @hostmaster.setter
-    def hostmaster(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostmaster(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostmaster", value)
 
     @_builtins.property
     @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target zone(domain name) to link to.
         """
         return pulumi.get(self, "link")
 
     @link.setter
-    def link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link", value)
 
     @_builtins.property
     @pulumi.getter
-    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of network IDs for which the zone is
         available. If no network is provided, the zone will be created in network 0,
@@ -611,12 +611,12 @@ class _ZoneState:
         return pulumi.get(self, "networks")
 
     @networks.setter
-    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "networks", value)
 
     @_builtins.property
     @pulumi.getter(name="nxTtl")
-    def nx_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def nx_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA NX TTL. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -624,12 +624,12 @@ class _ZoneState:
         return pulumi.get(self, "nx_ttl")
 
     @nx_ttl.setter
-    def nx_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def nx_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "nx_ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary zones' IPv4 address. This makes the zone a
         secondary. Conflicts with `secondaries`.
@@ -637,30 +637,30 @@ class _ZoneState:
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryNetwork")
-    def primary_network(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_network(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "primary_network")
 
     @primary_network.setter
-    def primary_network(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_network(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_network", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryPort")
-    def primary_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "primary_port")
 
     @primary_port.setter
-    def primary_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def refresh(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA Refresh. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -668,12 +668,12 @@ class _ZoneState:
         return pulumi.get(self, "refresh")
 
     @refresh.setter
-    def refresh(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh", value)
 
     @_builtins.property
     @pulumi.getter
-    def retry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA Retry. Conflicts with `primary` and
         `additional_primaries` (default must be accepted).
@@ -681,12 +681,12 @@ class _ZoneState:
         return pulumi.get(self, "retry")
 
     @retry.setter
-    def retry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry", value)
 
     @_builtins.property
     @pulumi.getter
-    def secondaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]:
+    def secondaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]:
         """
         List of secondary servers. This makes the zone a
         primary. Conflicts with `primary` and `additional_primaries`.
@@ -695,55 +695,55 @@ class _ZoneState:
         return pulumi.get(self, "secondaries")
 
     @secondaries.setter
-    def secondaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]):
+    def secondaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneSecondaryArgs']]]]):
         pulumi.set(self, "secondaries", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         map of tags in the form of `"key" = "value"` where both key and value are strings
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tsig(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tsig(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         TSIG is documented below
         """
         return pulumi.get(self, "tsig")
 
     @tsig.setter
-    def tsig(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tsig(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tsig", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SOA TTL.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name of the zone.
         """
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -753,27 +753,27 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]] = None,
-                 additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 autogenerate_ns_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dnssec: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 hostmaster: Optional[pulumi.Input[_builtins.str]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 nx_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_network: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_notify_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]] = None,
+                 additional_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_primaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 autogenerate_ns_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dnssec: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 hostmaster: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nx_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_network: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a NS1 DNS Zone resource. This can be used to create, modify, and delete zones.
@@ -839,27 +839,27 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]] = None,
-                 additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 autogenerate_ns_record: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dnssec: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 hostmaster: Optional[pulumi.Input[_builtins.str]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 nx_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_network: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry: Optional[pulumi.Input[_builtins.int]] = None,
-                 secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_notify_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]] = None,
+                 additional_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 additional_primaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 autogenerate_ns_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dnssec: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 hostmaster: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nx_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_network: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry: pulumi.Input[Optional[_builtins.int]] = None,
+                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -903,28 +903,28 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            additional_notify_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.bool]]]] = None,
-            additional_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            additional_primaries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            autogenerate_ns_record: Optional[pulumi.Input[_builtins.bool]] = None,
-            dns_servers: Optional[pulumi.Input[_builtins.str]] = None,
-            dnssec: Optional[pulumi.Input[_builtins.bool]] = None,
-            expiry: Optional[pulumi.Input[_builtins.int]] = None,
-            hostmaster: Optional[pulumi.Input[_builtins.str]] = None,
-            link: Optional[pulumi.Input[_builtins.str]] = None,
-            networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            nx_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            primary: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_network: Optional[pulumi.Input[_builtins.int]] = None,
-            primary_port: Optional[pulumi.Input[_builtins.int]] = None,
-            refresh: Optional[pulumi.Input[_builtins.int]] = None,
-            retry: Optional[pulumi.Input[_builtins.int]] = None,
-            secondaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tsig: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'Zone':
+            additional_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            additional_notify_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]] = None,
+            additional_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            additional_primaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            autogenerate_ns_record: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_servers: pulumi.Input[Optional[_builtins.str]] = None,
+            dnssec: pulumi.Input[Optional[_builtins.bool]] = None,
+            expiry: pulumi.Input[Optional[_builtins.int]] = None,
+            hostmaster: pulumi.Input[Optional[_builtins.str]] = None,
+            link: pulumi.Input[Optional[_builtins.str]] = None,
+            networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            nx_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            primary: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_network: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_port: pulumi.Input[Optional[_builtins.int]] = None,
+            refresh: pulumi.Input[Optional[_builtins.int]] = None,
+            retry: pulumi.Input[Optional[_builtins.int]] = None,
+            secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

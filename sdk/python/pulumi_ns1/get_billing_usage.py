@@ -283,9 +283,9 @@ def get_billing_usage(from_: Optional[_builtins.int] = None,
         records_limit=pulumi.get(__ret__, 'records_limit'),
         to=pulumi.get(__ret__, 'to'),
         total_usage=pulumi.get(__ret__, 'total_usage'))
-def get_billing_usage_output(from_: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                             metric_type: Optional[pulumi.Input[_builtins.str]] = None,
-                             to: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def get_billing_usage_output(from_: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                             metric_type: pulumi.Input[Optional[_builtins.str]] = None,
+                             to: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingUsageResult]:
     """
     Provides billing usage details about a NS1 account.

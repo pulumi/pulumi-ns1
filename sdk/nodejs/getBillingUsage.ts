@@ -123,7 +123,7 @@ export interface GetBillingUsageOutputArgs {
     /**
      * The start timestamp for the data range in Unix epoch format.
      */
-    from?: pulumi.Input<number>;
+    from?: pulumi.Input<number | undefined>;
     /**
      * The type of billing metric to retrieve. Must be one of: `queries`, `limits`, `decisions`, `filter-chains`, `monitors`, `records`.
      */
@@ -131,5 +131,5 @@ export interface GetBillingUsageOutputArgs {
     /**
      * The end timestamp for the data range in Unix epoch format.
      */
-    to?: pulumi.Input<number>;
+    to?: pulumi.Input<number | undefined>;
 }

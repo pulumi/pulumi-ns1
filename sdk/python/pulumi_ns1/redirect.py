@@ -22,12 +22,12 @@ class RedirectArgs:
                  domain: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 query_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 query_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Redirect resource.
 
@@ -108,7 +108,7 @@ class RedirectArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate redirect id. If not specified the redirect will be created as HTTP,
         but it may be turned to HTTPS if a certificate exists for the source domain on the server.
@@ -117,12 +117,12 @@ class RedirectArgs:
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingMode")
-    def forwarding_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forwarding_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the target is interpreted:
         * __all__       appends the entire incoming path to the target destination;
@@ -132,12 +132,12 @@ class RedirectArgs:
         return pulumi.get(self, "forwarding_mode")
 
     @forwarding_mode.setter
-    def forwarding_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forwarding_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forwarding_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingType")
-    def forwarding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forwarding_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the redirect is executed:
         * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
@@ -152,60 +152,60 @@ class RedirectArgs:
         return pulumi.get(self, "forwarding_type")
 
     @forwarding_type.setter
-    def forwarding_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forwarding_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forwarding_type", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsForced")
-    def https_forced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_forced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Forces redirect for users that try to visit HTTP domain to HTTPS instead.
         """
         return pulumi.get(self, "https_forced")
 
     @https_forced.setter
-    def https_forced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_forced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_forced", value)
 
     @_builtins.property
     @pulumi.getter(name="queryForwarding")
-    def query_forwarding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def query_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the query string of a URL to be applied directly to the new target URL.
         """
         return pulumi.get(self, "query_forwarding")
 
     @query_forwarding.setter
-    def query_forwarding(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def query_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "query_forwarding", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags associated with the configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RedirectState:
     def __init__(__self__, *,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Redirect resources.
 
@@ -259,7 +259,7 @@ class _RedirectState:
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate redirect id. If not specified the redirect will be created as HTTP,
         but it may be turned to HTTPS if a certificate exists for the source domain on the server.
@@ -268,24 +268,24 @@ class _RedirectState:
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain the redirect refers to.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingMode")
-    def forwarding_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forwarding_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the target is interpreted:
         * __all__       appends the entire incoming path to the target destination;
@@ -295,12 +295,12 @@ class _RedirectState:
         return pulumi.get(self, "forwarding_mode")
 
     @forwarding_mode.setter
-    def forwarding_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forwarding_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forwarding_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingType")
-    def forwarding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forwarding_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the redirect is executed:
         * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
@@ -315,91 +315,91 @@ class _RedirectState:
         return pulumi.get(self, "forwarding_type")
 
     @forwarding_type.setter
-    def forwarding_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forwarding_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forwarding_type", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsEnabled")
-    def https_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if HTTPS is supported on the source domain by using Let's Encrypt certificates.
         """
         return pulumi.get(self, "https_enabled")
 
     @https_enabled.setter
-    def https_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsForced")
-    def https_forced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_forced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Forces redirect for users that try to visit HTTP domain to HTTPS instead.
         """
         return pulumi.get(self, "https_forced")
 
     @https_forced.setter
-    def https_forced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_forced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_forced", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Unix timestamp representing when the certificate was last signed.
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path on the domain to redirect from.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="queryForwarding")
-    def query_forwarding(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def query_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the query string of a URL to be applied directly to the new target URL.
         """
         return pulumi.get(self, "query_forwarding")
 
     @query_forwarding.setter
-    def query_forwarding(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def query_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "query_forwarding", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tags associated with the configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to redirect to.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
@@ -409,15 +409,15 @@ class Redirect(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a NS1 Redirect resource. This can be used to create, modify, and delete redirects.
@@ -553,15 +553,15 @@ class Redirect(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 forwarding_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 forwarding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -598,17 +598,17 @@ class Redirect(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            forwarding_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            forwarding_type: Optional[pulumi.Input[_builtins.str]] = None,
-            https_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            https_forced: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_updated: Optional[pulumi.Input[_builtins.int]] = None,
-            path: Optional[pulumi.Input[_builtins.str]] = None,
-            query_forwarding: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            target: Optional[pulumi.Input[_builtins.str]] = None) -> 'Redirect':
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            forwarding_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            forwarding_type: pulumi.Input[Optional[_builtins.str]] = None,
+            https_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.int]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            query_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> 'Redirect':
         """
         Get an existing Redirect resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -90,13 +90,13 @@ export class Dataset extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Dataset resources.
  */
 export interface DatasetState {
-    datatype?: pulumi.Input<inputs.DatasetDatatype>;
-    exportType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    recipientEmails?: pulumi.Input<pulumi.Input<string>[]>;
-    repeat?: pulumi.Input<inputs.DatasetRepeat>;
-    reports?: pulumi.Input<pulumi.Input<inputs.DatasetReport>[]>;
-    timeframe?: pulumi.Input<inputs.DatasetTimeframe>;
+    datatype?: pulumi.Input<inputs.DatasetDatatype | undefined>;
+    exportType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    recipientEmails?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repeat?: pulumi.Input<inputs.DatasetRepeat | undefined>;
+    reports?: pulumi.Input<pulumi.Input<inputs.DatasetReport>[] | undefined>;
+    timeframe?: pulumi.Input<inputs.DatasetTimeframe | undefined>;
 }
 
 /**
@@ -105,8 +105,8 @@ export interface DatasetState {
 export interface DatasetArgs {
     datatype: pulumi.Input<inputs.DatasetDatatype>;
     exportType: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    recipientEmails?: pulumi.Input<pulumi.Input<string>[]>;
-    repeat?: pulumi.Input<inputs.DatasetRepeat>;
+    name?: pulumi.Input<string | undefined>;
+    recipientEmails?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    repeat?: pulumi.Input<inputs.DatasetRepeat | undefined>;
     timeframe: pulumi.Input<inputs.DatasetTimeframe>;
 }

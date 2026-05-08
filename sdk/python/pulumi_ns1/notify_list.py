@@ -21,8 +21,8 @@ __all__ = ['NotifyListArgs', 'NotifyList']
 @pulumi.input_type
 class NotifyListArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
         """
         The set of arguments for constructing a NotifyList resource.
 
@@ -36,34 +36,34 @@ class NotifyListArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The free-form display name for the notify list.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]:
         """
         A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
 
 @pulumi.input_type
 class _NotifyListState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotifyListNotificationArgs']]]] = None):
         """
         Input properties used for looking up and filtering NotifyList resources.
 
@@ -77,26 +77,26 @@ class _NotifyListState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The free-form display name for the notify list.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]:
         """
         A list of notifiers. All notifiers in a notification list will receive notifications whenever an event is send to the list (e.g., when a monitoring job fails). Notifiers are documented below.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotifyListNotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
 
@@ -106,8 +106,8 @@ class NotifyList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a NS1 Notify List resource. This can be used to create, modify, and delete notify lists.
@@ -209,8 +209,8 @@ class NotifyList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,8 +232,8 @@ class NotifyList(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None) -> 'NotifyList':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotifyListNotificationArgs', 'NotifyListNotificationArgsDict']]]]] = None) -> 'NotifyList':
         """
         Get an existing NotifyList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

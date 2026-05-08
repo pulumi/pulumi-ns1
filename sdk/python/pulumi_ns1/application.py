@@ -21,11 +21,11 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 browser_wait_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_config: Optional[pulumi.Input['ApplicationDefaultConfigArgs']] = None,
-                 jobs_per_transaction: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_config: pulumi.Input[Optional['ApplicationDefaultConfigArgs']] = None,
+                 jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -51,7 +51,7 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether or not this application is currently active and usable for traffic
         steering.
@@ -59,12 +59,12 @@ class ApplicationArgs:
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter(name="browserWaitMillis")
-    def browser_wait_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def browser_wait_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time (in milliseconds) the browser should wait before running
         measurements.
@@ -72,12 +72,12 @@ class ApplicationArgs:
         return pulumi.get(self, "browser_wait_millis")
 
     @browser_wait_millis.setter
-    def browser_wait_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def browser_wait_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "browser_wait_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultConfig")
-    def default_config(self) -> Optional[pulumi.Input['ApplicationDefaultConfigArgs']]:
+    def default_config(self) -> pulumi.Input[Optional['ApplicationDefaultConfigArgs']]:
         """
         Default job configuration. If a field is present here and not on a specific job
         associated with this application, the default value specified here is used..
@@ -85,42 +85,42 @@ class ApplicationArgs:
         return pulumi.get(self, "default_config")
 
     @default_config.setter
-    def default_config(self, value: Optional[pulumi.Input['ApplicationDefaultConfigArgs']]):
+    def default_config(self, value: pulumi.Input[Optional['ApplicationDefaultConfigArgs']]):
         pulumi.set(self, "default_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jobsPerTransaction")
-    def jobs_per_transaction(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def jobs_per_transaction(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of jobs to measure per user impression.
         """
         return pulumi.get(self, "jobs_per_transaction")
 
     @jobs_per_transaction.setter
-    def jobs_per_transaction(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def jobs_per_transaction(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "jobs_per_transaction", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Descriptive name for this Pulsar app.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 browser_wait_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_config: Optional[pulumi.Input['ApplicationDefaultConfigArgs']] = None,
-                 jobs_per_transaction: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_config: pulumi.Input[Optional['ApplicationDefaultConfigArgs']] = None,
+                 jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -146,7 +146,7 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether or not this application is currently active and usable for traffic
         steering.
@@ -154,12 +154,12 @@ class _ApplicationState:
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter(name="browserWaitMillis")
-    def browser_wait_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def browser_wait_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time (in milliseconds) the browser should wait before running
         measurements.
@@ -167,12 +167,12 @@ class _ApplicationState:
         return pulumi.get(self, "browser_wait_millis")
 
     @browser_wait_millis.setter
-    def browser_wait_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def browser_wait_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "browser_wait_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultConfig")
-    def default_config(self) -> Optional[pulumi.Input['ApplicationDefaultConfigArgs']]:
+    def default_config(self) -> pulumi.Input[Optional['ApplicationDefaultConfigArgs']]:
         """
         Default job configuration. If a field is present here and not on a specific job
         associated with this application, the default value specified here is used..
@@ -180,31 +180,31 @@ class _ApplicationState:
         return pulumi.get(self, "default_config")
 
     @default_config.setter
-    def default_config(self, value: Optional[pulumi.Input['ApplicationDefaultConfigArgs']]):
+    def default_config(self, value: pulumi.Input[Optional['ApplicationDefaultConfigArgs']]):
         pulumi.set(self, "default_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jobsPerTransaction")
-    def jobs_per_transaction(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def jobs_per_transaction(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of jobs to measure per user impression.
         """
         return pulumi.get(self, "jobs_per_transaction")
 
     @jobs_per_transaction.setter
-    def jobs_per_transaction(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def jobs_per_transaction(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "jobs_per_transaction", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Descriptive name for this Pulsar app.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -214,11 +214,11 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 browser_wait_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_config: Optional[pulumi.Input[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
-                 jobs_per_transaction: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
+                 jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a NS1 Pulsar application resource. This can be used to create, modify, and delete applications.
@@ -260,11 +260,11 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 browser_wait_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_config: Optional[pulumi.Input[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
-                 jobs_per_transaction: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
+                 jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -289,11 +289,11 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active: Optional[pulumi.Input[_builtins.bool]] = None,
-            browser_wait_millis: Optional[pulumi.Input[_builtins.int]] = None,
-            default_config: Optional[pulumi.Input[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
-            jobs_per_transaction: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Application':
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
+            default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
+            jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

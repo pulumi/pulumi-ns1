@@ -11,4 +11,3 @@ pluginManagement {
 }
 
 rootProject.name = "com.pulumi.ns1"
-include("lib")

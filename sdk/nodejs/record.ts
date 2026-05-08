@@ -18,20 +18,20 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new ns1.Zone("example", {zone: "terraform.example.io"});
- * const ns1 = new ns1.DataSource("ns1", {
+ * const ns12 = new ns1.DataSource("ns1", {
  *     name: "ns1_source",
  *     sourcetype: "nsone_v1",
  * });
  * const foo = new ns1.DataFeed("foo", {
  *     name: "foo_feed",
- *     sourceId: ns1.id,
+ *     sourceId: ns12.id,
  *     config: {
  *         label: "foo",
  *     },
  * });
  * const bar = new ns1.DataFeed("bar", {
  *     name: "bar_feed",
- *     sourceId: ns1.id,
+ *     sourceId: ns12.id,
  *     config: {
  *         label: "bar",
  *     },
@@ -113,7 +113,7 @@ import * as utilities from "./utilities";
  * //
  * // In other cases, a domain or zone may be passed in with a preceding dot ('.')
  * // character which would likewise lead the system to fail.
- * const external = new ns1.Record("external", {
+ * const external2 = new ns1.Record("external", {
  *     zone: std.replace({
  *         text: zone,
  *         search: "/(^\\.)|(\\.$)/",
@@ -307,37 +307,37 @@ export interface RecordState {
      * One or more NS1 answers for the records' specified type.
      * Answers are documented below.
      */
-    answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
-    blockedTags?: pulumi.Input<pulumi.Input<string>[]>;
+    answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[] | undefined>;
+    blockedTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * One or more NS1 filters for the record(order matters).
      * Filters are documented below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[] | undefined>;
     /**
      * The fully qualified domain name (without a terminating dot)
      * of the target record. This means this record is a 'linked' record, and it
      * inherits all properties from its target.
      */
-    link?: pulumi.Input<string>;
-    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    overrideAddressRecords?: pulumi.Input<boolean>;
+    link?: pulumi.Input<string | undefined>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    overrideAddressRecords?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to override the TTL value.
      */
-    overrideTtl?: pulumi.Input<boolean>;
+    overrideTtl?: pulumi.Input<boolean | undefined>;
     /**
      * One or more "regions" for the record. These are really
      * just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
      * but remain `regions` here for legacy reasons. Regions are
      * documented below. Please note the ordering requirement!
      */
-    regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[] | undefined>;
     /**
      * @deprecated short_answers will be deprecated in a future release.
 It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
@@ -348,31 +348,31 @@ It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, 
     }
   }
      */
-    shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    shortAnswers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * map of tags in the form of `"key" = "value"` where both key and value are strings
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The records' time to live (in seconds).
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * The records' RR type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
      * * ` meta` - (Optional) meta is supported at the `record` level. Meta
      * is documented below.
      */
-    useClientSubnet?: pulumi.Input<boolean>;
+    useClientSubnet?: pulumi.Input<boolean | undefined>;
     /**
      * The zone the record belongs to. Cannot have leading or
      * trailing dots (".") - see the example above and `FQDN formatting` below.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -383,8 +383,8 @@ export interface RecordArgs {
      * One or more NS1 answers for the records' specified type.
      * Answers are documented below.
      */
-    answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[]>;
-    blockedTags?: pulumi.Input<pulumi.Input<string>[]>;
+    answers?: pulumi.Input<pulumi.Input<inputs.RecordAnswer>[] | undefined>;
+    blockedTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The records' domain. Cannot have leading or trailing
      * dots - see the example above and `FQDN formatting` below.
@@ -394,26 +394,26 @@ export interface RecordArgs {
      * One or more NS1 filters for the record(order matters).
      * Filters are documented below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.RecordFilter>[] | undefined>;
     /**
      * The fully qualified domain name (without a terminating dot)
      * of the target record. This means this record is a 'linked' record, and it
      * inherits all properties from its target.
      */
-    link?: pulumi.Input<string>;
-    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    overrideAddressRecords?: pulumi.Input<boolean>;
+    link?: pulumi.Input<string | undefined>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    overrideAddressRecords?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to override the TTL value.
      */
-    overrideTtl?: pulumi.Input<boolean>;
+    overrideTtl?: pulumi.Input<boolean | undefined>;
     /**
      * One or more "regions" for the record. These are really
      * just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
      * but remain `regions` here for legacy reasons. Regions are
      * documented below. Please note the ordering requirement!
      */
-    regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.RecordRegion>[] | undefined>;
     /**
      * @deprecated short_answers will be deprecated in a future release.
 It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, a similar convenience to "shortAnswers" can be achieved with dynamic blocks:
@@ -424,15 +424,15 @@ It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, 
     }
   }
      */
-    shortAnswers?: pulumi.Input<pulumi.Input<string>[]>;
+    shortAnswers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * map of tags in the form of `"key" = "value"` where both key and value are strings
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The records' time to live (in seconds).
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * The records' RR type.
      */
@@ -443,7 +443,7 @@ It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, 
      * * ` meta` - (Optional) meta is supported at the `record` level. Meta
      * is documented below.
      */
-    useClientSubnet?: pulumi.Input<boolean>;
+    useClientSubnet?: pulumi.Input<boolean | undefined>;
     /**
      * The zone the record belongs to. Cannot have leading or
      * trailing dots (".") - see the example above and `FQDN formatting` below.

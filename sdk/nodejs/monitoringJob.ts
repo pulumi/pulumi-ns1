@@ -217,69 +217,69 @@ export interface MonitoringJobState {
     /**
      * Indicates if the job is active or temporarily disabled.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The frequency, in seconds, at which to run the monitoring job in each region.
      */
-    frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number | undefined>;
     /**
      * The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
      */
-    jobType?: pulumi.Input<string>;
+    jobType?: pulumi.Input<string | undefined>;
     /**
      * Turn off the notifications for the monitoring job.
      */
-    mute?: pulumi.Input<boolean>;
+    mute?: pulumi.Input<boolean | undefined>;
     /**
      * The free-form display name for the monitoring job.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Freeform notes to be included in any notifications about this job.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * The time in seconds after a failure to wait before sending a notification.
      */
-    notifyDelay?: pulumi.Input<number>;
+    notifyDelay?: pulumi.Input<number | undefined>;
     /**
      * If true, a notification is sent when a job returns to an "up" state.
      */
-    notifyFailback?: pulumi.Input<boolean>;
+    notifyFailback?: pulumi.Input<boolean | undefined>;
     /**
      * The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
      */
-    notifyList?: pulumi.Input<string>;
+    notifyList?: pulumi.Input<string | undefined>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
      */
-    notifyRegional?: pulumi.Input<boolean>;
+    notifyRegional?: pulumi.Input<boolean | undefined>;
     /**
      * The time in seconds between repeat notifications of a failed job.
      */
-    notifyRepeat?: pulumi.Input<number>;
+    notifyRepeat?: pulumi.Input<number | undefined>;
     /**
      * The policy for determining the monitor's global status
      * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
      */
-    rapidRecheck?: pulumi.Input<boolean>;
+    rapidRecheck?: pulumi.Input<boolean | undefined>;
     /**
      * The list of region codes in which to run the monitoring
      * job. See NS1 API docs for supported values.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.MonitoringJobRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.MonitoringJobRule>[] | undefined>;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface MonitoringJobArgs {
     /**
      * Indicates if the job is active or temporarily disabled.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * A configuration dictionary with keys and values depending on the job_type. Configuration details for each jobType are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
@@ -305,44 +305,44 @@ export interface MonitoringJobArgs {
     /**
      * Turn off the notifications for the monitoring job.
      */
-    mute?: pulumi.Input<boolean>;
+    mute?: pulumi.Input<boolean | undefined>;
     /**
      * The free-form display name for the monitoring job.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Freeform notes to be included in any notifications about this job.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * The time in seconds after a failure to wait before sending a notification.
      */
-    notifyDelay?: pulumi.Input<number>;
+    notifyDelay?: pulumi.Input<number | undefined>;
     /**
      * If true, a notification is sent when a job returns to an "up" state.
      */
-    notifyFailback?: pulumi.Input<boolean>;
+    notifyFailback?: pulumi.Input<boolean | undefined>;
     /**
      * The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
      */
-    notifyList?: pulumi.Input<string>;
+    notifyList?: pulumi.Input<string | undefined>;
     /**
      * If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
      */
-    notifyRegional?: pulumi.Input<boolean>;
+    notifyRegional?: pulumi.Input<boolean | undefined>;
     /**
      * The time in seconds between repeat notifications of a failed job.
      */
-    notifyRepeat?: pulumi.Input<number>;
+    notifyRepeat?: pulumi.Input<number | undefined>;
     /**
      * The policy for determining the monitor's global status
      * based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
      */
-    rapidRecheck?: pulumi.Input<boolean>;
+    rapidRecheck?: pulumi.Input<boolean | undefined>;
     /**
      * The list of region codes in which to run the monitoring
      * job. See NS1 API docs for supported values.
@@ -351,5 +351,5 @@ export interface MonitoringJobArgs {
     /**
      * A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.MonitoringJobRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.MonitoringJobRule>[] | undefined>;
 }

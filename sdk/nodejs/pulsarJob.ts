@@ -99,29 +99,29 @@ export class PulsarJob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PulsarJob resources.
  */
 export interface PulsarJobState {
-    active?: pulumi.Input<boolean>;
-    appId?: pulumi.Input<string>;
-    blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights>;
-    community?: pulumi.Input<boolean>;
-    config?: pulumi.Input<inputs.PulsarJobConfig>;
-    customer?: pulumi.Input<number>;
-    jobId?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    shared?: pulumi.Input<boolean>;
-    typeId?: pulumi.Input<string>;
-    weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[]>;
+    active?: pulumi.Input<boolean | undefined>;
+    appId?: pulumi.Input<string | undefined>;
+    blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights | undefined>;
+    community?: pulumi.Input<boolean | undefined>;
+    config?: pulumi.Input<inputs.PulsarJobConfig | undefined>;
+    customer?: pulumi.Input<number | undefined>;
+    jobId?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    shared?: pulumi.Input<boolean | undefined>;
+    typeId?: pulumi.Input<string | undefined>;
+    weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a PulsarJob resource.
  */
 export interface PulsarJobArgs {
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     appId: pulumi.Input<string>;
-    blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights>;
-    config?: pulumi.Input<inputs.PulsarJobConfig>;
-    name?: pulumi.Input<string>;
-    shared?: pulumi.Input<boolean>;
+    blendMetricWeights?: pulumi.Input<inputs.PulsarJobBlendMetricWeights | undefined>;
+    config?: pulumi.Input<inputs.PulsarJobConfig | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    shared?: pulumi.Input<boolean | undefined>;
     typeId: pulumi.Input<string>;
-    weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[]>;
+    weights?: pulumi.Input<pulumi.Input<inputs.PulsarJobWeight>[] | undefined>;
 }

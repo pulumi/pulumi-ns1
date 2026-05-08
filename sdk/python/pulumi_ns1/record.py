@@ -24,18 +24,18 @@ class RecordArgs:
                  domain: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  zone: pulumi.Input[_builtins.str],
-                 answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
-                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 override_address_records: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_ttl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
-                 short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_client_subnet: Optional[pulumi.Input[_builtins.bool]] = None):
+                 answers: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+                 blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
+                 short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_client_subnet: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Record resource.
 
@@ -148,7 +148,7 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
 
     @_builtins.property
     @pulumi.getter
-    def answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]]:
+    def answers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordAnswerArgs']]]]:
         """
         One or more NS1 answers for the records' specified type.
         Answers are documented below.
@@ -156,21 +156,21 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "answers")
 
     @answers.setter
-    def answers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]]):
+    def answers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAnswerArgs']]]]):
         pulumi.set(self, "answers", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedTags")
-    def blocked_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "blocked_tags")
 
     @blocked_tags.setter
-    def blocked_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordFilterArgs']]]]:
         """
         One or more NS1 filters for the record(order matters).
         Filters are documented below.
@@ -178,12 +178,12 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name (without a terminating dot)
         of the target record. This means this record is a 'linked' record, and it
@@ -192,42 +192,42 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "link")
 
     @link.setter
-    def link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link", value)
 
     @_builtins.property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def meta(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def meta(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "meta", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideAddressRecords")
-    def override_address_records(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_address_records(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "override_address_records")
 
     @override_address_records.setter
-    def override_address_records(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_address_records(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_address_records", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideTtl")
-    def override_ttl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_ttl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to override the TTL value.
         """
         return pulumi.get(self, "override_ttl")
 
     @override_ttl.setter
-    def override_ttl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_ttl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordRegionArgs']]]]:
         """
         One or more "regions" for the record. These are really
         just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
@@ -237,7 +237,7 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordRegionArgs']]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
@@ -250,40 +250,40 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
       answer  = answers.value
     }
   }""")
-    def short_answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def short_answers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "short_answers")
 
     @short_answers.setter
-    def short_answers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def short_answers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "short_answers", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         map of tags in the form of `"key" = "value"` where both key and value are strings
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The records' time to live (in seconds).
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="useClientSubnet")
-    def use_client_subnet(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_client_subnet(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
@@ -293,28 +293,28 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "use_client_subnet")
 
     @use_client_subnet.setter
-    def use_client_subnet(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_client_subnet(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_client_subnet", value)
 
 
 @pulumi.input_type
 class _RecordState:
     def __init__(__self__, *,
-                 answers: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
-                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 override_address_records: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_ttl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
-                 short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_client_subnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 answers: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAnswerArgs']]]] = None,
+                 blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFilterArgs']]]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input['RecordRegionArgs']]]] = None,
+                 short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_client_subnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Record resources.
 
@@ -392,7 +392,7 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
 
     @_builtins.property
     @pulumi.getter
-    def answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]]:
+    def answers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordAnswerArgs']]]]:
         """
         One or more NS1 answers for the records' specified type.
         Answers are documented below.
@@ -400,21 +400,21 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "answers")
 
     @answers.setter
-    def answers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAnswerArgs']]]]):
+    def answers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAnswerArgs']]]]):
         pulumi.set(self, "answers", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedTags")
-    def blocked_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "blocked_tags")
 
     @blocked_tags.setter
-    def blocked_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The records' domain. Cannot have leading or trailing
         dots - see the example above and `FQDN formatting` below.
@@ -422,12 +422,12 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordFilterArgs']]]]:
         """
         One or more NS1 filters for the record(order matters).
         Filters are documented below.
@@ -435,12 +435,12 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name (without a terminating dot)
         of the target record. This means this record is a 'linked' record, and it
@@ -449,42 +449,42 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "link")
 
     @link.setter
-    def link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link", value)
 
     @_builtins.property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def meta(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def meta(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "meta", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideAddressRecords")
-    def override_address_records(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_address_records(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "override_address_records")
 
     @override_address_records.setter
-    def override_address_records(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_address_records(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_address_records", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideTtl")
-    def override_ttl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_ttl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to override the TTL value.
         """
         return pulumi.get(self, "override_ttl")
 
     @override_ttl.setter
-    def override_ttl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_ttl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordRegionArgs']]]]:
         """
         One or more "regions" for the record. These are really
         just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
@@ -494,7 +494,7 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordRegionArgs']]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordRegionArgs']]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
@@ -507,52 +507,52 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
       answer  = answers.value
     }
   }""")
-    def short_answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def short_answers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "short_answers")
 
     @short_answers.setter
-    def short_answers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def short_answers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "short_answers", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         map of tags in the form of `"key" = "value"` where both key and value are strings
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The records' time to live (in seconds).
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The records' RR type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="useClientSubnet")
-    def use_client_subnet(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_client_subnet(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
@@ -562,12 +562,12 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "use_client_subnet")
 
     @use_client_subnet.setter
-    def use_client_subnet(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_client_subnet(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_client_subnet", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The zone the record belongs to. Cannot have leading or
         trailing dots (".") - see the example above and `FQDN formatting` below.
@@ -575,7 +575,7 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -585,21 +585,21 @@ class Record(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 answers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
-                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 override_address_records: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_ttl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
-                 short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_client_subnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
+                 blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
+                 short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_client_subnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a NS1 Record resource. This can be used to create, modify, and delete records.
@@ -614,18 +614,18 @@ class Record(pulumi.CustomResource):
         import pulumi_std as std
 
         example = ns1.Zone("example", zone="terraform.example.io")
-        ns1 = ns1.DataSource("ns1",
+        ns1_1 = ns1.DataSource("ns1",
             name="ns1_source",
             sourcetype="nsone_v1")
         foo = ns1.DataFeed("foo",
             name="foo_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "foo",
             })
         bar = ns1.DataFeed("bar",
             name="bar_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "bar",
             })
@@ -704,7 +704,7 @@ class Record(pulumi.CustomResource):
         #
         # In other cases, a domain or zone may be passed in with a preceding dot ('.')
         # character which would likewise lead the system to fail.
-        external = ns1.Record("external",
+        external_1 = ns1.Record("external",
             zone=std.replace(text=zone,
                 search="/(^\\\\.)|(\\\\.$)/",
                 replace="").result,
@@ -772,18 +772,18 @@ class Record(pulumi.CustomResource):
         import pulumi_std as std
 
         example = ns1.Zone("example", zone="terraform.example.io")
-        ns1 = ns1.DataSource("ns1",
+        ns1_1 = ns1.DataSource("ns1",
             name="ns1_source",
             sourcetype="nsone_v1")
         foo = ns1.DataFeed("foo",
             name="foo_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "foo",
             })
         bar = ns1.DataFeed("bar",
             name="bar_feed",
-            source_id=ns1.id,
+            source_id=ns1_1.id,
             config={
                 "label": "bar",
             })
@@ -862,7 +862,7 @@ class Record(pulumi.CustomResource):
         #
         # In other cases, a domain or zone may be passed in with a preceding dot ('.')
         # character which would likewise lead the system to fail.
-        external = ns1.Record("external",
+        external_1 = ns1.Record("external",
             zone=std.replace(text=zone,
                 search="/(^\\\\.)|(\\\\.$)/",
                 replace="").result,
@@ -900,21 +900,21 @@ class Record(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 answers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
-                 blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 override_address_records: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_ttl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
-                 short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_client_subnet: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
+                 blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
+                 short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_client_subnet: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -955,21 +955,21 @@ class Record(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            answers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
-            blocked_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
-            link: Optional[pulumi.Input[_builtins.str]] = None,
-            meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            override_address_records: Optional[pulumi.Input[_builtins.bool]] = None,
-            override_ttl: Optional[pulumi.Input[_builtins.bool]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
-            short_answers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            use_client_subnet: Optional[pulumi.Input[_builtins.bool]] = None,
-            zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'Record':
+            answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
+            blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
+            link: pulumi.Input[Optional[_builtins.str]] = None,
+            meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
+            override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
+            short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_client_subnet: pulumi.Input[Optional[_builtins.bool]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Record':
         """
         Get an existing Record resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

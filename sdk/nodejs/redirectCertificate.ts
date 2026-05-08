@@ -79,12 +79,12 @@ export class RedirectCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RedirectCertificate resources.
  */
 export interface RedirectCertificateState {
-    certificate?: pulumi.Input<string>;
-    domain?: pulumi.Input<string>;
-    errors?: pulumi.Input<string>;
-    lastUpdated?: pulumi.Input<number>;
-    validFrom?: pulumi.Input<number>;
-    validUntil?: pulumi.Input<number>;
+    certificate?: pulumi.Input<string | undefined>;
+    domain?: pulumi.Input<string | undefined>;
+    errors?: pulumi.Input<string | undefined>;
+    lastUpdated?: pulumi.Input<number | undefined>;
+    validFrom?: pulumi.Input<number | undefined>;
+    validUntil?: pulumi.Input<number | undefined>;
 }
 
 /**

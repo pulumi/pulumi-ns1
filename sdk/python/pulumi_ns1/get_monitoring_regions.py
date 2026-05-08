@@ -91,7 +91,7 @@ def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegion
     return AwaitableGetMonitoringRegionsResult(
         id=pulumi.get(__ret__, 'id'),
         regions=pulumi.get(__ret__, 'regions'))
-def get_monitoring_regions_output(regions: Optional[pulumi.Input[Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]]]] = None,
+def get_monitoring_regions_output(regions: pulumi.Input[Optional[Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoringRegionsResult]:
     """
     Provides details of all available monitoring regions.

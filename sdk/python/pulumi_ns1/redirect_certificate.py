@@ -38,12 +38,12 @@ class RedirectCertificateArgs:
 @pulumi.input_type
 class _RedirectCertificateState:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.int]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.int]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.int]] = None):
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.int]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.int]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RedirectCertificate resources.
         """
@@ -62,56 +62,56 @@ class _RedirectCertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def errors(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "errors")
 
     @errors.setter
-    def errors(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def errors(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "errors", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
-    def valid_from(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def valid_from(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
-    def valid_from(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def valid_from(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "valid_from", value)
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def valid_until(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
-    def valid_until(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def valid_until(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "valid_until", value)
 
 
@@ -121,7 +121,7 @@ class RedirectCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Create a RedirectCertificate resource with the given unique name, props, and options.
@@ -153,7 +153,7 @@ class RedirectCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -181,12 +181,12 @@ class RedirectCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            errors: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated: Optional[pulumi.Input[_builtins.int]] = None,
-            valid_from: Optional[pulumi.Input[_builtins.int]] = None,
-            valid_until: Optional[pulumi.Input[_builtins.int]] = None) -> 'RedirectCertificate':
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            errors: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.int]] = None,
+            valid_from: pulumi.Input[Optional[_builtins.int]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.int]] = None) -> 'RedirectCertificate':
         """
         Get an existing RedirectCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

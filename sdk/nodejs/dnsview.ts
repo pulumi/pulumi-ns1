@@ -82,24 +82,24 @@ export class Dnsview extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Dnsview resources.
  */
 export interface DnsviewState {
-    createdAt?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    networks?: pulumi.Input<pulumi.Input<number>[]>;
-    preference?: pulumi.Input<number>;
-    readAcls?: pulumi.Input<pulumi.Input<string>[]>;
-    updateAcls?: pulumi.Input<pulumi.Input<string>[]>;
-    updatedAt?: pulumi.Input<number>;
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    createdAt?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    networks?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    preference?: pulumi.Input<number | undefined>;
+    readAcls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    updateAcls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    updatedAt?: pulumi.Input<number | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Dnsview resource.
  */
 export interface DnsviewArgs {
-    name?: pulumi.Input<string>;
-    networks?: pulumi.Input<pulumi.Input<number>[]>;
-    preference?: pulumi.Input<number>;
-    readAcls?: pulumi.Input<pulumi.Input<string>[]>;
-    updateAcls?: pulumi.Input<pulumi.Input<string>[]>;
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    name?: pulumi.Input<string | undefined>;
+    networks?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    preference?: pulumi.Input<number | undefined>;
+    readAcls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    updateAcls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

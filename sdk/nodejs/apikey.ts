@@ -326,145 +326,145 @@ export interface APIKeyState {
     /**
      * Whether the apikey can modify account settings.
      */
-    accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify account apikeys.
      */
-    accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can manage ip whitelist.
      */
-    accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify account payment methods.
      */
-    accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean | undefined>;
     /**
      * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
-    accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify other teams in the account.
      */
-    accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify account users.
      */
-    accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can view activity logs.
      */
-    accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean | undefined>;
     /**
      * , default: `false` Whether the apikey can view invoices.
      */
-    accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify data feeds.
      */
-    dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify data sources.
      */
-    dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can publish to data feeds.
      */
-    dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify the accounts zones.
      */
-    dnsManageZones?: pulumi.Input<boolean>;
+    dnsManageZones?: pulumi.Input<boolean | undefined>;
     /**
      * List of records that the apikey may access.
      */
-    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[] | undefined>;
     /**
      * List of records that the apikey may not access.
      */
-    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[] | undefined>;
     /**
      * Whether the apikey can view the accounts zones.
      */
-    dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean | undefined>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean | undefined>;
     /**
      * List of zones that the apikey may access.
      */
-    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of zones that the apikey may not access.
      */
-    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the apikey can manage DNS insights.
      */
-    insightsManageInsights?: pulumi.Input<boolean>;
+    insightsManageInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can view DNS insights.
      */
-    insightsViewInsights?: pulumi.Input<boolean>;
+    insightsViewInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean | undefined>;
     /**
      * Array of IP addresses/networks to which to grant the API key access.
      */
-    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Computed) The apikeys authentication token.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      */
-    monitoringCreateJobs?: pulumi.Input<boolean>;
+    monitoringCreateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      */
-    monitoringDeleteJobs?: pulumi.Input<boolean>;
+    monitoringDeleteJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can create, update, and delete monitoring jobs.
      */
-    monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify notification lists.
      */
-    monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      */
-    monitoringUpdateJobs?: pulumi.Input<boolean>;
+    monitoringUpdateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can view monitoring jobs.
      */
-    monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean | undefined>;
     /**
      * The free form name of the apikey.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the apikey can manage redirects.
      */
-    redirectsManageRedirects?: pulumi.Input<boolean>;
+    redirectsManageRedirects?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      */
-    securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can manage global two factor authentication.
      */
-    securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean | undefined>;
     /**
      * The teams that the apikey belongs to.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -474,139 +474,139 @@ export interface APIKeyArgs {
     /**
      * Whether the apikey can modify account settings.
      */
-    accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify account apikeys.
      */
-    accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can manage ip whitelist.
      */
-    accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify account payment methods.
      */
-    accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean | undefined>;
     /**
      * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
-    accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify other teams in the account.
      */
-    accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify account users.
      */
-    accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can view activity logs.
      */
-    accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean | undefined>;
     /**
      * , default: `false` Whether the apikey can view invoices.
      */
-    accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify data feeds.
      */
-    dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify data sources.
      */
-    dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can publish to data feeds.
      */
-    dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify the accounts zones.
      */
-    dnsManageZones?: pulumi.Input<boolean>;
+    dnsManageZones?: pulumi.Input<boolean | undefined>;
     /**
      * List of records that the apikey may access.
      */
-    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[]>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsAllow>[] | undefined>;
     /**
      * List of records that the apikey may not access.
      */
-    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.APIKeyDnsRecordsDeny>[] | undefined>;
     /**
      * Whether the apikey can view the accounts zones.
      */
-    dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean | undefined>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean | undefined>;
     /**
      * List of zones that the apikey may access.
      */
-    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of zones that the apikey may not access.
      */
-    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the apikey can manage DNS insights.
      */
-    insightsManageInsights?: pulumi.Input<boolean>;
+    insightsManageInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can view DNS insights.
      */
-    insightsViewInsights?: pulumi.Input<boolean>;
+    insightsViewInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean | undefined>;
     /**
      * Array of IP addresses/networks to which to grant the API key access.
      */
-    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the apikey can create monitoring jobs when manageJobs is not set to true.
      */
-    monitoringCreateJobs?: pulumi.Input<boolean>;
+    monitoringCreateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can delete monitoring jobs when manageJobs is not set to true.
      */
-    monitoringDeleteJobs?: pulumi.Input<boolean>;
+    monitoringDeleteJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can create, update, and delete monitoring jobs.
      */
-    monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can modify notification lists.
      */
-    monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can update monitoring jobs when manageJobs is not set to true.
      */
-    monitoringUpdateJobs?: pulumi.Input<boolean>;
+    monitoringUpdateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can view monitoring jobs.
      */
-    monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean | undefined>;
     /**
      * The free form name of the apikey.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the apikey can manage redirects.
      */
-    redirectsManageRedirects?: pulumi.Input<boolean>;
+    redirectsManageRedirects?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      */
-    securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the apikey can manage global two factor authentication.
      */
-    securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean | undefined>;
     /**
      * The teams that the apikey belongs to.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

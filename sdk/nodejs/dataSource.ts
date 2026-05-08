@@ -107,15 +107,15 @@ export interface DataSourceState {
      * The data source configuration, determined by its type,
      * matching the specification in `config` from /data/sourcetypes.
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The free form name of the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
      */
-    sourcetype?: pulumi.Input<string>;
+    sourcetype?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -126,11 +126,11 @@ export interface DataSourceArgs {
      * The data source configuration, determined by its type,
      * matching the specification in `config` from /data/sourcetypes.
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The free form name of the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The data sources type, listed in API endpoint https://api.nsone.net/v1/data/sourcetypes.
      */

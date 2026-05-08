@@ -309,11 +309,11 @@ def get_zone(additional_ports: Optional[Sequence[_builtins.int]] = None,
         tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone=pulumi.get(__ret__, 'zone'))
-def get_zone_output(additional_ports: Optional[pulumi.Input[Optional[Sequence[_builtins.int]]]] = None,
-                    additional_primaries: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                    primary_network: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                    primary_port: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                    zone: Optional[pulumi.Input[_builtins.str]] = None,
+def get_zone_output(additional_ports: pulumi.Input[Optional[Optional[Sequence[_builtins.int]]]] = None,
+                    additional_primaries: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                    primary_network: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                    primary_port: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                    zone: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
     """
     Provides details about a NS1 Zone. Use this if you would simply like to read

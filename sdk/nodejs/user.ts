@@ -349,155 +349,155 @@ export interface UserState {
     /**
      * Whether the user can modify account settings.
      */
-    accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify account apikeys.
      */
-    accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can manage ip whitelist.
      */
-    accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify account payment methods.
      */
-    accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean | undefined>;
     /**
      * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
-    accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify other teams in the account.
      */
-    accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify account users.
      */
-    accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view activity logs.
      */
-    accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view invoices.
      */
-    accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify data feeds.
      */
-    dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify data sources.
      */
-    dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can publish to data feeds.
      */
-    dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify the accounts zones.
      */
-    dnsManageZones?: pulumi.Input<boolean>;
+    dnsManageZones?: pulumi.Input<boolean | undefined>;
     /**
      * List of records that the user may access.
      */
-    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[] | undefined>;
     /**
      * List of records that the user may not access.
      */
-    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[] | undefined>;
     /**
      * Whether the user can view the accounts zones.
      */
-    dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean | undefined>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean | undefined>;
     /**
      * List of zones that the user may access.
      */
-    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of zones that the user may not access.
      */
-    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The email address of the user.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Whether the user can manage DNS insights.
      */
-    insightsManageInsights?: pulumi.Input<boolean>;
+    insightsManageInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view DNS insights.
      */
-    insightsViewInsights?: pulumi.Input<boolean>;
+    insightsViewInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean | undefined>;
     /**
      * Array of IP addresses/networks to which to grant the user access.
      */
-    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the user can create monitoring jobs when manageJobs is not set to true.
      */
-    monitoringCreateJobs?: pulumi.Input<boolean>;
+    monitoringCreateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      */
-    monitoringDeleteJobs?: pulumi.Input<boolean>;
+    monitoringDeleteJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can create, update, and delete monitoring jobs.
      */
-    monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify notification lists.
      */
-    monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can update monitoring jobs when manageJobs is not set to true.
      */
-    monitoringUpdateJobs?: pulumi.Input<boolean>;
+    monitoringUpdateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view monitoring jobs.
      */
-    monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean | undefined>;
     /**
      * The free form name of the user.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      *
      * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      */
-    notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    notify?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether the user can manage redirects.
      */
-    redirectsManageRedirects?: pulumi.Input<boolean>;
+    redirectsManageRedirects?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can manage global active directory. Only relevant for the DDI product.
      */
-    securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can manage global two factor authentication.
      */
-    securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean | undefined>;
     /**
      * The teams that the user belongs to.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The users login name.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -507,81 +507,81 @@ export interface UserArgs {
     /**
      * Whether the user can modify account settings.
      */
-    accountManageAccountSettings?: pulumi.Input<boolean>;
+    accountManageAccountSettings?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify account apikeys.
      */
-    accountManageApikeys?: pulumi.Input<boolean>;
+    accountManageApikeys?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can manage ip whitelist.
      */
-    accountManageIpWhitelist?: pulumi.Input<boolean>;
+    accountManageIpWhitelist?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify account payment methods.
      */
-    accountManagePaymentMethods?: pulumi.Input<boolean>;
+    accountManagePaymentMethods?: pulumi.Input<boolean | undefined>;
     /**
      * No longer in use.
      *
      * @deprecated obsolete, should no longer be used
      */
-    accountManagePlan?: pulumi.Input<boolean>;
+    accountManagePlan?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify other teams in the account.
      */
-    accountManageTeams?: pulumi.Input<boolean>;
+    accountManageTeams?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify account users.
      */
-    accountManageUsers?: pulumi.Input<boolean>;
+    accountManageUsers?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view activity logs.
      */
-    accountViewActivityLog?: pulumi.Input<boolean>;
+    accountViewActivityLog?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view invoices.
      */
-    accountViewInvoices?: pulumi.Input<boolean>;
+    accountViewInvoices?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify data feeds.
      */
-    dataManageDatafeeds?: pulumi.Input<boolean>;
+    dataManageDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify data sources.
      */
-    dataManageDatasources?: pulumi.Input<boolean>;
+    dataManageDatasources?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can publish to data feeds.
      */
-    dataPushToDatafeeds?: pulumi.Input<boolean>;
+    dataPushToDatafeeds?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify the accounts zones.
      */
-    dnsManageZones?: pulumi.Input<boolean>;
+    dnsManageZones?: pulumi.Input<boolean | undefined>;
     /**
      * List of records that the user may access.
      */
-    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[]>;
+    dnsRecordsAllows?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsAllow>[] | undefined>;
     /**
      * List of records that the user may not access.
      */
-    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[]>;
+    dnsRecordsDenies?: pulumi.Input<pulumi.Input<inputs.UserDnsRecordsDeny>[] | undefined>;
     /**
      * Whether the user can view the accounts zones.
      */
-    dnsViewZones?: pulumi.Input<boolean>;
+    dnsViewZones?: pulumi.Input<boolean | undefined>;
     /**
      * If true, enable the `dnsZonesAllow` list, otherwise enable the `dnsZonesDeny` list.
      */
-    dnsZonesAllowByDefault?: pulumi.Input<boolean>;
+    dnsZonesAllowByDefault?: pulumi.Input<boolean | undefined>;
     /**
      * List of zones that the user may access.
      */
-    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesAllows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of zones that the user may not access.
      */
-    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The email address of the user.
      */
@@ -589,69 +589,69 @@ export interface UserArgs {
     /**
      * Whether the user can manage DNS insights.
      */
-    insightsManageInsights?: pulumi.Input<boolean>;
+    insightsManageInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view DNS insights.
      */
-    insightsViewInsights?: pulumi.Input<boolean>;
+    insightsViewInsights?: pulumi.Input<boolean | undefined>;
     /**
      * Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
      */
-    ipWhitelistStrict?: pulumi.Input<boolean>;
+    ipWhitelistStrict?: pulumi.Input<boolean | undefined>;
     /**
      * Array of IP addresses/networks to which to grant the user access.
      */
-    ipWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the user can create monitoring jobs when manageJobs is not set to true.
      */
-    monitoringCreateJobs?: pulumi.Input<boolean>;
+    monitoringCreateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can delete monitoring jobs when manageJobs is not set to true.
      */
-    monitoringDeleteJobs?: pulumi.Input<boolean>;
+    monitoringDeleteJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can create, update, and delete monitoring jobs.
      */
-    monitoringManageJobs?: pulumi.Input<boolean>;
+    monitoringManageJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can modify notification lists.
      */
-    monitoringManageLists?: pulumi.Input<boolean>;
+    monitoringManageLists?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can update monitoring jobs when manageJobs is not set to true.
      */
-    monitoringUpdateJobs?: pulumi.Input<boolean>;
+    monitoringUpdateJobs?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can view monitoring jobs.
      */
-    monitoringViewJobs?: pulumi.Input<boolean>;
+    monitoringViewJobs?: pulumi.Input<boolean | undefined>;
     /**
      * The free form name of the user.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      *
      * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      */
-    notify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    notify?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether the user can manage redirects.
      */
-    redirectsManageRedirects?: pulumi.Input<boolean>;
+    redirectsManageRedirects?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can manage global active directory. Only relevant for the DDI product.
      */
-    securityManageActiveDirectory?: pulumi.Input<boolean>;
+    securityManageActiveDirectory?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the user can manage global two factor authentication.
      */
-    securityManageGlobal2fa?: pulumi.Input<boolean>;
+    securityManageGlobal2fa?: pulumi.Input<boolean | undefined>;
     /**
      * The teams that the user belongs to.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The users login name.
      */

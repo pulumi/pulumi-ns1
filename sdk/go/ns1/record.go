@@ -39,7 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ns1, err := ns1.NewDataSource(ctx, "ns1", &ns1.DataSourceArgs{
+//			ns12, err := ns1.NewDataSource(ctx, "ns1", &ns1.DataSourceArgs{
 //				Name:       pulumi.String("ns1_source"),
 //				Sourcetype: pulumi.String("nsone_v1"),
 //			})
@@ -48,7 +48,7 @@ import (
 //			}
 //			foo, err := ns1.NewDataFeed(ctx, "foo", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("foo_feed"),
-//				SourceId: ns1.ID(),
+//				SourceId: ns12.ID(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("foo"),
 //				},
@@ -58,7 +58,7 @@ import (
 //			}
 //			bar, err := ns1.NewDataFeed(ctx, "bar", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("bar_feed"),
-//				SourceId: ns1.ID(),
+//				SourceId: ns12.ID(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("bar"),
 //				},

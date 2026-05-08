@@ -100,25 +100,25 @@ export interface ApplicationState {
      * Indicates whether or not this application is currently active and usable for traffic
      * steering.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * The amount of time (in milliseconds) the browser should wait before running
      * measurements.
      */
-    browserWaitMillis?: pulumi.Input<number>;
+    browserWaitMillis?: pulumi.Input<number | undefined>;
     /**
      * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
-    defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
+    defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig | undefined>;
     /**
      * Number of jobs to measure per user impression.
      */
-    jobsPerTransaction?: pulumi.Input<number>;
+    jobsPerTransaction?: pulumi.Input<number | undefined>;
     /**
      * Descriptive name for this Pulsar app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -129,23 +129,23 @@ export interface ApplicationArgs {
      * Indicates whether or not this application is currently active and usable for traffic
      * steering.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * The amount of time (in milliseconds) the browser should wait before running
      * measurements.
      */
-    browserWaitMillis?: pulumi.Input<number>;
+    browserWaitMillis?: pulumi.Input<number | undefined>;
     /**
      * Default job configuration. If a field is present here and not on a specific job
      * associated with this application, the default value specified here is used..
      */
-    defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig>;
+    defaultConfig?: pulumi.Input<inputs.ApplicationDefaultConfig | undefined>;
     /**
      * Number of jobs to measure per user impression.
      */
-    jobsPerTransaction?: pulumi.Input<number>;
+    jobsPerTransaction?: pulumi.Input<number | undefined>;
     /**
      * Descriptive name for this Pulsar app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

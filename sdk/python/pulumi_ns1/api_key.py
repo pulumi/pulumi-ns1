@@ -21,40 +21,40 @@ __all__ = ['APIKeyArgs', 'APIKey']
 @pulumi.input_type
 class APIKeyArgs:
     def __init__(__self__, *,
-                 account_manage_account_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_apikeys: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_ip_whitelist: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_payment_methods: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_teams: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_activity_log: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_invoices: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datasources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_push_to_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_manage_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]] = None,
-                 dns_view_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_lists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_update_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_view_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirects_manage_redirects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_active_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_global2fa: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 account_manage_account_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_apikeys: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_ip_whitelist: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_payment_methods: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_teams: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_activity_log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_invoices: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]] = None,
+                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]] = None,
+                 dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitoring_create_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_delete_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_lists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_update_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a APIKey resource.
 
@@ -167,452 +167,452 @@ class APIKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountManageAccountSettings")
-    def account_manage_account_settings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_account_settings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account settings.
         """
         return pulumi.get(self, "account_manage_account_settings")
 
     @account_manage_account_settings.setter
-    def account_manage_account_settings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_account_settings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_account_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageApikeys")
-    def account_manage_apikeys(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_apikeys(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account apikeys.
         """
         return pulumi.get(self, "account_manage_apikeys")
 
     @account_manage_apikeys.setter
-    def account_manage_apikeys(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_apikeys(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_apikeys", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageIpWhitelist")
-    def account_manage_ip_whitelist(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_ip_whitelist(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage ip whitelist.
         """
         return pulumi.get(self, "account_manage_ip_whitelist")
 
     @account_manage_ip_whitelist.setter
-    def account_manage_ip_whitelist(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_ip_whitelist(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_ip_whitelist", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManagePaymentMethods")
-    def account_manage_payment_methods(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_payment_methods(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account payment methods.
         """
         return pulumi.get(self, "account_manage_payment_methods")
 
     @account_manage_payment_methods.setter
-    def account_manage_payment_methods(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_payment_methods(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_payment_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManagePlan")
     @_utilities.deprecated("""obsolete, should no longer be used""")
-    def account_manage_plan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_plan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         No longer in use.
         """
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
-    def account_manage_plan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_plan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageTeams")
-    def account_manage_teams(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_teams(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify other teams in the account.
         """
         return pulumi.get(self, "account_manage_teams")
 
     @account_manage_teams.setter
-    def account_manage_teams(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_teams(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_teams", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageUsers")
-    def account_manage_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account users.
         """
         return pulumi.get(self, "account_manage_users")
 
     @account_manage_users.setter
-    def account_manage_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_users", value)
 
     @_builtins.property
     @pulumi.getter(name="accountViewActivityLog")
-    def account_view_activity_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_view_activity_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view activity logs.
         """
         return pulumi.get(self, "account_view_activity_log")
 
     @account_view_activity_log.setter
-    def account_view_activity_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_view_activity_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_view_activity_log", value)
 
     @_builtins.property
     @pulumi.getter(name="accountViewInvoices")
-    def account_view_invoices(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_view_invoices(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         , default: `false` Whether the apikey can view invoices.
         """
         return pulumi.get(self, "account_view_invoices")
 
     @account_view_invoices.setter
-    def account_view_invoices(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_view_invoices(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_view_invoices", value)
 
     @_builtins.property
     @pulumi.getter(name="dataManageDatafeeds")
-    def data_manage_datafeeds(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_manage_datafeeds(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify data feeds.
         """
         return pulumi.get(self, "data_manage_datafeeds")
 
     @data_manage_datafeeds.setter
-    def data_manage_datafeeds(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_manage_datafeeds(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_manage_datafeeds", value)
 
     @_builtins.property
     @pulumi.getter(name="dataManageDatasources")
-    def data_manage_datasources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_manage_datasources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify data sources.
         """
         return pulumi.get(self, "data_manage_datasources")
 
     @data_manage_datasources.setter
-    def data_manage_datasources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_manage_datasources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_manage_datasources", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPushToDatafeeds")
-    def data_push_to_datafeeds(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_push_to_datafeeds(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can publish to data feeds.
         """
         return pulumi.get(self, "data_push_to_datafeeds")
 
     @data_push_to_datafeeds.setter
-    def data_push_to_datafeeds(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_push_to_datafeeds(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_push_to_datafeeds", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsManageZones")
-    def dns_manage_zones(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_manage_zones(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify the accounts zones.
         """
         return pulumi.get(self, "dns_manage_zones")
 
     @dns_manage_zones.setter
-    def dns_manage_zones(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_manage_zones(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_manage_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordsAllows")
-    def dns_records_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]:
+    def dns_records_allows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]:
         """
         List of records that the apikey may access.
         """
         return pulumi.get(self, "dns_records_allows")
 
     @dns_records_allows.setter
-    def dns_records_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]):
+    def dns_records_allows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]):
         pulumi.set(self, "dns_records_allows", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordsDenies")
-    def dns_records_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]:
+    def dns_records_denies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]:
         """
         List of records that the apikey may not access.
         """
         return pulumi.get(self, "dns_records_denies")
 
     @dns_records_denies.setter
-    def dns_records_denies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]):
+    def dns_records_denies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]):
         pulumi.set(self, "dns_records_denies", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsViewZones")
-    def dns_view_zones(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_view_zones(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view the accounts zones.
         """
         return pulumi.get(self, "dns_view_zones")
 
     @dns_view_zones.setter
-    def dns_view_zones(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_view_zones(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_view_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonesAllowByDefault")
-    def dns_zones_allow_by_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_zones_allow_by_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         """
         return pulumi.get(self, "dns_zones_allow_by_default")
 
     @dns_zones_allow_by_default.setter
-    def dns_zones_allow_by_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_zones_allow_by_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_zones_allow_by_default", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonesAllows")
-    def dns_zones_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_zones_allows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of zones that the apikey may access.
         """
         return pulumi.get(self, "dns_zones_allows")
 
     @dns_zones_allows.setter
-    def dns_zones_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_zones_allows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_zones_allows", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonesDenies")
-    def dns_zones_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_zones_denies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of zones that the apikey may not access.
         """
         return pulumi.get(self, "dns_zones_denies")
 
     @dns_zones_denies.setter
-    def dns_zones_denies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_zones_denies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_zones_denies", value)
 
     @_builtins.property
     @pulumi.getter(name="insightsManageInsights")
-    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insights_manage_insights(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage DNS insights.
         """
         return pulumi.get(self, "insights_manage_insights")
 
     @insights_manage_insights.setter
-    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insights_manage_insights(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insights_manage_insights", value)
 
     @_builtins.property
     @pulumi.getter(name="insightsViewInsights")
-    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insights_view_insights(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view DNS insights.
         """
         return pulumi.get(self, "insights_view_insights")
 
     @insights_view_insights.setter
-    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insights_view_insights(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insights_view_insights", value)
 
     @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
-    def ip_whitelist_strict(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ip_whitelist_strict(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         """
         return pulumi.get(self, "ip_whitelist_strict")
 
     @ip_whitelist_strict.setter
-    def ip_whitelist_strict(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ip_whitelist_strict(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ip_whitelist_strict", value)
 
     @_builtins.property
     @pulumi.getter(name="ipWhitelists")
-    def ip_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of IP addresses/networks to which to grant the API key access.
         """
         return pulumi.get(self, "ip_whitelists")
 
     @ip_whitelists.setter
-    def ip_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_whitelists", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringCreateJobs")
-    def monitoring_create_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_create_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
     @monitoring_create_jobs.setter
-    def monitoring_create_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_create_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_create_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringDeleteJobs")
-    def monitoring_delete_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_delete_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
     @monitoring_delete_jobs.setter
-    def monitoring_delete_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_delete_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_delete_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringManageJobs")
-    def monitoring_manage_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_manage_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
     @monitoring_manage_jobs.setter
-    def monitoring_manage_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_manage_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_manage_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringManageLists")
-    def monitoring_manage_lists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_manage_lists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify notification lists.
         """
         return pulumi.get(self, "monitoring_manage_lists")
 
     @monitoring_manage_lists.setter
-    def monitoring_manage_lists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_manage_lists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_manage_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringUpdateJobs")
-    def monitoring_update_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_update_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
     @monitoring_update_jobs.setter
-    def monitoring_update_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_update_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_update_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringViewJobs")
-    def monitoring_view_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_view_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view monitoring jobs.
         """
         return pulumi.get(self, "monitoring_view_jobs")
 
     @monitoring_view_jobs.setter
-    def monitoring_view_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_view_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_view_jobs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The free form name of the apikey.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectsManageRedirects")
-    def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def redirects_manage_redirects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
     @redirects_manage_redirects.setter
-    def redirects_manage_redirects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def redirects_manage_redirects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "redirects_manage_redirects", value)
 
     @_builtins.property
     @pulumi.getter(name="securityManageActiveDirectory")
-    def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def security_manage_active_directory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
     @security_manage_active_directory.setter
-    def security_manage_active_directory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def security_manage_active_directory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "security_manage_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="securityManageGlobal2fa")
-    def security_manage_global2fa(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def security_manage_global2fa(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage global two factor authentication.
         """
         return pulumi.get(self, "security_manage_global2fa")
 
     @security_manage_global2fa.setter
-    def security_manage_global2fa(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def security_manage_global2fa(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "security_manage_global2fa", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The teams that the apikey belongs to.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
 
 @pulumi.input_type
 class _APIKeyState:
     def __init__(__self__, *,
-                 account_manage_account_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_apikeys: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_ip_whitelist: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_payment_methods: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_teams: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_activity_log: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_invoices: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datasources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_push_to_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_manage_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]] = None,
-                 dns_view_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_lists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_update_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_view_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirects_manage_redirects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_active_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_global2fa: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 account_manage_account_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_apikeys: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_ip_whitelist: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_payment_methods: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_teams: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_activity_log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_invoices: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]] = None,
+                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]] = None,
+                 dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_create_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_delete_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_lists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_update_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering APIKey resources.
 
@@ -728,423 +728,423 @@ class _APIKeyState:
 
     @_builtins.property
     @pulumi.getter(name="accountManageAccountSettings")
-    def account_manage_account_settings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_account_settings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account settings.
         """
         return pulumi.get(self, "account_manage_account_settings")
 
     @account_manage_account_settings.setter
-    def account_manage_account_settings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_account_settings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_account_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageApikeys")
-    def account_manage_apikeys(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_apikeys(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account apikeys.
         """
         return pulumi.get(self, "account_manage_apikeys")
 
     @account_manage_apikeys.setter
-    def account_manage_apikeys(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_apikeys(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_apikeys", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageIpWhitelist")
-    def account_manage_ip_whitelist(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_ip_whitelist(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage ip whitelist.
         """
         return pulumi.get(self, "account_manage_ip_whitelist")
 
     @account_manage_ip_whitelist.setter
-    def account_manage_ip_whitelist(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_ip_whitelist(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_ip_whitelist", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManagePaymentMethods")
-    def account_manage_payment_methods(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_payment_methods(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account payment methods.
         """
         return pulumi.get(self, "account_manage_payment_methods")
 
     @account_manage_payment_methods.setter
-    def account_manage_payment_methods(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_payment_methods(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_payment_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManagePlan")
     @_utilities.deprecated("""obsolete, should no longer be used""")
-    def account_manage_plan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_plan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         No longer in use.
         """
         return pulumi.get(self, "account_manage_plan")
 
     @account_manage_plan.setter
-    def account_manage_plan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_plan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageTeams")
-    def account_manage_teams(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_teams(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify other teams in the account.
         """
         return pulumi.get(self, "account_manage_teams")
 
     @account_manage_teams.setter
-    def account_manage_teams(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_teams(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_teams", value)
 
     @_builtins.property
     @pulumi.getter(name="accountManageUsers")
-    def account_manage_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_manage_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify account users.
         """
         return pulumi.get(self, "account_manage_users")
 
     @account_manage_users.setter
-    def account_manage_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_manage_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_manage_users", value)
 
     @_builtins.property
     @pulumi.getter(name="accountViewActivityLog")
-    def account_view_activity_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_view_activity_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view activity logs.
         """
         return pulumi.get(self, "account_view_activity_log")
 
     @account_view_activity_log.setter
-    def account_view_activity_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_view_activity_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_view_activity_log", value)
 
     @_builtins.property
     @pulumi.getter(name="accountViewInvoices")
-    def account_view_invoices(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def account_view_invoices(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         , default: `false` Whether the apikey can view invoices.
         """
         return pulumi.get(self, "account_view_invoices")
 
     @account_view_invoices.setter
-    def account_view_invoices(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def account_view_invoices(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "account_view_invoices", value)
 
     @_builtins.property
     @pulumi.getter(name="dataManageDatafeeds")
-    def data_manage_datafeeds(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_manage_datafeeds(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify data feeds.
         """
         return pulumi.get(self, "data_manage_datafeeds")
 
     @data_manage_datafeeds.setter
-    def data_manage_datafeeds(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_manage_datafeeds(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_manage_datafeeds", value)
 
     @_builtins.property
     @pulumi.getter(name="dataManageDatasources")
-    def data_manage_datasources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_manage_datasources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify data sources.
         """
         return pulumi.get(self, "data_manage_datasources")
 
     @data_manage_datasources.setter
-    def data_manage_datasources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_manage_datasources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_manage_datasources", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPushToDatafeeds")
-    def data_push_to_datafeeds(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_push_to_datafeeds(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can publish to data feeds.
         """
         return pulumi.get(self, "data_push_to_datafeeds")
 
     @data_push_to_datafeeds.setter
-    def data_push_to_datafeeds(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_push_to_datafeeds(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_push_to_datafeeds", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsManageZones")
-    def dns_manage_zones(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_manage_zones(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify the accounts zones.
         """
         return pulumi.get(self, "dns_manage_zones")
 
     @dns_manage_zones.setter
-    def dns_manage_zones(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_manage_zones(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_manage_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordsAllows")
-    def dns_records_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]:
+    def dns_records_allows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]:
         """
         List of records that the apikey may access.
         """
         return pulumi.get(self, "dns_records_allows")
 
     @dns_records_allows.setter
-    def dns_records_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]):
+    def dns_records_allows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsAllowArgs']]]]):
         pulumi.set(self, "dns_records_allows", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordsDenies")
-    def dns_records_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]:
+    def dns_records_denies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]:
         """
         List of records that the apikey may not access.
         """
         return pulumi.get(self, "dns_records_denies")
 
     @dns_records_denies.setter
-    def dns_records_denies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]):
+    def dns_records_denies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeyDnsRecordsDenyArgs']]]]):
         pulumi.set(self, "dns_records_denies", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsViewZones")
-    def dns_view_zones(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_view_zones(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view the accounts zones.
         """
         return pulumi.get(self, "dns_view_zones")
 
     @dns_view_zones.setter
-    def dns_view_zones(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_view_zones(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_view_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonesAllowByDefault")
-    def dns_zones_allow_by_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_zones_allow_by_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         """
         return pulumi.get(self, "dns_zones_allow_by_default")
 
     @dns_zones_allow_by_default.setter
-    def dns_zones_allow_by_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_zones_allow_by_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_zones_allow_by_default", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonesAllows")
-    def dns_zones_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_zones_allows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of zones that the apikey may access.
         """
         return pulumi.get(self, "dns_zones_allows")
 
     @dns_zones_allows.setter
-    def dns_zones_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_zones_allows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_zones_allows", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonesDenies")
-    def dns_zones_denies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_zones_denies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of zones that the apikey may not access.
         """
         return pulumi.get(self, "dns_zones_denies")
 
     @dns_zones_denies.setter
-    def dns_zones_denies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_zones_denies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_zones_denies", value)
 
     @_builtins.property
     @pulumi.getter(name="insightsManageInsights")
-    def insights_manage_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insights_manage_insights(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage DNS insights.
         """
         return pulumi.get(self, "insights_manage_insights")
 
     @insights_manage_insights.setter
-    def insights_manage_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insights_manage_insights(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insights_manage_insights", value)
 
     @_builtins.property
     @pulumi.getter(name="insightsViewInsights")
-    def insights_view_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insights_view_insights(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view DNS insights.
         """
         return pulumi.get(self, "insights_view_insights")
 
     @insights_view_insights.setter
-    def insights_view_insights(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insights_view_insights(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insights_view_insights", value)
 
     @_builtins.property
     @pulumi.getter(name="ipWhitelistStrict")
-    def ip_whitelist_strict(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ip_whitelist_strict(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         """
         return pulumi.get(self, "ip_whitelist_strict")
 
     @ip_whitelist_strict.setter
-    def ip_whitelist_strict(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ip_whitelist_strict(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ip_whitelist_strict", value)
 
     @_builtins.property
     @pulumi.getter(name="ipWhitelists")
-    def ip_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of IP addresses/networks to which to grant the API key access.
         """
         return pulumi.get(self, "ip_whitelists")
 
     @ip_whitelists.setter
-    def ip_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_whitelists", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Computed) The apikeys authentication token.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringCreateJobs")
-    def monitoring_create_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_create_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_create_jobs")
 
     @monitoring_create_jobs.setter
-    def monitoring_create_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_create_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_create_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringDeleteJobs")
-    def monitoring_delete_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_delete_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_delete_jobs")
 
     @monitoring_delete_jobs.setter
-    def monitoring_delete_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_delete_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_delete_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringManageJobs")
-    def monitoring_manage_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_manage_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can create, update, and delete monitoring jobs.
         """
         return pulumi.get(self, "monitoring_manage_jobs")
 
     @monitoring_manage_jobs.setter
-    def monitoring_manage_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_manage_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_manage_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringManageLists")
-    def monitoring_manage_lists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_manage_lists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can modify notification lists.
         """
         return pulumi.get(self, "monitoring_manage_lists")
 
     @monitoring_manage_lists.setter
-    def monitoring_manage_lists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_manage_lists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_manage_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringUpdateJobs")
-    def monitoring_update_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_update_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can update monitoring jobs when manage_jobs is not set to true.
         """
         return pulumi.get(self, "monitoring_update_jobs")
 
     @monitoring_update_jobs.setter
-    def monitoring_update_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_update_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_update_jobs", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringViewJobs")
-    def monitoring_view_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_view_jobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can view monitoring jobs.
         """
         return pulumi.get(self, "monitoring_view_jobs")
 
     @monitoring_view_jobs.setter
-    def monitoring_view_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_view_jobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_view_jobs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The free form name of the apikey.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectsManageRedirects")
-    def redirects_manage_redirects(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def redirects_manage_redirects(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
 
     @redirects_manage_redirects.setter
-    def redirects_manage_redirects(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def redirects_manage_redirects(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "redirects_manage_redirects", value)
 
     @_builtins.property
     @pulumi.getter(name="securityManageActiveDirectory")
-    def security_manage_active_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def security_manage_active_directory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage global active directory. Only relevant for the DDI product.
         """
         return pulumi.get(self, "security_manage_active_directory")
 
     @security_manage_active_directory.setter
-    def security_manage_active_directory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def security_manage_active_directory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "security_manage_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="securityManageGlobal2fa")
-    def security_manage_global2fa(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def security_manage_global2fa(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the apikey can manage global two factor authentication.
         """
         return pulumi.get(self, "security_manage_global2fa")
 
     @security_manage_global2fa.setter
-    def security_manage_global2fa(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def security_manage_global2fa(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "security_manage_global2fa", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The teams that the apikey belongs to.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
 
@@ -1154,40 +1154,40 @@ class APIKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_manage_account_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_apikeys: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_ip_whitelist: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_payment_methods: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_teams: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_activity_log: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_invoices: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datasources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_push_to_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_manage_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
-                 dns_view_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_lists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_update_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_view_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirects_manage_redirects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_active_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_global2fa: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_manage_account_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_apikeys: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_ip_whitelist: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_payment_methods: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_teams: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_activity_log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_invoices: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
+                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
+                 dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitoring_create_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_delete_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_lists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_update_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.
@@ -1345,40 +1345,40 @@ class APIKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_manage_account_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_apikeys: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_ip_whitelist: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_payment_methods: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_teams: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_manage_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_activity_log: Optional[pulumi.Input[_builtins.bool]] = None,
-                 account_view_invoices: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_manage_datasources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_push_to_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_manage_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
-                 dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
-                 dns_view_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_manage_lists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_update_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monitoring_view_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirects_manage_redirects: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_active_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_manage_global2fa: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_manage_account_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_apikeys: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_ip_whitelist: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_payment_methods: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_teams: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_manage_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_activity_log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 account_view_invoices: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
+                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
+                 dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 monitoring_create_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_delete_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_manage_lists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_update_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1435,41 +1435,41 @@ class APIKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_manage_account_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_manage_apikeys: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_manage_ip_whitelist: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_manage_payment_methods: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_manage_plan: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_manage_teams: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_manage_users: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_view_activity_log: Optional[pulumi.Input[_builtins.bool]] = None,
-            account_view_invoices: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_manage_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_manage_datasources: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_push_to_datafeeds: Optional[pulumi.Input[_builtins.bool]] = None,
-            dns_manage_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-            dns_records_allows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
-            dns_records_denies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
-            dns_view_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-            dns_zones_allow_by_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            dns_zones_allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dns_zones_denies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            insights_manage_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-            insights_view_insights: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_whitelist_strict: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            monitoring_create_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-            monitoring_delete_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-            monitoring_manage_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-            monitoring_manage_lists: Optional[pulumi.Input[_builtins.bool]] = None,
-            monitoring_update_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-            monitoring_view_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            redirects_manage_redirects: Optional[pulumi.Input[_builtins.bool]] = None,
-            security_manage_active_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-            security_manage_global2fa: Optional[pulumi.Input[_builtins.bool]] = None,
-            teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'APIKey':
+            account_manage_account_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_apikeys: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_ip_whitelist: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_payment_methods: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_teams: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_view_activity_log: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_view_invoices: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_manage_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict']]]]] = None,
+            dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict']]]]] = None,
+            dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+            insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_create_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_delete_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_manage_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_manage_lists: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_update_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+            security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+            security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'APIKey':
         """
         Get an existing APIKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
