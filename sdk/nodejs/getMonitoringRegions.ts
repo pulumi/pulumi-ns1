@@ -81,5 +81,5 @@ export interface GetMonitoringRegionsOutputArgs {
      * A set of the available monitoring regions. Regions is
      * documented below.
      */
-    regions?: pulumi.Input<pulumi.Input<inputs.GetMonitoringRegionsRegionArgs>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.GetMonitoringRegionsRegionArgs>[] | undefined>;
 }

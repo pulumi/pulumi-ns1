@@ -80,8 +80,8 @@ public final class Ns1Functions {
      * import com.pulumi.ns1.ZoneArgs;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetDNSSecArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -128,8 +128,8 @@ public final class Ns1Functions {
      * import com.pulumi.ns1.ZoneArgs;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetDNSSecArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -176,8 +176,8 @@ public final class Ns1Functions {
      * import com.pulumi.ns1.ZoneArgs;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetDNSSecArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -224,8 +224,8 @@ public final class Ns1Functions {
      * import com.pulumi.ns1.ZoneArgs;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetDNSSecArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -272,8 +272,8 @@ public final class Ns1Functions {
      * import com.pulumi.ns1.ZoneArgs;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetDNSSecArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -358,8 +358,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -398,8 +398,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -438,8 +438,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -478,8 +478,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -518,8 +518,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -558,8 +558,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetMonitoringRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -599,8 +599,8 @@ public final class Ns1Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -639,8 +639,8 @@ public final class Ns1Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -679,8 +679,8 @@ public final class Ns1Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -719,8 +719,8 @@ public final class Ns1Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -759,8 +759,8 @@ public final class Ns1Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -799,8 +799,8 @@ public final class Ns1Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -839,8 +839,8 @@ public final class Ns1Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -880,8 +880,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -925,8 +925,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -970,8 +970,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1015,8 +1015,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1060,8 +1060,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1105,8 +1105,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1148,8 +1148,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1191,8 +1191,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1234,8 +1234,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1277,8 +1277,8 @@ public final class Ns1Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.ns1.Ns1Functions;
      * import com.pulumi.ns1.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

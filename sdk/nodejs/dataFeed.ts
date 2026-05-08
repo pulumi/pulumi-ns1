@@ -132,15 +132,15 @@ export interface DataFeedState {
      * The feeds configuration matching the specification in
      * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The free form name of the data feed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The data source id that this feed is connected to.
      */
-    sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -151,11 +151,11 @@ export interface DataFeedArgs {
      * The feeds configuration matching the specification in
      * `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The free form name of the data feed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The data source id that this feed is connected to.
      */

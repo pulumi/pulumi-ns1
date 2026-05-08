@@ -77,27 +77,27 @@ export interface ProviderArgs {
     /**
      * The ns1 API key (required)
      */
-    apikey?: pulumi.Input<string>;
+    apikey?: pulumi.Input<string | undefined>;
     /**
      * URL prefix (including version) for API calls
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Don't validate server SSL/TLS certificate
      */
-    ignoreSsl?: pulumi.Input<boolean>;
+    ignoreSsl?: pulumi.Input<boolean | undefined>;
     /**
      * Tune response to rate limits, see docs
      */
-    rateLimitParallelism?: pulumi.Input<number>;
+    rateLimitParallelism?: pulumi.Input<number | undefined>;
     /**
      * Maximum retries for 50x errors (-1 to disable)
      */
-    retryMax?: pulumi.Input<number>;
+    retryMax?: pulumi.Input<number | undefined>;
     /**
      * User-Agent string to use in NS1 API requests
      */
-    userAgent?: pulumi.Input<string>;
+    userAgent?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

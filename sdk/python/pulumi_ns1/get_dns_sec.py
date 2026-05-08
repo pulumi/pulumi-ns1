@@ -115,7 +115,7 @@ def get_dns_sec(zone: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         keys=pulumi.get(__ret__, 'keys'),
         zone=pulumi.get(__ret__, 'zone'))
-def get_dns_sec_output(zone: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dns_sec_output(zone: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDNSSecResult]:
     """
     Provides DNSSEC details about a NS1 Zone.

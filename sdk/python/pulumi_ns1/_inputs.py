@@ -174,7 +174,7 @@ class APIKeyDnsRecordsDenyArgs:
 
 
 class AlertDataArgsDict(TypedDict):
-    alert_at_percent: NotRequired[pulumi.Input[_builtins.int]]
+    alert_at_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     required by the account/usage alerts, with a value between 1 and 100
     """
@@ -182,7 +182,7 @@ class AlertDataArgsDict(TypedDict):
 @pulumi.input_type
 class AlertDataArgs:
     def __init__(__self__, *,
-                 alert_at_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 alert_at_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] alert_at_percent: required by the account/usage alerts, with a value between 1 and 100
         """
@@ -191,14 +191,14 @@ class AlertDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertAtPercent")
-    def alert_at_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def alert_at_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         required by the account/usage alerts, with a value between 1 and 100
         """
         return pulumi.get(self, "alert_at_percent")
 
     @alert_at_percent.setter
-    def alert_at_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def alert_at_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "alert_at_percent", value)
 
 
@@ -207,24 +207,24 @@ class ApplicationDefaultConfigArgsDict(TypedDict):
     """
     Indicates whether or not to use HTTP in measurements.
     """
-    https: NotRequired[pulumi.Input[_builtins.bool]]
+    https: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether or not to use HTTPS in measurements.
     """
-    job_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
+    job_timeout_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum timeout per job
     0, the primary NSONE Global Network. Normally, you should not have to worry about this.
     """
-    request_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
+    request_timeout_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum timeout per request.
     """
-    static_values: NotRequired[pulumi.Input[_builtins.bool]]
+    static_values: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether or not to skip aggregation for this job's measurements
     """
-    use_xhr: NotRequired[pulumi.Input[_builtins.bool]]
+    use_xhr: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to use XMLHttpRequest (XHR) when taking measurements.
     """
@@ -233,11 +233,11 @@ class ApplicationDefaultConfigArgsDict(TypedDict):
 class ApplicationDefaultConfigArgs:
     def __init__(__self__, *,
                  http: pulumi.Input[_builtins.bool],
-                 https: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 request_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 static_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_xhr: Optional[pulumi.Input[_builtins.bool]] = None):
+                 https: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 request_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 static_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_xhr: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] http: Indicates whether or not to use HTTP in measurements.
         :param pulumi.Input[_builtins.bool] https: Indicates whether or not to use HTTPS in measurements.
@@ -273,19 +273,19 @@ class ApplicationDefaultConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def https(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether or not to use HTTPS in measurements.
         """
         return pulumi.get(self, "https")
 
     @https.setter
-    def https(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https", value)
 
     @_builtins.property
     @pulumi.getter(name="jobTimeoutMillis")
-    def job_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def job_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum timeout per job
         0, the primary NSONE Global Network. Normally, you should not have to worry about this.
@@ -293,43 +293,43 @@ class ApplicationDefaultConfigArgs:
         return pulumi.get(self, "job_timeout_millis")
 
     @job_timeout_millis.setter
-    def job_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def job_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "job_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTimeoutMillis")
-    def request_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def request_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum timeout per request.
         """
         return pulumi.get(self, "request_timeout_millis")
 
     @request_timeout_millis.setter
-    def request_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def request_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="staticValues")
-    def static_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def static_values(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether or not to skip aggregation for this job's measurements
         """
         return pulumi.get(self, "static_values")
 
     @static_values.setter
-    def static_values(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def static_values(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "static_values", value)
 
     @_builtins.property
     @pulumi.getter(name="useXhr")
-    def use_xhr(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_xhr(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use XMLHttpRequest (XHR) when taking measurements.
         """
         return pulumi.get(self, "use_xhr")
 
     @use_xhr.setter
-    def use_xhr(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_xhr(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_xhr", value)
 
 
@@ -420,20 +420,20 @@ class DatasetRepeatArgs:
 
 
 class DatasetReportArgsDict(TypedDict):
-    created_at: NotRequired[pulumi.Input[_builtins.int]]
-    end: NotRequired[pulumi.Input[_builtins.int]]
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    start: NotRequired[pulumi.Input[_builtins.int]]
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    created_at: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DatasetReportArgs:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.int]] = None,
-                 end: Optional[pulumi.Input[_builtins.int]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.int]] = None,
+                 end: pulumi.Input[Optional[_builtins.int]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if end is not None:
@@ -447,63 +447,63 @@ class DatasetReportArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class DatasetTimeframeArgsDict(TypedDict):
     aggregation: pulumi.Input[_builtins.str]
-    cycles: NotRequired[pulumi.Input[_builtins.int]]
-    from_: NotRequired[pulumi.Input[_builtins.int]]
-    to: NotRequired[pulumi.Input[_builtins.int]]
+    cycles: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    from_: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class DatasetTimeframeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[_builtins.str],
-                 cycles: Optional[pulumi.Input[_builtins.int]] = None,
-                 from_: Optional[pulumi.Input[_builtins.int]] = None,
-                 to: Optional[pulumi.Input[_builtins.int]] = None):
+                 cycles: pulumi.Input[Optional[_builtins.int]] = None,
+                 from_: pulumi.Input[Optional[_builtins.int]] = None,
+                 to: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if cycles is not None:
             pulumi.set(__self__, "cycles", cycles)
@@ -523,29 +523,29 @@ class DatasetTimeframeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cycles(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cycles(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "cycles")
 
     @cycles.setter
-    def cycles(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cycles(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cycles", value)
 
     @_builtins.property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_", value)
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to", value)
 
 
@@ -659,26 +659,26 @@ class PulsarJobBlendMetricWeightsArgs:
 
 
 class PulsarJobConfigArgsDict(TypedDict):
-    host: NotRequired[pulumi.Input[_builtins.str]]
-    http: NotRequired[pulumi.Input[_builtins.bool]]
-    https: NotRequired[pulumi.Input[_builtins.bool]]
-    job_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
-    request_timeout_millis: NotRequired[pulumi.Input[_builtins.int]]
-    static_values: NotRequired[pulumi.Input[_builtins.bool]]
-    url_path: NotRequired[pulumi.Input[_builtins.str]]
-    use_xhr: NotRequired[pulumi.Input[_builtins.bool]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    http: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    https: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    job_timeout_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    request_timeout_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    static_values: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    url_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    use_xhr: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PulsarJobConfigArgs:
     def __init__(__self__, *,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 http: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 request_timeout_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 static_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 url_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_xhr: Optional[pulumi.Input[_builtins.bool]] = None):
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 http: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 request_timeout_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 static_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 url_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_xhr: pulumi.Input[Optional[_builtins.bool]] = None):
         if host is not None:
             pulumi.set(__self__, "host", host)
         if http is not None:
@@ -698,74 +698,74 @@ class PulsarJobConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter
-    def https(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "https")
 
     @https.setter
-    def https(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https", value)
 
     @_builtins.property
     @pulumi.getter(name="jobTimeoutMillis")
-    def job_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def job_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "job_timeout_millis")
 
     @job_timeout_millis.setter
-    def job_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def job_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "job_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTimeoutMillis")
-    def request_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def request_timeout_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "request_timeout_millis")
 
     @request_timeout_millis.setter
-    def request_timeout_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def request_timeout_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_timeout_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="staticValues")
-    def static_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def static_values(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "static_values")
 
     @static_values.setter
-    def static_values(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def static_values(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "static_values", value)
 
     @_builtins.property
     @pulumi.getter(name="urlPath")
-    def url_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "url_path")
 
     @url_path.setter
-    def url_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_path", value)
 
     @_builtins.property
     @pulumi.getter(name="useXhr")
-    def use_xhr(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_xhr(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "use_xhr")
 
     @use_xhr.setter
-    def use_xhr(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_xhr(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_xhr", value)
 
 
@@ -773,7 +773,7 @@ class PulsarJobWeightArgsDict(TypedDict):
     default_value: pulumi.Input[_builtins.float]
     name: pulumi.Input[_builtins.str]
     weight: pulumi.Input[_builtins.int]
-    maximize: NotRequired[pulumi.Input[_builtins.bool]]
+    maximize: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PulsarJobWeightArgs:
@@ -781,7 +781,7 @@ class PulsarJobWeightArgs:
                  default_value: pulumi.Input[_builtins.float],
                  name: pulumi.Input[_builtins.str],
                  weight: pulumi.Input[_builtins.int],
-                 maximize: Optional[pulumi.Input[_builtins.bool]] = None):
+                 maximize: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "weight", weight)
@@ -817,16 +817,16 @@ class PulsarJobWeightArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maximize(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def maximize(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "maximize")
 
     @maximize.setter
-    def maximize(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def maximize(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "maximize", value)
 
 
 class RecordAnswerArgsDict(TypedDict):
-    answer: NotRequired[pulumi.Input[_builtins.str]]
+    answer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Space delimited string of RDATA fields dependent on the record type.
 
@@ -853,11 +853,11 @@ class RecordAnswerArgsDict(TypedDict):
     Optionally, the individual parts of the answer can be expressed as a list in the field `answer_parts`.
     Only one of `answer` or `answer_parts` can be specified.
     """
-    answer_parts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    answer_parts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of individual RDATA fields. This field cannot be set together with `answer`
     """
-    meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    meta: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     meta is supported at the `regions` level. Meta
     is documented below.
@@ -869,7 +869,7 @@ class RecordAnswerArgsDict(TypedDict):
     Terraform configuration file, otherwise Terraform will detect changes to the
     record when none actually exist.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The region (Answer Group really) that this answer
     belongs to. This should be one of the names specified in `regions`. Only a
@@ -883,10 +883,10 @@ class RecordAnswerArgsDict(TypedDict):
 @pulumi.input_type
 class RecordAnswerArgs:
     def __init__(__self__, *,
-                 answer: Optional[pulumi.Input[_builtins.str]] = None,
-                 answer_parts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 answer: pulumi.Input[Optional[_builtins.str]] = None,
+                 answer_parts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] answer: Space delimited string of RDATA fields dependent on the record type.
                
@@ -941,7 +941,7 @@ class RecordAnswerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def answer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def answer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Space delimited string of RDATA fields dependent on the record type.
 
@@ -971,24 +971,24 @@ class RecordAnswerArgs:
         return pulumi.get(self, "answer")
 
     @answer.setter
-    def answer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def answer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "answer", value)
 
     @_builtins.property
     @pulumi.getter(name="answerParts")
-    def answer_parts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def answer_parts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of individual RDATA fields. This field cannot be set together with `answer`
         """
         return pulumi.get(self, "answer_parts")
 
     @answer_parts.setter
-    def answer_parts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def answer_parts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "answer_parts", value)
 
     @_builtins.property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def meta(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         meta is supported at the `regions` level. Meta
         is documented below.
@@ -1003,12 +1003,12 @@ class RecordAnswerArgs:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def meta(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "meta", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region (Answer Group really) that this answer
         belongs to. This should be one of the names specified in `regions`. Only a
@@ -1021,7 +1021,7 @@ class RecordAnswerArgs:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -1030,11 +1030,11 @@ class RecordFilterArgsDict(TypedDict):
     """
     The type of filter.
     """
-    config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    config: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The filters' configuration. Simple key/value pairs determined by the filter type.
     """
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether the filter is applied in the filter chain.
     """
@@ -1043,8 +1043,8 @@ class RecordFilterArgsDict(TypedDict):
 class RecordFilterArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input[_builtins.str],
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] filter: The type of filter.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The filters' configuration. Simple key/value pairs determined by the filter type.
@@ -1070,26 +1070,26 @@ class RecordFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The filters' configuration. Simple key/value pairs determined by the filter type.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the filter is applied in the filter chain.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
 
@@ -1098,7 +1098,7 @@ class RecordRegionArgsDict(TypedDict):
     """
     Name of the region (or Answer Group).
     """
-    meta: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    meta: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     meta is supported at the `regions` level. Meta
     is documented below.
@@ -1115,7 +1115,7 @@ class RecordRegionArgsDict(TypedDict):
 class RecordRegionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 meta: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the region (or Answer Group).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] meta: meta is supported at the `regions` level. Meta
@@ -1146,7 +1146,7 @@ class RecordRegionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def meta(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def meta(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         meta is supported at the `regions` level. Meta
         is documented below.
@@ -1161,7 +1161,7 @@ class RecordRegionArgs:
         return pulumi.get(self, "meta")
 
     @meta.setter
-    def meta(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def meta(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "meta", value)
 
 
@@ -1430,17 +1430,17 @@ class ZoneSecondaryArgsDict(TypedDict):
     """
     IPv4 address of the secondary server.
     """
-    networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     List of network IDs (`int`) for which the zone
     should be made available. Default is network 0, the primary NSONE Global
     Network. Normally, you should not have to worry about this.
     """
-    notify: NotRequired[pulumi.Input[_builtins.bool]]
+    notify: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port of the the secondary server.
     """
@@ -1449,9 +1449,9 @@ class ZoneSecondaryArgsDict(TypedDict):
 class ZoneSecondaryArgs:
     def __init__(__self__, *,
                  ip: pulumi.Input[_builtins.str],
-                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 notify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 notify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] ip: IPv4 address of the secondary server.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] networks: List of network IDs (`int`) for which the zone
@@ -1482,7 +1482,7 @@ class ZoneSecondaryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of network IDs (`int`) for which the zone
         should be made available. Default is network 0, the primary NSONE Global
@@ -1491,31 +1491,31 @@ class ZoneSecondaryArgs:
         return pulumi.get(self, "networks")
 
     @networks.setter
-    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "networks", value)
 
     @_builtins.property
     @pulumi.getter
-    def notify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
         """
         return pulumi.get(self, "notify")
 
     @notify.setter
-    def notify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port of the the secondary server.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 

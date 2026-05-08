@@ -19,12 +19,12 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 apikey: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rate_limit_parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_agent: Optional[pulumi.Input[_builtins.str]] = None):
+                 apikey: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rate_limit_parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_agent: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -50,74 +50,74 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def apikey(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apikey(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ns1 API key (required)
         """
         return pulumi.get(self, "apikey")
 
     @apikey.setter
-    def apikey(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apikey(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apikey", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL prefix (including version) for API calls
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreSsl")
-    def ignore_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Don't validate server SSL/TLS certificate
         """
         return pulumi.get(self, "ignore_ssl")
 
     @ignore_ssl.setter
-    def ignore_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="rateLimitParallelism")
-    def rate_limit_parallelism(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rate_limit_parallelism(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Tune response to rate limits, see docs
         """
         return pulumi.get(self, "rate_limit_parallelism")
 
     @rate_limit_parallelism.setter
-    def rate_limit_parallelism(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rate_limit_parallelism(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rate_limit_parallelism", value)
 
     @_builtins.property
     @pulumi.getter(name="retryMax")
-    def retry_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum retries for 50x errors (-1 to disable)
         """
         return pulumi.get(self, "retry_max")
 
     @retry_max.setter
-    def retry_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_max", value)
 
     @_builtins.property
     @pulumi.getter(name="userAgent")
-    def user_agent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_agent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-Agent string to use in NS1 API requests
         """
         return pulumi.get(self, "user_agent")
 
     @user_agent.setter
-    def user_agent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_agent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_agent", value)
 
 
@@ -127,12 +127,12 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apikey: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rate_limit_parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_agent: Optional[pulumi.Input[_builtins.str]] = None,
+                 apikey: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rate_limit_parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_agent: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the ns1 package. By default, resources use package-wide configuration
@@ -178,12 +178,12 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apikey: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rate_limit_parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_agent: Optional[pulumi.Input[_builtins.str]] = None,
+                 apikey: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rate_limit_parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_agent: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

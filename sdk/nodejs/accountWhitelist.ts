@@ -106,11 +106,11 @@ export interface AccountWhitelistState {
     /**
      * The free form name of the whitelist.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Array of IP addresses/networks from which to allow access.
      */
-    values?: pulumi.Input<pulumi.Input<string>[]>;
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -120,7 +120,7 @@ export interface AccountWhitelistArgs {
     /**
      * The free form name of the whitelist.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Array of IP addresses/networks from which to allow access.
      */

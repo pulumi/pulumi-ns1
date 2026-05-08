@@ -23,7 +23,7 @@ export interface AlertData {
     /**
      * required by the account/usage alerts, with a value between 1 and 100
      */
-    alertAtPercent?: pulumi.Input<number>;
+    alertAtPercent?: pulumi.Input<number | undefined>;
 }
 
 export interface ApplicationDefaultConfig {
@@ -34,24 +34,24 @@ export interface ApplicationDefaultConfig {
     /**
      * Indicates whether or not to use HTTPS in measurements.
      */
-    https?: pulumi.Input<boolean>;
+    https?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum timeout per job
      * 0, the primary NSONE Global Network. Normally, you should not have to worry about this.
      */
-    jobTimeoutMillis?: pulumi.Input<number>;
+    jobTimeoutMillis?: pulumi.Input<number | undefined>;
     /**
      * Maximum timeout per request.
      */
-    requestTimeoutMillis?: pulumi.Input<number>;
+    requestTimeoutMillis?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether or not to skip aggregation for this job's measurements
      */
-    staticValues?: pulumi.Input<boolean>;
+    staticValues?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to use XMLHttpRequest (XHR) when taking measurements.
      */
-    useXhr?: pulumi.Input<boolean>;
+    useXhr?: pulumi.Input<boolean | undefined>;
 }
 
 export interface DatasetDatatype {
@@ -67,18 +67,18 @@ export interface DatasetRepeat {
 }
 
 export interface DatasetReport {
-    createdAt?: pulumi.Input<number>;
-    end?: pulumi.Input<number>;
-    id?: pulumi.Input<string>;
-    start?: pulumi.Input<number>;
-    status?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<number | undefined>;
+    end?: pulumi.Input<number | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    start?: pulumi.Input<number | undefined>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 export interface DatasetTimeframe {
     aggregation: pulumi.Input<string>;
-    cycles?: pulumi.Input<number>;
-    from?: pulumi.Input<number>;
-    to?: pulumi.Input<number>;
+    cycles?: pulumi.Input<number | undefined>;
+    from?: pulumi.Input<number | undefined>;
+    to?: pulumi.Input<number | undefined>;
 }
 
 export interface GetMonitoringRegionsRegion {
@@ -100,15 +100,15 @@ export interface GetMonitoringRegionsRegionArgs {
     /**
      * 3-letter city code identifying the location of the monitor.
      */
-    code?: pulumi.Input<string>;
+    code?: pulumi.Input<string | undefined>;
     /**
      * City name identifying the location of the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of IPv4 and IPv6 subnets the monitor sources requests from.
      */
-    subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    subnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface MonitoringJobRule {
@@ -133,19 +133,19 @@ export interface PulsarJobBlendMetricWeights {
 }
 
 export interface PulsarJobConfig {
-    host?: pulumi.Input<string>;
-    http?: pulumi.Input<boolean>;
-    https?: pulumi.Input<boolean>;
-    jobTimeoutMillis?: pulumi.Input<number>;
-    requestTimeoutMillis?: pulumi.Input<number>;
-    staticValues?: pulumi.Input<boolean>;
-    urlPath?: pulumi.Input<string>;
-    useXhr?: pulumi.Input<boolean>;
+    host?: pulumi.Input<string | undefined>;
+    http?: pulumi.Input<boolean | undefined>;
+    https?: pulumi.Input<boolean | undefined>;
+    jobTimeoutMillis?: pulumi.Input<number | undefined>;
+    requestTimeoutMillis?: pulumi.Input<number | undefined>;
+    staticValues?: pulumi.Input<boolean | undefined>;
+    urlPath?: pulumi.Input<string | undefined>;
+    useXhr?: pulumi.Input<boolean | undefined>;
 }
 
 export interface PulsarJobWeight {
     defaultValue: pulumi.Input<number>;
-    maximize?: pulumi.Input<boolean>;
+    maximize?: pulumi.Input<boolean | undefined>;
     name: pulumi.Input<string>;
     weight: pulumi.Input<number>;
 }
@@ -177,11 +177,11 @@ export interface RecordAnswer {
      * Optionally, the individual parts of the answer can be expressed as a list in the field `answerParts`.
      * Only one of `answer` or `answerParts` can be specified.
      */
-    answer?: pulumi.Input<string>;
+    answer?: pulumi.Input<string | undefined>;
     /**
      * A list of individual RDATA fields. This field cannot be set together with `answer`
      */
-    answerParts?: pulumi.Input<pulumi.Input<string>[]>;
+    answerParts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * meta is supported at the `regions` level. Meta
      * is documented below.
@@ -193,7 +193,7 @@ export interface RecordAnswer {
      * Terraform configuration file, otherwise Terraform will detect changes to the
      * record when none actually exist.
      */
-    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The region (Answer Group really) that this answer
      * belongs to. This should be one of the names specified in `regions`. Only a
@@ -203,18 +203,18 @@ export interface RecordAnswer {
      * * ` meta` - (Optional) meta is supported at the `answer` level. Meta
      * is documented below.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 export interface RecordFilter {
     /**
      * The filters' configuration. Simple key/value pairs determined by the filter type.
      */
-    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Determines whether the filter is applied in the filter chain.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The type of filter.
      */
@@ -233,7 +233,7 @@ export interface RecordRegion {
      * Terraform configuration file, otherwise Terraform will detect changes to the
      * record when none actually exist.
      */
-    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    meta?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the region (or Answer Group).
      */
@@ -286,13 +286,13 @@ export interface ZoneSecondary {
      * should be made available. Default is network 0, the primary NSONE Global
      * Network. Normally, you should not have to worry about this.
      */
-    networks?: pulumi.Input<pulumi.Input<number>[]>;
+    networks?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Whether we send `NOTIFY` messages to the secondary host when the zone changes. Default `false`.
      */
-    notify?: pulumi.Input<boolean>;
+    notify?: pulumi.Input<boolean | undefined>;
     /**
      * Port of the the secondary server.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
 }

@@ -108,15 +108,15 @@ export interface TsigkeyState {
     /**
      * The algorithm used to hash the TSIG key's secret.
      */
-    algorithm?: pulumi.Input<string>;
+    algorithm?: pulumi.Input<string | undefined>;
     /**
      * The free form name of the tsigkey.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The key's secret to be hashed.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -130,7 +130,7 @@ export interface TsigkeyArgs {
     /**
      * The free form name of the tsigkey.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The key's secret to be hashed.
      */

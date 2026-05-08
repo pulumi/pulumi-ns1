@@ -153,14 +153,14 @@ export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getZone.
  */
 export interface GetZoneOutputArgs {
-    additionalPorts?: pulumi.Input<pulumi.Input<number>[]>;
+    additionalPorts?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * List of additional IPv4 addresses for the primary
      * zone.
      */
-    additionalPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
-    primaryNetwork?: pulumi.Input<number>;
-    primaryPort?: pulumi.Input<number>;
+    additionalPrimaries?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    primaryNetwork?: pulumi.Input<number | undefined>;
+    primaryPort?: pulumi.Input<number | undefined>;
     /**
      * The domain name of the zone.
      */

@@ -195,18 +195,18 @@ export interface RedirectState {
      * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
      * If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * The domain the redirect refers to.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * How the target is interpreted:
      * * __all__       appends the entire incoming path to the target destination;
      * * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
      * * __none__      does not append any part of the incoming path.
      */
-    forwardingMode?: pulumi.Input<string>;
+    forwardingMode?: pulumi.Input<string | undefined>;
     /**
      * How the redirect is executed:
      * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
@@ -218,35 +218,35 @@ export interface RedirectState {
      * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
      * address they entered, even though the displayed content comes from a different web page).
      */
-    forwardingType?: pulumi.Input<string>;
+    forwardingType?: pulumi.Input<string | undefined>;
     /**
      * True if HTTPS is supported on the source domain by using Let's Encrypt certificates.
      */
-    httpsEnabled?: pulumi.Input<boolean>;
+    httpsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Forces redirect for users that try to visit HTTP domain to HTTPS instead.
      */
-    httpsForced?: pulumi.Input<boolean>;
+    httpsForced?: pulumi.Input<boolean | undefined>;
     /**
      * The Unix timestamp representing when the certificate was last signed.
      */
-    lastUpdated?: pulumi.Input<number>;
+    lastUpdated?: pulumi.Input<number | undefined>;
     /**
      * The path on the domain to redirect from.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Enables the query string of a URL to be applied directly to the new target URL.
      */
-    queryForwarding?: pulumi.Input<boolean>;
+    queryForwarding?: pulumi.Input<boolean | undefined>;
     /**
      * Tags associated with the configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The URL to redirect to.
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -258,7 +258,7 @@ export interface RedirectArgs {
      * but it may be turned to HTTPS if a certificate exists for the source domain on the server.
      * If the certificate is managed in terraform it's recommended to set explictly to "${ns1_redirect_certificate.name.id}".
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * The domain the redirect refers to.
      */
@@ -269,7 +269,7 @@ export interface RedirectArgs {
      * * __capture__   appends only the part of the incoming path corresponding to the wildcard (*);
      * * __none__      does not append any part of the incoming path.
      */
-    forwardingMode?: pulumi.Input<string>;
+    forwardingMode?: pulumi.Input<string | undefined>;
     /**
      * How the redirect is executed:
      * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
@@ -281,11 +281,11 @@ export interface RedirectArgs {
      * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
      * address they entered, even though the displayed content comes from a different web page).
      */
-    forwardingType?: pulumi.Input<string>;
+    forwardingType?: pulumi.Input<string | undefined>;
     /**
      * Forces redirect for users that try to visit HTTP domain to HTTPS instead.
      */
-    httpsForced?: pulumi.Input<boolean>;
+    httpsForced?: pulumi.Input<boolean | undefined>;
     /**
      * The path on the domain to redirect from.
      */
@@ -293,11 +293,11 @@ export interface RedirectArgs {
     /**
      * Enables the query string of a URL to be applied directly to the new target URL.
      */
-    queryForwarding?: pulumi.Input<boolean>;
+    queryForwarding?: pulumi.Input<boolean | undefined>;
     /**
      * Tags associated with the configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The URL to redirect to.
      */

@@ -246,9 +246,9 @@ def get_record(domain: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_client_subnet=pulumi.get(__ret__, 'use_client_subnet'),
         zone=pulumi.get(__ret__, 'zone'))
-def get_record_output(domain: Optional[pulumi.Input[_builtins.str]] = None,
-                      type: Optional[pulumi.Input[_builtins.str]] = None,
-                      zone: Optional[pulumi.Input[_builtins.str]] = None,
+def get_record_output(domain: pulumi.Input[Optional[_builtins.str]] = None,
+                      type: pulumi.Input[Optional[_builtins.str]] = None,
+                      zone: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordResult]:
     """
     Provides details about a NS1 Record. Use this if you would simply like to read

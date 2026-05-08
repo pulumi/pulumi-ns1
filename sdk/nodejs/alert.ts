@@ -173,47 +173,47 @@ export interface AlertState {
     /**
      * (Read Only) The Unix timestamp representing when the alert configuration was created.
      */
-    createdAt?: pulumi.Input<number>;
+    createdAt?: pulumi.Input<number | undefined>;
     /**
      * (Read Only) The user or apikey that created this alert.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * A resource block with additional settings: the name and type of them vary based on the alert type.
      */
-    datas?: pulumi.Input<pulumi.Input<inputs.AlertData>[]>;
+    datas?: pulumi.Input<pulumi.Input<inputs.AlertData>[] | undefined>;
     /**
      * The free-form display name for the alert.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of id's for notification lists whose notifiers will be triggered by the alert.
      */
-    notificationLists?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of record id's this alert applies to.
      */
-    recordIds?: pulumi.Input<pulumi.Input<string>[]>;
+    recordIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of the alert.
      */
-    subtype?: pulumi.Input<string>;
+    subtype?: pulumi.Input<string | undefined>;
     /**
      * The type of the alert.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * (Read Only) The Unix timestamp representing when the alert configuration was last modified.
      */
-    updatedAt?: pulumi.Input<number>;
+    updatedAt?: pulumi.Input<number | undefined>;
     /**
      * (Read Only) The user or apikey that last modified this alert.
      */
-    updatedBy?: pulumi.Input<string>;
+    updatedBy?: pulumi.Input<string | undefined>;
     /**
      * A list of zones this alert applies to.
      */
-    zoneNames?: pulumi.Input<pulumi.Input<string>[]>;
+    zoneNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -223,19 +223,19 @@ export interface AlertArgs {
     /**
      * A resource block with additional settings: the name and type of them vary based on the alert type.
      */
-    datas?: pulumi.Input<pulumi.Input<inputs.AlertData>[]>;
+    datas?: pulumi.Input<pulumi.Input<inputs.AlertData>[] | undefined>;
     /**
      * The free-form display name for the alert.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of id's for notification lists whose notifiers will be triggered by the alert.
      */
-    notificationLists?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of record id's this alert applies to.
      */
-    recordIds?: pulumi.Input<pulumi.Input<string>[]>;
+    recordIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of the alert.
      */
@@ -247,5 +247,5 @@ export interface AlertArgs {
     /**
      * A list of zones this alert applies to.
      */
-    zoneNames?: pulumi.Input<pulumi.Input<string>[]>;
+    zoneNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -25,18 +25,18 @@ class MonitoringJobArgs:
                  frequency: pulumi.Input[_builtins.int],
                  job_type: pulumi.Input[_builtins.str],
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 notify_failback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_regional: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_repeat: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 rapid_recheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 notify_failback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_regional: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_repeat: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringJob resource.
 
@@ -139,115 +139,115 @@ class MonitoringJobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the job is active or temporarily disabled.
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter
-    def mute(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mute(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Turn off the notifications for the monitoring job.
         """
         return pulumi.get(self, "mute")
 
     @mute.setter
-    def mute(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mute(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mute", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The free-form display name for the monitoring job.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Freeform notes to be included in any notifications about this job.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyDelay")
-    def notify_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def notify_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds after a failure to wait before sending a notification.
         """
         return pulumi.get(self, "notify_delay")
 
     @notify_delay.setter
-    def notify_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def notify_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "notify_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyFailback")
-    def notify_failback(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_failback(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, a notification is sent when a job returns to an "up" state.
         """
         return pulumi.get(self, "notify_failback")
 
     @notify_failback.setter
-    def notify_failback(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_failback(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_failback", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyList")
-    def notify_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notify_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
         """
         return pulumi.get(self, "notify_list")
 
     @notify_list.setter
-    def notify_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notify_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notify_list", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyRegional")
-    def notify_regional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_regional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         """
         return pulumi.get(self, "notify_regional")
 
     @notify_regional.setter
-    def notify_regional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_regional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_regional", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyRepeat")
-    def notify_repeat(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def notify_repeat(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds between repeat notifications of a failed job.
         """
         return pulumi.get(self, "notify_repeat")
 
     @notify_repeat.setter
-    def notify_repeat(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def notify_repeat(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "notify_repeat", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy for determining the monitor's global status
         based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
@@ -255,53 +255,53 @@ class MonitoringJobArgs:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="rapidRecheck")
-    def rapid_recheck(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rapid_recheck(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         """
         return pulumi.get(self, "rapid_recheck")
 
     @rapid_recheck.setter
-    def rapid_recheck(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rapid_recheck(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rapid_recheck", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]:
         """
         A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
 class _MonitoringJobState:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 notify_failback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_regional: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_repeat: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 rapid_recheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 notify_failback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_regional: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_repeat: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering MonitoringJob resources.
 
@@ -359,151 +359,151 @@ class _MonitoringJobState:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the job is active or temporarily disabled.
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A configuration dictionary with keys and values depending on the job_type. Configuration details for each job_type are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The frequency, in seconds, at which to run the monitoring job in each region.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="jobType")
-    def job_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of monitoring job to be run. Refer to the NS1 API documentation (https://ns1.com/api#monitoring-jobs) for supported values which include ping, tcp, dns, http.
         """
         return pulumi.get(self, "job_type")
 
     @job_type.setter
-    def job_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def mute(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mute(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Turn off the notifications for the monitoring job.
         """
         return pulumi.get(self, "mute")
 
     @mute.setter
-    def mute(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mute(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mute", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The free-form display name for the monitoring job.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Freeform notes to be included in any notifications about this job.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyDelay")
-    def notify_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def notify_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds after a failure to wait before sending a notification.
         """
         return pulumi.get(self, "notify_delay")
 
     @notify_delay.setter
-    def notify_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def notify_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "notify_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyFailback")
-    def notify_failback(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_failback(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, a notification is sent when a job returns to an "up" state.
         """
         return pulumi.get(self, "notify_failback")
 
     @notify_failback.setter
-    def notify_failback(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_failback(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_failback", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyList")
-    def notify_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notify_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Terraform ID (e.g. ns1_notifylist.my_slack_notifier.id) of the notification list to which monitoring notifications should be sent.
         """
         return pulumi.get(self, "notify_list")
 
     @notify_list.setter
-    def notify_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notify_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notify_list", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyRegional")
-    def notify_regional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_regional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, notifications are sent for any regional failure (and failback if desired), in addition to global state notifications.
         """
         return pulumi.get(self, "notify_regional")
 
     @notify_regional.setter
-    def notify_regional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_regional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_regional", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyRepeat")
-    def notify_repeat(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def notify_repeat(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds between repeat notifications of a failed job.
         """
         return pulumi.get(self, "notify_repeat")
 
     @notify_repeat.setter
-    def notify_repeat(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def notify_repeat(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "notify_repeat", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy for determining the monitor's global status
         based on the status of the job in all regions. Supported values: `all`, `one`, `quorum`.
@@ -511,24 +511,24 @@ class _MonitoringJobState:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="rapidRecheck")
-    def rapid_recheck(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rapid_recheck(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         """
         return pulumi.get(self, "rapid_recheck")
 
     @rapid_recheck.setter
-    def rapid_recheck(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rapid_recheck(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rapid_recheck", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of region codes in which to run the monitoring
         job. See NS1 API docs for supported values.
@@ -536,19 +536,19 @@ class _MonitoringJobState:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]:
         """
         A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringJobRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -558,22 +558,22 @@ class MonitoringJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 notify_failback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_regional: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_repeat: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 rapid_recheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 notify_failback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_regional: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_repeat: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
@@ -705,22 +705,22 @@ class MonitoringJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 notify_failback: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_regional: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_repeat: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 rapid_recheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 notify_failback: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_regional: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_repeat: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -764,22 +764,22 @@ class MonitoringJob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active: Optional[pulumi.Input[_builtins.bool]] = None,
-            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            frequency: Optional[pulumi.Input[_builtins.int]] = None,
-            job_type: Optional[pulumi.Input[_builtins.str]] = None,
-            mute: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            notify_delay: Optional[pulumi.Input[_builtins.int]] = None,
-            notify_failback: Optional[pulumi.Input[_builtins.bool]] = None,
-            notify_list: Optional[pulumi.Input[_builtins.str]] = None,
-            notify_regional: Optional[pulumi.Input[_builtins.bool]] = None,
-            notify_repeat: Optional[pulumi.Input[_builtins.int]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            rapid_recheck: Optional[pulumi.Input[_builtins.bool]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None) -> 'MonitoringJob':
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            frequency: pulumi.Input[Optional[_builtins.int]] = None,
+            job_type: pulumi.Input[Optional[_builtins.str]] = None,
+            mute: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            notify_failback: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_list: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_regional: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_repeat: pulumi.Input[Optional[_builtins.int]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None) -> 'MonitoringJob':
         """
         Get an existing MonitoringJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
