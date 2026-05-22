@@ -27,7 +27,7 @@ Use the navigation to the left to read about the available resources.
 
 Additional usage examples can be found in <https://github.com/ns1-pulumi/pulumi-provider-ns1/tree/master/examples>
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -193,6 +193,22 @@ public class App {
         var foobar = new Zone("foobar");
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    ns1 = {
+      source = "pulumi/ns1"
+    }
+  }
+}
+
+# Create a new zone
+resource "ns1_zone" "foobar" {
 }
 ```
 
