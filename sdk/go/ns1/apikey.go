@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Legacy API Key (Static Secret)
+//
 // ```go
 // package main
 //
@@ -27,32 +29,54 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ns1.NewTeam(ctx, "example", &ns1.TeamArgs{
-//				Name: pulumi.String("Example team"),
+//			staticKey, err := ns1.NewAPIKey(ctx, "static_key", &ns1.APIKeyArgs{
+//				Name:           pulumi.String("Static API Key"),
+//				DnsViewZones:   pulumi.Bool(true),
+//				DnsManageZones: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ns1.NewAPIKey(ctx, "example", &ns1.APIKeyArgs{
-//				Name: pulumi.String("Example key"),
-//				Teams: pulumi.StringArray{
-//					example.ID(),
-//				},
-//				IpWhitelists: pulumi.StringArray{
-//					pulumi.String("1.1.1.1"),
-//					pulumi.String("2.2.2.2"),
-//				},
-//				DnsViewZones:       pulumi.Bool(false),
-//				AccountManageUsers: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
+//			ctx.Export("apiKeySecret", staticKey.Key)
 //			return nil
 //		})
 //	}
 //
 // ```
+//
+// ### API Key with Secret Expiration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			expiring, err := ns1.NewAPIKey(ctx, "expiring", &ns1.APIKeyArgs{
+//				Name:           pulumi.String("Expiring API Key"),
+//				ExpiryDuration: pulumi.String("30d"),
+//				DnsViewZones:   pulumi.Bool(true),
+//				DnsManageZones: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("secretInfo", expiring.Secrets)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Important Notes
+//
+// > **Changing expiryDuration forces recreation.** When you modify the `expiryDuration` field of an existing API key, Terraform will destroy the old key and create a new one. This means the API key ID and all secrets will change. Any external references to the old key will break. Plan your migrations carefully and update dependent systems before changing this value.
 //
 // ## Permissions
 //
@@ -123,6 +147,8 @@ type APIKey struct {
 	DnsZonesAllows pulumi.StringArrayOutput `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayOutput `pulumi:"dnsZonesDenies"`
+	// Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+	ExpiryDuration pulumi.StringPtrOutput `pulumi:"expiryDuration"`
 	// Whether the apikey can manage DNS insights.
 	InsightsManageInsights pulumi.BoolPtrOutput `pulumi:"insightsManageInsights"`
 	// Whether the apikey can view DNS insights.
@@ -131,7 +157,7 @@ type APIKey struct {
 	IpWhitelistStrict pulumi.BoolPtrOutput `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayOutput `pulumi:"ipWhitelists"`
-	// (Computed) The apikeys authentication token.
+	// (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrOutput `pulumi:"monitoringCreateJobs"`
@@ -149,6 +175,8 @@ type APIKey struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrOutput `pulumi:"redirectsManageRedirects"`
+	// (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+	Secrets APIKeySecretArrayOutput `pulumi:"secrets"`
 	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrOutput `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
@@ -231,6 +259,8 @@ type apikeyState struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
+	// Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+	ExpiryDuration *string `pulumi:"expiryDuration"`
 	// Whether the apikey can manage DNS insights.
 	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
 	// Whether the apikey can view DNS insights.
@@ -239,7 +269,7 @@ type apikeyState struct {
 	IpWhitelistStrict *bool `pulumi:"ipWhitelistStrict"`
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists []string `pulumi:"ipWhitelists"`
-	// (Computed) The apikeys authentication token.
+	// (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
 	Key *string `pulumi:"key"`
 	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs *bool `pulumi:"monitoringCreateJobs"`
@@ -257,6 +287,8 @@ type apikeyState struct {
 	Name *string `pulumi:"name"`
 	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects *bool `pulumi:"redirectsManageRedirects"`
+	// (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+	Secrets []APIKeySecret `pulumi:"secrets"`
 	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory *bool `pulumi:"securityManageActiveDirectory"`
 	// Whether the apikey can manage global two factor authentication.
@@ -306,6 +338,8 @@ type APIKeyState struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayInput
+	// Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+	ExpiryDuration pulumi.StringPtrInput
 	// Whether the apikey can manage DNS insights.
 	InsightsManageInsights pulumi.BoolPtrInput
 	// Whether the apikey can view DNS insights.
@@ -314,7 +348,7 @@ type APIKeyState struct {
 	IpWhitelistStrict pulumi.BoolPtrInput
 	// Array of IP addresses/networks to which to grant the API key access.
 	IpWhitelists pulumi.StringArrayInput
-	// (Computed) The apikeys authentication token.
+	// (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
 	Key pulumi.StringPtrInput
 	// Whether the apikey can create monitoring jobs when manageJobs is not set to true.
 	MonitoringCreateJobs pulumi.BoolPtrInput
@@ -332,6 +366,8 @@ type APIKeyState struct {
 	Name pulumi.StringPtrInput
 	// Whether the apikey can manage redirects.
 	RedirectsManageRedirects pulumi.BoolPtrInput
+	// (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+	Secrets APIKeySecretArrayInput
 	// Whether the apikey can manage global active directory. Only relevant for the DDI product.
 	SecurityManageActiveDirectory pulumi.BoolPtrInput
 	// Whether the apikey can manage global two factor authentication.
@@ -385,6 +421,8 @@ type apikeyArgs struct {
 	DnsZonesAllows []string `pulumi:"dnsZonesAllows"`
 	// List of zones that the apikey may not access.
 	DnsZonesDenies []string `pulumi:"dnsZonesDenies"`
+	// Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+	ExpiryDuration *string `pulumi:"expiryDuration"`
 	// Whether the apikey can manage DNS insights.
 	InsightsManageInsights *bool `pulumi:"insightsManageInsights"`
 	// Whether the apikey can view DNS insights.
@@ -459,6 +497,8 @@ type APIKeyArgs struct {
 	DnsZonesAllows pulumi.StringArrayInput
 	// List of zones that the apikey may not access.
 	DnsZonesDenies pulumi.StringArrayInput
+	// Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+	ExpiryDuration pulumi.StringPtrInput
 	// Whether the apikey can manage DNS insights.
 	InsightsManageInsights pulumi.BoolPtrInput
 	// Whether the apikey can view DNS insights.
@@ -675,6 +715,11 @@ func (o APIKeyOutput) DnsZonesDenies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.StringArrayOutput { return v.DnsZonesDenies }).(pulumi.StringArrayOutput)
 }
 
+// Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+func (o APIKeyOutput) ExpiryDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *APIKey) pulumi.StringPtrOutput { return v.ExpiryDuration }).(pulumi.StringPtrOutput)
+}
+
 // Whether the apikey can manage DNS insights.
 func (o APIKeyOutput) InsightsManageInsights() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.InsightsManageInsights }).(pulumi.BoolPtrOutput)
@@ -695,7 +740,7 @@ func (o APIKeyOutput) IpWhitelists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.StringArrayOutput { return v.IpWhitelists }).(pulumi.StringArrayOutput)
 }
 
-// (Computed) The apikeys authentication token.
+// (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
 func (o APIKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -738,6 +783,11 @@ func (o APIKeyOutput) Name() pulumi.StringOutput {
 // Whether the apikey can manage redirects.
 func (o APIKeyOutput) RedirectsManageRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *APIKey) pulumi.BoolPtrOutput { return v.RedirectsManageRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+func (o APIKeyOutput) Secrets() APIKeySecretArrayOutput {
+	return o.ApplyT(func(v *APIKey) APIKeySecretArrayOutput { return v.Secrets }).(APIKeySecretArrayOutput)
 }
 
 // Whether the apikey can manage global active directory. Only relevant for the DDI product.

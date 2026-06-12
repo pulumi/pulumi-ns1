@@ -12,6 +12,7 @@ import com.pulumi.ns1.Utilities;
 import com.pulumi.ns1.inputs.APIKeyState;
 import com.pulumi.ns1.outputs.APIKeyDnsRecordsAllow;
 import com.pulumi.ns1.outputs.APIKeyDnsRecordsDeny;
+import com.pulumi.ns1.outputs.APIKeySecret;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -23,6 +24,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Legacy API Key (Static Secret)
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -30,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.ns1.Team;
- * import com.pulumi.ns1.TeamArgs;
  * import com.pulumi.ns1.APIKey;
  * import com.pulumi.ns1.APIKeyArgs;
  * import java.util.ArrayList;
@@ -47,24 +48,58 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Team("example", TeamArgs.builder()
- *             .name("Example team")
+ *         var staticKey = new APIKey("staticKey", APIKeyArgs.builder()
+ *             .name("Static API Key")
+ *             .dnsViewZones(true)
+ *             .dnsManageZones(true)
  *             .build());
  * 
- *         var exampleAPIKey = new APIKey("exampleAPIKey", APIKeyArgs.builder()
- *             .name("Example key")
- *             .teams(example.id())
- *             .ipWhitelists(            
- *                 "1.1.1.1",
- *                 "2.2.2.2")
- *             .dnsViewZones(false)
- *             .accountManageUsers(false)
- *             .build());
- * 
+ *         ctx.export("apiKeySecret", staticKey.key());
  *     }
  * }
  * }
  * </pre>
+ * 
+ * ### API Key with Secret Expiration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.ns1.APIKey;
+ * import com.pulumi.ns1.APIKeyArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var expiring = new APIKey("expiring", APIKeyArgs.builder()
+ *             .name("Expiring API Key")
+ *             .expiryDuration("30d")
+ *             .dnsViewZones(true)
+ *             .dnsManageZones(true)
+ *             .build());
+ * 
+ *         ctx.export("secretInfo", expiring.secrets());
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Important Notes
+ * 
+ * &gt; **Changing expiryDuration forces recreation.** When you modify the `expiryDuration` field of an existing API key, Terraform will destroy the old key and create a new one. This means the API key ID and all secrets will change. Any external references to the old key will break. Plan your migrations carefully and update dependent systems before changing this value.
  * 
  * ## Permissions
  * 
@@ -367,6 +402,20 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsZonesDenies);
     }
     /**
+     * Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     * 
+     */
+    @Export(name="expiryDuration", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> expiryDuration;
+
+    /**
+     * @return Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     * 
+     */
+    public Output<Optional<String>> expiryDuration() {
+        return Codegen.optional(this.expiryDuration);
+    }
+    /**
      * Whether the apikey can manage DNS insights.
      * 
      */
@@ -423,14 +472,14 @@ public class APIKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipWhitelists);
     }
     /**
-     * (Computed) The apikeys authentication token.
+     * (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return (Computed) The apikeys authentication token.
+     * @return (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
      * 
      */
     public Output<String> key() {
@@ -547,6 +596,20 @@ public class APIKey extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> redirectsManageRedirects() {
         return Codegen.optional(this.redirectsManageRedirects);
+    }
+    /**
+     * (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+     * 
+     */
+    @Export(name="secrets", refs={List.class,APIKeySecret.class}, tree="[0,1]")
+    private Output<List<APIKeySecret>> secrets;
+
+    /**
+     * @return (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+     * 
+     */
+    public Output<List<APIKeySecret>> secrets() {
+        return this.secrets;
     }
     /**
      * Whether the apikey can manage global active directory. Only relevant for the DDI product.

@@ -19,6 +19,25 @@ export interface APIKeyDnsRecordsDeny {
     zone: string;
 }
 
+export interface APIKeySecret {
+    /**
+     * Whether this secret is currently enabled for authentication.
+     */
+    enabled: boolean;
+    /**
+     * The expiration date/time of the secret in ISO 8601 format.
+     */
+    expiresAt: string;
+    /**
+     * The unique identifier for the secret.
+     */
+    id: string;
+    /**
+     * The last time this secret was used for authentication.
+     */
+    lastAccess: string;
+}
+
 export interface AlertData {
     /**
      * required by the account/usage alerts, with a value between 1 and 100

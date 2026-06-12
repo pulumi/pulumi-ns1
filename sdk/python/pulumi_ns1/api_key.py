@@ -40,6 +40,7 @@ class APIKeyArgs:
                  dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expiry_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -77,6 +78,7 @@ class APIKeyArgs:
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.str] expiry_duration: Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
         :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
         :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
@@ -134,6 +136,8 @@ class APIKeyArgs:
             pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+        if expiry_duration is not None:
+            pulumi.set(__self__, "expiry_duration", expiry_duration)
         if insights_manage_insights is not None:
             pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
         if insights_view_insights is not None:
@@ -393,6 +397,18 @@ class APIKeyArgs:
     @dns_zones_denies.setter
     def dns_zones_denies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_zones_denies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expiryDuration")
+    def expiry_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+        """
+        return pulumi.get(self, "expiry_duration")
+
+    @expiry_duration.setter
+    def expiry_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expiry_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="insightsManageInsights")
@@ -597,6 +613,7 @@ class _APIKeyState:
                  dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expiry_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -610,6 +627,7 @@ class _APIKeyState:
                  monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeySecretArgs']]]] = None,
                  security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -635,11 +653,12 @@ class _APIKeyState:
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.str] expiry_duration: Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
         :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
         :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the API key access.
-        :param pulumi.Input[_builtins.str] key: (Computed) The apikeys authentication token.
+        :param pulumi.Input[_builtins.str] key: (Computed) The API key authentication token. Only populated for legacy API keys (when `expiry_duration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
         :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the apikey can create, update, and delete monitoring jobs.
@@ -648,6 +667,7 @@ class _APIKeyState:
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the apikey can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the apikey.
         :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the apikey can manage redirects.
+        :param pulumi.Input[Sequence[pulumi.Input['APIKeySecretArgs']]] secrets: (Computed) List of secrets for this API key. Only populated when `expiry_duration` is set. Each secret contains:
         :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the apikey belongs to.
@@ -693,6 +713,8 @@ class _APIKeyState:
             pulumi.set(__self__, "dns_zones_allows", dns_zones_allows)
         if dns_zones_denies is not None:
             pulumi.set(__self__, "dns_zones_denies", dns_zones_denies)
+        if expiry_duration is not None:
+            pulumi.set(__self__, "expiry_duration", expiry_duration)
         if insights_manage_insights is not None:
             pulumi.set(__self__, "insights_manage_insights", insights_manage_insights)
         if insights_view_insights is not None:
@@ -719,6 +741,8 @@ class _APIKeyState:
             pulumi.set(__self__, "name", name)
         if redirects_manage_redirects is not None:
             pulumi.set(__self__, "redirects_manage_redirects", redirects_manage_redirects)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
         if security_manage_active_directory is not None:
             pulumi.set(__self__, "security_manage_active_directory", security_manage_active_directory)
         if security_manage_global2fa is not None:
@@ -956,6 +980,18 @@ class _APIKeyState:
         pulumi.set(self, "dns_zones_denies", value)
 
     @_builtins.property
+    @pulumi.getter(name="expiryDuration")
+    def expiry_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+        """
+        return pulumi.get(self, "expiry_duration")
+
+    @expiry_duration.setter
+    def expiry_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expiry_duration", value)
+
+    @_builtins.property
     @pulumi.getter(name="insightsManageInsights")
     def insights_manage_insights(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -1007,7 +1043,7 @@ class _APIKeyState:
     @pulumi.getter
     def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Computed) The apikeys authentication token.
+        (Computed) The API key authentication token. Only populated for legacy API keys (when `expiry_duration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
         """
         return pulumi.get(self, "key")
 
@@ -1112,6 +1148,18 @@ class _APIKeyState:
         pulumi.set(self, "redirects_manage_redirects", value)
 
     @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['APIKeySecretArgs']]]]:
+        """
+        (Computed) List of secrets for this API key. Only populated when `expiry_duration` is set. Each secret contains:
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['APIKeySecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityManageActiveDirectory")
     def security_manage_active_directory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -1173,6 +1221,7 @@ class APIKey(pulumi.CustomResource):
                  dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expiry_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1194,21 +1243,36 @@ class APIKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Legacy API Key (Static Secret)
+
         ```python
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.Team("example", name="Example team")
-        example_api_key = ns1.APIKey("example",
-            name="Example key",
-            teams=[example.id],
-            ip_whitelists=[
-                "1.1.1.1",
-                "2.2.2.2",
-            ],
-            dns_view_zones=False,
-            account_manage_users=False)
+        static_key = ns1.APIKey("static_key",
+            name="Static API Key",
+            dns_view_zones=True,
+            dns_manage_zones=True)
+        pulumi.export("apiKeySecret", static_key.key)
         ```
+
+        ### API Key with Secret Expiration
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        expiring = ns1.APIKey("expiring",
+            name="Expiring API Key",
+            expiry_duration="30d",
+            dns_view_zones=True,
+            dns_manage_zones=True)
+        pulumi.export("secretInfo", expiring.secrets)
+        ```
+
+        ## Important Notes
+
+        > **Changing expiry_duration forces recreation.** When you modify the `expiry_duration` field of an existing API key, Terraform will destroy the old key and create a new one. This means the API key ID and all secrets will change. Any external references to the old key will break. Plan your migrations carefully and update dependent systems before changing this value.
 
         ## Permissions
 
@@ -1259,6 +1323,7 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.str] expiry_duration: Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
         :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
         :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
@@ -1286,21 +1351,36 @@ class APIKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Legacy API Key (Static Secret)
+
         ```python
         import pulumi
         import pulumi_ns1 as ns1
 
-        example = ns1.Team("example", name="Example team")
-        example_api_key = ns1.APIKey("example",
-            name="Example key",
-            teams=[example.id],
-            ip_whitelists=[
-                "1.1.1.1",
-                "2.2.2.2",
-            ],
-            dns_view_zones=False,
-            account_manage_users=False)
+        static_key = ns1.APIKey("static_key",
+            name="Static API Key",
+            dns_view_zones=True,
+            dns_manage_zones=True)
+        pulumi.export("apiKeySecret", static_key.key)
         ```
+
+        ### API Key with Secret Expiration
+
+        ```python
+        import pulumi
+        import pulumi_ns1 as ns1
+
+        expiring = ns1.APIKey("expiring",
+            name="Expiring API Key",
+            expiry_duration="30d",
+            dns_view_zones=True,
+            dns_manage_zones=True)
+        pulumi.export("secretInfo", expiring.secrets)
+        ```
+
+        ## Important Notes
+
+        > **Changing expiry_duration forces recreation.** When you modify the `expiry_duration` field of an existing API key, Terraform will destroy the old key and create a new one. This means the API key ID and all secrets will change. Any external references to the old key will break. Plan your migrations carefully and update dependent systems before changing this value.
 
         ## Permissions
 
@@ -1364,6 +1444,7 @@ class APIKey(pulumi.CustomResource):
                  dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expiry_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
                  ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1407,6 +1488,7 @@ class APIKey(pulumi.CustomResource):
             __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
             __props__.__dict__["dns_zones_allows"] = dns_zones_allows
             __props__.__dict__["dns_zones_denies"] = dns_zones_denies
+            __props__.__dict__["expiry_duration"] = expiry_duration
             __props__.__dict__["insights_manage_insights"] = insights_manage_insights
             __props__.__dict__["insights_view_insights"] = insights_view_insights
             __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
@@ -1423,6 +1505,7 @@ class APIKey(pulumi.CustomResource):
             __props__.__dict__["security_manage_global2fa"] = security_manage_global2fa
             __props__.__dict__["teams"] = teams
             __props__.__dict__["key"] = None
+            __props__.__dict__["secrets"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(APIKey, __self__).__init__(
@@ -1454,6 +1537,7 @@ class APIKey(pulumi.CustomResource):
             dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
             dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            expiry_duration: pulumi.Input[Optional[_builtins.str]] = None,
             insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
             insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
             ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1467,6 +1551,7 @@ class APIKey(pulumi.CustomResource):
             monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeySecretArgs', 'APIKeySecretArgsDict']]]]] = None,
             security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
             security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
             teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'APIKey':
@@ -1496,11 +1581,12 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the apikey may access.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_denies: List of zones that the apikey may not access.
+        :param pulumi.Input[_builtins.str] expiry_duration: Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
         :param pulumi.Input[_builtins.bool] insights_manage_insights: Whether the apikey can manage DNS insights.
         :param pulumi.Input[_builtins.bool] insights_view_insights: Whether the apikey can view DNS insights.
         :param pulumi.Input[_builtins.bool] ip_whitelist_strict: Set to true to restrict access to only those IP addresses and networks listed in the **ip_whitelist** field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_whitelists: Array of IP addresses/networks to which to grant the API key access.
-        :param pulumi.Input[_builtins.str] key: (Computed) The apikeys authentication token.
+        :param pulumi.Input[_builtins.str] key: (Computed) The API key authentication token. Only populated for legacy API keys (when `expiry_duration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
         :param pulumi.Input[_builtins.bool] monitoring_create_jobs: Whether the apikey can create monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_delete_jobs: Whether the apikey can delete monitoring jobs when manage_jobs is not set to true.
         :param pulumi.Input[_builtins.bool] monitoring_manage_jobs: Whether the apikey can create, update, and delete monitoring jobs.
@@ -1509,6 +1595,7 @@ class APIKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] monitoring_view_jobs: Whether the apikey can view monitoring jobs.
         :param pulumi.Input[_builtins.str] name: The free form name of the apikey.
         :param pulumi.Input[_builtins.bool] redirects_manage_redirects: Whether the apikey can manage redirects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['APIKeySecretArgs', 'APIKeySecretArgsDict']]]] secrets: (Computed) List of secrets for this API key. Only populated when `expiry_duration` is set. Each secret contains:
         :param pulumi.Input[_builtins.bool] security_manage_active_directory: Whether the apikey can manage global active directory. Only relevant for the DDI product.
         :param pulumi.Input[_builtins.bool] security_manage_global2fa: Whether the apikey can manage global two factor authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: The teams that the apikey belongs to.
@@ -1536,6 +1623,7 @@ class APIKey(pulumi.CustomResource):
         __props__.__dict__["dns_zones_allow_by_default"] = dns_zones_allow_by_default
         __props__.__dict__["dns_zones_allows"] = dns_zones_allows
         __props__.__dict__["dns_zones_denies"] = dns_zones_denies
+        __props__.__dict__["expiry_duration"] = expiry_duration
         __props__.__dict__["insights_manage_insights"] = insights_manage_insights
         __props__.__dict__["insights_view_insights"] = insights_view_insights
         __props__.__dict__["ip_whitelist_strict"] = ip_whitelist_strict
@@ -1549,6 +1637,7 @@ class APIKey(pulumi.CustomResource):
         __props__.__dict__["monitoring_view_jobs"] = monitoring_view_jobs
         __props__.__dict__["name"] = name
         __props__.__dict__["redirects_manage_redirects"] = redirects_manage_redirects
+        __props__.__dict__["secrets"] = secrets
         __props__.__dict__["security_manage_active_directory"] = security_manage_active_directory
         __props__.__dict__["security_manage_global2fa"] = security_manage_global2fa
         __props__.__dict__["teams"] = teams
@@ -1708,6 +1797,14 @@ class APIKey(pulumi.CustomResource):
         return pulumi.get(self, "dns_zones_denies")
 
     @_builtins.property
+    @pulumi.getter(name="expiryDuration")
+    def expiry_duration(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+        """
+        return pulumi.get(self, "expiry_duration")
+
+    @_builtins.property
     @pulumi.getter(name="insightsManageInsights")
     def insights_manage_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -1743,7 +1840,7 @@ class APIKey(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
         """
-        (Computed) The apikeys authentication token.
+        (Computed) The API key authentication token. Only populated for legacy API keys (when `expiry_duration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
         """
         return pulumi.get(self, "key")
 
@@ -1810,6 +1907,14 @@ class APIKey(pulumi.CustomResource):
         Whether the apikey can manage redirects.
         """
         return pulumi.get(self, "redirects_manage_redirects")
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> pulumi.Output[Sequence['outputs.APIKeySecret']]:
+        """
+        (Computed) List of secrets for this API key. Only populated when `expiry_duration` is set. Each secret contains:
+        """
+        return pulumi.get(self, "secrets")
 
     @_builtins.property
     @pulumi.getter(name="securityManageActiveDirectory")

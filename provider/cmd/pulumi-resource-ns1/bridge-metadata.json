@@ -47,6 +47,9 @@
                     "ip_whitelist": {
                         "maxItemsOne": false
                     },
+                    "secrets": {
+                        "maxItemsOne": false
+                    },
                     "teams": {
                         "maxItemsOne": false
                     }

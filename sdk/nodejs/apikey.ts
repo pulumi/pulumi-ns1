@@ -11,22 +11,38 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### Legacy API Key (Static Secret)
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as ns1 from "@pulumi/ns1";
  *
- * const example = new ns1.Team("example", {name: "Example team"});
- * const exampleAPIKey = new ns1.APIKey("example", {
- *     name: "Example key",
- *     teams: [example.id],
- *     ipWhitelists: [
- *         "1.1.1.1",
- *         "2.2.2.2",
- *     ],
- *     dnsViewZones: false,
- *     accountManageUsers: false,
+ * const staticKey = new ns1.APIKey("static_key", {
+ *     name: "Static API Key",
+ *     dnsViewZones: true,
+ *     dnsManageZones: true,
  * });
+ * export const apiKeySecret = staticKey.key;
  * ```
+ *
+ * ### API Key with Secret Expiration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as ns1 from "@pulumi/ns1";
+ *
+ * const expiring = new ns1.APIKey("expiring", {
+ *     name: "Expiring API Key",
+ *     expiryDuration: "30d",
+ *     dnsViewZones: true,
+ *     dnsManageZones: true,
+ * });
+ * export const secretInfo = expiring.secrets;
+ * ```
+ *
+ * ## Important Notes
+ *
+ * > **Changing expiryDuration forces recreation.** When you modify the `expiryDuration` field of an existing API key, Terraform will destroy the old key and create a new one. This means the API key ID and all secrets will change. Any external references to the old key will break. Plan your migrations carefully and update dependent systems before changing this value.
  *
  * ## Permissions
  *
@@ -162,6 +178,10 @@ export class APIKey extends pulumi.CustomResource {
      */
     declare public readonly dnsZonesDenies: pulumi.Output<string[] | undefined>;
     /**
+     * Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     */
+    declare public readonly expiryDuration: pulumi.Output<string | undefined>;
+    /**
      * Whether the apikey can manage DNS insights.
      */
     declare public readonly insightsManageInsights: pulumi.Output<boolean | undefined>;
@@ -178,7 +198,7 @@ export class APIKey extends pulumi.CustomResource {
      */
     declare public readonly ipWhitelists: pulumi.Output<string[] | undefined>;
     /**
-     * (Computed) The apikeys authentication token.
+     * (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
      */
     declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
@@ -213,6 +233,10 @@ export class APIKey extends pulumi.CustomResource {
      * Whether the apikey can manage redirects.
      */
     declare public readonly redirectsManageRedirects: pulumi.Output<boolean | undefined>;
+    /**
+     * (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+     */
+    declare public /*out*/ readonly secrets: pulumi.Output<outputs.APIKeySecret[]>;
     /**
      * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      */
@@ -258,6 +282,7 @@ export class APIKey extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllowByDefault"] = state?.dnsZonesAllowByDefault;
             resourceInputs["dnsZonesAllows"] = state?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = state?.dnsZonesDenies;
+            resourceInputs["expiryDuration"] = state?.expiryDuration;
             resourceInputs["insightsManageInsights"] = state?.insightsManageInsights;
             resourceInputs["insightsViewInsights"] = state?.insightsViewInsights;
             resourceInputs["ipWhitelistStrict"] = state?.ipWhitelistStrict;
@@ -271,6 +296,7 @@ export class APIKey extends pulumi.CustomResource {
             resourceInputs["monitoringViewJobs"] = state?.monitoringViewJobs;
             resourceInputs["name"] = state?.name;
             resourceInputs["redirectsManageRedirects"] = state?.redirectsManageRedirects;
+            resourceInputs["secrets"] = state?.secrets;
             resourceInputs["securityManageActiveDirectory"] = state?.securityManageActiveDirectory;
             resourceInputs["securityManageGlobal2fa"] = state?.securityManageGlobal2fa;
             resourceInputs["teams"] = state?.teams;
@@ -295,6 +321,7 @@ export class APIKey extends pulumi.CustomResource {
             resourceInputs["dnsZonesAllowByDefault"] = args?.dnsZonesAllowByDefault;
             resourceInputs["dnsZonesAllows"] = args?.dnsZonesAllows;
             resourceInputs["dnsZonesDenies"] = args?.dnsZonesDenies;
+            resourceInputs["expiryDuration"] = args?.expiryDuration;
             resourceInputs["insightsManageInsights"] = args?.insightsManageInsights;
             resourceInputs["insightsViewInsights"] = args?.insightsViewInsights;
             resourceInputs["ipWhitelistStrict"] = args?.ipWhitelistStrict;
@@ -311,6 +338,7 @@ export class APIKey extends pulumi.CustomResource {
             resourceInputs["securityManageGlobal2fa"] = args?.securityManageGlobal2fa;
             resourceInputs["teams"] = args?.teams;
             resourceInputs["key"] = undefined /*out*/;
+            resourceInputs["secrets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["key"] };
@@ -402,6 +430,10 @@ export interface APIKeyState {
      */
     dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     */
+    expiryDuration?: pulumi.Input<string | undefined>;
+    /**
      * Whether the apikey can manage DNS insights.
      */
     insightsManageInsights?: pulumi.Input<boolean | undefined>;
@@ -418,7 +450,7 @@ export interface APIKeyState {
      */
     ipWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * (Computed) The apikeys authentication token.
+     * (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
      */
     key?: pulumi.Input<string | undefined>;
     /**
@@ -453,6 +485,10 @@ export interface APIKeyState {
      * Whether the apikey can manage redirects.
      */
     redirectsManageRedirects?: pulumi.Input<boolean | undefined>;
+    /**
+     * (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+     */
+    secrets?: pulumi.Input<pulumi.Input<inputs.APIKeySecret>[] | undefined>;
     /**
      * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      */
@@ -549,6 +585,10 @@ export interface APIKeyArgs {
      * List of zones that the apikey may not access.
      */
     dnsZonesDenies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Duration for secret expiration in `<number>d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     */
+    expiryDuration?: pulumi.Input<string | undefined>;
     /**
      * Whether the apikey can manage DNS insights.
      */

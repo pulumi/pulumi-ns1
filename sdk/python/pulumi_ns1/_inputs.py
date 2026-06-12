@@ -19,6 +19,8 @@ __all__ = [
     'APIKeyDnsRecordsAllowArgsDict',
     'APIKeyDnsRecordsDenyArgs',
     'APIKeyDnsRecordsDenyArgsDict',
+    'APIKeySecretArgs',
+    'APIKeySecretArgsDict',
     'AlertDataArgs',
     'AlertDataArgsDict',
     'ApplicationDefaultConfigArgs',
@@ -171,6 +173,95 @@ class APIKeyDnsRecordsDenyArgs:
     @zone.setter
     def zone(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "zone", value)
+
+
+class APIKeySecretArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this secret is currently enabled for authentication.
+    """
+    expires_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The expiration date/time of the secret in ISO 8601 format.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique identifier for the secret.
+    """
+    last_access: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The last time this secret was used for authentication.
+    """
+
+@pulumi.input_type
+class APIKeySecretArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_access: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether this secret is currently enabled for authentication.
+        :param pulumi.Input[_builtins.str] expires_at: The expiration date/time of the secret in ISO 8601 format.
+        :param pulumi.Input[_builtins.str] id: The unique identifier for the secret.
+        :param pulumi.Input[_builtins.str] last_access: The last time this secret was used for authentication.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expires_at is not None:
+            pulumi.set(__self__, "expires_at", expires_at)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_access is not None:
+            pulumi.set(__self__, "last_access", last_access)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this secret is currently enabled for authentication.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The expiration date/time of the secret in ISO 8601 format.
+        """
+        return pulumi.get(self, "expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expires_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique identifier for the secret.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastAccess")
+    def last_access(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The last time this secret was used for authentication.
+        """
+        return pulumi.get(self, "last_access")
+
+    @last_access.setter
+    def last_access(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_access", value)
 
 
 class AlertDataArgsDict(TypedDict):

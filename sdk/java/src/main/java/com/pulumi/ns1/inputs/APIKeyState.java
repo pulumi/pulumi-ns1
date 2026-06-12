@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.ns1.inputs.APIKeyDnsRecordsAllowArgs;
 import com.pulumi.ns1.inputs.APIKeyDnsRecordsDenyArgs;
+import com.pulumi.ns1.inputs.APIKeySecretArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -313,6 +314,21 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     * 
+     */
+    @Import(name="expiryDuration")
+    private @Nullable Output<String> expiryDuration;
+
+    /**
+     * @return Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     * 
+     */
+    public Optional<Output<String>> expiryDuration() {
+        return Optional.ofNullable(this.expiryDuration);
+    }
+
+    /**
      * Whether the apikey can manage DNS insights.
      * 
      */
@@ -373,14 +389,14 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Computed) The apikeys authentication token.
+     * (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return (Computed) The apikeys authentication token.
+     * @return (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
      * 
      */
     public Optional<Output<String>> key() {
@@ -508,6 +524,21 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+     * 
+     */
+    @Import(name="secrets")
+    private @Nullable Output<List<APIKeySecretArgs>> secrets;
+
+    /**
+     * @return (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+     * 
+     */
+    public Optional<Output<List<APIKeySecretArgs>>> secrets() {
+        return Optional.ofNullable(this.secrets);
+    }
+
+    /**
      * Whether the apikey can manage global active directory. Only relevant for the DDI product.
      * 
      */
@@ -574,6 +605,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         this.dnsZonesAllowByDefault = $.dnsZonesAllowByDefault;
         this.dnsZonesAllows = $.dnsZonesAllows;
         this.dnsZonesDenies = $.dnsZonesDenies;
+        this.expiryDuration = $.expiryDuration;
         this.insightsManageInsights = $.insightsManageInsights;
         this.insightsViewInsights = $.insightsViewInsights;
         this.ipWhitelistStrict = $.ipWhitelistStrict;
@@ -587,6 +619,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         this.monitoringViewJobs = $.monitoringViewJobs;
         this.name = $.name;
         this.redirectsManageRedirects = $.redirectsManageRedirects;
+        this.secrets = $.secrets;
         this.securityManageActiveDirectory = $.securityManageActiveDirectory;
         this.securityManageGlobal2fa = $.securityManageGlobal2fa;
         this.teams = $.teams;
@@ -1058,6 +1091,27 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param expiryDuration Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expiryDuration(@Nullable Output<String> expiryDuration) {
+            $.expiryDuration = expiryDuration;
+            return this;
+        }
+
+        /**
+         * @param expiryDuration Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expiryDuration(String expiryDuration) {
+            return expiryDuration(Output.of(expiryDuration));
+        }
+
+        /**
          * @param insightsManageInsights Whether the apikey can manage DNS insights.
          * 
          * @return builder
@@ -1152,7 +1206,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key (Computed) The apikeys authentication token.
+         * @param key (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
          * 
          * @return builder
          * 
@@ -1163,7 +1217,7 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key (Computed) The apikeys authentication token.
+         * @param key (Computed) The API key authentication token. Only populated for legacy API keys (when `expiryDuration` is not set). For API keys with expiration, use the secret keys from the `secrets` attribute instead.
          * 
          * @return builder
          * 
@@ -1338,6 +1392,37 @@ public final class APIKeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder redirectsManageRedirects(Boolean redirectsManageRedirects) {
             return redirectsManageRedirects(Output.of(redirectsManageRedirects));
+        }
+
+        /**
+         * @param secrets (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secrets(@Nullable Output<List<APIKeySecretArgs>> secrets) {
+            $.secrets = secrets;
+            return this;
+        }
+
+        /**
+         * @param secrets (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secrets(List<APIKeySecretArgs> secrets) {
+            return secrets(Output.of(secrets));
+        }
+
+        /**
+         * @param secrets (Computed) List of secrets for this API key. Only populated when `expiryDuration` is set. Each secret contains:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secrets(APIKeySecretArgs... secrets) {
+            return secrets(List.of(secrets));
         }
 
         /**

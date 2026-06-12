@@ -237,6 +237,130 @@ func (o APIKeyDnsRecordsDenyArrayOutput) Index(i pulumi.IntInput) APIKeyDnsRecor
 	}).(APIKeyDnsRecordsDenyOutput)
 }
 
+type APIKeySecret struct {
+	// Whether this secret is currently enabled for authentication.
+	Enabled *bool `pulumi:"enabled"`
+	// The expiration date/time of the secret in ISO 8601 format.
+	ExpiresAt *string `pulumi:"expiresAt"`
+	// The unique identifier for the secret.
+	Id *string `pulumi:"id"`
+	// The last time this secret was used for authentication.
+	LastAccess *string `pulumi:"lastAccess"`
+}
+
+// APIKeySecretInput is an input type that accepts APIKeySecretArgs and APIKeySecretOutput values.
+// You can construct a concrete instance of `APIKeySecretInput` via:
+//
+//	APIKeySecretArgs{...}
+type APIKeySecretInput interface {
+	pulumi.Input
+
+	ToAPIKeySecretOutput() APIKeySecretOutput
+	ToAPIKeySecretOutputWithContext(context.Context) APIKeySecretOutput
+}
+
+type APIKeySecretArgs struct {
+	// Whether this secret is currently enabled for authentication.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The expiration date/time of the secret in ISO 8601 format.
+	ExpiresAt pulumi.StringPtrInput `pulumi:"expiresAt"`
+	// The unique identifier for the secret.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The last time this secret was used for authentication.
+	LastAccess pulumi.StringPtrInput `pulumi:"lastAccess"`
+}
+
+func (APIKeySecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKeySecret)(nil)).Elem()
+}
+
+func (i APIKeySecretArgs) ToAPIKeySecretOutput() APIKeySecretOutput {
+	return i.ToAPIKeySecretOutputWithContext(context.Background())
+}
+
+func (i APIKeySecretArgs) ToAPIKeySecretOutputWithContext(ctx context.Context) APIKeySecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIKeySecretOutput)
+}
+
+// APIKeySecretArrayInput is an input type that accepts APIKeySecretArray and APIKeySecretArrayOutput values.
+// You can construct a concrete instance of `APIKeySecretArrayInput` via:
+//
+//	APIKeySecretArray{ APIKeySecretArgs{...} }
+type APIKeySecretArrayInput interface {
+	pulumi.Input
+
+	ToAPIKeySecretArrayOutput() APIKeySecretArrayOutput
+	ToAPIKeySecretArrayOutputWithContext(context.Context) APIKeySecretArrayOutput
+}
+
+type APIKeySecretArray []APIKeySecretInput
+
+func (APIKeySecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]APIKeySecret)(nil)).Elem()
+}
+
+func (i APIKeySecretArray) ToAPIKeySecretArrayOutput() APIKeySecretArrayOutput {
+	return i.ToAPIKeySecretArrayOutputWithContext(context.Background())
+}
+
+func (i APIKeySecretArray) ToAPIKeySecretArrayOutputWithContext(ctx context.Context) APIKeySecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIKeySecretArrayOutput)
+}
+
+type APIKeySecretOutput struct{ *pulumi.OutputState }
+
+func (APIKeySecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIKeySecret)(nil)).Elem()
+}
+
+func (o APIKeySecretOutput) ToAPIKeySecretOutput() APIKeySecretOutput {
+	return o
+}
+
+func (o APIKeySecretOutput) ToAPIKeySecretOutputWithContext(ctx context.Context) APIKeySecretOutput {
+	return o
+}
+
+// Whether this secret is currently enabled for authentication.
+func (o APIKeySecretOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v APIKeySecret) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The expiration date/time of the secret in ISO 8601 format.
+func (o APIKeySecretOutput) ExpiresAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v APIKeySecret) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the secret.
+func (o APIKeySecretOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v APIKeySecret) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The last time this secret was used for authentication.
+func (o APIKeySecretOutput) LastAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v APIKeySecret) *string { return v.LastAccess }).(pulumi.StringPtrOutput)
+}
+
+type APIKeySecretArrayOutput struct{ *pulumi.OutputState }
+
+func (APIKeySecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]APIKeySecret)(nil)).Elem()
+}
+
+func (o APIKeySecretArrayOutput) ToAPIKeySecretArrayOutput() APIKeySecretArrayOutput {
+	return o
+}
+
+func (o APIKeySecretArrayOutput) ToAPIKeySecretArrayOutputWithContext(ctx context.Context) APIKeySecretArrayOutput {
+	return o
+}
+
+func (o APIKeySecretArrayOutput) Index(i pulumi.IntInput) APIKeySecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) APIKeySecret {
+		return vs[0].([]APIKeySecret)[vs[1].(int)]
+	}).(APIKeySecretOutput)
+}
+
 type AlertData struct {
 	// required by the account/usage alerts, with a value between 1 and 100
 	AlertAtPercent *int `pulumi:"alertAtPercent"`
@@ -4590,6 +4714,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsAllowArrayInput)(nil)).Elem(), APIKeyDnsRecordsAllowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsDenyInput)(nil)).Elem(), APIKeyDnsRecordsDenyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*APIKeyDnsRecordsDenyArrayInput)(nil)).Elem(), APIKeyDnsRecordsDenyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*APIKeySecretInput)(nil)).Elem(), APIKeySecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*APIKeySecretArrayInput)(nil)).Elem(), APIKeySecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertDataInput)(nil)).Elem(), AlertDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertDataArrayInput)(nil)).Elem(), AlertDataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefaultConfigInput)(nil)).Elem(), ApplicationDefaultConfigArgs{})
@@ -4660,6 +4786,8 @@ func init() {
 	pulumi.RegisterOutputType(APIKeyDnsRecordsAllowArrayOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyOutput{})
 	pulumi.RegisterOutputType(APIKeyDnsRecordsDenyArrayOutput{})
+	pulumi.RegisterOutputType(APIKeySecretOutput{})
+	pulumi.RegisterOutputType(APIKeySecretArrayOutput{})
 	pulumi.RegisterOutputType(AlertDataOutput{})
 	pulumi.RegisterOutputType(AlertDataArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDefaultConfigOutput{})
