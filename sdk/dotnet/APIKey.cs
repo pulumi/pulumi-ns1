@@ -14,6 +14,8 @@ namespace Pulumi.Ns1
     /// 
     /// ## Example Usage
     /// 
+    /// ### Legacy API Key (Static Secret)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,29 +24,48 @@ namespace Pulumi.Ns1
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Ns1.Team("example", new()
+    ///     var staticKey = new Ns1.APIKey("static_key", new()
     ///     {
-    ///         Name = "Example team",
+    ///         Name = "Static API Key",
+    ///         DnsViewZones = true,
+    ///         DnsManageZones = true,
     ///     });
     /// 
-    ///     var exampleAPIKey = new Ns1.APIKey("example", new()
+    ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         Name = "Example key",
-    ///         Teams = new[]
-    ///         {
-    ///             example.Id,
-    ///         },
-    ///         IpWhitelists = new[]
-    ///         {
-    ///             "1.1.1.1",
-    ///             "2.2.2.2",
-    ///         },
-    ///         DnsViewZones = false,
-    ///         AccountManageUsers = false,
-    ///     });
-    /// 
+    ///         ["apiKeySecret"] = staticKey.Key,
+    ///     };
     /// });
     /// ```
+    /// 
+    /// ### API Key with Secret Expiration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Ns1 = Pulumi.Ns1;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expiring = new Ns1.APIKey("expiring", new()
+    ///     {
+    ///         Name = "Expiring API Key",
+    ///         ExpiryDuration = "30d",
+    ///         DnsViewZones = true,
+    ///         DnsManageZones = true,
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["secretInfo"] = expiring.Secrets,
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ## Important Notes
+    /// 
+    /// &gt; **Changing ExpiryDuration forces recreation.** When you modify the `ExpiryDuration` field of an existing API key, Terraform will destroy the old key and create a new one. This means the API key ID and all secrets will change. Any external references to the old key will break. Plan your migrations carefully and update dependent systems before changing this value.
     /// 
     /// ## Permissions
     /// 
@@ -191,6 +212,12 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<string>> DnsZonesDenies { get; private set; } = null!;
 
         /// <summary>
+        /// Duration for secret expiration in `&lt;number&gt;d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `Key` attribute) is created. Changing this value will force recreation of the API key.
+        /// </summary>
+        [Output("expiryDuration")]
+        public Output<string?> ExpiryDuration { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the apikey can manage DNS insights.
         /// </summary>
         [Output("insightsManageInsights")]
@@ -215,7 +242,7 @@ namespace Pulumi.Ns1
         public Output<ImmutableArray<string>> IpWhitelists { get; private set; } = null!;
 
         /// <summary>
-        /// (Computed) The apikeys authentication token.
+        /// (Computed) The API key authentication token. Only populated for legacy API keys (when `ExpiryDuration` is not set). For API keys with expiration, use the secret keys from the `Secrets` attribute instead.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -267,6 +294,12 @@ namespace Pulumi.Ns1
         /// </summary>
         [Output("redirectsManageRedirects")]
         public Output<bool?> RedirectsManageRedirects { get; private set; } = null!;
+
+        /// <summary>
+        /// (Computed) List of secrets for this API key. Only populated when `ExpiryDuration` is set. Each secret contains:
+        /// </summary>
+        [Output("secrets")]
+        public Output<ImmutableArray<Outputs.APIKeySecret>> Secrets { get; private set; } = null!;
 
         /// <summary>
         /// Whether the apikey can manage global active directory. Only relevant for the DDI product.
@@ -473,6 +506,12 @@ namespace Pulumi.Ns1
             get => _dnsZonesDenies ?? (_dnsZonesDenies = new InputList<string>());
             set => _dnsZonesDenies = value;
         }
+
+        /// <summary>
+        /// Duration for secret expiration in `&lt;number&gt;d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `Key` attribute) is created. Changing this value will force recreation of the API key.
+        /// </summary>
+        [Input("expiryDuration")]
+        public Input<string>? ExpiryDuration { get; set; }
 
         /// <summary>
         /// Whether the apikey can manage DNS insights.
@@ -723,6 +762,12 @@ namespace Pulumi.Ns1
         }
 
         /// <summary>
+        /// Duration for secret expiration in `&lt;number&gt;d` format (e.g., `"10d"`, `"30d"`, `"90d"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `Key` attribute) is created. Changing this value will force recreation of the API key.
+        /// </summary>
+        [Input("expiryDuration")]
+        public Input<string>? ExpiryDuration { get; set; }
+
+        /// <summary>
         /// Whether the apikey can manage DNS insights.
         /// </summary>
         [Input("insightsManageInsights")]
@@ -756,7 +801,7 @@ namespace Pulumi.Ns1
         private Input<string>? _key;
 
         /// <summary>
-        /// (Computed) The apikeys authentication token.
+        /// (Computed) The API key authentication token. Only populated for legacy API keys (when `ExpiryDuration` is not set). For API keys with expiration, use the secret keys from the `Secrets` attribute instead.
         /// </summary>
         public Input<string>? Key
         {
@@ -815,6 +860,18 @@ namespace Pulumi.Ns1
         /// </summary>
         [Input("redirectsManageRedirects")]
         public Input<bool>? RedirectsManageRedirects { get; set; }
+
+        [Input("secrets")]
+        private InputList<Inputs.APIKeySecretGetArgs>? _secrets;
+
+        /// <summary>
+        /// (Computed) List of secrets for this API key. Only populated when `ExpiryDuration` is set. Each secret contains:
+        /// </summary>
+        public InputList<Inputs.APIKeySecretGetArgs> Secrets
+        {
+            get => _secrets ?? (_secrets = new InputList<Inputs.APIKeySecretGetArgs>());
+            set => _secrets = value;
+        }
 
         /// <summary>
         /// Whether the apikey can manage global active directory. Only relevant for the DDI product.

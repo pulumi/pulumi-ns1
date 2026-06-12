@@ -19,6 +19,25 @@ export interface APIKeyDnsRecordsDeny {
     zone: pulumi.Input<string>;
 }
 
+export interface APIKeySecret {
+    /**
+     * Whether this secret is currently enabled for authentication.
+     */
+    enabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * The expiration date/time of the secret in ISO 8601 format.
+     */
+    expiresAt?: pulumi.Input<string | undefined>;
+    /**
+     * The unique identifier for the secret.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * The last time this secret was used for authentication.
+     */
+    lastAccess?: pulumi.Input<string | undefined>;
+}
+
 export interface AlertData {
     /**
      * required by the account/usage alerts, with a value between 1 and 100

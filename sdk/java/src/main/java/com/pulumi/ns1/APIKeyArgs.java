@@ -313,6 +313,21 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     * 
+     */
+    @Import(name="expiryDuration")
+    private @Nullable Output<String> expiryDuration;
+
+    /**
+     * @return Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+     * 
+     */
+    public Optional<Output<String>> expiryDuration() {
+        return Optional.ofNullable(this.expiryDuration);
+    }
+
+    /**
      * Whether the apikey can manage DNS insights.
      * 
      */
@@ -559,6 +574,7 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
         this.dnsZonesAllowByDefault = $.dnsZonesAllowByDefault;
         this.dnsZonesAllows = $.dnsZonesAllows;
         this.dnsZonesDenies = $.dnsZonesDenies;
+        this.expiryDuration = $.expiryDuration;
         this.insightsManageInsights = $.insightsManageInsights;
         this.insightsViewInsights = $.insightsViewInsights;
         this.ipWhitelistStrict = $.ipWhitelistStrict;
@@ -1039,6 +1055,27 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dnsZonesDenies(String... dnsZonesDenies) {
             return dnsZonesDenies(List.of(dnsZonesDenies));
+        }
+
+        /**
+         * @param expiryDuration Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expiryDuration(@Nullable Output<String> expiryDuration) {
+            $.expiryDuration = expiryDuration;
+            return this;
+        }
+
+        /**
+         * @param expiryDuration Duration for secret expiration in `&lt;number&gt;d` format (e.g., `&#34;10d&#34;`, `&#34;30d&#34;`, `&#34;90d&#34;`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the `key` attribute) is created. Changing this value will force recreation of the API key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expiryDuration(String expiryDuration) {
+            return expiryDuration(Output.of(expiryDuration));
         }
 
         /**
