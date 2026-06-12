@@ -121,6 +121,37 @@
                 "zone"
             ]
         },
+        "ns1:index/APIKeySecret:APIKeySecret": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether this secret is currently enabled for authentication.\n"
+                },
+                "expiresAt": {
+                    "type": "string",
+                    "description": "The expiration date/time of the secret in ISO 8601 format.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the secret.\n"
+                },
+                "lastAccess": {
+                    "type": "string",
+                    "description": "The last time this secret was used for authentication.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "expiresAt",
+                        "id",
+                        "lastAccess"
+                    ]
+                }
+            }
+        },
         "ns1:index/AlertData:AlertData": {
             "properties": {
                 "alertAtPercent": {
@@ -1025,7 +1056,7 @@
     },
     "resources": {
         "ns1:index/aPIKey:APIKey": {
-            "description": "Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst example = new ns1.Team(\"example\", {name: \"Example team\"});\nconst exampleAPIKey = new ns1.APIKey(\"example\", {\n    name: \"Example key\",\n    teams: [example.id],\n    ipWhitelists: [\n        \"1.1.1.1\",\n        \"2.2.2.2\",\n    ],\n    dnsViewZones: false,\n    accountManageUsers: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexample = ns1.Team(\"example\", name=\"Example team\")\nexample_api_key = ns1.APIKey(\"example\",\n    name=\"Example key\",\n    teams=[example.id],\n    ip_whitelists=[\n        \"1.1.1.1\",\n        \"2.2.2.2\",\n    ],\n    dns_view_zones=False,\n    account_manage_users=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Ns1.Team(\"example\", new()\n    {\n        Name = \"Example team\",\n    });\n\n    var exampleAPIKey = new Ns1.APIKey(\"example\", new()\n    {\n        Name = \"Example key\",\n        Teams = new[]\n        {\n            example.Id,\n        },\n        IpWhitelists = new[]\n        {\n            \"1.1.1.1\",\n            \"2.2.2.2\",\n        },\n        DnsViewZones = false,\n        AccountManageUsers = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := ns1.NewTeam(ctx, \"example\", \u0026ns1.TeamArgs{\n\t\t\tName: pulumi.String(\"Example team\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ns1.NewAPIKey(ctx, \"example\", \u0026ns1.APIKeyArgs{\n\t\t\tName: pulumi.String(\"Example key\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\texample.ID(),\n\t\t\t},\n\t\t\tIpWhitelists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"1.1.1.1\"),\n\t\t\t\tpulumi.String(\"2.2.2.2\"),\n\t\t\t},\n\t\t\tDnsViewZones:       pulumi.Bool(false),\n\t\t\tAccountManageUsers: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    ns1 = {\n      source = \"pulumi/ns1\"\n    }\n  }\n}\n\nresource \"ns1_team\" \"example\" {\n  name = \"Example team\"\n}\nresource \"ns1_apikey\" \"example\" {\n  name                 = \"Example key\"\n  teams                = [ns1_team.example.id]\n  ip_whitelists        = [\"1.1.1.1\", \"2.2.2.2\"]\n  dns_view_zones       = false\n  account_manage_users = false\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.Team;\nimport com.pulumi.ns1.TeamArgs;\nimport com.pulumi.ns1.APIKey;\nimport com.pulumi.ns1.APIKeyArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Team(\"example\", TeamArgs.builder()\n            .name(\"Example team\")\n            .build());\n\n        var exampleAPIKey = new APIKey(\"exampleAPIKey\", APIKeyArgs.builder()\n            .name(\"Example key\")\n            .teams(example.id())\n            .ipWhitelists(            \n                \"1.1.1.1\",\n                \"2.2.2.2\")\n            .dnsViewZones(false)\n            .accountManageUsers(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: ns1:Team\n    properties:\n      name: Example team\n  exampleAPIKey:\n    type: ns1:APIKey\n    name: example\n    properties:\n      name: Example key\n      teams:\n        - ${example.id}\n      ipWhitelists:\n        - 1.1.1.1\n        - 2.2.2.2\n      dnsViewZones: false\n      accountManageUsers: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Permissions\n\nAn API key will inherit permissions from the teams it is assigned to.\nIf a key is assigned to a team and also has individual permissions set on the key, the individual permissions\nwill be overridden by the inherited team permissions.\nIn a future release, setting permissions on a key that is part of a team will be explicitly disabled.\n\nWhen a key is removed from all teams completely, it will inherit whatever permissions it had previously.\nIf a key is removed from all it's teams, it will probably be necessary to run `pulumi up` a second time\nto update the keys permissions from it's old team permissions to new key-specific permissions.\n\nSee [the NS1 API docs](https://ns1.com/api#getget-all-account-users) for an overview of permission semantics or for [more details](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) about the individual permission flags.\n\n## NS1 Documentation\n\n[ApiKeys Api Doc](https://ns1.com/api#api-key)\n\n## Import\n\n\u003e Imported keys will not have their key stored in the state file.\n\n`terraform import\u003cspan pulumi-lang-nodejs=\" ns1.APIKey`\" pulumi-lang-dotnet=\" ns1.APIKey`\" pulumi-lang-go=\" APIKey`\" pulumi-lang-python=\" APIKey`\" pulumi-lang-yaml=\" ns1.APIKey`\" pulumi-lang-java=\" ns1.APIKey`\" pulumi-lang-hcl=\" ns1_apikey`\"\u003e ns1.APIKey`\u003c/span\u003e\n\nSo for the example above:\n\n`terraform import ns1_apikey.example \u003cID\u003e`\n\n",
+            "description": "Provides a NS1 Api Key resource. This can be used to create, modify, and delete api keys.\n\n## Example Usage\n\n### Legacy API Key (Static Secret)\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst staticKey = new ns1.APIKey(\"static_key\", {\n    name: \"Static API Key\",\n    dnsViewZones: true,\n    dnsManageZones: true,\n});\nexport const apiKeySecret = staticKey.key;\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nstatic_key = ns1.APIKey(\"static_key\",\n    name=\"Static API Key\",\n    dns_view_zones=True,\n    dns_manage_zones=True)\npulumi.export(\"apiKeySecret\", static_key.key)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var staticKey = new Ns1.APIKey(\"static_key\", new()\n    {\n        Name = \"Static API Key\",\n        DnsViewZones = true,\n        DnsManageZones = true,\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"apiKeySecret\"] = staticKey.Key,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tstaticKey, err := ns1.NewAPIKey(ctx, \"static_key\", \u0026ns1.APIKeyArgs{\n\t\t\tName:           pulumi.String(\"Static API Key\"),\n\t\t\tDnsViewZones:   pulumi.Bool(true),\n\t\t\tDnsManageZones: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"apiKeySecret\", staticKey.Key)\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    ns1 = {\n      source = \"pulumi/ns1\"\n    }\n  }\n}\n\nresource \"ns1_apikey\" \"static_key\" {\n  name             = \"Static API Key\"\n  dns_view_zones   = true\n  dns_manage_zones = true\n}\n# The static secret is available in the key attribute\noutput \"apiKeySecret\" {\n  value = ns1_apikey.static_key.key\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.APIKey;\nimport com.pulumi.ns1.APIKeyArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var staticKey = new APIKey(\"staticKey\", APIKeyArgs.builder()\n            .name(\"Static API Key\")\n            .dnsViewZones(true)\n            .dnsManageZones(true)\n            .build());\n\n        ctx.export(\"apiKeySecret\", staticKey.key());\n    }\n}\n```\n```yaml\nresources:\n  staticKey:\n    type: ns1:APIKey\n    name: static_key\n    properties:\n      name: Static API Key\n      dnsViewZones: true\n      dnsManageZones: true\noutputs:\n  # The static secret is available in the key attribute\n  apiKeySecret: ${staticKey.key}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### API Key with Secret Expiration\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as ns1 from \"@pulumi/ns1\";\n\nconst expiring = new ns1.APIKey(\"expiring\", {\n    name: \"Expiring API Key\",\n    expiryDuration: \"30d\",\n    dnsViewZones: true,\n    dnsManageZones: true,\n});\nexport const secretInfo = expiring.secrets;\n```\n```python\nimport pulumi\nimport pulumi_ns1 as ns1\n\nexpiring = ns1.APIKey(\"expiring\",\n    name=\"Expiring API Key\",\n    expiry_duration=\"30d\",\n    dns_view_zones=True,\n    dns_manage_zones=True)\npulumi.export(\"secretInfo\", expiring.secrets)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Ns1 = Pulumi.Ns1;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var expiring = new Ns1.APIKey(\"expiring\", new()\n    {\n        Name = \"Expiring API Key\",\n        ExpiryDuration = \"30d\",\n        DnsViewZones = true,\n        DnsManageZones = true,\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"secretInfo\"] = expiring.Secrets,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-ns1/sdk/v3/go/ns1\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texpiring, err := ns1.NewAPIKey(ctx, \"expiring\", \u0026ns1.APIKeyArgs{\n\t\t\tName:           pulumi.String(\"Expiring API Key\"),\n\t\t\tExpiryDuration: pulumi.String(\"30d\"),\n\t\t\tDnsViewZones:   pulumi.Bool(true),\n\t\t\tDnsManageZones: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"secretInfo\", expiring.Secrets)\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    ns1 = {\n      source = \"pulumi/ns1\"\n    }\n  }\n}\n\nresource \"ns1_apikey\" \"expiring\" {\n  name             = \"Expiring API Key\"\n  expiry_duration  = \"30d\"\n  dns_view_zones   = true\n  dns_manage_zones = true\n}\n# Access secret metadata (not the actual secret key values)\noutput \"secretInfo\" {\n  value = ns1_apikey.expiring.secrets\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.ns1.APIKey;\nimport com.pulumi.ns1.APIKeyArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var expiring = new APIKey(\"expiring\", APIKeyArgs.builder()\n            .name(\"Expiring API Key\")\n            .expiryDuration(\"30d\")\n            .dnsViewZones(true)\n            .dnsManageZones(true)\n            .build());\n\n        ctx.export(\"secretInfo\", expiring.secrets());\n    }\n}\n```\n```yaml\nresources:\n  expiring:\n    type: ns1:APIKey\n    properties:\n      name: Expiring API Key\n      expiryDuration: 30d\n      dnsViewZones: true\n      dnsManageZones: true\noutputs:\n  # Access secret metadata (not the actual secret key values)\n  secretInfo: ${expiring.secrets}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Important Notes\n\n\u003e **Changing\u003cspan pulumi-lang-nodejs=\" expiryDuration \" pulumi-lang-dotnet=\" ExpiryDuration \" pulumi-lang-go=\" expiryDuration \" pulumi-lang-python=\" expiry_duration \" pulumi-lang-yaml=\" expiryDuration \" pulumi-lang-java=\" expiryDuration \" pulumi-lang-hcl=\" expiry_duration \"\u003e expiryDuration \u003c/span\u003eforces recreation.** When you modify the \u003cspan pulumi-lang-nodejs=\"`expiryDuration`\" pulumi-lang-dotnet=\"`ExpiryDuration`\" pulumi-lang-go=\"`expiryDuration`\" pulumi-lang-python=\"`expiry_duration`\" pulumi-lang-yaml=\"`expiryDuration`\" pulumi-lang-java=\"`expiryDuration`\" pulumi-lang-hcl=\"`expiry_duration`\"\u003e`expiryDuration`\u003c/span\u003e field of an existing API key, Terraform will destroy the old key and create a new one. This means the API key ID and all secrets will change. Any external references to the old key will break. Plan your migrations carefully and update dependent systems before changing this value.\n\n## Permissions\n\nAn API key will inherit permissions from the teams it is assigned to.\nIf a key is assigned to a team and also has individual permissions set on the key, the individual permissions\nwill be overridden by the inherited team permissions.\nIn a future release, setting permissions on a key that is part of a team will be explicitly disabled.\n\nWhen a key is removed from all teams completely, it will inherit whatever permissions it had previously.\nIf a key is removed from all it's teams, it will probably be necessary to run `pulumi up` a second time\nto update the keys permissions from it's old team permissions to new key-specific permissions.\n\nSee [the NS1 API docs](https://ns1.com/api#getget-all-account-users) for an overview of permission semantics or for [more details](https://help.ns1.com/hc/en-us/articles/360024409034-Managing-user-permissions) about the individual permission flags.\n\n## NS1 Documentation\n\n[ApiKeys Api Doc](https://ns1.com/api#api-key)\n\n## Import\n\n\u003e Imported keys will not have their key stored in the state file.\n\n`terraform import\u003cspan pulumi-lang-nodejs=\" ns1.APIKey`\" pulumi-lang-dotnet=\" ns1.APIKey`\" pulumi-lang-go=\" APIKey`\" pulumi-lang-python=\" APIKey`\" pulumi-lang-yaml=\" ns1.APIKey`\" pulumi-lang-java=\" ns1.APIKey`\" pulumi-lang-hcl=\" ns1_apikey`\"\u003e ns1.APIKey`\u003c/span\u003e\n\nSo for the example above:\n\n`terraform import ns1_apikey.example \u003cID\u003e`\n\n",
             "properties": {
                 "accountManageAccountSettings": {
                     "type": "boolean",
@@ -1116,6 +1147,10 @@
                     },
                     "description": "List of zones that the apikey may not access.\n"
                 },
+                "expiryDuration": {
+                    "type": "string",
+                    "description": "Duration for secret expiration in `\u003cnumber\u003ed` format (e.g., `\"10d\"`, `\"30d\"`, `\"90d\"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the \u003cspan pulumi-lang-nodejs=\"`key`\" pulumi-lang-dotnet=\"`Key`\" pulumi-lang-go=\"`key`\" pulumi-lang-python=\"`key`\" pulumi-lang-yaml=\"`key`\" pulumi-lang-java=\"`key`\" pulumi-lang-hcl=\"`key`\"\u003e`key`\u003c/span\u003e attribute) is created. Changing this value will force recreation of the API key.\n"
+                },
                 "insightsManageInsights": {
                     "type": "boolean",
                     "description": "Whether the apikey can manage DNS insights.\n"
@@ -1137,7 +1172,7 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "(Computed) The apikeys authentication token.\n",
+                    "description": "(Computed) The API key authentication token. Only populated for legacy API keys (when \u003cspan pulumi-lang-nodejs=\"`expiryDuration`\" pulumi-lang-dotnet=\"`ExpiryDuration`\" pulumi-lang-go=\"`expiryDuration`\" pulumi-lang-python=\"`expiry_duration`\" pulumi-lang-yaml=\"`expiryDuration`\" pulumi-lang-java=\"`expiryDuration`\" pulumi-lang-hcl=\"`expiry_duration`\"\u003e`expiryDuration`\u003c/span\u003e is not set). For API keys with expiration, use the secret keys from the \u003cspan pulumi-lang-nodejs=\"`secrets`\" pulumi-lang-dotnet=\"`Secrets`\" pulumi-lang-go=\"`secrets`\" pulumi-lang-python=\"`secrets`\" pulumi-lang-yaml=\"`secrets`\" pulumi-lang-java=\"`secrets`\" pulumi-lang-hcl=\"`secrets`\"\u003e`secrets`\u003c/span\u003e attribute instead.\n",
                     "secret": true
                 },
                 "monitoringCreateJobs": {
@@ -1172,6 +1207,13 @@
                     "type": "boolean",
                     "description": "Whether the apikey can manage redirects.\n"
                 },
+                "secrets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/ns1:index/APIKeySecret:APIKeySecret"
+                    },
+                    "description": "(Computed) List of secrets for this API key. Only populated when \u003cspan pulumi-lang-nodejs=\"`expiryDuration`\" pulumi-lang-dotnet=\"`ExpiryDuration`\" pulumi-lang-go=\"`expiryDuration`\" pulumi-lang-python=\"`expiry_duration`\" pulumi-lang-yaml=\"`expiryDuration`\" pulumi-lang-java=\"`expiryDuration`\" pulumi-lang-hcl=\"`expiry_duration`\"\u003e`expiryDuration`\u003c/span\u003e is set. Each secret contains:\n"
+                },
                 "securityManageActiveDirectory": {
                     "type": "boolean",
                     "description": "Whether the apikey can manage global active directory. Only relevant for the DDI product.\n"
@@ -1190,7 +1232,8 @@
             },
             "required": [
                 "key",
-                "name"
+                "name",
+                "secrets"
             ],
             "inputProperties": {
                 "accountManageAccountSettings": {
@@ -1281,6 +1324,11 @@
                         "type": "string"
                     },
                     "description": "List of zones that the apikey may not access.\n"
+                },
+                "expiryDuration": {
+                    "type": "string",
+                    "description": "Duration for secret expiration in `\u003cnumber\u003ed` format (e.g., `\"10d\"`, `\"30d\"`, `\"90d\"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the \u003cspan pulumi-lang-nodejs=\"`key`\" pulumi-lang-dotnet=\"`Key`\" pulumi-lang-go=\"`key`\" pulumi-lang-python=\"`key`\" pulumi-lang-yaml=\"`key`\" pulumi-lang-java=\"`key`\" pulumi-lang-hcl=\"`key`\"\u003e`key`\u003c/span\u003e attribute) is created. Changing this value will force recreation of the API key.\n",
+                    "willReplaceOnChanges": true
                 },
                 "insightsManageInsights": {
                     "type": "boolean",
@@ -1441,6 +1489,11 @@
                         },
                         "description": "List of zones that the apikey may not access.\n"
                     },
+                    "expiryDuration": {
+                        "type": "string",
+                        "description": "Duration for secret expiration in `\u003cnumber\u003ed` format (e.g., `\"10d\"`, `\"30d\"`, `\"90d\"`). When set, API key secrets will expire after the specified period and must be manually rotated using the NS1 API or Portal. The API key can have up to 2 active secrets at a time to allow for graceful rotation without service interruption. If not set, a legacy API key with a permanent secret (stored in the \u003cspan pulumi-lang-nodejs=\"`key`\" pulumi-lang-dotnet=\"`Key`\" pulumi-lang-go=\"`key`\" pulumi-lang-python=\"`key`\" pulumi-lang-yaml=\"`key`\" pulumi-lang-java=\"`key`\" pulumi-lang-hcl=\"`key`\"\u003e`key`\u003c/span\u003e attribute) is created. Changing this value will force recreation of the API key.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "insightsManageInsights": {
                         "type": "boolean",
                         "description": "Whether the apikey can manage DNS insights.\n"
@@ -1462,7 +1515,7 @@
                     },
                     "key": {
                         "type": "string",
-                        "description": "(Computed) The apikeys authentication token.\n",
+                        "description": "(Computed) The API key authentication token. Only populated for legacy API keys (when \u003cspan pulumi-lang-nodejs=\"`expiryDuration`\" pulumi-lang-dotnet=\"`ExpiryDuration`\" pulumi-lang-go=\"`expiryDuration`\" pulumi-lang-python=\"`expiry_duration`\" pulumi-lang-yaml=\"`expiryDuration`\" pulumi-lang-java=\"`expiryDuration`\" pulumi-lang-hcl=\"`expiry_duration`\"\u003e`expiryDuration`\u003c/span\u003e is not set). For API keys with expiration, use the secret keys from the \u003cspan pulumi-lang-nodejs=\"`secrets`\" pulumi-lang-dotnet=\"`Secrets`\" pulumi-lang-go=\"`secrets`\" pulumi-lang-python=\"`secrets`\" pulumi-lang-yaml=\"`secrets`\" pulumi-lang-java=\"`secrets`\" pulumi-lang-hcl=\"`secrets`\"\u003e`secrets`\u003c/span\u003e attribute instead.\n",
                         "secret": true
                     },
                     "monitoringCreateJobs": {
@@ -1496,6 +1549,13 @@
                     "redirectsManageRedirects": {
                         "type": "boolean",
                         "description": "Whether the apikey can manage redirects.\n"
+                    },
+                    "secrets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/ns1:index/APIKeySecret:APIKeySecret"
+                        },
+                        "description": "(Computed) List of secrets for this API key. Only populated when \u003cspan pulumi-lang-nodejs=\"`expiryDuration`\" pulumi-lang-dotnet=\"`ExpiryDuration`\" pulumi-lang-go=\"`expiryDuration`\" pulumi-lang-python=\"`expiry_duration`\" pulumi-lang-yaml=\"`expiryDuration`\" pulumi-lang-java=\"`expiryDuration`\" pulumi-lang-hcl=\"`expiry_duration`\"\u003e`expiryDuration`\u003c/span\u003e is set. Each secret contains:\n"
                     },
                     "securityManageActiveDirectory": {
                         "type": "boolean",
