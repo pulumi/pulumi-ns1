@@ -96,13 +96,13 @@ export class Redirect extends pulumi.CustomResource {
     /**
      * How the redirect is executed:
      * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
-     * their database and replace it with the new target page (this is recommended for SEO);
+     *   their database and replace it with the new target page (this is recommended for SEO);
      * * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
-     * page indexed as the redirect is only temporary (while both pages might appear in the
-     * search results, a temporary redirect suggests to the search engine that it should
-     * prefer the new target page);
+     *   page indexed as the redirect is only temporary (while both pages might appear in the
+     *   search results, a temporary redirect suggests to the search engine that it should
+     *   prefer the new target page);
      * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
-     * address they entered, even though the displayed content comes from a different web page).
+     *   address they entered, even though the displayed content comes from a different web page).
      */
     declare public readonly forwardingType: pulumi.Output<string | undefined>;
     /**
@@ -210,13 +210,13 @@ export interface RedirectState {
     /**
      * How the redirect is executed:
      * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
-     * their database and replace it with the new target page (this is recommended for SEO);
+     *   their database and replace it with the new target page (this is recommended for SEO);
      * * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
-     * page indexed as the redirect is only temporary (while both pages might appear in the
-     * search results, a temporary redirect suggests to the search engine that it should
-     * prefer the new target page);
+     *   page indexed as the redirect is only temporary (while both pages might appear in the
+     *   search results, a temporary redirect suggests to the search engine that it should
+     *   prefer the new target page);
      * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
-     * address they entered, even though the displayed content comes from a different web page).
+     *   address they entered, even though the displayed content comes from a different web page).
      */
     forwardingType?: pulumi.Input<string | undefined>;
     /**
@@ -273,13 +273,13 @@ export interface RedirectArgs {
     /**
      * How the redirect is executed:
      * * __permanent__ (HTTP 301) indicates to search engines that they should remove the old page from
-     * their database and replace it with the new target page (this is recommended for SEO);
+     *   their database and replace it with the new target page (this is recommended for SEO);
      * * __temporary__ (HTTP 302) less common, indicates that search engines should keep the old domain or
-     * page indexed as the redirect is only temporary (while both pages might appear in the
-     * search results, a temporary redirect suggests to the search engine that it should
-     * prefer the new target page);
+     *   page indexed as the redirect is only temporary (while both pages might appear in the
+     *   search results, a temporary redirect suggests to the search engine that it should
+     *   prefer the new target page);
      * * __masking__   preserves the redirected domain in the browser's address bar (this lets users see the
-     * address they entered, even though the displayed content comes from a different web page).
+     *   address they entered, even though the displayed content comes from a different web page).
      */
     forwardingType?: pulumi.Input<string | undefined>;
     /**

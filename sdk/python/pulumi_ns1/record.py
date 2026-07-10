@@ -60,8 +60,8 @@ class RecordArgs:
         :param pulumi.Input[_builtins.int] ttl: The records' time to live (in seconds).
         :param pulumi.Input[_builtins.bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
+               * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+                 is documented below.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "type", type)
@@ -287,8 +287,8 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
-        * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        is documented below.
+        * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+          is documented below.
         """
         return pulumi.get(self, "use_client_subnet")
 
@@ -337,8 +337,8 @@ class _RecordState:
         :param pulumi.Input[_builtins.str] type: The records' RR type.
         :param pulumi.Input[_builtins.bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
+               * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+                 is documented below.
         :param pulumi.Input[_builtins.str] zone: The zone the record belongs to. Cannot have leading or
                trailing dots (".") - see the example above and `FQDN formatting` below.
         """
@@ -556,8 +556,8 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
-        * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        is documented below.
+        * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+          is documented below.
         """
         return pulumi.get(self, "use_client_subnet")
 
@@ -748,8 +748,8 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] type: The records' RR type.
         :param pulumi.Input[_builtins.bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
+               * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+                 is documented below.
         :param pulumi.Input[_builtins.str] zone: The zone the record belongs to. Cannot have leading or
                trailing dots (".") - see the example above and `FQDN formatting` below.
         """
@@ -996,8 +996,8 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] type: The records' RR type.
         :param pulumi.Input[_builtins.bool] use_client_subnet: Whether to use EDNS client subnet data when
                available(in filter chain).
-               * ` meta` - (Optional) meta is supported at the `record` level. Meta
-               is documented below.
+               * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+                 is documented below.
         :param pulumi.Input[_builtins.str] zone: The zone the record belongs to. Cannot have leading or
                trailing dots (".") - see the example above and `FQDN formatting` below.
         """
@@ -1136,8 +1136,8 @@ It is suggested to migrate to a regular \"answers\" block. Using Terraform 0.12+
         """
         Whether to use EDNS client subnet data when
         available(in filter chain).
-        * ` meta` - (Optional) meta is supported at the `record` level. Meta
-        is documented below.
+        * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+          is documented below.
         """
         return pulumi.get(self, "use_client_subnet")
 
