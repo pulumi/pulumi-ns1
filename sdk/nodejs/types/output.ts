@@ -392,8 +392,8 @@ export interface RecordAnswer {
      * single `region` per answer is currently supported. If you want an answer in
      * multiple regions, duplicating the answer (including metadata) is the correct
      * approach.
-     * * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-     * is documented below.
+     * * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
+     *   is documented below.
      */
     region?: string;
 }

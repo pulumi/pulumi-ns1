@@ -229,8 +229,8 @@ It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, 
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * ` meta` - (Optional) meta is supported at the `record` level. Meta
-     * is documented below.
+     * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+     *   is documented below.
      */
     declare public readonly useClientSubnet: pulumi.Output<boolean | undefined>;
     /**
@@ -364,8 +364,8 @@ It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, 
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * ` meta` - (Optional) meta is supported at the `record` level. Meta
-     * is documented below.
+     * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+     *   is documented below.
      */
     useClientSubnet?: pulumi.Input<boolean | undefined>;
     /**
@@ -440,8 +440,8 @@ It is suggested to migrate to a regular "answers" block. Using Terraform 0.12+, 
     /**
      * Whether to use EDNS client subnet data when
      * available(in filter chain).
-     * * ` meta` - (Optional) meta is supported at the `record` level. Meta
-     * is documented below.
+     * * `  meta ` - (Optional) meta is supported at the `record` level. Meta
+     *   is documented below.
      */
     useClientSubnet?: pulumi.Input<boolean | undefined>;
     /**

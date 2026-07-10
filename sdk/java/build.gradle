@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-ns1"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing ns1 cloud resources."
+                description = $/A Pulumi package for creating and managing ns1 cloud resources./$
 
                 url = "https://github.com/pulumi/pulumi-ns1"
 

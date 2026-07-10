@@ -967,8 +967,8 @@ class RecordAnswerArgsDict(TypedDict):
     single `region` per answer is currently supported. If you want an answer in
     multiple regions, duplicating the answer (including metadata) is the correct
     approach.
-    * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-    is documented below.
+    * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
+      is documented below.
     """
 
 @pulumi.input_type
@@ -1018,8 +1018,8 @@ class RecordAnswerArgs:
                single `region` per answer is currently supported. If you want an answer in
                multiple regions, duplicating the answer (including metadata) is the correct
                approach.
-               * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-               is documented below.
+               * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
+                 is documented below.
         """
         if answer is not None:
             pulumi.set(__self__, "answer", answer)
@@ -1106,8 +1106,8 @@ class RecordAnswerArgs:
         single `region` per answer is currently supported. If you want an answer in
         multiple regions, duplicating the answer (including metadata) is the correct
         approach.
-        * ` meta` - (Optional) meta is supported at the `answer` level. Meta
-        is documented below.
+        * `  meta ` - (Optional) meta is supported at the `answer` level. Meta
+          is documented below.
         """
         return pulumi.get(self, "region")
 
