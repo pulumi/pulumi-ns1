@@ -44,7 +44,7 @@ import (
 //			}
 //			_, err = ns1.NewDataFeed(ctx, "uswest_feed", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("uswest_feed"),
-//				SourceId: example.ID(),
+//				SourceId: example.ID().ToIDOutput().ToStringOutput(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("uswest"),
 //				},
@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = ns1.NewDataFeed(ctx, "useast_feed", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("useast_feed"),
-//				SourceId: example.ID(),
+//				SourceId: example.ID().ToIDOutput().ToStringOutput(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("useast"),
 //				},
@@ -64,7 +64,7 @@ import (
 //			}
 //			_, err = ns1.NewDataFeed(ctx, "useast_monitor_feed", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("useast_monitor_feed"),
-//				SourceId: exampleMonitoring.ID(),
+//				SourceId: exampleMonitoring.ID().ToIDOutput().ToStringOutput(),
 //				Config: pulumi.StringMap{
 //					"jobid": pulumi.Any(exampleJob.Id),
 //				},

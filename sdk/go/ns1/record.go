@@ -48,7 +48,7 @@ import (
 //			}
 //			foo, err := ns1.NewDataFeed(ctx, "foo", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("foo_feed"),
-//				SourceId: ns12.ID(),
+//				SourceId: ns12.ID().ToIDOutput().ToStringOutput(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("foo"),
 //				},
@@ -58,7 +58,7 @@ import (
 //			}
 //			bar, err := ns1.NewDataFeed(ctx, "bar", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("bar_feed"),
-//				SourceId: ns12.ID(),
+//				SourceId: ns12.ID().ToIDOutput().ToStringOutput(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("bar"),
 //				},
@@ -77,7 +77,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//			tmpJSON1, err := json.Marshal(map[string][]string{
 //				"BR": []string{
 //					"SP",
 //					"SC",
@@ -119,7 +119,7 @@ import (
 //						Answer: pulumi.Sprintf("sub1.%v", tld.Zone),
 //						Region: pulumi.String("east"),
 //						Meta: pulumi.StringMap{
-//							"up": foo.ID().ApplyT(func(id string) (string, error) {
+//							"up": foo.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
 //							}).(pulumi.StringOutput),
 //						},
@@ -127,7 +127,7 @@ import (
 //					&ns1.RecordAnswerArgs{
 //						Answer: pulumi.Sprintf("sub2.%v", tld.Zone),
 //						Meta: pulumi.StringMap{
-//							"up": bar.ID().ApplyT(func(id string) (string, error) {
+//							"up": bar.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //								return fmt.Sprintf("{\"feed\":\"%v\"}", id), nil
 //							}).(pulumi.StringOutput),
 //							"connections": pulumi.String("3"),
