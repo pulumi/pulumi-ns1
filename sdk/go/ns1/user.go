@@ -47,7 +47,7 @@ import (
 //				Username: pulumi.String("example_user"),
 //				Email:    pulumi.String("user@example.com"),
 //				Teams: pulumi.StringArray{
-//					example.ID(),
+//					example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Notify: pulumi.StringMap{
 //					"billing": pulumi.String("false"),
