@@ -59,10 +59,8 @@ type GetNetworksResult struct {
 }
 
 func GetNetworksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetNetworksResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetNetworksResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("ns1:index/getNetworks:getNetworks", nil, GetNetworksResultOutput{}, options).(GetNetworksResultOutput), nil
-	}).(GetNetworksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("ns1:index/getNetworks:getNetworks", nil, GetNetworksResultOutput{}, options).(GetNetworksResultOutput)
 }
 
 // A collection of values returned by getNetworks.

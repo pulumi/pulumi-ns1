@@ -70,12 +70,8 @@ type GetBillingUsageResult struct {
 }
 
 func GetBillingUsageOutput(ctx *pulumi.Context, args GetBillingUsageOutputArgs, opts ...pulumi.InvokeOption) GetBillingUsageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetBillingUsageResultOutput, error) {
-			args := v.(GetBillingUsageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("ns1:index/getBillingUsage:getBillingUsage", args, GetBillingUsageResultOutput{}, options).(GetBillingUsageResultOutput), nil
-		}).(GetBillingUsageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("ns1:index/getBillingUsage:getBillingUsage", args, GetBillingUsageResultOutput{}, options).(GetBillingUsageResultOutput)
 }
 
 // A collection of arguments for invoking getBillingUsage.
