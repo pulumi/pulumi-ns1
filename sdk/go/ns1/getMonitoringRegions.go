@@ -64,12 +64,8 @@ type GetMonitoringRegionsResult struct {
 }
 
 func GetMonitoringRegionsOutput(ctx *pulumi.Context, args GetMonitoringRegionsOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringRegionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMonitoringRegionsResultOutput, error) {
-			args := v.(GetMonitoringRegionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("ns1:index/getMonitoringRegions:getMonitoringRegions", args, GetMonitoringRegionsResultOutput{}, options).(GetMonitoringRegionsResultOutput), nil
-		}).(GetMonitoringRegionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("ns1:index/getMonitoringRegions:getMonitoringRegions", args, GetMonitoringRegionsResultOutput{}, options).(GetMonitoringRegionsResultOutput)
 }
 
 // A collection of arguments for invoking getMonitoringRegions.
