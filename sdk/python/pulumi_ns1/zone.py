@@ -769,7 +769,7 @@ class Zone(pulumi.CustomResource):
                  primary_port: pulumi.Input[Optional[_builtins.int]] = None,
                  refresh: pulumi.Input[Optional[_builtins.int]] = None,
                  retry: pulumi.Input[Optional[_builtins.int]] = None,
-                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
+                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict', 'outputs.ZoneSecondary']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
@@ -806,7 +806,7 @@ class Zone(pulumi.CustomResource):
                `additional_primaries` (default must be accepted).
         :param pulumi.Input[_builtins.int] retry: The SOA Retry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]] secondaries: List of secondary servers. This makes the zone a
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict', 'outputs.ZoneSecondary']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings
@@ -855,7 +855,7 @@ class Zone(pulumi.CustomResource):
                  primary_port: pulumi.Input[Optional[_builtins.int]] = None,
                  refresh: pulumi.Input[Optional[_builtins.int]] = None,
                  retry: pulumi.Input[Optional[_builtins.int]] = None,
-                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
+                 secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict', 'outputs.ZoneSecondary']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
@@ -920,7 +920,7 @@ class Zone(pulumi.CustomResource):
             primary_port: pulumi.Input[Optional[_builtins.int]] = None,
             refresh: pulumi.Input[Optional[_builtins.int]] = None,
             retry: pulumi.Input[Optional[_builtins.int]] = None,
-            secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]]] = None,
+            secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict', 'outputs.ZoneSecondary']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             ttl: pulumi.Input[Optional[_builtins.int]] = None,
@@ -958,7 +958,7 @@ class Zone(pulumi.CustomResource):
                `additional_primaries` (default must be accepted).
         :param pulumi.Input[_builtins.int] retry: The SOA Retry. Conflicts with `primary` and
                `additional_primaries` (default must be accepted).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict']]]] secondaries: List of secondary servers. This makes the zone a
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict', 'outputs.ZoneSecondary']]]] secondaries: List of secondary servers. This makes the zone a
                primary. Conflicts with `primary` and `additional_primaries`.
                Secondaries is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: map of tags in the form of `"key" = "value"` where both key and value are strings

@@ -328,7 +328,7 @@ class Alert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]]] = None,
+                 datas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict', 'outputs.AlertData']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  record_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -375,7 +375,7 @@ class Alert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict', 'outputs.AlertData']]]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_lists: A list of id's for notification lists whose notifiers will be triggered by the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_ids: A list of record id's this alert applies to.
@@ -441,7 +441,7 @@ class Alert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]]] = None,
+                 datas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict', 'outputs.AlertData']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  record_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -484,7 +484,7 @@ class Alert(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             created_at: pulumi.Input[Optional[_builtins.int]] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
-            datas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]]] = None,
+            datas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict', 'outputs.AlertData']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             notification_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             record_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -502,7 +502,7 @@ class Alert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] created_at: (Read Only) The Unix timestamp representing when the alert configuration was created.
         :param pulumi.Input[_builtins.str] created_by: (Read Only) The user or apikey that created this alert.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict']]]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertDataArgs', 'AlertDataArgsDict', 'outputs.AlertData']]]] datas: A resource block with additional settings: the name and type of them vary based on the alert type.
         :param pulumi.Input[_builtins.str] name: The free-form display name for the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_lists: A list of id's for notification lists whose notifiers will be triggered by the alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_ids: A list of record id's this alert applies to.

@@ -216,7 +216,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
                  browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
-                 default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
+                 default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict', 'outputs.ApplicationDefaultConfig']]] = None,
                  jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -230,7 +230,7 @@ class Application(pulumi.CustomResource):
                steering.
         :param pulumi.Input[_builtins.int] browser_wait_millis: The amount of time (in milliseconds) the browser should wait before running
                measurements.
-        :param pulumi.Input[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']] default_config: Default job configuration. If a field is present here and not on a specific job
+        :param pulumi.Input[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict', 'outputs.ApplicationDefaultConfig']] default_config: Default job configuration. If a field is present here and not on a specific job
                associated with this application, the default value specified here is used..
         :param pulumi.Input[_builtins.int] jobs_per_transaction: Number of jobs to measure per user impression.
         :param pulumi.Input[_builtins.str] name: Descriptive name for this Pulsar app.
@@ -262,7 +262,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
                  browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
-                 default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
+                 default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict', 'outputs.ApplicationDefaultConfig']]] = None,
                  jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -291,7 +291,7 @@ class Application(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
             browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
-            default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']]] = None,
+            default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict', 'outputs.ApplicationDefaultConfig']]] = None,
             jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Application':
         """
@@ -305,7 +305,7 @@ class Application(pulumi.CustomResource):
                steering.
         :param pulumi.Input[_builtins.int] browser_wait_millis: The amount of time (in milliseconds) the browser should wait before running
                measurements.
-        :param pulumi.Input[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict']] default_config: Default job configuration. If a field is present here and not on a specific job
+        :param pulumi.Input[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict', 'outputs.ApplicationDefaultConfig']] default_config: Default job configuration. If a field is present here and not on a specific job
                associated with this application, the default value specified here is used..
         :param pulumi.Input[_builtins.int] jobs_per_transaction: Number of jobs to measure per user impression.
         :param pulumi.Input[_builtins.str] name: Descriptive name for this Pulsar app.
