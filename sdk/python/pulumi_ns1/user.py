@@ -1253,8 +1253,8 @@ class User(pulumi.CustomResource):
                  data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict']]]]] = None,
-                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict']]]]] = None,
+                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict', 'outputs.UserDnsRecordsAllow']]]]] = None,
+                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict', 'outputs.UserDnsRecordsDeny']]]]] = None,
                  dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1346,8 +1346,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
         :param pulumi.Input[_builtins.bool] dns_manage_zones: Whether the user can modify the accounts zones.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the user may access.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the user may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict', 'outputs.UserDnsRecordsAllow']]]] dns_records_allows: List of records that the user may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict', 'outputs.UserDnsRecordsDeny']]]] dns_records_denies: List of records that the user may not access.
         :param pulumi.Input[_builtins.bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the user may access.
@@ -1458,8 +1458,8 @@ class User(pulumi.CustomResource):
                  data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict']]]]] = None,
-                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict']]]]] = None,
+                 dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict', 'outputs.UserDnsRecordsAllow']]]]] = None,
+                 dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict', 'outputs.UserDnsRecordsDeny']]]]] = None,
                  dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1555,8 +1555,8 @@ class User(pulumi.CustomResource):
             data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
             data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
             dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
-            dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict']]]]] = None,
-            dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict']]]]] = None,
+            dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict', 'outputs.UserDnsRecordsAllow']]]]] = None,
+            dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict', 'outputs.UserDnsRecordsDeny']]]]] = None,
             dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
             dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
             dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1599,8 +1599,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] data_manage_datasources: Whether the user can modify data sources.
         :param pulumi.Input[_builtins.bool] data_push_to_datafeeds: Whether the user can publish to data feeds.
         :param pulumi.Input[_builtins.bool] dns_manage_zones: Whether the user can modify the accounts zones.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict']]]] dns_records_allows: List of records that the user may access.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict']]]] dns_records_denies: List of records that the user may not access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsAllowArgs', 'UserDnsRecordsAllowArgsDict', 'outputs.UserDnsRecordsAllow']]]] dns_records_allows: List of records that the user may access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDnsRecordsDenyArgs', 'UserDnsRecordsDenyArgsDict', 'outputs.UserDnsRecordsDeny']]]] dns_records_denies: List of records that the user may not access.
         :param pulumi.Input[_builtins.bool] dns_view_zones: Whether the user can view the accounts zones.
         :param pulumi.Input[_builtins.bool] dns_zones_allow_by_default: If true, enable the `dns_zones_allow` list, otherwise enable the `dns_zones_deny` list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zones_allows: List of zones that the user may access.

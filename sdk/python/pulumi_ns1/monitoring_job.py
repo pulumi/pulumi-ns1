@@ -573,7 +573,7 @@ class MonitoringJob(pulumi.CustomResource):
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict', 'outputs.MonitoringJobRule']]]]] = None,
                  __props__=None):
         """
         Provides a NS1 Monitoring Job resource. This can be used to create, modify, and delete monitoring jobs.
@@ -638,7 +638,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]] rules: A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict', 'outputs.MonitoringJobRule']]]] rules: A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
         ...
     @overload
@@ -720,7 +720,7 @@ class MonitoringJob(pulumi.CustomResource):
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict', 'outputs.MonitoringJobRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -779,7 +779,7 @@ class MonitoringJob(pulumi.CustomResource):
             policy: pulumi.Input[Optional[_builtins.str]] = None,
             rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
             regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]]] = None) -> 'MonitoringJob':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict', 'outputs.MonitoringJobRule']]]]] = None) -> 'MonitoringJob':
         """
         Get an existing MonitoringJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -804,7 +804,7 @@ class MonitoringJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] rapid_recheck: If true, on any apparent state change, the job is quickly re-run after one second to confirm the state change before notification.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of region codes in which to run the monitoring
                job. See NS1 API docs for supported values.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict']]]] rules: A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict', 'outputs.MonitoringJobRule']]]] rules: A list of rules for determining failure conditions. Each rule acts on one of the outputs from the monitoring job. You must specify key (the output key); comparison (a comparison to perform on the the output); and value (the value to compare to). For example, {"key":"rtt", "comparison":"<", "value":100} is a rule requiring the rtt from a job to be under 100ms, or the job will be marked failed. Available output keys, comparators, and value types are are found by submitting a GET request to https://api.nsone.net/v1/monitoring/jobtypes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

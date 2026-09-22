@@ -268,12 +268,12 @@ class PulsarJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 blend_metric_weights: pulumi.Input[Optional[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict']]] = None,
-                 config: pulumi.Input[Optional[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict']]] = None,
+                 blend_metric_weights: pulumi.Input[Optional[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict', 'outputs.PulsarJobBlendMetricWeights']]] = None,
+                 config: pulumi.Input[Optional[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict', 'outputs.PulsarJobConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict']]]]] = None,
+                 weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict', 'outputs.PulsarJobWeight']]]]] = None,
                  __props__=None):
         """
         Create a PulsarJob resource with the given unique name, props, and options.
@@ -307,12 +307,12 @@ class PulsarJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 blend_metric_weights: pulumi.Input[Optional[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict']]] = None,
-                 config: pulumi.Input[Optional[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict']]] = None,
+                 blend_metric_weights: pulumi.Input[Optional[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict', 'outputs.PulsarJobBlendMetricWeights']]] = None,
+                 config: pulumi.Input[Optional[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict', 'outputs.PulsarJobConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  shared: pulumi.Input[Optional[_builtins.bool]] = None,
                  type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict']]]]] = None,
+                 weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict', 'outputs.PulsarJobWeight']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,15 +349,15 @@ class PulsarJob(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
             app_id: pulumi.Input[Optional[_builtins.str]] = None,
-            blend_metric_weights: pulumi.Input[Optional[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict']]] = None,
+            blend_metric_weights: pulumi.Input[Optional[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict', 'outputs.PulsarJobBlendMetricWeights']]] = None,
             community: pulumi.Input[Optional[_builtins.bool]] = None,
-            config: pulumi.Input[Optional[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict']]] = None,
+            config: pulumi.Input[Optional[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict', 'outputs.PulsarJobConfig']]] = None,
             customer: pulumi.Input[Optional[_builtins.int]] = None,
             job_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             shared: pulumi.Input[Optional[_builtins.bool]] = None,
             type_id: pulumi.Input[Optional[_builtins.str]] = None,
-            weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict']]]]] = None) -> 'PulsarJob':
+            weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict', 'outputs.PulsarJobWeight']]]]] = None) -> 'PulsarJob':
         """
         Get an existing PulsarJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

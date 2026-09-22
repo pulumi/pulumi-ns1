@@ -64,7 +64,7 @@ class AwaitableGetMonitoringRegionsResult(GetMonitoringRegionsResult):
             regions=self.regions)
 
 
-def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]] = None,
+def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict', 'outputs.GetMonitoringRegionsRegionResult']]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringRegionsResult:
     """
     Provides details of all available monitoring regions.
@@ -80,7 +80,7 @@ def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegion
     ```
 
 
-    :param Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']] regions: A set of the available monitoring regions. Regions is
+    :param Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict', 'outputs.GetMonitoringRegionsRegionResult']] regions: A set of the available monitoring regions. Regions is
            documented below.
     """
     __args__ = dict()
@@ -91,7 +91,7 @@ def get_monitoring_regions(regions: Optional[Sequence[Union['GetMonitoringRegion
     return AwaitableGetMonitoringRegionsResult(
         id=pulumi.get(__ret__, 'id'),
         regions=pulumi.get(__ret__, 'regions'))
-def get_monitoring_regions_output(regions: pulumi.Input[Optional[Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']]]]] = None,
+def get_monitoring_regions_output(regions: pulumi.Input[Optional[Optional[Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict', 'outputs.GetMonitoringRegionsRegionResult']]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoringRegionsResult]:
     """
     Provides details of all available monitoring regions.
@@ -107,7 +107,7 @@ def get_monitoring_regions_output(regions: pulumi.Input[Optional[Optional[Sequen
     ```
 
 
-    :param Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict']] regions: A set of the available monitoring regions. Regions is
+    :param Sequence[Union['GetMonitoringRegionsRegionArgs', 'GetMonitoringRegionsRegionArgsDict', 'outputs.GetMonitoringRegionsRegionResult']] regions: A set of the available monitoring regions. Regions is
            documented below.
     """
     __args__ = dict()

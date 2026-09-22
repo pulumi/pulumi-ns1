@@ -585,15 +585,15 @@ class Record(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
+                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict', 'outputs.RecordAnswer']]]]] = None,
                  blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict', 'outputs.RecordFilter']]]]] = None,
                  link: pulumi.Input[Optional[_builtins.str]] = None,
                  meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
                  override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
-                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict', 'outputs.RecordRegion']]]]] = None,
                  short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
@@ -729,17 +729,17 @@ class Record(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]] answers: One or more NS1 answers for the records' specified type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict', 'outputs.RecordAnswer']]]] answers: One or more NS1 answers for the records' specified type.
                Answers are documented below.
         :param pulumi.Input[_builtins.str] domain: The records' domain. Cannot have leading or trailing
                dots - see the example above and `FQDN formatting` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]] filters: One or more NS1 filters for the record(order matters).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict', 'outputs.RecordFilter']]]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
         :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
                of the target record. This means this record is a 'linked' record, and it
                inherits all properties from its target.
         :param pulumi.Input[_builtins.bool] override_ttl: Whether to override the TTL value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]] regions: One or more "regions" for the record. These are really
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict', 'outputs.RecordRegion']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
@@ -900,15 +900,15 @@ class Record(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
+                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict', 'outputs.RecordAnswer']]]]] = None,
                  blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict', 'outputs.RecordFilter']]]]] = None,
                  link: pulumi.Input[Optional[_builtins.str]] = None,
                  meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
                  override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
-                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict', 'outputs.RecordRegion']]]]] = None,
                  short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
@@ -955,15 +955,15 @@ class Record(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]]] = None,
+            answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict', 'outputs.RecordAnswer']]]]] = None,
             blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             domain: pulumi.Input[Optional[_builtins.str]] = None,
-            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict', 'outputs.RecordFilter']]]]] = None,
             link: pulumi.Input[Optional[_builtins.str]] = None,
             meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
             override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
-            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict', 'outputs.RecordRegion']]]]] = None,
             short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             ttl: pulumi.Input[Optional[_builtins.int]] = None,
@@ -977,17 +977,17 @@ class Record(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict']]]] answers: One or more NS1 answers for the records' specified type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict', 'outputs.RecordAnswer']]]] answers: One or more NS1 answers for the records' specified type.
                Answers are documented below.
         :param pulumi.Input[_builtins.str] domain: The records' domain. Cannot have leading or trailing
                dots - see the example above and `FQDN formatting` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict']]]] filters: One or more NS1 filters for the record(order matters).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict', 'outputs.RecordFilter']]]] filters: One or more NS1 filters for the record(order matters).
                Filters are documented below.
         :param pulumi.Input[_builtins.str] link: The fully qualified domain name (without a terminating dot)
                of the target record. This means this record is a 'linked' record, and it
                inherits all properties from its target.
         :param pulumi.Input[_builtins.bool] override_ttl: Whether to override the TTL value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict']]]] regions: One or more "regions" for the record. These are really
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict', 'outputs.RecordRegion']]]] regions: One or more "regions" for the record. These are really
                just groupings based on metadata, and are called "Answer Groups" in the NS1 UI,
                but remain `regions` here for legacy reasons. Regions are
                documented below. Please note the ordering requirement!
