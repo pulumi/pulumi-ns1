@@ -199,7 +199,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     ns1 = {
       source = "pulumi/ns1"
@@ -209,6 +209,9 @@ pulumi {
 
 # Create a new zone
 resource "ns1_zone" "foobar" {
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 ```
 

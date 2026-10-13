@@ -84,8 +84,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var www = new Record("www", RecordArgs.builder()
- *             .zone(tld.zone())
- *             .domain(String.format("www.%s", tld.zone()))
+ *             .zone(tld.get("zone"))
+ *             .domain(String.format("www.%s", tld.get("zone")))
  *             .type("CNAME")
  *             .ttl(60)
  *             .meta(Map.of("up", "true"))
@@ -100,19 +100,19 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .answers(            
  *                 RecordAnswerArgs.builder()
- *                     .answer(String.format("sub1.%s", tld.zone()))
+ *                     .answer(String.format("sub1.%s", tld.get("zone")))
  *                     .region("east")
  *                     .meta(Map.of("up", foo.id().applyValue(_id -> String.format("{{\"feed\":\"%s\"}}", _id))))
  *                     .build(),
  *                 RecordAnswerArgs.builder()
- *                     .answer(String.format("sub2.%s", tld.zone()))
+ *                     .answer(String.format("sub2.%s", tld.get("zone")))
  *                     .meta(Map.ofEntries(
  *                         Map.entry("up", bar.id().applyValue(_id -> String.format("{{\"feed\":\"%s\"}}", _id))),
  *                         Map.entry("connections", "3")
  *                     ))
  *                     .build(),
  *                 RecordAnswerArgs.builder()
- *                     .answer(String.format("sub3.%s", tld.zone()))
+ *                     .answer(String.format("sub3.%s", tld.get("zone")))
  *                     .meta(Map.ofEntries(
  *                         Map.entry("pulsar", serializeJson(
  *                             jsonArray(jsonObject(
