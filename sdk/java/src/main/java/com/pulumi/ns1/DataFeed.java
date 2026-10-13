@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *         var useastMonitorFeed = new DataFeed("useastMonitorFeed", DataFeedArgs.builder()
  *             .name("useast_monitor_feed")
  *             .sourceId(exampleMonitoring.id())
- *             .config(Map.of("jobid", exampleJob.id()))
+ *             .config(Map.of("jobid", exampleJob.get("id")))
  *             .build());
  * 
  *     }

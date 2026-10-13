@@ -27,13 +27,13 @@ namespace Pulumi.Ns1
     ///         Name = "Example Zone Alert",
     ///         Type = "zone",
     ///         Subtype = "transfer_failed",
-    ///         NotificationLists = new[] {},
+    ///         NotificationLists = new() {},
     ///         ZoneNames = new[]
     ///         {
     ///             "a.b.c.com",
     ///             "myzone",
     ///         },
-    ///         RecordIds = new[] {},
+    ///         RecordIds = new() {},
     ///     });
     /// 
     ///     var exampleUsageAlert = new Ns1.Alert("example_usage_alert", new()
