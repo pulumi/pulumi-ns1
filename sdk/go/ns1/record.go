@@ -48,7 +48,7 @@ import (
 //			}
 //			foo, err := ns1.NewDataFeed(ctx, "foo", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("foo_feed"),
-//				SourceId: ns12.ID().ToIDOutput().ToStringOutput(),
+//				SourceId: ns12.ID(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("foo"),
 //				},
@@ -58,7 +58,7 @@ import (
 //			}
 //			bar, err := ns1.NewDataFeed(ctx, "bar", &ns1.DataFeedArgs{
 //				Name:     pulumi.String("bar_feed"),
-//				SourceId: ns12.ID().ToIDOutput().ToStringOutput(),
+//				SourceId: ns12.ID(),
 //				Config: pulumi.StringMap{
 //					"label": pulumi.String("bar"),
 //				},
