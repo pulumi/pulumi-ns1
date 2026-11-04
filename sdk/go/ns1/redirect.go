@@ -244,6 +244,12 @@ func (RedirectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*redirectState)(nil)).Elem()
 }
 
+// RedirectExists checks whether an existing Redirect resource with the given ID exists.
+func RedirectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RedirectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/redirect:Redirect", id, state, "", opts...)
+}
+
 type redirectArgs struct {
 	// The certificate redirect id. If not specified the redirect will be created as HTTP,
 	// but it may be turned to HTTPS if a certificate exists for the source domain on the server.

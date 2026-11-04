@@ -79,8 +79,8 @@ namespace Pulumi.Ns1.Inputs
         /// single `Region` per answer is currently supported. If you want an answer in
         /// multiple regions, duplicating the answer (including metadata) is the correct
         /// approach.
-        /// * ` meta` - (Optional) meta is supported at the `Answer` level. Meta
-        /// is documented below.
+        /// * `  meta ` - (Optional) meta is supported at the `Answer` level. Meta
+        ///   is documented below.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

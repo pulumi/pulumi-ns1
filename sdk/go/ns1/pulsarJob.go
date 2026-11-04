@@ -95,6 +95,12 @@ func (PulsarJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulsarJobState)(nil)).Elem()
 }
 
+// PulsarJobExists checks whether an existing PulsarJob resource with the given ID exists.
+func PulsarJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PulsarJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/pulsarJob:PulsarJob", id, state, "", opts...)
+}
+
 type pulsarJobArgs struct {
 	Active             *bool                        `pulumi:"active"`
 	AppId              string                       `pulumi:"appId"`

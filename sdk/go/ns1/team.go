@@ -332,6 +332,12 @@ func (TeamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamState)(nil)).Elem()
 }
 
+// TeamExists checks whether an existing Team resource with the given ID exists.
+func TeamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/team:Team", id, state, "", opts...)
+}
+
 type teamArgs struct {
 	// Whether the team can modify account settings.
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`

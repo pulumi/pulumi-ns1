@@ -383,6 +383,34 @@ class PulsarJob(pulumi.CustomResource):
         __props__.__dict__["weights"] = weights
         return PulsarJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            blend_metric_weights: pulumi.Input[Optional[Union['PulsarJobBlendMetricWeightsArgs', 'PulsarJobBlendMetricWeightsArgsDict', 'outputs.PulsarJobBlendMetricWeights']]] = None,
+            community: pulumi.Input[Optional[_builtins.bool]] = None,
+            config: pulumi.Input[Optional[Union['PulsarJobConfigArgs', 'PulsarJobConfigArgsDict', 'outputs.PulsarJobConfig']]] = None,
+            customer: pulumi.Input[Optional[_builtins.int]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            shared: pulumi.Input[Optional[_builtins.bool]] = None,
+            type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PulsarJobWeightArgs', 'PulsarJobWeightArgsDict', 'outputs.PulsarJobWeight']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["appId"] = app_id
+        __props__["blendMetricWeights"] = blend_metric_weights
+        __props__["community"] = community
+        __props__["config"] = config
+        __props__["customer"] = customer
+        __props__["jobId"] = job_id
+        __props__["name"] = name
+        __props__["shared"] = shared
+        __props__["typeId"] = type_id
+        __props__["weights"] = weights
+        return pulumi.runtime.exists_resource(None, 'ns1:index/pulsarJob:PulsarJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:

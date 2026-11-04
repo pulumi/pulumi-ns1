@@ -994,6 +994,56 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["zone"] = zone
         return Zone(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            additional_notify_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.bool]]]] = None,
+            additional_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            additional_primaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            autogenerate_ns_record: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_servers: pulumi.Input[Optional[_builtins.str]] = None,
+            dnssec: pulumi.Input[Optional[_builtins.bool]] = None,
+            expiry: pulumi.Input[Optional[_builtins.int]] = None,
+            hostmaster: pulumi.Input[Optional[_builtins.str]] = None,
+            link: pulumi.Input[Optional[_builtins.str]] = None,
+            networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            nx_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            primary: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_network: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_port: pulumi.Input[Optional[_builtins.int]] = None,
+            refresh: pulumi.Input[Optional[_builtins.int]] = None,
+            retry: pulumi.Input[Optional[_builtins.int]] = None,
+            secondaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneSecondaryArgs', 'ZoneSecondaryArgsDict', 'outputs.ZoneSecondary']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tsig: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalNetworks"] = additional_networks
+        __props__["additionalNotifyOnlies"] = additional_notify_onlies
+        __props__["additionalPorts"] = additional_ports
+        __props__["additionalPrimaries"] = additional_primaries
+        __props__["autogenerateNsRecord"] = autogenerate_ns_record
+        __props__["dnsServers"] = dns_servers
+        __props__["dnssec"] = dnssec
+        __props__["expiry"] = expiry
+        __props__["hostmaster"] = hostmaster
+        __props__["link"] = link
+        __props__["networks"] = networks
+        __props__["nxTtl"] = nx_ttl
+        __props__["primary"] = primary
+        __props__["primaryNetwork"] = primary_network
+        __props__["primaryPort"] = primary_port
+        __props__["refresh"] = refresh
+        __props__["retry"] = retry
+        __props__["secondaries"] = secondaries
+        __props__["tags"] = tags
+        __props__["tsig"] = tsig
+        __props__["ttl"] = ttl
+        __props__["zone"] = zone
+        return pulumi.runtime.exists_resource(None, 'ns1:index/zone:Zone', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalNetworks")
     def additional_networks(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:

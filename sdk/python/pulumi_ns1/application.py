@@ -321,6 +321,22 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            browser_wait_millis: pulumi.Input[Optional[_builtins.int]] = None,
+            default_config: pulumi.Input[Optional[Union['ApplicationDefaultConfigArgs', 'ApplicationDefaultConfigArgsDict', 'outputs.ApplicationDefaultConfig']]] = None,
+            jobs_per_transaction: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["browserWaitMillis"] = browser_wait_millis
+        __props__["defaultConfig"] = default_config
+        __props__["jobsPerTransaction"] = jobs_per_transaction
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'ns1:index/application:Application', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:

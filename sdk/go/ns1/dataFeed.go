@@ -153,6 +153,12 @@ func (DataFeedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataFeedState)(nil)).Elem()
 }
 
+// DataFeedExists checks whether an existing DataFeed resource with the given ID exists.
+func DataFeedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataFeedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/dataFeed:DataFeed", id, state, "", opts...)
+}
+
 type dataFeedArgs struct {
 	// The feeds configuration matching the specification in
 	// `feedConfig` from /data/sourcetypes. `jobid` is required in the `config` for datafeeds connected to NS1 monitoring.

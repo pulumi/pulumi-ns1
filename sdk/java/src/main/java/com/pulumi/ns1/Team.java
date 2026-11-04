@@ -160,11 +160,10 @@ public class Team extends com.pulumi.resources.CustomResource {
     /**
      * No longer in use.
      * 
-     * @deprecated
-     * obsolete, should no longer be used
+     * @deprecated obsolete, should no longer be used
      * 
      */
-    @Deprecated /* obsolete, should no longer be used */
+    @Deprecated
     @Export(name="accountManagePlan", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePlan;
 

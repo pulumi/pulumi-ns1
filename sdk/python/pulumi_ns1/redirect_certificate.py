@@ -207,6 +207,24 @@ class RedirectCertificate(pulumi.CustomResource):
         __props__.__dict__["valid_until"] = valid_until
         return RedirectCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            errors: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.int]] = None,
+            valid_from: pulumi.Input[Optional[_builtins.int]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificate"] = certificate
+        __props__["domain"] = domain
+        __props__["errors"] = errors
+        __props__["lastUpdated"] = last_updated
+        __props__["validFrom"] = valid_from
+        __props__["validUntil"] = valid_until
+        return pulumi.runtime.exists_resource(None, 'ns1:index/redirectCertificate:RedirectCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[_builtins.str]:

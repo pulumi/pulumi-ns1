@@ -117,6 +117,12 @@ func (NotifyListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notifyListState)(nil)).Elem()
 }
 
+// NotifyListExists checks whether an existing NotifyList resource with the given ID exists.
+func NotifyListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotifyListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/notifyList:NotifyList", id, state, "", opts...)
+}
+
 type notifyListArgs struct {
 	// The free-form display name for the notify list.
 	Name *string `pulumi:"name"`

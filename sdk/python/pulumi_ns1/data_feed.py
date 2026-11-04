@@ -310,6 +310,18 @@ class DataFeed(pulumi.CustomResource):
         __props__.__dict__["source_id"] = source_id
         return DataFeed(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["config"] = config
+        __props__["name"] = name
+        __props__["sourceId"] = source_id
+        return pulumi.runtime.exists_resource(None, 'ns1:index/dataFeed:DataFeed', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def config(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

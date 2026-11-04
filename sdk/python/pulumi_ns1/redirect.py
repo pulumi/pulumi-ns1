@@ -658,6 +658,34 @@ class Redirect(pulumi.CustomResource):
         __props__.__dict__["target"] = target
         return Redirect(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            forwarding_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            forwarding_type: pulumi.Input[Optional[_builtins.str]] = None,
+            https_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_forced: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.int]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            query_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificateId"] = certificate_id
+        __props__["domain"] = domain
+        __props__["forwardingMode"] = forwarding_mode
+        __props__["forwardingType"] = forwarding_type
+        __props__["httpsEnabled"] = https_enabled
+        __props__["httpsForced"] = https_forced
+        __props__["lastUpdated"] = last_updated
+        __props__["path"] = path
+        __props__["queryForwarding"] = query_forwarding
+        __props__["tags"] = tags
+        __props__["target"] = target
+        return pulumi.runtime.exists_resource(None, 'ns1:index/redirect:Redirect', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Output[_builtins.str]:

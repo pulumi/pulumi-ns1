@@ -229,6 +229,12 @@ func (MonitoringJobState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitoringJobState)(nil)).Elem()
 }
 
+// MonitoringJobExists checks whether an existing MonitoringJob resource with the given ID exists.
+func MonitoringJobExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitoringJobState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/monitoringJob:MonitoringJob", id, state, "", opts...)
+}
+
 type monitoringJobArgs struct {
 	// Indicates if the job is active or temporarily disabled.
 	Active *bool `pulumi:"active"`

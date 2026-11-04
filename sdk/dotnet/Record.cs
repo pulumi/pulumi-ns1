@@ -274,8 +274,8 @@ namespace Pulumi.Ns1
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `Record` level. Meta
-        /// is documented below.
+        /// * `  meta ` - (Optional) meta is supported at the `Record` level. Meta
+        ///   is documented below.
         /// </summary>
         [Output("useClientSubnet")]
         public Output<bool?> UseClientSubnet { get; private set; } = null!;
@@ -457,8 +457,8 @@ It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `Record` level. Meta
-        /// is documented below.
+        /// * `  meta ` - (Optional) meta is supported at the `Record` level. Meta
+        ///   is documented below.
         /// </summary>
         [Input("useClientSubnet")]
         public Input<bool>? UseClientSubnet { get; set; }
@@ -602,8 +602,8 @@ It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+
         /// <summary>
         /// Whether to use EDNS client subnet data when
         /// available(in filter chain).
-        /// * ` meta` - (Optional) meta is supported at the `Record` level. Meta
-        /// is documented below.
+        /// * `  meta ` - (Optional) meta is supported at the `Record` level. Meta
+        ///   is documented below.
         /// </summary>
         [Input("useClientSubnet")]
         public Input<bool>? UseClientSubnet { get; set; }
