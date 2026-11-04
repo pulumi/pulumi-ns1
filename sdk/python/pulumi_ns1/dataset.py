@@ -296,6 +296,26 @@ class Dataset(pulumi.CustomResource):
         __props__.__dict__["timeframe"] = timeframe
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            datatype: pulumi.Input[Optional[Union['DatasetDatatypeArgs', 'DatasetDatatypeArgsDict', 'outputs.DatasetDatatype']]] = None,
+            export_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recipient_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            repeat: pulumi.Input[Optional[Union['DatasetRepeatArgs', 'DatasetRepeatArgsDict', 'outputs.DatasetRepeat']]] = None,
+            reports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetReportArgs', 'DatasetReportArgsDict', 'outputs.DatasetReport']]]]] = None,
+            timeframe: pulumi.Input[Optional[Union['DatasetTimeframeArgs', 'DatasetTimeframeArgsDict', 'outputs.DatasetTimeframe']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["datatype"] = datatype
+        __props__["exportType"] = export_type
+        __props__["name"] = name
+        __props__["recipientEmails"] = recipient_emails
+        __props__["repeat"] = repeat
+        __props__["reports"] = reports
+        __props__["timeframe"] = timeframe
+        return pulumi.runtime.exists_resource(None, 'ns1:index/dataset:Dataset', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def datatype(self) -> pulumi.Output['outputs.DatasetDatatype']:

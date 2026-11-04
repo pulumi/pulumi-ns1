@@ -184,6 +184,12 @@ func (AlertState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertState)(nil)).Elem()
 }
 
+// AlertExists checks whether an existing Alert resource with the given ID exists.
+func AlertExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/alert:Alert", id, state, "", opts...)
+}
+
 type alertArgs struct {
 	// A resource block with additional settings: the name and type of them vary based on the alert type.
 	Datas []AlertData `pulumi:"datas"`

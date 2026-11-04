@@ -399,6 +399,12 @@ func (RecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordState)(nil)).Elem()
 }
 
+// RecordExists checks whether an existing Record resource with the given ID exists.
+func RecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/record:Record", id, state, "", opts...)
+}
+
 type recordArgs struct {
 	// One or more NS1 answers for the records' specified type.
 	// Answers are documented below.

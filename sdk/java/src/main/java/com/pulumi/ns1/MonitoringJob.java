@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var uswestMonitor = new MonitoringJob("uswestMonitor", MonitoringJobArgs.builder()
  *             .name("uswest")
  *             .active(true)
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .mute(true)
  *             .config(Map.ofEntries(
  *                 Map.entry("ssl", "1"),
- *                 Map.entry("send", "HEAD / HTTP/1.0\\r\\n\\r\\n"),
+ *                 Map.entry("send", "HEAD / HTTP/1.0}&#92;&#92;{@code r}&#92;&#92;{@code n}&#92;&#92;{@code r}&#92;&#92;{@code n"),
  *                 Map.entry("port", "443"),
  *                 Map.entry("host", "example-elb-uswest.aws.amazon.com")
  *             ))
@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

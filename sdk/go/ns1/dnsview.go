@@ -79,6 +79,12 @@ func (DnsviewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnsviewState)(nil)).Elem()
 }
 
+// DnsviewExists checks whether an existing Dnsview resource with the given ID exists.
+func DnsviewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DnsviewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/dnsview:Dnsview", id, state, "", opts...)
+}
+
 type dnsviewArgs struct {
 	Name       *string  `pulumi:"name"`
 	Networks   []int    `pulumi:"networks"`

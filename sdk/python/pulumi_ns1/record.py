@@ -1022,6 +1022,42 @@ class Record(pulumi.CustomResource):
         __props__.__dict__["zone"] = zone
         return Record(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAnswerArgs', 'RecordAnswerArgsDict', 'outputs.RecordAnswer']]]]] = None,
+            blocked_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFilterArgs', 'RecordFilterArgsDict', 'outputs.RecordFilter']]]]] = None,
+            link: pulumi.Input[Optional[_builtins.str]] = None,
+            meta: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            override_address_records: pulumi.Input[Optional[_builtins.bool]] = None,
+            override_ttl: pulumi.Input[Optional[_builtins.bool]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordRegionArgs', 'RecordRegionArgsDict', 'outputs.RecordRegion']]]]] = None,
+            short_answers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_client_subnet: pulumi.Input[Optional[_builtins.bool]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["answers"] = answers
+        __props__["blockedTags"] = blocked_tags
+        __props__["domain"] = domain
+        __props__["filters"] = filters
+        __props__["link"] = link
+        __props__["meta"] = meta
+        __props__["overrideAddressRecords"] = override_address_records
+        __props__["overrideTtl"] = override_ttl
+        __props__["regions"] = regions
+        __props__["shortAnswers"] = short_answers
+        __props__["tags"] = tags
+        __props__["ttl"] = ttl
+        __props__["type"] = type
+        __props__["useClientSubnet"] = use_client_subnet
+        __props__["zone"] = zone
+        return pulumi.runtime.exists_resource(None, 'ns1:index/record:Record', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def answers(self) -> pulumi.Output[Optional[Sequence['outputs.RecordAnswer']]]:

@@ -114,6 +114,12 @@ func (AccountWhitelistState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountWhitelistState)(nil)).Elem()
 }
 
+// AccountWhitelistExists checks whether an existing AccountWhitelist resource with the given ID exists.
+func AccountWhitelistExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountWhitelistState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/accountWhitelist:AccountWhitelist", id, state, "", opts...)
+}
+
 type accountWhitelistArgs struct {
 	// The free form name of the whitelist.
 	Name *string `pulumi:"name"`

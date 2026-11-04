@@ -157,11 +157,10 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * No longer in use.
      * 
-     * @deprecated
-     * obsolete, should no longer be used
+     * @deprecated obsolete, should no longer be used
      * 
      */
-    @Deprecated /* obsolete, should no longer be used */
+    @Deprecated
     @Export(name="accountManagePlan", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accountManagePlan;
 
@@ -539,11 +538,10 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+     * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
+    @Deprecated
     @Export(name="notify", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> notify;
 

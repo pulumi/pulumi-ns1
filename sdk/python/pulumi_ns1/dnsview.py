@@ -306,6 +306,28 @@ class Dnsview(pulumi.CustomResource):
         __props__.__dict__["zones"] = zones
         return Dnsview(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            preference: pulumi.Input[Optional[_builtins.int]] = None,
+            read_acls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            update_acls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.int]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["name"] = name
+        __props__["networks"] = networks
+        __props__["preference"] = preference
+        __props__["readAcls"] = read_acls
+        __props__["updateAcls"] = update_acls
+        __props__["updatedAt"] = updated_at
+        __props__["zones"] = zones
+        return pulumi.runtime.exists_resource(None, 'ns1:index/dnsview:Dnsview', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.int]:

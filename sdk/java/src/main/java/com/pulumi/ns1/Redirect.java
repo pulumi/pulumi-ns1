@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * 
  * [Redirect Api Doc](https://ns1.com/api#redirect)
  * 
- * # ns1\_redirect\_certificate
+ * # ns1&#92;_redirect&#92;_certificate
  * 
  * Provides a NS1 Redirect Certificate resource. This can be used to create, modify, and delete redirect certificates.
  * 

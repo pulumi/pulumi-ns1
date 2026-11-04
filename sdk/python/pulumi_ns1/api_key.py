@@ -1643,6 +1643,86 @@ class APIKey(pulumi.CustomResource):
         __props__.__dict__["teams"] = teams
         return APIKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_manage_account_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_apikeys: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_ip_whitelist: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_payment_methods: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_plan: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_teams: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_manage_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_view_activity_log: pulumi.Input[Optional[_builtins.bool]] = None,
+            account_view_invoices: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_manage_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_manage_datasources: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_push_to_datafeeds: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_manage_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_records_allows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsAllowArgs', 'APIKeyDnsRecordsAllowArgsDict', 'outputs.APIKeyDnsRecordsAllow']]]]] = None,
+            dns_records_denies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeyDnsRecordsDenyArgs', 'APIKeyDnsRecordsDenyArgsDict', 'outputs.APIKeyDnsRecordsDeny']]]]] = None,
+            dns_view_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_zones_allow_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            dns_zones_allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dns_zones_denies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            expiry_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            insights_manage_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+            insights_view_insights: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_whitelist_strict: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_create_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_delete_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_manage_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_manage_lists: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_update_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitoring_view_jobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redirects_manage_redirects: pulumi.Input[Optional[_builtins.bool]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['APIKeySecretArgs', 'APIKeySecretArgsDict', 'outputs.APIKeySecret']]]]] = None,
+            security_manage_active_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+            security_manage_global2fa: pulumi.Input[Optional[_builtins.bool]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountManageAccountSettings"] = account_manage_account_settings
+        __props__["accountManageApikeys"] = account_manage_apikeys
+        __props__["accountManageIpWhitelist"] = account_manage_ip_whitelist
+        __props__["accountManagePaymentMethods"] = account_manage_payment_methods
+        __props__["accountManagePlan"] = account_manage_plan
+        __props__["accountManageTeams"] = account_manage_teams
+        __props__["accountManageUsers"] = account_manage_users
+        __props__["accountViewActivityLog"] = account_view_activity_log
+        __props__["accountViewInvoices"] = account_view_invoices
+        __props__["dataManageDatafeeds"] = data_manage_datafeeds
+        __props__["dataManageDatasources"] = data_manage_datasources
+        __props__["dataPushToDatafeeds"] = data_push_to_datafeeds
+        __props__["dnsManageZones"] = dns_manage_zones
+        __props__["dnsRecordsAllows"] = dns_records_allows
+        __props__["dnsRecordsDenies"] = dns_records_denies
+        __props__["dnsViewZones"] = dns_view_zones
+        __props__["dnsZonesAllowByDefault"] = dns_zones_allow_by_default
+        __props__["dnsZonesAllows"] = dns_zones_allows
+        __props__["dnsZonesDenies"] = dns_zones_denies
+        __props__["expiryDuration"] = expiry_duration
+        __props__["insightsManageInsights"] = insights_manage_insights
+        __props__["insightsViewInsights"] = insights_view_insights
+        __props__["ipWhitelistStrict"] = ip_whitelist_strict
+        __props__["ipWhitelists"] = ip_whitelists
+        __props__["key"] = key
+        __props__["monitoringCreateJobs"] = monitoring_create_jobs
+        __props__["monitoringDeleteJobs"] = monitoring_delete_jobs
+        __props__["monitoringManageJobs"] = monitoring_manage_jobs
+        __props__["monitoringManageLists"] = monitoring_manage_lists
+        __props__["monitoringUpdateJobs"] = monitoring_update_jobs
+        __props__["monitoringViewJobs"] = monitoring_view_jobs
+        __props__["name"] = name
+        __props__["redirectsManageRedirects"] = redirects_manage_redirects
+        __props__["secrets"] = secrets
+        __props__["securityManageActiveDirectory"] = security_manage_active_directory
+        __props__["securityManageGlobal2fa"] = security_manage_global2fa
+        __props__["teams"] = teams
+        return pulumi.runtime.exists_resource(None, 'ns1:index/aPIKey:APIKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountManageAccountSettings")
     def account_manage_account_settings(self) -> pulumi.Output[Optional[_builtins.bool]]:

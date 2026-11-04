@@ -82,22 +82,20 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * No longer in use.
      * 
-     * @deprecated
-     * obsolete, should no longer be used
+     * @deprecated obsolete, should no longer be used
      * 
      */
-    @Deprecated /* obsolete, should no longer be used */
+    @Deprecated
     @Import(name="accountManagePlan")
     private @Nullable Output<Boolean> accountManagePlan;
 
     /**
      * @return No longer in use.
      * 
-     * @deprecated
-     * obsolete, should no longer be used
+     * @deprecated obsolete, should no longer be used
      * 
      */
-    @Deprecated /* obsolete, should no longer be used */
+    @Deprecated
     public Optional<Output<Boolean>> accountManagePlan() {
         return Optional.ofNullable(this.accountManagePlan);
     }
@@ -699,11 +697,10 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * obsolete, should no longer be used
+         * @deprecated obsolete, should no longer be used
          * 
          */
-        @Deprecated /* obsolete, should no longer be used */
+        @Deprecated
         public Builder accountManagePlan(@Nullable Output<Boolean> accountManagePlan) {
             $.accountManagePlan = accountManagePlan;
             return this;
@@ -714,11 +711,10 @@ public final class APIKeyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * obsolete, should no longer be used
+         * @deprecated obsolete, should no longer be used
          * 
          */
-        @Deprecated /* obsolete, should no longer be used */
+        @Deprecated
         public Builder accountManagePlan(Boolean accountManagePlan) {
             return accountManagePlan(Output.of(accountManagePlan));
         }

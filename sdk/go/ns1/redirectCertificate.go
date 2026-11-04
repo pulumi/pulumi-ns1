@@ -77,6 +77,12 @@ func (RedirectCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*redirectCertificateState)(nil)).Elem()
 }
 
+// RedirectCertificateExists checks whether an existing RedirectCertificate resource with the given ID exists.
+func RedirectCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RedirectCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/redirectCertificate:RedirectCertificate", id, state, "", opts...)
+}
+
 type redirectCertificateArgs struct {
 	Domain string `pulumi:"domain"`
 }

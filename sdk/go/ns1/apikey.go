@@ -380,6 +380,12 @@ func (APIKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apikeyState)(nil)).Elem()
 }
 
+// APIKeyExists checks whether an existing APIKey resource with the given ID exists.
+func APIKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *APIKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("ns1:index/aPIKey:APIKey", id, state, "", opts...)
+}
+
 type apikeyArgs struct {
 	// Whether the apikey can modify account settings.
 	AccountManageAccountSettings *bool `pulumi:"accountManageAccountSettings"`

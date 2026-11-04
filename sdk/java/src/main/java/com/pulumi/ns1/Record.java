@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Zone("example", ZoneArgs.builder()
  *             .zone("terraform.example.io")
  *             .build());
@@ -102,12 +102,12 @@ import javax.annotation.Nullable;
  *                 RecordAnswerArgs.builder()
  *                     .answer(String.format("sub1.%s", tld.get("zone")))
  *                     .region("east")
- *                     .meta(Map.of("up", foo.id().applyValue(_id -> String.format("{{\"feed\":\"%s\"}}", _id))))
+ *                     .meta(Map.of("up", foo.id().applyValue(_id -> String.format("}{{&#92;{@code "feed}&#92;{@code ":}&#92;{@code "%s}&#92;{@code "}}}{@code ", _id))))
  *                     .build(),
  *                 RecordAnswerArgs.builder()
  *                     .answer(String.format("sub2.%s", tld.get("zone")))
  *                     .meta(Map.ofEntries(
- *                         Map.entry("up", bar.id().applyValue(_id -> String.format("{{\"feed\":\"%s\"}}", _id))),
+ *                         Map.entry("up", bar.id().applyValue(_id -> String.format("}{{&#92;{@code "feed}&#92;{@code ":}&#92;{@code "%s}&#92;{@code "}}}{@code ", _id))),
  *                         Map.entry("connections", "3")
  *                     ))
  *                     .build(),
@@ -155,19 +155,19 @@ import javax.annotation.Nullable;
  *         var external = new Record("external", RecordArgs.builder()
  *             .zone(StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(zone)
- *                 .search("/(^\\.)|(\\.$)/")
+ *                 .search("/(^}&#92;&#92;{@code .)|(}&#92;&#92;{@code .$)/")
  *                 .replace("")
  *                 .build()).result())
  *             .domain(StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(domain)
- *                 .search("/(^\\.)|(\\.$)/")
+ *                 .search("/(^}&#92;&#92;{@code .)|(}&#92;&#92;{@code .$)/")
  *                 .replace("")
  *                 .build()).result())
  *             .type("CNAME")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -305,8 +305,7 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.regions);
     }
     /**
-     * @deprecated
-     * short_answers will be deprecated in a future release.
+     * @deprecated short_answers will be deprecated in a future release.
      * It is suggested to migrate to a regular &#34;answers&#34; block. Using Terraform 0.12+, a similar convenience to &#34;shortAnswers&#34; can be achieved with dynamic blocks:
      *   dynamic &#34;answers&#34; {
      *     forEach = [&#34;4.4.4.4&#34;, &#34;5.5.5.5&#34;]
@@ -316,14 +315,7 @@ public class Record extends com.pulumi.resources.CustomResource {
      *   }
      * 
      */
-    @Deprecated /* short_answers will be deprecated in a future release.
-It is suggested to migrate to a regular ""answers"" block. Using Terraform 0.12+, a similar convenience to ""shortAnswers"" can be achieved with dynamic blocks:
-  dynamic ""answers"" {
-    forEach = [""4.4.4.4"", ""5.5.5.5""]
-    content {
-      answer  = answers.value
-    }
-  } */
+    @Deprecated
     @Export(name="shortAnswers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> shortAnswers;
 

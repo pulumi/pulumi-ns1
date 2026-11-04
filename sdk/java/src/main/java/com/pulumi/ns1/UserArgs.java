@@ -84,22 +84,20 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * No longer in use.
      * 
-     * @deprecated
-     * obsolete, should no longer be used
+     * @deprecated obsolete, should no longer be used
      * 
      */
-    @Deprecated /* obsolete, should no longer be used */
+    @Deprecated
     @Import(name="accountManagePlan")
     private @Nullable Output<Boolean> accountManagePlan;
 
     /**
      * @return No longer in use.
      * 
-     * @deprecated
-     * obsolete, should no longer be used
+     * @deprecated obsolete, should no longer be used
      * 
      */
-    @Deprecated /* obsolete, should no longer be used */
+    @Deprecated
     public Optional<Output<Boolean>> accountManagePlan() {
         return Optional.ofNullable(this.accountManagePlan);
     }
@@ -497,22 +495,20 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+     * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
+    @Deprecated
     @Import(name="notify")
     private @Nullable Output<Map<String,String>> notify;
 
     /**
      * @return Whether or not to notify the user of specified events. Only `billing` is available currently.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+     * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
+    @Deprecated
     public Optional<Output<Map<String,String>>> notify_() {
         return Optional.ofNullable(this.notify);
     }
@@ -741,11 +737,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * obsolete, should no longer be used
+         * @deprecated obsolete, should no longer be used
          * 
          */
-        @Deprecated /* obsolete, should no longer be used */
+        @Deprecated
         public Builder accountManagePlan(@Nullable Output<Boolean> accountManagePlan) {
             $.accountManagePlan = accountManagePlan;
             return this;
@@ -756,11 +751,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * obsolete, should no longer be used
+         * @deprecated obsolete, should no longer be used
          * 
          */
-        @Deprecated /* obsolete, should no longer be used */
+        @Deprecated
         public Builder accountManagePlan(Boolean accountManagePlan) {
             return accountManagePlan(Output.of(accountManagePlan));
         }
@@ -1366,11 +1360,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+         * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
+        @Deprecated
         public Builder notify_(@Nullable Output<Map<String,String>> notify) {
             $.notify = notify;
             return this;
@@ -1381,11 +1374,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in a future release; create account usage alerts instead.
+         * @deprecated This field is deprecated and will be removed in a future release; create account usage alerts instead.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in a future release; create account usage alerts instead. */
+        @Deprecated
         public Builder notify_(Map<String,String> notify) {
             return notify_(Output.of(notify));
         }

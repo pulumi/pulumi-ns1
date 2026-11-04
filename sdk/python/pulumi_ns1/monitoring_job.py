@@ -828,6 +828,44 @@ class MonitoringJob(pulumi.CustomResource):
         __props__.__dict__["rules"] = rules
         return MonitoringJob(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            frequency: pulumi.Input[Optional[_builtins.int]] = None,
+            job_type: pulumi.Input[Optional[_builtins.str]] = None,
+            mute: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            notify_failback: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_list: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_regional: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_repeat: pulumi.Input[Optional[_builtins.int]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            rapid_recheck: pulumi.Input[Optional[_builtins.bool]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitoringJobRuleArgs', 'MonitoringJobRuleArgsDict', 'outputs.MonitoringJobRule']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["config"] = config
+        __props__["frequency"] = frequency
+        __props__["jobType"] = job_type
+        __props__["mute"] = mute
+        __props__["name"] = name
+        __props__["notes"] = notes
+        __props__["notifyDelay"] = notify_delay
+        __props__["notifyFailback"] = notify_failback
+        __props__["notifyList"] = notify_list
+        __props__["notifyRegional"] = notify_regional
+        __props__["notifyRepeat"] = notify_repeat
+        __props__["policy"] = policy
+        __props__["rapidRecheck"] = rapid_recheck
+        __props__["regions"] = regions
+        __props__["rules"] = rules
+        return pulumi.runtime.exists_resource(None, 'ns1:index/monitoringJob:MonitoringJob', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[_builtins.bool]]:
