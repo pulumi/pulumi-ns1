@@ -17,6 +17,7 @@ package ns1
 import (
 	"fmt"
 	"path"
+	"regexp"
 
 	// Allow metadata embedding
 	_ "embed"
@@ -67,6 +68,7 @@ func Provider() tfbridge.ProviderInfo {
 		Config:           map[string]*tfbridge.SchemaInfo{},
 		UpstreamRepoPath: "./upstream",
 		MetadataInfo:     tfbridge.NewProviderMetadata(metadata),
+		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"ns1_zone": {
 				Tok: makeResource(mainMod, "Zone"),
@@ -129,4 +131,20 @@ func Provider() tfbridge.ProviderInfo {
 	prov.MustApplyAutoAliases()
 
 	return prov
+}
+
+// The upstream index links to its Terraform HCL examples, and the generic
+// "terraform" -> "pulumi" rewrite turns that URL into a 404. The page already
+// shows a Pulumi example right below, so the sentence is dropped.
+var upstreamExamplesLink = regexp.MustCompile(`(?m)^Additional usage examples can be found in .*/examples>?\n\n`)
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(defaults,
+		tfbridge.DocsEdit{
+			Path: "index.html.markdown",
+			Edit: func(_ string, content []byte) ([]byte, error) {
+				return upstreamExamplesLink.ReplaceAll(content, nil), nil
+			},
+		},
+	)
 }
